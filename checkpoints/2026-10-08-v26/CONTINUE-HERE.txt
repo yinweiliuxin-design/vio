@@ -1,0 +1,71 @@
+SmartVio V26 研发接续检查点
+研发状态冻结于 2026-10-08；归档同步续作于 2026-10-09。
+
+1. 当前入口
+先看同目录 CHECKPOINT.json、FILE-MANIFEST.json 和 FILTER-REPORT.json。
+CLOUD_HANDOFF.md 是仓库原有文件，本次原样保留。当前文件选择及未完成状态以本检查点为准。
+这是可接续研发的快照。完整一体机生产放行仍为 false，正常充电仍禁用，实物样机测试次数为 0。
+
+2. 恢复源码
+在仓库根目录执行：
+python checkpoints/2026-10-08-v26/restore.py --verify-only
+python checkpoints/2026-10-08-v26/restore.py --target smartvio-workspace
+脚本仅使用 Python 标准库，先校验全部归档及文件 SHA256，再恢复到新目录；拒绝覆盖已有工作。
+原生 KiCad 文件、固件、审核证据、脚本、客户端和后台分别存放在按领域分组的 ZIP 内。
+FILE-MANIFEST.json 给出每个文件的路径、归档后的 SHA256、原始 SHA256 和隐私转换标记。
+没有隐私转换的源文件保持原始字节。含本机个人路径的报告做了路径去标识处理；报告里的历史证据哈希对应原件，不能拿归档后的报告字节冒充原始报告。
+
+3. 必须使用的当前主板
+smartvio-workspace/outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/SmartVio-main-v26-resume-clean.kicad_pcb
+SHA256: dc6fe1f807ca2c903ac4200584325750ca2cbaa0bfc192e3b81b1b428445ee43
+严格 DRC：0 几何错误，0 警告，149 项未连接，未忽略规则。四层板。原有已连接焊盘组复核没有被拆断。
+同目录 .review.json、.cleanup.json、.baseline-connectivity.json 为关联证据。
+pcb-work/SmartVio-main-v26-final.kicad_pcb 仍是较旧的 306 项未连接快照，尚未进行选择替换。不要因文件名含 final 就将它当成当前最优主板。
+四块子板使用 pcb-work/SmartVio-{usb,audio,cover,sensor}-v26-final.kicad_pcb；严格 DRC 各为 0/0/0。USB 中心地焊球采用 HDI 微孔，需要工艺确认。
+后续限时路由作业没有生成新 SES，已停止；没有覆盖当前最优板。
+
+4. 电路与固件
+电气唯一当前源：outputs/SmartVio-V26-Engineering/electrical/native-components.json
+SHA256: 0e910987449bffa901d04ab268c706915137b6e57687c6ca12c37101dc3c9430
+上行是本机原件 SHA256；去标识后的云端源 SHA256 为 1d1fcaf0b4c3961cdf5c7609ea09dedb44caccdfb296e6efa8dc9ab3812069e9。
+仅 98 处证据文件路径由个人机器绝对路径改成项目相对路径；器件、引脚、网络、型号、参数及其余字段全部相同，见 SOURCE-PRIVACY-PROVENANCE.json。
+历史报告中的源哈希仍指向原件；接续脚本的 --expected-source-sha 应使用云端哈希，重新生成后再绑定新证据。不要批量改写历史报告的哈希伪造重跑。
+316 个器件、1081 个引脚、220 个网络；原生原理图入口 eda/SmartVio.kicad_sch。
+STM32 和 ESP 目标编译及 F01/F02 软件保护修复已完成对应的软件检查；不能据此声称实物音频、蓝牙、充电或温升通过。
+先读 firmware/verification/f01-f02-completion.json、audit/pin-closure-v26/firmware-safety-closure.json 和 verification/parent-host-rerun-v26.json。
+firmware/build 中仅纳入通过敏感信息筛查的诊断 BIN。ELF、MAP 和工具安装包未上传；以固件源码重新编译为准。
+本机工具版本：KiCad 10.0.6、ARM GCC 14.2、ESP-IDF 5.4.3、Xtensa 14.2、Freerouting 2.4.1、sexpdata 1.0.2。
+Python 路径、KiCad Python/CLI、ARM/ESP 工具链路径按新环境安装后调整；含 <LOCAL_USER_HOME> 的历史构建脚本是路径已去标识的接续材料，不能直接在云端当作现成工具安装使用。
+在 KiCad Python 环境中需要 pcbnew，普通 Python 需安装 sexpdata、Pillow、numpy；主板 AST 脚本不会自动安装这些依赖。
+
+5. 尚未闭合事项
+287 项旧引脚台账中 28 项局部设计已闭合，94 项应用边界待核、148 项有效电容量待核、17 项电池关联待闭合，共 259 项未闭合。
+主板剩余 149 项连接、关键电源回路、模拟音频、时钟、USB 和回流仍需继续；不能直接导出整机生产 Gerber。
+audit/power-closure-v26 是有条件提案，未合并为全局源/PCB/固件 ECO。USB 授权电流、受限启动、关机充电、时限及温升需要闭合。
+audit/vcap-review-v26/CHECKPOINT.txt 是最新 VCAP 有限审核；Ceff/ESR 联合保证证据不足，三个候选均保持 HOLD。
+work/v26/validate_handoff.py 已增加绑定与生产门禁，但完整 fixture、篡改负例和生产标志伪提升负例尚未完成。当前 6 项轻量检查不能代替完整验收。
+选择主板后，重新生成板级清单、封装映射、同版本 BOM/CAM/装配资料及 ERC/DRC 证据。旧汇总、门户页面及历史报告可能早于最新主板，不能作为生产批准。
+电子厂 DFM 签署、安全首次上电、音频、蓝牙、温升和充电实物联调均待完成。
+
+6. 已确认的产品约束
+上盖候选 148×49mm；总长不超 150mm，最宽不超 55mm；琴柱最窄约 50mm。
+旧腔净尺寸 78×47×22mm，不新增开腔。总厚不超 25mm，控制面最高外凸不超 5mm，调节轮另计。
+上盖四角螺丝与琴体固定，螺丝长度上限 6mm，最终扭矩尚无实测批准；上下壳仅卡扣连接，下壳小于上盖。
+旧腔靠琴尾的近端距尾部金属基准 145mm，向琴头延伸至 223mm；允许重新定位，不能用早期 10～160mm 安装段覆盖旧腔。
+保留旧拾音器及原穿线孔。正面四个 3.5mm 音频口：PHONES、LINE OUT、FX SEND、AUX/RETURN，另加 USB-C；无 DOCK、无话筒口、无 XLR/48V。
+保留 VOL/TONE/FX 调节轮和带字符标签的 FX/MODE/MIX/BT/PWR 按键、分段灯条。内置喇叭用于个人练习，演出接外置设备。
+探索验证、EVT、DVT、PVT 四阶段推进。任何仿真和规则检查均不能记作样机实测。
+
+7. 客户端及后台
+最新版可演示软件在 outputs/SmartVio-V16-DirectIO-20261002/app，后续 V20～V26 主要是硬件研发资料。
+进入该 app 目录，用 Node.js 22 或以上执行 node server.cjs，只绑定本机。详见 app/README.txt。
+node tests/api.cjs 为可移植沙盒测试。固定测试密码已在同步副本改为每次运行随机生成；没有带入任何本机用户、商户账户或支付密钥。
+统一页面按语言配置内容：英/德 VELLEN，美/日 silvio；中文标签只写中文。保留练习、曲库、社区视频、练习录像、商店/购物车/沙盒支付/商家端及隐私相关源码。
+运行数据库 .state、上传媒体、原始产品照片、个人路径和截图未上传。界面旧效果图及照片资源可能缺失，需要在受控环境重新补入经许可的产品素材。
+该软件为沙盒，实际支付、全球应用市场上架、音乐授权及法规审查仍需独立完成。
+
+8. 恢复后的工作顺序
+先核对 CHECKPOINT.json 和原生主板/电气源 SHA256，再继续主板连通和关键回路整改。
+电源及电容有条件提案需正式 ECO 评审后才可改变源值、封装及固件参数。
+每次更改重新绑定源、原理图、PCB 和固件证据。全部电气及制造数据闭合后，再执行工厂首件流程。
+原本机研发目录及未上传的参考资料保持保留，没有因本次同步删改。

@@ -1,0 +1,70 @@
+{
+  "checkpoint": "SmartVio V26 / 2026-10-08",
+  "createdUTC": "2026-10-08T16:10:11.470280+00:00",
+  "status": "ENGINEERING_CHECKPOINT_NOT_PRODUCTION_RELEASED",
+  "manufactureRelease": false,
+  "normalChargeAllowed": false,
+  "physicalSamplesTested": 0,
+  "source": {
+    "path": "outputs/SmartVio-V26-Engineering/electrical/native-components.json",
+    "sha256": "1d1fcaf0b4c3961cdf5c7609ea09dedb44caccdfb296e6efa8dc9ab3812069e9",
+    "components": 316,
+    "pins": 1081,
+    "originalSHA256": "0e910987449bffa901d04ab268c706915137b6e57687c6ca12c37101dc3c9430",
+    "privacyEvidencePathChanges": 98,
+    "technicalFieldsUnchanged": true,
+    "historicalEvidenceBinding": "Existing audit hashes bind originalSHA256; retain that provenance and regenerate evidence against restored sha256 before a new release."
+  },
+  "bestMain": {
+    "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/SmartVio-main-v26-resume-clean.kicad_pcb",
+    "sha256": "dc6fe1f807ca2c903ac4200584325750ca2cbaa0bfc192e3b81b1b428445ee43",
+    "geometryErrors": 0,
+    "warnings": 0,
+    "unconnected": 149,
+    "layers": 4,
+    "allPriorConnectedPadGroupsPreserved": true,
+    "mainFinalFilenameIsOlderSnapshot": true
+  },
+  "legacy287": {
+    "closed": 28,
+    "applicationLimitsPending": 94,
+    "effectiveCapacitancePending": 148,
+    "batteryDelegated": 17,
+    "notClosed": 259
+  },
+  "daughterBoards": {
+    "usb": "strict DRC 0/0/0; center ground uses HDI microvia; DFM pending",
+    "audio": "strict DRC 0/0/0",
+    "cover": "strict DRC 0/0/0",
+    "sensor": "strict DRC 0/0/0"
+  },
+  "firmware": {
+    "stm32": "Actual ARM target build complete; F01/F02 software fixes integrated",
+    "esp32": "Actual ESP-IDF target build complete; no physical RF qualification",
+    "scope": "Compile/host checks only. Audio, Bluetooth, charge and thermal hardware tests not performed."
+  },
+  "latestFiniteReviews": [
+    "outputs/SmartVio-V26-Engineering/audit/vcap-review-v26/CHECKPOINT.txt",
+    "outputs/SmartVio-V26-Engineering/audit/power-closure-v26",
+    "outputs/SmartVio-V26-Engineering/verification/handoff-validator-negative-tests.json"
+  ],
+  "clientAndBackend": {
+    "path": "outputs/SmartVio-V16-DirectIO-20261002/app",
+    "mode": "Local-only sandbox; no real accounts/payment configuration"
+  },
+  "routingJob": "The bounded 360-second follow-up stopped without a SES result; bestMain was preserved.",
+  "blockers": [
+    "149 main-board open connections and critical power/analog/return-path review.",
+    "259 legacy pin items remain open, including application limits and Ceff evidence.",
+    "VCAP candidates remain HOLD; no guaranteed combined Ceff/ESR evidence.",
+    "Power/charge proposals are not applied ECOs. USB input grant, start-up/charge budget, thermal and fault handling need closure.",
+    "Finish handoff validator fixtures/negative cases and regenerate same-version BOM, board maps, ERC/DRC and CAM after selection.",
+    "DFM signature, safe first power-up and physical audio/Bluetooth/thermal/charging tests remain outstanding."
+  ],
+  "preservedRemoteFile": {
+    "path": "CLOUD_HANDOFF.md",
+    "gitBlobSHA": "1123597037f3a8b59d5f0a326a0b57fdbc16e7cf"
+  },
+  "originalFilesUnchangedAtSnapshot": true,
+  "snapshotFiles": 1785
+}

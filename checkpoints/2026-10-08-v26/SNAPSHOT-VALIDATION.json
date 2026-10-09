@@ -1,0 +1,28 @@
+{
+  "checkedUTC": "2026-10-08T16:17:40.876689+00:00",
+  "archivesAndMembers": {
+    "verifiedFiles": 1785,
+    "verifiedArchives": 7,
+    "sha256": "PASS",
+    "zipCRC": "PASS"
+  },
+  "restoreToEmptyDirectory": {
+    "restoredFiles": 1785,
+    "verifiedArchives": 7,
+    "sha256": "PASS",
+    "manufactureRelease": false
+  },
+  "mainBoardByteHash": "PASS",
+  "sourcePrivacyOnlyChanges": 98,
+  "allTechnicalSourceFieldsUnchanged": true,
+  "originalDevelopmentFilesUnchanged": true,
+  "upstreamLicenseFilesUnchanged": 8,
+  "runtimeAccountsAndRecordsInSeed": 0,
+  "javascriptSyntaxFilesPassed": 20,
+  "apiSmokeChecksPassed": 33,
+  "pythonSyntaxFilesChecked": 213,
+  "pythonSyntaxIssues": [],
+  "scope": "Checkpoint privacy/integrity/restore and sandbox source checks only.",
+  "manufactureRelease": false,
+  "physicalSamplesTested": 0
+}

@@ -1,0 +1,21 @@
+SmartVio V26 current continuation snapshot
+
+Start with checkpoints/2026-10-08-v26/CONTINUE-HERE.txt.
+Engineering state: 2026-10-08. Checkpoint export resumed: 2026-10-09.
+Existing CLOUD_HANDOFF.md is preserved byte-for-byte.
+
+From the repository root:
+python checkpoints/2026-10-08-v26/restore.py --verify-only
+python checkpoints/2026-10-08-v26/restore.py --target smartvio-workspace
+
+The archives contain privacy-filtered native EDA, PCB, firmware, audit records,
+continuation scripts, mechanical history and the latest client/backend source.
+FILE-MANIFEST.json lists every included path and SHA256.
+
+Current best main board has 149 unconnected items; overall production release
+is false. Normal charging is disabled. Physical samples tested: 0.
+The file named SmartVio-main-v26-final.kicad_pcb is an older snapshot.
+Use the exact current board path in CHECKPOINT.json.
+
+No credentials, runtime user databases, raw photos or local tool installations
+are included in the curated archives. Source originals remain on the local host.

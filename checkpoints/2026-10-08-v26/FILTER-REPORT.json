@@ -1,0 +1,770 @@
+{
+  "excludedReasons": {
+    "sensitive-or-local-file-name": 19,
+    "binary-media-installer-or-unapproved-extension": 508,
+    "downloaded-reference-or-extraction-cache": 54
+  },
+  "transforms": [
+    {
+      "path": "outputs/SmartVio-V16-DirectIO-20261002/app/public/storefront.js",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V16-DirectIO-20261002/app/tests/api.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V20-Factory-Engineering-Review/reproduce/qa.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V22-Control-Protection/reproduce/qa.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V22-Control-Protection/verification/compiler-log.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V22-Control-Protection/verification/pdf-layout.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V23-Telemetry/reproduce/qa.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V23-Telemetry/verification/compiler-log.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V25-Engineering/reproduce/review-scripts/ui_check.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/application-by-ref.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/current-scope-components.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/new-source-evidence.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/pin-review.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/reused-document-index.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/historical-report-587358f65402/application-by-ref.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/historical-report-587358f65402/pin-review.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/historical-report-587358f65402/source-provenance.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/native-0e910987449b.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/native-587358f65402.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/system-958a2ebeed9b.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/snapshots/system-acb45a8372b6.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/pin-closure-v26/source-provenance.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/power-closure-v26/guarded-eco-proposals.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/power-closure-v26/original-ref-net-guards.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/power/parent-source-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/power/sources.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/application-review.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/authorized-net-deltas.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-interface-proposal.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-ntc-handoff.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/baseline-owned-records.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/board-inspection.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/corrected-components.proposal.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/layout-fit-current.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/native-authorized-net-deltas.proposal.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/reused-source-hashes.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/battery-revision/status.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/corrected-components.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/footprint-sources.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/harness-bom.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/pin-records.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/selection-status.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/selection/source-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/system-v26/application-profiles.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/system-v26/native-before-battery-2A.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/audit/vcap-review-v26/source-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/electrical/footprint-map.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/electrical/native-components.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/build-esp-v26.ps1",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/build-status.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/v26-implementation-status.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/vendor/cmsis-dsp-1.16.2/provenance.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/build-inputs.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/build-status.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/changed-paths.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/contracts-check.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/esp-native-build.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/f01-f02-completion.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/freeze-scope.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/input-safety-check.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/live-net-parity.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/official-setup.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/parity-negative-check.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/safety-negative-check.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/stm32-disassembly.txt",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/unused-pin-audit.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/firmware/verification/v26-implementation-status.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/index.html",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/board-progress.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/cam-review-v26-current/audio/CAM-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/cam-review-v26-current/cover/CAM-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/cam-review-v26-current/sensor/CAM-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/cam-review-v26-current/usb/CAM-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/final-summary.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/footprint-map.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/SmartVio-main-v26-parent-ground.review.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/SmartVio-main-v26-resume-clean.cleanup.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/SmartVio-main-v26-resume-clean.review.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/SmartVio-main-v26-resume-clean.safe-fill.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/board-progress.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/main-resume-149-incremental.contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/main-resume-149-incremental.job.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/main-remediation/source-587358f6.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/v26-final-summary.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/CAM-index-v26-current.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/CAM-index.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-audio-v26-closed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-audio-v26-final-groundclean-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-audio-v26-final-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-audio-v26-grounded-fixed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-audio-v26-routed-fixed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-cover-v26-closed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-cover-v26-final-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-cover-v26-grounded-fixed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-final-HOLD-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-final-source-unrouted-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-JST-clean-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-JST-proposal-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-JST-proposal-v2-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-final-input-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-final-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-four-ground-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-centered-jog-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-centered-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-continuation-clean-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-continuation-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-continuation-width-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-ground-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-incremental-clean-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-parent-incremental-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-replaced-clean-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-resume-clean-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-routed-3layers-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-routed-3layers-width-fixed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-routed-4layers-pass2-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-routed-4layers-pass3-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-routed-4layers-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-six-layer-routed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-main-v26-three-reseed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-sensor-delivery-HOLD-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-sensor-final-HOLD-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-sensor-v26-final-input-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-sensor-v26-final-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-usb-delivery-HOLD-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-usb-final-HOLD-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-usb-v26-final-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-usb-v26-local-routed-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/SmartVio-usb-v26-repair-input-strict-policy.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/charger-fanout.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/current-native-parity.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-inventory-audio.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-inventory-cover.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-inventory-main.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-inventory-sensor.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-inventory-usb.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-selected-files.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/final-summary.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/footprint-map-before-final-refresh.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/footprint-map-refresh.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/j501-ph-physical-fit.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/main-current-source-merge.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/main-placement-technical-blocks.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/main-v26-advanced-process.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/ntc-seed.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/parent-audio-local-eco.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/parent-local-promotion.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/parent-usb-local-eco.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/power-critical-seed.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/power-critical-v2-seed.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/power-prototype-final-contract.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/power-seed.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/route-repairs.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/tvs-final-numeric-landcheck.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/usb-final-b2-microvia-evidence.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/usb-land-update.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/usb-v26-HDI-ground.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/v26-final-input-audio.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/v26-final-input-cover.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/v26-final-input-main.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/v26-final-input-sensor.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/v26-final-input-usb.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/pcb-work/verification/v26-selection-native-boards.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/reference/v26-circuits.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/reproduce/review-scripts/ui_check.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/export-log-v26.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/export-log.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/interconnect-export-log.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/interconnect-netlist.xml",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/native-netlist.xml",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/pcb-final-v26/commands.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "outputs/SmartVio-V26-Engineering/verification/release-summary-v26.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v24/visual_qa.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v25/controls-protection/source-manifest.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v25/fetch_power.py",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v25/power/sources.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v25/ui_check.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/firmware/setup-official.ps1",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/passive-closure/native-587358f65402f79e.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/passive-closure/native-9bd1cf536cdadedb.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/pcb/delivery-final-state.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/pdf_check.py",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/selection/sources.json",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/ui_check.cjs",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/vcap-review/collect.ps1",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/vcap-review/finalize.py",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    },
+    {
+      "path": "work/v26/vcap-review/inspect_evidence.py",
+      "purpose": "Remove local identity/path or replace fixed synthetic test password; source original retained locally."
+    }
+  ],
+  "flags": [],
+  "reviewedNonSecrets": [
+    {
+      "path": "outputs/SmartVio-V16-DirectIO-20261002/app/public/admin.js",
+      "rule": "literal-secret",
+      "reason": "HTML autocomplete current-password token, manually reviewed; not a credential."
+    },
+    {
+      "path": "outputs/SmartVio-V16-DirectIO-20261002/app/public/client.js",
+      "rule": "literal-secret",
+      "reason": "HTML autocomplete current-password token, manually reviewed; not a credential."
+    }
+  ],
+  "filesScanned": 1785,
+  "flagCount": 0,
+  "scope": "Allowlisted technical files only; raw media, runtime databases, credentials, toolchains and caches excluded. Upstream license attribution is retained.",
+  "sourceOriginalsModified": false
+}

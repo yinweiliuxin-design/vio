@@ -1,0 +1,55 @@
+{
+  "archives": [
+    {
+      "path": "audit.zip",
+      "bytes": 3298851,
+      "sha256": "33716fc54fb0b70002f3218b6dd4b4ca5b8dea169774a81ee34dda4203ae526c",
+      "gitBlobSHA": "27606aa23c72046c98dfafda3a23e2c18db76200",
+      "files": 405
+    },
+    {
+      "path": "firmware.zip",
+      "bytes": 2535056,
+      "sha256": "e09031034ca10dbb2c7caf84513520b2a7f87a7682afcbea5da09b8b8d1b039b",
+      "gitBlobSHA": "850b3530f03791728931c3e98828860eaadead51",
+      "files": 290
+    },
+    {
+      "path": "hardware.zip",
+      "bytes": 2821825,
+      "sha256": "08a15c489d7fb7f353451ae8f5c249171b2363f279c9e93a97ca0f78a46263b3",
+      "gitBlobSHA": "12d23c0c0fed70ad262a1117f03e2f72819334cf",
+      "files": 157
+    },
+    {
+      "path": "mechanical-history.zip",
+      "bytes": 677053,
+      "sha256": "0045e60df88eab9318f10d5509aee2fafa91210fbac2b1e3e242ce27627f73d8",
+      "gitBlobSHA": "98f57e47322d1a8b027936ab9304764aa7d60513",
+      "files": 256
+    },
+    {
+      "path": "pcb.zip",
+      "bytes": 3395203,
+      "sha256": "8262a2323031c1600a9c5da0126e7a8885f7ed1b6b2126507899e8444de495d1",
+      "gitBlobSHA": "f578c4e0a12d708a1cd01878999ee65a2cdc1012",
+      "files": 397
+    },
+    {
+      "path": "scripts.zip",
+      "bytes": 715957,
+      "sha256": "4bdd92d3ec896f7b613b9dfc59baf978874e6ed67a056f0cae19b9c830919403",
+      "gitBlobSHA": "22717055fb7b2b591dfc2ed980bad8ab4a35059e",
+      "files": 230
+    },
+    {
+      "path": "software.zip",
+      "bytes": 360547,
+      "sha256": "f0c66692c52b07b877b2953f85fbc78342b0b06b9a1fbfd406980330b272626d",
+      "gitBlobSHA": "7599928616f8ca88f97d70f7c67b8a56d86340c6",
+      "files": 50
+    }
+  ],
+  "zipCRC": "PASS",
+  "allMemberSHA256": "PASS"
+}

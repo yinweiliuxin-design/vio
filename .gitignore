@@ -1,0 +1,27 @@
+# Local restoration, runtime data and credentials are not checkpoint inputs.
+smartvio-workspace/
+.state/
+.env
+.env.*
+!.env.example
+node_modules/
+__pycache__/
+*.pyc
+*.kicad_prl
+*.lck
+*-backups/
+*.sqlite
+*.sqlite3
+*.db
+*.pem
+*.p12
+*.pfx
+*.key
+id_rsa
+id_ed25519
+credentials.json
+cookies.json
+.aws/
+.ssh/
+.venv/
+venv/
