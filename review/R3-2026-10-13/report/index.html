@@ -1,0 +1,501 @@
+<title>SmartVio R3 审核报告</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: single reading column (max 1080px) with a sticky section bar; issues as severity-striped rows; figures full-bleed inside the column. */
+:root{
+  --bg:#f2f5f4; --surface:#ffffff; --fg:#16201d; --muted:#56645f; --line:#d3dcd8;
+  --accent:#1f5b4c; --accent-soft:#e0ede8;
+  --sev-a:#b3261e; --sev-a-soft:#fbe8e6; --sev-b:#a85f00; --sev-b-soft:#fcefd9;
+  --sev-c:#2c5b88; --sev-c-soft:#e4edf7; --sev-d:#634f98; --sev-d-soft:#ece8f6;
+  --ok:#2b7a4b; --ok-soft:#e1f1e7; --shade:rgba(31,91,76,.14);
+  --f-display:"Noto Serif SC","Songti SC","SimSun",serif;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-mono:"JetBrains Mono","SFMono-Regular",Consolas,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#0f1513; --surface:#161e1b; --fg:#e4ebe8; --muted:#9aa9a3; --line:#2b3733;
+  --accent:#74c2ab; --accent-soft:#1b2c27;
+  --sev-a:#ff8f85; --sev-a-soft:#3a1f1c; --sev-b:#f0b45c; --sev-b-soft:#36290f;
+  --sev-c:#93b9e8; --sev-c-soft:#1a2634; --sev-d:#bba9ea; --sev-d-soft:#262139;
+  --ok:#82d3a1; --ok-soft:#16291f; --shade:rgba(116,194,171,.16); color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#0f1513; --surface:#161e1b; --fg:#e4ebe8; --muted:#9aa9a3; --line:#2b3733;
+  --accent:#74c2ab; --accent-soft:#1b2c27;
+  --sev-a:#ff8f85; --sev-a-soft:#3a1f1c; --sev-b:#f0b45c; --sev-b-soft:#36290f;
+  --sev-c:#93b9e8; --sev-c-soft:#1a2634; --sev-d:#bba9ea; --sev-d-soft:#262139;
+  --ok:#82d3a1; --ok-soft:#16291f; --shade:rgba(116,194,171,.16); color-scheme:dark}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15.5px;line-height:1.7;margin:0}
+.wrap{max-width:1080px;margin:0 auto;padding-inline:20px;padding-block:28px 64px}
+h1,h2,h3{font-family:var(--f-display);text-wrap:balance;line-height:1.3;margin:0}
+h1{font-size:clamp(28px,4.4vw,40px);letter-spacing:.01em}
+h2{font-size:26px;margin-block:0 6px}
+h3{font-size:18.5px;margin-block:26px 8px}
+p{margin:0 0 10px;max-width:68ch}
+.mono,code{font-family:var(--f-mono);font-size:.86em}
+code{background:var(--accent-soft);padding:1px 5px;border-radius:4px}
+.eyebrow{font-size:12.5px;letter-spacing:.14em;text-transform:uppercase;color:var(--accent);font-weight:700}
+.meta{color:var(--muted);font-size:13.5px;margin-top:8px}
+header{display:grid;gap:14px;padding-bottom:22px;border-bottom:1px solid var(--line)}
+.verdict{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:18px 20px;display:grid;gap:12px}
+.verdict p{max-width:none;margin:0}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{display:inline-flex;align-items:center;gap:6px;border-radius:999px;padding:3px 12px;font-size:13px;font-weight:600;white-space:nowrap}
+.chip b{font-family:var(--f-mono);font-size:14px}
+.c-a{background:var(--sev-a-soft);color:var(--sev-a)}.c-b{background:var(--sev-b-soft);color:var(--sev-b)}
+.c-c{background:var(--sev-c-soft);color:var(--sev-c)}.c-d{background:var(--sev-d-soft);color:var(--sev-d)}.c-ok{background:var(--ok-soft);color:var(--ok)}
+nav.sec{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);border-bottom:1px solid var(--line);margin-inline:-20px;padding:10px 20px;display:flex;gap:6px 18px;flex-wrap:wrap;font-size:14px}
+nav.sec a{color:var(--muted);text-decoration:none;font-weight:500}
+nav.sec a:hover,nav.sec a:focus-visible{color:var(--accent);outline:none;text-decoration:underline}
+section{padding-top:34px;scroll-margin-top:52px}
+.lead{color:var(--muted);margin-bottom:16px}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:9px 10px;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;letter-spacing:.06em;color:var(--muted);font-weight:600}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px}
+.tbl table td:first-child{white-space:nowrap;font-weight:600}
+.issues{display:grid;gap:10px}
+.issue{display:grid;grid-template-columns:58px minmax(0,1fr);gap:0;background:var(--surface);border:1px solid var(--line);border-radius:10px;overflow:hidden}
+.issue .id{display:flex;align-items:flex-start;justify-content:center;padding-top:15px;font-family:var(--f-mono);font-weight:600;font-size:15px}
+.sa .id{background:var(--sev-a-soft);color:var(--sev-a)}.sb .id{background:var(--sev-b-soft);color:var(--sev-b)}
+.sc .id{background:var(--sev-c-soft);color:var(--sev-c)}.sd .id{background:var(--sev-d-soft);color:var(--sev-d)}
+.issue .body{padding:13px 16px 12px;min-width:0}
+.issue h4{margin:0 0 6px;font-size:16px;line-height:1.45}
+.issue dl{display:grid;grid-template-columns:48px minmax(0,1fr);gap:4px 10px;margin:0;font-size:14.2px}
+.issue dt{color:var(--muted);font-weight:600}
+.issue dd{margin:0;min-width:0}
+.grp{display:flex;align-items:center;gap:10px;margin:22px 0 10px}
+.grp h3{margin:0}
+figure{margin:18px 0;display:grid;gap:8px}
+figure img{width:100%;height:auto;border-radius:10px;border:1px solid var(--line);display:block;background:#eee}
+figcaption{font-size:13.5px;color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.gal figure{margin:0}
+.diag{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:10px}
+.diag svg{display:block;width:100%;min-width:700px;height:auto;color:var(--fg)}
+.diag.narrow svg{min-width:520px;max-width:720px;margin:0 auto}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;min-width:0}
+.card h4{margin:0 0 8px;font-size:16px}
+ul.tight{margin:0;padding-left:1.2em}
+ul.tight li{margin:3px 0}
+ol.steps{margin:0;padding-left:1.4em}
+ol.steps li{margin:6px 0;padding-left:4px}
+.q{display:grid;gap:10px}
+.q .card p{margin:0}
+.note{font-size:13.5px;color:var(--muted);border-left:3px solid var(--line);padding-left:12px;margin-top:10px}
+footer{margin-top:40px;padding-top:16px;border-top:1px solid var(--line);font-size:13px;color:var(--muted)}
+footer p{max-width:none}
+@media (max-width:760px){.gal,.cols{grid-template-columns:minmax(0,1fr)}.issue{grid-template-columns:44px minmax(0,1fr)}.issue dl{grid-template-columns:minmax(0,1fr)}.issue dt{margin-top:4px}}
+@media (prefers-reduced-motion:reduce){*{scroll-behavior:auto}}
+</style>
+
+<div class="wrap">
+<header>
+  <div class="eyebrow">SmartVio R3 · 电子小提琴模块 · 资料审核与设计建议</div>
+  <h1>SmartVio R3 审核报告</h1>
+  <div class="meta">审核日期 2026-10-13 · 输入：方案与缺项说明 6 页、24 页原理图、机械图 M-R3-01/02 及装配渲染、5 板 4 FPC 审查图 9 页、首样工作簿 8 张表（333 行候选 BOM）· 主板 <span class="mono">bd2740bea32d…</span> · 原理图源 <span class="mono">b29b1b0dc3a8…</span></div>
+  <div class="verdict">
+    <p><strong>结论：</strong>五份资料之间的数量、尺寸和位号大体一致，可以继续做工程评审和供应商 DFM。但原理图里有 2 处设计错误必须先改：充电温度窗口比较器的两个输入接反（会导致任何温度下都无法充电），以及关机状态约 0.48 mA 的漏电（约 3 个月把电池放空）。另有 9 项高风险问题建议在投板前处理。本报告里的效果图和建议方案只用于评审，没有改动任何原设计文件。</p>
+    <div class="chips">
+      <span class="chip c-a"><b>2</b>必须修改</span>
+      <span class="chip c-b"><b>9</b>高风险</span>
+      <span class="chip c-c"><b>14</b>中低风险 / 建议</span>
+      <span class="chip c-d"><b>8</b>文件一致性</span>
+      <span class="chip c-ok"><b>11</b>核对通过</span>
+    </div>
+  </div>
+</header>
+
+<nav class="sec" aria-label="章节">
+  <a href="#verified">1 核对通过</a><a href="#issues">2 问题清单</a><a href="#renders">3 R3 效果图</a><a href="#proposal">4 建议方案</a><a href="#questions">5 需你确认</a>
+</nav>
+
+<!-- ============ 1 ============ -->
+<section id="verified">
+  <h2>1 核对通过的部分</h2>
+  <p class="lead">以下各项我逐一重算或交叉比对过。原理图网表是从 PDF 的逐脚网络标签自动还原的（每个引脚对应一个网络名），不是只看页面。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>项目</th><th>核对结果</th><th>依据</th></tr></thead>
+    <tbody>
+      <tr><td>原理图网表</td><td>319 个元件、1087 个引脚、221 个网络；单端悬空网络 0、漏标引脚 0、显式 NC 87 个</td><td>与工作簿"319 原理图元件"一致</td></tr>
+      <tr><td>BOM 数量</td><td>333 = 319 原理图元件 + 14 个 H_* 板间焊盘端点；分板 284 / 24 / 15 / 6 / 3 + 外置 RT1921</td><td>候选 BOM 表与"当前版本"表</td></tr>
+      <tr><td>Z 链</td><td>3.85 + 21.05 = 24.90；Kycon 端子底 −11.05 到主板顶 −11.75 净 0.70（要求 ≥ 0.35）；电池 5.4 + 膨胀 1.0；杯底 0.75，逐项相加无误</td><td>M-R3-02 连续 Z 链表</td></tr>
+      <tr><td>开孔坐标</td><td>矢量实测：轮孔 Ø15.2 @ X15/35/55 Y10；键 Ø7.2 @ Y25；灯 Ø2.1 @ Y21；插座 Ø12 @ Y37；USB 凹位 12×7.4 @ X98 Y9；螺孔 Ø2.5 / Ø4.5 @ (5.3, 5.3)</td><td>与图注、控制板 BOM 位号坐标完全对应</td></tr>
+      <tr><td>下杯位置</td><td>X35.5–112.5，两端各约 36 mm，居中</td><td>与 V21 记录"下沉舱距两端各 36"一致</td></tr>
+      <tr><td>互连计数</td><td>W07–W09（3）+ W25–W33（9）+ S1–S4（4）= 16；FPC 6+6+3+6 = 21；合计 37</td><td>待闭合互连表、FPC 审查图</td></tr>
+      <tr><td>电源计算</td><td>V3D = 0.8 × (1 + 312k/100k) = 3.30 V；充电电流约 0.45 A（R501 2 kΩ）；输入限流约 1.0 A（R502 1.5 kΩ）；USB 欠压/过压约 4.3 V / 5.7 V</td><td>按器件典型参数估算</td></tr>
+      <tr><td>I²C 地址</td><td>ADS1115 0x48、TMP117 0x49、PCM1864 0x4A（经 TMUX1511 隔离支路），无冲突</td><td>A15 / A28 / A29 页</td></tr>
+      <tr><td>引脚映射抽查</td><td>PCM1864、PCM5102A、BQ24074、MAX98357A、TPS3700、USBLC6、STM32H743 LQFP100 电源与 VCAP 脚序与标准封装一致</td><td>仍建议对原厂规格书逐脚复核</td></tr>
+      <tr><td>扬声器空间</td><td>LS901 为 18×13×2.5 mm（工作高 2.8），控制板顶 Z0.5 到上盖顶 Z3.8 之间可放下</td><td>V26 扬声器选型记录</td></tr>
+      <tr><td>默认安全态</td><td>充电默认禁用（CE 上拉）、音频电源/耳放/功放/端口默认关、ESP32 默认复位、USB 数据默认断开</td><td>与"充电 HOLD、制造 HOLD"描述一致</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<!-- ============ 2 ============ -->
+<section id="issues">
+  <h2>2 问题清单</h2>
+  <p class="lead">按严重程度分四组。每条写明依据（页码、位号、网络名）、后果和建议改法。</p>
+
+  <div class="grp"><span class="chip c-a">必须修改</span><h3>设计错误</h3></div>
+  <div class="issues">
+    <article class="issue sa"><div class="id">A1</div><div class="body">
+      <h4>充电温度窗口比较器 U1921（TPS3700）两个输入接反，任何温度下都会禁止充电</h4>
+      <dl>
+        <dt>依据</dt><dd>原理图第 24 页 A33：<code>INA+(脚3) = CELL_NTC_SENSE</code>，<code>INB−(脚4) = NTC_COLD_DIV</code>。TPS3700 的 INA+ 高于 0.4 V 时 OUTA 拉低，INB− 低于 0.4 V 时 OUTB 拉低；两路输出并联在 CHARGE_GATE 上。NTC_COLD_DIV = 0.388 × CELL_NTC_SENSE（R1921 158k / R1922 100k）。</dd>
+        <dt>后果</dt><dd>允许充电需要 V &lt; 0.40 V 且 V &gt; 1.03 V，无解。CHARGE_GATE 恒为低 → Q1601 恒关 → BQ24074 CE 恒高 → 永远不充电。方向是安全的，但会被误判成固件 HOLD。</dd>
+        <dt>改法</dt><dd>对调：<code>INA+ ← NTC_COLD_DIV</code>，<code>INB− ← CELL_NTC_SENSE</code>，PCB 交换两条走线。对调后窗口为 0.40–1.03 V，对应 10 kΩ/B3435 NTC 约 7–40 °C，正好是网络名 NTC_COLD_DIV 表达的设计意图。</dd>
+      </dl>
+      <figure>
+        <div class="diag narrow">
+        <svg viewBox="0 0 600 300" role="img" aria-label="NTC 分压电压随温度变化；改正接法后 7 到 40 摄氏度之间允许充电，现接法没有任何温度允许充电">
+          <g style="stroke:var(--line)" stroke-width="1">
+            <line x1="60" y1="20" x2="60" y2="260"/><line x1="60" y1="260" x2="560" y2="260"/>
+            <line x1="60" y1="200" x2="560" y2="200" stroke-dasharray="4 4"/><line x1="60" y1="105.2" x2="560" y2="105.2" stroke-dasharray="4 4"/>
+          </g>
+          <rect x="179.3" y="20" width="237.8" height="240" style="fill:var(--shade)"/>
+          <polyline fill="none" style="stroke:var(--accent)" stroke-width="2.4" points="60,32.75 95.7,54.95 131.4,77 167.1,98 202.9,117.65 238.6,135.8 274.3,152 310,166.55 345.7,179.15 381.4,190.25 417.1,199.85 452.9,207.95 488.6,215 524.3,221 560,226.25"/>
+          <circle cx="179.3" cy="105.2" r="4" style="fill:var(--accent)"/><circle cx="417.1" cy="200" r="4" style="fill:var(--accent)"/>
+          <g fill="currentColor" font-size="12" font-family="Noto Sans SC, sans-serif">
+            <text x="54" y="264" text-anchor="end">0</text><text x="54" y="204" text-anchor="end">0.4</text><text x="54" y="144" text-anchor="end">0.8</text><text x="54" y="84" text-anchor="end">1.2</text><text x="54" y="24" text-anchor="end">1.6 V</text>
+            <text x="60" y="278" text-anchor="middle">−10</text><text x="131.4" y="278" text-anchor="middle">0</text><text x="202.9" y="278" text-anchor="middle">10</text><text x="274.3" y="278" text-anchor="middle">20</text><text x="345.7" y="278" text-anchor="middle">30</text><text x="417.1" y="278" text-anchor="middle">40</text><text x="488.6" y="278" text-anchor="middle">50</text><text x="560" y="278" text-anchor="middle">60 °C</text>
+            <text x="556" y="196" text-anchor="end">INB− 阈值 0.40 V（热）</text>
+            <text x="556" y="100" text-anchor="end">INA+ 经 0.388 分压后 0.40 V ⇔ 1.03 V（冷）</text>
+            <text x="298" y="44" text-anchor="middle" style="fill:var(--accent)" font-weight="700">改正后允许充电 ≈ 7–40 °C</text>
+            <text x="298" y="62" text-anchor="middle" style="fill:var(--sev-a)">现接法：整条曲线都被禁止</text>
+            <text x="86" y="296" style="fill:var(--muted)">CELL_NTC_SENSE = 2.5 V × R_NTC / (R_NTC + 30.1 kΩ)，R_NTC = 10 kΩ, B = 3435</text>
+          </g>
+        </svg></div>
+        <figcaption>图 A1：NTC 分压电压与温度。两个阈值按 TPS3700 的 0.40 V 基准和 R1921/R1922 分压换算。</figcaption>
+      </figure>
+    </div></article>
+
+    <article class="issue sa"><div class="id">A2</div><div class="body">
+      <h4>关机状态漏电约 0.48 mA，按 1000 mAh 估算约 87 天把电池放空</h4>
+      <dl>
+        <dt>依据</dt><dd>A28 第 20 页：TMUX1511 只隔离了缓冲器，分压器本身常接在电源上；A13/A24：LTC2954-1 关机时 EN 为开漏拉低，上拉 R1103 33 kΩ 接 SYS。无 USB 时 BQ24074 的 OUT 经内部 FET 接电池，所以 SYS ≈ 电池电压。</dd>
+        <dt>后果</dt><dd>长期存放或运输中电池深度放电，电芯保护板切断或容量损伤，用户拿到手无法开机。</dd>
+        <dt>改法</dt><dd>分压器改为 MΩ 级（后面已有 OPA4330 缓冲，1.5 MΩ / 1 MΩ 即可，&lt; 2 µA），或在分压器高端加受控开关；R1103 改 1 MΩ，同时 R1304 改 10 MΩ，保证 SYS = 3.0 V 时 TPS63070 EN 仍 &gt; 2 V（需核对 EN 输入漏电）。目标关机电流 &lt; 30 µA，首样实测。</dd>
+      </dl>
+      <div class="tbl" style="margin-top:10px"><table>
+        <thead><tr><th>关机时的耗电支路（电池 4.2 V）</th><th>电流</th></tr></thead>
+        <tbody>
+          <tr><td>R1705 + R1706（PACK_PLUS 分压 25 kΩ）</td><td>168 µA</td></tr>
+          <tr><td>R1709 + R1710（SYS 分压 25 kΩ）</td><td>168 µA</td></tr>
+          <tr><td>R1103 33 kΩ → LTC2954 EN（关机时拉低）</td><td>127 µA</td></tr>
+          <tr><td>IC 静态电流（LTC2954、TPS3700、BQ24074 电池侧等，估）</td><td>约 15 µA</td></tr>
+          <tr><td>合计</td><td>约 0.48 mA</td></tr>
+        </tbody>
+      </table></div>
+    </div></article>
+  </div>
+
+  <div class="grp"><span class="chip c-b">高风险</span><h3>建议在投板前处理</h3></div>
+  <div class="issues">
+    <article class="issue sb"><div class="id">B1</div><div class="body">
+      <h4>没有 USB-C 供电能力识别，1.0 A 输入限流可能超出普通端口</h4>
+      <dl><dt>依据</dt><dd>A13：CC 只有 5.1 kΩ Rd，没有任何电路读取 CC 电压；BQ24074 ILIM 档（EN2=1, EN1=0）约 1.03 A。</dd>
+      <dt>后果</dt><dd>固件无法判断对端是默认 USB（500/900 mA）、1.5 A 还是 3 A，打开 ILIM 档就可能让电脑 USB 口过流。这也是工作簿里"USB 实际授权"无法闭合的根本原因。</dd>
+      <dt>改法</dt><dd>在 TPD2S300 之后把 CC1/CC2 经分压接到 MCU 两路 ADC（判断 Rp 档位），或改用 USB-C 受电控制器。默认档保持 100 mA/500 mA。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B2</div><div class="body">
+      <h4>TPD2S300 由 V3D 供电，关机或电池耗尽时 Rd 是否仍然有效需要确认</h4>
+      <dl><dt>依据</dt><dd>A25 第 17 页：U1401 VPWR/VM 接 V3D；V3D 只在开机或 USB_5V_SAFE 存在时才有电。</dd>
+      <dt>后果</dt><dd>C-to-C 充电器必须先看到 Rd 才会输出 VBUS。若 TPD2S300 断电时把 CC 通路断开，就形成死锁：没有 Rd → 没有 VBUS → V3D 不上电 → 仍没有 Rd。关机状态或电池耗尽时插 C-to-C 充电器将完全没反应（C-to-A 线不受影响）。</dd>
+      <dt>改法</dt><dd>按规格书"Dead Battery"章节确认；不支持时在连接器侧加死电池 Rd 通路，或由 VBUS 经小 LDO 给 VPWR 供电。首样用 C-to-C 充电器在关机和电池耗尽两种状态实测。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B3</div><div class="body">
+      <h4>模拟电源 V3A 与 ESP32 射频共用 V3LOAD 节点，仅隔一个磁珠</h4>
+      <dl><dt>依据</dt><dd>A21 第 13 页：<code>FB1101</code>（120 Ω@100 MHz）从 V3LOAD 取电得到 V3A；V3LOAD 同时供 ESP32、PCM1864/PCM5102A 数字核。V3A 供 ADC、DAC、全部运放和耳放。</dd>
+      <dt>后果</dt><dd>磁珠在音频频段几乎没有阻抗。蓝牙 625 µs 时隙的突发电流（1.6 kHz 及谐波）会直接调制模拟电源，耳机和线路输出出现可闻的"嗡嗡"声；TPS63070 的开关纹波也只靠磁珠和 22 µF 滤除。</dd>
+      <dt>改法</dt><dd>ESP32 改由 V3D 上独立负载开关供电；V3A 用独立低噪 LDO（从 SYS 取电，3.0–3.3 V）。见方案图 P1。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B4</div><div class="body">
+      <h4>7 个音频口串 PhotoMOS 继电器：开启时约 50 mA 常耗，并串在耳机输出里</h4>
+      <dl><dt>依据</dt><dd>A22 第 14 页：K1201–K1207（AQY221R6V/R2V），每路 LED 经 270 Ω 接 V3D，约 7.5 mA；K1201/K1202 串在 TPA6132A2 输出与耳机之间。</dd>
+      <dt>后果</dt><dd>端口开启时约 50 mA（约 0.17 W）持续耗电；PhotoMOS 导通电阻为欧姆级且随电流变化，对 16–32 Ω 耳机造成音量损失、输出阻抗升高和失真。</dd>
+      <dt>改法</dt><dd>耳机路径去掉继电器，由 TPA6132A2 的 EN 和插入检测控制；线路级端口用隔直电容 + 泄放电阻 + ESD 已足够，如确需"默认断开"，改用支持负电压信号的低导通电阻模拟开关。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B5</div><div class="body">
+      <h4>音频口 ESD 器件放在主板上，离插座太远</h4>
+      <dl><dt>依据</dt><dd>BOM：D1201–D1207 在主板背面（X27–33, Y19–25），插座 J102/J201/J202/J301 在音频板。</dd>
+      <dt>后果</dt><dd>静电先经插头进入音频板，再沿 AUDIO6 FPC 和屏蔽线到达 TVS，路径电感使钳位失效，静电会先打到线束和沿途器件。</dd>
+      <dt>改法</dt><dd>TVS 移到音频板、紧贴插座引脚，并给音频板地留低阻抗回路（见 B6 的 FPC 方案）。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B6</div><div class="body">
+      <h4>USB 子板的 9 根散线：保护前的 VBUS 走线束、只有 1 根地、U90 线实际装不进去</h4>
+      <dl><dt>依据</dt><dd>待闭合互连表：W33 <code>VBUS_RAW</code> 从 USB 子板到主板 eFuse；W25 是唯一 GND；W26/W27 要求 U90 屏蔽双绞，外径 3.2 mm、最小弯曲半径 10 mm。USB 子板挂在上盖托架下，与主板之间只有约 6–11 mm 高度。</dd>
+      <dt>后果</dt><dd>线束破皮或压伤短路发生在 eFuse 之前，只能靠充电器自身限流；充电电流、ESD 电流共用一根 26 AWG 地线；按规格的 U90 线在这个空间无法弯折。STM32H743 的 USB 是全速 12 Mbps，并不需要 90 Ω 屏蔽双绞。</dd>
+      <dt>改法</dt><dd>eFuse 移到 USB 子板（VBUS_RAW 不出板），TMP117 并入同一子板，子板与主板之间改为 1 条约 16 芯 FPC（含 4 根地、2 根 5 V）。可取消 W25–W33 与 S1–S4 共 13 根散线。见方案图 P3。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B7</div><div class="body">
+      <h4>PLAY 音频总线四方并联且跨电源域，没有硬件隔离</h4>
+      <dl><dt>依据</dt><dd><code>PLAY_DATA / PLAY_BCK / PLAY_FS</code> 同时接 MCU SAI2（经 33 Ω）、PCM5102A、MAX98357A 和 ESP32 IO22/IO26/IO25。ESP32 与 PCM5102A 在 V3LOAD 域，MCU 在 V3D 域；PCM1864 的 SCKI/BCK/LRCK 同样由 V3D 域驱动。</dd>
+      <dt>后果</dt><dd>ESP32 固件一旦把这三个脚设为输出（I²S 主机、误配置）就与 MCU 对打；V3LOAD 关断时 MCU 继续驱动总线，会经输入保护二极管反灌 ESP32 和编解码器。</dd>
+      <dt>改法</dt><dd>ESP32 一侧每根线串 1 kΩ，或加由 V3LOAD 供电、带 OE 的缓冲器；固件把"V3LOAD 关断 → SAI 脚高阻"作为硬约束写入启动检查。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B8</div><div class="body">
+      <h4>FPC 天线紧贴金属格栅、扬声器磁铁和无滤波功放线</h4>
+      <dl><dt>依据</dt><dd>控制板天线开窗 X113.6–140.6 / Y35.3–45.6；不锈钢格栅 X124.5–139.5 / Y15.0–35.0，两者相距约 0.3 mm；扬声器在格栅下方；MAX98357A 的 BTL 无滤波输出经 COVER6 FPC 走到上盖。</dd>
+      <dt>后果</dt><dd>天线失谐、效率下降，蓝牙距离与稳定性变差；功放 PWM 边沿耦合到天线与滚轮、按键线。模块在琴背，演奏时贴近人体，射频余量本来就小。</dd>
+      <dt>改法</dt><dd>格栅改非金属或深色微孔金属并缩小，天线周边留 ≥ 5 mm 无金属区；功放输出加铁氧体 + 电容 EMI 滤波；装壳后测 VSWR 和三方向 RSSI。</dd></dl>
+    </div></article>
+    <article class="issue sb"><div class="id">B9</div><div class="body">
+      <h4>四弦独立拾音仍未实现（资料已列为 P0）</h4>
+      <dl><dt>依据</dt><dd>J101 两线单路；PCM1864 只用 VINL1/VINR1/VINL3 三路，第 4 路 ADC 闲置；需求至少 6 路同时采集。</dd>
+      <dt>后果</dt><dd>四弦独立 EQ、多音识别和评分无法在硬件上成立，现有算法只能用混合单路信号。</dd>
+      <dt>改法</dt><dd>见方案图 P2：5 芯拾音接口 + 4 路高阻缓冲 + 第二颗 PCM1864，两颗以 TDM 合成 8 通道送 SAI1 一根数据线。前提是先确定拾音器型号。</dd></dl>
+    </div></article>
+  </div>
+
+  <div class="grp"><span class="chip c-c">中低风险</span><h3>建议与需实测确认</h3></div>
+  <div class="issues">
+    <article class="issue sc"><div class="id">C1</div><div class="body"><h4>TPS63070 的 PG（V3_PG）只接了上拉，没有送到 MCU 或负载开关</h4><dl><dt>改法</dt><dd>接 MCU 输入，或作为 TPS22918 ON 的与条件，避免 V3D 未稳定就打开音频域。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C2</div><div class="body"><h4>几颗大尺寸 C0G 电容可降规格</h4><dl><dt>依据</dt><dd>C1303 0.47 µF C0G 为 2220 封装（约 5.7×5.0 mm），只用于 LTC2954 关机定时；C101、C811、C830–C832 等 0.1 µF C0G 为 1206。</dd><dt>改法</dt><dd>定时与复位电容改 0603/0805 X7R；滤波保留 C0G 但用 0805。节省主板面积与成本。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C3</div><div class="body"><h4>扬声器没有背腔</h4><dl><dt>依据</dt><dd>LS901 直接放在 0.4 mm 控制板上，下面就是琴背木面；PUI 的额定声压按约 1 cc 背腔给出；V21 记录也要求"不在喇叭背面垫 PCB"。</dd><dt>改法</dt><dd>控制板在扬声器下开孔，与下杯内空腔或专用小腔连通，并留泄气路径；样机测声压。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C4</div><div class="body"><h4>三个滚轮几乎与面板齐平，指尖难以拨动；与 V21"滚轮轴平行于面板"的记录不一致</h4><dl><dt>依据</dt><dd>顶视矢量：Ø14.2 平盘外露于 Ø15.2 孔，周边间隙仅 0.5 mm。</dd><dt>改法</dt><dd>确认 RK10J 的实际操作方向；建议凸起滚花外圈 + 指示刻线（效果图方案 A）。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C5</div><div class="body"><h4>按键帽尺寸标注自相矛盾，且缺少防脱说明</h4><dl><dt>依据</dt><dd>图注"按钮帽 Ø6；孔 Ø5.2；法兰 Ø6"，而顶视只有 Ø7.2 与 Ø6.0 两个圆。帽 Ø6 大于孔 Ø5.2，无法从下方穿出。</dd><dt>改法</dt><dd>补一张按键剖面，标清帽、法兰、凹位直径和装配方向；模块在琴背，面板经常朝下，帽须有卡扣或胶固防脱。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C6</div><div class="body"><h4>面板没有任何字符；"分段灯条"在 R3 变成了 3 个 Ø1.9 光点</h4><dl><dt>依据</dt><dd>V26 已确认约束要求"带字符标签的 FX/MODE/MIX/BT/PWR 按键、分段灯条"。</dd><dt>改法</dt><dd>激光蚀刻或移印全部字符；灯改 3 段导光条（效果图方案 B、D）。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C7</div><div class="body"><h4>TMP117 的实际位置与 A29 页标题不符</h4><dl><dt>依据</dt><dd>A29 标题为"电池表面独立测温"，但 TMP117 在上盖传感器托架的小板上，离电池 &gt; 10 mm 且隔着主板，实际测的是上盖和 USB 附近温度。电池表面温度由 A33 的 RT1921 负责。</dd><dt>改法</dt><dd>改标题为"上盖/板级温度"，或把 TMP117 贴到电池；固件里的温度门限按实际测点重定。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C8</div><div class="body"><h4>琴背平面度、曲率与螺钉边距都还是假设</h4><dl><dt>依据</dt><dd>0.4 mm 控制板直接贴木面并作为按键 1–2 的背撑；螺孔距上盖边 5.3 mm，琴柱最窄约 50 mm 时离木边只有约 5.8 mm；6 mm 螺钉入木约 4.3 mm。</dd><dt>改法</dt><dd>实测琴背 148 mm 范围的平面度和宽度；加可压缩垫；必要时改螺钉规格或预埋。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C9</div><div class="body"><h4>键 3（X36）和轮 2（X35）正好跨在原腔边缘（X35.5）</h4><dl><dt>改法</dt><dd>背撑一半在木面、一半在杯壁和 7 mm 梁上，腔位实测后再确认按键手感一致。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C10</div><div class="body"><h4>琴背上的竖向插头会顶向演奏者身体，PWR/BT 键容易误触</h4><dl><dt>改法</dt><dd>说明书和配件统一用直角 3.5 mm 插头；PWR 键下沉加护圈、长按 2 s 生效（效果图方案 C）。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C11</div><div class="body"><h4>插着 USB 时无法真正关机</h4><dl><dt>依据</dt><dd>USB_5V_SAFE 经 R1303/D1302 直接拉高 TPS63070 EN。</dd><dt>改法</dt><dd>固件需要"充电显示 / 假关机"状态，关闭音频、射频和灯，只保留充电管理。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C12</div><div class="body"><h4>固件按 64 MHz 主频做实时预算，四弦 DSP 需要更高主频</h4><dl><dt>依据</dt><dd>测量表 B04："64MHz×64/48000 = 85333 周期"，且 D-Cache 关闭。</dd><dt>改法</dt><dd>四弦独立处理前把 H743 提到 400–480 MHz 并开 Cache，重新做功耗与温升预算。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C13</div><div class="body"><h4>电池包内 NTC 规格未写明</h4><dl><dt>改法</dt><dd>BQ24074 的 TS 门限按 10 kΩ / B≈3435 设计，需确认 VARTA VKB56457 包内 NTC 型号；不符时调整 TS 网络。</dd></dl></div></article>
+    <article class="issue sc"><div class="id">C14</div><div class="body"><h4>主板 8 层 0.8 mm、0.15 mm 孔 / 0.35 mm 焊盘，成本高、可选板厂少</h4><dl><dt>改法</dt><dd>完成 B3/B4/B6 的简化后评估 6 层方案；厚度若需 1.0 mm，从 Z 链里另找 0.2 mm。</dd></dl></div></article>
+  </div>
+
+  <div class="grp"><span class="chip c-d">文件一致性</span><h3>资料本身的错误或缺口</h3></div>
+  <div class="issues">
+    <article class="issue sd"><div class="id">D1</div><div class="body"><h4>版本命名混用</h4><dl><dt>依据</dt><dd>原理图图框标题为"SmartVio V27 - Native engineering capture"，页脚写 R3；PCB 文件名有 main-r3、usb/sensor-r2-synced、audio-r2-final、cover-r2-final4、keys6-r3；工作簿的互连源是"R2_逐线接线表.json"。</dd><dt>改法</dt><dd>统一改为 R3，图框里写对应文件哈希。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D2</div><div class="body"><h4>原理图缺 A31 页</h4><dl><dt>依据</dt><dd>目录从 A30 直接到 A32。</dd><dt>改法</dt><dd>注明删除原因，或补回。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D3</div><div class="body"><h4>原理图没有画分板连接器</h4><dl><dt>依据</dt><dd>14 个 H_* 板间端点只存在于 PCB 和 BOM，原理图是一张逻辑总图，无法从原理图核对 37 条板间互连和每块板的器件归属。</dd><dt>改法</dt><dd>补一页"板间互连"原理图，每个 H_* 端点逐脚列出网络。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D4</div><div class="body"><h4>机械图没有琴头/琴尾方向，也没有与琴体基准的关系</h4><dl><dt>依据</dt><dd>M-R3-01/02 只有 X/Y 坐标；V21 曾统一"控制面正视琴头在左"，并给出上盖覆盖琴尾金属基准起 110–258 mm。</dd><dt>改法</dt><dd>图上加琴头箭头和"X=258−u"换算。本报告效果图按琴头在 X=0 一侧绘制，需要你确认。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D5</div><div class="body"><h4>5 个器件在原理图里只写功能，不写型号</h4><dl><dt>依据</dt><dd>U1901（TPS22918）、U1902（TMUX1511）、U1921（TPS3700）、U1922（LM4040A25）、D1301/D1302（BAS116）的型号只在 BOM 中出现。</dd><dt>改法</dt><dd>原理图值栏写型号，功能写到注释。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D6</div><div class="body"><h4>数值格式与放置页错误</h4><dl><dt>依据</dt><dd>C812/C813 写作"3e-05uF"（应为 30 pF）；R1715 在原理图里缺 10 MΩ 阻值（BOM 有）；R826（PWR_PB 上拉）画在 A11 线路输出页。</dd><dt>改法</dt><dd>修正数值格式，R826 移到 A24。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D7</div><div class="body"><h4>A-A 剖面没有视向箭头</h4><dl><dt>依据</dt><dd>"Y=37，朝后看"只有文字，剖面中插座和电池的 X 位置无法与上视图直接对应。</dd><dt>改法</dt><dd>上视图加剖切线与箭头。</dd></dl></div></article>
+    <article class="issue sd"><div class="id">D8</div><div class="body"><h4>仓库里 V26 资料与 R3 并存</h4><dl><dt>依据</dt><dd>仓库检查点写"主板 149 项未连接"，R3 写"已从 15 降为 0"，两者是不同版本，不矛盾，但容易混用。</dd><dt>改法</dt><dd>R3 原生文件入库后，在仓库根目录标明 R3 为当前基线。</dd></dl></div></article>
+  </div>
+</section>
+
+<!-- ============ 3 ============ -->
+<section id="renders">
+  <h2>3 R3 当前设计效果图</h2>
+  <p class="lead">按 M-R3-01/02 的矢量尺寸重建三维模型（上盖开孔、下杯、Z 链），内部件按 BOM 封装尺寸做占位。配色和材质为示意；琴体没有 CAD，整琴图只说明位置和比例。</p>
+  <figure><img src="img/r3-01-hero.jpg" alt="R3 模块安装在琴背木面上的三维效果图"><figcaption>安装状态：上盖 148 × 49 mm，外凸 3.85 mm；三轮、五键、三灯、四个 3.5 mm 插座、USB-C、扬声器格栅、四颗安装螺钉。</figcaption></figure>
+  <figure><img src="img/r3-02-top.jpg" alt="R3 控制面上视图，带编号标注"><figcaption>控制面上视图，1:1 按图纸坐标。功能对应来自 BOM 位号坐标和原理图网络；插座左右顺序需按音频板实装方向复核。</figcaption></figure>
+  <div class="gal">
+    <figure><img src="img/r3-03-product.jpg" alt="R3 模块含下杯的产品图"><figcaption>含下杯：77 × 45 mm，伸入原腔 21.05 mm，总高名义 24.90 mm。</figcaption></figure>
+    <figure><img src="img/r3-04-exploded.jpg" alt="R3 结构分层爆炸图"><figcaption>分层：上盖、控制板、USB 子板、音频板与插座、主板、电池、下杯。</figcaption></figure>
+  </div>
+  <figure><img src="img/r3-05-violin-back.jpg" alt="模块在琴背上的位置示意"><figcaption>琴背位置示意：上盖覆盖琴尾金属基准起 110–258 mm，原腔 145–223 mm（据 V21 需求记录）。</figcaption></figure>
+</section>
+
+<!-- ============ 4 ============ -->
+<section id="proposal">
+  <h2>4 建议方案</h2>
+  <p class="lead">外部约束全部保留：上盖 148 × 49 mm、总高 ≤ 25 mm、外凸 ≤ 5 mm、原腔 78 × 47 × 22 mm 不新开、四角螺钉加卡扣、4 个 3.5 mm 插座加 USB-C、三轮五键、内置扬声器。只改错误、高风险和难装配的地方，四弦拾音做成可选装。</p>
+
+  <h3>4.1 外观与人机</h3>
+  <figure><img src="img/p-01-hero.jpg" alt="建议方案模块效果图：蚀刻字符、凸起滚花轮、分段灯条、PWR 护圈"><figcaption>建议方案：开孔坐标与 R3 相同，模具和琴体打孔不受影响。</figcaption></figure>
+  <figure><img src="img/p-02-top.jpg" alt="建议方案上视图，标出 A 到 G 七处变化"><figcaption>七处变化（A–G），右侧逐条说明。</figcaption></figure>
+  <div class="gal">
+    <figure><img src="img/p-03-product.jpg" alt="建议方案模块含下杯"><figcaption>下杯外形不变。</figcaption></figure>
+    <figure><img src="img/p-05-violin-back.jpg" alt="建议方案在琴背上的位置示意"><figcaption>琴背位置示意。</figcaption></figure>
+  </div>
+
+  <h3>4.2 电源架构</h3>
+  <figure>
+    <div class="diag">
+    <svg viewBox="0 0 960 290" role="img" aria-label="电源架构对比：R3 中 V3A 由 V3LOAD 经磁珠取电并与 ESP32 共节点；建议方案中 ESP32 有独立负载开关，V3A 由 SYS 经低噪 LDO 供电">
+      <defs><marker id="ar" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+      <g font-family="Noto Sans SC, sans-serif" font-size="12.5" fill="currentColor">
+        <text x="10" y="24" font-weight="700" font-size="14">R3 当前</text>
+        <text x="500" y="24" font-weight="700" font-size="14">建议</text>
+        <text x="10" y="44" style="fill:var(--muted)" font-size="11.5">来源</text><text x="120" y="44" style="fill:var(--muted)" font-size="11.5">稳压/开关</text><text x="250" y="44" style="fill:var(--muted)" font-size="11.5">电源轨</text><text x="350" y="44" style="fill:var(--muted)" font-size="11.5">负载</text>
+        <text x="500" y="44" style="fill:var(--muted)" font-size="11.5">来源</text><text x="610" y="44" style="fill:var(--muted)" font-size="11.5">稳压/开关</text><text x="740" y="44" style="fill:var(--muted)" font-size="11.5">电源轨</text><text x="840" y="44" style="fill:var(--muted)" font-size="11.5">负载</text>
+      </g>
+      <g font-family="Noto Sans SC, sans-serif" font-size="12.5" fill="currentColor" stroke="currentColor" stroke-width="1.2">
+        <!-- left rows -->
+        <g fill="none"><rect x="10" y="56" width="86" height="32" rx="5"/><rect x="120" y="56" width="104" height="32" rx="5"/><rect x="250" y="56" width="76" height="32" rx="16"/><rect x="350" y="56" width="128" height="32" rx="5"/></g>
+        <g fill="none"><rect x="10" y="116" width="86" height="32" rx="16"/><rect x="120" y="116" width="104" height="32" rx="5"/><rect x="250" y="116" width="76" height="32" rx="16" style="stroke:var(--sev-a)" stroke-width="2"/><rect x="350" y="116" width="128" height="32" rx="5" style="stroke:var(--sev-a)" stroke-width="2"/></g>
+        <g fill="none"><rect x="10" y="176" width="86" height="32" rx="16" style="stroke:var(--sev-a)" stroke-width="2"/><rect x="120" y="176" width="104" height="32" rx="5"/><rect x="250" y="176" width="76" height="32" rx="16"/><rect x="350" y="176" width="128" height="32" rx="5"/></g>
+        <g stroke-width="1.2" marker-end="url(#ar)"><line x1="96" y1="72" x2="118" y2="72"/><line x1="224" y1="72" x2="248" y2="72"/><line x1="326" y1="72" x2="348" y2="72"/>
+          <line x1="96" y1="132" x2="118" y2="132"/><line x1="224" y1="132" x2="248" y2="132"/><line x1="326" y1="132" x2="348" y2="132"/>
+          <line x1="96" y1="192" x2="118" y2="192"/><line x1="224" y1="192" x2="248" y2="192"/><line x1="326" y1="192" x2="348" y2="192"/></g>
+        <path d="M288,148 C288,162 53,160 53,174" fill="none" style="stroke:var(--sev-a)" stroke-width="1.6" stroke-dasharray="5 4"/>
+        <g stroke="none">
+          <text x="53" y="76" text-anchor="middle">SYS</text><text x="172" y="76" text-anchor="middle">TPS63070</text><text x="288" y="76" text-anchor="middle">V3D</text><text x="414" y="76" text-anchor="middle">MCU · 监测</text>
+          <text x="53" y="136" text-anchor="middle">V3D</text><text x="172" y="136" text-anchor="middle">TPS22918</text><text x="288" y="136" text-anchor="middle" style="fill:var(--sev-a)" font-weight="700">V3LOAD</text><text x="414" y="136" text-anchor="middle"><tspan style="fill:var(--sev-a)" font-weight="700">ESP32</tspan> · 编解码数字</text>
+          <text x="53" y="196" text-anchor="middle" style="fill:var(--sev-a)" font-weight="700">V3LOAD</text><text x="172" y="196" text-anchor="middle">磁珠 FB1101</text><text x="288" y="196" text-anchor="middle">V3A</text><text x="414" y="196" text-anchor="middle">ADC/DAC/运放/耳放</text>
+          <text x="170" y="236" style="fill:var(--sev-a)" font-size="12">同一节点：蓝牙 TX 突发电流直接进入模拟电源</text>
+        </g>
+        <!-- right rows -->
+        <g fill="none"><rect x="500" y="56" width="86" height="32" rx="5"/><rect x="610" y="56" width="104" height="32" rx="5"/><rect x="740" y="56" width="76" height="32" rx="16"/><rect x="840" y="56" width="116" height="32" rx="5"/>
+          <rect x="500" y="116" width="86" height="32" rx="16"/><rect x="610" y="116" width="104" height="32" rx="5" style="stroke:var(--accent)" stroke-width="2"/><rect x="740" y="116" width="76" height="32" rx="16" style="stroke:var(--accent)" stroke-width="2"/><rect x="840" y="116" width="116" height="32" rx="5"/>
+          <rect x="500" y="176" width="86" height="32" rx="16"/><rect x="610" y="176" width="104" height="32" rx="5"/><rect x="740" y="176" width="76" height="32" rx="16"/><rect x="840" y="176" width="116" height="32" rx="5"/>
+          <rect x="500" y="236" width="86" height="32" rx="5"/><rect x="610" y="236" width="104" height="32" rx="5" style="stroke:var(--accent)" stroke-width="2"/><rect x="740" y="236" width="76" height="32" rx="16" style="stroke:var(--accent)" stroke-width="2"/><rect x="840" y="236" width="116" height="32" rx="5"/></g>
+        <g marker-end="url(#ar)"><line x1="586" y1="72" x2="608" y2="72"/><line x1="714" y1="72" x2="738" y2="72"/><line x1="816" y1="72" x2="838" y2="72"/>
+          <line x1="586" y1="132" x2="608" y2="132"/><line x1="714" y1="132" x2="738" y2="132"/><line x1="816" y1="132" x2="838" y2="132"/>
+          <line x1="586" y1="192" x2="608" y2="192"/><line x1="714" y1="192" x2="738" y2="192"/><line x1="816" y1="192" x2="838" y2="192"/>
+          <line x1="586" y1="252" x2="608" y2="252"/><line x1="714" y1="252" x2="738" y2="252"/><line x1="816" y1="252" x2="838" y2="252"/></g>
+        <g stroke="none">
+          <text x="543" y="76" text-anchor="middle">SYS</text><text x="662" y="76" text-anchor="middle">TPS63070</text><text x="778" y="76" text-anchor="middle">V3D</text><text x="898" y="76" text-anchor="middle">MCU · 监测</text>
+          <text x="543" y="136" text-anchor="middle">V3D</text><text x="662" y="136" text-anchor="middle" style="fill:var(--accent)" font-weight="700">独立负载开关</text><text x="778" y="136" text-anchor="middle" style="fill:var(--accent)" font-weight="700">V3RF</text><text x="898" y="136" text-anchor="middle">ESP32</text>
+          <text x="543" y="196" text-anchor="middle">V3D</text><text x="662" y="196" text-anchor="middle">TPS22918</text><text x="778" y="196" text-anchor="middle">V3LOAD</text><text x="898" y="196" text-anchor="middle">编解码数字</text>
+          <text x="543" y="256" text-anchor="middle">SYS</text><text x="662" y="256" text-anchor="middle" style="fill:var(--accent)" font-weight="700">低噪 LDO</text><text x="778" y="256" text-anchor="middle" style="fill:var(--accent)" font-weight="700">V3A</text><text x="898" y="256" text-anchor="middle">ADC/DAC/运放/耳放</text>
+        </g>
+      </g>
+    </svg></div>
+    <figcaption>图 P1：电源树对比。R3 的模拟电源 V3A 取自 V3LOAD，与 ESP32 是同一个节点（红色虚线）；建议方案把 ESP32 移到独立开关、V3A 改由 SYS 经低噪 LDO 供电，两者不再共用任何节点。</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="card"><h4>电源与充电的其他改动</h4><ul class="tight">
+      <li>U1921 输入对调（A1）。</li>
+      <li>监测分压改 MΩ 级或加高端开关；R1103 → 1 MΩ、R1304 → 10 MΩ（A2），关机目标 &lt; 30 µA。</li>
+      <li>CC1/CC2 电压送 MCU ADC，按 Rp 档位选择 BQ24074 的 EN1/EN2（B1）。</li>
+      <li>确认 TPD2S300 死电池行为，必要时 VPWR 由 VBUS 经小 LDO 供电（B2）。</li>
+      <li>TPS63070 的 PG 接 MCU（C1）。</li>
+    </ul></div>
+    <div class="card"><h4>不变的部分</h4><ul class="tight">
+      <li>BQ24074 路径管理、0.45 A 充电电流、TPS259470 eFuse 的 UV/OV 设定。</li>
+      <li>LTC2954 按键开关机逻辑与 KILL 握手。</li>
+      <li>RT1921 独立电池测温链路（只改比较器接法）。</li>
+      <li>默认禁充、默认关音频域的安全策略。</li>
+    </ul></div>
+  </div>
+
+  <h3>4.3 音频输入与四弦拾音</h3>
+  <figure>
+    <div class="diag">
+    <svg viewBox="0 0 960 300" role="img" aria-label="音频输入对比：R3 只有一路拾音加两路 AUX，第四路 ADC 闲置；建议方案四弦各一路加 AUX 和原拾音，两颗 PCM1864 以 TDM 合成 8 路送 SAI1">
+      <defs><marker id="ar2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0,0 L10,5 L0,10 z" fill="currentColor"/></marker></defs>
+      <g font-family="Noto Sans SC, sans-serif" font-size="12.5" fill="currentColor" stroke="currentColor" stroke-width="1.2">
+        <g stroke="none"><text x="10" y="24" font-weight="700" font-size="14">R3 当前（3 路有效）</text><text x="500" y="24" font-weight="700" font-size="14">建议（8 路，TDM）</text></g>
+        <!-- left -->
+        <g fill="none"><rect x="10" y="44" width="120" height="30" rx="5"/><rect x="150" y="44" width="96" height="30" rx="5"/><rect x="266" y="44" width="100" height="30" rx="5"/>
+          <rect x="10" y="88" width="120" height="30" rx="5"/><rect x="150" y="88" width="96" height="30" rx="5"/><rect x="266" y="88" width="100" height="30" rx="5"/>
+          <rect x="10" y="132" width="120" height="30" rx="5"/><rect x="150" y="132" width="96" height="30" rx="5"/><rect x="266" y="132" width="100" height="30" rx="5"/>
+          <rect x="266" y="176" width="100" height="30" rx="5" stroke-dasharray="4 3" style="stroke:var(--muted)"/>
+          <rect x="390" y="88" width="72" height="74" rx="6"/></g>
+        <g marker-end="url(#ar2)"><line x1="130" y1="59" x2="148" y2="59"/><line x1="246" y1="59" x2="264" y2="59"/><line x1="130" y1="103" x2="148" y2="103"/><line x1="246" y1="103" x2="264" y2="103"/><line x1="130" y1="147" x2="148" y2="147"/><line x1="246" y1="147" x2="264" y2="147"/>
+          <polyline fill="none" points="366,59 378,59 378,112 388,112"/><line x1="366" y1="103" x2="388" y2="112"/><polyline fill="none" points="366,147 378,147 378,138 388,138"/></g>
+        <g stroke="none">
+          <text x="70" y="63" text-anchor="middle">J101 拾音（1 路）</text><text x="198" y="63" text-anchor="middle">高阻缓冲</text><text x="316" y="63" text-anchor="middle">PCM1864 CH1</text>
+          <text x="70" y="107" text-anchor="middle">AUX / RETURN L</text><text x="198" y="107" text-anchor="middle">−10 dB 缓冲</text><text x="316" y="107" text-anchor="middle">PCM1864 CH2</text>
+          <text x="70" y="151" text-anchor="middle">AUX / RETURN R</text><text x="198" y="151" text-anchor="middle">−10 dB 缓冲</text><text x="316" y="151" text-anchor="middle">PCM1864 CH3</text>
+          <text x="316" y="195" text-anchor="middle" style="fill:var(--muted)">CH4 闲置</text>
+          <text x="426" y="121" text-anchor="middle">SAI1</text><text x="426" y="138" text-anchor="middle" font-size="11">2 数据线</text>
+          <text x="10" y="236" style="fill:var(--sev-a)" font-size="12">四根弦混在一路，无法做四弦独立 EQ / 识别 / 评分</text>
+        </g>
+        <!-- right -->
+        <g fill="none"><rect x="500" y="44" width="130" height="74" rx="5" style="stroke:var(--accent)" stroke-width="2"/><rect x="650" y="44" width="96" height="74" rx="5" style="stroke:var(--accent)" stroke-width="2"/><rect x="766" y="44" width="100" height="74" rx="5" style="stroke:var(--accent)" stroke-width="2"/>
+          <rect x="500" y="132" width="130" height="30" rx="5"/><rect x="650" y="132" width="96" height="30" rx="5"/>
+          <rect x="500" y="176" width="130" height="30" rx="5"/><rect x="650" y="176" width="96" height="30" rx="5"/>
+          <rect x="766" y="132" width="100" height="118" rx="5"/>
+          <rect x="884" y="96" width="68" height="74" rx="6"/></g>
+        <g marker-end="url(#ar2)"><line x1="630" y1="81" x2="648" y2="81"/><line x1="746" y1="81" x2="764" y2="81"/><line x1="630" y1="147" x2="648" y2="147"/><line x1="746" y1="147" x2="764" y2="147"/><line x1="630" y1="191" x2="648" y2="191"/><line x1="746" y1="191" x2="764" y2="191"/>
+          <polyline fill="none" points="866,81 875,81 875,120 882,120"/><polyline fill="none" points="866,191 875,191 875,146 882,146"/></g>
+        <g stroke="none">
+          <text x="565" y="72" text-anchor="middle">四弦拾音</text><text x="565" y="90" text-anchor="middle">G · D · A · E</text><text x="565" y="107" text-anchor="middle" font-size="11">5 芯屏蔽（4 + 地）</text>
+          <text x="698" y="77" text-anchor="middle">4 × 高阻缓冲</text><text x="698" y="94" text-anchor="middle" font-size="11">每路 4.7 MΩ</text>
+          <text x="816" y="77" text-anchor="middle">ADC-A</text><text x="816" y="94" text-anchor="middle" font-size="11">CH1–4 = 四弦</text>
+          <text x="565" y="151" text-anchor="middle">AUX / RETURN L · R</text><text x="698" y="151" text-anchor="middle">−10 dB 缓冲</text>
+          <text x="565" y="195" text-anchor="middle">J101 原拾音（兼容）</text><text x="698" y="195" text-anchor="middle">高阻缓冲</text>
+          <text x="816" y="180" text-anchor="middle">ADC-B</text><text x="816" y="197" text-anchor="middle" font-size="11">CH1–2 AUX</text><text x="816" y="213" text-anchor="middle" font-size="11">CH3 原拾音</text><text x="816" y="229" text-anchor="middle" font-size="11">CH4 备用</text>
+          <text x="918" y="129" text-anchor="middle">SAI1</text><text x="918" y="146" text-anchor="middle" font-size="11">TDM8</text>
+          <text x="500" y="276" style="fill:var(--accent)" font-size="12">两颗 PCM1864 共用 SCKI，TDM 合成一根数据线；不装四弦时 ADC-A 不贴</text>
+        </g>
+      </g>
+    </svg></div>
+    <figcaption>图 P2：音频输入对比。建议方案保留原拾音和 AUX 立体声，同时给每根弦一路独立通道，满足"至少 6 路同时采集"。</figcaption>
+  </figure>
+  <div class="cols">
+    <div class="card"><h4>输出与接口</h4><ul class="tight">
+      <li>去掉 7 个 PhotoMOS（B4）：耳机由 TPA6132A2 EN + 插入检测控制，线路口保留隔直、泄放和 ESD。</li>
+      <li>ESD 移到音频板插座旁（B5）。</li>
+      <li>PLAY 总线 ESP32 侧串 1 kΩ 或加带 OE 的缓冲器（B7）。</li>
+      <li>MAX98357A 输出加 EMI 滤波；扬声器加背腔（B8、C3）。</li>
+    </ul></div>
+    <div class="card"><h4>四弦拾音的前提</h4><ul class="tight">
+      <li>先确定拾音器：每弦独立的琴桥压电或换装成品四路拾音桥，拿到电容、输出电平和接线。</li>
+      <li>主控提频到 400–480 MHz 并开 Cache 后再做四路 DSP（C12）。</li>
+      <li>未装四弦拾音的版本：ADC-A 和缓冲器不贴，板子和外壳通用。</li>
+    </ul></div>
+  </div>
+
+  <h3>4.4 板间互连</h3>
+  <figure>
+    <div class="diag">
+    <svg viewBox="0 0 960 260" role="img" aria-label="板间互连对比：R3 有 16 根普通散线连接 USB 子板、温度子板和音频板；建议方案改为两条 FPC，散线为零">
+      <g font-family="Noto Sans SC, sans-serif" font-size="12.5" fill="currentColor" stroke="currentColor" stroke-width="1.2">
+        <g stroke="none"><text x="10" y="24" font-weight="700" font-size="14">R3 当前：5 板 + 4 FPC + 16 根散线</text><text x="500" y="24" font-weight="700" font-size="14">建议：4 板 + 5 FPC + 0 根散线</text></g>
+        <!-- left boards -->
+        <g fill="none"><rect x="160" y="110" width="130" height="50" rx="6" stroke-width="1.8"/><rect x="160" y="40" width="130" height="34" rx="6"/><rect x="10" y="110" width="104" height="50" rx="6"/><rect x="350" y="40" width="110" height="34" rx="6"/><rect x="350" y="170" width="110" height="34" rx="6"/></g>
+        <line x1="225" y1="74" x2="225" y2="110"/>
+        <line x1="114" y1="128" x2="160" y2="128"/>
+        <g style="stroke:var(--sev-a)"><line x1="114" y1="142" x2="160" y2="142" stroke-dasharray="3 3"/><line x1="114" y1="146" x2="160" y2="146" stroke-dasharray="3 3"/><line x1="114" y1="150" x2="160" y2="150" stroke-dasharray="3 3"/>
+          <line x1="350" y1="62" x2="290" y2="114" stroke-dasharray="3 3"/><line x1="350" y1="66" x2="290" y2="118" stroke-dasharray="3 3"/><line x1="350" y1="70" x2="290" y2="122" stroke-dasharray="3 3"/>
+          <line x1="350" y1="182" x2="290" y2="148" stroke-dasharray="3 3"/><line x1="350" y1="188" x2="290" y2="152" stroke-dasharray="3 3"/></g>
+        <g stroke="none">
+          <text x="225" y="132" text-anchor="middle" font-weight="700">主板</text><text x="225" y="149" text-anchor="middle" font-size="11">8 层 0.8 mm</text>
+          <text x="225" y="62" text-anchor="middle">控制板</text>
+          <text x="62" y="132" text-anchor="middle">音频板</text><text x="62" y="149" text-anchor="middle" font-size="11">4 × 3.5 mm</text>
+          <text x="405" y="62" text-anchor="middle">USB 子板</text><text x="405" y="192" text-anchor="middle">温度子板</text>
+          <text x="218" y="96" text-anchor="end" font-size="11">COVER6 · POTS3 · KEYS6</text>
+          <text x="137" y="122" text-anchor="middle" font-size="11">AUDIO6</text>
+          <text x="62" y="182" text-anchor="middle" font-size="11" style="fill:var(--sev-a)">+ 3 根屏蔽线 W07–W09</text>
+          <text x="405" y="96" text-anchor="middle" font-size="11" style="fill:var(--sev-a)">9 根散线 W25–W33</text><text x="405" y="111" text-anchor="middle" font-size="11" style="fill:var(--sev-a)">含保护前 VBUS</text>
+          <text x="405" y="222" text-anchor="middle" font-size="11" style="fill:var(--sev-a)">4 根散线 S1–S4</text>
+        </g>
+        <!-- right boards -->
+        <g fill="none"><rect x="650" y="110" width="130" height="50" rx="6" stroke-width="1.8"/><rect x="650" y="40" width="130" height="34" rx="6"/><rect x="500" y="110" width="104" height="50" rx="6"/><rect x="840" y="100" width="112" height="70" rx="6" style="stroke:var(--accent)" stroke-width="2"/></g>
+        <line x1="715" y1="74" x2="715" y2="110"/>
+        <g style="stroke:var(--accent)" stroke-width="5" stroke-linecap="round"><line x1="607" y1="135" x2="647" y2="135"/><line x1="783" y1="135" x2="837" y2="135"/></g>
+        <g stroke="none">
+          <text x="715" y="132" text-anchor="middle" font-weight="700">主板</text><text x="715" y="149" text-anchor="middle" font-size="11">原有电路（eFuse 移出）</text>
+          <text x="715" y="62" text-anchor="middle">控制板</text>
+          <text x="552" y="132" text-anchor="middle">音频板</text><text x="552" y="149" text-anchor="middle" font-size="11">TVS 紧贴插座</text>
+          <text x="896" y="124" text-anchor="middle">USB + 温度</text><text x="896" y="141" text-anchor="middle" font-size="11">子板，含 eFuse</text><text x="896" y="157" text-anchor="middle" font-size="11">TMP117</text>
+          <text x="708" y="96" text-anchor="end" font-size="11">COVER6 · POTS3 · KEYS6（不变）</text>
+          <text x="627" y="186" text-anchor="middle" font-size="11" style="fill:var(--accent)">AUDIO12 FPC</text><text x="627" y="201" text-anchor="middle" font-size="11" style="fill:var(--accent)">8 信号 + 4 地</text>
+          <text x="810" y="186" text-anchor="middle" font-size="11" style="fill:var(--accent)">USB16 FPC</text><text x="810" y="201" text-anchor="middle" font-size="11" style="fill:var(--accent)">12 信号/电源 + 4 地</text>
+          <text x="500" y="240" font-size="12" style="fill:var(--accent)">普通散线 16 → 0；保留电池 3 线、RT1921 2 线、拾音线、天线同轴</text>
+        </g>
+      </g>
+    </svg></div>
+    <figcaption>图 P3：板间互连对比。USB 子板与温度子板合并、eFuse 前移，音频板改一条带地的 FPC，16 根需要人工成端的散线全部取消。</figcaption>
+  </figure>
+
+  <h3>4.5 实施顺序</h3>
+  <ol class="steps">
+    <li>你确认本方案方向，并回答第 5 节的问题。</li>
+    <li>改原理图：A1、A2、B1、B3、B4、B5、B7，以及四弦前端（若确认做），补"板间互连"页（D3）。</li>
+    <li>改结构：USB+温度子板与托架、两条新 FPC、扬声器背腔、面板字符、滚轮、PWR 护圈、导光条。</li>
+    <li>重新布 PCB/FPC，跑 ERC/DRC，更新 BOM、Z 链和 STEP，重出效果图核对。</li>
+    <li>首样按工作簿 B00–B12 分阶段上电；新增两项实测：A1 温度窗口（冷/热两点）和关机电流。</li>
+  </ol>
+  <p class="note">需要原生文件才能动手修改：这次上传的是 PDF 和工作簿，R3 的 KiCad 工程、STEP 和固件源码还没有收到。仓库里只有 V26 存档。</p>
+</section>
+
+<!-- ============ 5 ============ -->
+<section id="questions">
+  <h2>5 需要你确认的问题</h2>
+  <div class="q">
+    <div class="card"><h4>Q1 安装面和方向</h4><p>我按旧资料"琴背安装基准"把模块画在琴背、滚轮一端朝琴头。是否正确？哪一端朝琴头？</p></div>
+    <div class="card"><h4>Q2 四弦独立拾音</h4><p>是否已有指定的四路拾音器（型号、路数）？是否接受更换琴桥或加装？如果暂时不做，是否同意先在主板上预留第二颗 ADC 和 5 芯接口？</p></div>
+    <div class="card"><h4>Q3 滚轮操作</h4><p>保持 R3 的平盘式，还是改为效果图里的凸起滚花外圈（外露约 1.4 mm），或改成侧拨滚轮？</p></div>
+    <div class="card"><h4>Q4 外观</h4><p>黑色哑光面板加香槟金点缀是否接受？字符用激光蚀刻还是移印？是否需要放品牌 Logo？</p></div>
+    <div class="card"><h4>Q5 续航目标</h4><p>电池容量和耳机、扬声器、蓝牙三种场景各自的续航目标是多少？这决定 B3/B4 改动的优先级。</p></div>
+    <div class="card"><h4>Q6 互连工艺</h4><p>是否接受把 USB 子板、音频板与主板之间改为 FPC（ZIF 连接器或热压焊）？</p></div>
+  </div>
+</section>
+
+<footer>
+  <p>方法：原理图网表由 PDF 的逐脚网络标签按坐标自动还原，再逐网络核对；机械尺寸从图纸矢量路径按 1.8:1 比例直接量取；效果图由上述尺寸在 three.js 中建模渲染。限制：没有原生 KiCad、STEP 和固件，元件规格按公开规格书的典型值估算，标"需确认"的条目需以原厂规格书和样机实测为准。</p>
+</footer>
+</div>
