@@ -1,0 +1,209 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#fff;overflow:hidden;font-family:"WenQuanYi Zen Hei","DejaVu Sans",sans-serif}
+  #wrap{position:relative;width:100vw;height:100vh}
+  canvas{display:block}
+  svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+  .t{font-size:15px;fill:#1d2a2f}.ts{font-size:12.5px;fill:#5b6970}
+  .cap{position:absolute;left:28px;top:20px;color:#1d2a2f}
+  .cap h1{margin:0;font-size:24px;font-weight:700}.cap p{margin:4px 0 0;font-size:14px;color:#56656c}
+  .foot{position:absolute;left:20px;bottom:12px;font-size:12.5px;color:#56656c;background:rgba(255,255,255,.85);padding:4px 10px;border-radius:4px}
+</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body><div id="wrap"><canvas id="c"></canvas><svg id="ov"></svg><div class="cap" id="cap"></div><div class="foot" id="foot"></div></div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const q = new URLSearchParams(location.search);
+const view = q.get('view') || 'hero';
+const Wd = innerWidth, Ht = innerHeight;
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(devicePixelRatio); renderer.setSize(Wd, Ht);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+renderer.localClippingEnabled = true;
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture; scene.environmentIntensity = 0.6;
+
+const meta = await (await fetch('r3mesh.json')).json();
+const bin = await (await fetch('r3mesh.bin')).arrayBuffer();
+
+const std = (o) => new THREE.MeshStandardMaterial(o);
+const phys = (o) => new THREE.MeshPhysicalMaterial(o);
+const MAT = {
+  cover: phys({ color: 0x1a1d20, roughness: 0.62, envMapIntensity: 0.7 }),
+  cup: phys({ color: 0x24282c, roughness: 0.62, envMapIntensity: 0.7 }),
+  key: std({ color: 0x2a2e33, roughness: 0.8 }),
+  pipe: std({ color: 0xffffff, emissive: 0x7fd8ff, emissiveIntensity: 1.8, roughness: 0.3 }),
+  steel: std({ color: 0xc9ccd0, metalness: 1, roughness: 0.32 }),
+  nickel: std({ color: 0xb9bdc1, metalness: 1, roughness: 0.3 }),
+  pcb: std({ color: 0x1d6b4a, roughness: 0.45 }),
+  ic: std({ color: 0x17181a, roughness: 0.6 }),
+  passive: std({ color: 0xb59a6a, roughness: 0.55 }),
+  jack: std({ color: 0x1c1d1f, roughness: 0.65 }),
+  fpc: std({ color: 0xd98a2b, roughness: 0.4, metalness: 0.1, side: THREE.DoubleSide }),
+  rf: std({ color: 0xe0782a, roughness: 0.45, side: THREE.DoubleSide }),
+  battery: std({ color: 0xc3c8cc, metalness: 0.7, roughness: 0.38 }),
+  swell: std({ color: 0x9fd0ff, transparent: true, opacity: 0.18, depthWrite: false }),
+  film: std({ color: 0xd9a441, roughness: 0.35, transparent: true, opacity: 0.8, side: THREE.DoubleSide }),
+  pet: std({ color: 0x9fb7c4, roughness: 0.3, transparent: true, opacity: 0.6, side: THREE.DoubleSide }),
+  speaker: std({ color: 0x121314, roughness: 0.6 }),
+  wheel: std({ color: 0x16181a, roughness: 0.55, metalness: 0.1 }),
+  switch: std({ color: 0xa9adb1, metalness: 0.8, roughness: 0.35 }),
+  module: std({ color: 0xbfc3c7, metalness: 1, roughness: 0.3 }),
+  ntc: std({ color: 0x222222, roughness: 0.4 }),
+};
+function matFor(n) {
+  if (n === 'upper_cover') return MAT.cover;
+  if (n === 'lower_cup') return MAT.cup;
+  if (n.startsWith('button_')) return MAT.key;
+  if (n.startsWith('lightpipe_')) return MAT.pipe;
+  if (n === 'speaker_grille') return MAT.steel;
+  if (n.startsWith('main_shim')) return MAT.film;
+  if (/insulator|separator/.test(n)) return MAT.pet;
+  if (n === 'audio_load_frame') return MAT.cup;
+  if (n.startsWith('FPC_')) return MAT.fpc;
+  if (n.startsWith('RF_')) return MAT.rf;
+  if (n.startsWith('Kycon')) return MAT.jack;
+  if (n.startsWith('GCT')) return MAT.nickel;
+  if (n === 'battery_max_reference') return MAT.battery;
+  if (n === 'battery_swell_allowance_reference') return MAT.swell;
+  if (n.startsWith('speaker')) return MAT.speaker;
+  if (n.startsWith('wheel_')) return MAT.wheel;
+  if (n.startsWith('switch_')) return MAT.switch;
+  if (n.startsWith('U901')) return MAT.module;
+  if (n.startsWith('RT1921')) return MAT.ntc;
+  if (/^(main_reference|usb_reference|sensor_reference|cover_native_reference|audio_native_reference)$/.test(n)) return MAT.pcb;
+  if (n.startsWith('OCC_')) { const r = n.split('_').pop(); return /^(C|R|FB|L)\d/.test(r) ? MAT.passive : MAT.ic; }
+  return MAT.ic;
+}
+function group(n) {
+  if (n === 'upper_cover') return 'cover';
+  if (/^(button_|lightpipe_|wheel_)/.test(n) || n === 'speaker_grille') return 'controls';
+  if (/^(cover_native_reference|OCC_cover|switch_|speaker_working|key_backer|FPC_KEYS6|FPC_POTS3|FPC_COVER6)/.test(n)) return 'coverBoard';
+  if (/^(Kycon|GCT|usb_|sensor_|audio_native|OCC_audio|OCC_usb|OCC_sensor|audio_load_frame|FPC_AUDIO6)/.test(n)) return 'mid';
+  if (/^(RF_)/.test(n)) return 'rf';
+  if (/^(main_|OCC_main|U901)/.test(n)) return 'main';
+  if (/^(battery|ntc_|RT1921)/.test(n)) return 'battery';
+  if (n === 'lower_cup') return 'cup';
+  if (n.startsWith('instrument_mount')) return 'skip';
+  return 'main';
+}
+const parts = {};
+for (const p of meta) {
+  if (group(p.name) === 'skip') continue;
+  const pos = new Float32Array(bin, p.posOff, p.posLen);
+  const idx = new Uint32Array(bin, p.idxOff, p.idxLen);
+  const g = new THREE.BufferGeometry();
+  const w = new Float32Array(pos.length);
+  for (let i = 0; i < pos.length; i += 3) { w[i] = pos[i] - 74; w[i + 1] = pos[i + 2]; w[i + 2] = -pos[i + 1] - 24.5; }
+  g.setAttribute('position', new THREE.BufferAttribute(w, 3)); g.setIndex(new THREE.BufferAttribute(idx, 1));
+  g.computeVertexNormals();
+  const m = new THREE.Mesh(g, matFor(p.name)); m.castShadow = !/swell|pet/.test(m.material.name); m.receiveShadow = true; m.name = p.name;
+  parts[p.name] = { mesh: m, group: group(p.name) };
+}
+function addAll(filter = () => true, offsets = {}) {
+  const root = new THREE.Group();
+  for (const [n, o] of Object.entries(parts)) { if (!filter(n, o.group)) continue; const m = o.mesh.clone(); m.position.y = offsets[o.group] || 0; root.add(m); }
+  scene.add(root); return root;
+}
+function bgGradient(c1, c2) { const cv = document.createElement('canvas'); cv.width = 8; cv.height = 512; const c = cv.getContext('2d'); const g = c.createLinearGradient(0, 0, 0, 512); g.addColorStop(0, c1); g.addColorStop(1, c2); c.fillStyle = g; c.fillRect(0, 0, 8, 512); const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t; }
+function woodTexture(base = [92, 40, 18], w = 2048, h = 512, seed = 3) {
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h; const c = cv.getContext('2d');
+  let s = seed; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647; const img = c.createImageData(w, h);
+  const ph = []; for (let i = 0; i < 6; i++) ph.push([rnd() * 6.28, 0.5 + rnd() * 2]);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    let v = y / h * 70; for (const [p, f] of ph) v += 0.35 * Math.sin(x / w * 6.28 * f + p);
+    const g = 0.5 + 0.5 * Math.sin(v * 3.1 + Math.sin(x * 0.003 + y * 0.01) * 0.8); const g2 = 0.5 + 0.5 * Math.sin(v * 11.0 + x * 0.002);
+    const k = 0.80 + 0.12 * g * g + 0.05 * g2 + (rnd() - 0.5) * 0.06; const i = (y * w + x) * 4;
+    img.data[i] = base[0] * k; img.data[i + 1] = base[1] * k; img.data[i + 2] = base[2] * k; img.data[i + 3] = 255;
+  }
+  c.putImageData(img, 0, 0); const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function addLights(span = 170, dir = [-0.5, 1.0, 0.6], intensity = 2.6) {
+  const d = new THREE.DirectionalLight(0xffffff, intensity); d.position.set(dir[0] * 400, dir[1] * 400, dir[2] * 400);
+  d.castShadow = true; d.shadow.mapSize.set(4096, 4096); const sc = d.shadow.camera; sc.left = -span; sc.right = span; sc.top = span; sc.bottom = -span; sc.near = 10; sc.far = 1200; d.shadow.bias = -0.0004; d.shadow.normalBias = 0.02;
+  scene.add(d); const f = new THREE.DirectionalLight(0xdfe9ff, 0.7); f.position.set(300, 150, -250); scene.add(f);
+  const r = new THREE.DirectionalLight(0xffffff, 0.9); r.position.set(100, 220, -400); scene.add(r);
+}
+const W3 = (X, Ydraw, Z) => new THREE.Vector3(X - 74, Z, Ydraw - 24.5);
+let camera; const labels = [];
+const setCap = (h, p, f) => { document.getElementById('cap').innerHTML = `<h1>${h}</h1>${p ? `<p>${p}</p>` : ''}`; document.getElementById('foot').textContent = f || ''; };
+const SRC = '真实几何：engineering/mechanical/cad/*.step（20 件结构件）+ reference/components（337 件参考体）';
+
+if (view === 'hero') {
+  scene.background = bgGradient('#f4f2ee', '#d9d5cf');
+  addAll((n, g) => !['cup', 'battery', 'main', 'mid', 'rf'].includes(g) && !n.startsWith('FPC_') && n !== 'audio_load_frame');
+  // Kycon tops and USB are visible through the cover: add them too
+  addAll((n) => n.startsWith('Kycon') || n.startsWith('GCT'));
+  const wt = woodTexture(); const wood = phys({ map: wt, roughness: 0.42, clearcoat: 0.35, clearcoatRoughness: 0.35, envMapIntensity: 0.5 });
+  const pm = new THREE.Mesh(new THREE.BoxGeometry(300, 24, 120).translate(0, -12.001, 0), wood); pm.receiveShadow = true; scene.add(pm);
+  addLights(190, [-0.55, 1.0, 0.75], 2.8);
+  camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 3000); camera.position.set(-118, 150, 215); camera.lookAt(8, -4, 2);
+  setCap('SmartVio R3 · 原生 CAD 效果图', '上盖、按键、导光柱、格栅、插座与 USB-C 均为包内 STEP 实体；安装于琴背（示意木面）', SRC);
+} else if (view === 'product') {
+  scene.background = bgGradient('#f6f5f3', '#dedbd6');
+  const root = addAll((n, g) => ['cover', 'controls', 'cup'].includes(g) || n.startsWith('Kycon') || n.startsWith('GCT')); root.position.y = 21.05;
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.ShadowMaterial({ opacity: 0.22 })); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+  addLights(160, [-0.4, 1.0, 0.5], 2.6);
+  camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 3000); camera.position.set(185, 175, 285); camera.lookAt(-4, 6, 0);
+  setCap('SmartVio R3 · 原生 CAD（含下杯）', '上盖 148×49，下杯 77×45 伸入原腔 21.05，总高 24.90 / 25 MAX', SRC);
+} else if (view === 'internal') {
+  scene.background = bgGradient('#f5f4f1', '#dcd9d4');
+  addAll((n, g) => (g !== 'cover' && g !== 'controls' && g !== 'cup') || n.startsWith('wheel_'));
+  addAll((n, g) => g === 'cup');
+  addLights(200, [-0.3, 1.0, 0.45], 2.5);
+  camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 4000); camera.position.set(-210, 230, 300); camera.lookAt(10, -6, 0);
+  const L = (X, Y, Z, t, s, ox, oy, a) => labels.push({ p: W3(X, Y, Z), text: t, sub: s, ox, oy, anchor: a });
+  L(132, 25, 3.5, '扬声器 18×13', 'LS901 直接坐在控制板上', 60, -70, 'start');
+  L(127, 40.5, 0.4, 'FPC 天线', '紧贴格栅下缘', 120, 40, 'start');
+  L(98, 9, 3.5, 'USB-C（竖装）', 'USB 子板 Z −4.3…−3.3', 20, -90, 'start');
+  L(64.8, 37, 3.8, 'Kycon 3.5 mm ×4', '原厂 STEP', -150, -150, 'middle');
+  L(15, 10, 3.6, '滚轮包络 ×3', 'wheel_max_reference（无实体零件）', -60, -110, 'middle');
+  setCap('内部装配 · 原生 CAD（上盖已隐藏）', '控制板、扬声器、FPC 天线、USB 子板、音频板与插座、主板、电池', SRC + '；元件为占位包络体');
+} else if (view === 'exploded') {
+  scene.background = bgGradient('#f5f4f1', '#dcd9d4');
+  const off = { controls: 70, cover: 50, coverBoard: 28, rf: 28, mid: 12, main: -4, battery: -24, cup: -48 };
+  addAll(() => true, off);
+  addLights(220, [-0.3, 1.0, 0.45], 2.5);
+  camera = new THREE.PerspectiveCamera(24, Wd / Ht, 10, 4000); camera.position.set(-270, 330, 420); camera.lookAt(12, 0, 0);
+  const L = (g, X, Y, Z, t, s, ox, oy) => labels.push({ p: W3(X, Y, Z + off[g]), text: t, sub: s, ox, oy, anchor: 'start' });
+  L('controls', 139.5, 20, 3.8, '按键 ×5 · 导光柱 ×3 · 格栅', '包内 STEP', 70, -20);
+  L('cover', 148, 30, 3.8, '上盖', 'upper_cover.step（含 USB/传感器托架、音频肩）', 60, 0);
+  L('coverBoard', 148, 38, 0.5, '控制板 + 开关 + 扬声器', 'cover_native_reference + FPC', 60, 10);
+  L('mid', 112, 40, -3.3, 'USB 子板 · 音频板 · Kycon ×4', 'audio_load_frame 载框', 90, 20);
+  L('main', 111.3, 40, -11.75, '主板 8 层 0.8 mm', '元件为占位包络', 90, 30);
+  L('battery', 92, 40, -14.8, '电池 52×34.5×5.4 + 膨胀预留', '绝缘片 / NTC 隔片', 105, 30);
+  L('cup', 112.5, 44, -16, '下杯 77×45', 'lower_cup.step', 110, 75);
+  setCap('结构分层爆炸图 · 原生 CAD', '沿 Z 向分开；全部来自包内 STEP（16 条普通互连未建模）', SRC);
+} else if (view === 'section') {
+  scene.background = bgGradient('#f5f4f1', '#dcd9d4');
+  const plane = new THREE.Plane(new THREE.Vector3(0, 0, -1), 37 - 24.5); // keep z <= Y37
+  for (const m of Object.values(MAT)) { m.clippingPlanes = [plane]; m.clipShadows = true; m.side = THREE.DoubleSide; }
+  addAll(() => true);
+  addLights(200, [-0.2, 0.8, 1.0], 2.4);
+  camera = new THREE.PerspectiveCamera(20, Wd / Ht, 10, 4000); camera.position.set(-60, 60, 330); camera.lookAt(0, -9, 12);
+  const L = (X, Z, t, s, ox, oy, a = 'start') => labels.push({ p: W3(X, 37, Z), text: t, sub: s, ox, oy, anchor: a });
+  L(148, 3.8, '上盖顶 Z 3.80', '', 30, -30); L(112.5, -21.05, '下杯底 Z −21.05', '总高 24.90', 30, 30);
+  L(70, -12.1, '主板 Z −11.75…−12.55', '', 140, 60); L(70, -17.5, '电池 Z −14.80…−20.20', '+1.0 膨胀预留', 140, 100);
+  L(46.5, -10.5, 'Kycon 插座 → 音频板', '', -160, 40, 'end');
+  setCap('A-A 剖切 · Y = 37（插座中心）· 原生 CAD', '剖面直接由 STEP 实体裁切；可与 M-R3-02 的 Z 链逐层对照', SRC);
+} else if (view === 'top') {
+  scene.background = new THREE.Color('#f7f6f4');
+  addAll((n, g) => ['cover', 'controls'].includes(g) || n.startsWith('Kycon') || n.startsWith('GCT'));
+  addLights(120, [-0.25, 1.0, 0.35], 2.3);
+  const h = 40, asp = Wd / Ht; camera = new THREE.OrthographicCamera(-h * asp, h * asp, h, -h, 1, 2000);
+  camera.up.set(0, 0, -1); camera.position.set(0, 500, 0); camera.lookAt(0, 0, 0);
+  setCap('控制面上视 · 原生 CAD', '', SRC);
+}
+renderer.render(scene, camera);
+const ov = document.getElementById('ov'); let svg = '';
+const proj = (v) => { const p = v.clone().project(camera); return [(p.x + 1) / 2 * Wd, (1 - p.y) / 2 * Ht]; };
+for (const l of labels) { const [x, y] = proj(l.p); const tx = x + l.ox, ty = y + l.oy; const dy = l.oy < 0 ? -22 : 16;
+  svg += `<circle cx="${x}" cy="${y}" r="3.2" fill="#c0392b"/><line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="#c0392b" stroke-width="1.2"/><text class="t" x="${tx}" y="${ty + dy}" text-anchor="${l.anchor}">${l.text}</text>`;
+  if (l.sub) svg += `<text class="ts" x="${tx}" y="${ty + dy + 17}" text-anchor="${l.anchor}">${l.sub}</text>`; }
+ov.innerHTML = svg; window.DONE = 'ok';
+</script></body></html>
