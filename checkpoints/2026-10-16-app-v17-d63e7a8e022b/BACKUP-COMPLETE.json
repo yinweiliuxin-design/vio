@@ -1,0 +1,236 @@
+{
+  "status": "PASS",
+  "version": "V17",
+  "date": "2026-10-16",
+  "sourceCommit": "d63e7a8e022bddcd41fabce012d7681f2bc55b72",
+  "repository": "yinweiliuxin-design/vio",
+  "checkpoint": "checkpoints/2026-10-16-app-v17-d63e7a8e022b",
+  "payloadCommit": "ee1daad888e2884d66af897c3b834640ecf90e62",
+  "sourceFiles": 171,
+  "archiveSha256": "a2f5a5c30fb1e0204a622f184d3918fdc6de13ebcf09e6beb5ca20d6ae12ed01",
+  "archiveBytes": 8115070,
+  "parts": 31,
+  "remotePayloadFilesReadBack": 34,
+  "allRemoteUtf8ContentsMatched": true,
+  "allGitBlobHashesMatched": true,
+  "crcVerified": true,
+  "restoreVerifierPassed": true,
+  "restoredSourceFiles": 171,
+  "privacy": {
+    "userRecordings": false,
+    "productionDatabase": false,
+    "credentials": false,
+    "approvedCC0Samples": true
+  },
+  "verified": [
+    {
+      "name": "FILE-MANIFEST.json",
+      "bytes": 34048,
+      "blobSha": "66ae2eb6e9f24a4e93fa6725247ce62835b107fa",
+      "contentMatched": true
+    },
+    {
+      "name": "README-恢复与校验.txt",
+      "bytes": 1296,
+      "blobSha": "44ef31e63bca49c330b8013351d550b313c7049b",
+      "contentMatched": true
+    },
+    {
+      "name": "RESTORE-VERIFY.cjs",
+      "bytes": 4334,
+      "blobSha": "9292d20290b1003c764981f33c192d0373cf1c2a",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0001.b64",
+      "bytes": 349529,
+      "blobSha": "68e2c03de12899959ab5078a4b64f44267e2931d",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0002.b64",
+      "bytes": 349529,
+      "blobSha": "b1816770f48ef9d4edb32b7f756f3b7de49d4736",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0003.b64",
+      "bytes": 349529,
+      "blobSha": "bb651b0c4168643a2bfa5c923317b530239e4e18",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0004.b64",
+      "bytes": 349529,
+      "blobSha": "3c6cf29c2f9868feb0ec397f55493ac8eb18c62d",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0005.b64",
+      "bytes": 349529,
+      "blobSha": "e91f708d7ff8420f6cec1268ad5f9174bf84c877",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0006.b64",
+      "bytes": 349529,
+      "blobSha": "5960295150379aa95cc78580c6ddccbccdb3c3de",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0007.b64",
+      "bytes": 349529,
+      "blobSha": "36f22dc16c26889a6ff8121481a061e92ea41fe2",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0008.b64",
+      "bytes": 349529,
+      "blobSha": "b3a2a0897b6e635df8c34e331d9998fe5362610f",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0009.b64",
+      "bytes": 349529,
+      "blobSha": "e8234d50e57c396ade8a973b845f31f5bc12c82c",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0010.b64",
+      "bytes": 349529,
+      "blobSha": "5fabf56c381c677477a3377628d74be885b65408",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0011.b64",
+      "bytes": 349529,
+      "blobSha": "2b8055d1d0269764699331b4b0790bebb290c429",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0012.b64",
+      "bytes": 349529,
+      "blobSha": "d31a779aeaf51a6a6c699495f8af6e8ecf4ca786",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0013.b64",
+      "bytes": 349529,
+      "blobSha": "cd79fa6ec13f577b1218759a3fde4ddeb33872ab",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0014.b64",
+      "bytes": 349529,
+      "blobSha": "ab8ebb4f21daee7d21a517e2fe0a5fdebdb52c47",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0015.b64",
+      "bytes": 349529,
+      "blobSha": "3f5013d2ee76502662db2b1ae7d0adf1c34d73e2",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0016.b64",
+      "bytes": 349529,
+      "blobSha": "7c8ab4715636a0f0e4a4e23c9a724c4485511b2b",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0017.b64",
+      "bytes": 349529,
+      "blobSha": "1bfc2fd47e95957002b9b22cb6fa61330f067881",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0018.b64",
+      "bytes": 349529,
+      "blobSha": "31d4da427de0fb20773f2b21e734d08fa5eccfb6",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0019.b64",
+      "bytes": 349529,
+      "blobSha": "b813159a08fcd08e305271fe13f55695f6dcd391",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0020.b64",
+      "bytes": 349529,
+      "blobSha": "11f1d2a78917e8283ccd72b69aa0e8d77573c33b",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0021.b64",
+      "bytes": 349529,
+      "blobSha": "0f3992e5729ea87367591f4e02ecf53746b0cb10",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0022.b64",
+      "bytes": 349529,
+      "blobSha": "8b3354111d0039ede40eb75d5b40b54254e4f297",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0023.b64",
+      "bytes": 349529,
+      "blobSha": "bb7084fc00282016039da59c550a351d850ecb8d",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0024.b64",
+      "bytes": 349529,
+      "blobSha": "050d36023665c4d8c8e36a922d1780ceca049478",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0025.b64",
+      "bytes": 349529,
+      "blobSha": "ad71176995541d7f1f86718f521fe28be846504c",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0026.b64",
+      "bytes": 349529,
+      "blobSha": "8104e95cb2a6c9a3a8b385dce75671ec5e1dac06",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0027.b64",
+      "bytes": 349529,
+      "blobSha": "c9a7713c9b6f29dd8078ef0b04f1ac021d7df2b0",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0028.b64",
+      "bytes": 349529,
+      "blobSha": "5e9b533991d1428b83c936705606b1a937f85012",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0029.b64",
+      "bytes": 349529,
+      "blobSha": "cb7bf30c3ecc212972954c552d83f592f9174c6e",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0030.b64",
+      "bytes": 349529,
+      "blobSha": "9b5d64079b01bd4d8fc93d5b27c4305ab5927a0b",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0031.b64",
+      "bytes": 334337,
+      "blobSha": "3cadd199d4e454b7b098a4b19ebc08cf5e227b5d",
+      "contentMatched": true
+    }
+  ],
+  "reportGenerator": {
+    "sha256": "b5cbb15ea1a605e045bee345dfa90ddfbf4a5fdd96356c4011a8d4993aeca786",
+    "nineSectionsFullyRendered": true,
+    "plannedReportFile": "SmartVio-V17-交付报告.docx"
+  }
+}
