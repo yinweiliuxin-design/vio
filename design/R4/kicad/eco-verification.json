@@ -1,0 +1,2359 @@
+{
+ "schema": "smartvio.r4.eco-verification.v1",
+ "date": "2026-10-15",
+ "inputs": {
+  "r3_netlist": "work/r3/r3-netlist.xml",
+  "r4_netlist": "work/r4/r4-netlist.xml",
+  "eco_schematic": "design/R4/eco/eco-schematic.json",
+  "eco_pcb": "design/R4/eco/eco-pcb.json"
+ },
+ "summary": {
+  "checks": 142,
+  "passed": 142,
+  "failed": 0,
+  "r3_components": 319,
+  "r4_components": 348,
+  "r3_nets": 308,
+  "r4_nets": 316
+ },
+ "diff": {
+  "components_added": [
+   "C1004",
+   "C1109",
+   "D1303",
+   "D401",
+   "FPC3401",
+   "FPC3402",
+   "FPC3403",
+   "FPC3404",
+   "FPC3405",
+   "FPC3406",
+   "J3401",
+   "J3402",
+   "J3403",
+   "J3404",
+   "J3405",
+   "J3406",
+   "J3407",
+   "J3408",
+   "J3409",
+   "J3410",
+   "J3411",
+   "J3412",
+   "Q1202",
+   "Q1203",
+   "R1212",
+   "R1213",
+   "R1214",
+   "R1215",
+   "R323",
+   "R324",
+   "R704"
+  ],
+  "components_removed": [
+   "J1801",
+   "J1802"
+  ],
+  "nets_added": [
+   "DAC_UNMUTE_MCU",
+   "EFUSE_ITIMER",
+   "HP_DET_B",
+   "HP_EN_MCU",
+   "HP_PORT_ENABLE",
+   "PWR_PB_SENSE",
+   "RET_PORT_ENABLE",
+   "SSR_GATE_HP",
+   "SSR_GATE_RET",
+   "SSR_SINK_HP",
+   "SSR_SINK_RET"
+  ],
+  "nets_removed": [],
+  "nc_nets_added": [
+   "unconnected-(D1303-NC-Pad2)"
+  ],
+  "nc_nets_removed": [
+   "unconnected-(U1001-ITIMER-Pad10)",
+   "unconnected-(U801-PB12-Pad51)",
+   "unconnected-(U801-PD14-Pad61)",
+   "unconnected-(U801-PD15-Pad62)"
+  ],
+  "field_changes": [
+   "C1707.footprint",
+   "C1707.mpn",
+   "C1707.spec",
+   "C1707.value",
+   "C320.footprint",
+   "C320.mpn",
+   "C320.spec",
+   "C320.value",
+   "R1003.mpn",
+   "R1003.spec",
+   "R1003.value",
+   "R1005.mpn",
+   "R1005.spec",
+   "R1005.value",
+   "R1103.mpn",
+   "R1103.spec",
+   "R1103.value",
+   "R1201.mpn",
+   "R1201.spec",
+   "R1201.value",
+   "R1202.mpn",
+   "R1202.spec",
+   "R1202.value",
+   "R1203.mpn",
+   "R1203.spec",
+   "R1203.value",
+   "R1204.mpn",
+   "R1204.spec",
+   "R1204.value",
+   "R1205.mpn",
+   "R1205.spec",
+   "R1205.value",
+   "R1206.mpn",
+   "R1206.spec",
+   "R1206.value",
+   "R1207.mpn",
+   "R1207.spec",
+   "R1207.value",
+   "R1304.mpn",
+   "R1304.spec",
+   "R1304.value",
+   "R1705.mpn",
+   "R1705.spec",
+   "R1705.value",
+   "R1706.mpn",
+   "R1706.spec",
+   "R1706.value",
+   "R1707.mpn",
+   "R1707.spec",
+   "R1707.value",
+   "R1709.mpn",
+   "R1709.spec",
+   "R1709.value",
+   "R1710.mpn",
+   "R1710.spec",
+   "R1710.value",
+   "R1711.mpn",
+   "R1711.spec",
+   "R1711.value",
+   "R2351.mpn",
+   "R2351.spec",
+   "R2351.value",
+   "R322.mpn",
+   "R322.spec",
+   "R322.value"
+  ],
+  "pin_net_changes": [
+   {
+    "pin": "C1921.1",
+    "r3": "SYS",
+    "r4": "USB_5V_SAFE",
+    "eco": "E-02"
+   },
+   {
+    "pin": "C902.1",
+    "r3": "V3LOAD",
+    "r4": "V3D",
+    "eco": "E-08"
+   },
+   {
+    "pin": "C903.1",
+    "r3": "V3LOAD",
+    "r4": "V3D",
+    "eco": "E-08"
+   },
+   {
+    "pin": "J301.6",
+    "r3": "GND",
+    "r4": "HP_DET_B",
+    "eco": "E-01"
+   },
+   {
+    "pin": "J902.1",
+    "r3": "V3LOAD",
+    "r4": "V3D",
+    "eco": "E-08"
+   },
+   {
+    "pin": "K1201.2",
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_HP",
+    "eco": "E-03"
+   },
+   {
+    "pin": "K1202.2",
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_HP",
+    "eco": "E-03"
+   },
+   {
+    "pin": "K1206.2",
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_RET",
+    "eco": "E-03"
+   },
+   {
+    "pin": "K1207.2",
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_RET",
+    "eco": "E-03"
+   },
+   {
+    "pin": "R590.2",
+    "r3": "GND",
+    "r4": "V3D",
+    "eco": "E-04"
+   },
+   {
+    "pin": "R902.2",
+    "r3": "V3LOAD",
+    "r4": "V3D",
+    "eco": "E-08"
+   },
+   {
+    "pin": "U1001.10",
+    "r3": "unconnected-(U1001-ITIMER-Pad10)",
+    "r4": "EFUSE_ITIMER",
+    "eco": "E-05"
+   },
+   {
+    "pin": "U1921.5",
+    "r3": "SYS",
+    "r4": "USB_5V_SAFE",
+    "eco": "E-02"
+   },
+   {
+    "pin": "U801.22",
+    "r3": "DAC_UNMUTE",
+    "r4": "DAC_UNMUTE_MCU",
+    "eco": "E-10"
+   },
+   {
+    "pin": "U801.23",
+    "r3": "HP_EN_VALIDATED",
+    "r4": "HP_EN_MCU",
+    "eco": "E-10"
+   },
+   {
+    "pin": "U801.51",
+    "r3": "unconnected-(U801-PB12-Pad51)",
+    "r4": "PWR_PB_SENSE",
+    "eco": "E-11"
+   },
+   {
+    "pin": "U801.61",
+    "r3": "unconnected-(U801-PD14-Pad61)",
+    "r4": "HP_PORT_ENABLE",
+    "eco": "E-03"
+   },
+   {
+    "pin": "U801.62",
+    "r3": "unconnected-(U801-PD15-Pad62)",
+    "r4": "RET_PORT_ENABLE",
+    "eco": "E-03"
+   },
+   {
+    "pin": "U901.3",
+    "r3": "V3LOAD",
+    "r4": "V3D",
+    "eco": "E-08"
+   },
+   {
+    "pin": "U902.17",
+    "r3": null,
+    "r4": "GND",
+    "eco": "E-14"
+   },
+   {
+    "pin": "U902.EP",
+    "r3": "GND",
+    "r4": null,
+    "eco": "E-14"
+   }
+  ],
+  "unexplained": []
+ },
+ "endpoint_refmap": {
+  "J3401": {
+   "endpoint_id": "H_AUDIO_1_M",
+   "group": "AUDIO6",
+   "footprint": "SmartVioV25:WirePads_6_P1.5",
+   "eco": "L-19"
+  },
+  "FPC3401": {
+   "endpoint_id": "FPC_AUDIO6",
+   "group": "AUDIO6",
+   "footprint": "SmartVioV26:FPC_AUDIO6",
+   "eco": "L-19"
+  },
+  "J3402": {
+   "endpoint_id": "H_AUDIO_1_R",
+   "group": "AUDIO6",
+   "footprint": "SmartVioV25:WirePads_6_P1.5",
+   "eco": "L-19"
+  },
+  "J3403": {
+   "endpoint_id": "H_AUDIO_2_M",
+   "group": "AUDIO4",
+   "footprint": "SmartVioV25:WirePads_4_P1.5",
+   "eco": "L-13"
+  },
+  "FPC3402": {
+   "endpoint_id": "FPC_AUDIO4",
+   "group": "AUDIO4",
+   "footprint": "SmartVioV26:FPC_AUDIO4",
+   "eco": "L-13"
+  },
+  "J3404": {
+   "endpoint_id": "H_AUDIO_2_R",
+   "group": "AUDIO4",
+   "footprint": "SmartVioV25:WirePads_4_P1.5",
+   "eco": "L-13"
+  },
+  "J3405": {
+   "endpoint_id": "H_COVER_1_M",
+   "group": "KEYS6",
+   "footprint": "SmartVioV26:WirePads_Control6_2x3_R3",
+   "eco": "L-19"
+  },
+  "FPC3403": {
+   "endpoint_id": "FPC_KEYS6",
+   "group": "KEYS6",
+   "footprint": "SmartVioV26:FPC_KEYS6_R4",
+   "eco": "L-19"
+  },
+  "J3406": {
+   "endpoint_id": "H_COVER_1_R",
+   "group": "KEYS6",
+   "footprint": "SmartVioV25:WirePads_6_P1.5",
+   "eco": "L-19"
+  },
+  "J3407": {
+   "endpoint_id": "H_COVER_2_M",
+   "group": "COVER6",
+   "footprint": "SmartVioV25:WirePads_6_P1.5",
+   "eco": "L-19"
+  },
+  "FPC3404": {
+   "endpoint_id": "FPC_COVER6",
+   "group": "COVER6",
+   "footprint": "SmartVioV26:FPC_COVER6",
+   "eco": "L-19"
+  },
+  "J3408": {
+   "endpoint_id": "H_COVER_2_R",
+   "group": "COVER6",
+   "footprint": "SmartVioV25:WirePads_6_P1.5",
+   "eco": "L-19"
+  },
+  "J3409": {
+   "endpoint_id": "H_COVER_3_M",
+   "group": "POTS3",
+   "footprint": "SmartVioV25:WirePads_3_P1.5",
+   "eco": "L-19"
+  },
+  "FPC3405": {
+   "endpoint_id": "FPC_POTS3",
+   "group": "POTS3",
+   "footprint": "SmartVioV26:FPC_POTS3",
+   "eco": "L-19"
+  },
+  "J3410": {
+   "endpoint_id": "H_COVER_3_R",
+   "group": "POTS3",
+   "footprint": "SmartVioV25:WirePads_3_P1.5",
+   "eco": "L-19"
+  },
+  "J3411": {
+   "endpoint_id": "J_USB_M",
+   "group": "USB16",
+   "footprint": "SmartVioV26:FPC_USB16_HotBar_Main_P0.70",
+   "eco": "L-10"
+  },
+  "FPC3406": {
+   "endpoint_id": "FPC_USB16",
+   "group": "USB16",
+   "footprint": "SmartVioV26:FPC_USB16",
+   "eco": "L-10"
+  },
+  "J3412": {
+   "endpoint_id": "J_USB_U",
+   "group": "USB16",
+   "footprint": "Connector_FFC-FPC:Hirose_FH12-16S-0.5SH_1x16-1MP_P0.50mm_Horizontal",
+   "eco": "L-10"
+  }
+ },
+ "checks": [
+  {
+   "eco": "E-01",
+   "check": "R322 value 1k -> 100k RC0603FR-07100KL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "1k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071KL",
+     "spec": "1k",
+     "dnp": false
+    },
+    "r4": {
+     "value": "100k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07100KL",
+     "spec": "100k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "HP_DETECT_GPIO",
+     "1": "HP_DETECT_RAW"
+    }
+   }
+  },
+  {
+   "eco": "E-01",
+   "check": "C320 value 0.01uF C0G 25V 5% -> 100nF X7R 10V CC0603KRX7R7BB104",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "0.01uF C0G 25V 5%",
+     "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU",
+     "mpn": "C0603C103J3GACTU",
+     "spec": "0.01uF C0G 25V 5%",
+     "dnp": false
+    },
+    "r4": {
+     "value": "100nF X7R 10V",
+     "footprint": "Passive_V26_ManufacturerLand:CC0603KRX7R7BB104",
+     "mpn": "CC0603KRX7R7BB104",
+     "spec": "100nF X7R 10V",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "HP_DETECT_GPIO"
+    }
+   }
+  },
+  {
+   "eco": "E-01",
+   "check": "J301.6 GND -> HP_DET_B",
+   "result": "pass",
+   "detail": {
+    "r3": "GND",
+    "r4": "HP_DET_B"
+   }
+  },
+  {
+   "eco": "E-01",
+   "check": "add R323 0R pins {'1': 'HP_DET_B', '2': 'GND'} DNP",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "0R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603JR-070RL",
+     "spec": "0R",
+     "dnp": true
+    },
+    "pins_r4": {
+     "1": "HP_DET_B",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-01",
+   "check": "keep R321 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-01",
+   "check": "new net HP_DET_B exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "J301",
+      "6",
+      "passive"
+     ],
+     [
+      "R323",
+      "1",
+      "passive"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1705 value 15k 0.1% 25ppm/C -> 2.2M 1% RC0603FR-072M2L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "15k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD0715KL",
+     "spec": "15k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "2.2M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-072M2L",
+     "spec": "2.2M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "MON_BAT_DIV",
+     "1": "PACK_PLUS"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1706 value 10k 0.1% 25ppm/C -> 1.5M 1% RC0603FR-071M5L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "10k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD0710KL",
+     "spec": "10k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "1.5M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071M5L",
+     "spec": "1.5M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "MON_BAT_DIV"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1709 value 15k 0.1% 25ppm/C -> 2.2M 1% RC0603FR-072M2L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "15k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD0715KL",
+     "spec": "15k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "2.2M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-072M2L",
+     "spec": "2.2M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "MON_SYS_DIV",
+     "1": "SYS"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1710 value 10k 0.1% 25ppm/C -> 1.5M 1% RC0603FR-071M5L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "10k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD0710KL",
+     "spec": "10k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "1.5M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071M5L",
+     "spec": "1.5M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "MON_SYS_DIV"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1707 value 100k 0.1% 25ppm/C -> 10M 1% RC0603FR-0710ML",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "100k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD07100KL",
+     "spec": "100k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "10M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-0710ML",
+     "spec": "10M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "MON_BAT_BUF_IN"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1711 value 100k 0.1% 25ppm/C -> 10M 1% RC0603FR-0710ML",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "100k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD07100KL",
+     "spec": "100k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "10M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-0710ML",
+     "spec": "10M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "MON_SYS_BUF_IN"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1103 value 33k 1% -> 2.2M 1% RC0603FR-072M2L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "33k 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-0733KL",
+     "spec": "33k 1%",
+     "dnp": false
+    },
+    "r4": {
+     "value": "2.2M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-072M2L",
+     "spec": "2.2M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "PWR_LTC_EN",
+     "1": "SYS"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "R1304 value 100k 1% -> 4.7M 1% RC0603FR-074M7L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "100k 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07100KL",
+     "spec": "100k 1%",
+     "dnp": false
+    },
+    "r4": {
+     "value": "4.7M 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-074M7L",
+     "spec": "4.7M 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "SYS_ENABLE"
+    }
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "U1921.5 SYS -> USB_5V_SAFE",
+   "result": "pass",
+   "detail": {
+    "r3": "SYS",
+    "r4": "USB_5V_SAFE"
+   }
+  },
+  {
+   "eco": "E-02",
+   "check": "C1921.1 SYS -> USB_5V_SAFE",
+   "result": "pass",
+   "detail": {
+    "r3": "SYS",
+    "r4": "USB_5V_SAFE"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1201 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_0",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1202 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_1",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1203 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_2",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1204 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_3",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1205 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_4",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1206 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_5",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "R1207 value 270R -> 390R RC0603FR-07390RL",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "270R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07270RL",
+     "spec": "270R",
+     "dnp": false
+    },
+    "r4": {
+     "value": "390R",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07390RL",
+     "spec": "390R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "SSR_LED_6",
+     "1": "V3D"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "K1201.2 SSR_SINK -> SSR_SINK_HP",
+   "result": "pass",
+   "detail": {
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_HP"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "K1202.2 SSR_SINK -> SSR_SINK_HP",
+   "result": "pass",
+   "detail": {
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_HP"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "K1206.2 SSR_SINK -> SSR_SINK_RET",
+   "result": "pass",
+   "detail": {
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_RET"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "K1207.2 SSR_SINK -> SSR_SINK_RET",
+   "result": "pass",
+   "detail": {
+    "r3": "SSR_SINK",
+    "r4": "SSR_SINK_RET"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "keep K1203 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-03",
+   "check": "keep K1204 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-03",
+   "check": "keep K1205 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-03",
+   "check": "keep Q1201 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-03",
+   "check": "keep R1210 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-03",
+   "check": "keep R1211 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-03",
+   "check": "add Q1202 PMV30UN2R pins {'1 G': 'SSR_GATE_HP', '2 S': 'GND', '3 D': 'SSR_SINK_HP'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "PMV30UN2R",
+     "footprint": "SmartVioV25:SOT-23",
+     "mpn": "PMV30UN2R",
+     "spec": "PMV30UN2R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "SSR_GATE_HP",
+     "2": "GND",
+     "3": "SSR_SINK_HP"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "add R1212 1k pins {'1': 'HP_PORT_ENABLE', '2': 'SSR_GATE_HP'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "1k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071KL",
+     "spec": "1k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "HP_PORT_ENABLE",
+     "2": "SSR_GATE_HP"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "add R1213 100k pins {'1': 'SSR_GATE_HP', '2': 'GND'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "100k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07100KL",
+     "spec": "100k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "SSR_GATE_HP",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "add Q1203 PMV30UN2R pins {'1 G': 'SSR_GATE_RET', '2 S': 'GND', '3 D': 'SSR_SINK_RET'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "PMV30UN2R",
+     "footprint": "SmartVioV25:SOT-23",
+     "mpn": "PMV30UN2R",
+     "spec": "PMV30UN2R",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "SSR_GATE_RET",
+     "2": "GND",
+     "3": "SSR_SINK_RET"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "add R1214 1k pins {'1': 'RET_PORT_ENABLE', '2': 'SSR_GATE_RET'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "1k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071KL",
+     "spec": "1k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "RET_PORT_ENABLE",
+     "2": "SSR_GATE_RET"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "add R1215 100k pins {'1': 'SSR_GATE_RET', '2': 'GND'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "100k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-07100KL",
+     "spec": "100k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "SSR_GATE_RET",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "U801.61 no_connect -> HP_PORT_ENABLE",
+   "result": "pass",
+   "detail": {
+    "r3": "unconnected-(U801-PD14-Pad61)",
+    "r4": "HP_PORT_ENABLE"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "U801.62 no_connect -> RET_PORT_ENABLE",
+   "result": "pass",
+   "detail": {
+    "r3": "unconnected-(U801-PD15-Pad62)",
+    "r4": "RET_PORT_ENABLE"
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "new net SSR_SINK_HP exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "K1201",
+      "2",
+      "passive"
+     ],
+     [
+      "K1202",
+      "2",
+      "passive"
+     ],
+     [
+      "Q1202",
+      "3",
+      "passive"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "new net SSR_GATE_HP exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "Q1202",
+      "1",
+      "passive"
+     ],
+     [
+      "R1212",
+      "2",
+      "passive"
+     ],
+     [
+      "R1213",
+      "1",
+      "passive"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "new net HP_PORT_ENABLE exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "R1212",
+      "1",
+      "passive"
+     ],
+     [
+      "U801",
+      "61",
+      "bidirectional"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "new net SSR_SINK_RET exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "K1206",
+      "2",
+      "passive"
+     ],
+     [
+      "K1207",
+      "2",
+      "passive"
+     ],
+     [
+      "Q1203",
+      "3",
+      "passive"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "new net SSR_GATE_RET exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "Q1203",
+      "1",
+      "passive"
+     ],
+     [
+      "R1214",
+      "2",
+      "passive"
+     ],
+     [
+      "R1215",
+      "1",
+      "passive"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-03",
+   "check": "new net RET_PORT_ENABLE exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "R1214",
+      "1",
+      "passive"
+     ],
+     [
+      "U801",
+      "62",
+      "bidirectional"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-04",
+   "check": "R590.2 GND -> V3D",
+   "result": "pass",
+   "detail": {
+    "r3": "GND",
+    "r4": "V3D"
+   }
+  },
+  {
+   "eco": "E-04",
+   "check": "keep R502 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-04",
+   "check": "keep R501 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-04",
+   "check": "keep R401 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-04",
+   "check": "keep R402 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-04",
+   "check": "keep U1401 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-05",
+   "check": "R1005 value 6.65k -> 2.49k 1% RC0603FR-072K49L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "6.65k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-076K65L",
+     "spec": "6.65k",
+     "dnp": false
+    },
+    "r4": {
+     "value": "2.49k 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-072K49L",
+     "spec": "2.49k 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "EFUSE_ILM",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-05",
+   "check": "add C1004 0.01uF C0G 25V pins {'1': 'EFUSE_ITIMER', '2': 'GND'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "0.01uF C0G 25V 5%",
+     "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU",
+     "mpn": "C0603C103J3GACTU",
+     "spec": "0.01uF C0G 25V 5%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "EFUSE_ITIMER",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-05",
+   "check": "U1001.10 no_connect -> EFUSE_ITIMER",
+   "result": "pass",
+   "detail": {
+    "r3": "unconnected-(U1001-ITIMER-Pad10)",
+    "r4": "EFUSE_ITIMER"
+   }
+  },
+  {
+   "eco": "E-05",
+   "check": "keep U1001.3 unchanged (NC)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-05",
+   "check": "new net EFUSE_ITIMER exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "C1004",
+      "1",
+      "passive"
+     ],
+     [
+      "U1001",
+      "10",
+      "passive"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-06",
+   "check": "R1003 value 37.4k -> 39.2k 1% RC0603FR-0739K2L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "37.4k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-0737K4L",
+     "spec": "37.4k",
+     "dnp": false
+    },
+    "r4": {
+     "value": "39.2k 1%",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-0739K2L",
+     "spec": "39.2k 1%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "USB_OV",
+     "1": "VBUS_RAW"
+    }
+   }
+  },
+  {
+   "eco": "E-07",
+   "check": "add D401 SMF12A pins {'K': 'VBUS_RAW', 'A': 'GND'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "SMF12A",
+     "footprint": "Diode_SMD:D_SOD-123F",
+     "mpn": "SMF12A",
+     "spec": "SMF12A",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "VBUS_RAW",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-08",
+   "check": "U901.3 V3LOAD -> V3D",
+   "result": "pass",
+   "detail": {
+    "r3": "V3LOAD",
+    "r4": "V3D"
+   }
+  },
+  {
+   "eco": "E-08",
+   "check": "C902.1 V3LOAD -> V3D",
+   "result": "pass",
+   "detail": {
+    "r3": "V3LOAD",
+    "r4": "V3D"
+   }
+  },
+  {
+   "eco": "E-08",
+   "check": "C903.1 V3LOAD -> V3D",
+   "result": "pass",
+   "detail": {
+    "r3": "V3LOAD",
+    "r4": "V3D"
+   }
+  },
+  {
+   "eco": "E-08",
+   "check": "R902.2 V3LOAD -> V3D",
+   "result": "pass",
+   "detail": {
+    "r3": "V3LOAD",
+    "r4": "V3D"
+   }
+  },
+  {
+   "eco": "E-08",
+   "check": "J902.1 V3LOAD -> V3D",
+   "result": "pass",
+   "detail": {
+    "r3": "V3LOAD",
+    "r4": "V3D"
+   }
+  },
+  {
+   "eco": "E-09",
+   "check": "add C1109 22uF 10V X5R 0805 pins {'1': 'V3D', '2': 'GND'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "22uF 10V",
+     "footprint": "Passive_V26_ManufacturerLand:CC0805MKX5R6BB226",
+     "mpn": "CC0805MKX5R6BB226",
+     "spec": "22uF 10V",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "V3D",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-10",
+   "check": "U801.22 DAC_UNMUTE -> DAC_UNMUTE_MCU",
+   "result": "pass",
+   "detail": {
+    "r3": "DAC_UNMUTE",
+    "r4": "DAC_UNMUTE_MCU"
+   }
+  },
+  {
+   "eco": "E-10",
+   "check": "add R704 1k pins {'1': 'DAC_UNMUTE_MCU', '2': 'DAC_UNMUTE'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "1k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071KL",
+     "spec": "1k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "DAC_UNMUTE_MCU",
+     "2": "DAC_UNMUTE"
+    }
+   }
+  },
+  {
+   "eco": "E-10",
+   "check": "U801.23 HP_EN_VALIDATED -> HP_EN_MCU",
+   "result": "pass",
+   "detail": {
+    "r3": "HP_EN_VALIDATED",
+    "r4": "HP_EN_MCU"
+   }
+  },
+  {
+   "eco": "E-10",
+   "check": "add R324 1k pins {'1': 'HP_EN_MCU', '2': 'HP_EN_VALIDATED'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "1k",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RC0603FR-071KL",
+     "spec": "1k",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "HP_EN_MCU",
+     "2": "HP_EN_VALIDATED"
+    }
+   }
+  },
+  {
+   "eco": "E-10",
+   "check": "new net DAC_UNMUTE_MCU exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "R704",
+      "1",
+      "passive"
+     ],
+     [
+      "U801",
+      "22",
+      "bidirectional"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-10",
+   "check": "new net HP_EN_MCU exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "R324",
+      "1",
+      "passive"
+     ],
+     [
+      "U801",
+      "23",
+      "bidirectional"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-11",
+   "check": "add D1303 BAS116,215 pins {'1 A': 'PWR_PB_SENSE', '2 NC': 'no_connect', '3 K': 'PWR_PB'}",
+   "result": "pass",
+   "detail": {
+    "r4": {
+     "value": "BAS116,215",
+     "footprint": "SmartVioV25:SOT-23",
+     "mpn": "BAS116,215",
+     "spec": "BAS116,215",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "PWR_PB_SENSE",
+     "2": "unconnected-(D1303-NC-Pad2)",
+     "3": "PWR_PB"
+    }
+   }
+  },
+  {
+   "eco": "E-11",
+   "check": "U801.51 no_connect -> PWR_PB_SENSE",
+   "result": "pass",
+   "detail": {
+    "r3": "unconnected-(U801-PB12-Pad51)",
+    "r4": "PWR_PB_SENSE"
+   }
+  },
+  {
+   "eco": "E-11",
+   "check": "new net PWR_PB_SENSE exists with >=2 nodes and is new vs R3",
+   "result": "pass",
+   "detail": {
+    "nodes": [
+     [
+      "D1303",
+      "1",
+      "passive"
+     ],
+     [
+      "U801",
+      "51",
+      "bidirectional"
+     ]
+    ]
+   }
+  },
+  {
+   "eco": "E-12",
+   "check": "R2351 value 499ohm 0.1% 25ppm/C -> 3.32k 0.1% RT0603BRD073K32L",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "499ohm 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD07499RL",
+     "spec": "499ohm 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "r4": {
+     "value": "3.32k 0.1% 25ppm/C",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "mpn": "RT0603BRD073K32L",
+     "spec": "3.32k 0.1% 25ppm/C",
+     "dnp": false
+    },
+    "pins_r4": {
+     "1": "CHG_ITERM_ECO",
+     "2": "GND"
+    }
+   }
+  },
+  {
+   "eco": "E-12",
+   "check": "keep R2352 unchanged",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "E-13",
+   "check": "C1707 value 0.01uF C0G 25V 5% -> 100pF C0G 50V C0603C101J5GACTU",
+   "result": "pass",
+   "detail": {
+    "r3": {
+     "value": "0.01uF C0G 25V 5%",
+     "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU",
+     "mpn": "C0603C103J3GACTU",
+     "spec": "0.01uF C0G 25V 5%",
+     "dnp": false
+    },
+    "r4": {
+     "value": "100pF C0G 50V 5%",
+     "footprint": "SmartVioV25:C_0603_1608Metric",
+     "mpn": "C0603C101J5GACTU",
+     "spec": "100pF C0G 50V 5%",
+     "dnp": false
+    },
+    "pins_r4": {
+     "2": "GND",
+     "1": "MON_ICHG_BUF_IN"
+    }
+   }
+  },
+  {
+   "eco": "E-14",
+   "check": "U902 pin EP -> 17 (GND)",
+   "result": "pass",
+   "detail": {
+    "r3_EP": "GND",
+    "r4_17": "GND"
+   }
+  },
+  {
+   "eco": "L-10",
+   "check": "main end J3411 (J_USB_M) 16 pins per eco-pcb L-10 pin table",
+   "result": "pass",
+   "detail": {
+    "3": "CC_FAULT_N",
+    "10": "GND",
+    "11": "GND",
+    "12": "GND",
+    "5": "GND",
+    "8": "GND",
+    "9": "USB_5V_SAFE",
+    "2": "USB_DATA_DISABLE",
+    "1": "USB_DATA_FAULT_N",
+    "6": "USB_DM_MCU",
+    "7": "USB_DP_MCU",
+    "4": "V3D",
+    "13": "VBUS_RAW",
+    "14": "VBUS_RAW",
+    "15": "VBUS_RAW",
+    "16": "VBUS_RAW"
+   }
+  },
+  {
+   "eco": "L-10",
+   "check": "USB-board end J3412 (J_USB_U) 16 pins per eco-pcb L-10 pin table",
+   "result": "pass",
+   "detail": {
+    "3": "CC_FAULT_N",
+    "10": "GND",
+    "11": "GND",
+    "12": "GND",
+    "5": "GND",
+    "8": "GND",
+    "9": "USB_5V_SAFE",
+    "2": "USB_DATA_DISABLE",
+    "1": "USB_DATA_FAULT_N",
+    "6": "USB_DM_MCU",
+    "7": "USB_DP_MCU",
+    "4": "V3D",
+    "13": "VBUS_RAW",
+    "14": "VBUS_RAW",
+    "15": "VBUS_RAW",
+    "16": "VBUS_RAW"
+   }
+  },
+  {
+   "eco": "L-10",
+   "check": "FPC body FPC3406 (FPC_USB16) S1-16/T1-16 per pin table",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "USB16 conductor budget: 4x VBUS_RAW, 5x GND, 16 total",
+   "result": "pass",
+   "detail": {
+    "USB_DATA_FAULT_N": 1,
+    "USB_DATA_DISABLE": 1,
+    "CC_FAULT_N": 1,
+    "V3D": 1,
+    "GND": 5,
+    "USB_DM_MCU": 1,
+    "USB_DP_MCU": 1,
+    "USB_5V_SAFE": 1,
+    "VBUS_RAW": 4
+   }
+  },
+  {
+   "eco": "L-10",
+   "check": "W25 (GND) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W26 (USB_DM_MCU) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W27 (USB_DP_MCU) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W28 (V3D) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W29 (CC_FAULT_N) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W30 (USB_DATA_DISABLE) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W31 (USB_DATA_FAULT_N) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W32 (USB_5V_SAFE) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "W33 (VBUS_RAW) carried by USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "H_USB_1_M not in R4 schematic (replaced by USB16)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "H_USB_1_R not in R4 schematic (replaced by USB16)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "H_USB_2_M not in R4 schematic (replaced by USB16)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-10",
+   "check": "H_USB_2_R not in R4 schematic (replaced by USB16)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "J1801 removed",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "J1802 removed",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "U1801 unchanged (pins and fields)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "C1801 unchanged (pins and fields)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "R1801 unchanged (pins and fields)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "R1802 unchanged (pins and fields)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-12",
+   "check": "TEMP_SCL = R1801.2 + U1801.1 only",
+   "result": "pass",
+   "detail": [
+    [
+     "R1801",
+     "2",
+     "passive"
+    ],
+    [
+     "U1801",
+     "1",
+     "input"
+    ]
+   ]
+  },
+  {
+   "eco": "L-12",
+   "check": "TEMP_SDA = R1802.2 + U1801.6 only",
+   "result": "pass",
+   "detail": [
+    [
+     "R1802",
+     "2",
+     "passive"
+    ],
+    [
+     "U1801",
+     "6",
+     "bidirectional"
+    ]
+   ]
+  },
+  {
+   "eco": "L-12",
+   "check": "A29 sheet renamed to main-board board temperature",
+   "result": "pass",
+   "detail": "A29 主板（电池侧）板温 TMP117 / R4 并入主板"
+  },
+  {
+   "eco": "L-13",
+   "check": "J3403 (H_AUDIO_2_M) 4 pins incl. new GND pin 4",
+   "result": "pass",
+   "detail": {
+    "4": "GND",
+    "1": "RETURN_L_PORT",
+    "2": "RETURN_R_PORT",
+    "3": "SEND_T_PORT"
+   }
+  },
+  {
+   "eco": "L-13",
+   "check": "J3404 (H_AUDIO_2_R) 4 pins incl. new GND pin 4",
+   "result": "pass",
+   "detail": {
+    "4": "GND",
+    "1": "RETURN_L_PORT",
+    "2": "RETURN_R_PORT",
+    "3": "SEND_T_PORT"
+   }
+  },
+  {
+   "eco": "L-13",
+   "check": "FPC body FPC3402 (FPC_AUDIO4) S1-4/T1-4",
+   "result": "pass",
+   "detail": {
+    "S4": "GND",
+    "T4": "GND",
+    "S1": "RETURN_L_PORT",
+    "T1": "RETURN_L_PORT",
+    "S2": "RETURN_R_PORT",
+    "T2": "RETURN_R_PORT",
+    "S3": "SEND_T_PORT",
+    "T3": "SEND_T_PORT"
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC_AUDIO6 on SmartVio-fpc-audio6-r2-bus.kicad_pcb -> FPC3401 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "S1": "GND",
+     "S2": "HP_DETECT_RAW",
+     "S3": "HP_L_PORT",
+     "S4": "HP_R_PORT",
+     "S5": "LINE_L_PORT",
+     "S6": "LINE_R_PORT",
+     "T1": "GND",
+     "T2": "HP_DETECT_RAW",
+     "T3": "HP_L_PORT",
+     "T4": "HP_R_PORT",
+     "T5": "LINE_L_PORT",
+     "T6": "LINE_R_PORT"
+    },
+    "r4": {
+     "S1": "GND",
+     "T1": "GND",
+     "S2": "HP_DETECT_RAW",
+     "T2": "HP_DETECT_RAW",
+     "S3": "HP_L_PORT",
+     "T3": "HP_L_PORT",
+     "S4": "HP_R_PORT",
+     "T4": "HP_R_PORT",
+     "S5": "LINE_L_PORT",
+     "T5": "LINE_L_PORT",
+     "S6": "LINE_R_PORT",
+     "T6": "LINE_R_PORT"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC_COVER6 on SmartVio-fpc-cover6-r2-bus.kicad_pcb -> FPC3404 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "S1": "LED_ZONE_1_A",
+     "S2": "LED_ZONE_2_A",
+     "S3": "LED_ZONE_3_A",
+     "S4": "PWR_PB",
+     "S5": "SPK_N",
+     "S6": "SPK_P",
+     "T1": "LED_ZONE_1_A",
+     "T2": "LED_ZONE_2_A",
+     "T3": "LED_ZONE_3_A",
+     "T4": "PWR_PB",
+     "T5": "SPK_N",
+     "T6": "SPK_P"
+    },
+    "r4": {
+     "S1": "LED_ZONE_1_A",
+     "T1": "LED_ZONE_1_A",
+     "S2": "LED_ZONE_2_A",
+     "T2": "LED_ZONE_2_A",
+     "S3": "LED_ZONE_3_A",
+     "T3": "LED_ZONE_3_A",
+     "S4": "PWR_PB",
+     "T4": "PWR_PB",
+     "S5": "SPK_N",
+     "T5": "SPK_N",
+     "S6": "SPK_P",
+     "T6": "SPK_P"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC_KEYS6 on SmartVio-fpc-keys6-r3-bus.kicad_pcb -> FPC3403 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "S1": "FX_RAW",
+     "S2": "GND",
+     "S3": "KEY_BT",
+     "S4": "KEY_FX",
+     "S5": "KEY_MIX",
+     "S6": "KEY_MODE",
+     "T1": "FX_RAW",
+     "T2": "GND",
+     "T3": "KEY_BT",
+     "T4": "KEY_FX",
+     "T5": "KEY_MIX",
+     "T6": "KEY_MODE"
+    },
+    "r4": {
+     "S1": "FX_RAW",
+     "T1": "FX_RAW",
+     "S2": "GND",
+     "T2": "GND",
+     "S3": "KEY_BT",
+     "T3": "KEY_BT",
+     "S4": "KEY_FX",
+     "T4": "KEY_FX",
+     "S5": "KEY_MIX",
+     "T5": "KEY_MIX",
+     "S6": "KEY_MODE",
+     "T6": "KEY_MODE"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC_POTS3 on SmartVio-fpc-pots3-r2-bus.kicad_pcb -> FPC3405 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "S1": "TONE_RAW",
+     "S2": "V3D",
+     "S3": "VOL_RAW",
+     "T1": "TONE_RAW",
+     "T2": "V3D",
+     "T3": "VOL_RAW"
+    },
+    "r4": {
+     "S1": "TONE_RAW",
+     "T1": "TONE_RAW",
+     "S2": "V3D",
+     "T2": "V3D",
+     "S3": "VOL_RAW",
+     "T3": "VOL_RAW"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_AUDIO_1_M on SmartVio-main-r3-linked.kicad_pcb -> J3401 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "GND",
+     "2": "HP_DETECT_RAW",
+     "3": "HP_L_PORT",
+     "4": "HP_R_PORT",
+     "5": "LINE_L_PORT",
+     "6": "LINE_R_PORT"
+    },
+    "r4": {
+     "1": "GND",
+     "2": "HP_DETECT_RAW",
+     "3": "HP_L_PORT",
+     "4": "HP_R_PORT",
+     "5": "LINE_L_PORT",
+     "6": "LINE_R_PORT"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_AUDIO_1_R on SmartVio-audio-r2-final.kicad_pcb -> J3402 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "GND",
+     "2": "HP_DETECT_RAW",
+     "3": "HP_L_PORT",
+     "4": "HP_R_PORT",
+     "5": "LINE_L_PORT",
+     "6": "LINE_R_PORT"
+    },
+    "r4": {
+     "1": "GND",
+     "2": "HP_DETECT_RAW",
+     "3": "HP_L_PORT",
+     "4": "HP_R_PORT",
+     "5": "LINE_L_PORT",
+     "6": "LINE_R_PORT"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_AUDIO_2_M on SmartVio-main-r3-linked.kicad_pcb -> J3403 pins == R3 PCB pad nets (+pin4 GND, L-13)",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "RETURN_L_PORT",
+     "2": "RETURN_R_PORT",
+     "3": "SEND_T_PORT"
+    },
+    "r4": {
+     "4": "GND",
+     "1": "RETURN_L_PORT",
+     "2": "RETURN_R_PORT",
+     "3": "SEND_T_PORT"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_AUDIO_2_R on SmartVio-audio-r2-final.kicad_pcb -> J3404 pins == R3 PCB pad nets (+pin4 GND, L-13)",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "RETURN_L_PORT",
+     "2": "RETURN_R_PORT",
+     "3": "SEND_T_PORT"
+    },
+    "r4": {
+     "4": "GND",
+     "1": "RETURN_L_PORT",
+     "2": "RETURN_R_PORT",
+     "3": "SEND_T_PORT"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_COVER_1_M on SmartVio-main-r3-linked.kicad_pcb -> J3405 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "FX_RAW",
+     "2": "GND",
+     "3": "KEY_BT",
+     "4": "KEY_FX",
+     "5": "KEY_MIX",
+     "6": "KEY_MODE"
+    },
+    "r4": {
+     "1": "FX_RAW",
+     "2": "GND",
+     "3": "KEY_BT",
+     "4": "KEY_FX",
+     "5": "KEY_MIX",
+     "6": "KEY_MODE"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_COVER_1_R on SmartVio-cover-r2-final4.kicad_pcb -> J3406 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "FX_RAW",
+     "2": "GND",
+     "3": "KEY_BT",
+     "4": "KEY_FX",
+     "5": "KEY_MIX",
+     "6": "KEY_MODE"
+    },
+    "r4": {
+     "1": "FX_RAW",
+     "2": "GND",
+     "3": "KEY_BT",
+     "4": "KEY_FX",
+     "5": "KEY_MIX",
+     "6": "KEY_MODE"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_COVER_2_M on SmartVio-main-r3-linked.kicad_pcb -> J3407 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "LED_ZONE_1_A",
+     "2": "LED_ZONE_2_A",
+     "3": "LED_ZONE_3_A",
+     "4": "PWR_PB",
+     "5": "SPK_N",
+     "6": "SPK_P"
+    },
+    "r4": {
+     "1": "LED_ZONE_1_A",
+     "2": "LED_ZONE_2_A",
+     "3": "LED_ZONE_3_A",
+     "4": "PWR_PB",
+     "5": "SPK_N",
+     "6": "SPK_P"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_COVER_2_R on SmartVio-cover-r2-final4.kicad_pcb -> J3408 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "LED_ZONE_1_A",
+     "2": "LED_ZONE_2_A",
+     "3": "LED_ZONE_3_A",
+     "4": "PWR_PB",
+     "5": "SPK_N",
+     "6": "SPK_P"
+    },
+    "r4": {
+     "1": "LED_ZONE_1_A",
+     "2": "LED_ZONE_2_A",
+     "3": "LED_ZONE_3_A",
+     "4": "PWR_PB",
+     "5": "SPK_N",
+     "6": "SPK_P"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_COVER_3_M on SmartVio-main-r3-linked.kicad_pcb -> J3409 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "TONE_RAW",
+     "2": "V3D",
+     "3": "VOL_RAW"
+    },
+    "r4": {
+     "1": "TONE_RAW",
+     "2": "V3D",
+     "3": "VOL_RAW"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "H_COVER_3_R on SmartVio-cover-r2-final4.kicad_pcb -> J3410 pins == R3 PCB pad nets",
+   "result": "pass",
+   "detail": {
+    "r3_pads": {
+     "1": "TONE_RAW",
+     "2": "V3D",
+     "3": "VOL_RAW"
+    },
+    "r4": {
+     "1": "TONE_RAW",
+     "2": "V3D",
+     "3": "VOL_RAW"
+    }
+   }
+  },
+  {
+   "eco": "L-19",
+   "check": "J3401 (H_AUDIO_1_M) present in R4 netlist with footprint SmartVioV25:WirePads_6_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC3401 (FPC_AUDIO6) present in R4 netlist with footprint SmartVioV26:FPC_AUDIO6",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3402 (H_AUDIO_1_R) present in R4 netlist with footprint SmartVioV25:WirePads_6_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3403 (H_AUDIO_2_M) present in R4 netlist with footprint SmartVioV25:WirePads_4_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC3402 (FPC_AUDIO4) present in R4 netlist with footprint SmartVioV26:FPC_AUDIO4",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3404 (H_AUDIO_2_R) present in R4 netlist with footprint SmartVioV25:WirePads_4_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3405 (H_COVER_1_M) present in R4 netlist with footprint SmartVioV26:WirePads_Control6_2x3_R3",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC3403 (FPC_KEYS6) present in R4 netlist with footprint SmartVioV26:FPC_KEYS6_R4",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3406 (H_COVER_1_R) present in R4 netlist with footprint SmartVioV25:WirePads_6_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3407 (H_COVER_2_M) present in R4 netlist with footprint SmartVioV25:WirePads_6_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC3404 (FPC_COVER6) present in R4 netlist with footprint SmartVioV26:FPC_COVER6",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3408 (H_COVER_2_R) present in R4 netlist with footprint SmartVioV25:WirePads_6_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3409 (H_COVER_3_M) present in R4 netlist with footprint SmartVioV25:WirePads_3_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC3405 (FPC_POTS3) present in R4 netlist with footprint SmartVioV26:FPC_POTS3",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3410 (H_COVER_3_R) present in R4 netlist with footprint SmartVioV25:WirePads_3_P1.5",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3411 (J_USB_M) present in R4 netlist with footprint SmartVioV26:FPC_USB16_HotBar_Main_P0.70",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "FPC3406 (FPC_USB16) present in R4 netlist with footprint SmartVioV26:FPC_USB16",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "J3412 (J_USB_U) present in R4 netlist with footprint Connector_FFC-FPC:Hirose_FH12-16S-0.5SH_1x16-1MP_P0.50mm_Horizontal",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "L-19",
+   "check": "all R4 references KiCad-annotated (end in a digit, unique)",
+   "result": "pass",
+   "detail": null
+  },
+  {
+   "eco": "DIFF",
+   "check": "no unexplained R3->R4 difference",
+   "result": "pass",
+   "detail": []
+  }
+ ]
+}

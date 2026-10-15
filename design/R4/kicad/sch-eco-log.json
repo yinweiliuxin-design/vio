@@ -1,0 +1,1254 @@
+[
+ {
+  "eco": "E-01",
+  "action": "change_value",
+  "sheet": "A12",
+  "ref": "R322",
+  "before": {
+   "value": "1k",
+   "mpn": "RC0603FR-071KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "100k",
+   "mpn": "RC0603FR-07100KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-01",
+  "action": "change_value",
+  "sheet": "A12",
+  "ref": "C320",
+  "before": {
+   "value": "0.01uF C0G 25V 5%",
+   "mpn": "C0603C103J3GACTU",
+   "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU"
+  },
+  "after": {
+   "value": "100nF X7R 10V",
+   "mpn": "CC0603KRX7R7BB104",
+   "footprint": "Passive_V26_ManufacturerLand:CC0603KRX7R7BB104"
+  }
+ },
+ {
+  "eco": "E-01",
+  "action": "rewire",
+  "sheet": "A12",
+  "ref": "J301",
+  "pin": "6",
+  "before": "GND",
+  "after": "HP_DET_B",
+  "label_at": [
+   388.62,
+   134.62
+  ]
+ },
+ {
+  "eco": "E-01",
+  "action": "add",
+  "sheet": "A12",
+  "ref": "R323",
+  "value": "0R",
+  "mpn": "RC0603JR-070RL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": true,
+  "at": [
+   77.47,
+   185.42
+  ],
+  "pins": {
+   "1": "HP_DET_B",
+   "2": "GND"
+  },
+  "note": "DNP by default; fit only if first-article continuity shows J301 5-6 is an independent NC switch"
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "R1705",
+  "before": {
+   "value": "15k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD0715KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "2.2M 1%",
+   "mpn": "RC0603FR-072M2L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "R1706",
+  "before": {
+   "value": "10k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD0710KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "1.5M 1%",
+   "mpn": "RC0603FR-071M5L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "R1709",
+  "before": {
+   "value": "15k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD0715KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "2.2M 1%",
+   "mpn": "RC0603FR-072M2L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "R1710",
+  "before": {
+   "value": "10k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD0710KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "1.5M 1%",
+   "mpn": "RC0603FR-071M5L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "R1707",
+  "before": {
+   "value": "100k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD07100KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "10M 1%",
+   "mpn": "RC0603FR-0710ML",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "R1711",
+  "before": {
+   "value": "100k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD07100KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "10M 1%",
+   "mpn": "RC0603FR-0710ML",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A21",
+  "ref": "R1103",
+  "before": {
+   "value": "33k 1%",
+   "mpn": "RC0603FR-0733KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "2.2M 1%",
+   "mpn": "RC0603FR-072M2L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "change_value",
+  "sheet": "A32",
+  "ref": "R1304",
+  "before": {
+   "value": "100k 1%",
+   "mpn": "RC0603FR-07100KL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "4.7M 1%",
+   "mpn": "RC0603FR-074M7L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-02",
+  "action": "rewire",
+  "sheet": "A33",
+  "ref": "U1921",
+  "pin": "5",
+  "before": "SYS",
+  "after": "USB_5V_SAFE",
+  "label_at": [
+   95.25,
+   46.99
+  ]
+ },
+ {
+  "eco": "E-02",
+  "action": "rewire",
+  "sheet": "A33",
+  "ref": "C1921",
+  "pin": "1",
+  "before": "SYS",
+  "after": "USB_5V_SAFE",
+  "label_at": [
+   182.88,
+   72.39
+  ]
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1201",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1202",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1203",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1204",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1205",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1206",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "change_value",
+  "sheet": "A22",
+  "ref": "R1207",
+  "before": {
+   "value": "270R",
+   "mpn": "RC0603FR-07270RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "390R",
+   "mpn": "RC0603FR-07390RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-03",
+  "action": "rewire",
+  "sheet": "A22",
+  "ref": "K1201",
+  "pin": "2",
+  "before": "SSR_SINK",
+  "after": "SSR_SINK_HP",
+  "label_at": [
+   187.96,
+   46.99
+  ]
+ },
+ {
+  "eco": "E-03",
+  "action": "rewire",
+  "sheet": "A22",
+  "ref": "K1202",
+  "pin": "2",
+  "before": "SSR_SINK",
+  "after": "SSR_SINK_HP",
+  "label_at": [
+   327.66,
+   76.2
+  ]
+ },
+ {
+  "eco": "E-03",
+  "action": "rewire",
+  "sheet": "A22",
+  "ref": "K1206",
+  "pin": "2",
+  "before": "SSR_SINK",
+  "after": "SSR_SINK_RET",
+  "label_at": [
+   46.99,
+   171.45
+  ]
+ },
+ {
+  "eco": "E-03",
+  "action": "rewire",
+  "sheet": "A22",
+  "ref": "K1207",
+  "pin": "2",
+  "before": "SSR_SINK",
+  "after": "SSR_SINK_RET",
+  "label_at": [
+   187.96,
+   181.61
+  ]
+ },
+ {
+  "eco": "E-03",
+  "action": "add",
+  "sheet": "A22",
+  "ref": "Q1202",
+  "value": "PMV30UN2R",
+  "mpn": "PMV30UN2R",
+  "footprint": "SmartVioV25:SOT-23",
+  "dnp": false,
+  "at": [
+   77.47,
+   241.3
+  ],
+  "pins": {
+   "1": "SSR_GATE_HP",
+   "2": "GND",
+   "3": "SSR_SINK_HP"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-03",
+  "action": "add",
+  "sheet": "A22",
+  "ref": "R1212",
+  "value": "1k",
+  "mpn": "RC0603FR-071KL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": false,
+  "at": [
+   218.44,
+   238.76
+  ],
+  "pins": {
+   "1": "HP_PORT_ENABLE",
+   "2": "SSR_GATE_HP"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-03",
+  "action": "add",
+  "sheet": "A22",
+  "ref": "R1213",
+  "value": "100k",
+  "mpn": "RC0603FR-07100KL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": false,
+  "at": [
+   358.14,
+   238.76
+  ],
+  "pins": {
+   "1": "SSR_GATE_HP",
+   "2": "GND"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-03",
+  "action": "add",
+  "sheet": "A22",
+  "ref": "Q1203",
+  "value": "PMV30UN2R",
+  "mpn": "PMV30UN2R",
+  "footprint": "SmartVioV25:SOT-23",
+  "dnp": false,
+  "at": [
+   77.47,
+   269.24
+  ],
+  "pins": {
+   "1": "SSR_GATE_RET",
+   "2": "GND",
+   "3": "SSR_SINK_RET"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-03",
+  "action": "add",
+  "sheet": "A22",
+  "ref": "R1214",
+  "value": "1k",
+  "mpn": "RC0603FR-071KL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": false,
+  "at": [
+   218.44,
+   266.7
+  ],
+  "pins": {
+   "1": "RET_PORT_ENABLE",
+   "2": "SSR_GATE_RET"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-03",
+  "action": "add",
+  "sheet": "A22",
+  "ref": "R1215",
+  "value": "100k",
+  "mpn": "RC0603FR-07100KL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": false,
+  "at": [
+   358.14,
+   266.7
+  ],
+  "pins": {
+   "1": "SSR_GATE_RET",
+   "2": "GND"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-03",
+  "action": "connect_nc_pin",
+  "sheet": "A17",
+  "ref": "U801",
+  "pin": "61",
+  "pin_name": "PD14",
+  "before": "no_connect",
+  "after": "HP_PORT_ENABLE",
+  "pin_type_changed": true
+ },
+ {
+  "eco": "E-03",
+  "action": "connect_nc_pin",
+  "sheet": "A17",
+  "ref": "U801",
+  "pin": "62",
+  "pin_name": "PD15",
+  "before": "no_connect",
+  "after": "RET_PORT_ENABLE",
+  "pin_type_changed": true
+ },
+ {
+  "eco": "E-04",
+  "action": "rewire",
+  "sheet": "A14",
+  "ref": "R590",
+  "pin": "2",
+  "before": "GND",
+  "after": "V3D",
+  "label_at": [
+   510.54,
+   100.33
+  ]
+ },
+ {
+  "eco": "E-05",
+  "action": "change_value",
+  "sheet": "A20",
+  "ref": "R1005",
+  "before": {
+   "value": "6.65k",
+   "mpn": "RC0603FR-076K65L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "2.49k 1%",
+   "mpn": "RC0603FR-072K49L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-05",
+  "action": "connect_nc_pin",
+  "sheet": "A20",
+  "ref": "U1001",
+  "pin": "10",
+  "pin_name": "ITIMER",
+  "before": "no_connect",
+  "after": "EFUSE_ITIMER",
+  "pin_type_changed": false
+ },
+ {
+  "eco": "E-05",
+  "action": "add",
+  "sheet": "A20",
+  "ref": "C1004",
+  "value": "0.01uF C0G 25V 5%",
+  "mpn": "C0603C103J3GACTU",
+  "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU",
+  "dnp": false,
+  "at": [
+   64.77,
+   157.48
+  ],
+  "pins": {
+   "1": "EFUSE_ITIMER",
+   "2": "GND"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-06",
+  "action": "change_value",
+  "sheet": "A20",
+  "ref": "R1003",
+  "before": {
+   "value": "37.4k",
+   "mpn": "RC0603FR-0737K4L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "39.2k 1%",
+   "mpn": "RC0603FR-0739K2L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-07",
+  "action": "add",
+  "sheet": "A13",
+  "ref": "D401",
+  "value": "SMF12A",
+  "mpn": "SMF12A",
+  "footprint": "Diode_SMD:D_SOD-123F",
+  "dnp": false,
+  "at": [
+   64.77,
+   135.89
+  ],
+  "pins": {
+   "1": "VBUS_RAW",
+   "2": "GND"
+  },
+  "note": "Littelfuse SMF12A (12 V Vrwm unidirectional TVS); symbol pin 1 = K, pin 2 = A"
+ },
+ {
+  "eco": "E-08",
+  "action": "rewire",
+  "sheet": "A19",
+  "ref": "U901",
+  "pin": "3",
+  "before": "V3LOAD",
+  "after": "V3D",
+  "label_at": [
+   46.99,
+   49.53
+  ]
+ },
+ {
+  "eco": "E-08",
+  "action": "rewire",
+  "sheet": "A19",
+  "ref": "C902",
+  "pin": "1",
+  "before": "V3LOAD",
+  "after": "V3D",
+  "label_at": [
+   205.74,
+   72.39
+  ]
+ },
+ {
+  "eco": "E-08",
+  "action": "rewire",
+  "sheet": "A19",
+  "ref": "C903",
+  "pin": "1",
+  "before": "V3LOAD",
+  "after": "V3D",
+  "label_at": [
+   345.44,
+   72.39
+  ]
+ },
+ {
+  "eco": "E-08",
+  "action": "rewire",
+  "sheet": "A19",
+  "ref": "R902",
+  "pin": "2",
+  "before": "V3LOAD",
+  "after": "V3D",
+  "label_at": [
+   510.54,
+   43.18
+  ]
+ },
+ {
+  "eco": "E-08",
+  "action": "rewire",
+  "sheet": "A19",
+  "ref": "J902",
+  "pin": "1",
+  "before": "V3LOAD",
+  "after": "V3D",
+  "label_at": [
+   187.96,
+   158.75
+  ]
+ },
+ {
+  "eco": "E-09",
+  "action": "add",
+  "sheet": "A21",
+  "ref": "C1109",
+  "value": "22uF 10V",
+  "mpn": "CC0805MKX5R6BB226",
+  "footprint": "Passive_V26_ManufacturerLand:CC0805MKX5R6BB226",
+  "dnp": false,
+  "at": [
+   358.14,
+   185.42
+  ],
+  "pins": {
+   "1": "V3D",
+   "2": "GND"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-10",
+  "action": "rewire",
+  "sheet": "A17",
+  "ref": "U801",
+  "pin": "22",
+  "before": "DAC_UNMUTE",
+  "after": "DAC_UNMUTE_MCU",
+  "label_at": [
+   46.99,
+   97.79
+  ]
+ },
+ {
+  "eco": "E-10",
+  "action": "rewire",
+  "sheet": "A17",
+  "ref": "U801",
+  "pin": "23",
+  "before": "HP_EN_VALIDATED",
+  "after": "HP_EN_MCU",
+  "label_at": [
+   46.99,
+   100.33
+  ]
+ },
+ {
+  "eco": "E-10",
+  "action": "add",
+  "sheet": "A16",
+  "ref": "R704",
+  "value": "1k",
+  "mpn": "RC0603FR-071KL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": false,
+  "at": [
+   77.47,
+   157.48
+  ],
+  "pins": {
+   "1": "DAC_UNMUTE_MCU",
+   "2": "DAC_UNMUTE"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-10",
+  "action": "add",
+  "sheet": "A12",
+  "ref": "R324",
+  "value": "1k",
+  "mpn": "RC0603FR-071KL",
+  "footprint": "SmartVioV25:R_0603_1608Metric",
+  "dnp": false,
+  "at": [
+   218.44,
+   185.42
+  ],
+  "pins": {
+   "1": "HP_EN_MCU",
+   "2": "HP_EN_VALIDATED"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-11",
+  "action": "add",
+  "sheet": "A24",
+  "ref": "D1303",
+  "value": "BAS116,215",
+  "mpn": "BAS116,215",
+  "footprint": "SmartVioV25:SOT-23",
+  "dnp": false,
+  "at": [
+   64.77,
+   110.49
+  ],
+  "pins": {
+   "1": "PWR_PB_SENSE",
+   "2": "no_connect",
+   "3": "PWR_PB"
+  },
+  "note": null
+ },
+ {
+  "eco": "E-11",
+  "action": "connect_nc_pin",
+  "sheet": "A17",
+  "ref": "U801",
+  "pin": "51",
+  "pin_name": "PB12",
+  "before": "no_connect",
+  "after": "PWR_PB_SENSE",
+  "pin_type_changed": true
+ },
+ {
+  "eco": "E-12",
+  "action": "change_value",
+  "sheet": "A14",
+  "ref": "R2351",
+  "before": {
+   "value": "499ohm 0.1% 25ppm/C",
+   "mpn": "RT0603BRD07499RL",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  },
+  "after": {
+   "value": "3.32k 0.1% 25ppm/C",
+   "mpn": "RT0603BRD073K32L",
+   "footprint": "SmartVioV25:R_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-13",
+  "action": "change_value",
+  "sheet": "A28",
+  "ref": "C1707",
+  "before": {
+   "value": "0.01uF C0G 25V 5%",
+   "mpn": "C0603C103J3GACTU",
+   "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU"
+  },
+  "after": {
+   "value": "100pF C0G 50V 5%",
+   "mpn": "C0603C101J5GACTU",
+   "footprint": "SmartVioV25:C_0603_1608Metric"
+  }
+ },
+ {
+  "eco": "E-14",
+  "action": "change_symbol_pin",
+  "sheet": "A19",
+  "ref": "U902",
+  "before": "EP",
+  "after": "17"
+ },
+ {
+  "eco": "L-12",
+  "action": "remove",
+  "sheet": "A29",
+  "ref": "J1801",
+  "pins": {
+   "1": "V3D",
+   "2": "GND",
+   "3": "TEMP_SCL",
+   "4": "TEMP_SDA"
+  },
+  "note": "sensor sub-board deleted; TMP117 U1801 on main board B.Cu"
+ },
+ {
+  "eco": "L-12",
+  "action": "remove",
+  "sheet": "A29",
+  "ref": "J1802",
+  "pins": {
+   "1": "V3D",
+   "2": "GND",
+   "3": "TEMP_SCL",
+   "4": "TEMP_SDA"
+  },
+  "note": "sensor sub-board deleted"
+ },
+ {
+  "eco": "L-12",
+  "action": "rename_sheet",
+  "sheet": "A29",
+  "after": "A29 主板（电池侧）板温 TMP117 / R4 并入主板"
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3401",
+  "endpoint_id": "H_AUDIO_1_M",
+  "value": "AUDIO6 main-end FPC landing (H_AUDIO_1_M)",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "GND",
+   "2": "HP_DETECT_RAW",
+   "3": "HP_L_PORT",
+   "4": "HP_R_PORT",
+   "5": "LINE_L_PORT",
+   "6": "LINE_R_PORT"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "FPC3401",
+  "endpoint_id": "FPC_AUDIO6",
+  "value": "FPC-AUDIO6 custom flex (FPC_AUDIO6, DFM pending)",
+  "footprint": "SmartVioV26:FPC_AUDIO6",
+  "in_bom": false,
+  "pins": {
+   "S1": "GND",
+   "S2": "HP_DETECT_RAW",
+   "S3": "HP_L_PORT",
+   "S4": "HP_R_PORT",
+   "S5": "LINE_L_PORT",
+   "S6": "LINE_R_PORT",
+   "T1": "GND",
+   "T2": "HP_DETECT_RAW",
+   "T3": "HP_L_PORT",
+   "T4": "HP_R_PORT",
+   "T5": "LINE_L_PORT",
+   "T6": "LINE_R_PORT"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3402",
+  "endpoint_id": "H_AUDIO_1_R",
+  "value": "AUDIO6 remote-end FPC landing (H_AUDIO_1_R)",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "GND",
+   "2": "HP_DETECT_RAW",
+   "3": "HP_L_PORT",
+   "4": "HP_R_PORT",
+   "5": "LINE_L_PORT",
+   "6": "LINE_R_PORT"
+  }
+ },
+ {
+  "eco": "L-13",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3403",
+  "endpoint_id": "H_AUDIO_2_M",
+  "value": "AUDIO4 main-end FPC landing (H_AUDIO_2_M)",
+  "footprint": "SmartVioV25:WirePads_4_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "RETURN_L_PORT",
+   "2": "RETURN_R_PORT",
+   "3": "SEND_T_PORT",
+   "4": "GND"
+  }
+ },
+ {
+  "eco": "L-13",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "FPC3402",
+  "endpoint_id": "FPC_AUDIO4",
+  "value": "FPC-AUDIO4 custom flex (FPC_AUDIO4, DFM pending)",
+  "footprint": "SmartVioV26:FPC_AUDIO4",
+  "in_bom": false,
+  "pins": {
+   "S1": "RETURN_L_PORT",
+   "S2": "RETURN_R_PORT",
+   "S3": "SEND_T_PORT",
+   "S4": "GND",
+   "T1": "RETURN_L_PORT",
+   "T2": "RETURN_R_PORT",
+   "T3": "SEND_T_PORT",
+   "T4": "GND"
+  }
+ },
+ {
+  "eco": "L-13",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3404",
+  "endpoint_id": "H_AUDIO_2_R",
+  "value": "AUDIO4 remote-end FPC landing (H_AUDIO_2_R)",
+  "footprint": "SmartVioV25:WirePads_4_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "RETURN_L_PORT",
+   "2": "RETURN_R_PORT",
+   "3": "SEND_T_PORT",
+   "4": "GND"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3405",
+  "endpoint_id": "H_COVER_1_M",
+  "value": "KEYS6 main-end FPC landing (H_COVER_1_M)",
+  "footprint": "SmartVioV26:WirePads_Control6_2x3_R3",
+  "in_bom": false,
+  "pins": {
+   "1": "FX_RAW",
+   "2": "GND",
+   "3": "KEY_BT",
+   "4": "KEY_FX",
+   "5": "KEY_MIX",
+   "6": "KEY_MODE"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "FPC3403",
+  "endpoint_id": "FPC_KEYS6",
+  "value": "FPC-KEYS6 custom flex (FPC_KEYS6, DFM pending)",
+  "footprint": "SmartVioV26:FPC_KEYS6_R4",
+  "in_bom": false,
+  "pins": {
+   "S1": "FX_RAW",
+   "S2": "GND",
+   "S3": "KEY_BT",
+   "S4": "KEY_FX",
+   "S5": "KEY_MIX",
+   "S6": "KEY_MODE",
+   "T1": "FX_RAW",
+   "T2": "GND",
+   "T3": "KEY_BT",
+   "T4": "KEY_FX",
+   "T5": "KEY_MIX",
+   "T6": "KEY_MODE"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3406",
+  "endpoint_id": "H_COVER_1_R",
+  "value": "KEYS6 remote-end FPC landing (H_COVER_1_R)",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "FX_RAW",
+   "2": "GND",
+   "3": "KEY_BT",
+   "4": "KEY_FX",
+   "5": "KEY_MIX",
+   "6": "KEY_MODE"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3407",
+  "endpoint_id": "H_COVER_2_M",
+  "value": "COVER6 main-end FPC landing (H_COVER_2_M)",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "LED_ZONE_1_A",
+   "2": "LED_ZONE_2_A",
+   "3": "LED_ZONE_3_A",
+   "4": "PWR_PB",
+   "5": "SPK_N",
+   "6": "SPK_P"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "FPC3404",
+  "endpoint_id": "FPC_COVER6",
+  "value": "FPC-COVER6 custom flex (FPC_COVER6, DFM pending)",
+  "footprint": "SmartVioV26:FPC_COVER6",
+  "in_bom": false,
+  "pins": {
+   "S1": "LED_ZONE_1_A",
+   "S2": "LED_ZONE_2_A",
+   "S3": "LED_ZONE_3_A",
+   "S4": "PWR_PB",
+   "S5": "SPK_N",
+   "S6": "SPK_P",
+   "T1": "LED_ZONE_1_A",
+   "T2": "LED_ZONE_2_A",
+   "T3": "LED_ZONE_3_A",
+   "T4": "PWR_PB",
+   "T5": "SPK_N",
+   "T6": "SPK_P"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3408",
+  "endpoint_id": "H_COVER_2_R",
+  "value": "COVER6 remote-end FPC landing (H_COVER_2_R)",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "LED_ZONE_1_A",
+   "2": "LED_ZONE_2_A",
+   "3": "LED_ZONE_3_A",
+   "4": "PWR_PB",
+   "5": "SPK_N",
+   "6": "SPK_P"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3409",
+  "endpoint_id": "H_COVER_3_M",
+  "value": "POTS3 main-end FPC landing (H_COVER_3_M)",
+  "footprint": "SmartVioV25:WirePads_3_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "TONE_RAW",
+   "2": "V3D",
+   "3": "VOL_RAW"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "FPC3405",
+  "endpoint_id": "FPC_POTS3",
+  "value": "FPC-POTS3 custom flex (FPC_POTS3, DFM pending)",
+  "footprint": "SmartVioV26:FPC_POTS3",
+  "in_bom": false,
+  "pins": {
+   "S1": "TONE_RAW",
+   "S2": "V3D",
+   "S3": "VOL_RAW",
+   "T1": "TONE_RAW",
+   "T2": "V3D",
+   "T3": "VOL_RAW"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3410",
+  "endpoint_id": "H_COVER_3_R",
+  "value": "POTS3 remote-end FPC landing (H_COVER_3_R)",
+  "footprint": "SmartVioV25:WirePads_3_P1.5",
+  "in_bom": false,
+  "pins": {
+   "1": "TONE_RAW",
+   "2": "V3D",
+   "3": "VOL_RAW"
+  }
+ },
+ {
+  "eco": "L-10",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3411",
+  "endpoint_id": "J_USB_M",
+  "value": "USB16 main-end hot-bar landing (J_USB_M)",
+  "footprint": "SmartVioV26:FPC_USB16_HotBar_Main_P0.70",
+  "in_bom": false,
+  "pins": {
+   "1": "USB_DATA_FAULT_N",
+   "2": "USB_DATA_DISABLE",
+   "3": "CC_FAULT_N",
+   "4": "V3D",
+   "5": "GND",
+   "6": "USB_DM_MCU",
+   "7": "USB_DP_MCU",
+   "8": "GND",
+   "9": "USB_5V_SAFE",
+   "10": "GND",
+   "11": "GND",
+   "12": "GND",
+   "13": "VBUS_RAW",
+   "14": "VBUS_RAW",
+   "15": "VBUS_RAW",
+   "16": "VBUS_RAW"
+  }
+ },
+ {
+  "eco": "L-10",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "FPC3406",
+  "endpoint_id": "FPC_USB16",
+  "value": "FPC-USB16 custom flex (FPC_USB16, DFM pending)",
+  "footprint": "SmartVioV26:FPC_USB16",
+  "in_bom": false,
+  "pins": {
+   "S1": "USB_DATA_FAULT_N",
+   "S2": "USB_DATA_DISABLE",
+   "S3": "CC_FAULT_N",
+   "S4": "V3D",
+   "S5": "GND",
+   "S6": "USB_DM_MCU",
+   "S7": "USB_DP_MCU",
+   "S8": "GND",
+   "S9": "USB_5V_SAFE",
+   "S10": "GND",
+   "S11": "GND",
+   "S12": "GND",
+   "S13": "VBUS_RAW",
+   "S14": "VBUS_RAW",
+   "S15": "VBUS_RAW",
+   "S16": "VBUS_RAW",
+   "T1": "USB_DATA_FAULT_N",
+   "T2": "USB_DATA_DISABLE",
+   "T3": "CC_FAULT_N",
+   "T4": "V3D",
+   "T5": "GND",
+   "T6": "USB_DM_MCU",
+   "T7": "USB_DP_MCU",
+   "T8": "GND",
+   "T9": "USB_5V_SAFE",
+   "T10": "GND",
+   "T11": "GND",
+   "T12": "GND",
+   "T13": "VBUS_RAW",
+   "T14": "VBUS_RAW",
+   "T15": "VBUS_RAW",
+   "T16": "VBUS_RAW"
+  }
+ },
+ {
+  "eco": "L-10",
+  "action": "add_endpoint",
+  "sheet": "A34",
+  "ref": "J3412",
+  "endpoint_id": "J_USB_U",
+  "value": "FH12-16S-0.5SH(55)",
+  "footprint": "Connector_FFC-FPC:Hirose_FH12-16S-0.5SH_1x16-1MP_P0.50mm_Horizontal",
+  "in_bom": true,
+  "pins": {
+   "1": "USB_DATA_FAULT_N",
+   "2": "USB_DATA_DISABLE",
+   "3": "CC_FAULT_N",
+   "4": "V3D",
+   "5": "GND",
+   "6": "USB_DM_MCU",
+   "7": "USB_DP_MCU",
+   "8": "GND",
+   "9": "USB_5V_SAFE",
+   "10": "GND",
+   "11": "GND",
+   "12": "GND",
+   "13": "VBUS_RAW",
+   "14": "VBUS_RAW",
+   "15": "VBUS_RAW",
+   "16": "VBUS_RAW"
+  }
+ },
+ {
+  "eco": "L-19",
+  "action": "add_sheet",
+  "sheet": "A34",
+  "uuid": "1bf8ea76-db57-57ec-99bf-b0d59e5abe44",
+  "page": "25"
+ }
+]

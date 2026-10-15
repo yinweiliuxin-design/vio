@@ -1,0 +1,110 @@
+{
+ "J3401": {
+  "endpoint_id": "H_AUDIO_1_M",
+  "group": "AUDIO6",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "eco": "L-19"
+ },
+ "FPC3401": {
+  "endpoint_id": "FPC_AUDIO6",
+  "group": "AUDIO6",
+  "footprint": "SmartVioV26:FPC_AUDIO6",
+  "eco": "L-19"
+ },
+ "J3402": {
+  "endpoint_id": "H_AUDIO_1_R",
+  "group": "AUDIO6",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "eco": "L-19"
+ },
+ "J3403": {
+  "endpoint_id": "H_AUDIO_2_M",
+  "group": "AUDIO4",
+  "footprint": "SmartVioV25:WirePads_4_P1.5",
+  "eco": "L-13"
+ },
+ "FPC3402": {
+  "endpoint_id": "FPC_AUDIO4",
+  "group": "AUDIO4",
+  "footprint": "SmartVioV26:FPC_AUDIO4",
+  "eco": "L-13"
+ },
+ "J3404": {
+  "endpoint_id": "H_AUDIO_2_R",
+  "group": "AUDIO4",
+  "footprint": "SmartVioV25:WirePads_4_P1.5",
+  "eco": "L-13"
+ },
+ "J3405": {
+  "endpoint_id": "H_COVER_1_M",
+  "group": "KEYS6",
+  "footprint": "SmartVioV26:WirePads_Control6_2x3_R3",
+  "eco": "L-19"
+ },
+ "FPC3403": {
+  "endpoint_id": "FPC_KEYS6",
+  "group": "KEYS6",
+  "footprint": "SmartVioV26:FPC_KEYS6_R4",
+  "eco": "L-19"
+ },
+ "J3406": {
+  "endpoint_id": "H_COVER_1_R",
+  "group": "KEYS6",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "eco": "L-19"
+ },
+ "J3407": {
+  "endpoint_id": "H_COVER_2_M",
+  "group": "COVER6",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "eco": "L-19"
+ },
+ "FPC3404": {
+  "endpoint_id": "FPC_COVER6",
+  "group": "COVER6",
+  "footprint": "SmartVioV26:FPC_COVER6",
+  "eco": "L-19"
+ },
+ "J3408": {
+  "endpoint_id": "H_COVER_2_R",
+  "group": "COVER6",
+  "footprint": "SmartVioV25:WirePads_6_P1.5",
+  "eco": "L-19"
+ },
+ "J3409": {
+  "endpoint_id": "H_COVER_3_M",
+  "group": "POTS3",
+  "footprint": "SmartVioV25:WirePads_3_P1.5",
+  "eco": "L-19"
+ },
+ "FPC3405": {
+  "endpoint_id": "FPC_POTS3",
+  "group": "POTS3",
+  "footprint": "SmartVioV26:FPC_POTS3",
+  "eco": "L-19"
+ },
+ "J3410": {
+  "endpoint_id": "H_COVER_3_R",
+  "group": "POTS3",
+  "footprint": "SmartVioV25:WirePads_3_P1.5",
+  "eco": "L-19"
+ },
+ "J3411": {
+  "endpoint_id": "J_USB_M",
+  "group": "USB16",
+  "footprint": "SmartVioV26:FPC_USB16_HotBar_Main_P0.70",
+  "eco": "L-10"
+ },
+ "FPC3406": {
+  "endpoint_id": "FPC_USB16",
+  "group": "USB16",
+  "footprint": "SmartVioV26:FPC_USB16",
+  "eco": "L-10"
+ },
+ "J3412": {
+  "endpoint_id": "J_USB_U",
+  "group": "USB16",
+  "footprint": "Connector_FFC-FPC:Hirose_FH12-16S-0.5SH_1x16-1MP_P0.50mm_Horizontal",
+  "eco": "L-10"
+ }
+}
