@@ -1,0 +1,503 @@
+{
+  "schema": "smartvio.github-upload.sanitized-independent-verification.v1",
+  "auditDate": "2026-10-15",
+  "pass": true,
+  "manifestSHA256": "4bf2c80f6d922bc54991dac4370514d1aea1ee86052cf0f0d2c6999121284b83",
+  "changedArchivesVerified": 20,
+  "unchangedArchivesVerified": 25,
+  "reproductionHelpersScanned": 23,
+  "recursiveCounts": {
+    "topLevelFiles": 0,
+    "uniquePayloads": 298,
+    "archives": 20,
+    "archiveMembers": 959,
+    "textCandidatesScanned": 210,
+    "bytesScanned": 169244406,
+    "cacheHits": 704
+  },
+  "findings": [],
+  "errors": [],
+  "changedArchives": [
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-20261012.tar.gz",
+      "sourceSHA256": "05314f18500200d7b4beb29bd1c267cfff56e6c227d40489b2ce8ad6609c0391",
+      "uploadedSHA256": "296f990de96808ccb0e5659244ada99373d45922492f2cef846aa1270fe4b739",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-final-20261012.tar.gz",
+      "sourceSHA256": "94eda5012d882d6eb7cc77c363f598d986049146672dd338867469b299f4d4d4",
+      "uploadedSHA256": "8f5924fe79aeead4f41b5b42b971b1fdefda853b42ad8e91512dd677becfd931",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-20261012-windows.tar.gz",
+      "sourceSHA256": "2dbec06bd4f777fbee9f1205cd514f6b1fb53a20b494e87b4ee508e48bdb2beb",
+      "uploadedSHA256": "6bcee87978869968e989dbc03c4b95dbb2ab661c71604db6078fb571bdeb82c1",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-final.tar.gz",
+      "sourceSHA256": "ea5818c90e2b93483c255b88f3b81c92fabbd8a0c547228a0dc2239a7bd363da",
+      "uploadedSHA256": "0534dc0099a93e9b867ae0eb3ca52759e3d4b95bf87e784b64783d948429119d",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-windows.tar.gz",
+      "sourceSHA256": "919ac060ded5a1a9a6ae3e826523c2b1b4d420525a8869b272fbb7307db1d8f8",
+      "uploadedSHA256": "a673b2dcc9d71c874d9e0e68daba124167403ffc4b931b6751c50f45734633ce",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-onboarding-20261012.tar.gz",
+      "sourceSHA256": "d1c492b820f9345cc6af023b6a7ce65796ac1ff291e072868c1342f6bc630814",
+      "uploadedSHA256": "1b64fe2e3ff2417f26ceee91edca78ecdb05c6c77fbea9e8f45d9a274806841f",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-silvio-header-20261012.tar.gz",
+      "sourceSHA256": "90a94921c9864a5485d45f939577bb002674654a14a904bffa20b11fbc13dad7",
+      "uploadedSHA256": "a346a0a045a57844697fde461167e364f562778b51aafcad5cb0139e582122d4",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-uk-brand-first-use-20261012.tar.gz",
+      "sourceSHA256": "5742ce19bf86b4c5c0df0001f7e6e50cc28440aa295af517f4f2db6e442233ae",
+      "uploadedSHA256": "6763e760b9d01907ebea50addacfac3edc6cd240524a97ce6ba2cd1b781a3fc9",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/smartvio-wordmarks-20261012.tar.gz",
+      "sourceSHA256": "d392a262f5fdd557444852c22bd906087e1a7d09f092ba244fcb8475ebb5463f",
+      "uploadedSHA256": "741b3881fc054357f461374c5dc24338c5b9549d92e0085633a660def524662f",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/SmartVio-商标素材与新版源码-20261012.zip",
+      "sourceSHA256": "6f10321432e3e4aa353a4b0f3233a5be294e3304ba06bed7cf94b97ddb3945b3",
+      "uploadedSHA256": "997d4f6ae5238c6eb44d02023b22295c927f63ab437ffaa9fabeb24a98da034d",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/SmartVio-新版源码与功能硬件清单-20261012.zip",
+      "sourceSHA256": "a26c0f35d15a9b2edaae9db4b4e340f568f7c85f92c5fa0e97ad41e23ec9c13f",
+      "uploadedSHA256": "ec29ab4cd27188471fdb18c4d137393fdbb13eb3993c9fa859cda593ca5a5164",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "sourceSHA256": "4cb0ccd075b02a0d1e0f2601cabe4477b7308a3ca073ab22dd1c1535043cfebc",
+      "uploadedSHA256": "848ffa66daf5b3e36c25e87909edb9e02c261ed3305b89ac07d3dadd4ba8d4d0",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "sourceSHA256": "7317615df6ce8124aaa580015e0709c3d8df3abde0bec003bdf4ea3bf5a14c42",
+      "uploadedSHA256": "3a4f0eb95a9c06963fff6e8f354a6071cebb8581463a0214f7d5c07f9ccba9ab",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "sourceSHA256": "fb55bf9685bf8fca020729bacb819fb77a9f8ad3996cb3d08919b94510278b01",
+      "uploadedSHA256": "f725aa346f68c4ce5f4503c0a9ab0949f126aff9b0d3bd58c4c17171b2236b30",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "sourceSHA256": "c1f32f053685ab54037dd47c2949997a36123d839c018f9b586dbe28939eee67",
+      "uploadedSHA256": "e13fd192e2029d372e87828375a06524f7ecbf49781dd9aaef50f965ceb8504f",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "sourceSHA256": "15af68d1d6a4e5a6a10e98ea2f0175ce4dba176f75e709d48077425fe6f90692",
+      "uploadedSHA256": "039f7f8984f88eeb8c98b602204e3e07e4423b788df49489a45e1c249237a740",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "sourceSHA256": "885d8236b40b5e7ce9b98a337fe2e8d2afada0a4ffd03e43a24dd853257833de",
+      "uploadedSHA256": "dda846a72989d919621df50cbb4e3048cfee056aca47a12aee0fdeaba03fc4ef",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/SmartVio-community-admin-source-20261012.zip",
+      "sourceSHA256": "6306a5b43babfa9eb6c9108d79bf1a1f6daa14a31559564d99bb902b1b7bb57f",
+      "uploadedSHA256": "bb04e41a094d4033a1cc553c0ad2ad024cef95796f06fbe00df5ab3df20423ad",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "sourceSHA256": "8aa4b066c7dd0e1c95421607ee7c2539a156a8a85a168c24cfe4beebab6060cc",
+      "uploadedSHA256": "2c1d51fe2af2a9ed764f5788a7f5dcb78d3787c94ca91576bb86e6bb06d27e97",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    },
+    {
+      "source": "sites/artifacts/feasibility-20261014/github-backup/checkpoint-2c7f0a7ce5ff-blTGZk/smartvio-mobile-source-2c7f0a7ce5ff.zip",
+      "sourceSHA256": "b33ec4925149abaf84f73aa511fa803162cf25011a601fa0631a7300759150ff",
+      "uploadedSHA256": "70e401295ef7745fe4e543378bfcaed8080525232cab18656fbc01b4d8d73c37",
+      "hashBindingPass": true,
+      "recursiveFindings": 0,
+      "errors": 0
+    }
+  ],
+  "unchangedArchives": [
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/1.1.zip",
+      "originalSHA256": "2b04865337d3af175f815a060612bcc1816e09cfc983262f829edd8c925efdf7",
+      "uploadedSHA256": "2b04865337d3af175f815a060612bcc1816e09cfc983262f829edd8c925efdf7",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/1.zip",
+      "originalSHA256": "82160ac5e17dd4fe13f3b0c0111a64161a296c10a5c52bef9dd5bb305d09e6a6",
+      "uploadedSHA256": "82160ac5e17dd4fe13f3b0c0111a64161a296c10a5c52bef9dd5bb305d09e6a6",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/2.zip",
+      "originalSHA256": "33478e1ec50d774601aa5cbc732d2743f97303057195a44b78e9fda74f799c8b",
+      "uploadedSHA256": "33478e1ec50d774601aa5cbc732d2743f97303057195a44b78e9fda74f799c8b",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/3.zip",
+      "originalSHA256": "d002625de67fb1574a42a46d9c1fa39f189d47694e0dc980734d66189fbec44b",
+      "uploadedSHA256": "d002625de67fb1574a42a46d9c1fa39f189d47694e0dc980734d66189fbec44b",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/4.zip",
+      "originalSHA256": "e8457eac4eb2e378fa57bfb48e5aa35b8f45401800c8fed53b611d960f5f6068",
+      "uploadedSHA256": "e8457eac4eb2e378fa57bfb48e5aa35b8f45401800c8fed53b611d960f5f6068",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/5.1.zip",
+      "originalSHA256": "34a4afa977165b82718718b051c7f8663a4fdee606ea5f0947e921548db64348",
+      "uploadedSHA256": "34a4afa977165b82718718b051c7f8663a4fdee606ea5f0947e921548db64348",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/5.zip",
+      "originalSHA256": "23e8264c3325721b5655f4a8956e963d913af08e5f5b35931e08cb36ab076175",
+      "uploadedSHA256": "23e8264c3325721b5655f4a8956e963d913af08e5f5b35931e08cb36ab076175",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/6.zip",
+      "originalSHA256": "18d96b6aefb8cf8d6f25c26875bd797cdfef3d48644f159a36ef386661aa0448",
+      "uploadedSHA256": "18d96b6aefb8cf8d6f25c26875bd797cdfef3d48644f159a36ef386661aa0448",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/7.zip",
+      "originalSHA256": "ab6f90c3792a5599e5cdf41dac11a9fc9460fb42daad8711bf51e335323bdf1b",
+      "uploadedSHA256": "ab6f90c3792a5599e5cdf41dac11a9fc9460fb42daad8711bf51e335323bdf1b",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/1.1/drawings.zip",
+      "originalSHA256": "ea12134c4b8aa5acae4344982d8ed52d0e5fbee7a61aa99e06938a773f8810e2",
+      "uploadedSHA256": "ea12134c4b8aa5acae4344982d8ed52d0e5fbee7a61aa99e06938a773f8810e2",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013/1.1/engineering.zip",
+      "originalSHA256": "b96d605718be2d23c0f77db4989a117b4d08133a9e939125d8a044124b9f368b",
+      "uploadedSHA256": "b96d605718be2d23c0f77db4989a117b4d08133a9e939125d8a044124b9f368b",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-R3-最新方案与工程资料-20261013.zip",
+      "originalSHA256": "d0ec6331d4b88b9c7c2a80528609e6f0f7621eafb7953d97fb55bfcd11a7381a",
+      "uploadedSHA256": "d0ec6331d4b88b9c7c2a80528609e6f0f7621eafb7953d97fb55bfcd11a7381a",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-V11-融合开发-20261011/reference/V10-original-UNVERIFIED.zip",
+      "originalSHA256": "218b8a790e7c61699b38bd50e1c85c1b6c097de35fdb7e55f653f7d7e6819743",
+      "uploadedSHA256": "218b8a790e7c61699b38bd50e1c85c1b6c097de35fdb7e55f653f7d7e6819743",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-V11-融合开发版-20261011.zip",
+      "originalSHA256": "9a809c556f0df26671195e3904dc2ff0c58dfe1f19c96dcb97aa738660550d8a",
+      "uploadedSHA256": "9a809c556f0df26671195e3904dc2ff0c58dfe1f19c96dcb97aa738660550d8a",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-V12-整体重设计版-20261012-2.zip",
+      "originalSHA256": "3ed047a0b8da70fa6d868658639919e903f1878e1512ed461e5e9cbd15c0cc24",
+      "uploadedSHA256": "3ed047a0b8da70fa6d868658639919e903f1878e1512ed461e5e9cbd15c0cc24",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-V12-整体重设计版-20261012.zip",
+      "originalSHA256": "c6f949075b5035eb4e05c1df5714bd20325d6bcdb94b857fa08b2f23c46d55fd",
+      "uploadedSHA256": "c6f949075b5035eb4e05c1df5714bd20325d6bcdb94b857fa08b2f23c46d55fd",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-工程整改-20261009-R2/project/power/evidence/VARTA-design-library.zip",
+      "originalSHA256": "424e71ebfa224ed6bf730bc166c823dec28ccd98984adc34114f870bfbb55b10",
+      "uploadedSHA256": "424e71ebfa224ed6bf730bc166c823dec28ccd98984adc34114f870bfbb55b10",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-工程整改-20261009-R2/project/power/evidence/VARTA-thinner-library.zip",
+      "originalSHA256": "1f91509b17727b58264b5961aca9fdd6e7afdfbb1cfb3a9e7db1dd7922f8c8d1",
+      "uploadedSHA256": "1f91509b17727b58264b5961aca9fdd6e7afdfbb1cfb3a9e7db1dd7922f8c8d1",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-首样准备包-20261012.zip",
+      "originalSHA256": "5007ac687798ff5cf06bff7c76771d27f0ae3519465f13078d7a990f381c8cc3",
+      "uploadedSHA256": "5007ac687798ff5cf06bff7c76771d27f0ae3519465f13078d7a990f381c8cc3",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "SmartVio-首样工程图纸包-20261009-R1.zip",
+      "originalSHA256": "bf77e999d5d19a5836e3afa17325115a99ce0e1e77db4fb31bf348073b749994",
+      "uploadedSHA256": "bf77e999d5d19a5836e3afa17325115a99ce0e1e77db4fb31bf348073b749994",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "sites/artifacts/SmartVio-免注册离线版-20261012.zip",
+      "originalSHA256": "819095a8dac75fd9c6aaad0f5212340c28b7b8b15f3cf740e26857ef75376b8a",
+      "uploadedSHA256": "819095a8dac75fd9c6aaad0f5212340c28b7b8b15f3cf740e26857ef75376b8a",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "sites/artifacts/catalog-expansion-20261013/sources/mutopia-1037-lily.zip",
+      "originalSHA256": "30a426c3a10b6b4395ec725918cb213772a5bfc4828dc71e3b5c7ac2b9040ffc",
+      "uploadedSHA256": "30a426c3a10b6b4395ec725918cb213772a5bfc4828dc71e3b5c7ac2b9040ffc",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "sites/artifacts/catalog-expansion-20261013/sources/mutopia-1037-midi.zip",
+      "originalSHA256": "2d2fd42d81dc11ce6d10c6fa0ca9e15b02bd2fea3badf3b1f56da683c6922d41",
+      "uploadedSHA256": "2d2fd42d81dc11ce6d10c6fa0ca9e15b02bd2fea3badf3b1f56da683c6922d41",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "sites/artifacts/catalog-expansion-20261013/sources/mutopia-371-midi.zip",
+      "originalSHA256": "0212aa06cd5e79fcaa3895522dd261cdc4287d3593e3bbe914472a38ee6317a2",
+      "uploadedSHA256": "0212aa06cd5e79fcaa3895522dd261cdc4287d3593e3bbe914472a38ee6317a2",
+      "sourceSHAUnchanged": true
+    },
+    {
+      "source": "sites/artifacts/catalog-expansion-20261013/sources/mutopia-502-lily.zip",
+      "originalSHA256": "5a32e00b10fba47d4e48e359439ae758991246deb21ae2a867f7a728f06b5bb2",
+      "uploadedSHA256": "5a32e00b10fba47d4e48e359439ae758991246deb21ae2a867f7a728f06b5bb2",
+      "sourceSHAUnchanged": true
+    }
+  ],
+  "reproductionHelpers": [
+    {
+      "source": ".r3-workbook-build-20261013/build_r3_workbook.mjs",
+      "sha256": "c8e42dc35783ea845ec4305f2b09a6eb6236b570f4403ba9b35823368401b291",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/exported-inspection.ndjson",
+      "sha256": "265eddc1be3f48bd807938fa8495e66d4494f3a8e563564256cb36802ea132c0",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/formula-errors.ndjson",
+      "sha256": "acc0111e19cf44d2753fc9ecd164bf1b27fbd65597463a25cf48bd1c65e90146",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/inspection.ndjson",
+      "sha256": "9f775f2403b406058698e23f3a331f53666f5adc8fa1bc506c169c481b8e79b4",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-01.png",
+      "sha256": "451833240e9c259643b5df162c0aa0cbc66338b71b9a0371639a1e571188cb84",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-02.png",
+      "sha256": "2c1cd83b193014aba2c4409a7379f12673142a8d468118264f6f62e7dcec3825",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-03.png",
+      "sha256": "377793577ba091a124fa4ca13ffd619bbeb6c0754e1419c86180691cba17bc19",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-04.png",
+      "sha256": "4787af18e83c68a23cd65a21a3878346121d29c54a2907cb6b9c0db22d2cb9c4",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-05.png",
+      "sha256": "b68e3d351c4bf4c7a075cb192bb0493ffc26f7197b2f355a8cecf7cc759c1e3e",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-06.png",
+      "sha256": "dd1be3090d488af3c5f1b7497397fb3860ae5159686a660660a94bf2a094da60",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-07.png",
+      "sha256": "cf45d2c4ef7c060b662edbd28b7b4ad4710416cc6663b5c904c45463fe2d8fb6",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-08.png",
+      "sha256": "2aaa18588d42c9ad4d13ac98fd61c74d134c34b004975610926ff15845e00fb8",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-09.png",
+      "sha256": "17a0cb96908820c726d17a18777c83cd463c547dc9dd4bc89531d8bcd89c5963",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-10.png",
+      "sha256": "63ff60ba480a81920224bde997dc97a7dc42f3ae57d3e18881d3bcfb23b8c41b",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-11.png",
+      "sha256": "41ce2c37b3181760b52c9cb31ca0e8061f36df49444c3ff2c304f6c7049ecb16",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-12.png",
+      "sha256": "30f78b6761cb8da04e07ae20cc5739bc4de2e2365a784394b186b07c7abf50b4",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-13.png",
+      "sha256": "149dafb068eeeeef168ed20e3db4e10c96ef3dcb0ddf1bf5fe069e49c2c678a7",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-14.png",
+      "sha256": "393f62b7c949b533fd228160aa82506538c3157c82632d6da26fa21b432b3f7a",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/preview-15.png",
+      "sha256": "6d813d4e1fb800d78034efd2ac62afd81840fb731001327b884aeed53c6a8ffb",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": ".r3-workbook-build-20261013/verify_r3_workbook.py",
+      "sha256": "8d52aee474dbd2727890bbfa28cb5a81e76a46fc184c1af832aab577cf7a46b8",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": "build_smartvio_r3_delivery.py",
+      "sha256": "9889b841dc228410d601e02d7e539e3522f8ca2cb77716be300ee7d2336d570c",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": "create_smartvio_r3_index.py",
+      "sha256": "f7a689a75b645de17f3e33d21e33756b1ab670d10113ab3af3e71b4bdb213f32",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    },
+    {
+      "source": "create_smartvio_r3_overview.py",
+      "sha256": "0fc458084a03700313297315e6b6ed6740c751371378a741c8763c228d3c6f54",
+      "hashBindingPass": true,
+      "findings": 0,
+      "errors": 0
+    }
+  ],
+  "method": "Read-only check of object bytes bound to FILE-MANIFEST and prior archive SHA256; recursively inspect ZIP/tar.gz members without extraction; scan helpers and archive text for actual credential formats; account/cache member path rules extended. No credential values emitted.",
+  "scopeNotes": [
+    "Unchanged archives inherit prior successful recursive privacy scan and were verified byte-identical.",
+    "No source, upload object or publish file modified.",
+    "Output is not a universal guarantee that unknown credential formats do not exist."
+  ]
+}

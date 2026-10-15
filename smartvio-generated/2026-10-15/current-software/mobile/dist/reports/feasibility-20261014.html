@@ -1,0 +1,259 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Silvio / VELLEN 电子小提琴 App 功能可行性与验收报告</title>
+<style>
+:root{color-scheme:light;--ink:#24332d;--muted:#65746c;--line:#dce4dd;--green:#427761;--soft:#edf3ec;--paper:#fffefa;--amber:#805e2e}
+*{box-sizing:border-box}body{margin:0;background:#e7ebe6;color:var(--ink);font-family:"Microsoft YaHei","PingFang SC","Noto Sans CJK SC",sans-serif;line-height:1.58;font-size:14px}.toolbar{max-width:870px;margin:20px auto 12px;padding:0 20px;color:var(--muted);font-size:13px}.toolbar a{float:right}.sheet{position:relative;width:210mm;min-height:297mm;margin:18px auto;padding:18mm 16mm 17mm;background:var(--paper);box-shadow:0 8px 38px #26392d18;border:1px solid #d7ded6}.topline{display:flex;justify-content:space-between;gap:15px;padding-bottom:8px;border-bottom:1px solid var(--line);font-size:11px;color:var(--muted);letter-spacing:.04em}.footer{position:absolute;bottom:9mm;left:16mm;right:16mm;display:flex;justify-content:space-between;font-size:10px;color:var(--muted);border-top:1px solid var(--line);padding-top:6px}h1{font-size:34px;line-height:1.25;letter-spacing:-.03em;margin:42px 0 16px}h2{font-size:23px;line-height:1.35;margin:24px 0 18px;border-left:4px solid var(--green);padding-left:12px}h3{font-size:15px;margin:18px 0 7px}p{margin:9px 0}small,.small{font-size:12px;color:var(--muted)}.eyebrow{letter-spacing:.16em;font-size:12px;color:var(--green);font-weight:700}.lead{font-size:18px;line-height:1.65}.note{padding:13px 16px;background:var(--soft);border-radius:9px;margin:14px 0}.note.warning{background:#f6f0e3;border-left:3px solid #b58d55}.status{display:inline-block;border:1px solid var(--line);border-radius:16px;padding:2px 9px;font-size:11px;white-space:nowrap}.good{color:var(--green);background:#edf4ed}.pending{color:var(--amber);background:#f8f2e7}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:24px 0}.metric{padding:18px;background:var(--soft);border-radius:12px}.metric strong{display:block;font-size:31px;font-weight:600;line-height:1.2}.metric span{display:block;font-size:12px;margin-top:8px}.table-wrap{width:100%;overflow-x:auto}table{width:100%;border-collapse:collapse;margin:12px 0 16px;table-layout:fixed;font-size:12px;line-height:1.55}th,td{border-bottom:1px solid var(--line);padding:9px 8px;vertical-align:top;overflow-wrap:anywhere}th{background:var(--soft);text-align:left;font-weight:600}tr:last-child td{border-bottom:1px solid #c8d4c9}.tight th,.tight td{padding:7px 7px}.two{display:grid;grid-template-columns:1fr 1fr;gap:18px}.flow{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:15px 0}.flow div{border:1px solid var(--line);border-radius:10px;padding:13px}.flow b{display:block;margin-bottom:6px}.label{font-weight:700;color:var(--green)}ul,ol{padding-left:22px;margin:8px 0}li{margin:5px 0}code{font-family:Consolas,"SFMono-Regular",monospace;font-size:.92em;color:#315743;overflow-wrap:anywhere}.code-block{background:#f0f3ed;border:1px solid var(--line);padding:12px 14px;border-radius:8px;line-height:1.55;font-size:12px;white-space:pre-wrap;overflow-wrap:anywhere}a{color:#315f49;text-decoration:underline;text-underline-offset:3px}.refs p{margin:10px 0;padding-bottom:7px;border-bottom:1px solid var(--line);font-size:12px}.ref-note{font-size:11px;color:var(--muted)}.cover-tag{margin-top:35px}.rule{height:1px;background:var(--line);margin:22px 0}.muted{color:var(--muted)}.nowrap{white-space:nowrap}
+@media(max-width:860px){body{font-size:14px}.sheet{width:calc(100% - 20px);min-height:0;margin:12px auto;padding:24px 20px 62px}.footer{left:20px;right:20px;bottom:18px}h1{font-size:29px;margin-top:26px}h2{font-size:21px}.two,.flow{grid-template-columns:1fr}.metrics{gap:7px}.metric{padding:13px 9px}.metric strong{font-size:25px}table{font-size:11px}th,td{padding:7px 5px}.toolbar{font-size:12px}}
+@page{size:A4;margin:13mm 14mm}
+@media print{body{background:white;font-size:10.5pt;line-height:1.55;-webkit-print-color-adjust:exact;print-color-adjust:exact}.toolbar{display:none}.sheet{width:auto;min-height:267mm;margin:0;padding:0 0 12mm;box-shadow:none;border:0;break-after:page;page-break-after:always}.sheet:last-child{break-after:auto;page-break-after:auto}.topline{font-size:8pt}.footer{left:0;right:0;bottom:0;font-size:7.5pt}h1{font-size:27pt;margin-top:25mm}h2{font-size:17pt;margin-top:7mm}h3{font-size:11.5pt}table{font-size:9.2pt}th,td{padding:2.3mm 1.8mm}thead{display:table-header-group}tr{break-inside:avoid;page-break-inside:avoid}.note,.metric,.flow div{break-inside:avoid}.small,small{font-size:8.5pt}.refs p{font-size:9pt;line-height:1.5;margin:2.8mm 0;padding-bottom:2mm}a{color:var(--ink)}.topline a{text-decoration:none}}
+</style>
+</head>
+<body>
+<div class="toolbar">可编辑 HTML 原稿 · 浏览器打印选择 A4 · 最终上线与 GitHub 校验结果见同批交付验收记录。<a href="https://smartvio-studio-mobile.politecalf5.chatgpt.site/">应用入口（现为私密站点）</a></div>
+
+<section class="sheet" id="summary">
+<div class="topline"><span>Silvio / VELLEN · 电子小提琴软件</span><span>2026-10-14 · 可行性与开发验收</span></div>
+<span class="eyebrow cover-tag">PRODUCT + SOFTWARE + HARDWARE</span>
+<h1>电子小提琴 App<br>功能可行性与验收报告</h1>
+<p class="lead">现有项目可以继续完善为“基础功能离线可用、设备连接有真实状态、进阶功能按能力开放”的电子小提琴应用。</p>
+<h2>01　先看结论</h2>
+<p>本次在原有曲库、调音、录音、教学和社区基础上，补齐原创弦乐交互、本地伴奏、MIDI 音符编辑、标准 MIDI 文件导出、预设分组与私人云备份，并建立 BLE MIDI 接收及琴端参数适配契约。Apple GarageBand 的公开交互可以作为功能参考；没有取得或接入其专有源码、采样和音色库。</p>
+<div class="metrics"><div class="metric"><strong>172 / 172</strong><span>完整源码自动测试通过</span></div><div class="metric"><strong>21 项</strong><span>本地真实 HTTP 后台联动检查</span></div><div class="metric"><strong>0 台</strong><span>本次实琴硬件验收</span></div></div>
+<p class="small">本次完整源码自动测试 172 项通过，失败 0、跳过 0。后端还统计 275 条内部细分检查，不与自动测试项数重复相加。发布提交、最终页面回归和远端备份哈希以交付验收记录为准。</p>
+<div class="note warning"><b>当前可以交付软件开发版本；完整消费级硬件体验仍有明确门槛。</b><br>没有实琴与固件控制协议，就不能确认低延迟、稳定配对、琴内预设持久化或硬件拾音灵敏度。没有目标系统签名与真机安装记录，就不能确认 iOS 原生包或鸿蒙 HAP 可安装。</div>
+<table class="tight"><thead><tr><th style="width:24%">本次目标</th><th>结论与证据位置</th></tr></thead><tbody>
+<tr><td>Apple 功能分析与融合</td><td>公开功能对照、独立实现与文件互通；没有二进制反编译结论。见第 4 页。</td></tr>
+<tr><td>消费者基础与进阶需求</td><td>逐项比较原有、新增和待硬件验证项。见第 3、5 页。</td></tr>
+<tr><td>代码、接口、客户端与后台</td><td>模块测试、真实本地 HTTP 联动及错误处理。见第 7、8 页。</td></tr>
+<tr><td>各设备适配与 GitHub 备份</td><td>平台能力矩阵、实际测试边界、可恢复源码检查点。见第 6、10 页。</td></tr>
+</tbody></table>
+<div class="footer"><span>报告状态：软件开发验收；硬件与商用发布另有门槛</span><span>1 / 12</span></div>
+</section>
+
+<section class="sheet" id="inventory">
+<div class="topline"><span>项目现状</span><span>原有功能保留 · 本次补齐缺口</span></div>
+<h2>02　现有项目与新增内容</h2>
+<table><thead><tr><th style="width:18%">模块</th><th style="width:37%">原有内容</th><th>本次新增或完善</th></tr></thead><tbody>
+<tr><td>首页与入口</td><td>手机导航、调音器入口、练习记录、国家语言选择、开机动画与可跳过教学。</td><td>增加伴奏与弦乐、MIDI 工作台入口；设备状态区分音符连接、参数连接与未连接。</td></tr>
+<tr><td>曲库与练习</td><td>68 首歌曲/旋律条目、国家与全球分类、四语言曲名、示范聆听、A–B 小节与练习速度。</td><td>保留曲库与收藏，补充 G / D / A 大调音阶及第一把位指法参考。</td></tr>
+<tr><td>音色与伴奏</td><td>原创浏览器合成音色、混响/延时/压缩/音量、和弦、四轨回放。</td><td>持续/短弓/拨弦与力度、4 段原创伴奏、用户本地伴奏导入、按秒循环、0.5–1.5 倍速。</td></tr>
+<tr><td>录音与视频</td><td>麦克风/合成录音、摄像头视频、本机回放和下载。</td><td>输入增益、编解码协商、取消竞态处理、停止超时、体积与时长预算；新增伴奏页独立麦克风录音，保存演奏输入而非混音母带。</td></tr>
+<tr><td>MIDI</td><td>仅检测浏览器实际 MIDI 端口。</td><td>真实端口音符收录、BLE MIDI 接收、音符编辑与本机保存、标准 MIDI 0/1 导入、格式 0 导出。</td></tr>
+<tr><td>预设</td><td>浏览器音色与效果参数保存、加载、删除、JSON 导出。</td><td>名称/分组、JSON 导入、输入增益保存、当前账号私人云备份；琴内保存接口要求真实适配器与持久化 ACK。</td></tr>
+<tr><td>社区与后台</td><td>发帖、评论、点赞、举报、图片附件、审核、用户状态、公告和曲库显示管理。</td><td>云预设备份开关、账号/预设总数，严格保持私人参数不进入管理员内容列表。</td></tr>
+</tbody></table>
+<h3>数据分别存在哪里</h3>
+<div class="flow"><div><b>浏览器本机</b>练习历史、收藏、MIDI 编辑稿、伴奏、录音和视频。清浏览器数据或换浏览器可能丢失，应导出备份。</div><div><b>站点云服务</b>社区内容、审核、公告、课程引导状态与私人预设备份。身份来自站点可信登录上下文。</div><div><b>电子琴本体</b>DSP 参数与非易失预设槽位。需要固件协议和实琴确认，不能用浏览器保存代替。</div></div>
+<p class="small">曲库新增条目为 8–10 小节练习节选，不是完整伴奏专辑；原创伴奏是单独生成的 4 段练习底奏。图示、合成预览和练习计分不作为实琴音质或专业评分标定证明。</p>
+<div class="footer"><span>代码位置：dist/*.js、worker/community.mjs、drizzle/</span><span>2 / 12</span></div>
+</section>
+
+<section class="sheet" id="requirements">
+<div class="topline"><span>消费者需求复核</span><span>功能可用性与硬件完成度分别判断</span></div>
+<h2>03　逐项需求对照</h2>
+<p class="small">按消费者使用结果判断；软件通路已实现的项目仍单列硬件与目标系统验收条件。</p>
+<table class="tight"><thead><tr><th style="width:21%">用户提出的功能</th><th style="width:43%">当前处理</th><th>完成边界</th></tr></thead><tbody>
+<tr><td>低延迟蓝牙配对</td><td>新增标准 BLE MIDI GATT 配对、通知接收与断连状态；只对已选设备有界重连。</td><td><span class="status pending">实琴待验</span> 音符连接不是低延迟音频。端到端时延未测。</td></tr>
+<tr><td>减少断连/配对困难</td><td>取消和超时清理，默认最多 3 次退避重连；不在后台无限扫描或自动打开选择器。</td><td>软件逻辑已测；不同型号、距离、锁屏和节电策略要实测。</td></tr>
+<tr><td>内置伴奏曲库</td><td>新增暖色原声、轻快流行、三拍圆舞曲、静夜小调 4 段原创底奏。</td><td><span class="status good">软件实现</span> 可继续扩充自有或获授权资源。</td></tr>
+<tr><td>本地伴奏导入</td><td>本机文件导入和保存，文件不自动上传社区或云端；按实际解码结果处理格式。</td><td>文件上限 50 MB、时长上限 2 小时；不能承诺每种编码都可播放。</td></tr>
+<tr><td>片段循环/调速</td><td>按秒选择区间，循环、暂停、0.5–1.5 倍速；尝试保持音高。</td><td>缺少 preservesPitch 时明确提示；精确循环点与高质量变速仍需各浏览器听测。</td></tr>
+<tr><td>音色/混响/灵敏度</td><td>可视化浏览器合成与效果参数；麦克风输入增益可调并保存。</td><td>本机输入增益不等于琴内拾音灵敏度；DSP 参数待型号协议。</td></tr>
+<tr><td>预设写入琴内</td><td>握手检查能力/schema/范围；请求 ID、设备 ID 与 persisted=true ACK 都匹配才确认。</td><td><span class="status pending">固件待接</span> 没有适配器时不发猜测命令。</td></tr>
+<tr><td>演奏录音/回放/保存</td><td>现有录音链加强资源上限与取消处理，本机媒体回放、下载。</td><td>USB 输入由系统管理；真实输入音质和外部声卡兼容待测。</td></tr>
+<tr><td>独立 App 节拍器</td><td>保留独立 App 节拍器和速度/拍号设置。</td><td>不自动控制或替代琴身节拍器；后者须琴固件实现。</td></tr>
+<tr><td>音阶/练习曲/新人学习</td><td>曲库、G/D/A 音阶、指法示意、练习打卡、可跳过图文教学。</td><td>指法图为示意，麦克风单音检测尚未完成实琴/专业教学标定。</td></tr>
+<tr><td>短视频制作</td><td>同一摄像头/麦克风流录制、MIME 探测、本机回放下载。</td><td>音画偏差未实测；TikTok/YouTube 分享由用户导出后完成。</td></tr>
+<tr><td>MIDI 查看/编辑/导出</td><td>真实输入、音高/起点/时长/力度/通道编辑，标准 MIDI 文件导入/导出。</td><td>当前为音符编辑器，不保留全部弯音、CC、踏板或 MPE 表情。</td></tr>
+<tr><td>预设分组/云备份</td><td>本机分组、命名、JSON 互通，账号隔离的私人云备份与版本冲突保护。</td><td>云备份需要联网登录；本机预设不受该登录要求限制。</td></tr>
+<tr><td>基础功能无需注册</td><td>离线模式不强制业务账号使用本机练习、录音与预设。</td><td>当前 owner private 站点首次访问仍有授权门槛，尚不能当公开消费者入口。</td></tr>
+</tbody></table>
+<div class="footer"><span>状态词：“软件实现”不等于“所有设备验收通过”</span><span>3 / 12</span></div>
+</section>
+
+<section class="sheet" id="apple">
+<div class="topline"><span>Apple GarageBand 参照</span><span>公开功能分析 · 独立实现 · 文件互通</span></div>
+<h2>04　能融合什么，不能直接接入什么</h2>
+<p>Apple 官方 Strings 指南展示了单音/和弦、连奏、弓奏、拨奏、力度与自动节奏等交互；其 MIDI 音符编辑器可修改音高、长度和力度。我们可以按这些公开行为定义自己的功能，而本次没有 GarageBand 二进制或源码分析证据。<a href="#source-1">[1]</a><a href="#source-4">[4]</a></p>
+<table><thead><tr><th style="width:24%">公开功能</th><th style="width:43%">本次独立实现</th><th>差异与下一步</th></tr></thead><tbody>
+<tr><td>连奏 / 短弓 / 拨弦</td><td>原创波形、滤波与包络，提供持续、短弓、拨弦和力度。</td><td>属于合成练习音色，没有采样级真实弦乐、连弓过渡或弓压模型。</td></tr>
+<tr><td>和弦 / 自动节奏</td><td>原创和弦与节奏排程，结合伴奏页底奏。</td><td>不复制 Apple Autoplay 模式或内置 loop 素材。</td></tr>
+<tr><td>音阶与指板</td><td>G / D / A 音阶音符和第一把位参考。</td><td>适合作为入口提示；个体手型、把位与持琴姿势仍由教学确认。</td></tr>
+<tr><td>MIDI 音符编辑</td><td>真实消息收录与标准 MIDI 音符模型，导出自己的 MIDI 文件。</td><td>当前不是完整 DAW，也不完整保留演奏表情。</td></tr>
+<tr><td>音色、效果、预设</td><td>原创浏览器合成链、本机/云预设。</td><td>原生 Apple 端可以使用公开 AVAudioEngine、Core MIDI 与获授权插件。<a href="#source-7">[7]</a><a href="#source-8">[8]</a></td></tr>
+</tbody></table>
+<h3>音源和软件许可结论</h3>
+<p>GarageBand for iOS 许可允许使用其素材创作原创音视频成品，同时限制把素材、采样或音色库单独提取、重新包装和分发；软件也没有因“免费安装”而成为可复制到另一款 App 的源代码。其当前许可还限制将这些素材用于 AI 或其他音源程序的训练、测试或评估。<a href="#source-2">[2]</a><a href="#source-3">[3]</a></p>
+<div class="note"><b>本次实际融合路线：</b>使用自有代码实现交互与音频处理；音源使用原创合成、以后自录的采样或明确获授权的素材。Apple 音色库、专有代码和 Artist Lessons 不纳入此项目。</div>
+<h3>与 GarageBand 的合法技术互通</h3>
+<p>可把自己的 MIDI/音频文件导出后导入 GarageBand，再将自己有权使用的原创混音成品作为本地伴奏导入。Apple 官方支持这类文件导入；这不等于将 GarageBand 的引擎嵌入网页。原生 Apple App 也可以开发自己的 Audio Unit 或接入用户安装且有授权的插件。<a href="#source-5">[5]</a><a href="#source-6">[6]</a></p>
+<p class="small">限定搜索没有发现指定项目中的具名 GarageBand 安装包；未进行解密、二进制反编译或运行观察。“点击参考功能”不作为“反编译验证”记录。</p>
+<div class="footer"><span>参照的是官方公开行为；没有声称取得 Apple 专有源码</span><span>4 / 12</span></div>
+</section>
+
+<section class="sheet" id="hardware">
+<div class="topline"><span>信号链与琴端要求</span><span>参数控制、MIDI、音频、存储分别验证</span></div>
+<h2>05　硬件连接的四条通路</h2>
+<table><thead><tr><th style="width:18%">通路</th><th style="width:38%">完整链路</th><th>硬件和软件要求</th></tr></thead><tbody>
+<tr><td>参数控制</td><td>App 设置 → 明确适配器 → BLE 自定义控制协议 → 琴 DSP → ACK/读回。</td><td>型号/固件/协议版本、支持参数与单位、范围、错误码、请求 ID；不能借标准 MIDI UUID 猜测 DSP 命令。</td></tr>
+<tr><td>MIDI 演奏</td><td>琴 MIDI 引擎 → BLE MIDI/USB MIDI → App 接收与音符编辑。</td><td>琴必须实际输出 NoteOn/Off、通道和时间戳；有拾音器不代表已有 MIDI 音高/起音转换。</td></tr>
+<tr><td>音频/监听</td><td>拾音 → 琴内模拟/DSP → 耳机/有线输出；或 USB/系统输入 → App 录制。</td><td>明确输出与输入路由、采样率、时钟、缓冲、增益；无线音频需要独立方案与测量。</td></tr>
+<tr><td>琴内保存</td><td>预设 → 固件 store 命令 → 非易失存储 → 持久化 ACK → 断电后读回。</td><td>存储槽位/容量、schema、写入耐久性、断电恢复。云端保存不能代替这一过程。</td></tr>
+</tbody></table>
+<h3>标准 BLE MIDI 接收已经有公开协议入口</h3>
+<p>服务 UUID：<code>03b80e5a-ede8-4b33-a751-6ce34ec4c700</code><br>I/O 特征：<code>7772e5db-3868-4112-a1a9-f2669d106bf3</code>。桥接先确认服务与特征、读取、订阅真实通知，之后才显示 connected。<a href="#source-19">[19]</a><a href="#source-23">[23]</a></p>
+<p>接收器支持通道消息、同包 running status、NoteOn 零力度处理与 13-bit 时间戳；不携带跨包 running status。SysEx、System Common 和截断包明确拒绝；实时消息仅拆开跳过，不实现完整外部 MIDI Clock、Active Sensing 或 Reset 驱动语义。<a href="#source-20">[20]</a><a href="#source-22">[22]</a></p>
+<div class="note warning"><b>延迟数字必须按信号链解释。</b>浏览器 baseLatency/outputLatency 是局部处理估计，不是琴拾音到耳机的端到端值。BLE MIDI 传递音符事件，不直接传递演奏 PCM 音频。低延迟监听优先由琴本体有线输出保障。<a href="#source-14">[14]</a></div>
+<h3>交给硬件/固件团队的必需信息</h3>
+<p>提供样机型号、固件版本、控制服务/特征 UUID、命令编码与 ACK 示例、DSP 参数范围和单位、MIDI 输出能力、USB Audio/MIDI 能力、预设容量和持久化读回。琴本体的基础发声、音量和独立节拍器不应依赖手机账号或网络。</p>
+<div class="footer"><span>本次物理测试为 0；代码接口不是量产硬件验证</span><span>5 / 12</span></div>
+</section>
+
+<section class="sheet" id="compatibility">
+<div class="topline"><span>浏览器与原生平台</span><span>同一网页不代表同一硬件能力</span></div>
+<h2>06　四类平台适配矩阵</h2>
+<table class="tight"><thead><tr><th style="width:17%">平台</th><th style="width:25%">网页基础功能</th><th style="width:27%">设备连接边界</th><th>完整硬件路线</th></tr></thead><tbody>
+<tr><td>Apple<br>iPhone / iPad / Mac</td><td>近期 Safari 的音频、录音、曲库与 MIDI 文件编辑按能力开放；编码逐个探测。</td><td>Safari/WebKit 本体没有 Web Bluetooth/Web MIDI。Mac Chrome 可另走 Chromium 能力；iPhone 不按浏览器品牌名推定底层支持。</td><td>iOS/iPadOS/macOS 原生桥：CoreBluetooth/CoreMIDI + AVAudioEngine；需要 Apple 构建与签名及真实设备检查。<a href="#source-7">[7]</a><a href="#source-10">[10]</a></td></tr>
+<tr><td>Windows</td><td>当前浏览器进行了本地导入、编辑、刷新等实际检查；仍需 Chrome/Edge 及系统输入完整回归。</td><td>Web Bluetooth/Web MIDI 取决于浏览器、HTTPS、权限、驱动和设备状态。</td><td>支持的 Chromium 网页；必要时用 Windows MIDI/音频原生服务。<a href="#source-11">[11]</a><a href="#source-24">[24]</a></td></tr>
+<tr><td>Android<br>各品牌手机/平板</td><td>Chrome 路径预期可用；国产浏览器和 WebView 必须单独检测。</td><td>蓝牙、USB 与后台保活受系统/厂商策略影响；网页不能强制绕过权限或节电策略。</td><td>BluetoothGatt / MidiManager + Oboe/AAudio；按音乐用途配置路由和缓冲。<a href="#source-17">[17]</a><a href="#source-18">[18]</a></td></tr>
+<tr><td>HarmonyOS<br>5 / 6 / NEXT</td><td>ArkWeb 具体 API 支持须目标系统实测，不能套用 Android Chrome 结论。</td><td>使用鸿蒙原生 GATT 与 AudioKit/OHAudio 适配；标准 BLE MIDI 解析可复用。</td><td>ArkTS/原生桥 + DevEco SDK、签名与真机安装。当前没有可安装签名 HAP 的验收证明。<a href="#source-15">[15]</a><a href="#source-16">[16]</a></td></tr>
+</tbody></table>
+<h3>视频编码与权限按实际能力处理</h3>
+<p>Safari 18.4 增加了 MediaRecorder WebM/Opus 与 VP8/VP9 等支持，不能把 Apple 设备一律写成“只能 MP4”。代码使用 <code>MediaRecorder.isTypeSupported()</code> 协商格式；录制成功还必须验证实际回放和导出。<a href="#source-13">[13]</a></p>
+<p>麦克风、摄像头、蓝牙和 MIDI 只在用户主动点击功能时申请；拒绝权限后给出状态，不反复自动弹出。PWA 的缓存可减少联网依赖，但不能添加浏览器缺失的原生硬件 API。<a href="#source-11">[11]</a><a href="#source-12">[12]</a></p>
+<div class="note warning"><b>本次不能写“全面适配所有品牌已通过”。</b>响应式手机/iPad 尺寸检查不等于真实 iOS、Mac、Android 或 HarmonyOS 测试；改 User-Agent 也不能验证 Safari 引擎、摄像头驱动、蓝牙射频或手机功耗。</div>
+<h3>真实设备矩阵应包含</h3>
+<p>至少各一台目标 iPhone、iPad、Mac、Windows 电脑、主销 Android 型号和 HarmonyOS 5/6 手机；记录型号、系统/浏览器版本、耳机/声卡/琴型号、权限、网络与节电状态，并逐项测试。</p>
+<div class="footer"><span>软件能力可检测；实机兼容仍按型号和系统版本验收</span><span>6 / 12</span></div>
+</section>
+
+<section class="sheet" id="backend">
+<div class="topline"><span>客户端 ↔ 后台</span><span>社区与私人云预设有共同原生服务</span></div>
+<h2>07　后台联动与接口清单</h2>
+<p>客户端与后台通过同一站点的 Worker API 交互，身份由可信站点上下文注入；不使用浏览器自选角色判断管理员。社区、公告、曲库可见性和私人云预设已经有服务端路径。本机练习、录音、视频和 MIDI 编辑稿没有因此自动进入后台。</p>
+<table class="tight"><thead><tr><th style="width:29%">实际 API</th><th style="width:16%">方法</th><th>作用与权限</th></tr></thead><tbody>
+<tr><td><code>/api/identity</code></td><td>GET</td><td>当前授权账号、管理员身份；匿名不可伪造登录身份。</td></tr>
+<tr><td><code>/api/community/state</code></td><td>GET</td><td>社区状态、公告、个人内容和当前适用的曲库显示设置。</td></tr>
+<tr><td><code>/api/community/action</code></td><td>POST</td><td>发帖、评论、点赞、举报、教学引导状态等；文字、归属、版本与来源校验。</td></tr>
+<tr><td><code>/api/community/media</code></td><td>POST</td><td>上传符合限制的图片；附件必须属于当前用户。</td></tr>
+<tr><td><code>/api/community/media/:id</code></td><td>GET / HEAD</td><td>按可见性与归属读取媒体；录音视频不自动附带上传。</td></tr>
+<tr><td><code>/api/admin/state</code></td><td>GET</td><td>管理员查看审核、举报、用户、公告、曲库和统计；缺管理员配置会明确拒绝。</td></tr>
+<tr><td><code>/api/admin/action</code></td><td>POST</td><td>审核、用户状态、公告/功能开关和曲库显隐；带版本，防止并发覆盖。</td></tr>
+<tr><td><code>/api/presets</code></td><td>GET / POST</td><td>当前账号私有预设读取、保存、清空；账号、版本、参数格式及来源校验。</td></tr>
+</tbody></table>
+<h3>已经检查的联动</h3>
+<p>本地真实 HTTP 检查记录为 <b>21 项 PASS</b>：覆盖管理员云备份开关→客户端功能状态、允许/关闭新备份、读取/清空、账号隔离和相关统计。检查结束已经恢复本地设置；没有把本地测试写成生产站点真实用户验收。</p>
+<p>本地浏览器也完成了图形界面流程：客户端命名/分组预设 → 读取空云备份 → 保存 1 套并升级版本 → 恢复确认 → 管理后台显示 1 个使用账号、1 套备份。该结果来自本地授权测试身份，不冒称生产消费者数据。</p>
+<div class="note"><b>私人预设与管理员统计的边界：</b>管理员只看到使用账号数和预设总数，不读取用户的预设名称、分组、效果参数或录音。关闭新的云备份后，已有备份仍可读取或清空；本机功能继续可用。</div>
+<h3>数据库、端口和服务状态</h3>
+<p>新增迁移 <code>0003_private_preset_backup.sql</code>，加入账号私人备份表与功能开关，保留原设置。云端使用站点 HTTPS 同源 API；本地预览只作为回环开发服务，端口可能随启动改变，不对外充当手机可访问公网服务。</p>
+<p class="small">目前产品/商品编辑、订单支付、库存物流、课程授权、设备 OTA 与真实设备管理仍是独立服务待接项，后台入口或页面存在不等于这些业务已经实现。</p>
+<div class="footer"><span>联动证据：backend-live-qa.json · 生产结果另看交付记录</span><span>7 / 12</span></div>
+</section>
+
+<section class="sheet" id="verification">
+<div class="topline"><span>测试与问题修复</span><span>证据粒度明确 · 不把模拟测试写成实机</span></div>
+<h2>08　代码复核和测试证据</h2>
+<table class="tight"><thead><tr><th style="width:23%">检查对象</th><th style="width:47%">本次覆盖</th><th>证据级别</th></tr></thead><tbody>
+<tr><td>自动测试</td><td>完整源码测试 172/172，失败 0、跳过 0；覆盖音频、伴奏、MIDI、设备桥、预设、视频、后端与源码备份。</td><td>执行过的模块/协议/数据库测试；其中音频 40 项、伴奏 21 项含同页麦克风录音。</td></tr>
+<tr><td>后端细分断言</td><td>累计 275 条内部检查，包括迁移、账号隔离、版本竞争、Origin、权限与私人参数不泄露。</td><td>同一测试体系的细分统计，不与 172 项重复相加。</td></tr>
+<tr><td>真实本地 HTTP</td><td>21 项实际请求验证客户端/管理员/预设开关联动；检查结束还原环境。</td><td>本地服务集成测试，不是生产写入证明。</td></tr>
+<tr><td>MIDI 浏览器操作</td><td>实际导入 267 个音符；首音 MIDI 62 改为 64，显示 E4；刷新后编辑保留。</td><td>真实浏览器文件导入/编辑/本机持久化；不是实琴 MIDI 接收。</td></tr>
+<tr><td>页面尺寸与语言</td><td>最终复测 128 组客户端尺寸/语言与 4 组后台尺寸，通过且无横向溢出或破图；英文 320px、德语 390px 预设导入控件撑宽已修复并复测。</td><td>Windows 内置浏览器 Chromium 尺寸模拟通过：四语言 × 四尺寸 × 八页；非各平台真机。</td></tr>
+<tr><td>BLE 解析与连接</td><td>配对取消、服务缺失、通知、晚到结果、3 次重连、13-bit 时间戳、running status、零力度与异常包。</td><td>模拟 API/协议格式；不声明射频稳定性或实测时延。</td></tr>
+<tr><td>录音与视频</td><td>格式协商、权限拒绝、取消后晚到授权、停止超时、空录制、页面离开、体积上限与资源释放。</td><td>模块测试；真机音画同步、USB 路由与功耗待验。</td></tr>
+</tbody></table>
+<h3>修复和防止的问题</h3>
+<p><b>取消后仍播放/录制：</b>异步授权、解码和播放请求使用代次检查；过期结果释放媒体轨或音频节点。<b>重复保存/覆盖：</b>预设保存有版本与当前账号校验，冲突不自动覆盖旧备份。</p>
+<p><b>虚假已连接/已写琴：</b>GATT 通知未完成不显示已连接；写入请求发出、蓝牙 write 返回或本机保存都不是 persisted ACK。<b>大型文件与持续占用：</b>增加文件、音符、录音、解码样本和合成声部预算。</p>
+<p><b>旧缓存与移动端溢出：</b>静态资源升级版本，避免同版本旧脚本继续命中；修正原生文件输入的宽度约束。新增界面与缓存必须按最终发布版本再复测。</p>
+<p><b>MIDI 的兼容边界：</b>文件支持 SMF 0/1、PPQ 时间基；不支持格式 2 或 SMPTE。音符编辑导出不保留弯音、控制器、踏板、触后、音色 Program Change、SysEx 或 MPE 表情；多轨导入后也不是完整保留原 DAW 轨道结构。遇到省略的表达应提示，原文件必须另存。</p>
+<div class="note warning"><b>验收顺序：</b>源码检查 → 自动测试 → 浏览器交互 → 本地客户端/后台联动 → 发布后检查 → 目标手机/电脑 → 实琴与功耗。前一层通过不能代替后一层。</div>
+<p class="small">测试目录包含 <code>audio-engine</code>、<code>performance</code>、<code>midi</code>、<code>device-bridge</code>、<code>ble-midi</code>、<code>video-capture</code>、<code>local-preset</code>、<code>preset-api</code>、<code>community-api</code>、<code>source-backup</code> 对应测试文件。</p>
+<div class="footer"><span>最终测试、提交与上线检查由交付验收记录锁定</span><span>8 / 12</span></div>
+</section>
+
+<section class="sheet" id="experience">
+<div class="topline"><span>避坑与基础体验</span><span>断网也能练 · 状态说清楚 · 资源有上限</span></div>
+<h2>09　消费者黑名单的处理</h2>
+<table><thead><tr><th style="width:22%">避坑项</th><th style="width:44%">当前代码/产品处理</th><th>验收方法</th></tr></thead><tbody>
+<tr><td>蓝牙延迟高、不同步</td><td>区分 BLE MIDI 与音频；显示未实測时延；推荐琴有线监听；不把浏览器缓冲值当完整时延。</td><td>测拾音/MIDI触发到真实耳机输出，报告 median/p95/max 和输出路由。</td></tr>
+<tr><td>断连、配对困难</td><td>只匹配标准服务；真实断连状态；取消、超时和最多 3 次重连；协议不支持时说明原因。</td><td>100 次配对/取消、60 分钟连接，锁屏/恢复/琴断电/开关蓝牙。</td></tr>
+<tr><td>高功耗、发热</td><td>离开功能或后台暂停不需要的音频；停止媒体轨与计时器；有界声部与循环解码预算。</td><td>同一手机固定亮度、温度与内容比较各模式 CPU、耗电和温升。</td></tr>
+<tr><td>操作太深</td><td>首页调音、底部练习/录音导航；伴奏、MIDI 独立入口；新人教程可以跳过与重看。</td><td>新人完成“调音→选伴奏→慢练→录音”的操作步数和耗时。</td></tr>
+<tr><td>强制注册基础功能</td><td>本机离线功能不要求业务登录，云端/社区按需登录；琴本体必须独立使用。</td><td>首用入口、离线缓存、断网启动与不登录场景分别测试。</td></tr>
+</tbody></table>
+<h3>当前私密站点的首用门槛必须处理</h3>
+<p>当前部署保留 owner private 访问范围，未授权消费者可能在应用加载前遇到站点登录或授权。它适合研发预览，尚不满足“任意消费者首次打开基础工具无需注册”的公开发行目标。后续需要明确公开前端入口/原生离线包与私人云 API 的身份边界，不应为解决页面访问而放开后台权限。</p>
+<h3>资源预算与录制边界</h3>
+<p>常规合成设置声部上限；四轨循环限制单轨大小/时长与总解码样本；录音/视频按时长和体积停止，失败后立即释放输入设备。预算避免无上限增长，但不能据此填写某品牌手机的耗电百分比。</p>
+<p>演奏录音保存实际选择的输入。伴奏播放加麦克风录制应优先用耳机，减少扬声器串音；独立麦克风文件不自动成为“伴奏＋演奏”混音母带。回放、导出后再做混音是不同功能，需要单独验收。</p>
+<div class="note"><b>数据保留原则：</b>本地收藏、练习历史、个人曲目、预设与媒体保留；更新曲库不清空个人数据。云备份失败明确提示，不把仅内存保存显示成已持久化。</div>
+<div class="footer"><span>离线基础体验与站点发布权限是两层，需要分别验收</span><span>9 / 12</span></div>
+</section>
+
+<section class="sheet" id="delivery">
+<div class="topline"><span>发布、GitHub 与硬件验收</span><span>按提交与恢复证据确认交付</span></div>
+<h2>10　下一步与交付门槛</h2>
+<table class="tight"><thead><tr><th style="width:12%">优先级</th><th style="width:41%">必须完成的动作</th><th>可核对结果</th></tr></thead><tbody>
+<tr><td>P0 软件</td><td>锁定代码提交；完成新增模块测试、实际浏览器回归、后台联动、部署与发布后检查。</td><td>提交 SHA、测试日志、上线版本、检查截图与 API 结果。</td></tr>
+<tr><td>P0 首用</td><td>明确消费者入口；基础功能不受私密研发站点账号门槛阻断；后台保持身份控制。</td><td>新浏览器/新手机、匿名、断网和权限拒绝场景验证。</td></tr>
+<tr><td>P0 硬件</td><td>提供样机与固件协议；完成 BLE MIDI、参数写入、ACK、断电读回和独立琴身功能。</td><td>型号/固件/协议记录；真实连接、保存与重启证据。</td></tr>
+<tr><td>P1 原生</td><td>iOS/macOS、Android、HarmonyOS 分别实现原生桥；完成 SDK、签名、安装与设备测试。</td><td>实际可安装包、版本/证书指纹、目标设备安装和权限记录。</td></tr>
+<tr><td>P1 质量</td><td>时延、音画、外部声卡、长时运行、掉线恢复、功耗温升与多品牌回归。</td><td>测量条件、原始数据、阈值与缺陷闭环；阈值由产品与硬件团队冻结。</td></tr>
+<tr><td>P2 专业</td><td>完整 MIDI 表情保留、弯音/CC/MPE、混音母带、高质量保音高变速与真实弦乐采样。</td><td>专项工程、音源授权、听测和独立文件互通测试。</td></tr>
+</tbody></table>
+<h3>GitHub 备份如何证明完整</h3>
+<p>已实现源码检查点准备与恢复校验脚本：只导出干净、冻结 Git 提交的正式源码和已批准 App 素材；生成文件清单、SHA-256、ZIP CRC 与分片校验，并验证恢复到新的空目录。生产数据库、用户录音视频、浏览器个人数据、凭据与开发运行目录不进入源码备份。</p>
+<p><b>GitHub 上传状态不在本报告提前填“已完成”。</b>交付验收记录应提供实际远端仓库/目录、冻结提交、分片与清单，并确认远端内容和本地哈希一致。Sites 的源码 Git 提交不能单独证明 GitHub 已备份。</p>
+<div class="note"><b>交付时至少给出：</b>应用入口、客户端/后台检查结果、本报告、最终源码提交、GitHub 检查点链接与恢复校验、已完成/待验清单。安装包只有在实际构建签名和目标手机安装后才列为可安装交付。</div>
+<h3>硬件验收清单</h3>
+<p>配对与取消、断连与恢复、真实音符/通道、时间戳、DSP 参数边界、ACK 与并发请求、断电读回、琴本体离线发声、独立节拍器、耳机/USB 路由、录音回放、音画偏差、CPU/耗电/温升。每项记录“通过/失败/未测”，不以编译、界面演示或协议模拟替代。</p>
+<p class="small">本报告不预填“全部品牌适配通过”“HAP 已生成”“GitHub 已上传”或“量产已通过”。完成后的真实结果放入交付验收记录。</p>
+<div class="footer"><span>源码备份脚本：scripts/prepare-source-backup.cjs</span><span>10 / 12</span></div>
+</section>
+
+<section class="sheet refs" id="references-apple">
+<div class="topline"><span>公开资料与原始来源</span><span>Apple 与浏览器官方资料</span></div>
+<h2>11　来源脚注：Apple / Web</h2>
+<p class="ref-note">以下链接是功能与协议资料，未作为实机测试结果。Apple API 文档部分通过官方索引内容核对；它们不表示本机已经安装或编译对应 SDK。</p>
+<p id="source-1"><b>[1] Apple Strings 交互。</b>连奏、弓奏、拨奏、和弦、自动节奏与音阶。<a href="https://support.apple.com/guide/garageband-iphone/play-the-strings-chsf2f99a20/ios">Apple 原始功能指南</a></p>
+<p id="source-2"><b>[2] GarageBand for iOS 许可。</b>素材成品使用、独立再包装限制、AI/音源程序限制与软件逆向条款。<a href="https://www.apple.com/legal/sla/docs/garagebandios.pdf">Apple 软件许可 PDF</a></p>
+<p id="source-3"><b>[3] Apple Loops 商业使用说明。</b>原创成品使用与素材单独分发是不同许可范围。<a href="https://support.apple.com/en-us/102034">Apple 原始说明</a></p>
+<p id="source-4"><b>[4] GarageBand 音符编辑。</b>音高、时值、力度及部分奏法。<a href="https://support.apple.com/guide/garageband-iphone/edit-notes-in-regions-chsf2f99dfe/ios">Apple 编辑指南</a></p>
+<p id="source-5"><b>[5] GarageBand 音频/MIDI 导入。</b>文件互通的公开入口。<a href="https://support.apple.com/guide/garageband-iphone/import-audio-and-midi-files-chsab9d208e/ios">Apple 导入指南</a></p>
+<p id="source-6"><b>[6] GarageBand 与其他音乐 App / Audio Unit。</b>可使用安装的扩展，不代表可抽出内置音源。<a href="https://support.apple.com/guide/garageband-iphone/use-other-music-apps-with-garageband-chse67d3af5f/ios">Apple 插件互通说明</a></p>
+<p id="source-7"><b>[7] Core MIDI 与 BLE MIDI。</b>公开系统设备通信 API。<a href="https://developer.apple.com/documentation/coremidi/">Core MIDI</a> · <a href="https://developer.apple.com/documentation/coremidi/midi-bluetooth">MIDI Bluetooth</a></p>
+<p id="source-8"><b>[8] AVAudioEngine / Sampler。</b>自有音频链、效果、采样和 MIDI 控制。<a href="https://developer.apple.com/documentation/AVFAudio/audio-engine">Audio Engine</a> · <a href="https://developer.apple.com/documentation/avfaudio/avaudiounitsampler">AVAudioUnitSampler</a></p>
+<p id="source-9"><b>[9] Apple 音频硬件与缓冲。</b>preferredIOBufferDuration、inputLatency、outputLatency。<a href="https://developer.apple.com/documentation/avfaudio/audio-hardware">Apple API 文档</a></p>
+<p id="source-10"><b>[10] WebKit 的 API 边界。</b>Web Bluetooth / Web MIDI 列为尚未实现能力。<a href="https://webkit.org/tracking-prevention/">WebKit 官方策略</a></p>
+<p id="source-11"><b>[11] Chrome Web Bluetooth。</b>平台、HTTPS、用户操作、服务过滤与 GATT 通知。<a href="https://developer.chrome.com/docs/capabilities/bluetooth">Chrome 官方开发文档</a></p>
+<p id="source-12"><b>[12] Web MIDI 安全上下文和权限。</b>必须按 API 能力与实际输入端口检查。<a href="https://developer.mozilla.org/en-US/docs/Web/API/Navigator/requestMIDIAccess">MDN API 原始文档</a></p>
+<div class="footer"><span>检索日期：2026-10-14 · 来源是资料证据，不是运行证据</span><span>11 / 12</span></div>
+</section>
+
+<section class="sheet refs" id="references-hardware">
+<div class="topline"><span>公开资料与本地证据</span><span>编码、原生平台、MIDI 协议与验收文件</span></div>
+<h2>12　来源脚注：平台 / 协议</h2>
+<p id="source-13"><b>[13] Safari 18.4 媒体能力。</b>MediaRecorder 的 WebM、MP4 与编码扩展。<a href="https://webkit.org/blog/16574/webkit-features-in-safari-18-4/">WebKit 发行说明</a></p>
+<p id="source-14"><b>[14] AudioContext baseLatency。</b>局部处理估计与 latencyHint，不能代替端到端测量。<a href="https://developer.mozilla.org/en-US/docs/Web/API/AudioContext/baseLatency">MDN 原始 API 文档</a></p>
+<p id="source-15"><b>[15] HarmonyOS GATT。</b>连接、服务发现、读写、通知、RSSI 与 MTU。正文抓取为空，使用官方索引资料；目标 SDK 仍待编译。<a href="https://developer.huawei.com/consumer/cn/doc/harmonyos-guides-V5/gatt-development-guide-V5">华为原始开发指导</a></p>
+<p id="source-16"><b>[16] HarmonyOS 低延迟录音。</b>OHAudio 低延迟模式及 GetFastStatus。正文抓取超时，使用官方索引，不能当真机证明。<a href="https://developer.huawei.com/consumer/en/doc/harmonyos-guides/audio-fast-recording">华为原始开发指导</a></p>
+<p id="source-17"><b>[17] Android MidiManager。</b>公开 BLE MIDI 打开与收发接口。<a href="https://developer.android.com/reference/android/media/midi/MidiManager">Android 官方 API</a></p>
+<p id="source-18"><b>[18] Android Oboe/AAudio。</b>回调、缓冲、非阻塞与设备差异。<a href="https://developer.android.com/games/sdk/oboe/low-latency-audio">Android 官方低延迟指导</a></p>
+<p id="source-19"><b>[19] AOSP 固定版本。</b>标准 BLE MIDI service / characteristic 及读取→通知。<a href="https://android.googlesource.com/platform/frameworks/base/+/f0a41d1/media/packages/BluetoothMidiService/src/com/android/bluetoothmidiservice/BluetoothMidiDevice.java">BluetoothMidiDevice 官方源文件</a></p>
+<p id="source-20"><b>[20] BLE MIDI 包格式。</b>13-bit 时间戳、running status、实时边界与源时钟。Microsoft 页面标为 preview，不代表本机已安装。<a href="https://microsoft.github.io/MIDI/kb/ble-midi-transport-architecture/">Microsoft 官方协议说明</a> · <a href="https://android.googlesource.com/platform/frameworks/base/+/4bbbfaa/media/packages/BluetoothMidiService/src/com/android/bluetoothmidiservice/BluetoothPacketDecoder.java">AOSP 固定版本解析资料</a></p>
+<p id="source-21"><b>[21] MIDI Association BLE MIDI。</b>MIDI 数据编码/解码的标准归属。<a href="https://midi.org/midi-over-bluetooth-low-energy-ble-midi">MIDI Association 原始说明</a></p>
+<p id="source-22"><b>[22] MIDI 1.0 消息分类。</b>通道消息、System Common、Real-Time 与音符。<a href="https://midi.org/summary-of-midi-1-0-messages">MIDI Association 参考表</a></p>
+<p id="source-23"><b>[23] Espressif BLE MIDI。</b>原始 packet 与完整 MIDI 消息接口、UUID 和 13-bit 时间戳。<a href="https://docs.espressif.com/projects/esp-iot-solution/en/latest/bluetooth/ble_midi.html">芯片厂商官方 SDK 指导</a></p>
+<p id="source-24"><b>[24] Windows MIDI API。</b>Windows Runtime 的 MIDI 输入/输出类型。<a href="https://learn.microsoft.com/uwp/api/windows.devices.midi">Microsoft 官方 API</a></p>
+<h3>本地证据与复现位置</h3>
+<p class="small"><code>sites/artifacts/feasibility-20261014/</code>：<code>garageband-platform-evidence.json</code>、<code>device-bridge-api.json</code>、<code>ble-midi-decoder-evidence.json</code>、<code>all-tests.txt</code>、<code>backend-live-qa.json</code>。项目测试：<code>node --test tests/*.test.mjs</code>。最终提交、生产检查与 GitHub 恢复校验看同批交付验收记录。</p>
+<div class="footer"><span>HTML 原稿可编辑；适用事实按最终交付记录复核</span><span>12 / 12</span></div>
+</section>
+<div class="toolbar">最终软件验收：172/172 自动测试通过；21项本地HTTP联动通过；128项客户端页面与4项后台页面布局复测通过，无横向溢出、破图或观察到的控制台错误。实琴、非Chromium浏览器引擎、真机安装及功耗没有取得通过证据。</div></body>
+</html>

@@ -1,0 +1,17 @@
+{
+  "status": "REVIEW_REQUIRED",
+  "counts": {
+    "topLevelFiles": 11018,
+    "uniquePayloads": 8398,
+    "archives": 49,
+    "archiveMembers": 8061,
+    "textCandidatesScanned": 6113,
+    "bytesScanned": 2331473790,
+    "cacheHits": 10681
+  },
+  "findings": 101,
+  "credentialFindings": 0,
+  "errors": 0,
+  "archives": 45,
+  "report": "E:\\codex\\.codex\\visualizations\\2026\\10\\09\\01a120af-077d-7860-a708-5b0048a16888\\github-vio-upload-20261015\\privacy\\privacy-audit.json"
+}

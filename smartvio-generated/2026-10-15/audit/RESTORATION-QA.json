@@ -1,0 +1,101 @@
+{
+  "schema": "smartvio.github-upload.restoration-qa.v1",
+  "snapshotDate": "2026-10-15",
+  "status": "PASS",
+  "restorationTarget": "E:\\codex\\Temp\\smartvio-upload-restore-check-20261015",
+  "pythonExecutable": "E:\\codex\\.cache\\codex-runtimes\\codex-primary-runtime\\dependencies\\python\\python.exe",
+  "tempEnvironment": {
+    "TEMP": "E:\\codex\\Temp",
+    "TMP": "E:\\codex\\Temp"
+  },
+  "restoredManifestFileCount": 9283,
+  "actualFileCountIncludingRestoreNote": 9284,
+  "verifiedAllRestoredFileSHA256": true,
+  "categoryCounts": {
+    "active-software/artifacts-history": 1521,
+    "active-software/mobile": 153,
+    "current/r3-delivery": 3,
+    "current/r3-working": 1155,
+    "current/reproduction-scripts": 23,
+    "history/concept-renders": 2,
+    "history/engineering": 3295,
+    "history/reorganized-r3-copy": 2847,
+    "history/software-v11": 106,
+    "history/software-v12": 178
+  },
+  "uniqueObjects": 4226,
+  "originalR3Zip": [
+    {
+      "file": "SmartVio-R3-最新方案与工程资料-20261013.zip",
+      "bytes": 56436675,
+      "sha256": "d0ec6331d4b88b9c7c2a80528609e6f0f7621eafb7953d97fb55bfcd11a7381a",
+      "expectedOriginalSHA256": "d0ec6331d4b88b9c7c2a80528609e6f0f7621eafb7953d97fb55bfcd11a7381a",
+      "matchesOriginal": true
+    }
+  ],
+  "mobileFilesChecked": 153,
+  "mobileRestoredHashesMatch": true,
+  "mobileDirectBrowseHashesMatch": true,
+  "markdownRelativeLinksChecked": 10,
+  "markdownRelativeLinks": [
+    {
+      "markdown": "SMARTVIO-GENERATED-INDEX.md",
+      "href": "smartvio-generated/2026-10-15/README.md",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-engineering/r3-view/reports/SmartVio-R3-当前方案与缺项清单.pdf",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-engineering/r3-view/drawings/M-R3-机械图与装配效果图.pdf",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-engineering/r3-view/drawings/E-R3-24页当前原理图.pdf",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-engineering/r3-view/drawings/E-R3-PCB与FPC审查图.pdf",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-engineering/r3-view/reports/SmartVio-R3-首样工作测试与候选BOM.xlsx",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-software/mobile/",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "FILE-MANIFEST.json",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "audit/ARCHIVE-SANITIZATION.json",
+      "targetExists": true
+    },
+    {
+      "markdown": "smartvio-generated/2026-10-15/README.md",
+      "href": "current-engineering/r3-view/visuals/R3-01-当前模块装配效果图.png",
+      "targetExists": true
+    }
+  ],
+  "allowedExtraFiles": [
+    "恢复说明.txt"
+  ],
+  "errors": [],
+  "notes": [
+    "Actual full restoration was executed before this independent second-pass file SHA verification.",
+    "All files restored under a fresh E-drive temporary directory; original project and publish directories untouched.",
+    "QA validates archive and source snapshot integrity, not engineering manufacturing or hardware qualification."
+  ]
+}

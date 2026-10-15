@@ -1,0 +1,287 @@
+{
+  "sourceBase": "E:\\codex\\Documents\\亚马逊图片",
+  "changesSinceInventory": [
+    {
+      "file": "sites/smartvio-mobile/dist/admin.html",
+      "inventoried": "1c77238a4b18c82762dee3121e27d7b9c774bd54a8ee5434c999495e6790afe8",
+      "captured": "3d6ea3ca2e1eaf9716845cf38b2f1f0cb3322a8df8c54d314c5c447b0a13bf77"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/admin.js",
+      "inventoried": "ef717cc74dc86f4c0345a0944f9b3d88ccc1a8ebeac02fb1649bb04cb7a40d32",
+      "captured": "3227941fa5bf352e436a12c16e0916fc7ad7f1ff2da3cc07f41f5a4ca15a06be"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/audio-engine.js",
+      "inventoried": "44843c5d92a00e8ac09fa47fd74468cbd0e4b70e70d0af010aed854a39be5a08",
+      "captured": "f0fe8ede1fdb2d687414f735c61b7d5f69295eaea892e6264686865f25202ffd"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/client.html",
+      "inventoried": "98433feec2dec091141ae1313a4fbc974190a587db50680f2d734a21edc23a35",
+      "captured": "02eb9f0e07aaa3e216477e52ffe298bb7bf27b38c4a2db36ea2d95d9b562591d"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/client.js",
+      "inventoried": "442c2ea3774f03478e1781ad5b39e0f9c73b5697d591db98e38af7393ee33e71",
+      "captured": "14d0b0eb04f7560fab3bd1456d0d20a5a734ad80f4ebd362f906955257bcd029"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/community.css",
+      "inventoried": "6d6cc292c3e98e1ad0180afa2fde634fe461f3b8a26c3ad36619e2a91f4e6a0e",
+      "captured": "f1579bef78841149dd88775eb5364eefc187e9ca0980b095463290acf5e0b0f9"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/community.js",
+      "inventoried": "956c44baf6fa1bbf0b2231590b6e04c9fd8a6a67cfb53937f0da2e5d3ad10bdd",
+      "captured": "ff1044e3339560b051b5005d11707870d2a594c73328aa0e2e336df626d9bb2e"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/i18n.js",
+      "inventoried": "b41926a9f60b7ba52c8518dc8b4977fed93ecb78ab8dcb2325c545a412d7b7f6",
+      "captured": "d617326a1474de7276e7dfa8ba83d5519a85c77fac16c7cd8fa76835a40b3475"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/index.html",
+      "inventoried": "98433feec2dec091141ae1313a4fbc974190a587db50680f2d734a21edc23a35",
+      "captured": "02eb9f0e07aaa3e216477e52ffe298bb7bf27b38c4a2db36ea2d95d9b562591d"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/midi.js",
+      "inventoried": "43967a20ebe046821607a2b05a81db1909d08f79bf4a146b53440a1479c57dbf",
+      "captured": "b7293c177385a0aee6c840b11ea1128836ed2add2e60e426bd26cbbd9889ef7b"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/offline.js",
+      "inventoried": "eec50d59aead8cfd9cbf876f25e851d2eabaee0d6c4c4be7cb87fab9525bffb8",
+      "captured": "6cc372f2549beb8792c19f9461b4d2442c4391cca7d5a86fd0375e4e218b4ef2"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/performance.js",
+      "inventoried": "d6196d0bee6788d6d48b0d27c7e8fbb712b53781c32b9623c530f8cf3e89c602",
+      "captured": "0823d26d82d6d8f480c71f6aa7479f48c3ce121ff6fd43c4379b6293d5ac79fb"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/style.css",
+      "inventoried": "b1157d6627fd29d8a2d83318be2ec6813a21628b6899597d7eda3e1c153d154d",
+      "captured": "ab100ffbcd991d48eaa7758b092daf7f062557db759f6231a9bfd461c8b21acf"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/sw.js",
+      "inventoried": "e70aa5f0e5ca8107b7e69cddf6b56a3e53b26473652f23cf466c9a1280085729",
+      "captured": "b9bbdc17db02cd46973574a9f488940b0360238d1ecba56b0ae671dad4bf96bf"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/server/index.js",
+      "inventoried": "8362f19b9e7dd3d38a2e4f519837c07e1a55c77209f7bd6fa7a3498df8eb0718",
+      "captured": "591fbe3520089b529d3feea1d0a1f216bec43174cf34ba58788f75033d0ffed5"
+    },
+    {
+      "file": "sites/smartvio-mobile/scripts/build-worker.cjs",
+      "inventoried": "ca09058c49df70088b2cb64d44f0738e9cccc252e0930e13467c0ccbd5618b94",
+      "captured": "7b1998017b58483689d3929651b4dc52e2418b35ed8941e549bfd48bedd186bf"
+    },
+    {
+      "file": "sites/smartvio-mobile/scripts/package-release.cjs",
+      "inventoried": "62d46b5cfd905b0a5987a8d8f9d3254fb8fe065d561f015ef5ab122bb1c80e6b",
+      "captured": "0db23c6a0841022eb457ec071a08f5890a03607166e9faefebffa1e75a650062"
+    },
+    {
+      "file": "sites/smartvio-mobile/scripts/prepare-source-backup.cjs",
+      "inventoried": "b27e4a2efba623c30364b677e4ef62e71b8ec573179a11e635cfe745d5dac888",
+      "captured": "8a752279b751fd09a36bfaf251df49e05622b71ea6aec42b47cd67a29dc1f6e6"
+    },
+    {
+      "file": "sites/smartvio-mobile/scripts/preview.mjs",
+      "inventoried": "1d2544f01f2755d7a31a0f79bdbe45a7285156783e7b2fdf57cfbf99dfff7839",
+      "captured": "8366dd939bf5e71abfc7fe0fa1ca221f4f3f0a89aa4287a4add0ea845cb00ec7"
+    },
+    {
+      "file": "sites/smartvio-mobile/tests/audio-engine.test.mjs",
+      "inventoried": "91732dc0e4b569da90cd4ee3686e94be773b6ddfd1b960741a734aa309af0e58",
+      "captured": "dba0cd574f9aecbb048319eeb1e65b5b7b460c4c5eb3e0050bc0b86220f7892e"
+    },
+    {
+      "file": "sites/smartvio-mobile/tests/midi.test.mjs",
+      "inventoried": "b849090d855cf9716a6e7e11d327880dbab89a95c8edcd11596296a4b750403d",
+      "captured": "70502515aa3dd1dafc3d1fdbde4265aead9ce35499d48c9f817a4cd13fea2200"
+    },
+    {
+      "file": "sites/smartvio-mobile/tests/video-inspection.test.mjs",
+      "inventoried": "c392f35252e9bfde3ff3ee42246235ee029050da952e12ae9922310efd932276",
+      "captured": "8163da77ff409b6b4fb7795e0f0a1a03f246d0348b290c3fd1312dba5c8e1ea7"
+    },
+    {
+      "file": "sites/smartvio-mobile/worker/community.mjs",
+      "inventoried": "759855308eae2eab291dd63b918da4f1cd32e3c962fe020273b0e4ee5641aa80",
+      "captured": "1e3f413b94543172fb33c31574a2f029e517070150d4040f5d81eda496a85a1f"
+    },
+    {
+      "file": "sites/smartvio-mobile/worker/video-inspection.mjs",
+      "inventoried": "31516332df65952fbc1067a2443964a08d7e1a77a6c3e037b03e78d28a8b43e1",
+      "captured": "e56d34eb3a2bfbb2fc7cf211c6424d6ff16c64c5137261b3e877a582a575d84c"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/A3.wav",
+      "inventoried": null,
+      "captured": "a9131953c5f56c8e7091f6e9c8adbc695dbfdc055a5be8c51f1786fc6983ba51"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/A4.wav",
+      "inventoried": null,
+      "captured": "95204f8a19e1a655b8259c9a1bd64fb229e2d111c69f63656a9fcfcf6f8d28ad"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/A5.wav",
+      "inventoried": null,
+      "captured": "4eb52850bfd4265ed548cc497434047be1e510bfc6e24ba2036efaa069689dea"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/A6.wav",
+      "inventoried": null,
+      "captured": "f7766cc378eb4df3f6f71bd87cf4a6b349df488a0965ca082de5291ae71ba881"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/E4.wav",
+      "inventoried": null,
+      "captured": "e4ef838ca90a55faa8294e3bb2af09c68ec2eb0deeb3fe85c09792ba41141207"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/E5.wav",
+      "inventoried": null,
+      "captured": "018f6b1cee9aa9e4951c1d4e5a576ec078a19a10fd11de9dfa9e0c2f1a09fce2"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/E6.wav",
+      "inventoried": null,
+      "captured": "7a226d7b585ab8a77e862f81937885d6269e9a2acf50e0c9c412b8ac3c01d277"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/LICENSE.txt",
+      "inventoried": null,
+      "captured": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/assets/audio/violin/manifest.json",
+      "inventoried": null,
+      "captured": "017ade0f8db0164fb875efb961f9b88862aa85f795bf056d515c4d044d9095f6"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/reports/feasibility-20261015.html",
+      "inventoried": null,
+      "captured": "cceada211e59ac2c0c2efc0b375370880d90f02a416570580d133f9473f645e1"
+    },
+    {
+      "file": "sites/smartvio-mobile/dist/reports/SmartVio-feasibility-20261015.pdf",
+      "inventoried": null,
+      "captured": "ca76f11331566641697cef8a496c80791830ab097447e47f955035d93de95fb4"
+    },
+    {
+      "file": "sites/smartvio-mobile/scripts/convert-violin-samples.py",
+      "inventoried": null,
+      "captured": "ad4b429b857c839f3c079949c6b5d614810b5c7692a3d300d929a94f7b678701"
+    },
+    {
+      "file": "sites/smartvio-mobile/scripts/render-v16-report.py",
+      "inventoried": null,
+      "captured": "c0aece7f95714b9e86ff7bf7290c8eb00811b6619843244a7460621718aed382"
+    },
+    {
+      "file": "sites/smartvio-mobile/tests/community-video.test.mjs",
+      "inventoried": null,
+      "captured": "8be69d5841ecab68c2af0237c20935d8bcd640897db8fd055f3c4a3e9b60a5ce"
+    },
+    {
+      "file": "sites/smartvio-mobile/tests/learning-path.test.mjs",
+      "inventoried": null,
+      "captured": "eb0fb3239e8b34bf813b4ae4e7b6cbe305e56935ccc2721ba7e1f3c291939147"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/audio-assets-independent-qa.json",
+      "inventoried": null,
+      "captured": "316ac89b273ae88dbd67ac4cb4abdfb9884c391223826326283f0691400536fd"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/audio-implementation-tests.txt",
+      "inventoried": null,
+      "captured": "0308e66d4c0f89ccf3a5eb1ec39d2625aadd319348533fecd195473162726048"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/audio-implementation.json",
+      "inventoried": null,
+      "captured": "7a2c3423667c0a27f1bd6e0847b1c03b4f93296a16fc953cc5e0928001a6f29f"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/full-tests.txt",
+      "inventoried": null,
+      "captured": "bbc6fe4eef3aaf1545c49ded8c2d01dbdb89d76376b2f9a0d5cbbd8bed94c3b3"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/integrate-audio-and-release.py",
+      "inventoried": null,
+      "captured": "84363d7c11d2ba17ca3b98ba547bda5b37ebe8480eaf90868d9161e8aeba3d7f"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/learning-390.png",
+      "inventoried": null,
+      "captured": "f4109c06a319c28b1d940ee0f22997def7741295fdf14235b7c9e2ff99a0a92e"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/learning-midi-implementation-tests.txt",
+      "inventoried": null,
+      "captured": "274342f1b0f86c84e7583b70b85df5d45d517dd47aae21c9c24f4f14adeb114f"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/learning-midi-implementation.json",
+      "inventoried": null,
+      "captured": "3b7403ea1227a97211d4fa8f08bd90a8f41e909beddac29006412a083a90c67e"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/contact-sheet.jpg",
+      "inventoried": null,
+      "captured": "9c3f6a447dc58f48408c4734248405b24cba72bc431a41f8d26d5d86e2dc650b"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-1.png",
+      "inventoried": null,
+      "captured": "01ba82b1d8098284c4c8881cbf92e5aafa9e41dc3ad758c2bb24de434a899c81"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-2.png",
+      "inventoried": null,
+      "captured": "b328b924cf390b308e80f9631af7e8133ad290d50675f061ab2fa867045be99a"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-3.png",
+      "inventoried": null,
+      "captured": "b00a962df28081bbd9c4a4837cebcf7fea469a2ff632fd4e5f19bfc7ae7bc662"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-4.png",
+      "inventoried": null,
+      "captured": "7250b73d81b0db9c0284ba344d24953494596e94181fd6f01669639792a4adc8"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-5.png",
+      "inventoried": null,
+      "captured": "cb632fbd31599cdc0cd2a77d945b42c70f0dcb2e2536e44d17c3d9639488b954"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-6.png",
+      "inventoried": null,
+      "captured": "31e588490133d26d9044796cace816f832419ab75afe970343861d5f9543d414"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/page-7.png",
+      "inventoried": null,
+      "captured": "b37442d8724c07a7724d4442ffefebe12b4c833a4f764f1600e774fe8bb2f396"
+    },
+    {
+      "file": "sites/artifacts/v16-20261015/pdf-qa/verification.json",
+      "inventoried": null,
+      "captured": "7c5063de605c42afb7f966c84ffa88a32cd46389752a10155485be7140944a3c"
+    }
+  ],
+  "credentialPatternHits": 0,
+  "note": "Point-in-time file capture; no claim that ongoing software edits were product-qualified"
+}

@@ -1,0 +1,512 @@
+{
+  "changedArchives": [
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-20261012.tar.gz",
+      "sourceSHA256": "05314f18500200d7b4beb29bd1c267cfff56e6c227d40489b2ce8ad6609c0391",
+      "uploadedSHA256": "296f990de96808ccb0e5659244ada99373d45922492f2cef846aa1270fe4b739"
+    },
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-final-20261012.tar.gz",
+      "sourceSHA256": "94eda5012d882d6eb7cc77c363f598d986049146672dd338867469b299f4d4d4",
+      "uploadedSHA256": "8f5924fe79aeead4f41b5b42b971b1fdefda853b42ad8e91512dd677becfd931"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-20261012-windows.tar.gz",
+      "sourceSHA256": "2dbec06bd4f777fbee9f1205cd514f6b1fb53a20b494e87b4ee508e48bdb2beb",
+      "uploadedSHA256": "6bcee87978869968e989dbc03c4b95dbb2ab661c71604db6078fb571bdeb82c1"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-final.tar.gz",
+      "sourceSHA256": "ea5818c90e2b93483c255b88f3b81c92fabbd8a0c547228a0dc2239a7bd363da",
+      "uploadedSHA256": "0534dc0099a93e9b867ae0eb3ca52759e3d4b95bf87e784b64783d948429119d"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-windows.tar.gz",
+      "sourceSHA256": "919ac060ded5a1a9a6ae3e826523c2b1b4d420525a8869b272fbb7307db1d8f8",
+      "uploadedSHA256": "a673b2dcc9d71c874d9e0e68daba124167403ffc4b931b6751c50f45734633ce"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-onboarding-20261012.tar.gz",
+      "sourceSHA256": "d1c492b820f9345cc6af023b6a7ce65796ac1ff291e072868c1342f6bc630814",
+      "uploadedSHA256": "1b64fe2e3ff2417f26ceee91edca78ecdb05c6c77fbea9e8f45d9a274806841f"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-silvio-header-20261012.tar.gz",
+      "sourceSHA256": "90a94921c9864a5485d45f939577bb002674654a14a904bffa20b11fbc13dad7",
+      "uploadedSHA256": "a346a0a045a57844697fde461167e364f562778b51aafcad5cb0139e582122d4"
+    },
+    {
+      "source": "sites/artifacts/smartvio-uk-brand-first-use-20261012.tar.gz",
+      "sourceSHA256": "5742ce19bf86b4c5c0df0001f7e6e50cc28440aa295af517f4f2db6e442233ae",
+      "uploadedSHA256": "6763e760b9d01907ebea50addacfac3edc6cd240524a97ce6ba2cd1b781a3fc9"
+    },
+    {
+      "source": "sites/artifacts/smartvio-wordmarks-20261012.tar.gz",
+      "sourceSHA256": "d392a262f5fdd557444852c22bd906087e1a7d09f092ba244fcb8475ebb5463f",
+      "uploadedSHA256": "741b3881fc054357f461374c5dc24338c5b9549d92e0085633a660def524662f"
+    },
+    {
+      "source": "sites/artifacts/SmartVio-商标素材与新版源码-20261012.zip",
+      "sourceSHA256": "6f10321432e3e4aa353a4b0f3233a5be294e3304ba06bed7cf94b97ddb3945b3",
+      "uploadedSHA256": "997d4f6ae5238c6eb44d02023b22295c927f63ab437ffaa9fabeb24a98da034d"
+    },
+    {
+      "source": "sites/artifacts/SmartVio-新版源码与功能硬件清单-20261012.zip",
+      "sourceSHA256": "a26c0f35d15a9b2edaae9db4b4e340f568f7c85f92c5fa0e97ad41e23ec9c13f",
+      "uploadedSHA256": "ec29ab4cd27188471fdb18c4d137393fdbb13eb3993c9fa859cda593ca5a5164"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "sourceSHA256": "4cb0ccd075b02a0d1e0f2601cabe4477b7308a3ca073ab22dd1c1535043cfebc",
+      "uploadedSHA256": "848ffa66daf5b3e36c25e87909edb9e02c261ed3305b89ac07d3dadd4ba8d4d0"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "sourceSHA256": "7317615df6ce8124aaa580015e0709c3d8df3abde0bec003bdf4ea3bf5a14c42",
+      "uploadedSHA256": "3a4f0eb95a9c06963fff6e8f354a6071cebb8581463a0214f7d5c07f9ccba9ab"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "sourceSHA256": "fb55bf9685bf8fca020729bacb819fb77a9f8ad3996cb3d08919b94510278b01",
+      "uploadedSHA256": "f725aa346f68c4ce5f4503c0a9ab0949f126aff9b0d3bd58c4c17171b2236b30"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "sourceSHA256": "c1f32f053685ab54037dd47c2949997a36123d839c018f9b586dbe28939eee67",
+      "uploadedSHA256": "e13fd192e2029d372e87828375a06524f7ecbf49781dd9aaef50f965ceb8504f"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "sourceSHA256": "15af68d1d6a4e5a6a10e98ea2f0175ce4dba176f75e709d48077425fe6f90692",
+      "uploadedSHA256": "039f7f8984f88eeb8c98b602204e3e07e4423b788df49489a45e1c249237a740"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "sourceSHA256": "885d8236b40b5e7ce9b98a337fe2e8d2afada0a4ffd03e43a24dd853257833de",
+      "uploadedSHA256": "dda846a72989d919621df50cbb4e3048cfee056aca47a12aee0fdeaba03fc4ef"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/SmartVio-community-admin-source-20261012.zip",
+      "sourceSHA256": "6306a5b43babfa9eb6c9108d79bf1a1f6daa14a31559564d99bb902b1b7bb57f",
+      "uploadedSHA256": "bb04e41a094d4033a1cc553c0ad2ad024cef95796f06fbe00df5ab3df20423ad"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "sourceSHA256": "8aa4b066c7dd0e1c95421607ee7c2539a156a8a85a168c24cfe4beebab6060cc",
+      "uploadedSHA256": "2c1d51fe2af2a9ed764f5788a7f5dcb78d3787c94ca91576bb86e6bb06d27e97"
+    },
+    {
+      "source": "sites/artifacts/feasibility-20261014/github-backup/checkpoint-2c7f0a7ce5ff-blTGZk/smartvio-mobile-source-2c7f0a7ce5ff.zip",
+      "sourceSHA256": "b33ec4925149abaf84f73aa511fa803162cf25011a601fa0631a7300759150ff",
+      "uploadedSHA256": "70e401295ef7745fe4e543378bfcaed8080525232cab18656fbc01b4d8d73c37"
+    }
+  ],
+  "removedMembers": [
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-20261012.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-20261012.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-final-20261012.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-guide-offline-final-20261012.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-20261012-windows.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-20261012-windows.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-final.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-final.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-windows.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-locale-20261012-windows.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-onboarding-20261012.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-onboarding-20261012.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-silvio-header-20261012.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-mobile-silvio-header-20261012.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-uk-brand-first-use-20261012.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-uk-brand-first-use-20261012.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/smartvio-wordmarks-20261012.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/smartvio-wordmarks-20261012.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/SmartVio-商标素材与新版源码-20261012.zip",
+      "member": "源码/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/SmartVio-新版源码与功能硬件清单-20261012.zip",
+      "member": "源码/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-0d6860728f.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/0002_learn_onboarding.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/0003_private_preset_backup.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0002_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0003_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-2c7f0a7ce5.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/0002_learn_onboarding.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0002_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-903a8df463.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-a0571f64d8.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-aadf3ab0b9.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-ab4483741d.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/SmartVio-community-admin-source-20261012.zip",
+      "member": ".openai/"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/SmartVio-community-admin-source-20261012.zip",
+      "member": ".openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/build-provenance.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/hosting.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/0000_wise_roland_deschain.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/0001_furry_zarek.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/0002_learn_onboarding.sql"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/meta"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0000_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0001_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/meta/0002_snapshot.json"
+    },
+    {
+      "source": "sites/artifacts/community-admin-20261012/smartvio-community-f6a5c272db.tar.gz",
+      "member": "dist/.openai/drizzle/meta/_journal.json"
+    },
+    {
+      "source": "sites/artifacts/feasibility-20261014/github-backup/checkpoint-2c7f0a7ce5ff-blTGZk/smartvio-mobile-source-2c7f0a7ce5ff.zip",
+      "member": "smartvio-mobile/.openai/hosting.json"
+    }
+  ],
+  "originalsRetainedLocally": true,
+  "reason": "Remove local deployment/account/cache state from upload copies"
+}

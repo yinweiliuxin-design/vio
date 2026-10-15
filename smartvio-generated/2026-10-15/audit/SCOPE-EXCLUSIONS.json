@@ -1,0 +1,16 @@
+{
+  "excluded": "Unrelated Amazon assets, REA/tooling installations, credentials/account state, node_modules, runtime caches, .git, junction targets and temporary compilation objects.",
+  "allProjectOriginalsPreserved": true,
+  "classifications": {
+    "current/reproduction-scripts": 23,
+    "history/reorganized-r3-copy": 2847,
+    "current/r3-delivery": 3,
+    "history/software-v11": 106,
+    "history/software-v12": 178,
+    "history/engineering": 3295,
+    "current/r3-working": 1155,
+    "history/concept-renders": 2,
+    "active-software/mobile": 153,
+    "active-software/artifacts-history": 1521
+  }
+}

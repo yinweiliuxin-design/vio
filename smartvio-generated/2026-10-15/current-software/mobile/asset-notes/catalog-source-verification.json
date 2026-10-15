@@ -1,0 +1,2504 @@
+{
+  "curatedAt": "2026-10-14",
+  "records": [
+    {
+      "id": "S036",
+      "key": "mutopia-1534",
+      "titles": {
+        "zh": "咏叹调（BWV 1068）",
+        "en": "Air (BWV 1068)",
+        "ja": "アリア（BWV 1068）",
+        "de": "Air (BWV 1068)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1534",
+        "edition": "New adaptation from Bach-Gesellschaft · Mutopia-2008/10/28-1534",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. S. Bach (1685–1750); typeset by Mike Blackstock; Mutopia-2008/10/28-1534",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/BachJS/BWV1068/bach_air_bmv_1068/bach_air_bmv_1068-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1534.mid",
+        "sourceHash": "5f7763dd4d29f309cac6d670c22aa029aca23c8c97743a0511d4b9c6d3435f1c",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/BachJS/BWV1068/bach_air_bmv_1068/bach_air_bmv_1068.mid",
+        "track": 1,
+        "trackName": "flute",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 12288,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S037",
+      "key": "mutopia-2167",
+      "titles": {
+        "zh": "圣母颂（古诺／巴赫）",
+        "en": "Ave Maria (Gounod / Bach)",
+        "ja": "アヴェ・マリア（グノー／バッハ）",
+        "de": "Ave Maria (Gounod / Bach)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2167",
+        "edition": "Heugel, 1856 · Mutopia-2017/01/25-2167",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "C. Gounod (1818–1893); typeset by Yann Leprince; Mutopia-2017/01/25-2167",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/GounodC/AveMaria-PianoViolin/AveMaria-PianoViolin-a4-pdfs.zip"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-2167.mid",
+        "sourceHash": "374fa21eccbaad7b994da5b8db779c65cc527a382bf819b82126dfcd678a4297",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/GounodC/AveMaria-PianoViolin/AveMaria-PianoViolin.mid",
+        "track": 1,
+        "trackName": "violin:",
+        "ppq": 384,
+        "startTick": 6144,
+        "endTick": 18432,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S038",
+      "key": "mutopia-584",
+      "titles": {
+        "zh": "母亲教我的歌（Op.55）",
+        "en": "Songs My Mother Taught Me (Op. 55)",
+        "ja": "わが母の教え給いし歌（Op.55）",
+        "de": "Als die alte Mutter (Op. 55)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=584",
+        "edition": "The University Society, 1904 · Mutopia-2006/12/18-584",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "A. Dvořák (1841–1904); typeset by Daniel Johnson; Mutopia-2006/12/18-584",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/DvorakA/O55/dvorak-als-die-alte-mutter/dvorak-als-die-alte-mutter-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-584.mid",
+        "sourceHash": "112c8943a0e4bb3ee6dcaa9678d131ed3ac34065671cb46a0b3659da187feaf1",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/DvorakA/O55/dvorak-als-die-alte-mutter/dvorak-als-die-alte-mutter.mid",
+        "track": 1,
+        "trackName": "melStaff",
+        "ppq": 384,
+        "startTick": 9216,
+        "endTick": 18432,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S039",
+      "key": "mutopia-1054",
+      "titles": {
+        "zh": "圣母颂（舒伯特，D.839）",
+        "en": "Ave Maria (Schubert, D. 839)",
+        "ja": "アヴェ・マリア（シューベルト、D.839）",
+        "de": "Ave Maria (Schubert, D. 839)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1054",
+        "edition": "C.F. Peters (Band I) · Mutopia-2007/10/13-1054",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2007/10/13-1054",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D839/SchubertF-D839_AveMaria/SchubertF-D839_AveMaria-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1054.mid",
+        "sourceHash": "289d1d2c8f5a16f1b1732bc1a60652e662f24e09531ebb0d8017b49712724684",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D839/SchubertF-D839_AveMaria/SchubertF-D839_AveMaria.mid",
+        "track": 1,
+        "trackName": "\\new",
+        "ppq": 384,
+        "startTick": 3072,
+        "endTick": 15360,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S040",
+      "key": "mutopia-2080",
+      "titles": {
+        "zh": "古老的法国歌曲（Op.39 No.16）",
+        "en": "Old French Song (Op. 39 No. 16)",
+        "ja": "古いフランスの歌（Op.39 第16番）",
+        "de": "Altfranzösisches Lied (Op. 39 Nr. 16)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2080",
+        "edition": "Schirmer, 1904 · Mutopia-2015/11/27-2080",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "P. I. Tchaikovsky (1840–1893); typeset by David McNamara; Mutopia-2015/11/27-2080",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/16OldFrenchSong/16OldFrenchSong-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-2080.mid",
+        "sourceHash": "112c3b61dab55f58bc44d9f3522ef21b3479ffa1953097783ff8c4f10e40175d",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/16OldFrenchSong/16OldFrenchSong.mid",
+        "track": 1,
+        "trackName": "upper:",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 5568,
+        "leadPaddingBeats": 1.5,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S041",
+      "key": "mutopia-1888",
+      "titles": {
+        "zh": "在山魔王的宫殿里",
+        "en": "In the Hall of the Mountain King",
+        "ja": "山の魔王の宮殿にて",
+        "de": "In der Halle des Bergkönigs"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1888",
+        "edition": "The University Society, 1918 · Mutopia-2013/12/07-1888",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "E. Grieg (1843–1907); typeset by Coyau; Mutopia-2013/12/07-1888",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne/Dans_l_antre_du_roi_de_la_montagne-a4.pdf"
+      },
+      "verification": {
+        "method": "Direct reading of rightOne LilyPond notation, resolving relative octaves from c double-prime and the preceding intro chord; full written note durations copied, then transposed uniformly two octaves",
+        "sourceHash": "5ce52c65f3a019062baa72d8c85313274d2542dbf68a759d8712df4bea827b95",
+        "startTick": 1536,
+        "endTick": 13824,
+        "transposeSemitones": 24,
+        "midiVerified": true
+      }
+    },
+    {
+      "id": "S042",
+      "key": "mutopia-1001",
+      "titles": {
+        "zh": "致音乐（D.547）",
+        "en": "To Music (D. 547)",
+        "ja": "音楽に寄せて（D.547）",
+        "de": "An die Musik (D. 547)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1001",
+        "edition": "C.F. Peters (Band I) · Mutopia-2007/09/07-1001",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2007/09/07-1001",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D547/AnDieMusik/AnDieMusik-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1001.mid",
+        "sourceHash": "85e627c4a4d635e0ef1018b6ae627b44d13d830da821b5c2d7823a8a32e45e7c",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D547/AnDieMusik/AnDieMusik.mid",
+        "track": 1,
+        "trackName": "\\new",
+        "ppq": 384,
+        "startTick": 3072,
+        "endTick": 15360,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S043",
+      "key": "mutopia-502",
+      "titles": {
+        "zh": "鳟鱼（D.550）",
+        "en": "The Trout (D. 550)",
+        "ja": "ます（D.550）",
+        "de": "Die Forelle (D. 550)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=502",
+        "edition": "C.F. Peters (Band I) · Mutopia-2013/02/21-502",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Maurizio Tomasi; Mutopia-2013/02/21-502",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D550/forelle/forelle-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-502.mid",
+        "sourceHash": "3b6726f0ff6beaef51288a6a45f091f12a410adca6bc60e100de5ef62958e124",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D550/forelle/forelle.mid",
+        "track": 1,
+        "trackName": "",
+        "ppq": 384,
+        "startTick": 3840,
+        "endTick": 9984,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S044",
+      "key": "mutopia-371",
+      "titles": {
+        "zh": "艰难时光不再来",
+        "en": "Hard Times Come Again No More",
+        "ja": "つらい時よ、もう戻らないで",
+        "de": "Schwere Zeiten, kehrt nicht wieder"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=371",
+        "edition": "Foster's Melodies: New York: Horace Waters, No. 481 Broadway · Mutopia-2014/03/24-371",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "S. C. Foster (1826–1864); typeset by Stan Sanderson; Mutopia-2014/03/24-371",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/FosterSC/hardtimes/hardtimes-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-371-midi-files/hardtimes-1.mid",
+        "sourceHash": "266e356df98fc913d60e98685c4c7ab4cc6936abb882ea8390c8ad8e8fbe0f6e",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/FosterSC/hardtimes/hardtimes-mids.zip",
+        "track": 1,
+        "trackName": "",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 12288,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S045",
+      "key": "mutopia-370",
+      "titles": {
+        "zh": "安睡吧，亲爱的",
+        "en": "Slumber, My Darling",
+        "ja": "おやすみ、いとしい子",
+        "de": "Schlafe, mein Liebling"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=370",
+        "edition": "Foster's Melodies: New York: Horace Waters, No. 481 Broadway · Mutopia-2014/03/24-370",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "S. C. Foster (1826–1864); typeset by Stan Sanderson; Mutopia-2014/03/24-370",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/FosterSC/slumber/slumber-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-370.mid",
+        "sourceHash": "3235864dce0f7a59f1eb348bda55065263c0366267e32f27ce6240c9dde3f6b5",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/FosterSC/slumber/slumber.mid",
+        "track": 1,
+        "trackName": "",
+        "ppq": 384,
+        "startTick": 9216,
+        "endTick": 18432,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S046",
+      "key": "mutopia-1248",
+      "titles": {
+        "zh": "我们相聚在河边（Hanson Place）",
+        "en": "Shall We Gather at the River (Hanson Place)",
+        "ja": "川のほとりに集いましょう（Hanson Place）",
+        "de": "Sollen wir uns am Fluss versammeln (Hanson Place)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1248",
+        "edition": "www.cyberhymnal.org · Mutopia-2008/01/13-1248",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "R. Lowry (1826–1899); typeset by Steve Dunlop; Mutopia-2008/01/13-1248",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/LowryR/hanson_place/hanson_place-a4.pdf"
+      },
+      "verification": {
+        "id": 1248,
+        "title": "Hanson Place",
+        "sourceURL": "https://www.mutopiaproject.org/ftp/LowryR/hanson_place/hanson_place.ly",
+        "pageURL": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1248",
+        "sourceFile": "C:\\Users\\Admin\\Documents\\亚马逊图片\\sites\\artifacts\\catalog-expansion-20261013\\sources\\mutopia-1248-lily.ly",
+        "sourceSha256": "d0a6da69dedeec104ad2e727e59287dd1ab0f75b07f44d738ca9d230ee4025fa",
+        "selectedVoice": "Soprano",
+        "octaveMode": "absolute",
+        "relativeAnchor": null,
+        "meter": "4/4",
+        "measureCount": 8,
+        "quarterBeatsPerBar": 4,
+        "totalQuarterBeats": 32,
+        "leadPaddingBeats": 0,
+        "originalPickupBeats": 0,
+        "melodyIncludesLeadPadding": true,
+        "melody": "F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25 A4:2 F#4:2 G4:1 G4:1 G4:0.75 A4:0.25 G4:0.75 F#4:0.25 E4:2 A4:2 F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25 A4:2 F#4:1 F#4:0.5 G4:0.5 E4:1 E4:0.5 F#4:0.5 G4:1 F#4:0.5 E4:0.5 D4:4",
+        "leadMelody": "F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25 A4:2 F#4:2 G4:1 G4:1 G4:0.75 A4:0.25 G4:0.75 F#4:0.25 E4:2 A4:2 F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25 A4:2 F#4:1 F#4:0.5 G4:0.5 E4:1 E4:0.5 F#4:0.5 G4:1 F#4:0.5 E4:0.5 D4:4",
+        "events": [
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 0,
+            "sourceToken": "fis'4",
+            "sourceOffset": 28
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 1,
+            "sourceToken": "fis'",
+            "sourceOffset": 34
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.75,
+            "midi": 66,
+            "startQuarterBeat": 2,
+            "sourceToken": "fis'8.",
+            "sourceOffset": 39
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 0.25,
+            "midi": 64,
+            "startQuarterBeat": 2.75,
+            "sourceToken": "e'16",
+            "sourceOffset": 46
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.75,
+            "midi": 66,
+            "startQuarterBeat": 3,
+            "sourceToken": "fis'8.",
+            "sourceOffset": 51
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.25,
+            "midi": 67,
+            "startQuarterBeat": 3.75,
+            "sourceToken": "g'16",
+            "sourceOffset": 58
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 4,
+            "sourceToken": "a'2",
+            "sourceOffset": 63
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 2,
+            "midi": 66,
+            "startQuarterBeat": 6,
+            "sourceToken": "fis'",
+            "sourceOffset": 67
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 8,
+            "sourceToken": "g'4",
+            "sourceOffset": 72
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 9,
+            "sourceToken": "g'",
+            "sourceOffset": 76
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.75,
+            "midi": 67,
+            "startQuarterBeat": 10,
+            "sourceToken": "g'8.",
+            "sourceOffset": 79
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.25,
+            "midi": 69,
+            "startQuarterBeat": 10.75,
+            "sourceToken": "a'16",
+            "sourceOffset": 84
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.75,
+            "midi": 67,
+            "startQuarterBeat": 11,
+            "sourceToken": "g'8.",
+            "sourceOffset": 89
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.25,
+            "midi": 66,
+            "startQuarterBeat": 11.75,
+            "sourceToken": "fis'16",
+            "sourceOffset": 94
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 2,
+            "midi": 64,
+            "startQuarterBeat": 12,
+            "sourceToken": "e'2",
+            "sourceOffset": 101,
+            "slurStart": true
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 14,
+            "sourceToken": "a'",
+            "sourceOffset": 107,
+            "slurEnd": true
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 16,
+            "sourceToken": "fis'4",
+            "sourceOffset": 112
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 17,
+            "sourceToken": "fis'",
+            "sourceOffset": 118
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.75,
+            "midi": 66,
+            "startQuarterBeat": 18,
+            "sourceToken": "fis'8.",
+            "sourceOffset": 123
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 0.25,
+            "midi": 64,
+            "startQuarterBeat": 18.75,
+            "sourceToken": "e'16",
+            "sourceOffset": 130
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.75,
+            "midi": 66,
+            "startQuarterBeat": 19,
+            "sourceToken": "fis'8.",
+            "sourceOffset": 135
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.25,
+            "midi": 67,
+            "startQuarterBeat": 19.75,
+            "sourceToken": "g'16",
+            "sourceOffset": 142
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 20,
+            "sourceToken": "a'2",
+            "sourceOffset": 147
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 22,
+            "sourceToken": "fis'4",
+            "sourceOffset": 151
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.5,
+            "midi": 66,
+            "startQuarterBeat": 23,
+            "sourceToken": "fis'8",
+            "sourceOffset": 157
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 23.5,
+            "sourceToken": "g'",
+            "sourceOffset": 163
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1,
+            "midi": 64,
+            "startQuarterBeat": 24,
+            "sourceToken": "e'4",
+            "sourceOffset": 166
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 0.5,
+            "midi": 64,
+            "startQuarterBeat": 25,
+            "sourceToken": "e'8",
+            "sourceOffset": 170
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.5,
+            "midi": 66,
+            "startQuarterBeat": 25.5,
+            "sourceToken": "fis'",
+            "sourceOffset": 174
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 26,
+            "sourceToken": "g'4",
+            "sourceOffset": 179
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.5,
+            "midi": 66,
+            "startQuarterBeat": 27,
+            "sourceToken": "fis'8",
+            "sourceOffset": 183
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 0.5,
+            "midi": 64,
+            "startQuarterBeat": 27.5,
+            "sourceToken": "e'",
+            "sourceOffset": 189
+          },
+          {
+            "pitch": "D4",
+            "quarterBeats": 4,
+            "midi": 62,
+            "startQuarterBeat": 28,
+            "sourceToken": "d'1",
+            "sourceOffset": 192
+          }
+        ],
+        "bars": [
+          {
+            "measure": 1,
+            "quarterBeats": 4,
+            "melody": "F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25"
+          },
+          {
+            "measure": 2,
+            "quarterBeats": 4,
+            "melody": "A4:2 F#4:2"
+          },
+          {
+            "measure": 3,
+            "quarterBeats": 4,
+            "melody": "G4:1 G4:1 G4:0.75 A4:0.25 G4:0.75 F#4:0.25"
+          },
+          {
+            "measure": 4,
+            "quarterBeats": 4,
+            "melody": "E4:2 A4:2"
+          },
+          {
+            "measure": 5,
+            "quarterBeats": 4,
+            "melody": "F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25"
+          },
+          {
+            "measure": 6,
+            "quarterBeats": 4,
+            "melody": "A4:2 F#4:1 F#4:0.5 G4:0.5"
+          },
+          {
+            "measure": 7,
+            "quarterBeats": 4,
+            "melody": "E4:1 E4:0.5 F#4:0.5 G4:1 F#4:0.5 E4:0.5"
+          },
+          {
+            "measure": 8,
+            "quarterBeats": 4,
+            "melody": "D4:4"
+          }
+        ],
+        "sourceVoiceText": " \\time 4/4  { \\key d \\major fis'4 fis' fis'8. e'16 fis'8. g'16 a'2 fis' g'4 g' g'8. a'16 g'8. fis'16 e'2 ( a' ) fis'4 fis' fis'8. e'16 fis'8. g'16 a'2 fis'4 fis'8 g' e'4 e'8 fis' g'4 fis'8 e' d'1 b'4 b' d''8. cis''16 d''8. b'16 a'2 fis'4. fis'8 g'8. fis'16 g'8. fis'16 g'8. fis'16 g'8 e' fis'2 a' b'8. b'16 b'8. b'16 d''8. cis''16 d''8. b'16 a'2 fis'4 fis' e' e'8. fis'16 g'4 fis'8 e' d'1  \\bar \"|.\" } ",
+        "sourceVoiceSpan": {
+          "startLine": 21,
+          "endLine": 21
+        },
+        "method": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures.",
+        "boundaries": [
+          "No accompaniment voices, no highest-note inference, no MIDI-derived melody, no LilyPond or Scheme execution.",
+          "Parenthesized slurs are preserved as event flags and distinct notes; they are not converted to ties. Only explicit ~ ties merge equal-pitch durations.",
+          "The application pitch:quarterbeats string does not itself encode slur articulation; metadata retains it for review.",
+          "This is an eight-measure lead excerpt, not a complete song or original-performance recording."
+        ]
+      }
+    },
+    {
+      "id": "S047",
+      "key": "mutopia-1231",
+      "titles": {
+        "zh": "午夜传来的歌声（Carol调）",
+        "en": "It Came upon the Midnight Clear (Carol)",
+        "ja": "真夜中の澄んだ空に（Carol）",
+        "de": "Es kam in einer klaren Mitternacht (Carol)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1231",
+        "edition": "www.cyberhymnal.org · Mutopia-2008/01/13-1231",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "R. S. Willis (1819–1900); typeset by Steve Dunlop; Mutopia-2008/01/13-1231",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/WillisRS/carol/carol-a4.pdf"
+      },
+      "verification": {
+        "id": 1231,
+        "title": "Carol / It Came Upon the Midnight Clear",
+        "sourceURL": "https://www.mutopiaproject.org/ftp/WillisRS/carol/carol.ly",
+        "pageURL": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1231",
+        "sourceFile": "C:\\Users\\Admin\\Documents\\亚马逊图片\\sites\\artifacts\\catalog-expansion-20261013\\sources\\mutopia-1231-lily.ly",
+        "sourceSha256": "721e2c5bf7efe5cd0038c5ad6e62bcf591be2af910c74d5aa2b2e672c7f256ed",
+        "selectedVoice": "Soprano",
+        "octaveMode": "absolute",
+        "relativeAnchor": null,
+        "meter": "6/8",
+        "measureCount": 8,
+        "quarterBeatsPerBar": 3,
+        "totalQuarterBeats": 24,
+        "leadPaddingBeats": 2.5,
+        "originalPickupBeats": 0.5,
+        "melodyIncludesLeadPadding": true,
+        "melody": "R:2.5 F4:0.5 D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5 F4:1 G4:0.5 F4:1 F4:0.5 G4:0.5 A4:0.5 Bb4:0.5 Bb4:0.5 C5:0.5 D5:0.5 C5:1.5 C5:1 F4:0.5 D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5 F4:1 G4:0.5 F4:1 F4:0.5 G4:1 G4:0.5 A4:0.5 G4:0.5 F4:0.5",
+        "leadMelody": "F4:0.5 D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5 F4:1 G4:0.5 F4:1 F4:0.5 G4:0.5 A4:0.5 Bb4:0.5 Bb4:0.5 C5:0.5 D5:0.5 C5:1.5 C5:1 F4:0.5 D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5 F4:1 G4:0.5 F4:1 F4:0.5 G4:1 G4:0.5 A4:0.5 G4:0.5 F4:0.5",
+        "events": [
+          {
+            "pitch": "R",
+            "quarterBeats": 2.5,
+            "startQuarterBeat": 0,
+            "syntheticPickupPadding": true
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 0.5,
+            "midi": 65,
+            "startQuarterBeat": 2.5,
+            "sourceToken": "f'8",
+            "sourceOffset": 41
+          },
+          {
+            "pitch": "D5",
+            "quarterBeats": 1,
+            "midi": 74,
+            "startQuarterBeat": 3,
+            "sourceToken": "d''4",
+            "sourceOffset": 45
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.5,
+            "midi": 69,
+            "startQuarterBeat": 4,
+            "sourceToken": "a'8",
+            "sourceOffset": 50
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 0.5,
+            "midi": 72,
+            "startQuarterBeat": 4.5,
+            "sourceToken": "c''",
+            "sourceOffset": 54
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 0.5,
+            "midi": 70,
+            "startQuarterBeat": 5,
+            "sourceToken": "bes'",
+            "sourceOffset": 58
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 5.5,
+            "sourceToken": "g'",
+            "sourceOffset": 63
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 6,
+            "sourceToken": "f'4",
+            "sourceOffset": 66
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 7,
+            "sourceToken": "g'8",
+            "sourceOffset": 70
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 7.5,
+            "sourceToken": "f'4",
+            "sourceOffset": 74
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 0.5,
+            "midi": 65,
+            "startQuarterBeat": 8.5,
+            "sourceToken": "f'8",
+            "sourceOffset": 78
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 9,
+            "sourceToken": "g'",
+            "sourceOffset": 82
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.5,
+            "midi": 69,
+            "startQuarterBeat": 9.5,
+            "sourceToken": "a'",
+            "sourceOffset": 85
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 0.5,
+            "midi": 70,
+            "startQuarterBeat": 10,
+            "sourceToken": "bes'",
+            "sourceOffset": 88
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 0.5,
+            "midi": 70,
+            "startQuarterBeat": 10.5,
+            "sourceToken": "bes'",
+            "sourceOffset": 93
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 0.5,
+            "midi": 72,
+            "startQuarterBeat": 11,
+            "sourceToken": "c''",
+            "sourceOffset": 98
+          },
+          {
+            "pitch": "D5",
+            "quarterBeats": 0.5,
+            "midi": 74,
+            "startQuarterBeat": 11.5,
+            "sourceToken": "d''",
+            "sourceOffset": 102
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 1.5,
+            "midi": 72,
+            "startQuarterBeat": 12,
+            "sourceToken": "c''4.",
+            "sourceOffset": 106,
+            "slurStart": true
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 1,
+            "midi": 72,
+            "startQuarterBeat": 13.5,
+            "sourceToken": "c''4",
+            "sourceOffset": 114,
+            "slurEnd": true
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 0.5,
+            "midi": 65,
+            "startQuarterBeat": 14.5,
+            "sourceToken": "f'8",
+            "sourceOffset": 121
+          },
+          {
+            "pitch": "D5",
+            "quarterBeats": 1,
+            "midi": 74,
+            "startQuarterBeat": 15,
+            "sourceToken": "d''4",
+            "sourceOffset": 125
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.5,
+            "midi": 69,
+            "startQuarterBeat": 16,
+            "sourceToken": "a'8",
+            "sourceOffset": 130
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 0.5,
+            "midi": 72,
+            "startQuarterBeat": 16.5,
+            "sourceToken": "c''",
+            "sourceOffset": 134
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 0.5,
+            "midi": 70,
+            "startQuarterBeat": 17,
+            "sourceToken": "bes'",
+            "sourceOffset": 138
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 17.5,
+            "sourceToken": "g'",
+            "sourceOffset": 143
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 18,
+            "sourceToken": "f'4",
+            "sourceOffset": 146
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 19,
+            "sourceToken": "g'8",
+            "sourceOffset": 150
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 19.5,
+            "sourceToken": "f'4",
+            "sourceOffset": 154
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 0.5,
+            "midi": 65,
+            "startQuarterBeat": 20.5,
+            "sourceToken": "f'8",
+            "sourceOffset": 158
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 21,
+            "sourceToken": "g'4",
+            "sourceOffset": 162
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 22,
+            "sourceToken": "g'8",
+            "sourceOffset": 166
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.5,
+            "midi": 69,
+            "startQuarterBeat": 22.5,
+            "sourceToken": "a'",
+            "sourceOffset": 170
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 23,
+            "sourceToken": "g'",
+            "sourceOffset": 173
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 0.5,
+            "midi": 65,
+            "startQuarterBeat": 23.5,
+            "sourceToken": "f'",
+            "sourceOffset": 176
+          }
+        ],
+        "bars": [
+          {
+            "measure": 1,
+            "quarterBeats": 3,
+            "melody": "R:2.5 F4:0.5"
+          },
+          {
+            "measure": 2,
+            "quarterBeats": 3,
+            "melody": "D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5"
+          },
+          {
+            "measure": 3,
+            "quarterBeats": 3,
+            "melody": "F4:1 G4:0.5 F4:1 F4:0.5"
+          },
+          {
+            "measure": 4,
+            "quarterBeats": 3,
+            "melody": "G4:0.5 A4:0.5 Bb4:0.5 Bb4:0.5 C5:0.5 D5:0.5"
+          },
+          {
+            "measure": 5,
+            "quarterBeats": 3,
+            "melody": "C5:1.5 C5:1 F4:0.5"
+          },
+          {
+            "measure": 6,
+            "quarterBeats": 3,
+            "melody": "D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5"
+          },
+          {
+            "measure": 7,
+            "quarterBeats": 3,
+            "melody": "F4:1 G4:0.5 F4:1 F4:0.5"
+          },
+          {
+            "measure": 8,
+            "quarterBeats": 3,
+            "melody": "G4:1 G4:0.5 A4:0.5 G4:0.5 F4:0.5"
+          }
+        ],
+        "sourceVoiceText": " \\time 6/8 \\partial 8  { \\key bes \\major f'8 d''4 a'8 c'' bes' g' f'4 g'8 f'4 f'8 g' a' bes' bes' c'' d'' c''4. ( c''4 ) f'8 d''4 a'8 c'' bes' g' f'4 g'8 f'4 f'8 g'4 g'8 a' g' f' bes'4. ( bes'4 ) d''8 d''4 d'8 d' e' fis' g' g' a' bes'4 d''8 c'' bes' a' g' a' g' f'4. ( f'4 ) f'8 d''4 a'8 c'' bes' g' f'4 g'8 f'4 f'8 g'4 g'8 a' g' f' bes'4. ( bes'4 ) s8  \\bar \"|.\" } ",
+        "sourceVoiceSpan": {
+          "startLine": 21,
+          "endLine": 21
+        },
+        "method": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures.",
+        "boundaries": [
+          "No accompaniment voices, no highest-note inference, no MIDI-derived melody, no LilyPond or Scheme execution.",
+          "Parenthesized slurs are preserved as event flags and distinct notes; they are not converted to ties. Only explicit ~ ties merge equal-pitch durations.",
+          "The application pitch:quarterbeats string does not itself encode slur articulation; metadata retains it for review.",
+          "This is an eight-measure lead excerpt, not a complete song or original-performance recording."
+        ]
+      }
+    },
+    {
+      "id": "S048",
+      "key": "mutopia-432",
+      "titles": {
+        "zh": "巷子里的萨莉",
+        "en": "Sally in Our Alley",
+        "ja": "路地のサリー",
+        "de": "Sally in unserer Gasse"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=432",
+        "edition": "Not known · Mutopia-2014/11/13-432",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "H. Carey (1687?–1743); typeset by Stan Sanderson; Mutopia-2014/11/13-432",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/CareyH/sally/sally-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-432.mid",
+        "sourceHash": "4468a81c78be880012815d44693f259a1b79c800ba075cb757ddc620808dbdd4",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/CareyH/sally/sally.mid",
+        "track": 1,
+        "trackName": "\\new:mel",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 8640,
+        "leadPaddingBeats": 1.5,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S049",
+      "key": "mutopia-268",
+      "titles": {
+        "zh": "美丽的岛屿",
+        "en": "Fairest Isle",
+        "ja": "美しき島",
+        "de": "Schönste Insel"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=268",
+        "edition": "S.W. (ed.) handwritten · Mutopia-2013/01/06-268",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "H. Purcell (1658–1695); typeset by Sebastian Brosig; Mutopia-2013/01/06-268",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/PurcellH/FairestIsle/FairestIsle-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-268.mid",
+        "sourceHash": "6846ff8e8ecaf7d5b5a3234e3a0261e4bf77935de14298bf8d6ab3f7e481ee39",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/PurcellH/FairestIsle/FairestIsle.mid",
+        "track": 1,
+        "trackName": "soprano:soprano",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 9216,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S050",
+      "key": "mutopia-905",
+      "titles": {
+        "zh": "好国王温塞斯拉斯",
+        "en": "Good King Wenceslas",
+        "ja": "良き王ウェンセスラス",
+        "de": "Guter König Wenzel"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=905",
+        "edition": "Sheet Music from Rev. Charles Lewis Hutchins, Carols Old and Carols New (Boston: Parish Choir, 1916), Carol #415 · Mutopia-2007/01/10-905",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "null; typeset by James Kilfiger; Mutopia-2007/01/10-905",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/Anonymous/GoodKingWenceslas/GoodKingWenceslas-a4.pdf"
+      },
+      "verification": {
+        "id": 905,
+        "title": "Good King Wenceslas",
+        "sourceURL": "https://www.mutopiaproject.org/ftp/Anonymous/GoodKingWenceslas/GoodKingWenceslas.ly",
+        "pageURL": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=905",
+        "sourceFile": "C:\\Users\\Admin\\Documents\\亚马逊图片\\sites\\artifacts\\catalog-expansion-20261013\\sources\\mutopia-905-lily.ly",
+        "sourceSha256": "d5967412ef47cc91add5eb361c25392273aaa7557028bfd76b1becb3af0e35e7",
+        "selectedVoice": "first upper-staff voice before addlyrics and voice separator",
+        "octaveMode": "relative",
+        "relativeAnchor": "a'",
+        "meter": "4/4",
+        "measureCount": 8,
+        "quarterBeatsPerBar": 4,
+        "totalQuarterBeats": 32,
+        "leadPaddingBeats": 0,
+        "originalPickupBeats": 0,
+        "melodyIncludesLeadPadding": true,
+        "melody": "A4:1 A4:1 A4:1 B4:1 A4:1 A4:1 E4:2 F#4:1 E4:1 F#4:1 G#4:1 A4:2 A4:2 A4:1 A4:1 A4:1 B4:1 A4:1 A4:1 E4:2 F#4:1 E4:1 F#4:1 G#4:1 A4:2 A4:2",
+        "leadMelody": "A4:1 A4:1 A4:1 B4:1 A4:1 A4:1 E4:2 F#4:1 E4:1 F#4:1 G#4:1 A4:2 A4:2 A4:1 A4:1 A4:1 B4:1 A4:1 A4:1 E4:2 F#4:1 E4:1 F#4:1 G#4:1 A4:2 A4:2",
+        "events": [
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 0,
+            "sourceToken": "a4",
+            "sourceOffset": 59
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 1,
+            "sourceToken": "a",
+            "sourceOffset": 62
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 2,
+            "sourceToken": "a",
+            "sourceOffset": 64
+          },
+          {
+            "pitch": "B4",
+            "quarterBeats": 1,
+            "midi": 71,
+            "startQuarterBeat": 3,
+            "sourceToken": "b",
+            "sourceOffset": 66
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 4,
+            "sourceToken": "a",
+            "sourceOffset": 76
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 5,
+            "sourceToken": "a",
+            "sourceOffset": 78
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 2,
+            "midi": 64,
+            "startQuarterBeat": 6,
+            "sourceToken": "e2",
+            "sourceOffset": 80
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 8,
+            "sourceToken": "fis4",
+            "sourceOffset": 90
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1,
+            "midi": 64,
+            "startQuarterBeat": 9,
+            "sourceToken": "e",
+            "sourceOffset": 95
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 10,
+            "sourceToken": "fis",
+            "sourceOffset": 97
+          },
+          {
+            "pitch": "G#4",
+            "quarterBeats": 1,
+            "midi": 68,
+            "startQuarterBeat": 11,
+            "sourceToken": "gis",
+            "sourceOffset": 101
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 12,
+            "sourceToken": "a2",
+            "sourceOffset": 112
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 14,
+            "sourceToken": "a2",
+            "sourceOffset": 115
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 16,
+            "sourceToken": "a4",
+            "sourceOffset": 125
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 17,
+            "sourceToken": "a",
+            "sourceOffset": 128
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 18,
+            "sourceToken": "a",
+            "sourceOffset": 130
+          },
+          {
+            "pitch": "B4",
+            "quarterBeats": 1,
+            "midi": 71,
+            "startQuarterBeat": 19,
+            "sourceToken": "b",
+            "sourceOffset": 132
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 20,
+            "sourceToken": "a",
+            "sourceOffset": 142
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 21,
+            "sourceToken": "a",
+            "sourceOffset": 144
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 2,
+            "midi": 64,
+            "startQuarterBeat": 22,
+            "sourceToken": "e2",
+            "sourceOffset": 146
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 24,
+            "sourceToken": "fis4",
+            "sourceOffset": 156
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1,
+            "midi": 64,
+            "startQuarterBeat": 25,
+            "sourceToken": "e",
+            "sourceOffset": 161
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 26,
+            "sourceToken": "fis",
+            "sourceOffset": 163
+          },
+          {
+            "pitch": "G#4",
+            "quarterBeats": 1,
+            "midi": 68,
+            "startQuarterBeat": 27,
+            "sourceToken": "gis",
+            "sourceOffset": 167
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 28,
+            "sourceToken": "a2",
+            "sourceOffset": 178
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 2,
+            "midi": 69,
+            "startQuarterBeat": 30,
+            "sourceToken": "a2",
+            "sourceOffset": 181
+          }
+        ],
+        "bars": [
+          {
+            "measure": 1,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 A4:1 B4:1"
+          },
+          {
+            "measure": 2,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 E4:2"
+          },
+          {
+            "measure": 3,
+            "quarterBeats": 4,
+            "melody": "F#4:1 E4:1 F#4:1 G#4:1"
+          },
+          {
+            "measure": 4,
+            "quarterBeats": 4,
+            "melody": "A4:2 A4:2"
+          },
+          {
+            "measure": 5,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 A4:1 B4:1"
+          },
+          {
+            "measure": 6,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 E4:2"
+          },
+          {
+            "measure": 7,
+            "quarterBeats": 4,
+            "melody": "F#4:1 E4:1 F#4:1 G#4:1"
+          },
+          {
+            "measure": 8,
+            "quarterBeats": 4,
+            "melody": "A4:2 A4:2"
+          }
+        ],
+        "sourceVoiceText": "\n      \\key a \\major\n      \\time 4/4 \\tempo 4 = 120\n       a4 a a b \n       a a e2\n       fis4 e fis gis\n       a2 a2\n       a4 a a b \n       a a e2\n       fis4 e fis gis\n       a2 a2\n       e'4 d cis b\n       cis b a2\n       fis4 e fis gis\n       a2 a2\n       e4 e fis gis\n       a a b2\n       e4 d cis b\n       a2( d)\n       a1\n     ",
+        "sourceVoiceSpan": {
+          "startLine": 25,
+          "endLine": 45
+        },
+        "method": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures.",
+        "boundaries": [
+          "No accompaniment voices, no highest-note inference, no MIDI-derived melody, no LilyPond or Scheme execution.",
+          "Parenthesized slurs are preserved as event flags and distinct notes; they are not converted to ties. Only explicit ~ ties merge equal-pitch durations.",
+          "The application pitch:quarterbeats string does not itself encode slur articulation; metadata retains it for review.",
+          "This is an eight-measure lead excerpt, not a complete song or original-performance recording."
+        ],
+        "independentStaticReview": "Eight bars independently read token-by-token by a second agent, without MIDI or parser execution; exact match."
+      }
+    },
+    {
+      "id": "S051",
+      "key": "mutopia-1260",
+      "titles": {
+        "zh": "梅利塔（永恒之父）",
+        "en": "Melita (Eternal Father, Strong to Save)",
+        "ja": "メリタ（永遠の父）",
+        "de": "Melita (Ewiger Vater)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1260",
+        "edition": "www.cyberhymnal.org · Mutopia-2008/01/13-1260",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. B. Dykes (1823–1876); typeset by Steve Dunlop; Mutopia-2008/01/13-1260",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/DykesJB/melita/melita-a4.pdf"
+      },
+      "verification": {
+        "id": 1260,
+        "title": "Melita",
+        "sourceURL": "https://www.mutopiaproject.org/ftp/DykesJB/melita/melita.ly",
+        "pageURL": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1260",
+        "sourceFile": "C:\\Users\\Admin\\Documents\\亚马逊图片\\sites\\artifacts\\catalog-expansion-20261013\\sources\\mutopia-1260-lily.ly",
+        "sourceSha256": "f6f034686938e61d2ba789403196118116d99ce6ba2a6820a9423d9dfb62553f",
+        "selectedVoice": "Soprano",
+        "octaveMode": "absolute",
+        "relativeAnchor": null,
+        "meter": "4/4",
+        "measureCount": 8,
+        "quarterBeatsPerBar": 4,
+        "totalQuarterBeats": 32,
+        "leadPaddingBeats": 3,
+        "originalPickupBeats": 1,
+        "melodyIncludesLeadPadding": true,
+        "melody": "R:3 C4:1 E4:1.5 E4:0.5 G4:1 G4:1 A4:1 A4:1 G4:1 G4:1 C5:1 D5:1 B4:1 G4:1 G4:1 F#4:1 G4:1 D4:1 F4:1.5 F4:0.5 E4:1 E4:1 G4:1.5 G4:0.5 F#4:1 B4:1 G4:1 F#4:0.5 F#4:0.5 E4:1 A4:0.5 A4:0.5",
+        "leadMelody": "C4:1 E4:1.5 E4:0.5 G4:1 G4:1 A4:1 A4:1 G4:1 G4:1 C5:1 D5:1 B4:1 G4:1 G4:1 F#4:1 G4:1 D4:1 F4:1.5 F4:0.5 E4:1 E4:1 G4:1.5 G4:0.5 F#4:1 B4:1 G4:1 F#4:0.5 F#4:0.5 E4:1 A4:0.5 A4:0.5",
+        "events": [
+          {
+            "pitch": "R",
+            "quarterBeats": 3,
+            "startQuarterBeat": 0,
+            "syntheticPickupPadding": true
+          },
+          {
+            "pitch": "C4",
+            "quarterBeats": 1,
+            "midi": 60,
+            "startQuarterBeat": 3,
+            "sourceToken": "c'4",
+            "sourceOffset": 39
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1.5,
+            "midi": 64,
+            "startQuarterBeat": 4,
+            "sourceToken": "e'4.",
+            "sourceOffset": 43
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 0.5,
+            "midi": 64,
+            "startQuarterBeat": 5.5,
+            "sourceToken": "e'8",
+            "sourceOffset": 48
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 6,
+            "sourceToken": "g'4",
+            "sourceOffset": 52
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 7,
+            "sourceToken": "g'",
+            "sourceOffset": 56
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 8,
+            "sourceToken": "a'",
+            "sourceOffset": 59
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 9,
+            "sourceToken": "a'",
+            "sourceOffset": 62
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 10,
+            "sourceToken": "g'",
+            "sourceOffset": 65
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 11,
+            "sourceToken": "g'",
+            "sourceOffset": 68
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 1,
+            "midi": 72,
+            "startQuarterBeat": 12,
+            "sourceToken": "c''",
+            "sourceOffset": 71
+          },
+          {
+            "pitch": "D5",
+            "quarterBeats": 1,
+            "midi": 74,
+            "startQuarterBeat": 13,
+            "sourceToken": "d''",
+            "sourceOffset": 75
+          },
+          {
+            "pitch": "B4",
+            "quarterBeats": 1,
+            "midi": 71,
+            "startQuarterBeat": 14,
+            "sourceToken": "b'",
+            "sourceOffset": 79
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 15,
+            "sourceToken": "g'",
+            "sourceOffset": 82
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 16,
+            "sourceToken": "g'",
+            "sourceOffset": 85
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 17,
+            "sourceToken": "fis'",
+            "sourceOffset": 88
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 18,
+            "sourceToken": "g'",
+            "sourceOffset": 93
+          },
+          {
+            "pitch": "D4",
+            "quarterBeats": 1,
+            "midi": 62,
+            "startQuarterBeat": 19,
+            "sourceToken": "d'",
+            "sourceOffset": 96
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1.5,
+            "midi": 65,
+            "startQuarterBeat": 20,
+            "sourceToken": "f'4.",
+            "sourceOffset": 99
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 0.5,
+            "midi": 65,
+            "startQuarterBeat": 21.5,
+            "sourceToken": "f'8",
+            "sourceOffset": 104
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1,
+            "midi": 64,
+            "startQuarterBeat": 22,
+            "sourceToken": "e'4",
+            "sourceOffset": 108
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1,
+            "midi": 64,
+            "startQuarterBeat": 23,
+            "sourceToken": "e'",
+            "sourceOffset": 112
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1.5,
+            "midi": 67,
+            "startQuarterBeat": 24,
+            "sourceToken": "g'4.",
+            "sourceOffset": 115
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 0.5,
+            "midi": 67,
+            "startQuarterBeat": 25.5,
+            "sourceToken": "g'8",
+            "sourceOffset": 120
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 1,
+            "midi": 66,
+            "startQuarterBeat": 26,
+            "sourceToken": "fis'4",
+            "sourceOffset": 124
+          },
+          {
+            "pitch": "B4",
+            "quarterBeats": 1,
+            "midi": 71,
+            "startQuarterBeat": 27,
+            "sourceToken": "b'",
+            "sourceOffset": 130
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 28,
+            "sourceToken": "g'",
+            "sourceOffset": 133
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.5,
+            "midi": 66,
+            "startQuarterBeat": 29,
+            "sourceToken": "fis'8",
+            "sourceOffset": 136
+          },
+          {
+            "pitch": "F#4",
+            "quarterBeats": 0.5,
+            "midi": 66,
+            "startQuarterBeat": 29.5,
+            "sourceToken": "fis'",
+            "sourceOffset": 142
+          },
+          {
+            "pitch": "E4",
+            "quarterBeats": 1,
+            "midi": 64,
+            "startQuarterBeat": 30,
+            "sourceToken": "e'4",
+            "sourceOffset": 147,
+            "slurStart": true
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.5,
+            "midi": 69,
+            "startQuarterBeat": 31,
+            "sourceToken": "a'8",
+            "sourceOffset": 153,
+            "slurEnd": true
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 0.5,
+            "midi": 69,
+            "startQuarterBeat": 31.5,
+            "sourceToken": "a'",
+            "sourceOffset": 159
+          }
+        ],
+        "bars": [
+          {
+            "measure": 1,
+            "quarterBeats": 4,
+            "melody": "R:3 C4:1"
+          },
+          {
+            "measure": 2,
+            "quarterBeats": 4,
+            "melody": "E4:1.5 E4:0.5 G4:1 G4:1"
+          },
+          {
+            "measure": 3,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 G4:1 G4:1"
+          },
+          {
+            "measure": 4,
+            "quarterBeats": 4,
+            "melody": "C5:1 D5:1 B4:1 G4:1"
+          },
+          {
+            "measure": 5,
+            "quarterBeats": 4,
+            "melody": "G4:1 F#4:1 G4:1 D4:1"
+          },
+          {
+            "measure": 6,
+            "quarterBeats": 4,
+            "melody": "F4:1.5 F4:0.5 E4:1 E4:1"
+          },
+          {
+            "measure": 7,
+            "quarterBeats": 4,
+            "melody": "G4:1.5 G4:0.5 F#4:1 B4:1"
+          },
+          {
+            "measure": 8,
+            "quarterBeats": 4,
+            "melody": "G4:1 F#4:0.5 F#4:0.5 E4:1 A4:0.5 A4:0.5"
+          }
+        ],
+        "sourceVoiceText": " \\time 4/4 \\partial 4  { \\key c \\major c'4 e'4. e'8 g'4 g' a' a' g' g' c'' d'' b' g' g' fis' g' d' f'4. f'8 e'4 e' g'4. g'8 fis'4 b' g' fis'8 fis' e'4 ( a'8 ) a' g'4 fis' e' e' e'4. e'8 f'4 f' fis'4. fis'8 g'4 g' g' a' g' e' d'4. c'8 c'4 s4  \\bar \"|.\" } ",
+        "sourceVoiceSpan": {
+          "startLine": 21,
+          "endLine": 21
+        },
+        "method": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures.",
+        "boundaries": [
+          "No accompaniment voices, no highest-note inference, no MIDI-derived melody, no LilyPond or Scheme execution.",
+          "Parenthesized slurs are preserved as event flags and distinct notes; they are not converted to ties. Only explicit ~ ties merge equal-pitch durations.",
+          "The application pitch:quarterbeats string does not itself encode slur articulation; metadata retains it for review.",
+          "This is an eight-measure lead excerpt, not a complete song or original-performance recording."
+        ]
+      }
+    },
+    {
+      "id": "S052",
+      "key": "mutopia-1037",
+      "titles": {
+        "zh": "摇篮曲（勃拉姆斯，Op.49 No.4）",
+        "en": "Lullaby (Brahms, Op. 49 No. 4)",
+        "ja": "子守歌（ブラームス、Op.49 第4番）",
+        "de": "Wiegenlied (Brahms, Op. 49 Nr. 4)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1037",
+        "edition": "Indiana University: http://www.dlib.indiana.edu/variations/scores/bgn9130/index1.html · Mutopia-2007/11/04-1037",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. Brahms (1833–1897); typeset by 森 章吾; Mutopia-2007/11/04-1037",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/BrahmsJ/O49/Wiegenlied/Wiegenlied-a4-pdfs.zip"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1037-midi-files/Wiegenlied.mid",
+        "sourceHash": "0ca12af297a5b55228dff2428a157b2811ff3f4e88098ad4f9edce1e3964aef1",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/BrahmsJ/O49/Wiegenlied/Wiegenlied-mids.zip",
+        "track": 1,
+        "trackName": "mel",
+        "ppq": 384,
+        "startTick": 1152,
+        "endTick": 10368,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S053",
+      "key": "mutopia-127",
+      "titles": {
+        "zh": "月亮升起来了",
+        "en": "The Moon Has Risen",
+        "ja": "月が昇った",
+        "de": "Der Mond ist aufgegangen"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=127",
+        "edition": "Unknown · Mutopia-2013/03/23-127",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. A. P. Schulz (1747–1800); typeset by Dr. G. Roesler; Mutopia-2013/03/23-127",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchulzJAP/mond/mond-a4.pdf"
+      },
+      "verification": {
+        "id": 127,
+        "title": "Der Mond ist aufgegangen",
+        "sourceURL": "https://www.mutopiaproject.org/ftp/SchulzJAP/mond/mond.ly",
+        "pageURL": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=127",
+        "sourceFile": "C:\\Users\\Admin\\Documents\\亚马逊图片\\sites\\artifacts\\catalog-expansion-20261013\\sources\\mutopia-127-lily.ly",
+        "sourceSha256": "193fe17d5ab89cd48f0d1df65d8d3bbc3d21b1aee97fec3d1f6ef323ab10350d",
+        "selectedVoice": "melody / voiceOne",
+        "octaveMode": "relative",
+        "relativeAnchor": "f'",
+        "meter": "4/4",
+        "measureCount": 8,
+        "quarterBeatsPerBar": 4,
+        "totalQuarterBeats": 32,
+        "leadPaddingBeats": 3,
+        "originalPickupBeats": 1,
+        "melodyIncludesLeadPadding": true,
+        "melody": "R:3 F4:1 G4:1 F4:1 Bb4:1 A4:1 G4:2 F4:1 A4:1 A4:1 A4:1 D5:1 C5:1 Bb4:2 A4:1 A4:1 A4:1 A4:1 Bb4:1 A4:1 G4:3 F4:1 G4:1 F4:1 Bb4:1 A4:1",
+        "leadMelody": "F4:1 G4:1 F4:1 Bb4:1 A4:1 G4:2 F4:1 A4:1 A4:1 A4:1 D5:1 C5:1 Bb4:2 A4:1 A4:1 A4:1 A4:1 Bb4:1 A4:1 G4:3 F4:1 G4:1 F4:1 Bb4:1 A4:1",
+        "events": [
+          {
+            "pitch": "R",
+            "quarterBeats": 3,
+            "startQuarterBeat": 0,
+            "syntheticPickupPadding": true
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 3,
+            "sourceToken": "f4",
+            "sourceOffset": 19
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 4,
+            "sourceToken": "g",
+            "sourceOffset": 28
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 5,
+            "sourceToken": "f",
+            "sourceOffset": 30
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 1,
+            "midi": 70,
+            "startQuarterBeat": 6,
+            "sourceToken": "bes",
+            "sourceOffset": 32
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 7,
+            "sourceToken": "a",
+            "sourceOffset": 36
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 2,
+            "midi": 67,
+            "startQuarterBeat": 8,
+            "sourceToken": "g2",
+            "sourceOffset": 40
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 10,
+            "sourceToken": "f4",
+            "sourceOffset": 43
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 11,
+            "sourceToken": "a",
+            "sourceOffset": 46
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 12,
+            "sourceToken": "a",
+            "sourceOffset": 50
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 13,
+            "sourceToken": "a",
+            "sourceOffset": 52
+          },
+          {
+            "pitch": "D5",
+            "quarterBeats": 1,
+            "midi": 74,
+            "startQuarterBeat": 14,
+            "sourceToken": "d",
+            "sourceOffset": 54
+          },
+          {
+            "pitch": "C5",
+            "quarterBeats": 1,
+            "midi": 72,
+            "startQuarterBeat": 15,
+            "sourceToken": "c",
+            "sourceOffset": 56
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 2,
+            "midi": 70,
+            "startQuarterBeat": 16,
+            "sourceToken": "bes2",
+            "sourceOffset": 60
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 18,
+            "sourceToken": "a4",
+            "sourceOffset": 65
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 19,
+            "sourceToken": "a",
+            "sourceOffset": 68
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 20,
+            "sourceToken": "a",
+            "sourceOffset": 72
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 21,
+            "sourceToken": "a",
+            "sourceOffset": 74
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 1,
+            "midi": 70,
+            "startQuarterBeat": 22,
+            "sourceToken": "bes",
+            "sourceOffset": 76
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 23,
+            "sourceToken": "a",
+            "sourceOffset": 80
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 3,
+            "midi": 67,
+            "startQuarterBeat": 24,
+            "sourceToken": "g2.",
+            "sourceOffset": 84
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 27,
+            "sourceToken": "f4",
+            "sourceOffset": 88
+          },
+          {
+            "pitch": "G4",
+            "quarterBeats": 1,
+            "midi": 67,
+            "startQuarterBeat": 28,
+            "sourceToken": "g",
+            "sourceOffset": 97
+          },
+          {
+            "pitch": "F4",
+            "quarterBeats": 1,
+            "midi": 65,
+            "startQuarterBeat": 29,
+            "sourceToken": "f",
+            "sourceOffset": 99
+          },
+          {
+            "pitch": "Bb4",
+            "quarterBeats": 1,
+            "midi": 70,
+            "startQuarterBeat": 30,
+            "sourceToken": "bes",
+            "sourceOffset": 101
+          },
+          {
+            "pitch": "A4",
+            "quarterBeats": 1,
+            "midi": 69,
+            "startQuarterBeat": 31,
+            "sourceToken": "a",
+            "sourceOffset": 105
+          }
+        ],
+        "bars": [
+          {
+            "measure": 1,
+            "quarterBeats": 4,
+            "melody": "R:3 F4:1"
+          },
+          {
+            "measure": 2,
+            "quarterBeats": 4,
+            "melody": "G4:1 F4:1 Bb4:1 A4:1"
+          },
+          {
+            "measure": 3,
+            "quarterBeats": 4,
+            "melody": "G4:2 F4:1 A4:1"
+          },
+          {
+            "measure": 4,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 D5:1 C5:1"
+          },
+          {
+            "measure": 5,
+            "quarterBeats": 4,
+            "melody": "Bb4:2 A4:1 A4:1"
+          },
+          {
+            "measure": 6,
+            "quarterBeats": 4,
+            "melody": "A4:1 A4:1 Bb4:1 A4:1"
+          },
+          {
+            "measure": 7,
+            "quarterBeats": 4,
+            "melody": "G4:3 F4:1"
+          },
+          {
+            "measure": 8,
+            "quarterBeats": 4,
+            "melody": "G4:1 F4:1 Bb4:1 A4:1"
+          }
+        ],
+        "sourceVoiceText": "\n    \\voiceOne\n    f4 |\n    g f bes a | g2 f4 a | a a d c | bes2 a4 a | a a bes a | g2. f4 |\n    g f bes a | g2 f4 a | a a d c | bes2 a4 a | a a bes a | g g f\n    \\fermata \\bar \"||\"\n",
+        "sourceVoiceSpan": {
+          "startLine": 33,
+          "endLine": 39
+        },
+        "method": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures.",
+        "boundaries": [
+          "No accompaniment voices, no highest-note inference, no MIDI-derived melody, no LilyPond or Scheme execution.",
+          "Parenthesized slurs are preserved as event flags and distinct notes; they are not converted to ties. Only explicit ~ ties merge equal-pitch durations.",
+          "The application pitch:quarterbeats string does not itself encode slur articulation; metadata retains it for review.",
+          "This is an eight-measure lead excerpt, not a complete song or original-performance recording."
+        ],
+        "independentStaticReview": "Eight bars independently read token-by-token by a second agent, without MIDI or parser execution; exact match."
+      }
+    },
+    {
+      "id": "S054",
+      "key": "mutopia-438",
+      "titles": {
+        "zh": "罗蕾莱",
+        "en": "The Loreley",
+        "ja": "ローレライ",
+        "de": "Die Loreley"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=438",
+        "edition": "Not known · Mutopia-2015/01/16-438",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Silcher (1789–1860); typeset by Stan Sanderson; Mutopia-2015/01/16-438",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SilcherF/loreley/loreley-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-438.mid",
+        "sourceHash": "b89685628cd8226ef12d767c43d7f8bea8362a3b881763f6ef81d3268dda3922",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/SilcherF/loreley/loreley.mid",
+        "track": 1,
+        "trackName": "\\new:mel",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 8256,
+        "leadPaddingBeats": 2.5,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S055",
+      "key": "mutopia-1555",
+      "titles": {
+        "zh": "野玫瑰（舒伯特，D.257）",
+        "en": "Heidenröslein (Schubert, D. 257)",
+        "ja": "野ばら（シューベルト、D.257）",
+        "de": "Heidenröslein (Schubert, D. 257)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1555",
+        "edition": "Breitkopf & Härtel (1884-1897) · Mutopia-2008/09/28-1555",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2008/09/28-1555",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D257/SchubertF-D257-Heidenroeslein/SchubertF-D257-Heidenroeslein-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1555.mid",
+        "sourceHash": "d0853ca601d13d08a8ea804f8a5835d3787d3ab5c24ba0005f2942a37074aef7",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D257/SchubertF-D257-Heidenroeslein/SchubertF-D257-Heidenroeslein.mid",
+        "track": 1,
+        "trackName": "chant",
+        "ppq": 384,
+        "startTick": 768,
+        "endTick": 6912,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S056",
+      "key": "mutopia-1891",
+      "titles": {
+        "zh": "马赛曲（1792谱版）",
+        "en": "La Marseillaise (1792 edition)",
+        "ja": "ラ・マルセイエーズ（1792年版）",
+        "de": "La Marseillaise (Fassung 1792)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1891",
+        "edition": "Bignon 1792 · Mutopia-2013/12/08-1891",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "C. J. Rouget de Lisle (1760–1836); typeset by Coyau; Mutopia-2013/12/08-1891",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/RougetdeLisleCJ/Marseillaise1792/Marseillaise1792-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1891.mid",
+        "sourceHash": "1aa5b1950d626f43676a29874095a325bcf6c978b9fcd407b50b8378d76c5e3e",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/RougetdeLisleCJ/Marseillaise1792/Marseillaise1792.mid",
+        "track": 1,
+        "trackName": ":uniqueContext0",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 11520,
+        "leadPaddingBeats": 2,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S057",
+      "key": "mutopia-1",
+      "titles": {
+        "zh": "美人，你俘获了我的生命",
+        "en": "Belle qui tiens ma vie",
+        "ja": "美しき人、わが命を捕らえる人",
+        "de": "Schöne, die mein Leben hält"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1",
+        "edition": "http://memory.loc.gov/cgi-bin/ampage?collId=musdi&fileName=219/musdi219.db&recNum=61 · Mutopia-2009/08/05-1",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "T. Arbeau (1519–1595); typeset by Peter Chubb; Mutopia-2009/08/05-1",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/ArbeauT/Orch/belle/belle-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1.mid",
+        "sourceHash": "c74442dd887bea1bafecac1a6ec5e5a1bf97e39f22e1a13c2e9eac2869b34cba",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/ArbeauT/Orch/belle/belle.mid",
+        "track": 2,
+        "trackName": "D",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 6144,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": -12
+      }
+    },
+    {
+      "id": "S058",
+      "key": "mutopia-198",
+      "titles": {
+        "zh": "他早早降生了（文艺复兴圣诞歌）",
+        "en": "Il est de bonne heure né",
+        "ja": "早く生まれた子（ルネサンスのノエル）",
+        "de": "Er ist früh geboren (Renaissance-Noël)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=198",
+        "edition": "Unknown · Mutopia-2009/08/05-198",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "null; typeset by Peter Chubb; Mutopia-2009/08/05-198",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/Anonymous/bonne_heure-song/bonne_heure-song-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-198.mid",
+        "sourceHash": "fa7fb850f56a640177cd4f80991fb84645c9283760ed96f81c1a4d490f738712",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/Anonymous/bonne_heure-song/bonne_heure-song.mid",
+        "track": 1,
+        "trackName": "sop",
+        "ppq": 384,
+        "startTick": 0,
+        "endTick": 12288,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": 0
+      }
+    },
+    {
+      "id": "S059",
+      "key": "mutopia-1536",
+      "titles": {
+        "zh": "摇篮曲（《多莉》Op.56）",
+        "en": "Berceuse from Dolly (Op. 56)",
+        "ja": "子守歌（組曲《ドリー》Op.56）",
+        "de": "Berceuse aus Dolly (Op. 56)"
+      },
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+        "edition": "New adaptation from Paris: J. Hamelle · Mutopia-2008/09/01-1536",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "G. Fauré (1845–1924); typeset by Mike Blackstock; Mutopia-2008/09/01-1536",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse-a4.pdf"
+      },
+      "verification": {
+        "method": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted",
+        "sourceFile": "sources/mutopia-1536.mid",
+        "sourceHash": "6c5903d76ebe3d60c1ccf535932f287668225a9ed2f4ae6544abd5dafabf004c",
+        "midiUrl": "https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse.mid",
+        "track": 1,
+        "trackName": "flute",
+        "ppq": 384,
+        "startTick": 1536,
+        "endTick": 7680,
+        "leadPaddingBeats": 0,
+        "transposeSemitones": -12
+      }
+    },
+    {
+      "id": "S060",
+      "key": "JP-HARU-1910",
+      "titles": {
+        "zh": "春天来了（1910短版）",
+        "en": "Spring Has Come (1910 excerpt)",
+        "ja": "春が来た（1910年版・短版）",
+        "de": "Der Frühling ist da (Auszug von 1910)"
+      },
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 22",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "f539c7c89dfa59b1610b7b91adfae188c4e78cbf02e1822c8a42f940bdf43e71",
+        "sourcePage": 22,
+        "sourceMeasures": "前8小节，完整原曲8小节",
+        "barCount": 8,
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S061",
+      "key": "JP-MUSHI-1910",
+      "titles": {
+        "zh": "虫之声（1910短版）",
+        "en": "Sounds of Insects (1910 excerpt)",
+        "ja": "虫のこえ（1910年版・短版）",
+        "de": "Stimmen der Insekten (Auszug von 1910)"
+      },
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 24",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "f539c7c89dfa59b1610b7b91adfae188c4e78cbf02e1822c8a42f940bdf43e71",
+        "sourcePage": 24,
+        "sourceMeasures": "前10小节，原谱前两行",
+        "barCount": 10,
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S062",
+      "key": "JP-FUJI-1910",
+      "titles": {
+        "zh": "富士山（1910短版）",
+        "en": "Mount Fuji (1910 excerpt)",
+        "ja": "ふじの山（1910年版・短版）",
+        "de": "Der Berg Fuji (Auszug von 1910)"
+      },
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 14",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "f539c7c89dfa59b1610b7b91adfae188c4e78cbf02e1822c8a42f940bdf43e71",
+        "sourcePage": 14,
+        "sourceMeasures": "前8小节，原谱前两行",
+        "barCount": 8,
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S063",
+      "key": "JP-UMI-1910",
+      "titles": {
+        "zh": "我是海之子（1910短版）",
+        "en": "I Am a Child of the Sea (1910 excerpt)",
+        "ja": "われは海の子（1910年版・短版）",
+        "de": "Ich bin ein Kind des Meeres (Auszug von 1910)"
+      },
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 64",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "f539c7c89dfa59b1610b7b91adfae188c4e78cbf02e1822c8a42f940bdf43e71",
+        "sourcePage": 64,
+        "sourceMeasures": "前8小节，印刷页64整页旋律",
+        "barCount": 8,
+        "adaptation": "原谱第1小节Eb4附点四分+Eb4八分为延音线，合并为Eb4二拍，避免重发音；其它音高/时值保留。第5小节C5到Bb4是乐句连线，不合并不同音高。"
+      }
+    },
+    {
+      "id": "S064",
+      "key": "JP-FROG-SPIDER-1910",
+      "titles": {
+        "zh": "青蛙与蜘蛛（1910短版）",
+        "en": "The Frog and the Spider (1910 excerpt)",
+        "ja": "かえるとくも（1910年版・短版）",
+        "de": "Der Frosch und die Spinne (Auszug von 1910)"
+      },
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 12",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "f539c7c89dfa59b1610b7b91adfae188c4e78cbf02e1822c8a42f940bdf43e71",
+        "sourcePage": 12,
+        "sourceMeasures": "前8小节，原谱前两行",
+        "barCount": 8,
+        "adaptation": "第1小节G4附点八分+G4十六分的延音线合并为G4一拍；其它音高/时值保留。"
+      }
+    },
+    {
+      "id": "S065",
+      "key": "JP-CLOCK-1910",
+      "titles": {
+        "zh": "时钟之歌（1910短版）",
+        "en": "The Clock Song (1910 excerpt)",
+        "ja": "とけいのうた（1910年版・短版）",
+        "de": "Das Lied der Uhr (Auszug von 1910)"
+      },
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 16",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "f539c7c89dfa59b1610b7b91adfae188c4e78cbf02e1822c8a42f940bdf43e71",
+        "sourcePage": 16,
+        "sourceMeasures": "前8小节，原谱前两行",
+        "barCount": 8,
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S066",
+      "key": "CN-WANG-1884",
+      "titles": {
+        "zh": "王大娘（1884采录短版）",
+        "en": "Madame Wang (1884 excerpt)",
+        "ja": "王大娘（1884年採録・短版）",
+        "de": "Frau Wang (Auszug von 1884)"
+      },
+      "source": {
+        "url": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf",
+        "edition": "Chinese Music (1884), p. 38",
+        "license": "Public Domain — 1884 historical book scan",
+        "licenseUrl": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "attribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+        "scoreUrl": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "118ee8533966d587030c2349afd8bbda206d8ce932df42fedc07ace7298fa84b",
+        "sourcePage": 38,
+        "sourceMeasures": "前8个完整小节",
+        "barCount": 8,
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S067",
+      "key": "CN-FIFTEEN-FLOWERS-1884",
+      "titles": {
+        "zh": "十五朵花（1884采录短版）",
+        "en": "Fifteen Bunches of Flowers (1884 excerpt)",
+        "ja": "十五の花束（1884年採録・短版）",
+        "de": "Fünfzehn Blumensträuße (Auszug von 1884)"
+      },
+      "source": {
+        "url": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf",
+        "edition": "Chinese Music (1884), p. 42",
+        "license": "Public Domain — 1884 historical book scan",
+        "licenseUrl": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "attribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+        "scoreUrl": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "118ee8533966d587030c2349afd8bbda206d8ce932df42fedc07ace7298fa84b",
+        "sourcePage": 42,
+        "sourceMeasures": "前8个完整小节；题名别称见次页43",
+        "barCount": 8,
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S068",
+      "key": "CN-MAMA-1884",
+      "titles": {
+        "zh": "妈妈好明白（1884主旋律练习短版）",
+        "en": "Mamma, You Understand (1884 simplified excerpt)",
+        "ja": "母さん、わかってくれる（1884年・練習短版）",
+        "de": "Mutter, du verstehst mich (Vereinfachter Auszug von 1884)"
+      },
+      "source": {
+        "url": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf",
+        "edition": "Chinese Music (1884), p. 44",
+        "license": "Public Domain — 1884 historical book scan",
+        "licenseUrl": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "attribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+        "scoreUrl": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf"
+      },
+      "verification": {
+        "method": "对保存的历史扫描逐小节视觉核读；小节拍数校验通过。尚未经过第二位独立音乐编辑、乐器演奏或App试听校验，不把它们写为已完成。",
+        "sourceFileHash": "118ee8533966d587030c2349afd8bbda206d8ce932df42fedc07ace7298fa84b",
+        "sourcePage": 44,
+        "sourceMeasures": "前8个完整小节，含第2谱行前2小节",
+        "barCount": 8,
+        "adaptation": "明确为主旋律练习简化短版：第6小节保留D5四分音符及C5四分音符；省略D5上的trill及其结尾小音符E5/D5，不将零时值装饰音伪装成普通十六分。其它8小节基本音高与时值保留。"
+      }
+    }
+  ],
+  "unselectedHistoricalItem": "CN-FUNERAL-1884 is preserved in research but not part of this practice library selection"
+}
