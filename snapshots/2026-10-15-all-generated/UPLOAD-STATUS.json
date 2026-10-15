@@ -1,1 +1,9 @@
-{"status": "PAYLOAD_COMPLETE_PENDING_REMOTE_AUDIT", "partsUploaded": 94, "totalParts": 94, "expectedPublishedFiles": 799, "manufacturingReleased": false}
+{
+  "status": "COMPLETE",
+  "partsUploaded": 94,
+  "totalParts": 94,
+  "expectedPublishedFiles": 799,
+  "verifiedPayloadCommit": "670dabdf7e4603c50a66f1ae2c2686071e875cae",
+  "audit": "BACKUP-COMPLETE.json",
+  "manufacturingReleased": false
+}

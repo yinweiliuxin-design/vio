@@ -1,0 +1,68 @@
+{
+  "schemaVersion": 1,
+  "status": "COMPLETE",
+  "repository": "yinweiliuxin-design/vio",
+  "verifiedAtUtc": "2026-10-15 09:30:06 UTC",
+  "payloadCommit": "670dabdf7e4603c50a66f1ae2c2686071e875cae",
+  "payloadTree": "fb72bc75d413d0335a338448b817512822c269d8",
+  "baseMainPreserved": "e8a452da75ecdd41d2182ff2a28a5403288e3e72",
+  "expectedPayloadFiles": 799,
+  "matchedRemoteGitBlobHashes": 799,
+  "preexistingFilesPreserved": 506,
+  "remoteBlobCount": 1306,
+  "cloudHandoffBlob": "1123597037f3a8b59d5f0a326a0b57fdbc16e7cf",
+  "unexpectedAddedPaths": 0,
+  "archive": {
+    "sourcePaths": 20259,
+    "uniqueObjects": 7123,
+    "parts": 94,
+    "bytes": 784524655,
+    "sha256": "fdc40f38084afc6259d79ce018cfa001ee748feff9710999b0121de9353b31a4",
+    "manifestSha256": "4592fd046cfa37adbde1b615d6ea7d4ccfd8076c17544f38c0e3f68727eaa34a",
+    "localSha256AndZipCrcVerified": true,
+    "remotePartGitHashesVerified": true,
+    "restoredToWorkingTree": false
+  },
+  "v16": {
+    "sourceCommit": "6f461b9612ac69310ec269f289e429fb473664bb",
+    "sourceFilesChecked": 166,
+    "browsableFilteredFiles": 165,
+    "existingCheckpointPreserved": true
+  },
+  "remoteTextReadbacks": [
+    {
+      "path": "SMARTVIO_ARCHIVE_20261015.md",
+      "gitBlobSha": "3f15b293f2bfaecb886699275432389eabcf3a0b",
+      "sha256": "90f57117b5e2ae4691b9b023a3481ac215edb24526aa50df3442e859b62dc83d",
+      "pass": true
+    },
+    {
+      "path": "snapshots/2026-10-15-all-generated/README.md",
+      "gitBlobSha": "4ed61d19f09a699f7d44c2db52a1ad9b7d06fad8",
+      "sha256": "89c229b0e4f25c2013b9cf8ae58032b1e6a37670d4be291980ae8ddc803c0062",
+      "pass": true
+    },
+    {
+      "path": "snapshots/2026-10-15-all-generated/SNAPSHOT.json",
+      "gitBlobSha": "fe8dd628c524a557d3eb8c3657ec8911a99fa74c",
+      "sha256": "d04bee3923ff6dacedeb1c4d983265efd8cc719916a8bff2e5aef60671ef55d1",
+      "pass": true
+    },
+    {
+      "path": "snapshots/2026-10-15-all-generated/current/client-V16/package.json",
+      "gitBlobSha": "f3c7ff0269ddc50af74c639fc9f9fec459d12201",
+      "sha256": "939c7debf046810d8a12e04a7d3eddc17db580f546990ee3c4499334ff7c4782",
+      "pass": true
+    }
+  ],
+  "localSourceOriginalsModified": false,
+  "manufacturingReleased": false,
+  "privacy": {
+    "report": "PRIVACY-REPORT.json.gz",
+    "v16Report": "V16-DIRECT-FILES.json",
+    "originalSourceFilesPreserved": true,
+    "credentialsAndRuntimeDatabasesExcluded": true,
+    "limitations": "Static secret scanning and filtering; image pixels were not OCR-scanned."
+  },
+  "verificationScope": "All expected published Git blob hashes compared against GitHub remote tree; four text files read back and SHA256-checked; local complete archive and all unique objects rechecked. Not a full remote binary redownload or hardware verification."
+}
