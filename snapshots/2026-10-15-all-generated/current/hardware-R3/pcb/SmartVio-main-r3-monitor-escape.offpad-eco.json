@@ -1,0 +1,25 @@
+{
+  "sourceSHA256": "b081241cf9c81335f2f266c20c4c1301482ac86decce453b67f97e7fc22c873f",
+  "resultSHA256": "773112196f550261d18a719500bec5b3a75f2dac9dbe2bbb28f11ad63ec13364",
+  "pad": "U1701.6",
+  "net": "MON_SYS_ADC",
+  "pathMm": [
+    [
+      9.15,
+      22.25
+    ],
+    [
+      8.25,
+      21.65
+    ]
+  ],
+  "viaUUID": "d9dbb4b2-0a40-41cf-8d8b-7454b5fc32d8",
+  "trackUUIDs": [
+    "5df10a3c-a427-44fd-aba3-75bbe930a91b"
+  ],
+  "removed": [],
+  "sourcePadNetsAndRulesUnchanged": true,
+  "originalPriorityCopperPreserved": true,
+  "requiresFreshNativeDRC": true,
+  "manufacturingReleased": false
+}

@@ -1,0 +1,464 @@
+{
+  "sourceSHA256": "76578c7173b3bedfec76dfb2472c48df6e7297a3fc5dee01f8a75564db417a3a",
+  "records": [
+    {
+      "pad": "U902.16",
+      "net": "PLAY_BCK",
+      "viaXY": [
+        58.875,
+        23.549999999999997
+      ],
+      "removed": [
+        {
+          "uuid": "079fe520-4d80-4ee4-8046-180cc6b342dd",
+          "net": "PWR_PDT",
+          "kind": "track"
+        },
+        {
+          "uuid": "16a2f50d-2e67-4874-996d-a3428b0a0a48",
+          "net": "SPK_GAIN",
+          "kind": "track"
+        },
+        {
+          "uuid": "1ecc888a-1705-4b87-a6c4-9d41c0509cee",
+          "net": "SPK_SD_PIN",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "R601.1",
+      "net": "ADC_XI",
+      "viaXY": [
+        3.975,
+        31.799999999999997
+      ],
+      "removed": []
+    },
+    {
+      "pad": "U601.10",
+      "net": "ADC_XI",
+      "viaXY": [
+        8.799999999999999,
+        8.8
+      ],
+      "removed": [
+        {
+          "uuid": "c4be1ac6-4565-45d9-9286-68dc65212463",
+          "net": "VMID_DIV",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "U601.23",
+      "net": "I2C_AUDIO_SDA",
+      "viaXY": [
+        14.700000000000001,
+        7.800000000000001
+      ],
+      "removed": [
+        {
+          "uuid": "620fe4ca-229c-44ce-81fd-2deffdf46a46",
+          "net": "VMID_DIV",
+          "kind": "track"
+        },
+        {
+          "uuid": "40e459ff-d9c7-43c2-9ad8-a9824dc6513b",
+          "net": "RISET",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "U1902.3",
+      "net": "I2C_AUDIO_SDA",
+      "viaXY": [
+        57.15,
+        38.150000000000006
+      ],
+      "removed": []
+    },
+    {
+      "pad": "R232.1",
+      "net": "RET_AC_R",
+      "viaXY": [
+        25.075,
+        34.8
+      ],
+      "removed": []
+    },
+    {
+      "pad": "C222.2",
+      "net": "RET_AC_R",
+      "viaXY": [
+        43.875,
+        23.325
+      ],
+      "removed": [
+        {
+          "uuid": "0e634a4b-f173-4be8-9f50-7a5aca6cca56",
+          "net": "RETURN_L_PORT",
+          "kind": "track"
+        },
+        {
+          "uuid": "d6e507ab-c7cd-4587-988d-a1186252831b",
+          "net": "LINE_L_PORT",
+          "kind": "track"
+        },
+        {
+          "uuid": "31b27e6e-0443-4d21-b074-66b287e1c32b",
+          "net": "USB_FLT_MCU",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "H_USB_2_M.1",
+      "net": "USB_DATA_FAULT_N",
+      "viaXY": [
+        27.25,
+        1.5
+      ],
+      "removed": []
+    },
+    {
+      "pad": "U801.39",
+      "net": "USB_DATA_FAULT_N",
+      "viaXY": [
+        33.2,
+        20.725
+      ],
+      "removed": [
+        {
+          "uuid": "4f84160e-6011-4e7d-a833-129a8cb44b8f",
+          "net": "V3D",
+          "kind": "track"
+        },
+        {
+          "uuid": "3131bd21-0838-401f-86d7-ec92b265599e",
+          "net": "RETURN_R_PORT",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "U1701.6",
+      "net": "MON_SYS_ADC",
+      "status": "NO_SAFE_LOCAL_OPTION"
+    },
+    {
+      "pad": "R702.1",
+      "net": "DAC_RAW_R",
+      "viaXY": [
+        7.975,
+        38.3
+      ],
+      "removed": []
+    },
+    {
+      "pad": "U701.7",
+      "net": "DAC_RAW_R",
+      "viaXY": [
+        9.225,
+        18.85
+      ],
+      "removed": [
+        {
+          "uuid": "06f33a76-0b74-49c6-ac32-36e0aa332ea6",
+          "net": "V3D",
+          "kind": "track"
+        },
+        {
+          "uuid": "2f59dc9b-1200-4aa8-8f8f-c326dcaaacf2",
+          "net": "DAC_RAW_L",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "U701.17",
+      "net": "DAC_UNMUTE",
+      "viaXY": [
+        14.9,
+        16.75
+      ],
+      "removed": [
+        {
+          "uuid": "b54ee807-2994-4df5-83ed-e9aa808546a6",
+          "net": "RET_BIAS_R",
+          "kind": "track"
+        },
+        {
+          "uuid": "6702bd7d-4fdc-44ee-9abe-6915151c99b5",
+          "net": "I2C_SDA",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "R703.1",
+      "net": "DAC_UNMUTE",
+      "viaXY": [
+        11.475,
+        38.8
+      ],
+      "removed": []
+    },
+    {
+      "pad": "U801.22",
+      "net": "DAC_UNMUTE",
+      "viaXY": [
+        24.85,
+        17.6
+      ],
+      "removed": [
+        {
+          "uuid": "b06a36d6-50a0-4448-b3cf-87fa45aedba4",
+          "net": "ADC_SCK",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "U201.10",
+      "net": "RET_BIAS_L",
+      "viaXY": [
+        22.925,
+        16.625
+      ],
+      "removed": [
+        {
+          "uuid": "561c41bc-2598-40ba-9417-4ff770190369",
+          "net": "MON_SYS_ADC",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "U801.47",
+      "net": "CHG_PGOOD_N",
+      "viaXY": [
+        37.2,
+        20.775
+      ],
+      "removed": [
+        {
+          "uuid": "a4a72025-00bb-4799-ad96-5ec2886c2edc",
+          "net": "V3D",
+          "kind": "track"
+        },
+        {
+          "uuid": "043a92cd-82ce-4f76-819e-b01ff954543f",
+          "net": "RF_ENABLE",
+          "kind": "track"
+        },
+        {
+          "uuid": "06add224-d3bf-4224-8397-0b9513d2bec1",
+          "net": "I2C_AUDIO_SCL",
+          "kind": "track"
+        }
+      ]
+    },
+    {
+      "pad": "R1902.2",
+      "net": "CHG_PGOOD_N",
+      "viaXY": [
+        57.4,
+        11.25
+      ],
+      "removed": [
+        {
+          "uuid": "a214a1e9-eb84-41bf-b75a-516961781a2d",
+          "net": "SYS",
+          "kind": "track"
+        }
+      ]
+    }
+  ],
+  "removedIds": [
+    "043a92cd-82ce-4f76-819e-b01ff954543f",
+    "06add224-d3bf-4224-8397-0b9513d2bec1",
+    "06f33a76-0b74-49c6-ac32-36e0aa332ea6",
+    "079fe520-4d80-4ee4-8046-180cc6b342dd",
+    "0e634a4b-f173-4be8-9f50-7a5aca6cca56",
+    "16a2f50d-2e67-4874-996d-a3428b0a0a48",
+    "1ecc888a-1705-4b87-a6c4-9d41c0509cee",
+    "2f59dc9b-1200-4aa8-8f8f-c326dcaaacf2",
+    "3131bd21-0838-401f-86d7-ec92b265599e",
+    "31b27e6e-0443-4d21-b074-66b287e1c32b",
+    "40e459ff-d9c7-43c2-9ad8-a9824dc6513b",
+    "4f84160e-6011-4e7d-a833-129a8cb44b8f",
+    "561c41bc-2598-40ba-9417-4ff770190369",
+    "620fe4ca-229c-44ce-81fd-2deffdf46a46",
+    "6702bd7d-4fdc-44ee-9abe-6915151c99b5",
+    "a214a1e9-eb84-41bf-b75a-516961781a2d",
+    "a4a72025-00bb-4799-ad96-5ec2886c2edc",
+    "b06a36d6-50a0-4448-b3cf-87fa45aedba4",
+    "b54ee807-2994-4df5-83ed-e9aa808546a6",
+    "c4be1ac6-4565-45d9-9286-68dc65212463",
+    "d6e507ab-c7cd-4587-988d-a1186252831b"
+  ],
+  "temporaryDanglingNets": [
+    "ADC_SCK",
+    "DAC_RAW_L",
+    "I2C_AUDIO_SCL",
+    "I2C_SDA",
+    "LINE_L_PORT",
+    "MON_SYS_ADC",
+    "PWR_PDT",
+    "RETURN_L_PORT",
+    "RETURN_R_PORT",
+    "RET_BIAS_R",
+    "RF_ENABLE",
+    "RISET",
+    "SPK_GAIN",
+    "SPK_SD_PIN",
+    "SYS",
+    "USB_FLT_MCU",
+    "V3D",
+    "VMID_DIV"
+  ],
+  "newVias": [
+    {
+      "point": [
+        58.875,
+        23.549999999999997
+      ],
+      "net": "PLAY_BCK",
+      "uuid": "11abf834-1119-4227-a1cf-1f10733f5649"
+    },
+    {
+      "point": [
+        3.975,
+        31.799999999999997
+      ],
+      "net": "ADC_XI",
+      "uuid": "22b259fc-70d2-421d-8ebd-649e8f81c017"
+    },
+    {
+      "point": [
+        8.799999999999999,
+        8.8
+      ],
+      "net": "ADC_XI",
+      "uuid": "ce11b666-6b80-402e-a2c9-8d451eab6e15"
+    },
+    {
+      "point": [
+        14.700000000000001,
+        7.800000000000001
+      ],
+      "net": "I2C_AUDIO_SDA",
+      "uuid": "0085688b-d880-4007-b0b7-edf28fb31461"
+    },
+    {
+      "point": [
+        57.15,
+        38.150000000000006
+      ],
+      "net": "I2C_AUDIO_SDA",
+      "uuid": "22957085-88f4-42d9-afc4-70ec4847d3da"
+    },
+    {
+      "point": [
+        25.075,
+        34.8
+      ],
+      "net": "RET_AC_R",
+      "uuid": "29f331aa-7d9e-4ca4-998c-7e671381d5fe"
+    },
+    {
+      "point": [
+        43.875,
+        23.325
+      ],
+      "net": "RET_AC_R",
+      "uuid": "aa37958b-c16c-4bdb-b2a1-0af519e6c0bb"
+    },
+    {
+      "point": [
+        27.25,
+        1.5
+      ],
+      "net": "USB_DATA_FAULT_N",
+      "uuid": "92932cab-3aca-48a9-96d5-935e3176f4ae"
+    },
+    {
+      "point": [
+        33.2,
+        20.725
+      ],
+      "net": "USB_DATA_FAULT_N",
+      "uuid": "051244ab-a092-4bd3-a794-ec383f11c24b"
+    },
+    {
+      "point": [
+        7.975,
+        38.3
+      ],
+      "net": "DAC_RAW_R",
+      "uuid": "871bdde2-1151-47b0-8075-cbd078b043be"
+    },
+    {
+      "point": [
+        9.225,
+        18.85
+      ],
+      "net": "DAC_RAW_R",
+      "uuid": "22b50386-ef67-4455-94ff-7cdff6acbe6b"
+    },
+    {
+      "point": [
+        14.9,
+        16.75
+      ],
+      "net": "DAC_UNMUTE",
+      "uuid": "958606cf-7ba8-489c-b8f1-3a0568a954cf"
+    },
+    {
+      "point": [
+        11.475,
+        38.8
+      ],
+      "net": "DAC_UNMUTE",
+      "uuid": "3b198dbd-f2db-4899-8227-c87c114ce6e3"
+    },
+    {
+      "point": [
+        24.85,
+        17.6
+      ],
+      "net": "DAC_UNMUTE",
+      "uuid": "8d2491cc-d899-472d-a5e7-ba4c63ae46fd"
+    },
+    {
+      "point": [
+        22.925,
+        16.625
+      ],
+      "net": "RET_BIAS_L",
+      "uuid": "6b444ba6-fb0f-4518-8556-b00c32c801fa"
+    },
+    {
+      "point": [
+        37.2,
+        20.775
+      ],
+      "net": "CHG_PGOOD_N",
+      "uuid": "838e5ca8-d96f-47a7-a498-c4c1f0f55575"
+    },
+    {
+      "point": [
+        57.4,
+        11.25
+      ],
+      "net": "CHG_PGOOD_N",
+      "uuid": "e6c09ea1-8aaf-496c-9f9d-0f3795154683"
+    }
+  ],
+  "nativeRulesAndPadNetsUnchanged": true,
+  "originalPriorityCopperPreserved": true,
+  "fullNativeChecksRequired": true,
+  "manufacturingReleased": false
+}

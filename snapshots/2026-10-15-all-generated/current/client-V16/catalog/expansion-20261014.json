@@ -1,0 +1,1598 @@
+{
+  "catalogVersion": 2,
+  "curatedAt": "2026-10-14",
+  "sourcePolicy": "Concrete permitted score editions and historical primary scans. Single-melody practice versions; no copyrighted performance recordings, lyrics, or external cover artwork. Source verification is not a blanket global legal opinion.",
+  "songs": [
+    {
+      "id": "S036",
+      "title": "Air (BWV 1068)",
+      "titles": {
+        "zh": "咏叹调（BWV 1068）",
+        "en": "Air (BWV 1068)",
+        "ja": "アリア（BWV 1068）",
+        "de": "Air (BWV 1068)"
+      },
+      "author": "J. S. Bach (1685–1750)",
+      "originalAttribution": "J. S. Bach (1685–1750); typeset by Mike Blackstock; Mutopia-2008/10/28-1534",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S006",
+      "catalogVersion": 2,
+      "melody": "F#5:4.5 B5:0.25 G5:0.125 F#5:0.125 E5:0.25 D5:0.25 C#5:0.25 D5:0.25 C#5:0.875 B4:0.125 A4:1 A5:2.25 F#5:0.25 C5:0.25 B4:0.25 E5:0.25 D#5:0.25 A5:0.25 G5:0.25 G5:2.25 E5:0.25 B4:0.25 A4:0.25 D5:0.25 C#5:0.25 G5:0.25 F#5:0.25 F#5:1.5 G#5:0.25 A5:0.25 D5:0.5 D5:0.125 E5:0.125 F#5:0.5 E5:0.25 E5:0.25 D5:0.25 C#5:0.25 B4:0.25 B4:0.125 C#5:0.125 D5:0.75 C#5:0.25 B4:0.25 A4:2 C#5:0.25 B4:0.25 B4:0.125 C#5:0.125 D5:0.75 C#5:0.25 B4:0.25 A4:2 C#5:1.25 D5:0.125 C#5:0.125 B4:0.125 C#5:0.125 A4:0.25 A5:1.5 C5:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1534",
+        "edition": "New adaptation from Bach-Gesellschaft · Mutopia-2008/10/28-1534",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. S. Bach (1685–1750); typeset by Mike Blackstock; Mutopia-2008/10/28-1534",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/BachJS/BWV1068/bach_air_bmv_1068/bach_air_bmv_1068-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1534",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Flute and Guitar",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S037",
+      "title": "Ave Maria (Gounod / Bach)",
+      "titles": {
+        "zh": "圣母颂（古诺／巴赫）",
+        "en": "Ave Maria (Gounod / Bach)",
+        "ja": "アヴェ・マリア（グノー／バッハ）",
+        "de": "Ave Maria (Gounod / Bach)"
+      },
+      "author": "C. Gounod (1818–1893)",
+      "originalAttribution": "C. Gounod (1818–1893); typeset by Yann Leprince; Mutopia-2017/01/25-2167",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S010",
+      "catalogVersion": 2,
+      "melody": "E5:4 F5:4 G5:3 D5:1 E5:3 R:1 A5:2.5 A4:0.5 B4:0.5 C5:0.5 D5:1.75 E5:0.25 D5:1 R:1 G5:2.5 G4:0.5 A4:0.5 B4:0.5 C5:1.75 D5:0.25 C5:1 R:1",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2167",
+        "edition": "Heugel, 1856 · Mutopia-2017/01/25-2167",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "C. Gounod (1818–1893); typeset by Yann Leprince; Mutopia-2017/01/25-2167",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/GounodC/AveMaria-PianoViolin/AveMaria-PianoViolin-a4-pdfs.zip"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2167",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Piano, Violin",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S038",
+      "title": "Songs My Mother Taught Me (Op. 55)",
+      "titles": {
+        "zh": "母亲教我的歌（Op.55）",
+        "en": "Songs My Mother Taught Me (Op. 55)",
+        "ja": "わが母の教え給いし歌（Op.55）",
+        "de": "Als die alte Mutter (Op. 55)"
+      },
+      "author": "A. Dvořák (1841–1904)",
+      "originalAttribution": "A. Dvořák (1841–1904); typeset by Daniel Johnson; Mutopia-2006/12/18-584",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S026",
+      "catalogVersion": 2,
+      "melody": "D5:1.5 C#5:0.75 B4:0.75 D5:1.5 C#5:0.75 B4:0.75 D5:0.75 G5:1.5 G4:0.75 G4:1.5 R:1.5 C#5:1.5 B4:0.75 A4:0.75 C#5:1.5 B4:0.75 A4:0.75 C#5:0.75 F#5:1.5 F#4:0.75 F#4:1.5 R:1.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=584",
+        "edition": "The University Society, 1904 · Mutopia-2006/12/18-584",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "A. Dvořák (1841–1904); typeset by Daniel Johnson; Mutopia-2006/12/18-584",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/DvorakA/O55/dvorak-als-die-alte-mutter/dvorak-als-die-alte-mutter-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=584",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "6/8",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S039",
+      "title": "Ave Maria (Schubert, D. 839)",
+      "titles": {
+        "zh": "圣母颂（舒伯特，D.839）",
+        "en": "Ave Maria (Schubert, D. 839)",
+        "ja": "アヴェ・マリア（シューベルト、D.839）",
+        "de": "Ave Maria (Schubert, D. 839)"
+      },
+      "author": "F. Schubert (1797–1828)",
+      "originalAttribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2007/10/13-1054",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S017",
+      "catalogVersion": 2,
+      "melody": "R:1 Bb4:1.5 A4:0.25 Bb4:0.25 D5:1.75 C5:0.25 Bb4:1 R:1 C5:0.9375 D5:0.03125 C5:0.03125 Bb4:0.25 A4:0.25 G4:0.25 A4:0.25 Bb4:1 R:0.5 D5:0.5 D5:0.75 C5:0.125 Bb4:0.125 A4:0.25 G4:0.25 D5:0.25 E5:0.25 D5:1 Db5:0.75 A4:0.25 C5:0.75 Bb4:0.25 A4:0.15625 C5:0.15625 D5:0.15625 Eb5:0.15625 C5:0.15625 A4:0.15625 Bb4:1.5 D5:0.25 C5:0.25 C5:0.75 A4:0.25 G4:0.15625 B4:0.15625 D5:0.15625 F5:0.15625 D5:0.15625 B4:0.15625 C5:1.15625 G4:0.15625 A4:0.15625 Bb4:0.09375 C5:0.03125 Bb4:0.03125 A4:0.15625 G4:0.15625 F4:1 R:0.5 F4:0.5 C5:0.75 C5:0.25 C5:0.375 B4:0.125 C5:0.375 D5:0.125 C5:0.375 D5:0.125 Bb4:0.5 R:0.5 Bb4:0.5 C5:0.75 C5:0.25 C5:0.15625 B4:0.15625 C5:0.15625 Eb5:0.15625 D5:0.15625 C5:0.15625 Bb4:1",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1054",
+        "edition": "C.F. Peters (Band I) · Mutopia-2007/10/13-1054",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2007/10/13-1054",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D839/SchubertF-D839_AveMaria/SchubertF-D839_AveMaria-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1054",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S040",
+      "title": "Old French Song (Op. 39 No. 16)",
+      "titles": {
+        "zh": "古老的法国歌曲（Op.39 No.16）",
+        "en": "Old French Song (Op. 39 No. 16)",
+        "ja": "古いフランスの歌（Op.39 第16番）",
+        "de": "Altfranzösisches Lied (Op. 39 Nr. 16)"
+      },
+      "author": "P. I. Tchaikovsky (1840–1893)",
+      "originalAttribution": "P. I. Tchaikovsky (1840–1893); typeset by David McNamara; Mutopia-2015/11/27-2080",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S019",
+      "catalogVersion": 2,
+      "melody": "R:1.5 D4:0.5 G4:0.5 A4:0.5 A#4:0.5 C5:0.5 D5:1.5 D5:0.5 C5:0.5 D5:0.5 D#5:0.5 C5:0.5 D5:1.5 D5:0.5 C5:0.5 D5:0.5 D#5:0.5 C5:0.5 D5:0.5 D#5:0.25 D5:0.25 C5:0.5 A#4:0.5 A4:1.75 G4:0.25",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2080",
+        "edition": "Schirmer, 1904 · Mutopia-2015/11/27-2080",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "P. I. Tchaikovsky (1840–1893); typeset by David McNamara; Mutopia-2015/11/27-2080",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/TchaikovskyPI/O39/16OldFrenchSong/16OldFrenchSong-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=2080",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S041",
+      "title": "In the Hall of the Mountain King",
+      "titles": {
+        "zh": "在山魔王的宫殿里",
+        "en": "In the Hall of the Mountain King",
+        "ja": "山の魔王の宮殿にて",
+        "de": "In der Halle des Bergkönigs"
+      },
+      "author": "E. Grieg (1843–1907)",
+      "originalAttribution": "E. Grieg (1843–1907); typeset by Coyau; Mutopia-2013/12/07-1888",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S012",
+      "catalogVersion": 2,
+      "melody": "B3:0.5 C#4:0.5 D4:0.5 E4:0.5 F#4:0.5 D4:0.5 F#4:1 E#4:0.5 C#4:0.5 E#4:1 E4:0.5 C4:0.5 E4:1 B3:0.5 C#4:0.5 D4:0.5 E4:0.5 F#4:0.5 D4:0.5 F#4:0.5 B4:0.5 A4:0.5 F#4:0.5 D4:0.5 F#4:0.5 A4:2 B4:0.5 C#5:0.5 D5:0.5 E5:0.5 F#5:0.5 D5:0.5 F#5:1 E#5:0.5 C#5:0.5 E#5:1 E5:0.5 C5:0.5 E5:1 B4:0.5 C#5:0.5 D5:0.5 E5:0.5 F#5:0.5 D5:0.5 F#5:0.5 B5:0.5 A5:0.5 F#5:0.5 D5:0.5 F#5:0.5 A5:2",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1888",
+        "edition": "The University Society, 1918 · Mutopia-2013/12/07-1888",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "E. Grieg (1843–1907); typeset by Coyau; Mutopia-2013/12/07-1888",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/GriegE/O46/Dans_l_antre_du_roi_de_la_montagne/Dans_l_antre_du_roi_de_la_montagne-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1888",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Piano",
+        "adaptation": "Direct reading of rightOne LilyPond notation, resolving relative octaves from c double-prime and the preceding intro chord; full written note durations copied, then transposed uniformly two octaves"
+      }
+    },
+    {
+      "id": "S042",
+      "title": "To Music (D. 547)",
+      "titles": {
+        "zh": "致音乐（D.547）",
+        "en": "To Music (D. 547)",
+        "ja": "音楽に寄せて（D.547）",
+        "de": "An die Musik (D. 547)"
+      },
+      "author": "F. Schubert (1797–1828)",
+      "originalAttribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2007/09/07-1001",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S005",
+      "catalogVersion": 2,
+      "melody": "R:1 A4:1 D5:1 D5:1 F#4:3 B4:0.875 B4:0.125 D4:1.5 D4:0.5 F#4:0.5 E4:0.5 D4:0.5 E4:0.5 F#4:1 D4:1 R:3 A4:1 B4:1 B4:1 C#4:1.5 C#4:0.5 D4:1.5 D4:0.5 F#4:0.5 E4:0.5 D4:0.5 E4:0.5 F#4:2 R:4",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1001",
+        "edition": "C.F. Peters (Band I) · Mutopia-2007/09/07-1001",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2007/09/07-1001",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D547/AnDieMusik/AnDieMusik-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1001",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S043",
+      "title": "The Trout (D. 550)",
+      "titles": {
+        "zh": "鳟鱼（D.550）",
+        "en": "The Trout (D. 550)",
+        "ja": "ます（D.550）",
+        "de": "Die Forelle (D. 550)"
+      },
+      "author": "F. Schubert (1797–1828)",
+      "originalAttribution": "F. Schubert (1797–1828); typeset by Maurizio Tomasi; Mutopia-2013/02/21-502",
+      "category": "classic",
+      "collection": "global",
+      "originCountry": "global",
+      "regions": [
+        "us",
+        "uk",
+        "de",
+        "jp",
+        "fr",
+        "cn"
+      ],
+      "coverId": "S003",
+      "catalogVersion": 2,
+      "melody": "R:1.5 Ab4:0.5 Db5:0.5 Db5:0.5 F5:0.5 F5:0.5 Db5:1 Ab4:0.5 Ab4:0.5 Ab4:0.75 Ab4:0.25 Eb5:0.25 Db5:0.25 C5:0.25 Bb4:0.25 Ab4:1 R:0.5 Ab4:0.5 Db5:0.5 Db5:0.5 F5:0.5 F5:0.5 Db5:1 Ab4:0.5 Db5:0.5 C5:0.5 Bb4:0.25 C5:0.25 Db5:0.5 G4:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=502",
+        "edition": "C.F. Peters (Band I) · Mutopia-2013/02/21-502",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Maurizio Tomasi; Mutopia-2013/02/21-502",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D550/forelle/forelle-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=502",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S044",
+      "title": "Hard Times Come Again No More",
+      "titles": {
+        "zh": "艰难时光不再来",
+        "en": "Hard Times Come Again No More",
+        "ja": "つらい時よ、もう戻らないで",
+        "de": "Schwere Zeiten, kehrt nicht wieder"
+      },
+      "author": "S. C. Foster (1826–1864)",
+      "originalAttribution": "S. C. Foster (1826–1864); typeset by Stan Sanderson; Mutopia-2014/03/24-371",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "us",
+      "regions": [
+        "us"
+      ],
+      "coverId": "S015",
+      "catalogVersion": 2,
+      "melody": "Eb5:0.5 Eb5:0.5 Eb5:1 R:0.5 Eb5:0.5 Eb5:1 Eb5:0.5 Eb5:0.5 Eb5:2 Eb5:1 R:1 Eb5:1 Eb5:1 Eb5:1 Eb5:1 Bb4:0.5 Bb4:0.5 A4:0.5 A4:0.5 Bb4:1 G4:0.5 Ab4:0.5 Bb4:1 Bb4:0.5 Bb4:0.5 Bb4:0.5 Bb4:1 Bb4:0.5 Bb4:0.5 Bb4:0.5 Bb4:0.5 Bb4:0.5 Bb4:1 Ab4:1 G4:1 Bb4:1 Bb4:0.5 Bb4:0.5 Ab4:0.75 Ab4:0.25 G4:3",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=371",
+        "edition": "Foster's Melodies: New York: Horace Waters, No. 481 Broadway · Mutopia-2014/03/24-371",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "S. C. Foster (1826–1864); typeset by Stan Sanderson; Mutopia-2014/03/24-371",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/FosterSC/hardtimes/hardtimes-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=371",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S045",
+      "title": "Slumber, My Darling",
+      "titles": {
+        "zh": "安睡吧，亲爱的",
+        "en": "Slumber, My Darling",
+        "ja": "おやすみ、いとしい子",
+        "de": "Schlafe, mein Liebling"
+      },
+      "author": "S. C. Foster (1826–1864)",
+      "originalAttribution": "S. C. Foster (1826–1864); typeset by Stan Sanderson; Mutopia-2014/03/24-370",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "us",
+      "regions": [
+        "us"
+      ],
+      "coverId": "S001",
+      "catalogVersion": 2,
+      "melody": "G4:0.5 F4:0.5 Eb4:0.5 F4:0.5 G4:0.5 F4:0.5 Eb4:0.5 G4:0.5 C5:0.5 Bb4:1.5 Eb5:0.5 D5:0.5 C5:0.5 Bb4:0.5 Ab4:0.5 G4:0.5 G4:0.5 F4:0.5 Eb4:0.5 F4:1.5 G4:0.5 F4:0.5 Eb4:0.5 F4:1 G4:0.25 F4:0.25 Eb4:0.5 G4:0.5 C5:0.5 Bb4:1.5 C5:0.5 D5:0.5 Eb5:0.5 Eb5:0.5 Eb4:0.5 F4:0.5 G4:0.5 R:0.5 F4:0.25 F4:0.25 Eb4:1.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=370",
+        "edition": "Foster's Melodies: New York: Horace Waters, No. 481 Broadway · Mutopia-2014/03/24-370",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "S. C. Foster (1826–1864); typeset by Stan Sanderson; Mutopia-2014/03/24-370",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/FosterSC/slumber/slumber-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=370",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "6/8",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S046",
+      "title": "Shall We Gather at the River (Hanson Place)",
+      "titles": {
+        "zh": "我们相聚在河边（Hanson Place）",
+        "en": "Shall We Gather at the River (Hanson Place)",
+        "ja": "川のほとりに集いましょう（Hanson Place）",
+        "de": "Sollen wir uns am Fluss versammeln (Hanson Place)"
+      },
+      "author": "R. Lowry (1826–1899)",
+      "originalAttribution": "R. Lowry (1826–1899); typeset by Steve Dunlop; Mutopia-2008/01/13-1248",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "us",
+      "regions": [
+        "us"
+      ],
+      "coverId": "S021",
+      "catalogVersion": 2,
+      "melody": "F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25 A4:2 F#4:2 G4:1 G4:1 G4:0.75 A4:0.25 G4:0.75 F#4:0.25 E4:2 A4:2 F#4:1 F#4:1 F#4:0.75 E4:0.25 F#4:0.75 G4:0.25 A4:2 F#4:1 F#4:0.5 G4:0.5 E4:1 E4:0.5 F#4:0.5 G4:1 F#4:0.5 E4:0.5 D4:4",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1248",
+        "edition": "www.cyberhymnal.org · Mutopia-2008/01/13-1248",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "R. Lowry (1826–1899); typeset by Steve Dunlop; Mutopia-2008/01/13-1248",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/LowryR/hanson_place/hanson_place-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1248",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Voice (SATB)",
+        "adaptation": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures."
+      }
+    },
+    {
+      "id": "S047",
+      "title": "It Came upon the Midnight Clear (Carol)",
+      "titles": {
+        "zh": "午夜传来的歌声（Carol调）",
+        "en": "It Came upon the Midnight Clear (Carol)",
+        "ja": "真夜中の澄んだ空に（Carol）",
+        "de": "Es kam in einer klaren Mitternacht (Carol)"
+      },
+      "author": "R. S. Willis (1819–1900)",
+      "originalAttribution": "R. S. Willis (1819–1900); typeset by Steve Dunlop; Mutopia-2008/01/13-1231",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "us",
+      "regions": [
+        "us"
+      ],
+      "coverId": "S001",
+      "catalogVersion": 2,
+      "melody": "R:2.5 F4:0.5 D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5 F4:1 G4:0.5 F4:1 F4:0.5 G4:0.5 A4:0.5 Bb4:0.5 Bb4:0.5 C5:0.5 D5:0.5 C5:1.5 C5:1 F4:0.5 D5:1 A4:0.5 C5:0.5 Bb4:0.5 G4:0.5 F4:1 G4:0.5 F4:1 F4:0.5 G4:1 G4:0.5 A4:0.5 G4:0.5 F4:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1231",
+        "edition": "www.cyberhymnal.org · Mutopia-2008/01/13-1231",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "R. S. Willis (1819–1900); typeset by Steve Dunlop; Mutopia-2008/01/13-1231",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/WillisRS/carol/carol-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1231",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "6/8",
+        "originalInstrument": "Voice (SATB)",
+        "adaptation": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures."
+      }
+    },
+    {
+      "id": "S048",
+      "title": "Sally in Our Alley",
+      "titles": {
+        "zh": "巷子里的萨莉",
+        "en": "Sally in Our Alley",
+        "ja": "路地のサリー",
+        "de": "Sally in unserer Gasse"
+      },
+      "author": "H. Carey (1687?–1743)",
+      "originalAttribution": "H. Carey (1687?–1743); typeset by Stan Sanderson; Mutopia-2014/11/13-432",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "uk",
+      "regions": [
+        "uk"
+      ],
+      "coverId": "S018",
+      "catalogVersion": 2,
+      "melody": "R:1.5 F4:0.5 F4:0.5 Bb4:0.5 Bb4:1 A4:0.5 Bb4:0.5 Eb5:0.5 C5:0.5 Bb4:1 A4:0.5 R:0.5 Bb4:1 G4:0.5 F4:0.5 F4:1.5 Eb4:0.5 D4:0.5 Bb4:0.5 R:0.5 F4:0.5 F4:0.5 Bb4:0.5 Bb4:1 A4:0.5 Bb4:0.5 Eb5:0.5 C5:0.5 Bb4:1 A4:0.5 R:0.5 Bb4:1 G4:0.5 F4:0.5 F4:1.5 Eb4:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=432",
+        "edition": "Not known · Mutopia-2014/11/13-432",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "H. Carey (1687?–1743); typeset by Stan Sanderson; Mutopia-2014/11/13-432",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/CareyH/sally/sally-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=432",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "3/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S049",
+      "title": "Fairest Isle",
+      "titles": {
+        "zh": "美丽的岛屿",
+        "en": "Fairest Isle",
+        "ja": "美しき島",
+        "de": "Schönste Insel"
+      },
+      "author": "H. Purcell (1658–1695)",
+      "originalAttribution": "H. Purcell (1658–1695); typeset by Sebastian Brosig; Mutopia-2013/01/06-268",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "uk",
+      "regions": [
+        "uk"
+      ],
+      "coverId": "S019",
+      "catalogVersion": 2,
+      "melody": "D5:1 F5:2 Bb4:2 F5:1 G5:0.5 F5:0.5 G5:0.5 Ab5:0.5 G5:1 F5:2 D5:1 D5:0.5 Eb5:0.5 F5:1 C5:1 D5:0.5 C5:0.5 Bb4:1 A4:1 G4:0.5 A4:0.5 Bb4:1 C5:1 A4:3",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=268",
+        "edition": "S.W. (ed.) handwritten · Mutopia-2013/01/06-268",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "H. Purcell (1658–1695); typeset by Sebastian Brosig; Mutopia-2013/01/06-268",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/PurcellH/FairestIsle/FairestIsle-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=268",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "3/4",
+        "originalInstrument": "Voice (SATB)",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S050",
+      "title": "Good King Wenceslas",
+      "titles": {
+        "zh": "好国王温塞斯拉斯",
+        "en": "Good King Wenceslas",
+        "ja": "良き王ウェンセスラス",
+        "de": "Guter König Wenzel"
+      },
+      "author": null,
+      "originalAttribution": "null; typeset by James Kilfiger; Mutopia-2007/01/10-905",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "uk",
+      "regions": [
+        "uk"
+      ],
+      "coverId": "S032",
+      "catalogVersion": 2,
+      "melody": "A4:1 A4:1 A4:1 B4:1 A4:1 A4:1 E4:2 F#4:1 E4:1 F#4:1 G#4:1 A4:2 A4:2 A4:1 A4:1 A4:1 B4:1 A4:1 A4:1 E4:2 F#4:1 E4:1 F#4:1 G#4:1 A4:2 A4:2",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=905",
+        "edition": "Sheet Music from Rev. Charles Lewis Hutchins, Carols Old and Carols New (Boston: Parish Choir, 1916), Carol #415 · Mutopia-2007/01/10-905",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "null; typeset by James Kilfiger; Mutopia-2007/01/10-905",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/Anonymous/GoodKingWenceslas/GoodKingWenceslas-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=905",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Voice",
+        "adaptation": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures."
+      }
+    },
+    {
+      "id": "S051",
+      "title": "Melita (Eternal Father, Strong to Save)",
+      "titles": {
+        "zh": "梅利塔（永恒之父）",
+        "en": "Melita (Eternal Father, Strong to Save)",
+        "ja": "メリタ（永遠の父）",
+        "de": "Melita (Ewiger Vater)"
+      },
+      "author": "J. B. Dykes (1823–1876)",
+      "originalAttribution": "J. B. Dykes (1823–1876); typeset by Steve Dunlop; Mutopia-2008/01/13-1260",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "uk",
+      "regions": [
+        "uk"
+      ],
+      "coverId": "S024",
+      "catalogVersion": 2,
+      "melody": "R:3 C4:1 E4:1.5 E4:0.5 G4:1 G4:1 A4:1 A4:1 G4:1 G4:1 C5:1 D5:1 B4:1 G4:1 G4:1 F#4:1 G4:1 D4:1 F4:1.5 F4:0.5 E4:1 E4:1 G4:1.5 G4:0.5 F#4:1 B4:1 G4:1 F#4:0.5 F#4:0.5 E4:1 A4:0.5 A4:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1260",
+        "edition": "www.cyberhymnal.org · Mutopia-2008/01/13-1260",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. B. Dykes (1823–1876); typeset by Steve Dunlop; Mutopia-2008/01/13-1260",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/DykesJB/melita/melita-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1260",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Voice (SATB)",
+        "adaptation": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures."
+      }
+    },
+    {
+      "id": "S052",
+      "title": "Lullaby (Brahms, Op. 49 No. 4)",
+      "titles": {
+        "zh": "摇篮曲（勃拉姆斯，Op.49 No.4）",
+        "en": "Lullaby (Brahms, Op. 49 No. 4)",
+        "ja": "子守歌（ブラームス、Op.49 第4番）",
+        "de": "Wiegenlied (Brahms, Op. 49 Nr. 4)"
+      },
+      "author": "J. Brahms (1833–1897)",
+      "originalAttribution": "J. Brahms (1833–1897); typeset by 森 章吾; Mutopia-2007/11/04-1037",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "de",
+      "regions": [
+        "de"
+      ],
+      "coverId": "S001",
+      "catalogVersion": 2,
+      "melody": "R:2.5 G4:0.5 G4:0.5 Bb4:1.5 G4:0.5 G4:1 Bb4:1 R:1 G4:0.5 Bb4:0.5 Eb5:1 D5:1.5 C5:0.5 C5:1 Bb4:1 F4:0.5 G4:0.5 Ab4:1 F4:1 F4:0.5 G4:0.5 Ab4:1 R:1 F4:0.5 Ab4:0.5 D5:0.5 C5:0.5 Bb4:1 D5:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1037",
+        "edition": "Indiana University: http://www.dlib.indiana.edu/variations/scores/bgn9130/index1.html · Mutopia-2007/11/04-1037",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. Brahms (1833–1897); typeset by 森 章吾; Mutopia-2007/11/04-1037",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/BrahmsJ/O49/Wiegenlied/Wiegenlied-a4-pdfs.zip"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1037",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "3/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S053",
+      "title": "The Moon Has Risen",
+      "titles": {
+        "zh": "月亮升起来了",
+        "en": "The Moon Has Risen",
+        "ja": "月が昇った",
+        "de": "Der Mond ist aufgegangen"
+      },
+      "author": "J. A. P. Schulz (1747–1800)",
+      "originalAttribution": "J. A. P. Schulz (1747–1800); typeset by Dr. G. Roesler; Mutopia-2013/03/23-127",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "de",
+      "regions": [
+        "de"
+      ],
+      "coverId": "S023",
+      "catalogVersion": 2,
+      "melody": "R:3 F4:1 G4:1 F4:1 Bb4:1 A4:1 G4:2 F4:1 A4:1 A4:1 A4:1 D5:1 C5:1 Bb4:2 A4:1 A4:1 A4:1 A4:1 Bb4:1 A4:1 G4:3 F4:1 G4:1 F4:1 Bb4:1 A4:1",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=127",
+        "edition": "Unknown · Mutopia-2013/03/23-127",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "J. A. P. Schulz (1747–1800); typeset by Dr. G. Roesler; Mutopia-2013/03/23-127",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchulzJAP/mond/mond-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=127",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Organ, Voice",
+        "adaptation": "Static, explicitly selected lead voice. Absolute LilyPond c= C3; relative octaves use nearest diatonic interval within a fourth. Explicit LilyPond accidentals, inherited durations and dots are preserved. Pickup is padded with a leading rest before taking eight complete application measures."
+      }
+    },
+    {
+      "id": "S054",
+      "title": "The Loreley",
+      "titles": {
+        "zh": "罗蕾莱",
+        "en": "The Loreley",
+        "ja": "ローレライ",
+        "de": "Die Loreley"
+      },
+      "author": "F. Silcher (1789–1860)",
+      "originalAttribution": "F. Silcher (1789–1860); typeset by Stan Sanderson; Mutopia-2015/01/16-438",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "de",
+      "regions": [
+        "de"
+      ],
+      "coverId": "S021",
+      "catalogVersion": 2,
+      "melody": "R:2.5 A4:0.5 A4:0.75 B4:0.25 A4:0.5 D5:0.5 C#5:0.5 B4:0.5 A4:1.5 G4:1 G4:0.5 F#4:1 F#4:0.5 E4:0.5 D4:0.5 E4:0.5 F#4:2 R:0.5 A4:0.5 A4:0.75 B4:0.25 A4:0.5 D5:0.5 C#5:0.5 B4:0.5 A4:1.5 G4:1 G4:0.5 F#4:1 F#4:0.5 A4:0.5 G4:0.5 E4:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=438",
+        "edition": "Not known · Mutopia-2015/01/16-438",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Silcher (1789–1860); typeset by Stan Sanderson; Mutopia-2015/01/16-438",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SilcherF/loreley/loreley-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=438",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "6/8",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S055",
+      "title": "Heidenröslein (Schubert, D. 257)",
+      "titles": {
+        "zh": "野玫瑰（舒伯特，D.257）",
+        "en": "Heidenröslein (Schubert, D. 257)",
+        "ja": "野ばら（シューベルト、D.257）",
+        "de": "Heidenröslein (Schubert, D. 257)"
+      },
+      "author": "F. Schubert (1797–1828)",
+      "originalAttribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2008/09/28-1555",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "de",
+      "regions": [
+        "de"
+      ],
+      "coverId": "S026",
+      "catalogVersion": 2,
+      "melody": "B4:0.5 B4:0.5 B4:0.5 B4:0.5 D5:0.25 C5:0.25 C5:0.25 B4:0.25 A4:1 A4:0.5 A4:0.5 B4:0.5 C5:0.5 D5:1 G5:0.5 R:0.5 B4:0.5 B4:0.5 B4:0.5 B4:0.5 D5:0.25 C#5:0.25 C#5:0.25 B4:0.25 A4:1 D5:0.5 D5:0.5 E5:0.75 D5:0.25 C#5:0.25 D5:0.25 E5:0.25 F#5:0.25 D5:1",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1555",
+        "edition": "Breitkopf & Härtel (1884-1897) · Mutopia-2008/09/28-1555",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "F. Schubert (1797–1828); typeset by Ph. Raynaud; Mutopia-2008/09/28-1555",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/SchubertF/D257/SchubertF-D257-Heidenroeslein/SchubertF-D257-Heidenroeslein-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1555",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Voice and Piano",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S056",
+      "title": "La Marseillaise (1792 edition)",
+      "titles": {
+        "zh": "马赛曲（1792谱版）",
+        "en": "La Marseillaise (1792 edition)",
+        "ja": "ラ・マルセイエーズ（1792年版）",
+        "de": "La Marseillaise (Fassung 1792)"
+      },
+      "author": "C. J. Rouget de Lisle (1760–1836)",
+      "originalAttribution": "C. J. Rouget de Lisle (1760–1836); typeset by Coyau; Mutopia-2013/12/08-1891",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "fr",
+      "regions": [
+        "fr"
+      ],
+      "coverId": "S016",
+      "catalogVersion": 2,
+      "melody": "R:2 R:0.75 G4:0.25 E4:0.75 G4:0.25 C5:1 C5:1 D5:1 D5:1 G5:1.5 F5:0.5 E5:0.5 R:0.25 C5:0.25 E5:0.75 C5:0.25 A4:1 F5:2 D5:0.75 B4:0.25 C5:2 R:1 C5:0.75 D5:0.25 E5:1 E5:1 E5:1 F5:0.75 E5:0.25 E5:1 D5:0.5 R:1.5 D5:0.75 E5:0.25 F5:1 F5:1 F5:1 G5:0.75 F5:0.125 F5:0.125",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1891",
+        "edition": "Bignon 1792 · Mutopia-2013/12/08-1891",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "C. J. Rouget de Lisle (1760–1836); typeset by Coyau; Mutopia-2013/12/08-1891",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/RougetdeLisleCJ/Marseillaise1792/Marseillaise1792-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1891",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/2",
+        "originalInstrument": "harpsichord, voice",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S057",
+      "title": "Belle qui tiens ma vie",
+      "titles": {
+        "zh": "美人，你俘获了我的生命",
+        "en": "Belle qui tiens ma vie",
+        "ja": "美しき人、わが命を捕らえる人",
+        "de": "Schöne, die mein Leben hält"
+      },
+      "author": "T. Arbeau (1519–1595)",
+      "originalAttribution": "T. Arbeau (1519–1595); typeset by Peter Chubb; Mutopia-2009/08/05-1",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "fr",
+      "regions": [
+        "fr"
+      ],
+      "coverId": "S007",
+      "catalogVersion": 2,
+      "melody": "G4:2 G4:1 Gb4:1 G4:1 A4:1 Bb4:2 Bb4:1 D5:1 C5:1 Bb4:1 Bb4:1 A4:1 Bb4:2",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1",
+        "edition": "http://memory.loc.gov/cgi-bin/ampage?collId=musdi&fileName=219/musdi219.db&recNum=61 · Mutopia-2009/08/05-1",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "T. Arbeau (1519–1595); typeset by Peter Chubb; Mutopia-2009/08/05-1",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/ArbeauT/Orch/belle/belle-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Voice (SATB)",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S058",
+      "title": "Il est de bonne heure né",
+      "titles": {
+        "zh": "他早早降生了（文艺复兴圣诞歌）",
+        "en": "Il est de bonne heure né",
+        "ja": "早く生まれた子（ルネサンスのノエル）",
+        "de": "Er ist früh geboren (Renaissance-Noël)"
+      },
+      "author": null,
+      "originalAttribution": "null; typeset by Peter Chubb; Mutopia-2009/08/05-198",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "fr",
+      "regions": [
+        "fr"
+      ],
+      "coverId": "S032",
+      "catalogVersion": 2,
+      "melody": "A4:1 A4:1 B4:1 B4:1 C5:1 C5:1 B4:2 A4:1 A4:1 B4:1 B4:1 C5:1 C5:1 B4:2 E5:1 E5:1 D5:1.5 B4:0.5 C5:1 B4:1.5 A4:0.5 A4:2 G#4:1 A4:4 C5:1 C5:1",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=198",
+        "edition": "Unknown · Mutopia-2009/08/05-198",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "null; typeset by Peter Chubb; Mutopia-2009/08/05-198",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/Anonymous/bonne_heure-song/bonne_heure-song-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=198",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/2",
+        "originalInstrument": "Voice (SATB)",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S059",
+      "title": "Berceuse from Dolly (Op. 56)",
+      "titles": {
+        "zh": "摇篮曲（《多莉》Op.56）",
+        "en": "Berceuse from Dolly (Op. 56)",
+        "ja": "子守歌（組曲《ドリー》Op.56）",
+        "de": "Berceuse aus Dolly (Op. 56)"
+      },
+      "author": "G. Fauré (1845–1924)",
+      "originalAttribution": "G. Fauré (1845–1924); typeset by Mike Blackstock; Mutopia-2008/09/01-1536",
+      "category": "classic",
+      "collection": "regional",
+      "originCountry": "fr",
+      "regions": [
+        "fr"
+      ],
+      "coverId": "S010",
+      "catalogVersion": 2,
+      "melody": "B4:1 B4:1.5 G#4:0.5 A4:0.5 B4:0.5 G#4:0.5 E4:0.5 F#4:0.5 G#4:0.5 E4:1 B3:0.5 R:0.5 B4:1 B4:1.5 G#4:0.5 A4:0.5 B4:0.5 G#4:0.5 E4:0.5 E5:0.5 D#5:0.5 C#5:1 B4:0.5 R:0.5",
+      "source": {
+        "url": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+        "edition": "New adaptation from Paris: J. Hamelle · Mutopia-2008/09/01-1536",
+        "license": "Public Domain — concrete Mutopia edition",
+        "licenseUrl": "https://www.mutopiaproject.org/legal.html#publicdomain",
+        "attribution": "G. Fauré (1845–1924); typeset by Mike Blackstock; Mutopia-2008/09/01-1536",
+        "scoreUrl": "https://www.mutopiaproject.org/ftp/FaureG/O56/faure_dolly_berceuse/faure_dolly_berceuse-a4.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://www.mutopiaproject.org/cgibin/piece-info.cgi?id=1536",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "单声部旋律练习短版",
+          "en": "Single-melody practice excerpt",
+          "ja": "単旋律の練習用抜粋",
+          "de": "Einstimmiger Übungsauszug"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Flute and Guitar",
+        "adaptation": "Verified monophonic source MIDI part; eight bars aligned to source beat grid; piano/accompaniment omitted"
+      }
+    },
+    {
+      "id": "S060",
+      "title": "Spring Has Come (1910 excerpt)",
+      "titles": {
+        "zh": "春天来了（1910短版）",
+        "en": "Spring Has Come (1910 excerpt)",
+        "ja": "春が来た（1910年版・短版）",
+        "de": "Der Frühling ist da (Auszug von 1910)"
+      },
+      "author": "文部省唱歌（1910年原谱）",
+      "originalAttribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+      "category": "beginner",
+      "collection": "regional",
+      "originCountry": "jp",
+      "regions": [
+        "jp"
+      ],
+      "coverId": "S022",
+      "catalogVersion": 2,
+      "melody": "G4:1 E4:0.5 F4:0.5 G4:1 A4:1 G4:1 E4:0.5 F4:0.5 G4:1 C5:1 A4:1 G4:1 E4:1.5 C4:0.5 D4:3 R:1 G4:1 A4:0.5 G4:0.5 E4:1 G4:1 C5:1 D5:0.5 C5:0.5 A4:1 C5:1 G4:1 E5:1 D5:1.5 G4:0.5 C5:3 R:1",
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 22",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S061",
+      "title": "Sounds of Insects (1910 excerpt)",
+      "titles": {
+        "zh": "虫之声（1910短版）",
+        "en": "Sounds of Insects (1910 excerpt)",
+        "ja": "虫のこえ（1910年版・短版）",
+        "de": "Stimmen der Insekten (Auszug von 1910)"
+      },
+      "author": "文部省唱歌（1910年原谱）",
+      "originalAttribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+      "category": "beginner",
+      "collection": "regional",
+      "originCountry": "jp",
+      "regions": [
+        "jp"
+      ],
+      "coverId": "S025",
+      "catalogVersion": 2,
+      "melody": "A4:0.5 F#4:0.5 B4:0.5 B4:0.5 A4:0.5 A4:0.5 F#4:0.5 R:0.5 D5:0.5 D5:0.5 B4:0.5 B4:0.5 A4:1 R:1 A4:0.5 B4:0.5 A4:0.5 B4:0.5 A4:0.5 A4:0.5 A4:0.5 R:0.5 A4:0.5 F#4:0.5 B4:0.5 B4:0.5 A4:0.5 A4:0.5 F#4:0.5 R:0.5 D5:0.5 D5:0.5 B4:0.5 B4:0.5 A4:1 R:1",
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 24",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S062",
+      "title": "Mount Fuji (1910 excerpt)",
+      "titles": {
+        "zh": "富士山（1910短版）",
+        "en": "Mount Fuji (1910 excerpt)",
+        "ja": "ふじの山（1910年版・短版）",
+        "de": "Der Berg Fuji (Auszug von 1910)"
+      },
+      "author": "文部省唱歌（1910年原谱）",
+      "originalAttribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+      "category": "beginner",
+      "collection": "regional",
+      "originCountry": "jp",
+      "regions": [
+        "jp"
+      ],
+      "coverId": "S022",
+      "catalogVersion": 2,
+      "melody": "A4:1.5 A4:0.5 B4:1 A4:1 F#4:1 D4:0.5 E4:0.5 F#4:2 E4:1.5 A4:0.5 A4:1 G4:0.5 F#4:0.5 E4:3 R:1 A4:1.5 A4:0.5 F#4:1 D4:1 B4:1.5 D5:0.5 E5:1 B4:1 A4:1.5 B4:0.5 A4:0.5 G4:0.5 F#4:0.5 E4:0.5 D4:3 R:1",
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 14",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S063",
+      "title": "I Am a Child of the Sea (1910 excerpt)",
+      "titles": {
+        "zh": "我是海之子（1910短版）",
+        "en": "I Am a Child of the Sea (1910 excerpt)",
+        "ja": "われは海の子（1910年版・短版）",
+        "de": "Ich bin ein Kind des Meeres (Auszug von 1910)"
+      },
+      "author": "文部省唱歌（1910年原谱）",
+      "originalAttribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+      "category": "beginner",
+      "collection": "regional",
+      "originCountry": "jp",
+      "regions": [
+        "jp"
+      ],
+      "coverId": "S024",
+      "catalogVersion": 2,
+      "melody": "Eb4:2 C4:1 C4:1 Eb4:1.5 D4:0.5 Eb4:1 F4:1 G4:1.5 F4:0.5 G4:1 C5:1 Bb4:3 R:1 C5:1.5 Bb4:0.5 C5:1 D5:1 Eb5:1.5 Eb5:0.5 Bb4:1 G4:1 F4:1 Ab4:1 G4:1.5 F4:0.5 Eb4:3 R:1",
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 64",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "4/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "原谱第1小节Eb4附点四分+Eb4八分为延音线，合并为Eb4二拍，避免重发音；其它音高/时值保留。第5小节C5到Bb4是乐句连线，不合并不同音高。"
+      }
+    },
+    {
+      "id": "S064",
+      "title": "The Frog and the Spider (1910 excerpt)",
+      "titles": {
+        "zh": "青蛙与蜘蛛（1910短版）",
+        "en": "The Frog and the Spider (1910 excerpt)",
+        "ja": "かえるとくも（1910年版・短版）",
+        "de": "Der Frosch und die Spinne (Auszug von 1910)"
+      },
+      "author": "文部省唱歌（1910年原谱）",
+      "originalAttribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+      "category": "beginner",
+      "collection": "regional",
+      "originCountry": "jp",
+      "regions": [
+        "jp"
+      ],
+      "coverId": "S022",
+      "catalogVersion": 2,
+      "melody": "G4:1 G4:0.5 E4:0.5 E4:0.5 D4:0.5 D4:0.5 G4:0.5 A4:0.75 B4:0.25 G4:0.5 A4:0.5 B4:0.5 B4:0.5 A4:1 B4:0.75 B4:0.25 D5:0.5 D5:0.5 A4:1 G4:1 A4:0.75 G4:0.25 A4:0.5 B4:0.5 A4:1 D5:1",
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 12",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "第1小节G4附点八分+G4十六分的延音线合并为G4一拍；其它音高/时值保留。"
+      }
+    },
+    {
+      "id": "S065",
+      "title": "The Clock Song (1910 excerpt)",
+      "titles": {
+        "zh": "时钟之歌（1910短版）",
+        "en": "The Clock Song (1910 excerpt)",
+        "ja": "とけいのうた（1910年版・短版）",
+        "de": "Das Lied der Uhr (Auszug von 1910)"
+      },
+      "author": "文部省唱歌（1910年原谱）",
+      "originalAttribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+      "category": "beginner",
+      "collection": "regional",
+      "originCountry": "jp",
+      "regions": [
+        "jp"
+      ],
+      "coverId": "S031",
+      "catalogVersion": 2,
+      "melody": "G4:0.75 G4:0.25 G4:0.5 A4:0.5 B4:0.75 B4:0.25 A4:0.5 G4:0.5 B4:1 A4:1 A4:1 G4:1 G4:0.75 G4:0.25 C5:0.5 C5:0.5 A4:0.5 G4:0.5 F#4:0.5 F#4:0.5 G4:0.75 G4:0.25 C5:0.5 C5:0.5 B4:0.5 A4:0.5 G4:0.5 D4:0.5",
+      "source": {
+        "url": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf",
+        "edition": "尋常小學讀本唱歌 (1910), p. 16",
+        "license": "Historical source — protection period expired (NDL record)",
+        "licenseUrl": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "attribution": "文部省編; 國定教科書共同販賣所, 1910; independent melody transcription",
+        "scoreUrl": "https://nierlib.nier.go.jp/lib/database/KINDAI/EG00016923/900185891.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://ndlsearch.ndl.go.jp/books/R100000109-I000016922",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S066",
+      "title": "Madame Wang (1884 excerpt)",
+      "titles": {
+        "zh": "王大娘（1884采录短版）",
+        "en": "Madame Wang (1884 excerpt)",
+        "ja": "王大娘（1884年採録・短版）",
+        "de": "Frau Wang (Auszug von 1884)"
+      },
+      "author": "中国传统旋律（1884年采录谱）",
+      "originalAttribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "cn",
+      "regions": [
+        "cn"
+      ],
+      "coverId": "S027",
+      "catalogVersion": 2,
+      "melody": "E5:1 D5:1 E5:1 E5:0.5 G5:0.5 B4:1 A4:0.5 B4:0.5 D5:1.5 R:0.5 B4:1 E5:0.5 E5:0.5 D5:1 B4:1 A4:1.5 G4:0.5 A4:1.5 R:0.5",
+      "source": {
+        "url": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf",
+        "edition": "Chinese Music (1884), p. 38",
+        "license": "Public Domain — 1884 historical book scan",
+        "licenseUrl": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "attribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+        "scoreUrl": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S067",
+      "title": "Fifteen Bunches of Flowers (1884 excerpt)",
+      "titles": {
+        "zh": "十五朵花（1884采录短版）",
+        "en": "Fifteen Bunches of Flowers (1884 excerpt)",
+        "ja": "十五の花束（1884年採録・短版）",
+        "de": "Fünfzehn Blumensträuße (Auszug von 1884)"
+      },
+      "author": "中国传统旋律（1884年采录谱）",
+      "originalAttribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "cn",
+      "regions": [
+        "cn"
+      ],
+      "coverId": "S026",
+      "catalogVersion": 2,
+      "melody": "C5:1 C5:1 E4:1 D4:0.5 E4:0.5 G4:1.5 E4:0.5 G4:1.5 R:0.5 C5:1 C5:0.5 D5:0.5 E5:0.75 G5:0.25 E5:0.5 D5:0.5 C5:2 A4:1.5 R:0.5",
+      "source": {
+        "url": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf",
+        "edition": "Chinese Music (1884), p. 42",
+        "license": "Public Domain — 1884 historical book scan",
+        "licenseUrl": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "attribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+        "scoreUrl": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "保留该片段原音高与时值；仅截取主题，未添加歌词、伴奏、现代指法；原谱呼吸/乐句线不作为计时音符。"
+      }
+    },
+    {
+      "id": "S068",
+      "title": "Mamma, You Understand (1884 simplified excerpt)",
+      "titles": {
+        "zh": "妈妈好明白（1884主旋律练习短版）",
+        "en": "Mamma, You Understand (1884 simplified excerpt)",
+        "ja": "母さん、わかってくれる（1884年・練習短版）",
+        "de": "Mutter, du verstehst mich (Vereinfachter Auszug von 1884)"
+      },
+      "author": "中国传统旋律（1884年采录谱）",
+      "originalAttribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+      "category": "folk",
+      "collection": "regional",
+      "originCountry": "cn",
+      "regions": [
+        "cn"
+      ],
+      "coverId": "S028",
+      "catalogVersion": 2,
+      "melody": "D5:0.75 F5:0.25 D5:0.5 C5:0.5 A4:1 A4:0.5 C5:0.5 D5:0.75 F5:0.25 D5:0.5 C5:0.5 A4:1.5 R:0.5 A4:1 F5:1 D5:1 C5:1 D5:1 D5:0.5 F4:0.5 G4:1 G4:0.5 F4:0.5",
+      "source": {
+        "url": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf",
+        "edition": "Chinese Music (1884), p. 44",
+        "license": "Public Domain — 1884 historical book scan",
+        "licenseUrl": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "attribution": "J. A. van Aalst, Chinese Music, 1884; independent melody transcription",
+        "scoreUrl": "https://s9.imslp.org/files/imglnks/usimg/1/1d/IMSLP506681-PMLP437898-Chinese_music.pdf"
+      },
+      "rights": {
+        "status": "verified-source",
+        "evidence": "https://imslp.org/wiki/Chinese_Music_(Aalst,_J._A._van)",
+        "territories": []
+      },
+      "published": false,
+      "practice": {
+        "kind": "excerpt",
+        "label": {
+          "zh": "历史谱录旋律练习短版",
+          "en": "Historical-score practice excerpt",
+          "ja": "歴史的楽譜の練習用抜粋",
+          "de": "Übungsauszug aus historischen Noten"
+        },
+        "meter": "2/4",
+        "originalInstrument": "Historical single melodic line",
+        "adaptation": "明确为主旋律练习简化短版：第6小节保留D5四分音符及C5四分音符；省略D5上的trill及其结尾小音符E5/D5，不将零时值装饰音伪装成普通十六分。其它8小节基本音高与时值保留。"
+      }
+    }
+  ]
+}

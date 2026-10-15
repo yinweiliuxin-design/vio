@@ -1,0 +1,1078 @@
+{
+  "scope": "Windows Codex IAB Chromium viewport simulation; no other browser engines or physical device pass claimed",
+  "clientCases": [
+    {
+      "brokenImages": [],
+      "heading": "Make room for music today.",
+      "lang": "en",
+      "route": "#home",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your next melody",
+      "lang": "en",
+      "route": "#library",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Accompaniment & strings",
+      "lang": "en",
+      "route": "#performance",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI studio",
+      "lang": "en",
+      "route": "#midi",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your sound.",
+      "lang": "en",
+      "route": "#tones",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Keep your ideas here.",
+      "lang": "en",
+      "route": "#studio",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Your instrument, your connections.",
+      "lang": "en",
+      "route": "#device",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make your studio fit your routine.",
+      "lang": "en",
+      "route": "#profile",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make room for music today.",
+      "lang": "en",
+      "route": "#home",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your next melody",
+      "lang": "en",
+      "route": "#library",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Accompaniment & strings",
+      "lang": "en",
+      "route": "#performance",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI studio",
+      "lang": "en",
+      "route": "#midi",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your sound.",
+      "lang": "en",
+      "route": "#tones",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Keep your ideas here.",
+      "lang": "en",
+      "route": "#studio",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Your instrument, your connections.",
+      "lang": "en",
+      "route": "#device",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make your studio fit your routine.",
+      "lang": "en",
+      "route": "#profile",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make room for music today.",
+      "lang": "en",
+      "route": "#home",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your next melody",
+      "lang": "en",
+      "route": "#library",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Accompaniment & strings",
+      "lang": "en",
+      "route": "#performance",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI studio",
+      "lang": "en",
+      "route": "#midi",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your sound.",
+      "lang": "en",
+      "route": "#tones",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Keep your ideas here.",
+      "lang": "en",
+      "route": "#studio",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Your instrument, your connections.",
+      "lang": "en",
+      "route": "#device",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make your studio fit your routine.",
+      "lang": "en",
+      "route": "#profile",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make room for music today.",
+      "lang": "en",
+      "route": "#home",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your next melody",
+      "lang": "en",
+      "route": "#library",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "Accompaniment & strings",
+      "lang": "en",
+      "route": "#performance",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI studio",
+      "lang": "en",
+      "route": "#midi",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "Find your sound.",
+      "lang": "en",
+      "route": "#tones",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "Keep your ideas here.",
+      "lang": "en",
+      "route": "#studio",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "Your instrument, your connections.",
+      "lang": "en",
+      "route": "#device",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "Make your studio fit your routine.",
+      "lang": "en",
+      "route": "#profile",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "今天，让音乐近一点。",
+      "lang": "zh",
+      "route": "#home",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到下一首想拉的旋律",
+      "lang": "zh",
+      "route": "#library",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏与弦乐",
+      "lang": "zh",
+      "route": "#performance",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI 工作台",
+      "lang": "zh",
+      "route": "#midi",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到你的声音。",
+      "lang": "zh",
+      "route": "#tones",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "把灵感，留在这里。",
+      "lang": "zh",
+      "route": "#studio",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "你的琴，你的连接方式。",
+      "lang": "zh",
+      "route": "#device",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "把琴房，设成你的习惯。",
+      "lang": "zh",
+      "route": "#profile",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "今天，让音乐近一点。",
+      "lang": "zh",
+      "route": "#home",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到下一首想拉的旋律",
+      "lang": "zh",
+      "route": "#library",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏与弦乐",
+      "lang": "zh",
+      "route": "#performance",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI 工作台",
+      "lang": "zh",
+      "route": "#midi",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到你的声音。",
+      "lang": "zh",
+      "route": "#tones",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "把灵感，留在这里。",
+      "lang": "zh",
+      "route": "#studio",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "你的琴，你的连接方式。",
+      "lang": "zh",
+      "route": "#device",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "把琴房，设成你的习惯。",
+      "lang": "zh",
+      "route": "#profile",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "今天，让音乐近一点。",
+      "lang": "zh",
+      "route": "#home",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到下一首想拉的旋律",
+      "lang": "zh",
+      "route": "#library",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏与弦乐",
+      "lang": "zh",
+      "route": "#performance",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI 工作台",
+      "lang": "zh",
+      "route": "#midi",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到你的声音。",
+      "lang": "zh",
+      "route": "#tones",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "把灵感，留在这里。",
+      "lang": "zh",
+      "route": "#studio",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "你的琴，你的连接方式。",
+      "lang": "zh",
+      "route": "#device",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "把琴房，设成你的习惯。",
+      "lang": "zh",
+      "route": "#profile",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "今天，让音乐近一点。",
+      "lang": "zh",
+      "route": "#home",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到下一首想拉的旋律",
+      "lang": "zh",
+      "route": "#library",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏与弦乐",
+      "lang": "zh",
+      "route": "#performance",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI 工作台",
+      "lang": "zh",
+      "route": "#midi",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "找到你的声音。",
+      "lang": "zh",
+      "route": "#tones",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "把灵感，留在这里。",
+      "lang": "zh",
+      "route": "#studio",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "你的琴，你的连接方式。",
+      "lang": "zh",
+      "route": "#device",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "把琴房，设成你的习惯。",
+      "lang": "zh",
+      "route": "#profile",
+      "scrollWidth": 1440,
+      "width": 1440
+    },
+    {
+      "brokenImages": [],
+      "heading": "今日は、音楽をもっと身近に。",
+      "lang": "ja",
+      "route": "#home",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "次に弾きたい曲を探す",
+      "lang": "ja",
+      "route": "#library",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏と弦楽",
+      "lang": "ja",
+      "route": "#performance",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDIスタジオ",
+      "lang": "ja",
+      "route": "#midi",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の音色を見つけよう。",
+      "lang": "ja",
+      "route": "#tones",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "ひらめきを、ここに残そう。",
+      "lang": "ja",
+      "route": "#studio",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の楽器に合った接続を。",
+      "lang": "ja",
+      "route": "#device",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の習慣に合うスタジオへ。",
+      "lang": "ja",
+      "route": "#profile",
+      "scrollWidth": 320,
+      "width": 320
+    },
+    {
+      "brokenImages": [],
+      "heading": "今日は、音楽をもっと身近に。",
+      "lang": "ja",
+      "route": "#home",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "次に弾きたい曲を探す",
+      "lang": "ja",
+      "route": "#library",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏と弦楽",
+      "lang": "ja",
+      "route": "#performance",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDIスタジオ",
+      "lang": "ja",
+      "route": "#midi",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の音色を見つけよう。",
+      "lang": "ja",
+      "route": "#tones",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "ひらめきを、ここに残そう。",
+      "lang": "ja",
+      "route": "#studio",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の楽器に合った接続を。",
+      "lang": "ja",
+      "route": "#device",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の習慣に合うスタジオへ。",
+      "lang": "ja",
+      "route": "#profile",
+      "scrollWidth": 390,
+      "width": 390
+    },
+    {
+      "brokenImages": [],
+      "heading": "今日は、音楽をもっと身近に。",
+      "lang": "ja",
+      "route": "#home",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "次に弾きたい曲を探す",
+      "lang": "ja",
+      "route": "#library",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏と弦楽",
+      "lang": "ja",
+      "route": "#performance",
+      "scrollWidth": 768,
+      "width": 768
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDIスタジオ",
+      "lang": "ja",
+      "route": "#midi",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の音色を見つけよう。",
+      "lang": "ja",
+      "route": "#tones",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "ひらめきを、ここに残そう。",
+      "lang": "ja",
+      "route": "#studio",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の楽器に合った接続を。",
+      "lang": "ja",
+      "route": "#device",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の習慣に合うスタジオへ。",
+      "lang": "ja",
+      "route": "#profile",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "今日は、音楽をもっと身近に。",
+      "lang": "ja",
+      "route": "#home",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "次に弾きたい曲を探す",
+      "lang": "ja",
+      "route": "#library",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "伴奏と弦楽",
+      "lang": "ja",
+      "route": "#performance",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDIスタジオ",
+      "lang": "ja",
+      "route": "#midi",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の音色を見つけよう。",
+      "lang": "ja",
+      "route": "#tones",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "ひらめきを、ここに残そう。",
+      "lang": "ja",
+      "route": "#studio",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の楽器に合った接続を。",
+      "lang": "ja",
+      "route": "#device",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "自分の習慣に合うスタジオへ。",
+      "lang": "ja",
+      "route": "#profile",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Heute ist Zeit für Musik.",
+      "lang": "de",
+      "route": "#home",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deine nächste Melodie",
+      "lang": "de",
+      "route": "#library",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Begleitung und Streicher",
+      "lang": "de",
+      "route": "#performance",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI-Studio",
+      "lang": "de",
+      "route": "#midi",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deinen Klang.",
+      "lang": "de",
+      "route": "#tones",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Halte deine Ideen hier fest.",
+      "lang": "de",
+      "route": "#studio",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Dein Instrument, deine Verbindungen.",
+      "lang": "de",
+      "route": "#device",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Richte dein Studio für deine Routine ein.",
+      "lang": "de",
+      "route": "#profile",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "brokenImages": [],
+      "heading": "Heute ist Zeit für Musik.",
+      "lang": "de",
+      "route": "#home",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deine nächste Melodie",
+      "lang": "de",
+      "route": "#library",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Begleitung und Streicher",
+      "lang": "de",
+      "route": "#performance",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI-Studio",
+      "lang": "de",
+      "route": "#midi",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deinen Klang.",
+      "lang": "de",
+      "route": "#tones",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Halte deine Ideen hier fest.",
+      "lang": "de",
+      "route": "#studio",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Dein Instrument, deine Verbindungen.",
+      "lang": "de",
+      "route": "#device",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Richte dein Studio für deine Routine ein.",
+      "lang": "de",
+      "route": "#profile",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "brokenImages": [],
+      "heading": "Heute ist Zeit für Musik.",
+      "lang": "de",
+      "route": "#home",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deine nächste Melodie",
+      "lang": "de",
+      "route": "#library",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Begleitung und Streicher",
+      "lang": "de",
+      "route": "#performance",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI-Studio",
+      "lang": "de",
+      "route": "#midi",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deinen Klang.",
+      "lang": "de",
+      "route": "#tones",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Halte deine Ideen hier fest.",
+      "lang": "de",
+      "route": "#studio",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Dein Instrument, deine Verbindungen.",
+      "lang": "de",
+      "route": "#device",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Richte dein Studio für deine Routine ein.",
+      "lang": "de",
+      "route": "#profile",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "brokenImages": [],
+      "heading": "Heute ist Zeit für Musik.",
+      "lang": "de",
+      "route": "#home",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deine nächste Melodie",
+      "lang": "de",
+      "route": "#library",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Begleitung und Streicher",
+      "lang": "de",
+      "route": "#performance",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "MIDI-Studio",
+      "lang": "de",
+      "route": "#midi",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Finde deinen Klang.",
+      "lang": "de",
+      "route": "#tones",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Halte deine Ideen hier fest.",
+      "lang": "de",
+      "route": "#studio",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Dein Instrument, deine Verbindungen.",
+      "lang": "de",
+      "route": "#device",
+      "scrollWidth": 1425,
+      "width": 1425
+    },
+    {
+      "brokenImages": [],
+      "heading": "Richte dein Studio für deine Routine ein.",
+      "lang": "de",
+      "route": "#profile",
+      "scrollWidth": 1425,
+      "width": 1425
+    }
+  ],
+  "adminCases": [
+    {
+      "heading": "Overview",
+      "route": "/admin",
+      "scrollWidth": 305,
+      "width": 305
+    },
+    {
+      "heading": "Overview",
+      "route": "/admin",
+      "scrollWidth": 375,
+      "width": 375
+    },
+    {
+      "heading": "Overview",
+      "route": "/admin",
+      "scrollWidth": 753,
+      "width": 753
+    },
+    {
+      "heading": "Overview",
+      "route": "/admin",
+      "scrollWidth": 1425,
+      "width": 1425
+    }
+  ],
+  "clientServerGui": {
+    "savedPreset": "Integration QA preset",
+    "group": "Practice",
+    "cloudCount": 1,
+    "version": 3,
+    "restoreConfirmed": true,
+    "adminAccountsWithBackup": 1,
+    "adminPresetCount": 1
+  },
+  "midi": {
+    "importedNotes": 267,
+    "firstPitchBefore": 62,
+    "firstPitchAfter": 64,
+    "reloadConfirmed": "E4"
+  },
+  "backing": {
+    "segmentStart": 2,
+    "segmentEnd": 6,
+    "rate": 0.75,
+    "loop": true,
+    "playStatus": "Play · 2.0–6.0 s · 0.75×"
+  },
+  "observedConsoleErrors": []
+}

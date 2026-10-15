@@ -1,0 +1,547 @@
+{
+  "schema": "smartvio.integration-eco/1",
+  "productionApproved": false,
+  "sourceBeforeSHA256": "0e910987449bffa901d04ab268c706915137b6e57687c6ca12c37101dc3c9430",
+  "sourceAfterSHA256": "a6f83a763cc4abd127be14aab52a5ecadb4b5551ac2be120f9f1cc3e7e925a2a",
+  "capEcoSHA256": "fc5727af66c059af311a2bfbd84d268b3a1281ad4ec93a0ab3ee1cdb1d6e4924",
+  "powerEcoSHA256": "e02f08cd2f41807f5f9e8131f90fde0eb4de653be043230a91b3c84043c27b46",
+  "powerProfile": "V27-C-2000-1500-499-68100",
+  "capacitors": [
+    "C303",
+    "C304",
+    "C701",
+    "C702",
+    "C807",
+    "C808",
+    "C1102",
+    "C1106",
+    "C1502"
+  ],
+  "newResistors": [
+    "R2351",
+    "R2352"
+  ],
+  "vcapRename": {
+    "VCAP2": "VCAP1"
+  },
+  "vcapEvidence": "ST AN4938 Rev7 p12; external copper interconnection still requires routing",
+  "boards": {
+    "main": {
+      "input": "pcb/SmartVio-main-v27-sixlayer-route1.kicad_pcb",
+      "inputSHA256": "6a973f9c217ea712a49cab0205cd43cc2da19565596f014d179a759f7cf9e1df",
+      "path": "pcb/SmartVio-main-v27-integrated.kicad_pcb",
+      "sha256": "9624c856fa32b051fa11400352f2df77971c3e9732c00e83b0e74ccef2da7ffe",
+      "oldGeometryChanges": [
+        {
+          "uuid": "6e81c9ec-2ecb-4f05-ba19-3ee3b5bfe2e9",
+          "before": {
+            "at": [
+              0.25,
+              -1.4
+            ],
+            "size": [
+              0.24,
+              0.6
+            ],
+            "layers": [
+              "F.Cu",
+              "F.Mask",
+              "F.Paste"
+            ]
+          },
+          "after": {
+            "net": [
+              "CHG_TMR_ECO"
+            ],
+            "at": [
+              0.25,
+              -1.4
+            ],
+            "size": [
+              0.24,
+              0.6
+            ],
+            "layers": [
+              "F.Cu",
+              "F.Mask",
+              "F.Paste"
+            ]
+          }
+        },
+        {
+          "uuid": "d97e219e-3e83-4636-9c20-14b3b064f902",
+          "before": {
+            "at": [
+              -0.25,
+              -1.4
+            ],
+            "size": [
+              0.24,
+              0.6
+            ],
+            "layers": [
+              "F.Cu",
+              "F.Mask",
+              "F.Paste"
+            ]
+          },
+          "after": {
+            "net": [
+              "CHG_ITERM_ECO"
+            ],
+            "at": [
+              -0.25,
+              -1.4
+            ],
+            "size": [
+              0.24,
+              0.6
+            ],
+            "layers": [
+              "F.Cu",
+              "F.Mask",
+              "F.Paste"
+            ]
+          }
+        },
+        {
+          "uuid": "a097276c-63c1-4064-8f7b-5e4a59f25c76",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "at": [
+              7.675,
+              -5
+            ],
+            "size": [
+              1.6,
+              0.3
+            ],
+            "layers": [
+              "F.Cu",
+              "F.Mask",
+              "F.Paste"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "at": [
+              7.675,
+              -5
+            ],
+            "size": [
+              1.6,
+              0.3
+            ],
+            "layers": [
+              "F.Cu",
+              "F.Mask",
+              "F.Paste"
+            ]
+          }
+        },
+        {
+          "uuid": "83e91bac-c14b-4e0a-804f-af8babed52c3",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "at": [
+              -0.775,
+              0
+            ],
+            "size": [
+              0.9,
+              0.95
+            ],
+            "layers": [
+              "B.Cu",
+              "B.Mask",
+              "B.Paste"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "at": [
+              -0.775,
+              0
+            ],
+            "size": [
+              0.9,
+              0.95
+            ],
+            "layers": [
+              "B.Cu",
+              "B.Mask",
+              "B.Paste"
+            ]
+          }
+        },
+        {
+          "uuid": "27f9c45d-dce0-48ca-98e9-dd98483f43c7",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "at": [
+              33.5817,
+              6.1728
+            ],
+            "size": [
+              0.35
+            ],
+            "drill": [
+              0.15
+            ],
+            "layers": [
+              "F.Cu",
+              "B.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "at": [
+              33.5817,
+              6.1728
+            ],
+            "size": [
+              0.35
+            ],
+            "drill": [
+              0.15
+            ],
+            "layers": [
+              "F.Cu",
+              "B.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "e992a21a-95f0-4d5e-9064-7dbb09e4d2eb",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              39.075,
+              6.3
+            ],
+            "end": [
+              38.9719,
+              6.1969
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              39.075,
+              6.3
+            ],
+            "end": [
+              38.9719,
+              6.1969
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "83e5f74f-eaca-4eb6-a6f2-a3288e8e32a3",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              38.9719,
+              6.1969
+            ],
+            "end": [
+              35.7161,
+              6.1969
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              38.9719,
+              6.1969
+            ],
+            "end": [
+              35.7161,
+              6.1969
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "64dbdafd-2e3d-4ae9-92e2-8023e3b0c65c",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              35.7161,
+              6.1969
+            ],
+            "end": [
+              35.692,
+              6.1728
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              35.7161,
+              6.1969
+            ],
+            "end": [
+              35.692,
+              6.1728
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "96e31bdb-f24d-4dca-940d-181619eb8041",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              35.692,
+              6.1728
+            ],
+            "end": [
+              33.5817,
+              6.1728
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              35.692,
+              6.1728
+            ],
+            "end": [
+              33.5817,
+              6.1728
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "F.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "cb7c19cc-2985-4bae-af06-56f8e1069303",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              30.725,
+              5.5
+            ],
+            "end": [
+              31.4565,
+              6.2315
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "B.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              30.725,
+              5.5
+            ],
+            "end": [
+              31.4565,
+              6.2315
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "B.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "88465f93-ccce-49f1-9432-d59ef0b92936",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              31.4565,
+              6.2315
+            ],
+            "end": [
+              33.523,
+              6.2315
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "B.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              31.4565,
+              6.2315
+            ],
+            "end": [
+              33.523,
+              6.2315
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "B.Cu"
+            ]
+          }
+        },
+        {
+          "uuid": "61c8ef9c-f035-4660-8ddb-68ebf0077ba5",
+          "before": {
+            "net": [
+              "VCAP2"
+            ],
+            "start": [
+              33.523,
+              6.2315
+            ],
+            "end": [
+              33.5817,
+              6.1728
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "B.Cu"
+            ]
+          },
+          "after": {
+            "net": [
+              "VCAP1"
+            ],
+            "start": [
+              33.523,
+              6.2315
+            ],
+            "end": [
+              33.5817,
+              6.1728
+            ],
+            "width": [
+              0.15
+            ],
+            "layer": [
+              "B.Cu"
+            ]
+          }
+        }
+      ]
+    },
+    "usb": {
+      "input": "pcb/SmartVio-usb-v27-baseline.kicad_pcb",
+      "inputSHA256": "e2868712bae6b8b7acec071a7c7d39ec3fb39cd76e47984f3a7213bb4e05c050",
+      "path": "pcb/SmartVio-usb-v27-integrated.kicad_pcb",
+      "sha256": "7c35a87ff30df5b5a5851097fcd866542e496dff278b1bb30a97a15831609436",
+      "oldGeometryChanges": []
+    },
+    "audio": {
+      "input": "pcb/SmartVio-audio-v27-refilled.kicad_pcb",
+      "inputSHA256": "0db9ede7144778734055e1675934a805482781c8b89a6bd5d9d7f85b40b7ee88",
+      "path": "pcb/SmartVio-audio-v27-integrated.kicad_pcb",
+      "sha256": "0db9ede7144778734055e1675934a805482781c8b89a6bd5d9d7f85b40b7ee88",
+      "oldGeometryChanges": []
+    },
+    "cover": {
+      "input": "mechanical/cover-eco/SmartVio-cover-v27-inset-ECO.kicad_pcb",
+      "inputSHA256": "2412ef29d6fd0533164107d62f533cccac41298ed3f0c599f6fa437a875ee1aa",
+      "path": "pcb/SmartVio-cover-v27-integrated.kicad_pcb",
+      "sha256": "2412ef29d6fd0533164107d62f533cccac41298ed3f0c599f6fa437a875ee1aa",
+      "oldGeometryChanges": []
+    },
+    "sensor": {
+      "input": "pcb/SmartVio-sensor-v27-baseline.kicad_pcb",
+      "inputSHA256": "c1dae8a9f7c7522f250cb3739651ac0eb8b1ede5ffa58cec0b5c07042b6df129",
+      "path": "pcb/SmartVio-sensor-v27-integrated.kicad_pcb",
+      "sha256": "e55a9597be110d6f9b51fe42343a87f83d8a50047c582b812bc6714a6f0cb237",
+      "oldGeometryChanges": []
+    }
+  },
+  "nativeCaptureAndDRCRequired": true,
+  "normalChargeAllowed": false,
+  "physicalTests": 0
+}

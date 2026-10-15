@@ -1,0 +1,38 @@
+{
+  "phase": "source-and-design-review-before-audio-edits",
+  "date": "2026-10-15",
+  "baselineCommit": "2c7f0a7ce5ffd97372092a1cc4ccaafc36439fbd",
+  "finding": "当前曲库/练习示范由浏览器振荡器生成；Acoustic 原声素描并非小提琴录音。九种创作预设和弦乐伴奏也是合成。",
+  "perspectives": [
+    {"role":"声学","analysis":"小提琴音色来自谐波、弓弦激励和琴体共振。纯正弦便于辨认稳定音高，但不能代表小提琴音色。带揉弦录音不可用于调音基准。"},
+    {"role":"初学者","analysis":"旋律示范应帮助熟悉琴声与节奏；同时明确采样拼接不等于教师完整演奏。对音可切换纯净合成音。"},
+    {"role":"音乐爱好者","analysis":"真实单音采样更接近小提琴听感；短时、有限样本避免首屏大下载。不得称为真人整曲演奏。"},
+    {"role":"演奏者","analysis":"单力度、少音区的带揉弦采样没有完整连弓、换弦、力度层和句法，不能承担运弓示范或专业音色评估。"}
+  ],
+  "decision": "采用独立示范音色：默认真实小提琴单音采样，另保留纯净合成音；资源失败明确提示并停止，用户可主动切换。",
+  "propagation": [
+    {"feature":"曲库、练习示范、MIDI回放、音阶试听","change":"统一走独立示范音色选择，不覆盖创作预设"},
+    {"feature":"调音器参考音","change":"保持稳定正弦，绕开揉弦采样和音色预设"},
+    {"feature":"伴奏、弦乐和和弦","change":"保留独立合成声部与低音，不强制替换为独奏小提琴"},
+    {"feature":"真实麦克风录音","change":"保留真实输入，绝不替换为示范采样"},
+    {"feature":"创作九种音色与合成录音","change":"保留原预设，修正Acoustic名称为基础合成音"}
+  ],
+  "source": {
+    "repository":"https://github.com/sgossner/VSCO-2-CE",
+    "commit":"440300901dfe9275fd84e0b7763af1f8443ae62e",
+    "license":"CC0-1.0",
+    "licenseURL":"https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/LICENSE",
+    "credits":"Recorded by Sam Gossner & Simon Dalzell; sample cutting by Elan Hickler/Soundemote",
+    "selection":"Solo Violin / Arco Vib / A3 E4 A4 E5 A5 E6 A6, piano samples",
+    "transformation":"保留原始下载于E盘证据目录；应用版转换为单声道22050Hz PCM16短样本，保留起音并设置包络，附来源清单与逐文件SHA256。",
+    "scope":"仅使用该CC0库的明确七个文件；不使用Apple或其他平台素材。"
+  },
+  "gates": ["转换后总WAV不超过1MB，按需加载而非打开即播放", "试听选择、停止、页面切换、异步加载取消测试", "固定参考音不受示范选择和创作预设影响", "采样加载失败不静默伪装成真实琴声", "保留离线缓存白名单与源码备份的用户录音排除规则", "主观听感、手机扬声器、耳机和真琴比较尚未实测，不宣称专业演奏音质"],
+  "sources": [
+    {"title":"UNSW Violin acoustics introduction","url":"https://www.phys.unsw.edu.au/jw/violintro.html"},
+    {"title":"VSCO Community Edition primary repository","url":"https://github.com/sgossner/VSCO-2-CE"},
+    {"title":"VSCO license at pinned commit","url":"https://raw.githubusercontent.com/sgossner/VSCO-2-CE/440300901dfe9275fd84e0b7763af1f8443ae62e/LICENSE"},
+    {"title":"W3C Web Audio API","url":"https://www.w3.org/TR/webaudio/"}
+  ],
+  "review":{"decision":"APPROVED_WITH_GATES","reviewer":"Codex primary agent","reason":"采样来源和CC0许可已核对，改动限定示范声部；调音、真实录音和伴奏职责独立，真实演奏教学不虚标。"}
+}

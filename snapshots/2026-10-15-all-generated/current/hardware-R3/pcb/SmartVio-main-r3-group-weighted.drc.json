@@ -1,0 +1,215 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-12T18:32:05",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "SmartVio-main-r3-group-weighted.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 3 [I2C_AUDIO_SDA] of U1902 on B.Cu",
+                    "pos": {
+                        "x": 57.1375,
+                        "y": 38.15
+                    },
+                    "uuid": "30fb3cef-4977-44a8-87c9-23eddc71731c"
+                },
+                {
+                    "description": "Pad 23 [I2C_AUDIO_SDA] of U601 on F.Cu",
+                    "pos": {
+                        "x": 14.9,
+                        "y": 7.8
+                    },
+                    "uuid": "3a21203a-8292-46f9-8617-605c5de2aa27"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 1 [DAC_UNMUTE] of R703 on B.Cu",
+                    "pos": {
+                        "x": 11.475,
+                        "y": 38.8
+                    },
+                    "uuid": "8192d28c-e4ec-4961-b6ea-9b634dd0dcd3"
+                },
+                {
+                    "description": "Track [DAC_UNMUTE] on In5.Cu, length 0.9192 mm",
+                    "pos": {
+                        "x": 16.4,
+                        "y": 19.9
+                    },
+                    "uuid": "8bab1305-9561-447d-92f1-6fac6b76e1e0"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Pad 2 [RET_BIAS_L] of R231 on B.Cu",
+                    "pos": {
+                        "x": 20.125,
+                        "y": 35.8
+                    },
+                    "uuid": "55ebbbcf-54bf-40c7-acf6-71e6d3fca500"
+                },
+                {
+                    "description": "Via [RET_BIAS_L] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 22.925,
+                        "y": 16.625
+                    },
+                    "uuid": "6b444ba6-fb0f-4518-8556-b00c32c801fa"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [CHG_PGOOD_N] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 57.4,
+                        "y": 11.25
+                    },
+                    "uuid": "e6c09ea1-8aaf-496c-9f9d-0f3795154683"
+                },
+                {
+                    "description": "Pad 47 [CHG_PGOOD_N] of U801 on F.Cu",
+                    "pos": {
+                        "x": 37.2,
+                        "y": 20.775
+                    },
+                    "uuid": "ee23b3b5-94b5-4236-8617-dd44bebcda3f"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [I2C_AUDIO_SDA] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 14.7,
+                        "y": 7.8
+                    },
+                    "uuid": "0085688b-d880-4007-b0b7-edf28fb31461"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [I2C_AUDIO_SDA] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 57.15,
+                        "y": 38.15
+                    },
+                    "uuid": "22957085-88f4-42d9-afc4-70ec4847d3da"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [RET_AC_R] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 25.075,
+                        "y": 34.8
+                    },
+                    "uuid": "29f331aa-7d9e-4ca4-998c-7e671381d5fe"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [DAC_UNMUTE] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 11.475,
+                        "y": 38.8
+                    },
+                    "uuid": "3b198dbd-f2db-4899-8227-c87c114ce6e3"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [RET_BIAS_L] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 22.925,
+                        "y": 16.625
+                    },
+                    "uuid": "6b444ba6-fb0f-4518-8556-b00c32c801fa"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [CHG_PGOOD_N] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 37.2,
+                        "y": 20.775
+                    },
+                    "uuid": "838e5ca8-d96f-47a7-a498-c4c1f0f55575"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [CHG_PGOOD_N] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 57.4,
+                        "y": 11.25
+                    },
+                    "uuid": "e6c09ea1-8aaf-496c-9f9d-0f3795154683"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

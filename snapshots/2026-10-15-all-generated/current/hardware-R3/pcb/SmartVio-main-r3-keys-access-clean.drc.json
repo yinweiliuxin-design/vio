@@ -1,0 +1,208 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-12T18:45:13",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "SmartVio-main-r3-keys-access-clean.kicad_pcb",
+    "unconnected_items": [
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [KEY_MODE] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 3.95,
+                        "y": 3.5
+                    },
+                    "uuid": "687a60e4-c9e1-429c-afc0-7772aca96705"
+                },
+                {
+                    "description": "Track [KEY_MODE] on In2.Cu, length 13.9351 mm",
+                    "pos": {
+                        "x": 28.5932,
+                        "y": 14.5381
+                    },
+                    "uuid": "2cb97b72-f58e-464d-9ef3-d5b7e38004a4"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [KEY_BT] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 3.95,
+                        "y": 2.0
+                    },
+                    "uuid": "6e837911-b4f2-4c41-9f48-b6bfd6a4a4ef"
+                },
+                {
+                    "description": "Track [KEY_BT] on F.Cu, length 1.5540 mm",
+                    "pos": {
+                        "x": 26.579,
+                        "y": 14.1
+                    },
+                    "uuid": "6fbcda1f-a09b-45cd-8207-932444d3828a"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [KEY_FX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 0.95,
+                        "y": 3.5
+                    },
+                    "uuid": "98343d69-513c-4f69-af12-69aa72809edb"
+                },
+                {
+                    "description": "Track [KEY_FX] on In4.Cu, length 3.8885 mm",
+                    "pos": {
+                        "x": 29.3028,
+                        "y": 9.6171
+                    },
+                    "uuid": "3d6fada3-e196-48a4-ab73-4f4e82efa8fe"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [KEY_MIX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 2.45,
+                        "y": 3.5
+                    },
+                    "uuid": "0020dceb-25c4-45c3-9334-864820b5ac81"
+                },
+                {
+                    "description": "Track [KEY_MIX] on B.Cu, length 0.1000 mm",
+                    "pos": {
+                        "x": 32.4,
+                        "y": 4.2
+                    },
+                    "uuid": "491106ba-1f31-4d94-ad5d-ce40da1a6767"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        },
+        {
+            "description": "Missing connection between items",
+            "items": [
+                {
+                    "description": "Via [FX_RAW] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 0.95,
+                        "y": 2.0
+                    },
+                    "uuid": "b2e7251c-1bb7-4880-bbd2-dc96524f8105"
+                },
+                {
+                    "description": "Track [FX_RAW] on F.Cu, length 0.0707 mm",
+                    "pos": {
+                        "x": 34.55,
+                        "y": 2.0
+                    },
+                    "uuid": "d4e980dd-67ff-4b36-98fd-cd93ab963d7e"
+                }
+            ],
+            "severity": "error",
+            "type": "unconnected_items"
+        }
+    ],
+    "violations": [
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [FX_RAW] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 0.95,
+                        "y": 2.0
+                    },
+                    "uuid": "b2e7251c-1bb7-4880-bbd2-dc96524f8105"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [KEY_BT] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 3.95,
+                        "y": 2.0
+                    },
+                    "uuid": "6e837911-b4f2-4c41-9f48-b6bfd6a4a4ef"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [KEY_FX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 0.95,
+                        "y": 3.5
+                    },
+                    "uuid": "98343d69-513c-4f69-af12-69aa72809edb"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [KEY_MIX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 2.45,
+                        "y": 3.5
+                    },
+                    "uuid": "0020dceb-25c4-45c3-9334-864820b5ac81"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [KEY_MODE] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 3.95,
+                        "y": 3.5
+                    },
+                    "uuid": "687a60e4-c9e1-429c-afc0-7772aca96705"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

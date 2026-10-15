@@ -1,0 +1,16 @@
+{
+  "boardPath": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-ripup-candidate.kicad_pcb",
+  "boardSHA256": "cc44e592ee62f646e01e8582c6028226aa319e2810a51ed8a0a0280f4650d5c0",
+  "dsnSHA256": "7bddfdb7493d3c6293c5c5ddf4d2ec6ce46455257e33561b1ad4a51d309b12db",
+  "sourceSHA256": "b29b1b0dc3a89bbdd789515018d0a282d7ca252f25c1febe192f95cd58c9e7fa",
+  "routableLayers": [
+    true,
+    false,
+    true,
+    true,
+    true,
+    true,
+    false,
+    true
+  ]
+}

@@ -1,0 +1,513 @@
+{
+  "date": "2026-10-15",
+  "scope": "Controlled loopback browser only; isolated preview-owner, not production data",
+  "browser": "Windows Chrome 155.0.8059.40",
+  "layouts": [
+    {
+      "lang": "zh",
+      "evidence": "ev_ab2d91663e5dc053ce766cad472f147bf512b4857923b989b4f513826e2f8986",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "failed": [],
+      "checks": [
+        {
+          "page": "learn",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · zh",
+            "- listitem: ✓ 六步教学入口完整 · 6"
+          ]
+        },
+        {
+          "page": "practice",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · zh"
+          ]
+        },
+        {
+          "page": "midi",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · zh"
+          ]
+        },
+        {
+          "page": "community",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · zh"
+          ]
+        }
+      ]
+    },
+    {
+      "lang": "en",
+      "evidence": "ev_d9b2f0c31ce289b658c647b9b71990935e3d3474f486fc5d3c6bfec50614b677",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "failed": [],
+      "checks": [
+        {
+          "page": "learn",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · en",
+            "- listitem: ✓ 六步教学入口完整 · 6"
+          ]
+        },
+        {
+          "page": "practice",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · en"
+          ]
+        },
+        {
+          "page": "midi",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · en"
+          ]
+        },
+        {
+          "page": "community",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · en"
+          ]
+        }
+      ]
+    },
+    {
+      "lang": "ja",
+      "evidence": "ev_a2f57d84a91f408c6b76b38139deecffe56a7a4d97cb202498f19e158f82d261",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "failed": [],
+      "checks": [
+        {
+          "page": "learn",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · ja",
+            "- listitem: ✓ 六步教学入口完整 · 6"
+          ]
+        },
+        {
+          "page": "practice",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · ja"
+          ]
+        },
+        {
+          "page": "midi",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · ja"
+          ]
+        },
+        {
+          "page": "community",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · ja"
+          ]
+        }
+      ]
+    },
+    {
+      "lang": "de",
+      "evidence": "ev_c063038d3486f45b677760018eb40981dc419ec2e8b3fe1086f1a7174953d2b2",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "failed": [],
+      "checks": [
+        {
+          "page": "learn",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · de",
+            "- listitem: ✓ 六步教学入口完整 · 6"
+          ]
+        },
+        {
+          "page": "practice",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · de"
+          ]
+        },
+        {
+          "page": "midi",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · de"
+          ]
+        },
+        {
+          "page": "community",
+          "checks": [
+            "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+            "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+            "- listitem: ✓ 当前语言匹配选择 · de"
+          ]
+        }
+      ]
+    }
+  ],
+  "scenarios": [
+    {
+      "name": "v16VideoEndToEnd",
+      "evidence": "ev_b0cb58df82dfbbb2bf3e69ab84d479f2a39a2e200b16c3d49ebb48f7b5b155cd",
+      "authority": "controlled-replay",
+      "events": {
+        "retained": 1,
+        "dropped": 0,
+        "items": [
+          {
+            "sequence": 1,
+            "step_index": 0,
+            "kind": "page-error",
+            "message": "Failed to get ServiceWorkerRegistration objects: The document is in an invalid state.",
+            "stack": ""
+          }
+        ]
+      },
+      "steps": [
+        {
+          "id": "scenario_start",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "load",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "loaded",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "prepare",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "uploaded",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "ranges",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "ranges_done",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "play",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "play_done",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "submit",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "submitted",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        }
+      ],
+      "assertions": [
+        "- listitem: ✓ 真实视频输入已启用",
+        "- listitem: ✓ 已触发真实文件选择事件 · 8376 bytes",
+        "- listitem: ✓ 附件保留 kind=video",
+        "- listitem: ✓ 服务器确认 ready · ready",
+        "- listitem: ✓ 真实视频元数据有效 · 0.512s / 64×64",
+        "- listitem: ✓ 上传后权利声明需再次确认",
+        "- listitem: ✓ 应用提交按钮可操作",
+        "- listitem: ✓ 视频 HEAD 200 且无正文",
+        "- listitem: ✓ 视频声明 byte-range 支持",
+        "- listitem: ✓ 视频 Range 精确返回 32 字节 · bytes 0-31/8376",
+        "- listitem: ✓ Range 内容来自真实 MP4",
+        "- listitem: ✓ 浏览器解码并开始播放 · 64×64",
+        "- listitem: ✓ 服务端真实帖子进入待审核 · 94d1e1c1-bddc-45c8-ae96-8d26caaf6f58",
+        "- listitem: ✓ 服务端帖保留视频类型"
+      ]
+    },
+    {
+      "name": "v16AdminClientLoop",
+      "evidence": "ev_cc6d7b0c02f8f685522fbec93a850652aaf930afb54ac895d84411990a3f0393",
+      "authority": "controlled-replay",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "steps": [
+        {
+          "id": "scenario_start",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/admin.html"
+        },
+        {
+          "id": "moderation",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/admin.html"
+        },
+        {
+          "id": "preview",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/admin.html"
+        },
+        {
+          "id": "approve",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/admin.html"
+        },
+        {
+          "id": "confirm",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/admin.html"
+        },
+        {
+          "id": "saved",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/admin.html"
+        },
+        {
+          "id": "client",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#community"
+        },
+        {
+          "id": "clip",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#community"
+        }
+      ],
+      "assertions": []
+    },
+    {
+      "name": "v16AudioBrowser",
+      "evidence": "ev_84c7d0e8fb17d341e956951ace44c0a6587eff3ac58d8d78ee446cc327238e34",
+      "authority": "controlled-replay",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "steps": [
+        {
+          "id": "scenario_start",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "load",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "loaded",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "play",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "playing",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "stop",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        },
+        {
+          "id": "stopped",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/__qa/v16"
+        }
+      ],
+      "assertions": [
+        "- listitem: ✓ 应用视窗为 390px · innerWidth 390 / clientWidth 375",
+        "- listitem: ✓ 页面没有横向溢出 · 375 / 375",
+        "- listitem: ✓ 当前语言匹配选择 · zh",
+        "- listitem: ✓ 六步教学入口完整 · 6",
+        "- listitem: ✓ 实际音频上下文已运行",
+        "- listitem: ✓ 实际播放音色符合选择 · violin-sample",
+        "- listitem: ✓ 真实采样已解码并缓存 · 3",
+        "- listitem: ✓ 实际示范已停止",
+        "- listitem: ✓ 采样加载任务已清空"
+      ]
+    },
+    {
+      "name": "v16LearningMobile",
+      "evidence": "ev_62363df993222e8f8d2c76a2d3bf675f7c60ad8821af94f729972c4287cdf795",
+      "authority": "controlled-replay",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "steps": [
+        {
+          "id": "scenario_start",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#learn"
+        },
+        {
+          "id": "locale",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#learn"
+        },
+        {
+          "id": "next",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#learn"
+        },
+        {
+          "id": "tuner",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#tuner"
+        },
+        {
+          "id": "return",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#learn"
+        }
+      ],
+      "assertions": [
+        "- listitem: 一次只拉一根弦，慢一点。",
+        "- listitem: 点“开始麦克风调音”后才申请权限。"
+      ]
+    },
+    {
+      "name": "v16MidiBrowser",
+      "evidence": "ev_aa4a6fc66759f1babd368edfb81c30e8f9cc7e69583a5b3421e079ddcfbe6a8d",
+      "authority": "controlled-replay",
+      "events": {
+        "retained": 0,
+        "dropped": 0,
+        "items": []
+      },
+      "steps": [
+        {
+          "id": "scenario_start",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#midi"
+        },
+        {
+          "id": "add",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#midi"
+        },
+        {
+          "id": "tempo",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#midi"
+        },
+        {
+          "id": "commit_tempo",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#midi"
+        },
+        {
+          "id": "reopen",
+          "status": "completed",
+          "error": null,
+          "url": "http://127.0.0.1:18913/#midi"
+        }
+      ],
+      "assertions": []
+    }
+  ],
+  "limitations": [
+    "No physical electronic violin or BLE latency measurements",
+    "No iOS/Android/HarmonyOS/macOS hardware runs",
+    "Single-note vibrato sampler is not a full human performance",
+    "One earlier capture emitted a transient invalid-document ServiceWorker observation; final layout/audio/admin scenarios emitted no page errors",
+    "Community real decode used a self-generated 64x64 H264/AAC 0.512-second MP4; other container coverage is parser/API tests"
+  ]
+}

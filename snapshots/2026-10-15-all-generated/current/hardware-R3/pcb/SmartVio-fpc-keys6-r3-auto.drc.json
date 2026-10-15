@@ -1,0 +1,246 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-12T18:08:36",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "SmartVio-fpc-keys6-r3-auto.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2250 mm)",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 38.6,
+                        "y": 15.4
+                    },
+                    "uuid": "83d231fe-6167-49ac-bfb9-99d4a358d2b5"
+                },
+                {
+                    "description": "Pad S1 [FX_RAW] of FPC_KEYS6 on B.Cu",
+                    "pos": {
+                        "x": 37.65,
+                        "y": 14.8
+                    },
+                    "uuid": "a329e7d1-0756-4642-9c5f-81930f1a7d53"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Board edge clearance violation (board setup constraints edge clearance 0.3000 mm; actual 0.2850 mm)",
+            "items": [
+                {
+                    "description": "Segment on Edge.Cuts",
+                    "pos": {
+                        "x": 38.6,
+                        "y": 41.222699
+                    },
+                    "uuid": "86d287c6-1c8a-44a6-ac55-60e0ae8206dd"
+                },
+                {
+                    "description": "Pad S2 [GND] of FPC_KEYS6 on B.Cu",
+                    "pos": {
+                        "x": 39.15,
+                        "y": 14.8
+                    },
+                    "uuid": "291f4abd-9f5f-478b-b16d-e9e00fa0876a"
+                }
+            ],
+            "severity": "error",
+            "type": "copper_edge_clearance"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 39.15,
+                        "y": 14.8
+                    },
+                    "uuid": "62a858ac-0352-410b-a293-e2208a866186"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [KEY_BT] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 40.65,
+                        "y": 14.8
+                    },
+                    "uuid": "9b116d80-be64-4d18-ac79-760af0d4779f"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [KEY_MIX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 39.15,
+                        "y": 13.3
+                    },
+                    "uuid": "098b1fd0-2fec-4af0-95e5-b488a6ed8853"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [FX_RAW] on F.Cu, length 0.1754 mm",
+                    "pos": {
+                        "x": 76.126,
+                        "y": 39.8467
+                    },
+                    "uuid": "972f7df3-9dff-4975-add2-80e53ed71b0e"
+                },
+                {
+                    "description": "Via [FX_RAW] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 76.25,
+                        "y": 39.722699
+                    },
+                    "uuid": "35c32c5d-1a8c-4cac-8cf9-f42c6ffe930b"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [GND] on F.Cu, length 1.0537 mm",
+                    "pos": {
+                        "x": 77.75,
+                        "y": 39.7227
+                    },
+                    "uuid": "95005e30-2b5a-4485-b4b6-9b625cd14572"
+                },
+                {
+                    "description": "Via [GND] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 77.75,
+                        "y": 39.722699
+                    },
+                    "uuid": "8b589f4e-a813-4b1a-85f5-a43e5e3218ec"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [KEY_BT] on F.Cu, length 1.0059 mm",
+                    "pos": {
+                        "x": 78.5387,
+                        "y": 40.434
+                    },
+                    "uuid": "ffeb2d52-d21e-4017-a461-60cdb93c2c6e"
+                },
+                {
+                    "description": "Via [KEY_BT] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 79.25,
+                        "y": 39.722699
+                    },
+                    "uuid": "9cbbdc1a-27ad-4f15-a84c-29a92b775f31"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [KEY_FX] on F.Cu, length 1.4957 mm",
+                    "pos": {
+                        "x": 80.75,
+                        "y": 39.7227
+                    },
+                    "uuid": "5429c645-498f-413b-8cee-ac24079948b0"
+                },
+                {
+                    "description": "Via [KEY_FX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 80.75,
+                        "y": 39.722699
+                    },
+                    "uuid": "807fefb2-6608-42ef-af1f-51d16d20fe3a"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [KEY_MIX] on F.Cu, length 0.5681 mm",
+                    "pos": {
+                        "x": 82.25,
+                        "y": 39.7227
+                    },
+                    "uuid": "03575686-7da4-4c03-b650-c4e2523527a6"
+                },
+                {
+                    "description": "Via [KEY_MIX] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 82.25,
+                        "y": 39.722699
+                    },
+                    "uuid": "aae491ec-b68c-4548-9944-1cae052c9ed1"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        },
+        {
+            "description": "Track endpoint not centered on via",
+            "items": [
+                {
+                    "description": "Track [KEY_MODE] on F.Cu, length 2.3074 mm",
+                    "pos": {
+                        "x": 83.75,
+                        "y": 39.7227
+                    },
+                    "uuid": "961fa243-f648-465f-9691-8b16f9f69708"
+                },
+                {
+                    "description": "Via [KEY_MODE] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 83.75,
+                        "y": 39.722699
+                    },
+                    "uuid": "1ccd6e28-97da-447c-ad1c-d03b1c3d742a"
+                }
+            ],
+            "severity": "warning",
+            "type": "track_not_centered_on_via"
+        }
+    ]
+}

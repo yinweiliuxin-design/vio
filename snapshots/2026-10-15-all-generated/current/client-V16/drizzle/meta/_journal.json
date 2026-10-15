@@ -1,0 +1,41 @@
+{
+  "version": "7",
+  "dialect": "sqlite",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "6",
+      "when": 1791788927028,
+      "tag": "0000_wise_roland_deschain",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "6",
+      "when": 1791789256333,
+      "tag": "0001_furry_zarek",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "6",
+      "when": 1791899798211,
+      "tag": "0002_learn_onboarding",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "6",
+      "when": 1791911110942,
+      "tag": "0003_private_preset_backup",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "6",
+      "when": 1792048030247,
+      "tag": "0004_community_videos",
+      "breakpoints": true
+    }
+  ]
+}

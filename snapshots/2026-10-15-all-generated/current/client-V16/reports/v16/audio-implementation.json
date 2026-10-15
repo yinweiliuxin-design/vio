@@ -1,0 +1,37 @@
+{
+  "date": "2026-10-15",
+  "phase": "implemented-after-approved-audio-feasibility",
+  "files": ["dist/audio-engine.js", "tests/audio-engine.test.mjs", "scripts/convert-violin-samples.py", "dist/assets/audio/violin/manifest.json", "dist/assets/audio/violin/LICENSE.txt", "dist/assets/audio/violin/A3.wav", "dist/assets/audio/violin/E4.wav", "dist/assets/audio/violin/A4.wav", "dist/assets/audio/violin/E5.wav", "dist/assets/audio/violin/A5.wav", "dist/assets/audio/violin/E6.wav", "dist/assets/audio/violin/A6.wav"],
+  "api": {
+    "sampling": "engine.play(plan,{...existingSettings,voice:'violin-sample'})",
+    "clean": "engine.play(plan,{...existingSettings,voice:'clean-synth'})",
+    "creation": "Omit voice to preserve the previous nine creative presets, including their effects.",
+    "velocity": "Optional plan note.velocity is MIDI integer 1..127; omission defaults to 96 for demonstration voices.",
+    "failure": "SAMPLE_LOAD_FAILED rejects fetch, body, invalid PCM, decode or 15s timeout. No synthetic fallback is used. An explicit later clean-synth selection is allowed.",
+    "cancellation": "stop(), dispose() or a subsequent play invalidates fetch/decode by generation. Pending play resolves {started:false,cancelled:true}; late work cannot start voices or publish cache.",
+    "reference": "reference(hz) always synthesizes an exact-frequency sine and routes it directly to the output volume bus, bypassing creative preset filters, compression, reverb and delay.",
+    "status": "Adds demoVoice, sampleBuffers and sampleLoading to existing status fields."
+  },
+  "resources": {
+    "loading": "No construction/first-screen request. Each explicit sampled plan loads only the nearest required source notes, serially; validated decoded buffers are cached for that audio context and cleared on dispose.",
+    "sampleWavBytes": 864668,
+    "directoryBytes": 875978,
+    "maximumPolyphony": 64,
+    "conversion": "Reproducible Python standard-library script: stereo-to-mono average, 63-tap anti-alias filter and 2:1 downsampling to PCM16 22050Hz, 2.8s with attack retained, 40ms sustain crossfade, attack/tail fades, peak 0.8.",
+    "license": "CC0-1.0; seven selected VSCO-2-CE arco vibrato notes only, pinned to commit 440300901dfe9275fd84e0b7763af1f8443ae62e.",
+    "credits": "Sam Gossner & Simon Dalzell; sample cutting Elan Hickler/Soundemote. Source/transformed SHA256 and license SHA256 are included in the packaged manifest."
+  },
+  "verification": {
+    "command": "node --test tests/audio-engine.test.mjs",
+    "tests": 55,
+    "passed": 55,
+    "failed": 0,
+    "log": "audio-implementation-tests.txt",
+    "coverage": ["No automatic audio, microphone or sample fetch", "All nine creative presets and original microphone/loop workflows retained", "Independent unfiltered reference and clean voices", "Actual WAV header/hash/content checks", "Nearest-note rate and audio-clock schedule", "Serial decode and cache reuse", "404/body/corrupt-WAV/decode/timeout failures", "Stop while ready/fetch/body/decode, dispose, rapid voice replacement", "AbortSignal, retry after failure, 64-voice bound and partial-start cleanup"],
+    "independentDataQa": "audio-assets-independent-qa.json",
+    "independentChecks": "9/9 checks, 7/7 assets; source and derived hashes match, exact license bytes match, non-empty PCM without clipping, loop seam step below natural adjacent-sample P99, approximate fundamental errors -4.2 to +8.11 cents.",
+    "syntaxAndWhitespace": "node --check and git diff --check passed for owned source changes."
+  },
+  "integrationByRoot": ["Explicitly pass prefs.demoVoice in Library/Practice/MIDI/Scale playback", "Expose four-language explanation and user-selected clean fallback", "Include seven WAVs, manifest and license in release/offline whitelists and source backup", "Rename Acoustic display label to basic synthesis while preserving stored preset key", "Perform browser visual/audio QA and available real-device listening"],
+  "limits": ["Single-velocity, seven-note vibrato samples with pitch shifting do not demonstrate real bowing, articulation or teacher performance", "G3 uses A3 shifted downward by two semitones", "Digital data and mock WebAudio QA do not prove physical device latency, speaker quality or professional sound", "No Apple assets, hardware protocol, microphone input replacement, shared client/build/HTML or service-worker edits were made by this agent"]
+}

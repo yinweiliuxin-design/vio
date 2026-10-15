@@ -1,0 +1,572 @@
+{
+  "schemaVersion": 1,
+  "at": "2026-10-15T06:56:45.171Z",
+  "scope": "Read-only current-code analysis and isolated in-memory MIDI controller probes",
+  "project": "E:\\codex\\Documents\\亚马逊图片\\sites\\smartvio-mobile",
+  "sourceHashes": {
+    "dist/tutorial.js": "7441afc623f633dcae3363277b47a3172efab42a6f90bd485b2c9f72ba01d679",
+    "dist/tutorial.css": "cd8ae69a7317b5166bc71545a5d37588e32c7cb86cc2e4332a0de18995b51405",
+    "dist/client.js": "f12345c70adb0769a72781d62c147827cab3dc14365869e13e7d6cc61c3591db",
+    "dist/midi.js": "18889d980e10ae73f45760bbf1a1e96339325cac0397cd0f0cf8053c22778560",
+    "tests/midi.test.mjs": "b849090d855cf9716a6e7e11d327880dbab89a95c8edcd11596296a4b750403d"
+  },
+  "learning": {
+    "current": {
+      "lessonCards": 9,
+      "guideStepsByLanguage": {
+        "zh": 7,
+        "en": 7,
+        "ja": 7,
+        "de": 7
+      },
+      "journey": [
+        {
+          "id": "welcome",
+          "page": "home",
+          "target": "[data-go=\"tuner\"]"
+        },
+        {
+          "id": "tuner",
+          "page": "tuner",
+          "target": "[data-action=\"reference\"][data-id=\"G3\"]"
+        },
+        {
+          "id": "library",
+          "page": "library",
+          "target": "#song-search"
+        },
+        {
+          "id": "practice",
+          "page": "practice",
+          "target": "[data-action=\"play\"]"
+        },
+        {
+          "id": "record",
+          "page": "studio",
+          "target": "[data-action=\"record-audio\"]"
+        },
+        {
+          "id": "device",
+          "page": "device",
+          "target": "[data-action=\"connection-help\"]"
+        },
+        {
+          "id": "settings",
+          "page": "profile",
+          "target": "[data-action=\"prepare-offline\"]"
+        }
+      ],
+      "guideVersion": 2,
+      "serverStepRange": [
+        0,
+        6
+      ]
+    },
+    "problems": [
+      {
+        "priority": "P1",
+        "finding": "学习路径叠加9小课与7页应用导览，形成多个入口；初次使用难判断下一步。",
+        "source": [
+          "dist/client.js:25",
+          "dist/client.js:181",
+          "dist/tutorial.js:150-159"
+        ]
+      },
+      {
+        "priority": "P1",
+        "finding": "节拍器已经存在，但新手导览缺少独立的节拍入门步骤。",
+        "source": [
+          "dist/client.js:181",
+          "dist/tutorial.js:journey"
+        ]
+      },
+      {
+        "priority": "P1",
+        "finding": "九小课的详情使用相同“去练一句”目标，不能分别直达调音、节拍或录音。",
+        "source": [
+          "dist/client.js:265"
+        ]
+      },
+      {
+        "priority": "P1",
+        "finding": "旧guideVersion2和数据库步骤检查固定0..6，新6步不能直接替换旧索引并宣称旧进度等价。",
+        "source": [
+          "dist/client.js:guideStorageKey/readGuideLocal",
+          "worker/community.mjs:onboarding-save",
+          "drizzle/0002_learn_onboarding.sql"
+        ]
+      },
+      {
+        "priority": "P2",
+        "finding": "现有SVG主要为静态按钮示意；减少动态CSS只处理滚动，尚无暂停/重看动画控制。",
+        "source": [
+          "dist/tutorial.js:illustration()",
+          "dist/tutorial.css:prefers-reduced-motion"
+        ]
+      },
+      {
+        "priority": "P2",
+        "finding": "连接教学应清楚区分“设备页端口枚举”与“MIDI工作台实际收录”，不能将两种能力混为一谈。",
+        "source": [
+          "dist/tutorial.js:copy.zh.steps device section",
+          "dist/client.js:midiStudio/deviceBridge"
+        ]
+      }
+    ],
+    "proposal": {
+      "primaryPath": "收束为一条六步新手路径；旧9课程放入默认折叠的“更多练习”，不删除内容和旧记录。",
+      "steps": [
+        {
+          "id": "instrument",
+          "title": {
+            "zh": "认识你的琴",
+            "en": "Meet your violin",
+            "ja": "バイオリンを知る",
+            "de": "Lerne deine Violine kennen"
+          },
+          "goal": {
+            "zh": "找到四根弦，试一个放松的长音。",
+            "en": "Find the four strings and try a relaxed long note.",
+            "ja": "4本の弦を確認し、力を抜いて長い音を出します。",
+            "de": "Finde die vier Saiten und spiele einen entspannten langen Ton."
+          },
+          "instructions": {
+            "zh": [
+              "从低到高认识 G、D、A、E。",
+              "不登录、不连接设备，也能先认识应用按钮。"
+            ],
+            "en": [
+              "Learn G, D, A and E from low to high.",
+              "Explore the controls without signing in or connecting hardware."
+            ],
+            "ja": [
+              "低い順に G・D・A・E を覚えます。",
+              "ログインや機器接続なしで操作を確認できます。"
+            ],
+            "de": [
+              "Lerne G, D, A und E von tief nach hoch.",
+              "Erkunde die Funktionen ohne Anmeldung oder Gerät."
+            ]
+          },
+          "realOperation": {
+            "page": "tuner",
+            "target": "[data-action=\"reference\"][data-id=\"G3\"]",
+            "permissionBoundary": "进入页面不自动发声；用户主动点参考音才播放。"
+          },
+          "originalMotion": "原创 SVG 琴体轮廓与四条标注琴弦依次高亮；只是结构示意，不展示未经专业核验的手型。"
+        },
+        {
+          "id": "tuner",
+          "title": {
+            "zh": "把一根弦调准",
+            "en": "Tune one string",
+            "ja": "1本ずつ調弦する",
+            "de": "Stimme eine Saite"
+          },
+          "goal": {
+            "zh": "先听参考音，再看指针是否接近中间。",
+            "en": "Hear the reference, then look for the needle near the middle.",
+            "ja": "基準音を聴き、針が中央に近いか確認します。",
+            "de": "Höre den Referenzton und prüfe, ob die Nadel nahe der Mitte steht."
+          },
+          "instructions": {
+            "zh": [
+              "一次只拉一根弦，慢一点。",
+              "点“开始麦克风调音”后才申请权限。"
+            ],
+            "en": [
+              "Play one string at a time, slowly.",
+              "Microphone permission is requested only after Start tuning."
+            ],
+            "ja": [
+              "1本の弦だけをゆっくり弾きます。",
+              "マイク調弦を開始したときだけ許可を求めます。"
+            ],
+            "de": [
+              "Spiele langsam jeweils nur eine Saite.",
+              "Der Mikrofonzugriff wird erst beim Start angefragt."
+            ]
+          },
+          "realOperation": {
+            "page": "tuner",
+            "target": "[data-action=\"start-tuner\"]",
+            "permissionBoundary": "教程跳转不启动麦克风；真实检测必须另行点击。"
+          },
+          "originalMotion": "原创 SVG 指针从偏低移至中央；常显“演示动画”，不输出伪造实测频率或已连接状态。"
+        },
+        {
+          "id": "beat",
+          "title": {
+            "zh": "跟上四拍",
+            "en": "Feel four beats",
+            "ja": "4拍を感じる",
+            "de": "Spüre vier Schläge"
+          },
+          "goal": {
+            "zh": "先数 1、2、3、4，再拉空弦。",
+            "en": "Count 1, 2, 3, 4 first, then play an open string.",
+            "ja": "まず1・2・3・4と数え、それから開放弦を弾きます。",
+            "de": "Zähle zuerst 1, 2, 3, 4 und spiele dann eine leere Saite."
+          },
+          "instructions": {
+            "zh": [
+              "把节拍器设为 60 BPM。",
+              "点“开始”才发声；需要时随时停止。"
+            ],
+            "en": [
+              "Set the metronome to 60 BPM.",
+              "Tap Start to hear beats; stop whenever you need."
+            ],
+            "ja": [
+              "メトロノームを60 BPMに設定します。",
+              "開始を押すと音が鳴り、いつでも止められます。"
+            ],
+            "de": [
+              "Stelle das Metronom auf 60 BPM.",
+              "Erst Start spielt die Schläge ab. Du kannst jederzeit stoppen."
+            ]
+          },
+          "realOperation": {
+            "page": "metronome",
+            "target": "[data-action=\"start-metro\"]",
+            "permissionBoundary": "应用节拍器与琴身节拍器独立；不申请任何设备权限。"
+          },
+          "originalMotion": "原创四拍圆点和摆锤：每秒依次高亮一拍；无自动音频，不使用高频闪烁。"
+        },
+        {
+          "id": "phrase",
+          "title": {
+            "zh": "练一个小乐句",
+            "en": "Try one short phrase",
+            "ja": "短いフレーズを練習",
+            "de": "Übe eine kurze Phrase"
+          },
+          "goal": {
+            "zh": "先听两小节，再慢慢试一次。",
+            "en": "Listen to two bars, then try them slowly.",
+            "ja": "2小節を聴いてから、ゆっくり試します。",
+            "de": "Höre zwei Takte und probiere sie danach langsam."
+          },
+          "instructions": {
+            "zh": [
+              "选一首入门曲，先点“示范聆听”。",
+              "A–B 设为 1–2 小节，需要时重复。"
+            ],
+            "en": [
+              "Choose a beginner piece and listen first.",
+              "Set A–B to bars 1–2 and repeat if helpful."
+            ],
+            "ja": [
+              "入門曲を選び、まずお手本を聴きます。",
+              "A–Bを1〜2小節に設定し、必要なら繰り返します。"
+            ],
+            "de": [
+              "Wähle ein Anfängerstück und höre zuerst zu.",
+              "Wähle Takt 1–2 als A–B-Abschnitt und wiederhole bei Bedarf."
+            ]
+          },
+          "realOperation": {
+            "page": "practice",
+            "target": "[data-action=\"play\"]",
+            "permissionBoundary": "保留当前选曲；跳转不播放音频，不自动申请跟奏权限。"
+          },
+          "originalMotion": "原创 SVG 两小节谱例、A/B 框与移动光点，标明示意；动画不自动播放音乐或生成演奏成绩。"
+        },
+        {
+          "id": "record",
+          "title": {
+            "zh": "录下来，再听一次",
+            "en": "Record and listen back",
+            "ja": "録音して聴き直す",
+            "de": "Nimm auf und höre nach"
+          },
+          "goal": {
+            "zh": "录十秒，停止保存，再听哪里更稳。",
+            "en": "Record ten seconds, stop and save, then listen for steadiness.",
+            "ja": "10秒録音して停止・保存し、安定した音を確かめます。",
+            "de": "Nimm zehn Sekunden auf, stoppe und speichere, und höre auf einen gleichmäßigen Ton."
+          },
+          "instructions": {
+            "zh": [
+              "录自己的琴声时，选择“真实麦克风”。",
+              "停止保存后再回听；重要录音另行下载。"
+            ],
+            "en": [
+              "Choose Microphone input to record your violin.",
+              "Stop and save before listening back; download important files."
+            ],
+            "ja": [
+              "自分の楽器を録るときはマイク入力を選びます。",
+              "停止して保存してから聴き直し、大切な音声はダウンロードします。"
+            ],
+            "de": [
+              "Wähle den Mikrofoneingang für deine Violine.",
+              "Stoppe und speichere vor dem Anhören. Lade wichtige Dateien herunter."
+            ]
+          },
+          "realOperation": {
+            "page": "studio",
+            "target": "[data-action=\"record-audio\"]",
+            "permissionBoundary": "教程不启动录音或摄像头；用户选择输入并主动授权后才真实录音。"
+          },
+          "originalMotion": "原创示意波形逐段出现，录制→停止→回放图标依次强调；说明“波形为演示”。"
+        },
+        {
+          "id": "next",
+          "title": {
+            "zh": "选好下一小步",
+            "en": "Choose your next small step",
+            "ja": "次の小さな目標を選ぶ",
+            "de": "Wähle deinen nächsten Schritt"
+          },
+          "goal": {
+            "zh": "今天先练五分钟，下次从这里继续。",
+            "en": "Try five minutes today and continue here next time.",
+            "ja": "今日はまず5分。次回もここから続けましょう。",
+            "de": "Übe heute fünf Minuten und mache hier beim nächsten Mal weiter."
+          },
+          "instructions": {
+            "zh": [
+              "继续同一首曲子，或去曲库挑下一首。",
+              "设备、音色、MIDI 和原课程保留在“更多练习”。"
+            ],
+            "en": [
+              "Keep practising this piece or choose the next one in Library.",
+              "Devices, sounds, MIDI and previous lessons remain under More practice."
+            ],
+            "ja": [
+              "同じ曲を続けるか、曲ライブラリで次の曲を選びます。",
+              "機器・音色・MIDI・これまでの講座は追加練習に残します。"
+            ],
+            "de": [
+              "Übe dasselbe Stück weiter oder wähle ein neues in der Bibliothek.",
+              "Geräte, Klänge, MIDI und bisherige Kurse bleiben unter Weitere Übungen."
+            ]
+          },
+          "realOperation": {
+            "page": "library",
+            "target": "#song-search",
+            "permissionBoundary": "无需新权限或登录；离线资源仍需用户主动下载。"
+          },
+          "originalMotion": "原创六步路径图；打勾只在用户明确自评确认后出现，播放动画不产生完成状态。"
+        }
+      ],
+      "layout": "每屏只突出当前一步：一句目标、两条通俗指令、一幅原创动图、一个去实操按钮；底部上一步/下一步。窄屏步骤栏收缩为“第n/6步”。",
+      "motion": {
+        "format": "纯原创inline SVG + CSS transform/opacity。已有6张授权原创情境照片可保留为补充，照片不作为持琴技术证明。",
+        "controls": [
+          "播放/暂停演示",
+          "重新播放当前演示",
+          "减少动态",
+          "上一步",
+          "下一步",
+          "去实际操作",
+          "稍后继续"
+        ],
+        "advancement": "只允许手动下一步；观看动画、打开页面或等待固定秒数都不计完成。",
+        "default": "尊重prefers-reduced-motion；页面隐藏、离页或关闭后停止动画。只保留当前可见动画，不使用后台轮询或自动音频。",
+        "reduced": "显示静态关键帧和完整文字说明，操作按钮不丢失。",
+        "performanceBudget": "设计目标：新增未压缩SVG/CSS/JS合计100KB以内；不是实机功耗或帧率测试结论。"
+      },
+      "progress": {
+        "suggestedSchema": {
+          "pathVersion": 1,
+          "currentStepId": "instrument",
+          "steps": "六个稳定ID；viewed与explicitConfirmed分开，confirmedAt可选"
+        },
+        "storage": "推荐使用可选且经过严格校验的userPractice.learningPath；load/save/export都保留该字段，其他原字段不变。本机离线优先。",
+        "migration": "旧completedLessons、guideVersion2、旧已完成/跳过状态原样保留。新版六步初始未确认；旧已读可建议定位，不推断新技能已完成。",
+        "oldLessons": "旧9课程仅显示原有用户自标进度；新六步的分母只计算六个新ID，不能用旧done.size代替。",
+        "confirmation": "下一步只是翻页；用户主动点“这一步我练过了”才记自评完成，不等同演奏能力评测。",
+        "cloud": "后续需要账号同步时，使用独立版本字段/端点和迁移；不可向v2端点静默发送意义已改变的新索引。",
+        "moduleBoundary": "新路径独立pathVersion=1与instrument/tuner/beat/phrase/record/next稳定ID；实现模块只报告操作意图，client/common适配由root统一整合。"
+      },
+      "filesAffectedAfterApproval": [
+        "dist/tutorial.js",
+        "dist/tutorial.css",
+        "dist/client.js learn()/showTutorial()",
+        "dist/common.js learningPath校验/保存/导出",
+        "dist/i18n.js",
+        "离线资源版本（如有新增文件）"
+      ],
+      "acceptance": [
+        "四语言6步内容齐全，无漏翻和品牌变化",
+        "320/390/768/桌面宽度无横向溢出；键盘焦点与触控按钮可用",
+        "暂停、重看和减少动态可用；离页/后台不持续动画",
+        "实操跳转匹配真实按钮，跳转不启动音频、摄像头或蓝牙",
+        "保留收藏、练习历史、旧9课程状态和guideV2记录",
+        "离线教学不要求注册；实际录音/调音权限仍由用户主动请求"
+      ],
+      "moduleName": "SVLearningPath",
+      "preferredIntegration": "独立SVLearningPath模块作为learn主视图；旧SVTutorial和guideV2云端结构原样保留，只作为次要“界面按钮导览”入口。",
+      "existingTutorial": "不重写旧guideV2的0..6索引，不把旧已读/已完成转换成新路径练过；旧九课程默认折叠保留。新注册主教学由新版独立路径提供，旧按钮导览只在用户主动选择时打开。"
+    }
+  },
+  "midi": {
+    "baseline": {
+      "result": "PASS",
+      "tests": 60,
+      "midiTests": 30,
+      "bleCodecTests": 30,
+      "command": "node --test tests/midi.test.mjs tests/ble-midi.test.mjs",
+      "log": "E:\\codex\\Documents\\亚马逊图片\\sites\\artifacts\\v16-20261015\\midi-baseline-tests.txt",
+      "boundary": "Synthetic ports/events and codec fixtures; not real USB/BLE latency, device certification or OS acceptance"
+    },
+    "adHoc": [
+      {
+        "id": "unsupported-browser-fallback",
+        "passed": true,
+        "evidence": "No requestMIDIAccess: no fake port or notes"
+      },
+      {
+        "id": "permission-denied-studio",
+        "passed": true,
+        "evidence": "Permission denial releases pending state; no capture"
+      },
+      {
+        "id": "empty-access-no-device",
+        "passed": true,
+        "evidence": "Zero real ports is reported honestly"
+      },
+      {
+        "id": "studio-hotplug-held-note",
+        "passed": true,
+        "evidence": "Hotplug updates ports; disconnect closes held note and retains capture"
+      },
+      {
+        "id": "studio-dispose-listener-cleanup",
+        "passed": true,
+        "evidence": "Access listener removed on disposal"
+      },
+      {
+        "id": "edit-tempo-save-export-roundtrip",
+        "passed": true,
+        "evidence": "Actual apply/change events update and persist all five fields; base tempo flattens map explicitly; SMF and reload survive"
+      },
+      {
+        "id": "concurrent-import-protection",
+        "passed": false,
+        "evidence": {
+          "expected": "Newer selected file",
+          "actual": "Older selected file",
+          "confirmedBug": true
+        }
+      },
+      {
+        "id": "late-import-preserves-manual-edit",
+        "passed": false,
+        "evidence": {
+          "expected": "Manual edit while import pending",
+          "actual": "Older selected file",
+          "confirmedBug": true
+        }
+      }
+    ],
+    "confirmedBugs": [
+      {
+        "id": "concurrent-import-protection",
+        "priority": "P1",
+        "impact": "A stale asynchronous import overwrites newer file selection or manual editing and saves over the local project.",
+        "evidence": {
+          "expected": "Newer selected file",
+          "actual": "Older selected file",
+          "confirmedBug": true
+        },
+        "location": "dist/midi.js importFile():169",
+        "suggestedFix": "Independent import request ID plus document revision. Only latest import may commit; edits, replace, clear, new capture and route changes invalidate earlier reads."
+      },
+      {
+        "id": "late-import-preserves-manual-edit",
+        "priority": "P1",
+        "impact": "A stale asynchronous import overwrites newer file selection or manual editing and saves over the local project.",
+        "evidence": {
+          "expected": "Manual edit while import pending",
+          "actual": "Older selected file",
+          "confirmedBug": true
+        },
+        "location": "dist/midi.js importFile():169",
+        "suggestedFix": "Independent import request ID plus document revision. Only latest import may commit; edits, replace, clear, new capture and route changes invalidate earlier reads."
+      }
+    ],
+    "proposedRegressions": [
+      {
+        "id": "M01",
+        "scenario": "没有Web MIDI API",
+        "expected": "明确提示不支持连接；无假设备、无假音符；文件导入编辑导出仍可用",
+        "current": "只读VM通过，审批后固化测试"
+      },
+      {
+        "id": "M02",
+        "scenario": "navigator权限拒绝、迟到许可在离页后返回",
+        "expected": "pending释放；不泄漏监听器，不打开输入，不覆盖工程",
+        "current": "底层open拒绝已有测试；工作台拒绝VM通过，补迟到许可层级"
+      },
+      {
+        "id": "M03",
+        "scenario": "空端口、热插入、断开时仍按住音符",
+        "expected": "无需重复申请权限；显式选输入；关断悬挂音且保留已接收内容",
+        "current": "底层断开已有覆盖；工作台hotplug VM通过，待固化"
+      },
+      {
+        "id": "M04",
+        "scenario": "两次文件选择异步乱序返回",
+        "expected": "只提交最后选择的文件",
+        "current": "现版本已重现失败P1"
+      },
+      {
+        "id": "M05",
+        "scenario": "文件读取未结束时编辑名称/速度/音符，或clear/replace/录制",
+        "expected": "旧导入不能覆盖后续明确用户意图",
+        "current": "手动名称编辑被覆盖已重现P1；其他变体待补"
+      },
+      {
+        "id": "M06",
+        "scenario": "编辑音高/起点/时长/力度/通道，改BPM后保存并SMF回导",
+        "expected": "五字段准确；统一速度的提示准确；本机重载和回导保持",
+        "current": "实际控制器apply/change的VM通过，待固化"
+      },
+      {
+        "id": "M07",
+        "scenario": "编辑时存储readonly/quota、恢复损坏JSON",
+        "expected": "不冒充持久保存；保留旧durable数据，提供导出",
+        "current": "坏JSON和删除拒绝已有覆盖，补保存失败UI"
+      },
+      {
+        "id": "M08",
+        "scenario": "多个通道和复音、panic120/123、最大音符/事件",
+        "expected": "仅关闭对应通道音符；资源受限；溢出不添加假音符",
+        "current": "悬挂音及10000上限已有覆盖，补按通道panic和active-note边界"
+      },
+      {
+        "id": "M09",
+        "scenario": "可选的用户可见模拟演示入口",
+        "expected": "独立临时文档标“模拟”；不申请设备、不假称已连接、不覆盖用户工程",
+        "current": "产品可选建议，当前QA模拟不依赖新增产品入口"
+      }
+    ],
+    "currentLimits": {
+      "formats": "SMF 0/1",
+      "maximumFileBytes": 2097152,
+      "maximumNotes": 10000,
+      "retained": "音符、速度变化、起始拍号",
+      "notRetained": "音色程序、控制器、弯音/其他表情、SysEx及音频"
+    },
+    "physicalValidationOutstanding": [
+      "实际USB MIDI与系统/browser组合",
+      "实际BLE MIDI接收、断连和系统后台恢复",
+      "如设备有音频转MIDI，需单独校验音高与事件准确性",
+      "端到端延迟、手机发热功耗、Safari及HarmonyOS原生桥接"
+    ]
+  },
+  "approval": {
+    "implementationStarted": false,
+    "sourceAndTestChanges": false,
+    "next": "Root reviews report before source or regression-test edits."
+  },
+  "decision": {
+    "recommendation": "先修两项异步导入覆盖P1；学习区采用六步原创动图方案。所有源码/正式回归新增等待root审阅。",
+    "implemented": false,
+    "realDeviceClaim": false
+  },
+  "memoryBoundary": "仅用旧笔记确认先报告后实施的既有偏好；所有当前源码状态与测试均在本次重新读取、验证。"
+}

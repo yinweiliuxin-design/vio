@@ -1,0 +1,27 @@
+{
+  "id": "./",
+  "name": "VELLEN スタジオ",
+  "short_name": "VELLEN",
+  "description": "電子バイオリンの練習・チューニング・音色・録音のためのスタジオ。記録はこのブラウザーに保存されます。",
+  "lang": "ja",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7f6f2",
+  "theme_color": "#17634e",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ]
+}

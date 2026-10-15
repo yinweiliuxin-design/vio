@@ -1,0 +1,35 @@
+CREATE TABLE `community_videos` (
+	`id` text PRIMARY KEY NOT NULL,
+	`user_id` text NOT NULL,
+	`object_key` text NOT NULL,
+	`request_hash` text DEFAULT '' NOT NULL,
+	`mime` text DEFAULT '' NOT NULL,
+	`size` integer DEFAULT 0 NOT NULL,
+	`duration_ms` integer DEFAULT 0 NOT NULL,
+	`width` integer DEFAULT 0 NOT NULL,
+	`height` integer DEFAULT 0 NOT NULL,
+	`container` text DEFAULT '' NOT NULL,
+	`video_codec` text DEFAULT '' NOT NULL,
+	`audio_codec` text DEFAULT '' NOT NULL,
+	`verification` text DEFAULT '' NOT NULL,
+	`state` text DEFAULT 'uploading' NOT NULL,
+	`upload_active` integer DEFAULT 0 NOT NULL,
+	`cleanup_pending` integer DEFAULT 0 NOT NULL,
+	`error_code` text DEFAULT '' NOT NULL,
+	`upload_token` text NOT NULL,
+	`version` integer DEFAULT 1 NOT NULL,
+	`created_at` text NOT NULL,
+	`updated_at` text NOT NULL,
+	`mutation_token` text NOT NULL,
+	FOREIGN KEY (`user_id`) REFERENCES `community_users`(`id`) ON UPDATE no action ON DELETE no action,
+	CONSTRAINT "community_video_state" CHECK("community_videos"."state" IN ('uploading','ready','failed','cancelled','deleting','deleted')),
+	CONSTRAINT "community_video_size" CHECK(typeof("community_videos"."size") = 'integer' AND "community_videos"."size" BETWEEN 0 AND 20000000),
+	CONSTRAINT "community_video_duration" CHECK(typeof("community_videos"."duration_ms") = 'integer' AND "community_videos"."duration_ms" BETWEEN 0 AND 60000),
+	CONSTRAINT "community_video_dimensions" CHECK("community_videos"."width" BETWEEN 0 AND 4096 AND "community_videos"."height" BETWEEN 0 AND 4096 AND "community_videos"."width" * "community_videos"."height" <= 8294400),
+	CONSTRAINT "community_video_type" CHECK("community_videos"."mime" IN ('','video/mp4','video/webm')),
+	CONSTRAINT "community_video_flags" CHECK("community_videos"."upload_active" IN (0,1) AND "community_videos"."cleanup_pending" IN (0,1) AND "community_videos"."version" >= 1),
+	CONSTRAINT "community_video_ready" CHECK("community_videos"."state" <> 'ready' OR ("community_videos"."size" > 0 AND "community_videos"."duration_ms" > 0 AND "community_videos"."width" > 0 AND "community_videos"."height" > 0 AND "community_videos"."mime" <> '' AND length("community_videos"."request_hash") = 64 AND "community_videos"."upload_active" = 0 AND "community_videos"."cleanup_pending" = 0))
+);
+--> statement-breakpoint
+CREATE UNIQUE INDEX `community_video_object` ON `community_videos` (`object_key`);--> statement-breakpoint
+CREATE INDEX `community_video_owner` ON `community_videos` (`user_id`,`state`,`created_at`);

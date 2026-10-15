@@ -1,0 +1,258 @@
+{
+  "sourceSHA256": "3c90d3cb1b42aad4453c6d858efafe6c7319d9b05681c4f812f45ddb35eb481c",
+  "output": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-clean9.kicad_pcb",
+  "boardSHA256": "db32824829f38d60df40328637a64dc5ed1dd07a45b94531ff1babf974e097d0",
+  "unconnected": 8,
+  "drcViolations": 10,
+  "removedFailedUnprotectedCopper": [
+    {
+      "uuid": "15f6f21f-4136-4dd7-a5ee-3cb3852de529",
+      "net": "V3D",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "1b2654a8-46c9-4694-88e3-37c40acd4c10",
+      "net": "SPK_GAIN",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "24072a13-fbe6-462c-ac4b-167857dbeb9e",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "41bf38a8-bbae-4a45-a5d2-97bac4d338f0",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "608c901d-94b6-4525-a86f-dd2c41df5a1b",
+      "net": "V3D",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "638b4a45-cd04-48a0-8b8f-929a291c4a37",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "7cfd1690-3ff0-4301-863d-0ce34230bd89",
+      "net": "LINE_L_PORT",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "ab52a84a-387f-4c2a-a525-94cd8a7665c1",
+      "net": "ADC_SCK",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "d043ab82-bb8f-4e5c-be7a-3188530c3317",
+      "net": "RETURN_R_PORT",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "d21af8f3-7040-4efc-9ce1-d8e77e91c07c",
+      "net": "RETURN_R_PORT",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "db642f59-70c8-4cbb-88f2-8e88963ae77c",
+      "net": "V3D",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "e278fd1b-3271-4423-8107-64eda895e354",
+      "net": "SPK_SD_PIN",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "e398e38b-e385-47c4-bb8d-38d44e4b5c40",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "f24d3594-e842-4842-8096-b25185acd620",
+      "net": "RISET",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "f5420ed2-929c-4efc-bea4-22e26a9a4c12",
+      "net": "VMID_DIV",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "2ae22868-dafa-4fee-905b-ed293ff42d16",
+      "net": "RETURN_R_PORT",
+      "kind": "via",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "a1694aa6-a566-4dea-bf0c-af2702be0526",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "b10f79bb-2738-4d6d-a8b8-8c7e54a79aa9",
+      "net": "RETURN_R_PORT",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "dc5749a8-3689-47d3-8fea-f8d4f936b90b",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "fdb4e704-a630-4cef-aa94-cede0d0eae7b",
+      "net": "V3D",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "fe48ed14-2e7b-4791-9e71-71acff17f1bd",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "17d10c57-5cfd-4dbf-bb90-218f8b86e334",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 2,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "4d467ed2-b20f-4702-b1c3-de8f50cf81e9",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 2,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "efb3e84b-dc50-4096-8a9d-877d8d0adc6c",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 2,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "f9c4ac63-55e2-40d2-838e-cc5c02dfcaf1",
+      "net": "RETURN_R_PORT",
+      "kind": "segment",
+      "iteration": 2,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "4d9ac9b3-80c7-4bce-adf4-34742379e943",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 3,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "b8ba115c-b2b6-43dc-b7da-e1f6f4f54cd1",
+      "net": "RETURN_R_PORT",
+      "kind": "segment",
+      "iteration": 3,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "cf17f314-e4d1-493d-b7b2-49c95fb4b0ba",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 3,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "b07b729c-7421-443d-ba8b-b21b2a300817",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 4,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "d50d957d-3c0c-405e-82ec-082b1060e2c8",
+      "net": "RF_ENABLE",
+      "kind": "segment",
+      "iteration": 4,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "9836334c-e725-43af-902c-4919b787f817",
+      "net": "RET_BIAS_R",
+      "kind": "via",
+      "iteration": 5,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "444da31b-c63a-499f-81b5-292b4fccb14d",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 6,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "d3908f37-548c-4794-916b-5a8b18f5d489",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 7,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "e89da54f-b3bc-474a-9505-9bc500efc9cb",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 8,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "45f035a8-5abc-40ca-9dfe-e73d89743593",
+      "net": "RET_BIAS_R",
+      "kind": "segment",
+      "iteration": 9,
+      "supplementalGroundStitch": false
+    }
+  ],
+  "protectedCopperPreserved": true,
+  "netlistAndRulesUnchanged": true,
+  "productionApproved": false,
+  "temporaryReservedViaWarnings": 10
+}

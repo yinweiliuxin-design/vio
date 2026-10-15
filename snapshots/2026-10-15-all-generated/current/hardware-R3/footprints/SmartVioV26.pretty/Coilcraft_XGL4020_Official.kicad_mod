@@ -1,0 +1,90 @@
+(footprint "Coilcraft_XGL4020_Official"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "Manufacturer recommended land; V26 selected candidate, electrical/process review separate.")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "47ee9ff7-3968-4e6c-b665-f22e309ac456")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" "XGL4020-152MEC"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "2d49d42c-959e-4213-af29-a7da996aa1ca")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "a77020d2-ba09-4185-aa79-1b3be9e71959")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "f626632b-79e2-45fb-8570-adbd39426d68")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -2.4 -2.4)
+		(end 2.4 2.4)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "981b9d9a-9f7c-4e95-a325-b35005e1d7a0")
+	)
+	(fp_rect
+		(start -2 -2)
+		(end 2 2)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "9949257e-4184-49c1-956e-2d4de1de8800")
+	)
+	(pad "1" smd roundrect
+		(at -1.675 0)
+		(size 0.98 3.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.1)
+		(thermal_bridge_angle 45)
+		(uuid "f286d7fa-7731-4590-9373-9270cf6ddc2e")
+	)
+	(pad "2" smd roundrect
+		(at 1.675 0)
+		(size 0.98 3.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.1)
+		(thermal_bridge_angle 45)
+		(uuid "e03e3c32-d4ec-4425-aafd-1353ab4b3df0")
+	)
+	(embedded_fonts no)
+)

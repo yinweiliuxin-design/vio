@@ -1,0 +1,77 @@
+{
+  "date": "2026-10-15",
+  "scope": "Actual local bucket and HTTP handler source executed in a VM with in-memory request/response transport; no live server restarted or browser connection",
+  "passed": 17,
+  "failed": 0,
+  "fixtureBytes": 8376,
+  "checks": [
+    {
+      "name": "bucket HEAD metadata",
+      "passed": true
+    },
+    {
+      "name": "bucket GET exact bytes",
+      "passed": true
+    },
+    {
+      "name": "bucket bounded range reads exact bytes and protocol metadata",
+      "passed": true
+    },
+    {
+      "name": "bucket reports actual truncated range instead of falsely confirming full request",
+      "passed": true
+    },
+    {
+      "name": "bucket rejects traversal and invalid ranges",
+      "passed": true
+    },
+    {
+      "name": "bucket delete and missing object",
+      "passed": true
+    },
+    {
+      "name": "fixture decoded from existing original test, not executed",
+      "passed": true
+    },
+    {
+      "name": "QA HTML and anti-framing policy",
+      "passed": true
+    },
+    {
+      "name": "valid same-origin iframe placeholder",
+      "passed": true
+    },
+    {
+      "name": "fixture HEAD has metadata with no body",
+      "passed": true
+    },
+    {
+      "name": "fixture range 0..31 exact",
+      "passed": true
+    },
+    {
+      "name": "fixture suffix range",
+      "passed": true
+    },
+    {
+      "name": "fixture unsatisfiable range",
+      "passed": true
+    },
+    {
+      "name": "QA routes reject POST",
+      "passed": true
+    },
+    {
+      "name": "all QA routes disabled by default",
+      "passed": true
+    },
+    {
+      "name": "existing loopback Host guard preserved",
+      "passed": true
+    },
+    {
+      "name": "QA browser script syntax",
+      "passed": true
+    }
+  ]
+}

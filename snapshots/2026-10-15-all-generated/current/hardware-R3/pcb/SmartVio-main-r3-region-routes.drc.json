@@ -1,0 +1,47 @@
+{
+    "$schema": "https://schemas.kicad.org/drc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-12T18:40:30",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "schematic_parity": [],
+    "source": "SmartVio-main-r3-region-routes.kicad_pcb",
+    "unconnected_items": [],
+    "violations": [
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [RET_AC_R] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 25.075,
+                        "y": 34.8
+                    },
+                    "uuid": "29f331aa-7d9e-4ca4-998c-7e671381d5fe"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        },
+        {
+            "description": "Via is not connected or connected on only one layer",
+            "items": [
+                {
+                    "description": "Via [CHG_PGOOD_N] on F.Cu - B.Cu",
+                    "pos": {
+                        "x": 37.2,
+                        "y": 20.775
+                    },
+                    "uuid": "838e5ca8-d96f-47a7-a498-c4c1f0f55575"
+                }
+            ],
+            "severity": "warning",
+            "type": "via_dangling"
+        }
+    ]
+}

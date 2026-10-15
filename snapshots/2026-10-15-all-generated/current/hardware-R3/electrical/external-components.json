@@ -1,0 +1,35 @@
+[
+  {
+    "reference": "RT1921",
+    "type": "external_wired_thermistor",
+    "physicalLocation": "battery-side thermal sensing, installation position to be fixed mechanically",
+    "PCBMount": false,
+    "netPins": [
+      {
+        "number": "1",
+        "name": "NTC_A",
+        "net": "CELL_NTC_SENSE",
+        "electricalType": "passive",
+        "footprintPad": "1",
+        "evidence": {
+          "url": "https://www.semitec-global.com/products/thermistor_at/",
+          "section": "103AT-2:10k 1%;B3435 1%; mount and thermal coupling must be qualified"
+        },
+        "pinAuditStatus": "VERIFIED_OFFICIAL"
+      },
+      {
+        "number": "2",
+        "name": "NTC_B",
+        "net": "GND",
+        "electricalType": "passive",
+        "footprintPad": "2",
+        "evidence": {
+          "url": "https://www.semitec-global.com/products/thermistor_at/",
+          "section": "103AT-2:10k 1%;B3435 1%; mount and thermal coupling must be qualified"
+        },
+        "pinAuditStatus": "VERIFIED_OFFICIAL"
+      }
+    ],
+    "requirement": "Retain schematic component and nets; factory harness BOM must include sensor and insulation. Never assign dummy PCB footprint."
+  }
+]

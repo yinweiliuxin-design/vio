@@ -1,0 +1,22 @@
+{
+  "boardPath": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-fpc-keys6-r3-auto.kicad_pcb",
+  "boardSHA256": "52509043cf562b422932ee27a112901c7ea01f52e4d36e74f0587bda88123e2c",
+  "sourceSHA256": "b29b1b0dc3a89bbdd789515018d0a282d7ca252f25c1febe192f95cd58c9e7fa",
+  "routeContractSHA256": "8a124f744c0f0f603b7b8ff4f53b5253c64f11e7995cc0470683b43a2d8766d3",
+  "sesSHA256": "b3fc355ddb87e28542b7e190cc7106d6818bf8e28f151543bfdb1260d9c53c4d",
+  "tracks": 59,
+  "vias": 19,
+  "copperItemsByNet": {
+    "FX_RAW": 10,
+    "GND": 10,
+    "KEY_BT": 11,
+    "KEY_FX": 13,
+    "KEY_MIX": 24,
+    "KEY_MODE": 10
+  },
+  "originalPlacementPadASTPreserved": true,
+  "replacedSeedCopperItems": 12,
+  "preservedFixedCopperItems": 12,
+  "netGeometryPreservation": "Direct SES net-name import plus unchanged input fixed copper; original non-copper board expressions unchanged. Native fill and DRC still required.",
+  "productionApproved": false
+}

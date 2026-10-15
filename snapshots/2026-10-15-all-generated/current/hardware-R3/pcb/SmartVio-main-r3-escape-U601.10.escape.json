@@ -1,0 +1,19 @@
+{
+  "pad": "U601.10",
+  "net": "ADC_XI",
+  "viaXY": [
+    8.799999999999999,
+    8.8
+  ],
+  "removed": [
+    {
+      "uuid": "c4be1ac6-4565-45d9-9286-68dc65212463",
+      "kind": "track",
+      "net": "VMID_DIV"
+    }
+  ],
+  "originalPriorityCopperPreserved": true,
+  "sourcePadNetsAndRulesUnchanged": true,
+  "nativeDRCRequired": true,
+  "productionApproved": false
+}

@@ -1,0 +1,24 @@
+{
+  "date": "2026-10-15",
+  "phase": "implemented-after-root-review",
+  "files": ["dist/midi.js", "tests/midi.test.mjs", "dist/learning-path.js", "dist/learning-path.css", "tests/learning-path.test.mjs"],
+  "tests": {"command": "node --test tests/midi.test.mjs tests/ble-midi.test.mjs tests/learning-path.test.mjs", "total": 78, "passed": 78, "failed": 0, "log": "learning-midi-implementation-tests.txt"},
+  "midi": {
+    "fixed": ["Older asynchronous file imports cannot overwrite a newer import", "Document edits, replace, clear, recording, unmount and disposal invalidate pending imports", "A late obsolete read failure cannot replace the latest UI notice", "MIDIAccess statechange listener is removed on unmount and restored on remount without requesting permission"],
+    "tested": ["Actual SMF format 0/1 round trips and tempo changes", "Denied/unsupported/empty devices", "Hotplug and held notes on disconnect", "Apply note edits, save/restore, export/import", "Read-only/quota failure", "External BLE transport and all BLE decoder tests"],
+    "physicalHardwareTested": false
+  },
+  "learning": {
+    "stableSteps": ["instrument", "tuner", "beat", "phrase", "record", "next"],
+    "storageKey": "smartvio-learning-path-v1",
+    "storageSchema": 1,
+    "languages": ["zh", "en", "ja", "de"],
+    "assets": "Six original inline SVG/CSS illustrations, no external media or network request",
+    "progress": "Only explicit I understand toggles mark understanding. Next, illustration playback, navigation and module load never assign playing ability, lesson completion or scores.",
+    "migration": "Reads/writes only independent versioned storage. Old guideV2 and lesson records are untouched. Corrupt saved data is preserved and writes are blocked until explicit reset.",
+    "lifecycle": "No timers or device permission calls. Visibility/media-query/host listeners are removed on unmount. Pending navigation is generation guarded.",
+    "contract": "SVLearningPath.createPath({environment:window}); instance.mount(host,{lang,onNavigate(page,{stepId,target}),onNotice,onChange}); call unmount before replacing the host. Instance supports state/status/setStep/setLanguage/clear/dispose.",
+    "integrationByRootRequired": ["Load learning-path.js and learning-path.css", "Mount at the primary Learn view", "Implement onNavigate using current application navigation; focus target only, do not click it", "Keep original courses and guideV2 under secondary entries", "Browser visual and mobile layout QA"]
+  },
+  "limits": ["VM tests verify module and state behavior, not visual screenshots or physical instrument timing", "No database, production, legacy guide migration or shared client/build/HTML file was modified by this agent"]
+}
