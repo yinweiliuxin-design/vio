@@ -1,0 +1,348 @@
+{
+  "schemaVersion": 1,
+  "status": "COMPLETE",
+  "project": "SmartVio / Silvio / VELLEN V16",
+  "repository": "yinweiliuxin-design/vio",
+  "checkpoint": "checkpoints/2026-10-15-app-v16-6f461b9612ac",
+  "sourceCommit": "6f461b9612ac69310ec269f289e429fb473664bb",
+  "payloadCommit": "b8b9f85a51c9c629a81097ff6435ffcf5b92a3cb",
+  "sourceFiles": 166,
+  "parts": 31,
+  "archiveBytes": 8066522,
+  "archiveSha256": "74f81359793c2eb975a9e42bbd9c2728150d2973f12f13c094883661be96b471",
+  "remoteReadbackChecks": [
+    {
+      "file": "FILE-MANIFEST.json",
+      "sha": "d0c8940d83c84a75eb940ddd19af73e72ec342fc",
+      "expectedSha": "d0c8940d83c84a75eb940ddd19af73e72ec342fc",
+      "contentLength": 33238,
+      "localLength": 33238,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "RESTORE-VERIFY.cjs",
+      "sha": "9292d20290b1003c764981f33c192d0373cf1c2a",
+      "expectedSha": "9292d20290b1003c764981f33c192d0373cf1c2a",
+      "contentLength": 4334,
+      "localLength": 4334,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "README-恢复与校验.txt",
+      "sha": "ec5023a4c4af63585622df65a6db5b4904267b43",
+      "expectedSha": "ec5023a4c4af63585622df65a6db5b4904267b43",
+      "contentLength": 736,
+      "localLength": 736,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0001.b64",
+      "sha": "88db228823fa0715e35dc85c2a0d38a31b308220",
+      "expectedSha": "88db228823fa0715e35dc85c2a0d38a31b308220",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0002.b64",
+      "sha": "17dc5d5ea6825a0dea8b1f4e5668634acb0a0de0",
+      "expectedSha": "17dc5d5ea6825a0dea8b1f4e5668634acb0a0de0",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0003.b64",
+      "sha": "ed0cdcb17cec1e6b9a68fbd8aa730e2db021aaee",
+      "expectedSha": "ed0cdcb17cec1e6b9a68fbd8aa730e2db021aaee",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0004.b64",
+      "sha": "7dda2cfa866a8af9557be76310a209ac9dc9416e",
+      "expectedSha": "7dda2cfa866a8af9557be76310a209ac9dc9416e",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0005.b64",
+      "sha": "cc00627bf156c8db97d38237fea662fa6081c07e",
+      "expectedSha": "cc00627bf156c8db97d38237fea662fa6081c07e",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0006.b64",
+      "sha": "367ca21cd175431ff9de0f782085118a3850545e",
+      "expectedSha": "367ca21cd175431ff9de0f782085118a3850545e",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0007.b64",
+      "sha": "46493a07e504f32fb8d8f21d2bbcd383abf3e754",
+      "expectedSha": "46493a07e504f32fb8d8f21d2bbcd383abf3e754",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0008.b64",
+      "sha": "95090a7db163cb7eb85e64cda0b66dfec9da67c5",
+      "expectedSha": "95090a7db163cb7eb85e64cda0b66dfec9da67c5",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0009.b64",
+      "sha": "562da15545605f9ddda691b8044b24d1560c9035",
+      "expectedSha": "562da15545605f9ddda691b8044b24d1560c9035",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0010.b64",
+      "sha": "0fcbdf7d646b5a54f690560a52213caf9acbd0ab",
+      "expectedSha": "0fcbdf7d646b5a54f690560a52213caf9acbd0ab",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0011.b64",
+      "sha": "7fca107cff5322ff352c7fa4a7e0ecda0f642a45",
+      "expectedSha": "7fca107cff5322ff352c7fa4a7e0ecda0f642a45",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0012.b64",
+      "sha": "9e74e0bc5f09ff60c7985835a2256f87c06fde38",
+      "expectedSha": "9e74e0bc5f09ff60c7985835a2256f87c06fde38",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0013.b64",
+      "sha": "b959303465d53207933df72e8149da5675865aed",
+      "expectedSha": "b959303465d53207933df72e8149da5675865aed",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0014.b64",
+      "sha": "5a48655fb43c0f38e17764c96a4473975890b95f",
+      "expectedSha": "5a48655fb43c0f38e17764c96a4473975890b95f",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0015.b64",
+      "sha": "ddf092979d969825326aead9188273121d5fcc6f",
+      "expectedSha": "ddf092979d969825326aead9188273121d5fcc6f",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0016.b64",
+      "sha": "aefaaddaf36b58575062ae990c749a725f53e74a",
+      "expectedSha": "aefaaddaf36b58575062ae990c749a725f53e74a",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0017.b64",
+      "sha": "a6b1f1f7e47c4fb439a6b8068aa9a5d6f35531dc",
+      "expectedSha": "a6b1f1f7e47c4fb439a6b8068aa9a5d6f35531dc",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0018.b64",
+      "sha": "322da3360f54b754f6ff6836b7b6954362b8a4c0",
+      "expectedSha": "322da3360f54b754f6ff6836b7b6954362b8a4c0",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0019.b64",
+      "sha": "0ac109d84d8beca5ae973752d7ed8ab580678fbd",
+      "expectedSha": "0ac109d84d8beca5ae973752d7ed8ab580678fbd",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0020.b64",
+      "sha": "b51e76742041dfa0c55eadebdfe1c4ed9457e2fb",
+      "expectedSha": "b51e76742041dfa0c55eadebdfe1c4ed9457e2fb",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0021.b64",
+      "sha": "c16ef3aecf3f2e9f47c62141f37b8a01b9a1c8d3",
+      "expectedSha": "c16ef3aecf3f2e9f47c62141f37b8a01b9a1c8d3",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0022.b64",
+      "sha": "764c1841495c07d4c51b2091d2463d8e93ea73a7",
+      "expectedSha": "764c1841495c07d4c51b2091d2463d8e93ea73a7",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0023.b64",
+      "sha": "f28ae20d9b722768557ee9512b090efe1e4a9947",
+      "expectedSha": "f28ae20d9b722768557ee9512b090efe1e4a9947",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0024.b64",
+      "sha": "8ee9dc415d47b753407e69b550c2910f756dc058",
+      "expectedSha": "8ee9dc415d47b753407e69b550c2910f756dc058",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0025.b64",
+      "sha": "c6b38dae15e97bc767a146f676c3f9d3e53fdafc",
+      "expectedSha": "c6b38dae15e97bc767a146f676c3f9d3e53fdafc",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0026.b64",
+      "sha": "5eebba6f90064b9a4462d18bc556ac08c876e0a3",
+      "expectedSha": "5eebba6f90064b9a4462d18bc556ac08c876e0a3",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0027.b64",
+      "sha": "c3a478a1b62bd9d518cae58ab2d880193fd167dd",
+      "expectedSha": "c3a478a1b62bd9d518cae58ab2d880193fd167dd",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0028.b64",
+      "sha": "86d66790f167f7b16543fba347b21ca498dbbb2e",
+      "expectedSha": "86d66790f167f7b16543fba347b21ca498dbbb2e",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0029.b64",
+      "sha": "a21caff22c9caabff3b498146f91afb331774723",
+      "expectedSha": "a21caff22c9caabff3b498146f91afb331774723",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0030.b64",
+      "sha": "ef05344445d763fee8a71d9dc461e2b77c433ba1",
+      "expectedSha": "ef05344445d763fee8a71d9dc461e2b77c433ba1",
+      "contentLength": 349529,
+      "localLength": 349529,
+      "contentEqual": true,
+      "pass": true
+    },
+    {
+      "file": "source.zip.part-0031.b64",
+      "sha": "3fb7e83ad2d0496d98402cd9caffa112226eb232",
+      "expectedSha": "3fb7e83ad2d0496d98402cd9caffa112226eb232",
+      "contentLength": 269605,
+      "localLength": 269605,
+      "contentEqual": true,
+      "pass": true
+    }
+  ],
+  "remoteContentsEqualValidatedLocalArchive": true,
+  "restoreVerification": {
+    "result": "PASS",
+    "files": 166,
+    "crcVerified": true,
+    "sha256Verified": true,
+    "extracted": true
+  },
+  "oldV15CheckpointPreserved": true,
+  "softwareValidation": {
+    "automatedTestsPassed": 259,
+    "clientLayoutCases": 16,
+    "physicalDeviceTests": 0
+  },
+  "deployment": {
+    "version": 16,
+    "status": "succeeded",
+    "sourceCommit": "6f461b9612ac69310ec269f289e429fb473664bb",
+    "url": "https://smartvio-studio-mobile.politecalf5.chatgpt.site"
+  },
+  "excludes": [
+    "Production databases",
+    "User recordings and videos",
+    "Credentials",
+    "Personal browser data"
+  ],
+  "notes": "Every GitHub payload file was fetched at the immutable payload commit and compared byte-for-byte to the locally validated archive shards. The identical local payload was extracted with all ZIP CRC and source SHA256 checks."
+}
