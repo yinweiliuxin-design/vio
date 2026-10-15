@@ -1,0 +1,6549 @@
+{
+  "schema": "SmartVio.R4.mechanical.assembly-status",
+  "status": "MODELED_CAD_SCOPE_ZERO_INTERSECTIONS_NOT_FULL_ASSEMBLY_RELEASE",
+  "production_released": false,
+  "parameters": {
+    "version": "R4 prototype engineering candidate",
+    "units": "mm",
+    "manufacturing_release": false,
+    "datum": "A instrument mounting surface Z0; STEP Y=-logical drawing Y",
+    "upper_outline": [
+      148,
+      49
+    ],
+    "upper_corner_radius": 2.0,
+    "upper_roof_top": 3.8,
+    "upper_roof_thickness": 1.3,
+    "upper_side_wall": 1.0,
+    "cup_outline": [
+      77.0,
+      45.0
+    ],
+    "cup_origin": [
+      35.5,
+      2.0
+    ],
+    "cup_bottom": -20.9,
+    "cup_floor_top": -20.3,
+    "cup_wall": 0.8,
+    "cup_corner_radius": 1.2,
+    "cup_inner_corner_radius": 1.2,
+    "main_origin": [
+      36.7,
+      3.2
+    ],
+    "main_bottom": -12.55,
+    "main_thickness": 0.8,
+    "main_xy": [
+      74.6,
+      42.6
+    ],
+    "main_B_max_assembled_under_battery": 1.05,
+    "main_ledge_overlap": 1.0,
+    "main_xy_locating_gap": 0.05,
+    "main_latch_z_gap": 0.0,
+    "audio_origin": [
+      37.3,
+      30
+    ],
+    "audio_pcb_top": -9.65,
+    "audio_pcb_thickness": 1.0,
+    "jack_mouth_top": 3.85,
+    "jack_seat_to_mouth_nominal": 13.5,
+    "jack_shoulder_Z": 1.45,
+    "jack_shoulder_gap": 0.005,
+    "jack_shoulder_gap_note": "zero-gap design; 0.005 CAD offset only avoids coplanar boolean slivers on the vendor B-spline face",
+    "audio_frame_bottom": -11.15,
+    "audio_frame_thickness": 0.5,
+    "usb_origin": [
+      86,
+      5
+    ],
+    "usb_top": -3.3,
+    "usb_thickness": 1.0,
+    "sensor_board": "eliminated (ECO L-12, TMP117 on main B side)",
+    "cover_pcb_top": 0.5,
+    "cover_pcb_thickness": 0.4,
+    "pack_box": [
+      40,
+      7.25,
+      -20.2,
+      92,
+      41.75,
+      -14.8
+    ],
+    "battery_swell_Z_design_allowance": 1.0,
+    "battery_guide_gap": 0.25,
+    "battery_top_foam": "1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
+    "pack_bottom_insulation": 0.1,
+    "pack_top_insulation": 0.1,
+    "screw_xy": [
+      [
+        5.3,
+        5.3
+      ],
+      [
+        142.7,
+        5.3
+      ],
+      [
+        5.3,
+        43.7
+      ],
+      [
+        142.7,
+        43.7
+      ]
+    ],
+    "screw_through": 2.5,
+    "screw_counterbore": 4.5,
+    "screw_seat_z": 1.7,
+    "screw_passing_boss_dia": 5.2,
+    "screw_boss_dia_above_cover_pcb": 6.5,
+    "instrument_screw": "ST2.2x6.5 A2 stainless pan-head wood screw (non-magnetic), pilot 1.6x5 in wood, 0.15 N.m; threaded insert in wood preferred",
+    "internal_screw": "M1.6 thread-forming screw for plastics (PT/WN1452 type) into POM pilot 1.3; production PC/ABS: M1.6 heat-set brass insert",
+    "button_switch_top_max_Z": 2.15,
+    "button_switch_top_nominal_Z": 2.0,
+    "button_initial_gap_at_max": 0.05,
+    "switch_travel": 0.25,
+    "button_hole_dia": 5.2,
+    "button_stem_dia": 5.0,
+    "button_flange_dia": 6.2,
+    "button_flange_recess_dia": 6.5,
+    "button_top_Z": 3.85,
+    "button_fit_basis": "SKQGABE010 h1.5 +0.15/-0, travel0.25, 1.57N (native-components.json). Nub designed to max switch top2.15+0.05; trim stock blank to measured switch top+0.05",
+    "wheel_window_dia": 15.2,
+    "wheel_thumb_notch": "north-edge notch 12 wide, floor Z1.5: knurled rim stands 1.5 above local floor (wheel top Z3.0 fixed by board stack)",
+    "legend_depth": 0.15,
+    "legend_font": "DejaVuSans-Bold.ttf",
+    "snap_stations_x": [
+      67,
+      102
+    ],
+    "snap_beam": [
+      8,
+      0.8,
+      4
+    ],
+    "snap_hook_overlap": 0.25,
+    "snap_window_z_play": 0.04,
+    "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
+    "nominal_total_height": 24.75,
+    "total_height_limit": 25.0,
+    "nonwheel_outward_limit": 5,
+    "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
+    "factory_tuning": "Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
+    "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
+  },
+  "real_parts_exported": 23,
+  "source_vendor_model": "verification/references/STX-353K7A-6N-KTTR_rA1.STEP",
+  "shipping_packaging_removed": "Only vendor third0.1mm Kapton shipping tape solid removed from installed reference.",
+  "vendor_sha256": "96c258bb7b65a58f296ebaf703d33036923168d55c4ea7a3810e1d6762ae888c",
+  "step_roundtrip": [
+    {
+      "part": "button_1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30.625816,
+      "bbox": [
+        6.9,
+        -28.1,
+        2.2,
+        13.1,
+        -21.9,
+        3.85
+      ]
+    },
+    {
+      "part": "button_2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30.625816,
+      "bbox": [
+        19.9,
+        -28.1,
+        2.2,
+        26.1,
+        -21.9,
+        3.85
+      ]
+    },
+    {
+      "part": "button_3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30.625816,
+      "bbox": [
+        32.9,
+        -28.1,
+        2.2,
+        39.1,
+        -21.9,
+        3.85
+      ]
+    },
+    {
+      "part": "button_4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30.625816,
+      "bbox": [
+        45.9,
+        -28.1,
+        2.2,
+        52.1,
+        -21.9,
+        3.85
+      ]
+    },
+    {
+      "part": "button_5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30.625816,
+      "bbox": [
+        58.9,
+        -28.1,
+        2.2,
+        65.1,
+        -21.9,
+        3.85
+      ]
+    },
+    {
+      "part": "lightpipe_1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.258429,
+      "bbox": [
+        14.0,
+        -22.0,
+        1.45,
+        16.0,
+        -20.0,
+        3.8
+      ]
+    },
+    {
+      "part": "lightpipe_2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.258429,
+      "bbox": [
+        33.7,
+        -21.7,
+        1.45,
+        35.7,
+        -19.7,
+        3.8
+      ]
+    },
+    {
+      "part": "lightpipe_3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.258429,
+      "bbox": [
+        54.0,
+        -22.0,
+        1.45,
+        56.0,
+        -20.0,
+        3.8
+      ]
+    },
+    {
+      "part": "upper_cover",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9818.488623,
+      "bbox": [
+        -1e-07,
+        -49.0000001,
+        -11.65,
+        148.0000001,
+        1e-07,
+        3.8000000999999997
+      ]
+    },
+    {
+      "part": "lower_cup",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6336.928845,
+      "bbox": [
+        35.5,
+        -47.0,
+        -20.9,
+        112.5,
+        -2.0,
+        0.0
+      ]
+    },
+    {
+      "part": "audio_load_frame",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 567.604,
+      "bbox": [
+        36.5,
+        -45.2,
+        -11.15,
+        111.5,
+        -27.25,
+        -1.2
+      ]
+    },
+    {
+      "part": "key_backer_bracket",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 277.672744,
+      "bbox": [
+        36.6,
+        -29.1,
+        -2.0,
+        66.6,
+        -21.3,
+        0.10000000000000009
+      ]
+    },
+    {
+      "part": "usb_bracket",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 112.836427,
+      "bbox": [
+        85.4,
+        -27.6,
+        -4.9,
+        110.6,
+        -4.4,
+        -4.3
+      ]
+    },
+    {
+      "part": "main_shim_0p05mm",
+      "valid": true,
+      "solids": 4,
+      "volume_mm3": 5.034,
+      "bbox": [
+        36.7,
+        -46.3,
+        -12.55,
+        111.3,
+        -3.2,
+        -12.5
+      ]
+    },
+    {
+      "part": "main_shim_0p1mm",
+      "valid": true,
+      "solids": 4,
+      "volume_mm3": 10.068,
+      "bbox": [
+        36.7,
+        -46.3,
+        -12.55,
+        111.3,
+        -3.2,
+        -12.45
+      ]
+    },
+    {
+      "part": "main_shim_0p2mm",
+      "valid": true,
+      "solids": 4,
+      "volume_mm3": 20.136,
+      "bbox": [
+        36.7,
+        -46.3,
+        -12.55,
+        111.3,
+        -3.2,
+        -12.35
+      ]
+    },
+    {
+      "part": "battery_bottom_insulator",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 179.4,
+      "bbox": [
+        40.0,
+        -41.75,
+        -20.3,
+        92.0,
+        -7.25,
+        -20.2
+      ]
+    },
+    {
+      "part": "main_audio_dielectric_separator",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 101.91,
+      "bbox": [
+        37.3,
+        -44.0,
+        -11.75,
+        110.7,
+        -30.0,
+        -11.65
+      ]
+    },
+    {
+      "part": "key_backer_insulator",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 19.6,
+      "bbox": [
+        7.0,
+        -28.5,
+        0.0,
+        35.0,
+        -21.5,
+        0.1
+      ]
+    },
+    {
+      "part": "speaker_backer_insulator",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 30.0,
+      "bbox": [
+        124.5,
+        -35.0,
+        0.0,
+        139.5,
+        -15.0,
+        0.1
+      ]
+    },
+    {
+      "part": "ntc_electrical_separator",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 0.888,
+      "bbox": [
+        92.0,
+        -15.5,
+        -19.9,
+        92.1,
+        -11.8,
+        -17.5
+      ]
+    },
+    {
+      "part": "battery_top_separator",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 188.15,
+      "bbox": [
+        39.5,
+        -42.25,
+        -13.8,
+        92.5,
+        -6.75,
+        -13.7
+      ]
+    },
+    {
+      "part": "battery_top_foam",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 915.2,
+      "bbox": [
+        42.0,
+        -39.8,
+        -14.8,
+        90.0,
+        -9.0,
+        -13.8
+      ]
+    }
+  ],
+  "reference_components": [
+    {
+      "name": "Kycon_vendor_1",
+      "file": "reference/components/Kycon_vendor_1.step",
+      "sha256": "8b3abe6179d7a62ca726e50dbffafc4323e22efde4b1039023b53be1a8c5bc3a",
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 663.0279244167184,
+      "bbox": [
+        42.6,
+        -41.5501,
+        -11.0501,
+        50.25,
+        -32.149899999999995,
+        3.8500000000000005
+      ],
+      "source": "official Kycon nominal CAD packaging removed"
+    },
+    {
+      "name": "Kycon_vendor_2",
+      "file": "reference/components/Kycon_vendor_2.step",
+      "sha256": "00dfbd609bd8246706a65f6af10dfe8956a63f974ed99c776f7bd3e2b07e6ebc",
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 663.0279244167191,
+      "bbox": [
+        60.9,
+        -41.5501,
+        -11.0501,
+        68.55,
+        -32.149899999999995,
+        3.8500000000000005
+      ],
+      "source": "official Kycon nominal CAD packaging removed"
+    },
+    {
+      "name": "Kycon_vendor_3",
+      "file": "reference/components/Kycon_vendor_3.step",
+      "sha256": "56c81c8e7b5109783e7c2c290547b9d5009f1d4ea6f55cad56eeb367c81a47bb",
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 663.0279244167189,
+      "bbox": [
+        79.19999999999999,
+        -41.5501,
+        -11.0501,
+        86.85,
+        -32.149899999999995,
+        3.8500000000000005
+      ],
+      "source": "official Kycon nominal CAD packaging removed"
+    },
+    {
+      "name": "Kycon_vendor_4",
+      "file": "reference/components/Kycon_vendor_4.step",
+      "sha256": "5e17829a582e6409a6f157bb0170bc03382408df3ed6ca1445e0672e4a1471d0",
+      "valid": true,
+      "solids": 2,
+      "volume_mm3": 663.0279244167187,
+      "bbox": [
+        97.5,
+        -41.5501,
+        -11.0501,
+        105.15,
+        -32.149899999999995,
+        3.8500000000000005
+      ],
+      "source": "official Kycon nominal CAD packaging removed"
+    },
+    {
+      "name": "battery_max_reference",
+      "file": "reference/components/battery_max_reference.step",
+      "sha256": "79f0279870c67398644e39b66abbcba8f5321f214a1354dfca71f5053cbfe756",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9687.6,
+      "bbox": [
+        40.0,
+        -41.75,
+        -20.2,
+        92.0,
+        -7.25,
+        -14.799999999999999
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "instrument_mount_land_INFERRED_REFERENCE",
+      "file": "reference/components/instrument_mount_land_INFERRED_REFERENCE.step",
+      "sha256": "5c629f7508e8d07283ea38b92909c1c98384813994dfc35e9846627a0acc3603",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 78892.00000000003,
+      "bbox": [
+        0.0,
+        -49.0,
+        -22.0,
+        148.0,
+        0.0,
+        0.0
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "main_reference",
+      "file": "reference/components/main_reference.step",
+      "sha256": "79a0dddbe0ee656a953f4bd53b253e0280e39278473a9a78a13f5fb9eb02213f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2509.155682384613,
+      "bbox": [
+        36.6999999,
+        -45.800000100000005,
+        -12.550000200000001,
+        111.30000009999999,
+        -3.1999999000000003,
+        -11.749999999999998
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "usb_reference",
+      "file": "reference/components/usb_reference.step",
+      "sha256": "d900071feb764394aafe2c57ee67f157ce1151c0ffe0d1fa726006989cb16c95",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 518.0966483932967,
+      "bbox": [
+        85.9999999,
+        -27.0000001,
+        -4.300000200000001,
+        110.0000001,
+        -4.9999999,
+        -3.299999999999999
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "RT1921_body_reference",
+      "file": "reference/components/RT1921_body_reference.step",
+      "sha256": "6f96c3d8ad79a3fd29d7020cac72ce6a3285acbe7a95e7d57f6999e66157f71d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 35.51999999999998,
+      "bbox": [
+        92.1,
+        -15.5,
+        -19.9,
+        96.1,
+        -11.8,
+        -17.5
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "speaker_working_nominal_reference",
+      "file": "reference/components/speaker_working_nominal_reference.step",
+      "sha256": "d653bfab9da116315fe971ec02d0a301f3ef9a3414c6cd488248fc3bed768e66",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 665.8794594300509,
+      "bbox": [
+        125.425,
+        -34.075,
+        0.5,
+        138.575,
+        -15.925000000000004,
+        3.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "wheel_1_max_reference",
+      "file": "reference/components/wheel_1_max_reference.step",
+      "sha256": "df25040f694cfd81da3c5fe0f21451da6ff0c66ca72405f563fbc28b78425513",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 320.60768566746134,
+      "bbox": [
+        7.9,
+        -17.1,
+        0.5,
+        22.1,
+        -2.9000000000000004,
+        3.0
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "wheel_2_max_reference",
+      "file": "reference/components/wheel_2_max_reference.step",
+      "sha256": "5879dc48235abfeb345b5243c507cf03b15d80f6c28b3c52df05a9d9fea4d6ec",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 320.60768566746134,
+      "bbox": [
+        27.9,
+        -17.1,
+        0.5,
+        42.1,
+        -2.9000000000000004,
+        3.0
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "wheel_3_max_reference",
+      "file": "reference/components/wheel_3_max_reference.step",
+      "sha256": "cd209d69b0a8b0d4ca186da1944dc0a640843245cae8a7a3881bbe7649d27b26",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 320.6076856674613,
+      "bbox": [
+        47.9,
+        -17.1,
+        0.5,
+        62.1,
+        -2.9000000000000004,
+        3.0
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "switch_1_max_reference",
+      "file": "reference/components/switch_1_max_reference.step",
+      "sha256": "6807f17138e3247065d3974deb5abec2dd4776c2f40d3f810f6f36e7a63b7154",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 44.616,
+      "bbox": [
+        7.4,
+        -27.599999999999998,
+        0.5,
+        12.600000000000001,
+        -22.4,
+        2.15
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "switch_2_max_reference",
+      "file": "reference/components/switch_2_max_reference.step",
+      "sha256": "023e05f0a1f2bc5a3b964c2ae28a42586304eedbc850060c7e972adbb8c6c2e1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 44.615999999999985,
+      "bbox": [
+        20.4,
+        -27.599999999999998,
+        0.5,
+        25.599999999999998,
+        -22.4,
+        2.15
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "switch_3_max_reference",
+      "file": "reference/components/switch_3_max_reference.step",
+      "sha256": "1f526573bac2d3f53e3d95477e34a297ea946ad1c4bf2244f43ed7218b8b0679",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 44.61600000000001,
+      "bbox": [
+        33.4,
+        -27.599999999999998,
+        0.5,
+        38.6,
+        -22.4,
+        2.15
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "switch_4_max_reference",
+      "file": "reference/components/switch_4_max_reference.step",
+      "sha256": "43915168d5ee147e96adff6c5da49382bd86a8e4b9194e89a97d4a249215b618",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 44.61600000000001,
+      "bbox": [
+        46.4,
+        -27.599999999999998,
+        0.5,
+        51.6,
+        -22.4,
+        2.15
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "switch_5_max_reference",
+      "file": "reference/components/switch_5_max_reference.step",
+      "sha256": "2042c44d9635b99e71a48cd266fe8a28e9c6ecd9757b981ade041bcff69f6088",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 44.61599999999997,
+      "bbox": [
+        59.4,
+        -27.599999999999998,
+        0.5,
+        64.6,
+        -22.4,
+        2.15
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "audio_native_reference",
+      "file": "reference/components/audio_native_reference.step",
+      "sha256": "3a269d4281e4b834918863a2c69bcb75d8077463da4b34cdb3c7356d611c1c2b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 806.4671314869262,
+      "bbox": [
+        37.299999899999996,
+        -44.0000001,
+        -10.650000200000001,
+        110.7000001,
+        -29.9999999,
+        -9.649999999999999
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "cover_native_reference",
+      "file": "reference/components/cover_native_reference.step",
+      "sha256": "4572839c378a906d1c75a48210273689bcaf6bb905591feea8c5a06b1cccbebf",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2252.702323519624,
+      "bbox": [
+        1.3999998999999999,
+        -47.6000001,
+        0.09999979999999985,
+        146.6000001,
+        -1.3999998999999985,
+        0.5
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U501",
+      "file": "reference/components/OCC_main_U501.step",
+      "sha256": "504c7bf2aa0f83d2d49d7711b6a956128685139ed0f00712b81a13788b32a493",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 16.645309999999945,
+      "bbox": [
+        95.055,
+        -11.945,
+        -11.75,
+        98.945,
+        -8.055,
+        -10.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_Q1201",
+      "file": "reference/components/OCC_main_Q1201.step",
+      "sha256": "d9b2c74b919de296c73ab332252fd797218c20adc1b22fdd6de0888f6ca6333f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 12.293840000000047,
+      "bbox": [
+        62.505,
+        -29.125,
+        -11.75,
+        65.89500000000001,
+        -25.275,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C503",
+      "file": "reference/components/OCC_main_C503.step",
+      "sha256": "e5d3ec33b4a0e9e40e9f51a24d0aef8fd24a9d7c30ec93245378b497381a3a91",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.7017299999999835,
+      "bbox": [
+        98.855,
+        -7.47,
+        -11.75,
+        102.145,
+        -5.53,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1105",
+      "file": "reference/components/OCC_main_C1105.step",
+      "sha256": "db7e8f48ad59861174f8a081ed6113b1f4f286636eb6a7917fc01002c38e0dc0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999987,
+      "bbox": [
+        100.03,
+        -23.895,
+        -11.75,
+        101.97,
+        -20.605,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C104",
+      "file": "reference/components/OCC_main_C104.step",
+      "sha256": "62ebad75bd0c28e4df5c20d24b0b70a548b3f5c9003ec360ded51fc0e417298b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999975,
+      "bbox": [
+        45.80500000000001,
+        -6.67,
+        -11.75,
+        49.095,
+        -4.73,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1101",
+      "file": "reference/components/OCC_main_C1101.step",
+      "sha256": "f80428e1518265e28833f9de4f813e6939fdc01c119a40fd08ceafa3b7f2481d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000105,
+      "bbox": [
+        93.105,
+        -18.695,
+        -11.75,
+        95.89500000000001,
+        -17.305,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U101",
+      "file": "reference/components/OCC_main_U101.step",
+      "sha256": "f2aeb41e061ec293643ffd817714f60db7b0a2152e0c4dbb3357208c29326351",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 55.59722999999998,
+      "bbox": [
+        52.755,
+        -12.594999999999999,
+        -11.75,
+        60.545,
+        -7.105,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1301",
+      "file": "reference/components/OCC_main_U1301.step",
+      "sha256": "0f9d68a925f2c42add29d8ba8258776f056486f627f5b85271a3721753658db2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 16.880630000000018,
+      "bbox": [
+        102.955,
+        -27.695,
+        -11.75,
+        107.045,
+        -24.305,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1001",
+      "file": "reference/components/OCC_main_C1001.step",
+      "sha256": "74f26a4d1db02009e4bd6fa72ed9edab35040d0c5851e1833a6e21e4e9a12f81",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.393711999999995,
+      "bbox": [
+        103.93,
+        -13.170000000000002,
+        -11.75,
+        106.97,
+        -11.68,
+        -10.78
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1108",
+      "file": "reference/components/OCC_main_C1108.step",
+      "sha256": "45b6007d32cca36719fd3d507be784386db2f102bf1d4e94d9d16d83115a69a8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000004,
+      "bbox": [
+        96.005,
+        -22.845,
+        -11.75,
+        97.39500000000001,
+        -20.055,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C605",
+      "file": "reference/components/OCC_main_C605.step",
+      "sha256": "8cce012e464d52a6122b28f664a3e67e3e0155642e1f0ba8f9243bf36ba1458a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701729999999995,
+      "bbox": [
+        41.355000000000004,
+        -9.469999999999999,
+        -11.75,
+        44.645,
+        -7.53,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_Y801",
+      "file": "reference/components/OCC_main_Y801.step",
+      "sha256": "eb956ffa639640fc448d2cbdca82416cb4239b82a52eba2dd71ae8ba676f97a4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 12.11049000000001,
+      "bbox": [
+        54.455,
+        -16.145,
+        -11.75,
+        58.545,
+        -12.855,
+        -10.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C306",
+      "file": "reference/components/OCC_main_C306.step",
+      "sha256": "4964498538816e5a4674c401b8560e7a9072f576c3784f8ea9fd2f1861b64b69",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893030000000028,
+      "bbox": [
+        54.655,
+        -28.97,
+        -11.75,
+        57.94500000000001,
+        -27.029999999999998,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_L1101",
+      "file": "reference/components/OCC_main_L1101.step",
+      "sha256": "ea16a05cc54002e2096938fe87e18e447d7809f78975b56542bd7ddb75843ee9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 50.793159999999915,
+      "bbox": [
+        100.105,
+        -20.41,
+        -11.75,
+        104.895,
+        -15.59,
+        -9.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1003",
+      "file": "reference/components/OCC_main_C1003.step",
+      "sha256": "2471172f8246f5eea9f173d128c644bf52126dbac12a6c5e03b33a3c27529125",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87809999999999,
+      "bbox": [
+        103.18,
+        -6.82,
+        -11.75,
+        105.97,
+        -5.43,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R810",
+      "file": "reference/components/OCC_main_R810.step",
+      "sha256": "3ede422f33b49ffeb5652b42cb6a9c30483b17c8a53012818e992b68f319bc08",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.78037499999999,
+      "bbox": [
+        78.525,
+        -7.7250000000000005,
+        -11.75,
+        81.475,
+        -6.275,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_H_AUDIO_2_M",
+      "file": "reference/components/OCC_main_H_AUDIO_2_M.step",
+      "sha256": "c04ef45610f4a494417b4adacac52d957a4925b8ec8ccffdc8125932ccf83b9f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10.035150000000034,
+      "bbox": [
+        78.255,
+        -25.245,
+        -11.75,
+        82.745,
+        -23.755,
+        -10.25
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C820",
+      "file": "reference/components/OCC_main_C820.step",
+      "sha256": "774e6d7c3db274654be806ffb03d336785e4d22815ea36a93d6ce1841f5cca73",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.393711999999944,
+      "bbox": [
+        69.70500000000001,
+        -7.22,
+        -13.520000000000001,
+        71.195,
+        -4.18,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C832",
+      "file": "reference/components/OCC_main_C832.step",
+      "sha256": "39c397acc25b6a42c25772e77922a32654437ca5ae38a25ab582e7dbb96318a3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 20.18864000000007,
+      "bbox": [
+        85.38,
+        -6.095000000000001,
+        -11.75,
+        90.02000000000001,
+        -3.805,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C101",
+      "file": "reference/components/OCC_main_C101.step",
+      "sha256": "a7784afc044ee7816f92491ea1b1fb9f939713e90f989a590d6a43f3585de589",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 20.188640000000014,
+      "bbox": [
+        56.255,
+        -7.095000000000001,
+        -11.75,
+        60.895,
+        -4.805,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C502",
+      "file": "reference/components/OCC_main_C502.step",
+      "sha256": "d278bf539760ecaaa012dbdf6a7cbc68c5103b34e70cbae3bc887b8fe82ba938",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701730000000012,
+      "bbox": [
+        91.855,
+        -7.47,
+        -11.75,
+        95.14500000000001,
+        -5.53,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1303",
+      "file": "reference/components/OCC_main_C1303.step",
+      "sha256": "af92ab090878d37388ec88735f69bcd9cd117a3b31e1e79f773b902e0c7be09a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 83.72929499999991,
+      "bbox": [
+        87.43,
+        -28.82,
+        -11.75,
+        94.72,
+        -22.93,
+        -9.8
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U601",
+      "file": "reference/components/OCC_main_U601.step",
+      "sha256": "992b30ad53fb8724f34dc5e3d796a2c2d8b3b09d20569a667b0e187897a2714b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 83.95282999999992,
+      "bbox": [
+        44.80500000000001,
+        -15.145,
+        -11.75,
+        52.595,
+        -6.855,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C302",
+      "file": "reference/components/OCC_main_C302.step",
+      "sha256": "9325dbcc35a34facbb5cb4a8e2999ea1a9263749d0486af31c9f401b1e7adf09",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999989,
+      "bbox": [
+        42.480000000000004,
+        -25.345,
+        -11.75,
+        44.42,
+        -22.055,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1001",
+      "file": "reference/components/OCC_main_R1001.step",
+      "sha256": "fbfc91beea9aa0cbee1baf87ce2db40eb556dc2c976e9cb109a2966152b9467c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        102.93,
+        -8.379999999999999,
+        -11.75,
+        105.88000000000001,
+        -6.93,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1002",
+      "file": "reference/components/OCC_main_C1002.step",
+      "sha256": "25d71000168ee52ca0130c7abe16e358450c4f2c4484e91bb133e699265e8112",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87809999999999,
+      "bbox": [
+        106.18,
+        -7.07,
+        -11.75,
+        108.97,
+        -5.68,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C303",
+      "file": "reference/components/OCC_main_C303.step",
+      "sha256": "b9cb3e20a04bb29a26605cf19ac4f722b1200fe0454261269c601747d4be91ba",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10.246275000000017,
+      "bbox": [
+        58.225,
+        -26.195,
+        -11.75,
+        60.175000000000004,
+        -22.805,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1301",
+      "file": "reference/components/OCC_main_R1301.step",
+      "sha256": "3ed9f5cd206d897d1b962148b2bf173e488e1917efca09762dccdaae20b1d553",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        102.18,
+        -22.13,
+        -11.75,
+        105.13000000000001,
+        -20.68,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C603",
+      "file": "reference/components/OCC_main_C603.step",
+      "sha256": "ac6d8398c4051c1404a7ea5a9ddf6643b5e9b3b8fbffcae51902efb124fd8799",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701729999999991,
+      "bbox": [
+        48.18000000000001,
+        -17.37,
+        -11.75,
+        51.47,
+        -15.43,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C202",
+      "file": "reference/components/OCC_main_C202.step",
+      "sha256": "8bd8418f4131810da6cad3e175e0a6fd6cf02720f43ab28223b46737e0a4814d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999975,
+      "bbox": [
+        49.30500000000001,
+        -6.67,
+        -11.75,
+        52.595,
+        -4.73,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C222",
+      "file": "reference/components/OCC_main_C222.step",
+      "sha256": "4be495cad8148459b0182166d5a60f0e9f2af877c05c2bad1ca14fe3bf1ab17f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999989,
+      "bbox": [
+        79.23,
+        -28.845,
+        -11.75,
+        81.17,
+        -25.555,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_Q1601",
+      "file": "reference/components/OCC_main_Q1601.step",
+      "sha256": "a88affdebd787ef5d9b95fb80a053c97305b3215a6d10a347840a1dbe41bb24e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 12.293839999999978,
+      "bbox": [
+        105.075,
+        -19.695,
+        -11.75,
+        108.925,
+        -16.305,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_J901",
+      "file": "reference/components/OCC_main_J901.step",
+      "sha256": "9a93e6374b5d23019d0a6d5284e2985628e7f6d5a78017bf1eba3a82f56c071d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.682649999999958,
+      "bbox": [
+        85.20500000000001,
+        -7.695,
+        -11.75,
+        88.195,
+        -6.205,
+        -10.25
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C305",
+      "file": "reference/components/OCC_main_C305.step",
+      "sha256": "28cd49ea88987cd73e6a4eedf6022c2c20f34b526bcda37bc6e8a73112fc638e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893030000000028,
+      "bbox": [
+        51.155,
+        -28.97,
+        -11.75,
+        54.44500000000001,
+        -27.029999999999998,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1001",
+      "file": "reference/components/OCC_main_U1001.step",
+      "sha256": "5172385b59cd36a6ad6dc4218f970b288b51c06d42e09dd41946ca0f4cb6e669",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.187310000000004,
+      "bbox": [
+        101.555,
+        -11.445,
+        -11.75,
+        104.44500000000001,
+        -8.555,
+        -10.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C607",
+      "file": "reference/components/OCC_main_C607.step",
+      "sha256": "5a3d6848bc8382f20af43ed5543fd4a3fcc0c9bf3ab3f992d8d26e3d05b3d720",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701729999999991,
+      "bbox": [
+        41.18000000000001,
+        -13.370000000000001,
+        -11.75,
+        44.47,
+        -11.43,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1302",
+      "file": "reference/components/OCC_main_C1302.step",
+      "sha256": "24727d10649bf135d28888c21d069b3586af568380d78e851a10f709e7dc4d55",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 20.188639999999996,
+      "bbox": [
+        99.18,
+        -15.469999999999999,
+        -11.75,
+        103.82000000000001,
+        -13.18,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C812",
+      "file": "reference/components/OCC_main_C812.step",
+      "sha256": "bac659f615c91e1c936212d85f2bb1b0eb940ffa618e1c25aed2e8b2280db763",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.3937120000000265,
+      "bbox": [
+        58.955,
+        -16.02,
+        -11.75,
+        60.44500000000001,
+        -12.98,
+        -10.78
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1702",
+      "file": "reference/components/OCC_main_U1702.step",
+      "sha256": "f34e2d23e8a987292c97a9554b74f893d9ff74a8965955aa814cdd8bf06feaeb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 52.33552999999995,
+      "bbox": [
+        38.705000000000005,
+        -21.294999999999998,
+        -11.75,
+        44.195,
+        -13.605,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1201",
+      "file": "reference/components/OCC_main_K1201.step",
+      "sha256": "e96f2032b82e6a4cc53011fa101037e5cd8582037b4a39e083c38cb7035b04c1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.413749999999986,
+      "bbox": [
+        38.725,
+        -28.825,
+        -11.75,
+        44.475,
+        -25.675,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1207",
+      "file": "reference/components/OCC_main_K1207.step",
+      "sha256": "a23af4950fbaa295b6e36a2754aa0318a215ea5ec4e36668aa0784a46125423e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.413749999999986,
+      "bbox": [
+        81.43,
+        -28.83,
+        -11.75,
+        87.18,
+        -25.68,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C830",
+      "file": "reference/components/OCC_main_C830.step",
+      "sha256": "c54e6d64855951577290cae0a3c88e4466b780f629d151908f0ff5ce06b83656",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 20.18864000000007,
+      "bbox": [
+        80.63,
+        -6.095000000000001,
+        -11.75,
+        85.27000000000001,
+        -3.805,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C501",
+      "file": "reference/components/OCC_main_C501.step",
+      "sha256": "a7383228ff3afbee0022bc029a7ae0e587e66f37fe2a9825966db88d1e89e10d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893030000000019,
+      "bbox": [
+        95.355,
+        -7.47,
+        -11.75,
+        98.64500000000001,
+        -5.53,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C604",
+      "file": "reference/components/OCC_main_C604.step",
+      "sha256": "e6cfb3308e5d4dbff0ebfc2b981d36fb91786949609542934ccebcb19a03a425",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        41.605000000000004,
+        -7.195,
+        -11.75,
+        44.395,
+        -5.805,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1107",
+      "file": "reference/components/OCC_main_C1107.step",
+      "sha256": "7e3bb679f63f5b702c2bb56098eb80c718a9c4085e7977fa1810420aebd4a7ce",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000105,
+      "bbox": [
+        93.105,
+        -22.695,
+        -11.75,
+        95.89500000000001,
+        -21.305,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C806",
+      "file": "reference/components/OCC_main_C806.step",
+      "sha256": "631c7581419f8759663d96fe6a36389ff8ab38d57087909ef219ce51f1dd0476",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893030000000019,
+      "bbox": [
+        64.355,
+        -7.47,
+        -11.75,
+        67.64500000000001,
+        -5.53,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1103",
+      "file": "reference/components/OCC_main_C1103.step",
+      "sha256": "26e5169029b3927dc33d52df9cb8d9155b33b89bc886ef69a14893420f5a62d1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87809999999999,
+      "bbox": [
+        96.305,
+        -15.495000000000001,
+        -11.75,
+        99.095,
+        -14.105,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1703",
+      "file": "reference/components/OCC_main_C1703.step",
+      "sha256": "7177cb29033f3472763b378c60cb6de3488d5bb8f21ce80ee675e19ce7d80480",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529599999999989,
+      "bbox": [
+        52.93000000000001,
+        -6.92,
+        -11.75,
+        55.97,
+        -5.43,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1701",
+      "file": "reference/components/OCC_main_U1701.step",
+      "sha256": "632173ac8f36fd4d2b13da97a5c51d375736359bee47885ea9a5b189449958a5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 25.837630000000004,
+      "bbox": [
+        44.855000000000004,
+        -28.195,
+        -11.75,
+        51.045,
+        -24.705,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C713",
+      "file": "reference/components/OCC_main_C713.step",
+      "sha256": "1203dca5020703c2fa356064ce5615237ea2d9d3cde75e247267be6a24a08744",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701729999999991,
+      "bbox": [
+        44.68000000000001,
+        -17.37,
+        -11.75,
+        47.97,
+        -15.43,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1204",
+      "file": "reference/components/OCC_main_K1204.step",
+      "sha256": "ca4a7e4fbfefdf63cb57801ea1e33be8fd12550cb3c4c9007d6ee956a68b1477",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.413749999999986,
+      "bbox": [
+        66.125,
+        -28.825,
+        -11.75,
+        71.875,
+        -25.675,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U902",
+      "file": "reference/components/OCC_main_U902.step",
+      "sha256": "aa730d56e3e6374b83deaa0f97eb7fc4b4f0ace6a82827f50bbd0c6f8a9317d7",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 15.425639999999955,
+      "bbox": [
+        94.93,
+        -28.07,
+        -11.75,
+        99.07,
+        -23.93,
+        -10.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1205",
+      "file": "reference/components/OCC_main_K1205.step",
+      "sha256": "972fa7e84ed57eb3d64121164a55aa455ee8d9e77e806a4daf5da8f03ed7667b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.413749999999986,
+      "bbox": [
+        73.125,
+        -28.825,
+        -11.75,
+        78.875,
+        -25.675,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1301",
+      "file": "reference/components/OCC_main_C1301.step",
+      "sha256": "ca19bae462aff55790e85eb6330b362fbd7a363d4c91567c24499087cb7d8366",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87809999999999,
+      "bbox": [
+        103.605,
+        -23.695,
+        -11.75,
+        106.395,
+        -22.305,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1701",
+      "file": "reference/components/OCC_main_C1701.step",
+      "sha256": "eeb0112830e7bb9e0ab29983368522a7af58df2c9a1388228ebc1e21d3f2cc5a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529599999999989,
+      "bbox": [
+        41.43000000000001,
+        -11.17,
+        -11.75,
+        44.47,
+        -9.68,
+        -10.75
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U701",
+      "file": "reference/components/OCC_main_U701.step",
+      "sha256": "4ff972cbc27a9c7c50bc1ed551a2328a6524db17ffdbb63fb83e9b66def5c56e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 70.78772999999995,
+      "bbox": [
+        44.80500000000001,
+        -24.495,
+        -11.75,
+        52.595,
+        -17.505,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1102",
+      "file": "reference/components/OCC_main_C1102.step",
+      "sha256": "ee7ecff3ce10aa94f20fb06431621deedb6894ab17d5871e5b0e9a1c4fc64988",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.941025000000012,
+      "bbox": [
+        93.824999,
+        -16.195,
+        -11.75,
+        95.77499900000001,
+        -12.805,
+        -10.7
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R905",
+      "file": "reference/components/OCC_main_R905.step",
+      "sha256": "b24212625b80dc00a2038c54f4b9b280214592aaa93bdd2f727762106d5bf01c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        84.18,
+        -25.38,
+        -11.75,
+        87.13,
+        -23.93,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C813",
+      "file": "reference/components/OCC_main_C813.step",
+      "sha256": "6997a92ad410938291f8b8d2a545938b640be7d8f95eac2658b798ff2dc74e48",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.393712000000006,
+      "bbox": [
+        52.755,
+        -16.02,
+        -11.75,
+        54.245000000000005,
+        -12.98,
+        -10.78
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C232",
+      "file": "reference/components/OCC_main_C232.step",
+      "sha256": "54d8b2a0bbad22d65cfa6a24dabe024c451ce33371eaf0ac7289b1e5ff05773e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999989,
+      "bbox": [
+        37.980000000000004,
+        -25.095,
+        -11.75,
+        39.92,
+        -21.805,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U201",
+      "file": "reference/components/OCC_main_U201.step",
+      "sha256": "8c76b19748627d0419e48d6f90fa47aeaed8a6b808f6afba34adb3dce9989b4f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 55.59722999999998,
+      "bbox": [
+        52.755,
+        -21.895,
+        -11.75,
+        60.545,
+        -16.405,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C822",
+      "file": "reference/components/OCC_main_C822.step",
+      "sha256": "83f80f3eea8767ee160b1ead5b557bd2ce244e05480332ede92bea2bf170c8b4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529599999999942,
+      "bbox": [
+        71.95500000000001,
+        -7.22,
+        -13.55,
+        73.445,
+        -4.18,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R817",
+      "file": "reference/components/OCC_main_R817.step",
+      "sha256": "3655a0688420f424e5245038e492d674f32907d0e6aeb9ac6cf4f8dbbded0047",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        80.93,
+        -23.63,
+        -11.75,
+        83.88,
+        -22.18,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R851",
+      "file": "reference/components/OCC_main_R851.step",
+      "sha256": "491c446b9026be83b456a01318f89e2ce80b57106ca49ed962bd5cfc71c7deb1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999989,
+      "bbox": [
+        84.18,
+        -23.63,
+        -11.75,
+        87.13,
+        -22.18,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U801",
+      "file": "reference/components/OCC_main_U801.step",
+      "sha256": "81a86c589e15a20819b0b85357e832fc0b829b18bfa33b476ee65299a5eb9d43",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 371.37997000000007,
+      "bbox": [
+        60.675000000000004,
+        -25.025,
+        -11.75,
+        78.125,
+        -7.575,
+        -10.45
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C201",
+      "file": "reference/components/OCC_main_C201.step",
+      "sha256": "e45fc51a983b6a9fc5e884d1ce9b2426265cd4e193368d75dc8f0f5cebaddd67",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999989,
+      "bbox": [
+        40.230000000000004,
+        -24.845,
+        -11.75,
+        42.17,
+        -21.555,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1206",
+      "file": "reference/components/OCC_main_K1206.step",
+      "sha256": "ab7099865b0dda5f325609c59555e127acd944b60ebbde0b8ef7ea680557fdda",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.41374999999991,
+      "bbox": [
+        99.275,
+        -29.875,
+        -11.75,
+        102.425,
+        -24.125,
+        -9.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U301",
+      "file": "reference/components/OCC_main_U301.step",
+      "sha256": "851b41fc37552f8127449b17425914e94c6048a479c38af76227b796b72257ef",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 13.618890000000006,
+      "bbox": [
+        54.05500000000001,
+        -26.445,
+        -11.75,
+        57.94500000000001,
+        -22.555,
+        -10.85
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C304",
+      "file": "reference/components/OCC_main_C304.step",
+      "sha256": "620cb3598637ec1cce14b922ab5602b79fbee009776898673c66d01d2e64a8d4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10.246275,
+      "bbox": [
+        58.105000000000004,
+        -28.974999999999998,
+        -11.75,
+        61.495000000000005,
+        -27.025,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R820",
+      "file": "reference/components/OCC_main_R820.step",
+      "sha256": "c6c181e7a79dd176cfbf50e2c8253e05112bb62007faba2b808730d0660f136b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.78037499999999,
+      "bbox": [
+        82.025,
+        -7.7250000000000005,
+        -11.75,
+        84.975,
+        -6.275,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1104",
+      "file": "reference/components/OCC_main_C1104.step",
+      "sha256": "ec9fae30cd890a97ababb8bbf23f1415a5155f0436e0f9639501fedb47b3169c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999989,
+      "bbox": [
+        97.80499900000001,
+        -23.395,
+        -11.75,
+        99.744999,
+        -20.105,
+        -10.2
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1002",
+      "file": "reference/components/OCC_main_R1002.step",
+      "sha256": "2d0b7357be79893c29cceba108b37b81d545c2554eb0230b64107e8cc906c401",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        104.68,
+        -11.379999999999999,
+        -11.75,
+        107.63000000000001,
+        -9.93,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R501",
+      "file": "reference/components/OCC_main_R501.step",
+      "sha256": "023540781fcce0f4598203b7cc26a688f45097d1355ed878d3111a8120705b2c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.78037499999999,
+      "bbox": [
+        88.525,
+        -7.7250000000000005,
+        -11.75,
+        91.475,
+        -6.275,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1003",
+      "file": "reference/components/OCC_main_R1003.step",
+      "sha256": "76c81b424cd2b97bd7da0bea283971a78b061270bdc036d724b4233572325736",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000005,
+      "bbox": [
+        106.025,
+        -8.725000000000001,
+        -11.75,
+        108.97500000000001,
+        -7.275,
+        -11.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1101",
+      "file": "reference/components/OCC_main_U1101.step",
+      "sha256": "19f7a5949805182d64155c2ad652bcd1d8a050c2ce6bd5740f0403206c104f63",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 15.361609999999956,
+      "bbox": [
+        96.20500000000001,
+        -19.945,
+        -11.75,
+        99.795,
+        -16.055,
+        -10.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R211",
+      "file": "reference/components/OCC_main_R211.step",
+      "sha256": "a8346dcff5438bfc10681aa675d178098897c99076a48df2ce5f0fafae849f9a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999816,
+      "bbox": [
+        65.025,
+        -36.725,
+        -13.200000000000001,
+        67.975,
+        -35.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1922",
+      "file": "reference/components/OCC_main_R1922.step",
+      "sha256": "a122cf54e99fc7659967deaf7f0befb8b51932a1629b7197cdbebff39324db27",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277499999999971,
+      "bbox": [
+        89.525,
+        -39.725,
+        -13.55,
+        92.475,
+        -38.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R831",
+      "file": "reference/components/OCC_main_R831.step",
+      "sha256": "c4ca88dcd16700a74491d7b39163221632ab5fbbfd65c8c72c22da424cef80ae",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        78.025,
+        -31.724999999999998,
+        -13.200000000000001,
+        80.975,
+        -30.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R212",
+      "file": "reference/components/OCC_main_R212.step",
+      "sha256": "27ca8f47d0d1618df954a2091d2d13a39ecbbf2da722892d02c5e78f587ded7f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        58.025000000000006,
+        -39.225,
+        -13.200000000000001,
+        60.975,
+        -37.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1904",
+      "file": "reference/components/OCC_main_C1904.step",
+      "sha256": "4cfe65248c3884173016b816f55e83613fde13bea7748e0a957aca1a892f6e9c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        40.605000000000004,
+        -41.695,
+        -13.55,
+        43.395,
+        -40.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R602",
+      "file": "reference/components/OCC_main_R602.step",
+      "sha256": "934d2ea68c6bbf2141a790fba82ce1ac7c993eeb1e34597a589ea31b2d795a9d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        40.525000000000006,
+        -37.725,
+        -13.200000000000001,
+        43.475,
+        -36.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1802",
+      "file": "reference/components/OCC_main_R1802.step",
+      "sha256": "93ca5f70bf48f424452e71d9131600a499f1d92b945fc3ff8c2e85d9aa3f80d4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        47.525000000000006,
+        -36.725,
+        -13.200000000000001,
+        50.475,
+        -35.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R302",
+      "file": "reference/components/OCC_main_R302.step",
+      "sha256": "edab582aec16fbc8fec66af525b1b9a0619bb9a41a2d61f7a56ad1b59b448de5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        58.025000000000006,
+        -41.225,
+        -13.200000000000001,
+        60.975,
+        -39.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1203",
+      "file": "reference/components/OCC_main_D1203.step",
+      "sha256": "5ec02330a0933fe024472ffc1caa6dfdabcce39329d84b3315f63a0c17bdddc8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281050000000021,
+      "bbox": [
+        65.705,
+        -25.145,
+        -13.100000000000001,
+        67.295,
+        -23.855,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R222",
+      "file": "reference/components/OCC_main_R222.step",
+      "sha256": "d2346b7c8fa69ba5322bd68c888cd8b52c12594f270a300ced4d3b165ed2077c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        51.025000000000006,
+        -39.225,
+        -13.200000000000001,
+        53.975,
+        -37.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1701",
+      "file": "reference/components/OCC_main_R1701.step",
+      "sha256": "592bde53f7d6eafbb56b6cf126b84a65867d9da848e58915601d08243e7b2415",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        47.025000000000006,
+        -30.724999999999998,
+        -13.200000000000001,
+        49.975,
+        -29.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R504",
+      "file": "reference/components/OCC_main_R504.step",
+      "sha256": "7a243b3ee8cde1210c276c104b9b7024ac2fe86002cf243daca2c2c32f037bbf",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999914,
+      "bbox": [
+        88.525,
+        -10.725000000000001,
+        -13.200000000000001,
+        91.475,
+        -9.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1602",
+      "file": "reference/components/OCC_main_R1602.step",
+      "sha256": "cf945a31dacc6a7677c65035642fada9e907d0d35229ecc5ba99eb7efd45d128",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000034,
+      "bbox": [
+        98.725,
+        -9.425,
+        -13.200000000000001,
+        100.17500000000001,
+        -6.475,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1901",
+      "file": "reference/components/OCC_main_U1901.step",
+      "sha256": "fcf9e3ae812c0f795ea90cb9030e0c67faafe54d66aa6f321c755f9d51dac5d7",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 22.990530000000007,
+      "bbox": [
+        95.905,
+        -34.77,
+        -14.100000000000001,
+        100.095,
+        -31.23,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C802",
+      "file": "reference/components/OCC_main_C802.step",
+      "sha256": "1d862dea42d8b2183cfa1c5ea3795f1d959f625af578755f01adf5bfd78edfe3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000097,
+      "bbox": [
+        68.105,
+        -13.195,
+        -13.55,
+        70.89500000000001,
+        -11.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1706",
+      "file": "reference/components/OCC_main_C1706.step",
+      "sha256": "e3944af14da78737e215c6525ef52d62cae75f1bc4f7cc485a1f2f5e1bdc6c07",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000015,
+      "bbox": [
+        63.980000000000004,
+        -19.245,
+        -13.55,
+        67.02000000000001,
+        -17.755,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R104",
+      "file": "reference/components/OCC_main_R104.step",
+      "sha256": "d75dad82143534a5400689b0a7c22cb1e852a13bee5573ef25e844af8a5843fb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        38.525000000000006,
+        -16.725,
+        -13.200000000000001,
+        41.475,
+        -15.274999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R816",
+      "file": "reference/components/OCC_main_R816.step",
+      "sha256": "0d932a3951684f77b2f66e90b238eb70672f3c2a05e8c14284f94d21041d37a1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        82.525,
+        -21.724999999999998,
+        -13.200000000000001,
+        85.475,
+        -20.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_J902",
+      "file": "reference/components/OCC_main_J902.step",
+      "sha256": "3fe444e85138e4edeefc43220822517c3d4ac202da3c2555fd13e9eb11031c21",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 0.6697550000000049,
+      "bbox": [
+        81.505,
+        -15.745000000000001,
+        -12.600000000000001,
+        90.495,
+        -14.254999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1301",
+      "file": "reference/components/OCC_main_D1301.step",
+      "sha256": "ed606964da80a0f21ece007debb985a557bceb9a2a3f861d89cab1b0856a393b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11.34815999999998,
+      "bbox": [
+        104.075,
+        -33.695,
+        -13.75,
+        107.925,
+        -30.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C825",
+      "file": "reference/components/OCC_main_C825.step",
+      "sha256": "1475c62bf8a6b112ae7e284b622f6a8a1dcaa9667df44e0dcc42853f03c9ef31",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529599999999989,
+      "bbox": [
+        71.43,
+        -9.67,
+        -13.55,
+        74.47,
+        -8.18,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1711",
+      "file": "reference/components/OCC_main_C1711.step",
+      "sha256": "5b4d269de0cee722a47bfdc1c15faf06b644693b0205aa30418112477373604e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000001,
+      "bbox": [
+        63.105000000000004,
+        -23.695,
+        -13.55,
+        65.89500000000001,
+        -22.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C902",
+      "file": "reference/components/OCC_main_C902.step",
+      "sha256": "8f19ae92ad2cb1e7ea5bb08c1e7ae7a63d12fa8283d265a9a21f426c9638aada",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87809999999999,
+      "bbox": [
+        81.43,
+        -13.57,
+        -13.55,
+        84.22,
+        -12.18,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R102",
+      "file": "reference/components/OCC_main_R102.step",
+      "sha256": "23bdc6424a077da98339a07f21b6d23cc78cd378ebf4b28b946bbe92124c2210",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        41.525000000000006,
+        -14.725000000000001,
+        -13.200000000000001,
+        44.475,
+        -13.274999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R813",
+      "file": "reference/components/OCC_main_R813.step",
+      "sha256": "a6ec181a77ba3319610f131a69045c11a19ed2577a8e9e6e7d7b9d97b3b886bd",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999865,
+      "bbox": [
+        82.68,
+        -9.379999999999999,
+        -13.200000000000001,
+        85.63,
+        -7.930000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C712",
+      "file": "reference/components/OCC_main_C712.step",
+      "sha256": "4c2fced9151a84b81e841f9b60fa282cdcc21d8f82bdd5711893a51a7e320e10",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        43.605000000000004,
+        -28.195,
+        -13.55,
+        46.395,
+        -26.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C804",
+      "file": "reference/components/OCC_main_C804.step",
+      "sha256": "cf449947d0049800300823560aebd6133b4fb8a0f97df6f43a8153172af87d10",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000097,
+      "bbox": [
+        64.605,
+        -13.195,
+        -13.55,
+        67.39500000000001,
+        -11.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C803",
+      "file": "reference/components/OCC_main_C803.step",
+      "sha256": "db6c0805204ab512f1140355002ba63331ea9513a069937474c07275beffd5e7",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000001,
+      "bbox": [
+        71.605,
+        -15.195,
+        -13.55,
+        74.39500000000001,
+        -13.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1210",
+      "file": "reference/components/OCC_main_R1210.step",
+      "sha256": "d56f534e530abfb259fe9b2bd251f8898bb465935f04acbd6c9f1ae02438ff53",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        64.025,
+        -34.725,
+        -13.200000000000001,
+        66.975,
+        -33.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C111",
+      "file": "reference/components/OCC_main_C111.step",
+      "sha256": "3d185c250cb498fccc6ebf0f8ee8ac7fc04a4572f6f54791f615a9fa65663f81",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999975,
+      "bbox": [
+        45.80500000000001,
+        -6.42,
+        -14.100000000000001,
+        49.095,
+        -4.48,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1912",
+      "file": "reference/components/OCC_main_R1912.step",
+      "sha256": "16d69453dfd9902e0ce370240972ad4c4ce0feff40d87a7a756700a1dcde7021",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277500000000034,
+      "bbox": [
+        92.475,
+        -35.675000000000004,
+        -13.55,
+        95.42500000000001,
+        -34.225,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C606",
+      "file": "reference/components/OCC_main_C606.step",
+      "sha256": "ecaa651170d41b7d0699282b00da31622dcfe534f1564b1483df21b1734953da",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        42.105000000000004,
+        -12.695,
+        -13.55,
+        44.895,
+        -11.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R801",
+      "file": "reference/components/OCC_main_R801.step",
+      "sha256": "501fb363b8f6e9f9743e2a7433404d9579bee2af0dc84361bf7e6933644b903d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        79.43,
+        -11.629999999999999,
+        -13.200000000000001,
+        82.38,
+        -10.18,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1922",
+      "file": "reference/components/OCC_main_C1922.step",
+      "sha256": "a6a9769e08b32b1c9d9d9d99dc2c512500699f8764d46efc308d0d75410e2df9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000001,
+      "bbox": [
+        76.605,
+        -39.695,
+        -13.55,
+        79.39500000000001,
+        -38.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1205",
+      "file": "reference/components/OCC_main_D1205.step",
+      "sha256": "5f990e524bedbe7cd5b5805a95b70cf8eaaeebbaafa17cc6d6a6b24b78f8104a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281050000000021,
+      "bbox": [
+        63.205,
+        -27.645,
+        -13.100000000000001,
+        64.795,
+        -26.355,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1303",
+      "file": "reference/components/OCC_main_R1303.step",
+      "sha256": "d644bdde523f6867ffe6a127400a51d5ee460afb958aba08480f42ca40409eac",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.2774999999999705,
+      "bbox": [
+        100.72500000000001,
+        -39.675000000000004,
+        -13.55,
+        102.175,
+        -36.725,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C211",
+      "file": "reference/components/OCC_main_C211.step",
+      "sha256": "72db04892454ac55025b7610eee41543dd90dce949f90da9b304e34ad06c6864",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701730000000004,
+      "bbox": [
+        50.855000000000004,
+        -21.97,
+        -13.600000000000001,
+        54.145,
+        -20.029999999999998,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1103",
+      "file": "reference/components/OCC_main_R1103.step",
+      "sha256": "a1723ef2a721f861b8fe9edffcb9c34165bdfcb67db56669e6604221e5665933",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        103.97500000000001,
+        -17.525,
+        -13.200000000000001,
+        106.925,
+        -16.075,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R803",
+      "file": "reference/components/OCC_main_R803.step",
+      "sha256": "e560644b79ffc46c73c951f4199bbd5603440e953c2e7f8c61e1594fb883ca0d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        79.025,
+        -23.224999999999998,
+        -13.200000000000001,
+        81.975,
+        -21.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R322",
+      "file": "reference/components/OCC_main_R322.step",
+      "sha256": "1b8401a60fdb61f90eed9591d7b72332805d321b0ae959ad39ce87268d4e370e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        58.025000000000006,
+        -43.225,
+        -13.200000000000001,
+        60.975,
+        -41.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1710",
+      "file": "reference/components/OCC_main_C1710.step",
+      "sha256": "14e0b776b9edcaaa9eb47f07e83262afc3844be45e9045576a3e67c4052c3b5e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        45.605000000000004,
+        -12.695,
+        -13.55,
+        48.395,
+        -11.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R852",
+      "file": "reference/components/OCC_main_R852.step",
+      "sha256": "1a13cd5a0fb0f6ef540b8e472e315341d261c4777fc9dab96be871fa99fa5f7e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        83.525,
+        -27.724999999999998,
+        -13.200000000000001,
+        86.475,
+        -26.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R815",
+      "file": "reference/components/OCC_main_R815.step",
+      "sha256": "a3dfc619691aaa9728663fd0c21110ac6c874793d5e06cafcd7c5ced67d17e87",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        76.525,
+        -29.724999999999998,
+        -13.200000000000001,
+        79.475,
+        -28.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1702",
+      "file": "reference/components/OCC_main_C1702.step",
+      "sha256": "27e494135141fb179b13c497d3f318c3c77dc219a53f693e97d075b1b87248ed",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000005,
+      "bbox": [
+        48.980000000000004,
+        -17.245,
+        -13.55,
+        52.02,
+        -15.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1006",
+      "file": "reference/components/OCC_main_R1006.step",
+      "sha256": "d52e096b280df5d0afd9f5034ac83fce4f2affb731e391e6a25901c54be52dfb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        101.47500000000001,
+        -12.675,
+        -13.200000000000001,
+        104.425,
+        -11.225000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R823",
+      "file": "reference/components/OCC_main_R823.step",
+      "sha256": "7362533ec0bddfc455c4e3fba3bf003d0e229ef483d055b997f5a6a49c6847d8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999905,
+      "bbox": [
+        82.025,
+        -7.7250000000000005,
+        -13.200000000000001,
+        84.975,
+        -6.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1206",
+      "file": "reference/components/OCC_main_D1206.step",
+      "sha256": "73376d2d67e74306d2514852bd563f60294227d60adfb25ab185958cf7561f90",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281050000000021,
+      "bbox": [
+        63.205,
+        -29.145,
+        -13.100000000000001,
+        64.795,
+        -27.855,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1705",
+      "file": "reference/components/OCC_main_R1705.step",
+      "sha256": "32bc7238fb3b693dee562f623a8e5e748ef7b7f2abc22c958d89565fba9e5323",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        47.025000000000006,
+        -32.725,
+        -13.200000000000001,
+        49.975,
+        -31.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R111",
+      "file": "reference/components/OCC_main_R111.step",
+      "sha256": "b8ebd97a71efb95315b3f19e8a74e72357940aeae16ee66360a73511bac03c44",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000154,
+      "bbox": [
+        75.225,
+        -8.625,
+        -13.200000000000001,
+        78.17500000000001,
+        -7.175000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C705",
+      "file": "reference/components/OCC_main_C705.step",
+      "sha256": "5124a84236b6fd939cf78c2d60016df93b5c5e563cf89fa4b1c7ca02a8a8dcd8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.393712000000006,
+      "bbox": [
+        41.980000000000004,
+        -17.245,
+        -13.520000000000001,
+        45.02,
+        -15.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1913",
+      "file": "reference/components/OCC_main_R1913.step",
+      "sha256": "a0b239279ec05b516041382d846f8b5e5f3b67ded451fc71055baaaa98c1ca3c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.2774999999999705,
+      "bbox": [
+        61.525000000000006,
+        -42.725,
+        -13.55,
+        64.475,
+        -41.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1921",
+      "file": "reference/components/OCC_main_U1921.step",
+      "sha256": "3a5cdf0784961aacd85b3d9f775b398d8483c0aaa1f8159f3a2f98a339d43f91",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 18.223919999999985,
+      "bbox": [
+        100.68,
+        -44.095000000000006,
+        -13.75,
+        104.22,
+        -39.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C710",
+      "file": "reference/components/OCC_main_C710.step",
+      "sha256": "3e9ad89924c923cc8acaa9d895fe82471f6ebc44bc19f502c547e06b6b0e8e8e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        47.105000000000004,
+        -28.695,
+        -13.55,
+        49.895,
+        -27.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R121",
+      "file": "reference/components/OCC_main_R121.step",
+      "sha256": "c454cc33ce5c72d58acf7ba2b38abb8de082f7f3846757176d0980aa455420b8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999865,
+      "bbox": [
+        79.43,
+        -9.379999999999999,
+        -13.200000000000001,
+        82.38,
+        -7.930000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C241",
+      "file": "reference/components/OCC_main_C241.step",
+      "sha256": "6452cf6fc6509ac96288b57199c4981b81a1d19c42c3caec3d332e4849f63fa3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999975,
+      "bbox": [
+        49.30500000000001,
+        -6.42,
+        -14.100000000000001,
+        52.595,
+        -4.48,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R814",
+      "file": "reference/components/OCC_main_R814.step",
+      "sha256": "cd4e417761c14922ac4d2b32327c836cefb5d5ed0ea7dabe40ec8a4ea32e094a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        79.025,
+        -27.224999999999998,
+        -13.200000000000001,
+        81.975,
+        -25.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1902",
+      "file": "reference/components/OCC_main_U1902.step",
+      "sha256": "35e733961fec7562bbe991ffcedc0dd8187f91254774389d2ca010c55bb7a1ef",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 52.335530000000006,
+      "bbox": [
+        92.855,
+        -43.445,
+        -13.850000000000001,
+        100.545,
+        -37.955000000000005,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1716",
+      "file": "reference/components/OCC_main_R1716.step",
+      "sha256": "7f7cce511cdbc6439876cb9772f85fba0cf876bc3152863bdfd6b78c42e87919",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        58.025000000000006,
+        -37.225,
+        -13.200000000000001,
+        60.975,
+        -35.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1201",
+      "file": "reference/components/OCC_main_D1201.step",
+      "sha256": "c358ea786d5c0478ce3e00c3426332b9208b1010a695cb9c5d832a131ad757e0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281049999999921,
+      "bbox": [
+        69.20500000000001,
+        -29.145,
+        -13.100000000000001,
+        70.795,
+        -27.855,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C811",
+      "file": "reference/components/OCC_main_C811.step",
+      "sha256": "bcd252be52017fd56e52cd5747e1fc70dad5969da49bc753ed08f8ec1e415099",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 20.18864000000007,
+      "bbox": [
+        78.63,
+        -6.095000000000001,
+        -14.450000000000001,
+        83.27000000000001,
+        -3.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R822",
+      "file": "reference/components/OCC_main_R822.step",
+      "sha256": "7b8485c469bfdb6ddf48637f4136a97f4c53121a55b361c6d2e4b224f623ce15",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        82.525,
+        -23.724999999999998,
+        -13.200000000000001,
+        85.475,
+        -22.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1706",
+      "file": "reference/components/OCC_main_R1706.step",
+      "sha256": "3556cda78618aa952ad28bfb417b0f368bd4d9ca2fd49a6b905c3e467f595b52",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        40.025000000000006,
+        -27.724999999999998,
+        -13.200000000000001,
+        42.975,
+        -26.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_J501",
+      "file": "reference/components/OCC_main_J501.step",
+      "sha256": "f185abb777b3f11f7ccbe7d5f690fa1b7a087592070185f02c0173a2a48b67d1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 744.9117600000001,
+      "bbox": [
+        98.18,
+        -29.37,
+        -18.35,
+        109.37,
+        -17.675,
+        -12.549999999999999
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C231",
+      "file": "reference/components/OCC_main_C231.step",
+      "sha256": "cecebf1a63c5c984eaecbfd92af047fc24765b527cbb3ce59a036486d20896a8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999989,
+      "bbox": [
+        37.230000000000004,
+        -20.345,
+        -14.100000000000001,
+        39.17,
+        -17.055,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C240",
+      "file": "reference/components/OCC_main_C240.step",
+      "sha256": "161111fc5964dd6c5df184445bd7759be411ebdcfbce2011c3c2284474f7f060",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        47.605000000000004,
+        -21.695,
+        -13.55,
+        50.395,
+        -20.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1921",
+      "file": "reference/components/OCC_main_R1921.step",
+      "sha256": "68fb5ff587a0c6a9a999b73dd319151648d0dda9a8640021e7de537e8fde8e83",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277499999999971,
+      "bbox": [
+        85.525,
+        -39.725,
+        -13.55,
+        88.475,
+        -38.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C307",
+      "file": "reference/components/OCC_main_C307.step",
+      "sha256": "e0540350b1cca0a15e4b1d820997369c47c266c4cd79661889a72105aaf5763a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000003,
+      "bbox": [
+        54.605000000000004,
+        -33.695,
+        -13.55,
+        57.395,
+        -32.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R505",
+      "file": "reference/components/OCC_main_R505.step",
+      "sha256": "7d67b310cd46feca48f9f1bf9f16339c2e2da24c92904a0d816df564e143ba68",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999914,
+      "bbox": [
+        88.525,
+        -8.725000000000001,
+        -13.200000000000001,
+        91.475,
+        -7.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1921",
+      "file": "reference/components/OCC_main_C1921.step",
+      "sha256": "37a2dded5a95cc4dac977d25d7a44e5d9d654c2279eb03c95caa4dfa347e085d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000097,
+      "bbox": [
+        84.605,
+        -31.695,
+        -13.55,
+        87.39500000000001,
+        -30.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R320",
+      "file": "reference/components/OCC_main_R320.step",
+      "sha256": "50fc413f400cc91e5caf7b60a8796ca29be0b9be494579de43af41ba5de6d478",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999816,
+      "bbox": [
+        61.525000000000006,
+        -40.725,
+        -13.200000000000001,
+        64.475,
+        -39.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R502",
+      "file": "reference/components/OCC_main_R502.step",
+      "sha256": "c799497ccb58ab03b7d9c5b37ca22655c4773483e2a5d11545a70a6cf7bf856f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        99.975,
+        -14.675,
+        -13.200000000000001,
+        102.925,
+        -13.225000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R812",
+      "file": "reference/components/OCC_main_R812.step",
+      "sha256": "d8422a85e675c95c28d3a248b79c83463b7de7f14454dda03a9d629526fff2af",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        79.025,
+        -25.224999999999998,
+        -13.200000000000001,
+        81.975,
+        -23.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R702",
+      "file": "reference/components/OCC_main_R702.step",
+      "sha256": "2bce3524287220a10ad87ec8244663f40d93b69c3d313251009709d68383d210",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        44.025000000000006,
+        -42.225,
+        -13.200000000000001,
+        46.975,
+        -40.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1709",
+      "file": "reference/components/OCC_main_R1709.step",
+      "sha256": "3bcb2d9a8aa4b2d557f1bdd23e7fbee7a63c2c7de4e516a304cb3e2cf8e6fcf0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        54.525000000000006,
+        -35.725,
+        -13.200000000000001,
+        57.475,
+        -34.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1101",
+      "file": "reference/components/OCC_main_R1101.step",
+      "sha256": "c5f22e31efc0db09aa83743284eacd6880ebfacbca630277d41badc42aef760a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000036,
+      "bbox": [
+        96.475,
+        -25.425,
+        -13.200000000000001,
+        97.92500000000001,
+        -22.474999999999998,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1902",
+      "file": "reference/components/OCC_main_R1902.step",
+      "sha256": "677d784b78b0186dc69523f3968aba3b8ecae935db33734ccbc613090d2c9ad0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000154,
+      "bbox": [
+        91.975,
+        -15.425,
+        -13.200000000000001,
+        94.92500000000001,
+        -13.975000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1102",
+      "file": "reference/components/OCC_main_R1102.step",
+      "sha256": "2811fa7c75ad54d4d89f7cbd20f496238414767b5ca5d9b04715a1c6aa356350",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000154,
+      "bbox": [
+        92.975,
+        -17.175,
+        -13.200000000000001,
+        95.92500000000001,
+        -15.725000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C212",
+      "file": "reference/components/OCC_main_C212.step",
+      "sha256": "7f3751841f0222b32946551d5e2f6fe9aead1a2047d066426f2e0bcd3654bd49",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701729999999992,
+      "bbox": [
+        60.355000000000004,
+        -19.47,
+        -13.600000000000001,
+        63.645,
+        -17.53,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C703",
+      "file": "reference/components/OCC_main_C703.step",
+      "sha256": "239bbe4ed3339d85d585e29806a985da0a64d3d4c207966f85bd9f5707e77d30",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000003,
+      "bbox": [
+        41.605000000000004,
+        -19.695,
+        -13.55,
+        44.395,
+        -18.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R832",
+      "file": "reference/components/OCC_main_R832.step",
+      "sha256": "ac5e12559d76753502070bcd0cd4b09eed892eadd0139286f0c97d2814f6102f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        74.525,
+        -33.725,
+        -13.200000000000001,
+        77.475,
+        -32.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R590",
+      "file": "reference/components/OCC_main_R590.step",
+      "sha256": "729c7c1e23f984eb3b21c82cc2606ba07e16e66766373360e9cd256902431f65",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        99.975,
+        -16.675,
+        -13.200000000000001,
+        102.925,
+        -15.225000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C808",
+      "file": "reference/components/OCC_main_C808.step",
+      "sha256": "1e018a7976335c5a556f8d4ec767caeee95d43767e38a9feccdc3f34a5b08a02",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.27750000000005,
+      "bbox": [
+        76.35,
+        -12.774999999999999,
+        -13.55,
+        77.80000000000001,
+        -9.825,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R301",
+      "file": "reference/components/OCC_main_R301.step",
+      "sha256": "e0aa7e802ee6bc8e06391246b5731cae2c748295d5d768c2e4716e3df22f1c22",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        51.025000000000006,
+        -41.225,
+        -13.200000000000001,
+        53.975,
+        -39.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C901",
+      "file": "reference/components/OCC_main_C901.step",
+      "sha256": "6e42c1d8226f5b0e579c12db02923d34aadcdea83be85d873d465c9cd5b57f27",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000001,
+      "bbox": [
+        84.605,
+        -19.695,
+        -13.55,
+        87.39500000000001,
+        -18.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R2352",
+      "file": "reference/components/OCC_main_R2352.step",
+      "sha256": "cf45b03e9ec4267cc832ae037ee78b99eebc9ed301ac6bc7bc3900fdfd183523",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999978,
+      "bbox": [
+        105.97500000000001,
+        -15.425,
+        -13.200000000000001,
+        107.425,
+        -12.475000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R312",
+      "file": "reference/components/OCC_main_R312.step",
+      "sha256": "8e2fe0040801c6b5739408597c66f6e0949d5c4b1be1c3d46fea432bf9ee3525",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        47.525000000000006,
+        -40.725,
+        -13.200000000000001,
+        50.475,
+        -39.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C809",
+      "file": "reference/components/OCC_main_C809.step",
+      "sha256": "81f04cf565af36c67b9acd324a85fc2db6a628d07174540053caba5b8f646ba7",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000097,
+      "bbox": [
+        71.605,
+        -11.195,
+        -13.55,
+        74.39500000000001,
+        -9.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C801",
+      "file": "reference/components/OCC_main_C801.step",
+      "sha256": "8535f46b480e9a97b4215a0d116fcdb8070ebb4fd861ba24590f03d55c437ad8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000001,
+      "bbox": [
+        68.105,
+        -19.195,
+        -13.55,
+        70.89500000000001,
+        -17.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1709",
+      "file": "reference/components/OCC_main_C1709.step",
+      "sha256": "dbacb1abcddc7ea7b50d09f5112e8acbb7cb43cbf16ff3edd635b33ab2447f61",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        59.605000000000004,
+        -26.195,
+        -13.55,
+        62.395,
+        -24.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1922",
+      "file": "reference/components/OCC_main_U1922.step",
+      "sha256": "b9e82d6714533823b25852ca476ef5f1d192988af31867bd48cc64103d30b184",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 14.65804,
+      "bbox": [
+        104.50500000000001,
+        -43.875,
+        -14.100000000000001,
+        107.895,
+        -40.025000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1207",
+      "file": "reference/components/OCC_main_D1207.step",
+      "sha256": "377e7a3bbdd5075ddb6c28aa7644c42df5859d4d9f93ee68d3b2ba3a75d22621",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281050000000021,
+      "bbox": [
+        63.705,
+        -25.145,
+        -13.100000000000001,
+        65.295,
+        -23.855,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C102",
+      "file": "reference/components/OCC_main_C102.step",
+      "sha256": "dd1cbb85fa62cda3ad73c0d454836351b7bb2002b4df0c4b82a2f29ad94484e9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.7017299999999915,
+      "bbox": [
+        60.355000000000004,
+        -11.969999999999999,
+        -13.600000000000001,
+        63.645,
+        -10.030000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C904",
+      "file": "reference/components/OCC_main_C904.step",
+      "sha256": "cd842815f73bbabd69968a59f7a8aaf80a4867cc5d045ab947e79a2c76efe27d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87809999999999,
+      "bbox": [
+        81.18,
+        -19.07,
+        -13.55,
+        83.97,
+        -17.68,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1203",
+      "file": "reference/components/OCC_main_R1203.step",
+      "sha256": "5675ba90b6fab29fd51d66d7c79f2683359d052e5ab06131148f90de313efc2e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        67.525,
+        -32.725,
+        -13.200000000000001,
+        70.475,
+        -31.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R506",
+      "file": "reference/components/OCC_main_R506.step",
+      "sha256": "c69a6648fd223948cc23d028ce060590fcc767b03789667db73b9a9042caaee2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        88.525,
+        -12.725000000000001,
+        -13.200000000000001,
+        91.475,
+        -11.274999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1708",
+      "file": "reference/components/OCC_main_R1708.step",
+      "sha256": "bbc48a6f11e42e09be0bc41c34ea1cc21e647ffe561e0c8b4bad36ee9635bdab",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        58.025000000000006,
+        -35.225,
+        -13.200000000000001,
+        60.975,
+        -33.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R101",
+      "file": "reference/components/OCC_main_R101.step",
+      "sha256": "bc3295eba4235e4577e73083c1022e89e9a40001bf40de01fc9c57d708ddfc5c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999985,
+      "bbox": [
+        41.525000000000006,
+        -8.725000000000001,
+        -13.200000000000001,
+        44.475,
+        -7.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1302",
+      "file": "reference/components/OCC_main_R1302.step",
+      "sha256": "55404318fa766440c47082b49c0ae64369d83484b083bce2c54fcda7dca471c5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000083,
+      "bbox": [
+        100.475,
+        -34.425000000000004,
+        -13.200000000000001,
+        103.425,
+        -32.975,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R603",
+      "file": "reference/components/OCC_main_R603.step",
+      "sha256": "c5b4d9971e702e0478b2e6b202f45bc385b3c84cba7a0afff424ea584e433c84",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        44.025000000000006,
+        -40.225,
+        -13.200000000000001,
+        46.975,
+        -38.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C810",
+      "file": "reference/components/OCC_main_C810.step",
+      "sha256": "cfdb163d91af28e5f34e941b82541d617df11acdfda031cafd7143ae4276a44e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.87810000000001,
+      "bbox": [
+        75.105,
+        -15.195,
+        -13.55,
+        77.89500000000001,
+        -13.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1604",
+      "file": "reference/components/OCC_main_R1604.step",
+      "sha256": "a43eae879458fdebf3edc148b87662a28375e4b1132ce7aa781ab97c7d0595f4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000018,
+      "bbox": [
+        88.725,
+        -6.925000000000001,
+        -13.200000000000001,
+        91.67500000000001,
+        -5.475,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_J801",
+      "file": "reference/components/OCC_main_J801.step",
+      "sha256": "7abdda1027d5106769f72a50ec4f56144e338b2afa64728d24945bd94a019c20",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 0.558005000000004,
+      "bbox": [
+        65.755,
+        -17.245,
+        -12.600000000000001,
+        73.245,
+        -15.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1704",
+      "file": "reference/components/OCC_main_R1704.step",
+      "sha256": "1f2695faef57ecb759911abb712af904dc7e6cd481827ab35595cba81f67b49d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        43.525000000000006,
+        -30.224999999999998,
+        -13.200000000000001,
+        46.475,
+        -28.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R290",
+      "file": "reference/components/OCC_main_R290.step",
+      "sha256": "23c125b992d470c447661902ee0311e875cb71cf1619890307993175f7b1fc6a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999816,
+      "bbox": [
+        65.025,
+        -38.725,
+        -13.200000000000001,
+        67.975,
+        -37.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C715",
+      "file": "reference/components/OCC_main_C715.step",
+      "sha256": "59c1849e7734cbabddd5e07c9528950e92c058f62ecf19fc468fe39322641cfe",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701730000000004,
+      "bbox": [
+        43.855000000000004,
+        -21.97,
+        -13.600000000000001,
+        47.145,
+        -20.029999999999998,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R904",
+      "file": "reference/components/OCC_main_R904.step",
+      "sha256": "7dadb0557625e8696bf16c65eaf016706974f8fea7feba3df6512ea333f384a5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        86.025,
+        -23.724999999999998,
+        -13.200000000000001,
+        88.975,
+        -22.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1901",
+      "file": "reference/components/OCC_main_C1901.step",
+      "sha256": "73c99a25c91040b16c2caa4da9333f4fb604598baf6fd580073c22a81a0e8bca",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000005,
+      "bbox": [
+        100.48,
+        -32.745000000000005,
+        -13.55,
+        103.52,
+        -31.255,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1203",
+      "file": "reference/components/OCC_main_K1203.step",
+      "sha256": "b494f00ac6685a94ce3fcd026719e0ab9feef3004fb8af1b2215e3aa3573bcc9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.413750000000064,
+      "bbox": [
+        92.875,
+        -23.075,
+        -14.450000000000001,
+        96.025,
+        -17.325,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C701",
+      "file": "reference/components/OCC_main_C701.step",
+      "sha256": "35528ca206691390729edf1c85d0ceb614be74b093b2a3e9026aec4cc3e7ef63",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277499999999992,
+      "bbox": [
+        42.525000000000006,
+        -23.724999999999998,
+        -13.55,
+        45.475,
+        -22.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C320",
+      "file": "reference/components/OCC_main_C320.step",
+      "sha256": "f14d9ab557116ed7eb9bbadaa63ea8a774d757d12cfac09f0ac1ef460c422764",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000005,
+      "bbox": [
+        46.980000000000004,
+        -26.745,
+        -13.55,
+        50.02,
+        -25.255,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R103",
+      "file": "reference/components/OCC_main_R103.step",
+      "sha256": "f8bd2297a02f0537a65c336c431f06146c379169edb13aff79adae05cad8a86a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        38.525000000000006,
+        -12.725000000000001,
+        -13.200000000000001,
+        41.475,
+        -11.274999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1202",
+      "file": "reference/components/OCC_main_R1202.step",
+      "sha256": "3dccce7f45c792090162dca40ad07c6d2063124abc4de40dc62b3eb203579de6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        64.025,
+        -30.724999999999998,
+        -13.200000000000001,
+        66.975,
+        -29.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1901",
+      "file": "reference/components/OCC_main_R1901.step",
+      "sha256": "6627d4bb954c7d265f0129d2432bc51cfd71e8f2c3431d9bc396b3d7d2d7aed5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000185,
+      "bbox": [
+        91.975,
+        -5.925000000000001,
+        -13.200000000000001,
+        94.92500000000001,
+        -4.475,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1903",
+      "file": "reference/components/OCC_main_C1903.step",
+      "sha256": "bf852d4a6037df366b8389ba8a194ed21259213b5bbc005a5b156ac67dc825eb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000097,
+      "bbox": [
+        97.605,
+        -37.695,
+        -13.55,
+        100.39500000000001,
+        -36.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C903",
+      "file": "reference/components/OCC_main_C903.step",
+      "sha256": "b710140425e68aaeb438c7c1e8bcaf47585efc8003440234e92d5984520792e8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999975,
+      "bbox": [
+        84.305,
+        -5.92,
+        -14.100000000000001,
+        87.595,
+        -3.9800000000000004,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1717",
+      "file": "reference/components/OCC_main_R1717.step",
+      "sha256": "a681c0e64388553db5d10b55498b05499b5bc68d599134ecfa03e9175412eb6a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        43.525000000000006,
+        -34.225,
+        -13.200000000000001,
+        46.475,
+        -32.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C704",
+      "file": "reference/components/OCC_main_C704.step",
+      "sha256": "d695776d8273925c04e3942bfee274e468a9b58ca2909051e57020c188434602",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.393712000000006,
+      "bbox": [
+        40.480000000000004,
+        -21.745,
+        -13.520000000000001,
+        43.52,
+        -20.255,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R830",
+      "file": "reference/components/OCC_main_R830.step",
+      "sha256": "de65edb01ac6cdf828d0b56223d219d4b053c91ce1a7f21fd887a3f6d5be22dc",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        80.025,
+        -29.224999999999998,
+        -13.200000000000001,
+        82.975,
+        -27.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R701",
+      "file": "reference/components/OCC_main_R701.step",
+      "sha256": "354baf5752506f2a35a8d4699802e8e187615131d8d105e70de4a5d41fd52da1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        40.525000000000006,
+        -39.725,
+        -13.200000000000001,
+        43.475,
+        -38.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C821",
+      "file": "reference/components/OCC_main_C821.step",
+      "sha256": "f01e62d1be523085d04946a30e6912b3dbdbbd69e5eb63dbeb0e42f71798cd5d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529599999999986,
+      "bbox": [
+        68.18,
+        -9.42,
+        -13.55,
+        71.22,
+        -7.930000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1903",
+      "file": "reference/components/OCC_main_R1903.step",
+      "sha256": "8177e06b8b95dc42fc45e33b14cf5160a3deb6b4a6c61acaddcbf78c351b7e9f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000327,
+      "bbox": [
+        96.225,
+        -22.275,
+        -13.200000000000001,
+        97.67500000000001,
+        -19.325,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C608",
+      "file": "reference/components/OCC_main_C608.step",
+      "sha256": "d2bc536ec4c026bd7fa278252f37225e7d1a70d6403ac375b4f06a3403a66a0c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        41.605000000000004,
+        -10.695,
+        -13.55,
+        44.395,
+        -9.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C103",
+      "file": "reference/components/OCC_main_C103.step",
+      "sha256": "b6c13b6d2a921992c78d4da039989b1bd88b16fff9a61f7b6a59ece9fa9bb14b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000003,
+      "bbox": [
+        60.605000000000004,
+        -14.195,
+        -13.55,
+        63.395,
+        -12.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R901",
+      "file": "reference/components/OCC_main_R901.step",
+      "sha256": "230580d76b8358b08298fa316e753cbb07e5c5d9c78792eabc8593340df31d1f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        88.025,
+        -17.725,
+        -13.200000000000001,
+        90.975,
+        -16.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R907",
+      "file": "reference/components/OCC_main_R907.step",
+      "sha256": "df690777b5b41a806e2608419149ec574733a80d9178ed1cb51ca4648915665f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000225,
+      "bbox": [
+        89.725,
+        -25.425,
+        -13.200000000000001,
+        92.67500000000001,
+        -23.974999999999998,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C602",
+      "file": "reference/components/OCC_main_C602.step",
+      "sha256": "d3b5fc86b0365a279d85c229ba5e00b6bcea1fa17efc3505e1f0f3d3053b70af",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.878099999999997,
+      "bbox": [
+        45.105000000000004,
+        -8.695,
+        -13.55,
+        47.895,
+        -7.305000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R826",
+      "file": "reference/components/OCC_main_R826.step",
+      "sha256": "c5fec105690ef595f8c9b01ec6d1df75f7d9153cbe5354f721315c925f74ad34",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999981,
+      "bbox": [
+        108.22500000000001,
+        -42.425000000000004,
+        -13.200000000000001,
+        109.675,
+        -39.475,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1704",
+      "file": "reference/components/OCC_main_C1704.step",
+      "sha256": "3c7cdc282531ebd525f2ab9703457380f1999416dd2c9b3238beae5f7d756bd6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000005,
+      "bbox": [
+        45.480000000000004,
+        -17.245,
+        -13.55,
+        48.52,
+        -15.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1711",
+      "file": "reference/components/OCC_main_R1711.step",
+      "sha256": "08aa2b32d1bd2605172e57073b812cb5749237f30f5eb7d456368527b0bda1bc",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        47.525000000000006,
+        -34.725,
+        -13.200000000000001,
+        50.475,
+        -33.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1004",
+      "file": "reference/components/OCC_main_R1004.step",
+      "sha256": "a80478ec98ae80563530ad5ccdfc961decf40d37c7924c12c34a3cb6d1eeaabf",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        101.47500000000001,
+        -10.675,
+        -13.200000000000001,
+        104.425,
+        -9.225000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1715",
+      "file": "reference/components/OCC_main_R1715.step",
+      "sha256": "32a85351eedb07cea40748dba6d9ca8e23ba6b2198821204ae6a08ba1200382d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        51.025000000000006,
+        -37.225,
+        -13.200000000000001,
+        53.975,
+        -35.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R122",
+      "file": "reference/components/OCC_main_R122.step",
+      "sha256": "244f93a3f1586d639fcb3b84e7b524f1a49fbace97e67c56ff31707a62538b70",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        39.025000000000006,
+        -23.724999999999998,
+        -13.200000000000001,
+        41.975,
+        -22.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R231",
+      "file": "reference/components/OCC_main_R231.step",
+      "sha256": "1b45d30681be0e3f01e2dd0f8ae2b3c2c87ff0ce6620c9f4d4f81a1b9c6e4bc2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        54.525000000000006,
+        -39.725,
+        -13.200000000000001,
+        57.475,
+        -38.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R850",
+      "file": "reference/components/OCC_main_R850.step",
+      "sha256": "c2992b68e8b682c494d5c191e4b28b6ef42504a34a8c8414e7080e06c7371f4b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        86.025,
+        -21.724999999999998,
+        -13.200000000000001,
+        88.975,
+        -20.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C301",
+      "file": "reference/components/OCC_main_C301.step",
+      "sha256": "eb2d13b330d0fa934dcf6c6bab014c5d031d188efe632eecc49620f4fbf073fc",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999968,
+      "bbox": [
+        54.30500000000001,
+        -44.42,
+        -14.100000000000001,
+        57.595,
+        -42.480000000000004,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R242",
+      "file": "reference/components/OCC_main_R242.step",
+      "sha256": "ae32437fdee97dd4ebb03e1c3549c36a11307f9be889fa64b97c0faff902efc8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        40.025000000000006,
+        -33.725,
+        -13.200000000000001,
+        42.975,
+        -32.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R903",
+      "file": "reference/components/OCC_main_R903.step",
+      "sha256": "08566b3442a8d0273d06578d42a11d6c7d46bcb537ba5a121b8d0dd383975a9d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        89.525,
+        -21.724999999999998,
+        -13.200000000000001,
+        92.475,
+        -20.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1005",
+      "file": "reference/components/OCC_main_R1005.step",
+      "sha256": "32918503ec97ca5c8fa301eb0e365f75de126a59160f6b5688ebf061380108ed",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999905,
+      "bbox": [
+        101.47500000000001,
+        -8.675,
+        -13.200000000000001,
+        104.425,
+        -7.2250000000000005,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R291",
+      "file": "reference/components/OCC_main_R291.step",
+      "sha256": "ceabfce14e7b019d6a94a4cb2dd2730f04d01cb7b06c2a0d88316922f9f0a07a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        44.025000000000006,
+        -38.225,
+        -13.200000000000001,
+        46.975,
+        -36.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1601",
+      "file": "reference/components/OCC_main_R1601.step",
+      "sha256": "f19f401c1cebca3396b6e2bb99b29815ae0a55d65b72337aeab152e948373332",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000005,
+      "bbox": [
+        98.725,
+        -6.175000000000001,
+        -13.200000000000001,
+        101.675,
+        -4.725,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R2351",
+      "file": "reference/components/OCC_main_R2351.step",
+      "sha256": "e0621ebfd2595bbbf7e1c4a9ef6780a31c69174de5368a6f0ff1f1297ede8237",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        104.97500000000001,
+        -11.925,
+        -13.200000000000001,
+        107.925,
+        -10.475000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C601",
+      "file": "reference/components/OCC_main_C601.step",
+      "sha256": "24237244d1583adb46ff72c5715bcc57aca32dda337d93c14c47d92b051d6fd6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        45.105000000000004,
+        -10.695,
+        -13.55,
+        47.895,
+        -9.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1104",
+      "file": "reference/components/OCC_main_R1104.step",
+      "sha256": "3a2475dee8c64acdbd523b3d29e57bc4fb6060128cfed1fbd717e0fabfd528d0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000322,
+      "bbox": [
+        98.725,
+        -12.925,
+        -13.200000000000001,
+        100.17500000000001,
+        -9.975000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C121",
+      "file": "reference/components/OCC_main_C121.step",
+      "sha256": "4ab0102441425d352daa438b261a3ee743996c777aef379b2212fe30866e1122",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.7017299999999915,
+      "bbox": [
+        48.355000000000004,
+        -14.969999999999999,
+        -13.600000000000001,
+        51.645,
+        -13.030000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1923",
+      "file": "reference/components/OCC_main_R1923.step",
+      "sha256": "886216ea8103abf27138e73b4f413582e42b436cd14ccae6413ff9ca1167e9e4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277499999999971,
+      "bbox": [
+        80.525,
+        -36.725,
+        -13.55,
+        83.475,
+        -35.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1911",
+      "file": "reference/components/OCC_main_R1911.step",
+      "sha256": "ca007785aea5995c237e554c8eaf7463014e779adac2e5bf44542d9908749b3c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277500000000044,
+      "bbox": [
+        92.475,
+        -32.675000000000004,
+        -13.55,
+        95.42500000000001,
+        -31.224999999999998,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_FB1101",
+      "file": "reference/components/OCC_main_FB1101.step",
+      "sha256": "ad0040f07741b6b8ca74a4c209b1ea01fc6c564972add1e0baa230636e0d0483",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 5.0645100000000305,
+      "bbox": [
+        96.655,
+        -19.245,
+        -13.65,
+        98.14500000000001,
+        -16.155,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R703",
+      "file": "reference/components/OCC_main_R703.step",
+      "sha256": "84fe7f91954114b15579e700f81b0e4b18e050485300c0c3e86a9132d23906c0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        47.525000000000006,
+        -42.725,
+        -13.200000000000001,
+        50.475,
+        -41.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R311",
+      "file": "reference/components/OCC_main_R311.step",
+      "sha256": "120a7ef4ee31067d02bfe252e1943c9b46727441815ff086054e8161e0122e19",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        54.525000000000006,
+        -41.725,
+        -13.200000000000001,
+        57.475,
+        -40.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R811",
+      "file": "reference/components/OCC_main_R811.step",
+      "sha256": "921cd226d8c167def43184d8ee20412bf6e8dd062a5e3b0913ad1f4e362ca2ac",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        80.18,
+        -17.38,
+        -13.200000000000001,
+        83.13,
+        -15.93,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R221",
+      "file": "reference/components/OCC_main_R221.step",
+      "sha256": "cc25f666a3a667e5c64b45e590281e5468ddb637093726808615d2511567955f",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        44.025000000000006,
+        -36.225,
+        -13.200000000000001,
+        46.975,
+        -34.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C702",
+      "file": "reference/components/OCC_main_C702.step",
+      "sha256": "161432f7b671d6e498a7ae32fe87d9178c1b2ef55956ef0e19486a6342c4f3f6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277499999999992,
+      "bbox": [
+        43.525000000000006,
+        -26.224999999999998,
+        -13.55,
+        46.475,
+        -24.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1206",
+      "file": "reference/components/OCC_main_R1206.step",
+      "sha256": "d30145813da52e813a7df4ffc310cb906692e076cd5367db6fd92e28e228a6b9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        71.025,
+        -33.725,
+        -13.200000000000001,
+        73.975,
+        -32.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1708",
+      "file": "reference/components/OCC_main_C1708.step",
+      "sha256": "0f95b88a610a2f7e5311525b8f91fc25e707a764693f40f9ed7bc3d9449ad5d0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000015,
+      "bbox": [
+        63.980000000000004,
+        -15.245000000000001,
+        -13.55,
+        67.02000000000001,
+        -13.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R601",
+      "file": "reference/components/OCC_main_R601.step",
+      "sha256": "f6ed6efb43660734d9e67c1cb546c632b7f06271c8f5232edc1ca99b8bb68bb6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        40.025000000000006,
+        -35.725,
+        -13.200000000000001,
+        42.975,
+        -34.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C711",
+      "file": "reference/components/OCC_main_C711.step",
+      "sha256": "bbed14ef6a9453c262c89574136d866320c39e14a2c3018f9b253c0e0811f0fd",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701730000000004,
+      "bbox": [
+        45.855000000000004,
+        -24.47,
+        -13.600000000000001,
+        49.145,
+        -22.529999999999998,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C905",
+      "file": "reference/components/OCC_main_C905.step",
+      "sha256": "950e41bea3d366dce16f89f9fe947db8af586ec52379e1187260cd51172547c9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.701730000000007,
+      "bbox": [
+        84.355,
+        -17.97,
+        -13.600000000000001,
+        87.64500000000001,
+        -16.03,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1201",
+      "file": "reference/components/OCC_main_R1201.step",
+      "sha256": "4ce14094ddddadf6578242c3a185cfa8c067d5c91869ac239963b67be24398f7",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        67.525,
+        -30.724999999999998,
+        -13.200000000000001,
+        70.475,
+        -29.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1202",
+      "file": "reference/components/OCC_main_D1202.step",
+      "sha256": "5df7e281395919e19527b2a1286d253237e8db78cc562fd0232bf038a47c88a1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281050000000021,
+      "bbox": [
+        67.705,
+        -25.145,
+        -13.100000000000001,
+        69.295,
+        -23.855,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1705",
+      "file": "reference/components/OCC_main_C1705.step",
+      "sha256": "5de20534f2f97ffbc6b9730e2c2f0cdc06d015a2789309b3ba50de5e87bb639c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000005,
+      "bbox": [
+        44.980000000000004,
+        -19.245,
+        -13.55,
+        48.02,
+        -17.755,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1205",
+      "file": "reference/components/OCC_main_R1205.step",
+      "sha256": "8609bb7fdf0a2f4e92a206e0c44309b0f2014e19db0f29fba6fbaecdca71444e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        64.025,
+        -32.725,
+        -13.200000000000001,
+        66.975,
+        -31.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C221",
+      "file": "reference/components/OCC_main_C221.step",
+      "sha256": "7a4c35d6ec2d850e9a3520a13c0c01ee3cc5f8efc3e76015c17ddcd8e975d76a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999975,
+      "bbox": [
+        60.30500000000001,
+        -6.42,
+        -14.100000000000001,
+        63.595,
+        -4.48,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R821",
+      "file": "reference/components/OCC_main_R821.step",
+      "sha256": "2958d3bc57e30f9fef2490a73affe4b8e1ed14d1b2cd72d9db205d2dcd4cb369",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999896,
+      "bbox": [
+        85.18,
+        -7.63,
+        -13.200000000000001,
+        88.13,
+        -6.18,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1211",
+      "file": "reference/components/OCC_main_R1211.step",
+      "sha256": "edc1920bf38925fb99050f9c19c78e872fd42446b87484b9d87a87a0f2d42c37",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        74.525,
+        -31.724999999999998,
+        -13.200000000000001,
+        77.475,
+        -30.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R503",
+      "file": "reference/components/OCC_main_R503.step",
+      "sha256": "0b1f329bfd3287b48a3e059a82ac88f68af02b240ae50e0e446ba114179e4a32",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000322,
+      "bbox": [
+        91.225,
+        -18.675,
+        -13.200000000000001,
+        92.67500000000001,
+        -15.725000000000001,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1603",
+      "file": "reference/components/OCC_main_R1603.step",
+      "sha256": "72a744616dee13ce3f87a777a460f0156cbaed490c20e9d1dfec3b3e495c3452",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000185,
+      "bbox": [
+        95.475,
+        -5.925000000000001,
+        -13.200000000000001,
+        98.42500000000001,
+        -4.475,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C824",
+      "file": "reference/components/OCC_main_C824.step",
+      "sha256": "3390586c03c95057515142187276495db45fbe7182ccac85496f905db2432943",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000015,
+      "bbox": [
+        76.98,
+        -17.245,
+        -13.55,
+        80.02000000000001,
+        -15.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1902",
+      "file": "reference/components/OCC_main_C1902.step",
+      "sha256": "d073aab6d61b171b4f046d3b3764cf1171f86ecc9a73da711cb5c3ce2c5fcfd8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.157099999999984,
+      "bbox": [
+        95.20500000000001,
+        -30.794999999999998,
+        -13.55,
+        97.995,
+        -29.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1302",
+      "file": "reference/components/OCC_main_D1302.step",
+      "sha256": "03d2537200a03f71e294fa6f5a8261ba304a4078005fb5834ef98c35b3f3ed2d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11.34815999999997,
+      "bbox": [
+        103.075,
+        -39.695,
+        -13.75,
+        106.925,
+        -36.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1707",
+      "file": "reference/components/OCC_main_R1707.step",
+      "sha256": "7c1f8ddae66a98f7e147415b207a572a409d5a0ccb0cdc45e56aad135e8ef82e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        51.025000000000006,
+        -35.225,
+        -13.200000000000001,
+        53.975,
+        -33.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C805",
+      "file": "reference/components/OCC_main_C805.step",
+      "sha256": "a68f6fa9719cc712ef2575fc465758549ef2639728d71b9c857e1f0542b2bf16",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781000000000097,
+      "bbox": [
+        71.605,
+        -13.195,
+        -13.55,
+        74.39500000000001,
+        -11.805,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R202",
+      "file": "reference/components/OCC_main_R202.step",
+      "sha256": "8bb5c34dc923fc9d75b402a702678c19df6526a645b59ae649849b8dc28a6ebf",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        40.025000000000006,
+        -31.724999999999998,
+        -13.200000000000001,
+        42.975,
+        -30.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_K1202",
+      "file": "reference/components/OCC_main_K1202.step",
+      "sha256": "1ae328056aee0875c59eda550611b31be6d89f4cf89831e51af5b0cb3be27f6d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.413750000000064,
+      "bbox": [
+        92.875,
+        -29.075,
+        -14.450000000000001,
+        96.025,
+        -23.325,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C714",
+      "file": "reference/components/OCC_main_C714.step",
+      "sha256": "9455555c59f55d9a20c4830e58ec2e8087f69fa654abc36e56e821f10fc7289a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8781,
+      "bbox": [
+        40.105000000000004,
+        -25.695,
+        -13.55,
+        42.895,
+        -24.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1707",
+      "file": "reference/components/OCC_main_C1707.step",
+      "sha256": "d3f11cbb9ca454c142e9e3448dea68277d925fd3e03dc55961221ac59bb4b500",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000005,
+      "bbox": [
+        44.980000000000004,
+        -15.245000000000001,
+        -13.55,
+        48.02,
+        -13.754999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1710",
+      "file": "reference/components/OCC_main_R1710.step",
+      "sha256": "36e80483650fadd49baa1d694930c34360222a305a30e4216bd8f1a805604ba0",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        43.525000000000006,
+        -32.225,
+        -13.200000000000001,
+        46.475,
+        -30.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_D1204",
+      "file": "reference/components/OCC_main_D1204.step",
+      "sha256": "d7511e41bfe79afdfeeaa2ac92a519bdcabe6a3b83f0f002fc809bdfd9315c4e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 1.1281050000000021,
+      "bbox": [
+        67.705,
+        -23.645,
+        -13.100000000000001,
+        69.295,
+        -22.355,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R906",
+      "file": "reference/components/OCC_main_R906.step",
+      "sha256": "699f08879bb601af9e601c9b231e7789cdd7ee3ed2cb278028a63cbe693b52be",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        89.525,
+        -23.724999999999998,
+        -13.200000000000001,
+        92.475,
+        -22.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_U1703",
+      "file": "reference/components/OCC_main_U1703.step",
+      "sha256": "b04c33921b9011956d878426374358fff8c5f47badfeaec5beadfe6bb26980d9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 52.33552999999986,
+      "bbox": [
+        92.95500000000001,
+        -13.795000000000002,
+        -13.850000000000001,
+        98.445,
+        -6.105,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R802",
+      "file": "reference/components/OCC_main_R802.step",
+      "sha256": "fde47e85080fc220b9802a32b94d54f46309aa826032e7cdf678b3137237439e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        79.025,
+        -21.224999999999998,
+        -13.200000000000001,
+        81.975,
+        -19.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C1106",
+      "file": "reference/components/OCC_main_C1106.step",
+      "sha256": "09597a408a71a9278a02a010fc86f0fc630a31ba2d48b1bae8eb61d8febb13c4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10.246274999999976,
+      "bbox": [
+        96.305,
+        -15.975000000000001,
+        -14.100000000000001,
+        99.695,
+        -14.024999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1207",
+      "file": "reference/components/OCC_main_R1207.step",
+      "sha256": "16425451b6c62abb548bfe4ced769e04dd316628bcdcb7f3cc1c13d6289fba57",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        67.525,
+        -34.725,
+        -13.200000000000001,
+        70.475,
+        -33.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R321",
+      "file": "reference/components/OCC_main_R321.step",
+      "sha256": "716b3acc357ffe3fcf4d387fd287ddc215e6e29dc4e7cc636fab9419436945ca",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        51.025000000000006,
+        -43.225,
+        -13.200000000000001,
+        53.975,
+        -41.775000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R232",
+      "file": "reference/components/OCC_main_R232.step",
+      "sha256": "5d281740ddc2cfd39908dddee20af3109b2f7ad7d31f3aa37ba3e93777906b72",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999816,
+      "bbox": [
+        61.525000000000006,
+        -38.725,
+        -13.200000000000001,
+        64.475,
+        -37.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R201",
+      "file": "reference/components/OCC_main_R201.step",
+      "sha256": "b9607ba2708de0bfacec27de2305f4216c1cb0c3bdb30381ee0c4ebaf233ebe1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999816,
+      "bbox": [
+        61.525000000000006,
+        -36.725,
+        -13.200000000000001,
+        64.475,
+        -35.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1204",
+      "file": "reference/components/OCC_main_R1204.step",
+      "sha256": "24f15b80e661c2174f8f882a58a0acc2e77fb7e2de3ab103a58844c47875537b",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        71.025,
+        -31.724999999999998,
+        -13.200000000000001,
+        73.975,
+        -30.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1801",
+      "file": "reference/components/OCC_main_R1801.step",
+      "sha256": "27f10e8ee1aea285c9676c7a6f68301b8eb13968decafd337ceeeec3e07402e4",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        54.525000000000006,
+        -37.725,
+        -13.200000000000001,
+        57.475,
+        -36.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_J1921",
+      "file": "reference/components/OCC_main_J1921.step",
+      "sha256": "a793d4adf08d9c309f02ee760338be9238edb569c466ced228f2d7c1249f5eb1",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.682649999999933,
+      "bbox": [
+        87.95500000000001,
+        -43.945,
+        -14.05,
+        90.945,
+        -42.455000000000005,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C823",
+      "file": "reference/components/OCC_main_C823.step",
+      "sha256": "6f53d1b49f7b61ea5451f9949deae9104aed90bf8a5e8ae8df82ddbf183c5f2d",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.529600000000015,
+      "bbox": [
+        76.48,
+        -19.245,
+        -13.55,
+        79.52000000000001,
+        -17.755,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C831",
+      "file": "reference/components/OCC_main_C831.step",
+      "sha256": "c26b7cdd969f39932198417168feb70a9a7230f6e496a5bbef5b95f72f94bd86",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 20.188640000000074,
+      "bbox": [
+        64.63,
+        -6.595000000000001,
+        -14.450000000000001,
+        69.27000000000001,
+        -4.305,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1712",
+      "file": "reference/components/OCC_main_R1712.step",
+      "sha256": "afe5f7ef904cbd4fda4b0bb8176210e39a1b186dab85ac5abe24d75ef1f4b6f8",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        40.025000000000006,
+        -29.724999999999998,
+        -13.200000000000001,
+        42.975,
+        -28.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_C807",
+      "file": "reference/components/OCC_main_C807.step",
+      "sha256": "e8effd98238939e5224e17649680306b3a1f2d8e15949b044d3c09cdc0253b84",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277500000000002,
+      "bbox": [
+        73.7,
+        -26.625,
+        -13.55,
+        76.65,
+        -25.175,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1702",
+      "file": "reference/components/OCC_main_R1702.step",
+      "sha256": "5a8fd8fb4d0d28953e02e95d9fea3719b61f2bff7620dfb963129fbf69f36b74",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        51.025000000000006,
+        -33.225,
+        -13.200000000000001,
+        53.975,
+        -31.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1304",
+      "file": "reference/components/OCC_main_R1304.step",
+      "sha256": "e8d3bda6a141e2d1ba94a4131670ed2ff13d63f1259ec14078f7ead50683d735",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277500000000012,
+      "bbox": [
+        100.475,
+        -36.175000000000004,
+        -13.55,
+        103.425,
+        -34.725,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R902",
+      "file": "reference/components/OCC_main_R902.step",
+      "sha256": "19ac499142132c23aee9123bac66c224a0fe4b06dec5b0dfff54c11198c536ca",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        88.025,
+        -19.724999999999998,
+        -13.200000000000001,
+        90.975,
+        -18.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1703",
+      "file": "reference/components/OCC_main_R1703.step",
+      "sha256": "cbad29ffe7ce2c485a04368cfbc533305d6622682db609d94c9a072de560b957",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780375000000002,
+      "bbox": [
+        58.025000000000006,
+        -33.225,
+        -13.200000000000001,
+        60.975,
+        -31.775,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R824",
+      "file": "reference/components/OCC_main_R824.step",
+      "sha256": "3c568ca35cff7b78b857b72f63d131f8229b4168357388d5af829d55d24d0c90",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999887,
+      "bbox": [
+        82.525,
+        -25.724999999999998,
+        -13.200000000000001,
+        85.475,
+        -24.275,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R241",
+      "file": "reference/components/OCC_main_R241.step",
+      "sha256": "78feea245e7b2c02efc04148659293bd8a474160a287cc0400bdd29a08111bc6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999883,
+      "bbox": [
+        47.525000000000006,
+        -38.725,
+        -13.200000000000001,
+        50.475,
+        -37.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R691",
+      "file": "reference/components/OCC_main_R691.step",
+      "sha256": "292eeb675818c731ed6f72edc14a01a3e228d42288827b027769567c70c67a0e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803750000000016,
+      "bbox": [
+        49.025000000000006,
+        -12.725000000000001,
+        -13.200000000000001,
+        51.975,
+        -11.274999999999999,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_main_R1924",
+      "file": "reference/components/OCC_main_R1924.step",
+      "sha256": "3b2c059893bdd685fdd288ed81e4d97e34994f0f12d1a5adc280d8ca7308c220",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.2774999999999705,
+      "bbox": [
+        84.525,
+        -41.725,
+        -13.55,
+        87.475,
+        -40.275000000000006,
+        -12.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_U1501",
+      "file": "reference/components/OCC_usb_U1501.step",
+      "sha256": "8f92305a6eac91d495aca6e5bd6f4f97ecdc1cf538e50d4e5bc868a9f1a277bb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 28.764579999999984,
+      "bbox": [
+        94.83,
+        -18.744999999999997,
+        -3.3,
+        101.17,
+        -15.255,
+        -1.9999999999999998
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R1501",
+      "file": "reference/components/OCC_usb_R1501.step",
+      "sha256": "43807b834be88274bb7e266e0117a78b85d9f10288bba8c17cb27aa3a1f7b3ca",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        100.025,
+        -23.725,
+        -3.3,
+        102.975,
+        -22.275,
+        -2.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R1401",
+      "file": "reference/components/OCC_usb_R1401.step",
+      "sha256": "71c90ecb267f2ad86d8d00ac4645107bf1c605791563280f82edda29a9fc3900",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.780374999999995,
+      "bbox": [
+        93.025,
+        -23.725,
+        -3.3,
+        95.975,
+        -22.275,
+        -2.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_U401",
+      "file": "reference/components/OCC_usb_U401.step",
+      "sha256": "a9095fff79e1c3eca60210b8d81f4c356b7ab5cdc29360023876a029cf90f593",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 17.58393000000004,
+      "bbox": [
+        103.005,
+        -18.695,
+        -3.3,
+        106.995,
+        -15.305,
+        -1.9999999999999998
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_L1502",
+      "file": "reference/components/OCC_usb_L1502.step",
+      "sha256": "877e0790b311158c68d220aa016e34557bdc993df3e4f6eeaf859833e473cea5",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.859068799999965,
+      "bbox": [
+        100.71000000000001,
+        -14.29,
+        -3.3,
+        103.28999999999999,
+        -12.71,
+        -2.1079999999999997
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_C1501",
+      "file": "reference/components/OCC_usb_C1501.step",
+      "sha256": "c676451e0e20661e46a34db974d818400aca513e9c2a089ecd44d6bec55d47ed",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 9.893029999999966,
+      "bbox": [
+        96.355,
+        -23.97,
+        -3.3,
+        99.645,
+        -22.03,
+        -1.7499999999999998
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R402",
+      "file": "reference/components/OCC_usb_R402.step",
+      "sha256": "750c6e31d92fb3fe14fb31b4fbc818636c0e1d75ed4a78b598b3ee038fdec5d3",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999945,
+      "bbox": [
+        93.025,
+        -25.725,
+        -3.3,
+        95.975,
+        -24.275,
+        -2.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_C1402",
+      "file": "reference/components/OCC_usb_C1402.step",
+      "sha256": "e050832eeb920676324bbd4d3489ca95a735268973d24b954105e5d8b9f26b84",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.8780999999999906,
+      "bbox": [
+        96.605,
+        -25.695,
+        -3.3,
+        99.395,
+        -24.305,
+        -2.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_U1401",
+      "file": "reference/components/OCC_usb_U1401.step",
+      "sha256": "c9c1da8cae90c8135eb40fcad8391324417439c2e4771b57e74f49293d7a7fce",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.4813124999999943,
+      "bbox": [
+        90.075,
+        -14.925,
+        -3.3,
+        91.925,
+        -13.075,
+        -2.5749999999999997
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_L1501",
+      "file": "reference/components/OCC_usb_L1501.step",
+      "sha256": "3a08330f141ab0825489e3824f16d368571ea61af4225a0ff7da4da7878084ae",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.859068799999949,
+      "bbox": [
+        103.46000000000001,
+        -14.79,
+        -3.3,
+        105.03999999999999,
+        -12.21,
+        -2.1079999999999997
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R403",
+      "file": "reference/components/OCC_usb_R403.step",
+      "sha256": "500762687568ecff46cac976a10eb047bcef2ee2d86f0c0a2551a75c4b2d5556",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999945,
+      "bbox": [
+        100.025,
+        -25.725,
+        -3.3,
+        102.975,
+        -24.275,
+        -2.65
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_FL1501",
+      "file": "reference/components/OCC_usb_FL1501.step",
+      "sha256": "b5117c28737d99c738f7cd1996f229f51f5845f9b5a996e1dbdf6f04f7f96be9",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 8.176140000000013,
+      "bbox": [
+        96.455,
+        -14.695,
+        -3.3,
+        99.545,
+        -12.805,
+        -1.8999999999999997
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R1502",
+      "file": "reference/components/OCC_usb_R1502.step",
+      "sha256": "74c0042b4677ff650fddf1febc4e755f874ce38dd312b1c059a9fd263f989538",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999954,
+      "bbox": [
+        93.025,
+        -19.725,
+        -4.95,
+        95.975,
+        -18.275,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R1503",
+      "file": "reference/components/OCC_usb_R1503.step",
+      "sha256": "19206e3ef292408dd14c99cfbc5eba0b7663799a6901dad24b938baf3bd06f92",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999954,
+      "bbox": [
+        93.025,
+        -23.725,
+        -4.95,
+        95.975,
+        -22.275,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_C1401",
+      "file": "reference/components/OCC_usb_C1401.step",
+      "sha256": "82c0b4a04631c1fd8c83cde2d4cdfe143f042c21926fab0c4a5becab74792767",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.878099999999991,
+      "bbox": [
+        96.605,
+        -23.695,
+        -5.3,
+        99.395,
+        -22.305,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R404",
+      "file": "reference/components/OCC_usb_R404.step",
+      "sha256": "5ffbaba557e3ff2a7c1a57fb3f97014e695df1f0314d18f5adb5df9c98f065dc",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999954,
+      "bbox": [
+        93.025,
+        -17.725,
+        -4.95,
+        95.975,
+        -16.275,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R401",
+      "file": "reference/components/OCC_usb_R401.step",
+      "sha256": "b0b5961ee8be5e1a77033668b458345d613c9665ef366fcc867376c7eb97070e",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999954,
+      "bbox": [
+        100.025,
+        -23.725,
+        -4.95,
+        102.975,
+        -22.275,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_C1502",
+      "file": "reference/components/OCC_usb_C1502.step",
+      "sha256": "2355e381ad9b7ac03b593a6b83ed322fb414b2f0cb4c201bb8371583cd7a91ce",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 4.277499999999992,
+      "bbox": [
+        92.525,
+        -21.725,
+        -5.3,
+        95.475,
+        -20.275,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_R1504",
+      "file": "reference/components/OCC_usb_R1504.step",
+      "sha256": "72ef9209086712ac164e82adecfca47f4dba85c64cc0758fbf28812b6031edeb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 2.7803749999999954,
+      "bbox": [
+        100.025,
+        -19.725,
+        -4.95,
+        102.975,
+        -18.275,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_C403",
+      "file": "reference/components/OCC_usb_C403.step",
+      "sha256": "34806dd30c6e0eca9de30423c6b7b809deb101f18d20167ea2b097c3724607bb",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.878099999999991,
+      "bbox": [
+        96.605,
+        -17.695,
+        -5.3,
+        99.395,
+        -16.305,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_usb_C401",
+      "file": "reference/components/OCC_usb_C401.step",
+      "sha256": "d15f604a7394ade36baf68d1493b0467fe37a38aebbfbaa19aae5901bc9e231c",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.878099999999991,
+      "bbox": [
+        96.605,
+        -19.695,
+        -5.3,
+        99.395,
+        -18.305,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_audio_H_AUDIO_2_R",
+      "file": "reference/components/OCC_audio_H_AUDIO_2_R.step",
+      "sha256": "45a8a553c5417cfd2768437a2d87519285743520ed8352eac4851827ff1c5866",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 10.035149999999955,
+      "bbox": [
+        73.155,
+        -39.245,
+        -9.65,
+        74.645,
+        -34.755,
+        -8.15
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_cover_D851",
+      "file": "reference/components/OCC_cover_D851.step",
+      "sha256": "2adde1bc38179de5221114ac181134fa7255a99d54de0610ab08bcb66ca9e134",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.234675000000001,
+      "bbox": [
+        33.525,
+        -21.645,
+        0.5,
+        36.475,
+        -20.355,
+        1.35
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_cover_D852",
+      "file": "reference/components/OCC_cover_D852.step",
+      "sha256": "a21b73e9d11345c5f276906b7d719690a0f4b82d7cb829524c73a54bbf8b9f54",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.234675000000001,
+      "bbox": [
+        53.525,
+        -21.645,
+        0.5,
+        56.475,
+        -20.355,
+        1.35
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "OCC_cover_D850",
+      "file": "reference/components/OCC_cover_D850.step",
+      "sha256": "9654747419b7a01393f4a35c13d6983eba3229e8d1e5150c6061a39558ae883a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 3.2346749999999993,
+      "bbox": [
+        13.525,
+        -21.645,
+        0.5,
+        16.475,
+        -20.355,
+        1.35
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "J_USB_U_FH12_16_envelope",
+      "file": "reference/components/J_USB_U_FH12_16_envelope.step",
+      "sha256": "75eeb380bb7f0501c5305ef09d6d9f94e780a3b1aa8b3a007f7e6d94718b9d79",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 142.99999999999997,
+      "bbox": [
+        86.8,
+        -24.5,
+        -6.3,
+        92.3,
+        -11.5,
+        -4.3
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "FPC_USB16_route_reservation",
+      "file": "reference/components/FPC_USB16_route_reservation.step",
+      "sha256": "2db9d5bfe1433945130e11c747cdf6937b9646c71aeab8b532e50d4510470e61",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 80.83499999999992,
+      "bbox": [
+        73.0,
+        -22.5,
+        -7.75,
+        86.8,
+        -8.6,
+        -5.35
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "GCT_USB4120_body_max",
+      "file": "reference/components/GCT_USB4120_body_max.step",
+      "sha256": "e77e89668c28099f3f1992312c414a0b30ced8b12bb7f37b860b980a60f9adfd",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 201.43441177345267,
+      "bbox": [
+        93.405,
+        -10.705,
+        -3.3,
+        102.595,
+        -7.295,
+        3.55
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "U901_module_dimensioned_reference",
+      "file": "reference/components/U901_module_dimensioned_reference.step",
+      "sha256": "75a96d0cc2f955d4ff270d4981d7a624c950cb31142afc56eebd9e73ea8819b2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 407.315125,
+      "bbox": [
+        79.325,
+        -21.825000000000003,
+        -11.65,
+        92.675,
+        -8.175000000000002,
+        -9.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "RF_antenna_and_coax_reference",
+      "file": "reference/components/RF_antenna_and_coax_reference.step",
+      "sha256": "c54329176090e5cfdaf57564bf0f85ed4c1bb4d97cc5029a4213efb143136194",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 203.2065402785255,
+      "bbox": [
+        80.00000000000001,
+        -46.1,
+        -10.85,
+        138.5,
+        -4.049999899999997,
+        2.5
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "FPC_AUDIO6_installed_reference",
+      "file": "reference/components/FPC_AUDIO6_installed_reference.step",
+      "sha256": "0ee1fe10ea6837521da2d935e6b1aa091736824b76c2c764ae1d09c533247440",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 21.278855618934237,
+      "bbox": [
+        54.1,
+        -45.96,
+        -12.660000000000002,
+        87.7,
+        -32.5,
+        -9.515
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "FPC_COVER6_installed_reference",
+      "file": "reference/components/FPC_COVER6_installed_reference.step",
+      "sha256": "e483a6c8295fa45cb6a38a9c9f3c1d55f473a2f75136ed6fe350f043dd0ad579",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 37.6696667649223,
+      "bbox": [
+        69.45,
+        -45.96,
+        -12.660000000000002,
+        111.0,
+        -24.2,
+        0.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "FPC_POTS3_installed_reference",
+      "file": "reference/components/FPC_POTS3_installed_reference.step",
+      "sha256": "691145ed3ebdce5751f00bf6761b2433a81993c0ef2d74fcc1daaee5e9f2ea8a",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 11.706257245148453,
+      "bbox": [
+        64.7,
+        -45.61,
+        -11.75,
+        81.0,
+        -23.8,
+        0.09999999999999998
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "FPC_KEYS6_installed_reference",
+      "file": "reference/components/FPC_KEYS6_installed_reference.step",
+      "sha256": "85dd3cc28ea70f9567a43e6cf8355ac58050a551a73e70a69d7842f1f8e5da66",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 34.28392449029743,
+      "bbox": [
+        36.900000000000006,
+        -17.5,
+        -11.75,
+        84.5,
+        -3.29,
+        0.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "SCREW_keybacker_42.5",
+      "file": "reference/components/SCREW_keybacker_42.5.step",
+      "sha256": "3636a34754f749e35570f625617eb7d4e35690bbda3ee4ee89cabde80ff60df2",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.361725123519328,
+      "bbox": [
+        41.0,
+        -26.5,
+        -2.0,
+        44.0,
+        -23.5,
+        -1.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "SCREW_keybacker_55.5",
+      "file": "reference/components/SCREW_keybacker_55.5.step",
+      "sha256": "0762bd0f6b4bb06feca40907599c1e58c29b8de63b87a343d22889de78e8b9af",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.361725123519328,
+      "bbox": [
+        54.0,
+        -26.5,
+        -2.0,
+        57.0,
+        -23.5,
+        -1.1
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "SCREW_usb_88_8",
+      "file": "reference/components/SCREW_usb_88_8.step",
+      "sha256": "5150f36418413909543f35f0ece5166f739c56f94f4724ff2dc66b5f28056272",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.361725123519331,
+      "bbox": [
+        86.5,
+        -9.5,
+        -5.8,
+        89.5,
+        -6.5,
+        -4.8999999999999995
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "SCREW_usb_108.3_8",
+      "file": "reference/components/SCREW_usb_108.3_8.step",
+      "sha256": "f7675db44ac656cbba84bf0a53012035659e116592647c0088dfe4f2e1cabb31",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.361725123519331,
+      "bbox": [
+        106.8,
+        -9.5,
+        -5.8,
+        109.8,
+        -6.5,
+        -4.8999999999999995
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    },
+    {
+      "name": "SCREW_usb_108.3_22",
+      "file": "reference/components/SCREW_usb_108.3_22.step",
+      "sha256": "3d7666b2965c67736ed7526c5c8c94894901c1b0c757df6bda95a0a72e38f6a6",
+      "valid": true,
+      "solids": 1,
+      "volume_mm3": 6.36172512351933,
+      "bbox": [
+        106.8,
+        -23.5,
+        -5.8,
+        109.8,
+        -20.5,
+        -4.8999999999999995
+      ],
+      "source": "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"
+    }
+  ],
+  "collision_pair_count": 62481,
+  "exact_intersection_count": 1274,
+  "file_manifest": [
+    {
+      "file": "cad/button_1.step",
+      "sha256": "f4fba9f413ffd04e37a9036533fe4e28eae2c1d69caa859dfc6f148800167e55"
+    },
+    {
+      "file": "cad/button_2.step",
+      "sha256": "cd3066b2e32715b4f9d51279dc1cccc334ea6dd9bf5e4ca09311ce49a92f056f"
+    },
+    {
+      "file": "cad/button_3.step",
+      "sha256": "bf505a5dcc0625c34f97ca7429258430958375e57e1fed5661e256a7f60792fe"
+    },
+    {
+      "file": "cad/button_4.step",
+      "sha256": "f8d07107094775196b0ee0e860406c315688432c27aad38ceef94d022a78e7d2"
+    },
+    {
+      "file": "cad/button_5.step",
+      "sha256": "92ecb6bdd99339b16ffe3c95de5fb988da8d280fbce5dd3b9c503ff2fde29c20"
+    },
+    {
+      "file": "cad/lightpipe_1.step",
+      "sha256": "725054c638532e48970f201e0593cb6b22974cb1d1ca1e2e64d180033d4fb307"
+    },
+    {
+      "file": "cad/lightpipe_2.step",
+      "sha256": "189d502d6ac01caf55c0b9bfbc80b06d08026c0b925412d966479a7e14003270"
+    },
+    {
+      "file": "cad/lightpipe_3.step",
+      "sha256": "027d7ab56023f56b49835cf5d285aa6ede02ced1df12770d74e0c59a7ffaa700"
+    },
+    {
+      "file": "cad/upper_cover.step",
+      "sha256": "5203912063ddc09f4f1983cef9731fef0df54a78c1c280917f9c09571a7ad281"
+    },
+    {
+      "file": "cad/lower_cup.step",
+      "sha256": "58668e32446a64d49cd4c12cec3ab4d444c2566698bbc6c2ae9a1af7d166be7e"
+    },
+    {
+      "file": "cad/audio_load_frame.step",
+      "sha256": "c0cc4c8ba3e8ff4965733c8928e6d4ab725d50f76627d69a3a8248e0703d4ce5"
+    },
+    {
+      "file": "cad/key_backer_bracket.step",
+      "sha256": "9cf03282ace776a21341f90de8392bcbf78935c8f36d0d9d1cb4a09c4d95ff69"
+    },
+    {
+      "file": "cad/usb_bracket.step",
+      "sha256": "f8854555e4150e286b46a3a18b902e8374dd181adffa780b7411ffb6bd2249b0"
+    },
+    {
+      "file": "cad/main_shim_0p05mm.step",
+      "sha256": "57534b0c79ad950dcd0be2c51dbe046f22950e9a0eec1571e4a5291d3ea3a2bb"
+    },
+    {
+      "file": "cad/main_shim_0p1mm.step",
+      "sha256": "b67b96709776d4bb8545eaf253c31d14fd241ab4f815bb2802db6002fb1aa4ce"
+    },
+    {
+      "file": "cad/main_shim_0p2mm.step",
+      "sha256": "f1e8f2e09cf92716780dc26929ddd8c427ffde2cc2e7ae525a59cc71ea2ef4d1"
+    },
+    {
+      "file": "cad/battery_bottom_insulator.step",
+      "sha256": "5b8875075ddb2b3549982e4ce58fccb131ee8a9fde4697e3be6de3ab87652125"
+    },
+    {
+      "file": "cad/main_audio_dielectric_separator.step",
+      "sha256": "1b5f1530cd3bc11a95ff5009e4baf00e44e51e1dcdeb2ba8529afc9352688cd6"
+    },
+    {
+      "file": "cad/key_backer_insulator.step",
+      "sha256": "3d1f9ee5d443c0ff46ef25750689aa5bd5254458cb251eaeccf4462c944275c2"
+    },
+    {
+      "file": "cad/speaker_backer_insulator.step",
+      "sha256": "96b621687ca9333943ffd76900999f90d1f7be8595ac0c3eca36fc3fed6de1c9"
+    },
+    {
+      "file": "cad/ntc_electrical_separator.step",
+      "sha256": "7e2cd8ab8e0cba49cdd923634110e59229166392e2a5bf58900fca660652c1ab"
+    },
+    {
+      "file": "cad/battery_top_separator.step",
+      "sha256": "0ace5ae882c448f323644eb9ed90db397200692f9fe691374ed1c14dab9ef0bb"
+    },
+    {
+      "file": "cad/battery_top_foam.step",
+      "sha256": "18a9db180d54222e1db1c9e4efdef39585c0373814d6d89e472c2edecb552263"
+    }
+  ],
+  "intersections": [],
+  "envelope": {
+    "cover_xy": [
+      148.0,
+      49.0
+    ],
+    "cover_xy_limit": [
+      148,
+      49
+    ],
+    "nonwheel_protrusion": 3.85,
+    "nonwheel_protrusion_limit": 5,
+    "wheel_top_Z": 3.0,
+    "cup_xy": [
+      77.0,
+      45.0
+    ],
+    "cup_depth": 20.9,
+    "cavity": [
+      78,
+      47,
+      22
+    ],
+    "total_height": 24.75,
+    "total_height_limit": 25.0,
+    "pass": true
+  },
+  "legend_clearance": [
+    {
+      "text": "VOL",
+      "xy": [
+        15,
+        18.9
+      ],
+      "bbox_xy": [
+        12.99,
+        18.19,
+        16.97,
+        19.55
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "TONE",
+      "xy": [
+        35,
+        18.9
+      ],
+      "bbox_xy": [
+        32.26,
+        18.19,
+        37.62,
+        19.55
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "FX",
+      "xy": [
+        55,
+        18.9
+      ],
+      "bbox_xy": [
+        53.86,
+        18.21,
+        56.27,
+        19.52
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "FX",
+      "xy": [
+        10,
+        29.7
+      ],
+      "bbox_xy": [
+        8.86,
+        29.01,
+        11.27,
+        30.32
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "MODE",
+      "xy": [
+        23,
+        29.7
+      ],
+      "bbox_xy": [
+        20.14,
+        28.99,
+        25.89,
+        30.35
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "MIX",
+      "xy": [
+        36,
+        29.7
+      ],
+      "bbox_xy": [
+        34.24,
+        29.01,
+        37.89,
+        30.32
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "PWR",
+      "xy": [
+        49,
+        29.7
+      ],
+      "bbox_xy": [
+        46.82,
+        29.01,
+        51.31,
+        30.32
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "BT",
+      "xy": [
+        62,
+        29.7
+      ],
+      "bbox_xy": [
+        60.84,
+        29.01,
+        63.27,
+        30.32
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "FX SEND",
+      "xy": [
+        46.5,
+        45.4
+      ],
+      "bbox_xy": [
+        42.28,
+        44.69,
+        50.79,
+        46.05
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "LINE OUT",
+      "xy": [
+        64.8,
+        45.4
+      ],
+      "bbox_xy": [
+        60.25,
+        44.69,
+        69.47,
+        46.05
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "AUX",
+      "xy": [
+        83.1,
+        45.4
+      ],
+      "bbox_xy": [
+        81.02,
+        44.71,
+        85.16,
+        46.05
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "PHONES",
+      "xy": [
+        101.4,
+        45.4
+      ],
+      "bbox_xy": [
+        97.41,
+        44.69,
+        105.5,
+        46.05
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    },
+    {
+      "text": "USB",
+      "xy": [
+        98,
+        15.6
+      ],
+      "bbox_xy": [
+        96.1,
+        14.89,
+        99.94,
+        16.25
+      ],
+      "solid_fraction_under_margin": 1.0,
+      "ok": true
+    }
+  ],
+  "nominal_Z_chain": [
+    [
+      "cup bottom",
+      -20.9
+    ],
+    [
+      "floor top",
+      -20.3
+    ],
+    [
+      "bottom insulation top / battery bottom",
+      -20.2
+    ],
+    [
+      "battery max top",
+      -14.8
+    ],
+    [
+      "foam (swell allowance) top",
+      -13.8
+    ],
+    [
+      "top separator top",
+      -13.7
+    ],
+    [
+      "main B max bottom",
+      -13.6
+    ],
+    [
+      "main board bottom",
+      -12.55
+    ],
+    [
+      "main board top / latch tooth bottom",
+      -11.75
+    ],
+    [
+      "audio frame bottom / blade lip top",
+      -11.15
+    ],
+    [
+      "audio PCB top",
+      -9.65
+    ],
+    [
+      "jack shoulder / roof pad",
+      1.45
+    ],
+    [
+      "jack mouth nominal",
+      3.85
+    ],
+    [
+      "key top",
+      3.85
+    ]
+  ],
+  "nominal_limits": {
+    "total": 24.75,
+    "nonwheel": 3.85,
+    "raw_cavity_depth": 22
+  },
+  "tolerance_limit_status": "Worst case dimensions and final board height-map not yet closed; assembly is not released merely by nominal dimensions.",
+  "physical_tests": 0,
+  "manufacturing_process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
+  "modeled_board_interconnections": 21,
+  "required_board_interconnections": 37,
+  "complete_harness_closed": false,
+  "remaining": [
+    "Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun",
+    "Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team",
+    "confirm actual pickup cable and drill instrument cavity floor at the cup entry hole",
+    "FPC custom thin stack and microdrill require supplier DFM confirmation",
+    "measure actual violin cavity and mounting surface",
+    "freeze actual material and qualified tolerance/process",
+    "speaker back volume not provided (acoustic test)"
+  ],
+  "assembly_sequence": {
+    "file": "assembly-sequence-check.json",
+    "pass": true,
+    "steps": 17
+  }
+}

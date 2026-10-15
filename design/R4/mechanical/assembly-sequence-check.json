@@ -1,0 +1,3681 @@
+{
+  "schema": "SmartVio.R4.assembly-sequence-check",
+  "method": "R4 assembly order and swept-insertion interference check (review M1 fix 4).\n\nEvery rigid part (or rigid board assembly) is moved along its insertion direction from a start pose\nL mm outside to its final pose. The exact swept volume is A(start) U A(final) U prisms of every boundary\nface of A(start) extruded by L along the direction (faces parallel to the direction add nothing).\nEach piece is intersected (OCC BRepAlgoAPI_Common) with every already-installed solid; a common volume\n>1e-4 mm3 is an interference. Designed elastic snaps are listed explicitly and pass only if their\ninterference depth across the deflection axis stays within the designed hook overlap.\nThin flexible items (FPCs, RF coax) are not swept; they are checked at the final pose by the pairwise\ncollision check in build_mechanics.py.",
+  "orientation": "Cover subassembly built roof-down: parts move world +Z (toward the roof). Cup subassembly built upright: parts move world -Z. Then cup subassembly moves +Z into cover; finished module moves -Z into the instrument cavity.",
+  "cover_light_model": "upper cover checked without the 0.15 mm top legends (legends are >=0.3 mm from every opening, checked separately)",
+  "not_swept_flexible": [
+    "FPC_AUDIO6_installed_reference",
+    "FPC_COVER6_installed_reference",
+    "FPC_KEYS6_installed_reference",
+    "FPC_POTS3_installed_reference",
+    "FPC_USB16_route_reservation",
+    "RF_antenna_and_coax_reference"
+  ],
+  "order": [
+    {
+      "step": "C1",
+      "description": "5 keys inserted from inside, stem through Ø5.2, flange into recess"
+    },
+    {
+      "step": "C2",
+      "description": "3 light pipes from inside, flange under roof"
+    },
+    {
+      "step": "C3",
+      "description": "speaker LS901 into roof pocket (rim to pocket ceiling)"
+    },
+    {
+      "step": "C4",
+      "description": "control (cover) board with switches, wheels, LEDs; 2 roof pins locate"
+    },
+    {
+      "step": "C5",
+      "description": "PET backer films under keys 1-2 and speaker"
+    },
+    {
+      "step": "C6",
+      "description": "key backer bracket + 2 M1.6 screws (clamps control board)"
+    },
+    {
+      "step": "C7",
+      "description": "USB board onto 4 roof posts (J401 into tight roof opening)"
+    },
+    {
+      "step": "C8",
+      "description": "USB bracket + 3 M1.6 screws (board clamped between bracket and 4 roof posts)"
+    },
+    {
+      "step": "C10",
+      "description": "audio board with 4 Kycon jacks, shoulders to roof pads"
+    },
+    {
+      "step": "C11",
+      "description": "audio frame snaps over south blade lips and hangs on key-backer ledge / USB-bracket rail"
+    },
+    {
+      "step": "L1",
+      "description": "floor film, NTC separator, RT1921"
+    },
+    {
+      "step": "L2",
+      "description": "battery pack (max envelope)"
+    },
+    {
+      "step": "L3",
+      "description": "battery top foam + top separator"
+    },
+    {
+      "step": "L4",
+      "description": "main board assembly snaps under 4 latch teeth"
+    },
+    {
+      "step": "L5",
+      "description": "main/audio dielectric film"
+    },
+    {
+      "step": "F1",
+      "description": "closed cup subassembly pushed into cover subassembly (4 zero-play snaps); FPCs pre-soldered and folded, coax mated"
+    },
+    {
+      "step": "F2",
+      "description": "module lowered into instrument cavity, 4 ST2.2 wood screws"
+    }
+  ],
+  "steps": [
+    {
+      "step": "C1",
+      "description": "5 keys inserted from inside, stem through Ø5.2, flange into recess",
+      "moving": [
+        "button_1",
+        "button_2",
+        "button_3",
+        "button_4",
+        "button_5"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 12,
+      "pieces_tested": 30,
+      "booleans": 30,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "button_1",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "button_2",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "button_3",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "button_4",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "button_5",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        }
+      ],
+      "pass": true,
+      "seconds": 2.2
+    },
+    {
+      "step": "C2",
+      "description": "3 light pipes from inside, flange under roof",
+      "moving": [
+        "lightpipe_1",
+        "lightpipe_2",
+        "lightpipe_3"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 12,
+      "pieces_tested": 18,
+      "booleans": 18,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "lightpipe_1",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "lightpipe_2",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "lightpipe_3",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "lightpipe_2",
+          "installed": "button_3",
+          "min_clearance_mm": 0.405
+        }
+      ],
+      "pass": true,
+      "seconds": 1.4
+    },
+    {
+      "step": "C3",
+      "description": "speaker LS901 into roof pocket (rim to pocket ceiling)",
+      "moving": [
+        "speaker_working_nominal_reference"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 12,
+      "pieces_tested": 4,
+      "booleans": 4,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "speaker_working_nominal_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        }
+      ],
+      "pass": true,
+      "seconds": 0.5
+    },
+    {
+      "step": "C4",
+      "description": "control (cover) board with switches, wheels, LEDs; 2 roof pins locate",
+      "moving": [
+        "cover_native_reference",
+        "OCC_cover_D850",
+        "OCC_cover_D851",
+        "OCC_cover_D852",
+        "wheel_1_max_reference",
+        "wheel_2_max_reference",
+        "wheel_3_max_reference",
+        "switch_1_max_reference",
+        "switch_2_max_reference",
+        "switch_3_max_reference",
+        "switch_4_max_reference",
+        "switch_5_max_reference"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 15,
+      "pieces_tested": 72,
+      "booleans": 60,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "cover_native_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "cover_native_reference",
+          "installed": "speaker_working_nominal_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "switch_1_max_reference",
+          "installed": "button_1",
+          "min_clearance_mm": 0.05
+        },
+        {
+          "moving": "switch_2_max_reference",
+          "installed": "button_2",
+          "min_clearance_mm": 0.05
+        },
+        {
+          "moving": "switch_3_max_reference",
+          "installed": "button_3",
+          "min_clearance_mm": 0.05
+        },
+        {
+          "moving": "switch_4_max_reference",
+          "installed": "button_4",
+          "min_clearance_mm": 0.05
+        },
+        {
+          "moving": "switch_5_max_reference",
+          "installed": "button_5",
+          "min_clearance_mm": 0.05
+        },
+        {
+          "moving": "OCC_cover_D850",
+          "installed": "lightpipe_1",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_cover_D851",
+          "installed": "lightpipe_2",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_cover_D852",
+          "installed": "lightpipe_3",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "switch_1_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.35
+        },
+        {
+          "moving": "switch_2_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.35
+        },
+        {
+          "moving": "switch_3_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.35
+        },
+        {
+          "moving": "switch_4_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.35
+        },
+        {
+          "moving": "switch_5_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.35
+        },
+        {
+          "moving": "wheel_1_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "wheel_2_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "wheel_3_max_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "switch_3_max_reference",
+          "installed": "lightpipe_2",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "cover_native_reference",
+          "installed": "lightpipe_1",
+          "min_clearance_mm": 0.95
+        },
+        {
+          "moving": "cover_native_reference",
+          "installed": "lightpipe_2",
+          "min_clearance_mm": 0.95
+        },
+        {
+          "moving": "cover_native_reference",
+          "installed": "lightpipe_3",
+          "min_clearance_mm": 0.95
+        }
+      ],
+      "pass": true,
+      "seconds": 13.9
+    },
+    {
+      "step": "C5",
+      "description": "PET backer films under keys 1-2 and speaker",
+      "moving": [
+        "key_backer_insulator",
+        "speaker_backer_insulator"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 10,
+      "pieces_tested": 8,
+      "booleans": 8,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "key_backer_insulator",
+          "installed": "cover_native_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "speaker_backer_insulator",
+          "installed": "cover_native_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "key_backer_insulator",
+          "installed": "OCC_cover_D850",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_insulator",
+          "installed": "OCC_cover_D851",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_insulator",
+          "installed": "switch_1_max_reference",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_insulator",
+          "installed": "switch_2_max_reference",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_insulator",
+          "installed": "switch_3_max_reference",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "speaker_backer_insulator",
+          "installed": "speaker_working_nominal_reference",
+          "min_clearance_mm": 0.4
+        }
+      ],
+      "pass": true,
+      "seconds": 0.8
+    },
+    {
+      "step": "C6",
+      "description": "key backer bracket + 2 M1.6 screws (clamps control board)",
+      "moving": [
+        "key_backer_bracket",
+        "SCREW_keybacker_42.5",
+        "SCREW_keybacker_55.5"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 15,
+      "pieces_tested": 14,
+      "booleans": 11,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "key_backer_bracket",
+          "installed": "cover_native_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "key_backer_bracket",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_bracket",
+          "installed": "OCC_cover_D852",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_bracket",
+          "installed": "switch_3_max_reference",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_bracket",
+          "installed": "switch_4_max_reference",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_bracket",
+          "installed": "switch_5_max_reference",
+          "min_clearance_mm": 0.4
+        },
+        {
+          "moving": "key_backer_bracket",
+          "installed": "OCC_cover_D851",
+          "min_clearance_mm": 0.419
+        }
+      ],
+      "pass": true,
+      "seconds": 1.0
+    },
+    {
+      "step": "C7",
+      "description": "USB board onto 4 roof posts (J401 into tight roof opening)",
+      "moving": [
+        "usb_reference",
+        "GCT_USB4120_body_max",
+        "J_USB_U_FH12_16_envelope",
+        "OCC_usb_C1401",
+        "OCC_usb_C1402",
+        "OCC_usb_C1501",
+        "OCC_usb_C1502",
+        "OCC_usb_C401",
+        "OCC_usb_C403",
+        "OCC_usb_FL1501",
+        "OCC_usb_L1501",
+        "OCC_usb_L1502",
+        "OCC_usb_R1401",
+        "OCC_usb_R1501",
+        "OCC_usb_R1502",
+        "OCC_usb_R1503",
+        "OCC_usb_R1504",
+        "OCC_usb_R401",
+        "OCC_usb_R402",
+        "OCC_usb_R403",
+        "OCC_usb_R404",
+        "OCC_usb_U1401",
+        "OCC_usb_U1501",
+        "OCC_usb_U401"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 20,
+      "pieces_tested": 96,
+      "booleans": 74,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "usb_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "GCT_USB4120_body_max",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "GCT_USB4120_body_max",
+          "installed": "cover_native_reference",
+          "min_clearance_mm": 0.705
+        }
+      ],
+      "pass": true,
+      "seconds": 7.8
+    },
+    {
+      "step": "C8",
+      "description": "USB bracket + 3 M1.6 screws (board clamped between bracket and 4 roof posts)",
+      "moving": [
+        "usb_bracket",
+        "SCREW_usb_108.3_22",
+        "SCREW_usb_108.3_8",
+        "SCREW_usb_88_8"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 20,
+      "pieces_tested": 16,
+      "booleans": 42,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "usb_bracket",
+          "installed": "usb_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "usb_bracket",
+          "installed": "J_USB_U_FH12_16_envelope",
+          "min_clearance_mm": 0.2
+        },
+        {
+          "moving": "SCREW_usb_108.3_22",
+          "installed": "usb_reference",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "SCREW_usb_108.3_8",
+          "installed": "usb_reference",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "SCREW_usb_88_8",
+          "installed": "usb_reference",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "usb_bracket",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.7
+        }
+      ],
+      "pass": true,
+      "seconds": 1.3
+    },
+    {
+      "step": "C10",
+      "description": "audio board with 4 Kycon jacks, shoulders to roof pads",
+      "moving": [
+        "audio_native_reference",
+        "Kycon_vendor_1",
+        "Kycon_vendor_2",
+        "Kycon_vendor_3",
+        "Kycon_vendor_4",
+        "OCC_audio_H_AUDIO_2_R"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 484,
+      "booleans": 618,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "Kycon_vendor_1",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.005
+        },
+        {
+          "moving": "Kycon_vendor_2",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.005
+        },
+        {
+          "moving": "Kycon_vendor_3",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.005
+        },
+        {
+          "moving": "Kycon_vendor_4",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.005
+        },
+        {
+          "moving": "audio_native_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.986
+        }
+      ],
+      "pass": true,
+      "seconds": 83.8
+    },
+    {
+      "step": "C11",
+      "description": "audio frame snaps over south blade lips and hangs on key-backer ledge / USB-bracket rail",
+      "moving": [
+        "audio_load_frame"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 11,
+      "booleans": 26,
+      "interferences": [],
+      "elastic_snaps": [
+        {
+          "moving": "audio_load_frame",
+          "installed": "upper_cover",
+          "swept_common_mm3": 1.251736,
+          "common_bbox": [
+            63.0,
+            -45.2,
+            -11.572,
+            104.5,
+            -44.85,
+            -11.15
+          ],
+          "designed_snap": "blade lip 0.35 overlap, blade flexes +Y",
+          "deflection_axis": "Y",
+          "interference_depth_mm": 0.35,
+          "allowed_mm": 0.4,
+          "ok": true
+        },
+        {
+          "moving": "audio_load_frame",
+          "installed": "key_backer_bracket",
+          "swept_common_mm3": 2.64,
+          "common_bbox": [
+            40.0,
+            -29.1,
+            -2.0,
+            62.0,
+            -28.8,
+            -1.6
+          ],
+          "designed_snap": "web hook 0.3 over backer ledge, web flexes",
+          "deflection_axis": "Y",
+          "interference_depth_mm": 0.3,
+          "allowed_mm": 0.35,
+          "ok": true
+        },
+        {
+          "moving": "audio_load_frame",
+          "installed": "usb_bracket",
+          "swept_common_mm3": 4.2,
+          "common_bbox": [
+            88.0,
+            -27.6,
+            -4.9,
+            108.0,
+            -27.25,
+            -4.3
+          ],
+          "designed_snap": "web tab 0.35 over bracket rail, web flexes",
+          "deflection_axis": "Y",
+          "interference_depth_mm": 0.35,
+          "allowed_mm": 0.4,
+          "ok": true
+        }
+      ],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "audio_load_frame",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "audio_load_frame",
+          "installed": "key_backer_bracket",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "audio_load_frame",
+          "installed": "usb_bracket",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "audio_load_frame",
+          "installed": "audio_native_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "audio_load_frame",
+          "installed": "usb_reference",
+          "min_clearance_mm": 0.25
+        }
+      ],
+      "pass": true,
+      "seconds": 5.2
+    },
+    {
+      "step": "L1",
+      "description": "floor film, NTC separator, RT1921",
+      "moving": [
+        "battery_bottom_insulator",
+        "ntc_electrical_separator",
+        "RT1921_body_reference"
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 12,
+      "booleans": 9,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "battery_bottom_insulator",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "ntc_electrical_separator",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "RT1921_body_reference",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.0
+        }
+      ],
+      "pass": true,
+      "seconds": 0.5
+    },
+    {
+      "step": "L2",
+      "description": "battery pack (max envelope)",
+      "moving": [
+        "battery_max_reference"
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 4,
+      "booleans": 3,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "battery_max_reference",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "battery_max_reference",
+          "installed": "battery_bottom_insulator",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "battery_max_reference",
+          "installed": "ntc_electrical_separator",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "battery_max_reference",
+          "installed": "RT1921_body_reference",
+          "min_clearance_mm": 0.1
+        }
+      ],
+      "pass": true,
+      "seconds": 0.2
+    },
+    {
+      "step": "L3",
+      "description": "battery top foam + top separator",
+      "moving": [
+        "battery_top_foam",
+        "battery_top_separator"
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 8,
+      "booleans": 6,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "battery_top_foam",
+          "installed": "battery_max_reference",
+          "min_clearance_mm": 0.0
+        }
+      ],
+      "pass": true,
+      "seconds": 0.3
+    },
+    {
+      "step": "L4",
+      "description": "main board assembly snaps under 4 latch teeth",
+      "moving": [
+        "main_reference",
+        "U901_module_dimensioned_reference",
+        "OCC_main_C1001",
+        "OCC_main_C1002",
+        "OCC_main_C1003",
+        "OCC_main_C101",
+        "OCC_main_C102",
+        "OCC_main_C103",
+        "OCC_main_C104",
+        "OCC_main_C1101",
+        "OCC_main_C1102",
+        "OCC_main_C1103",
+        "OCC_main_C1104",
+        "OCC_main_C1105",
+        "OCC_main_C1106",
+        "OCC_main_C1107",
+        "OCC_main_C1108",
+        "OCC_main_C111",
+        "OCC_main_C121",
+        "OCC_main_C1301",
+        "OCC_main_C1302",
+        "OCC_main_C1303",
+        "OCC_main_C1701",
+        "OCC_main_C1702",
+        "OCC_main_C1703",
+        "OCC_main_C1704",
+        "OCC_main_C1705",
+        "OCC_main_C1706",
+        "OCC_main_C1707",
+        "OCC_main_C1708",
+        "OCC_main_C1709",
+        "OCC_main_C1710",
+        "OCC_main_C1711",
+        "OCC_main_C1901",
+        "OCC_main_C1902",
+        "OCC_main_C1903",
+        "OCC_main_C1904",
+        "OCC_main_C1921",
+        "OCC_main_C1922",
+        "OCC_main_C201",
+        "OCC_main_C202",
+        "OCC_main_C211",
+        "OCC_main_C212",
+        "OCC_main_C221",
+        "OCC_main_C222",
+        "OCC_main_C231",
+        "OCC_main_C232",
+        "OCC_main_C240",
+        "OCC_main_C241",
+        "OCC_main_C301",
+        "OCC_main_C302",
+        "OCC_main_C303",
+        "OCC_main_C304",
+        "OCC_main_C305",
+        "OCC_main_C306",
+        "OCC_main_C307",
+        "OCC_main_C320",
+        "OCC_main_C501",
+        "OCC_main_C502",
+        "OCC_main_C503",
+        "OCC_main_C601",
+        "OCC_main_C602",
+        "OCC_main_C603",
+        "OCC_main_C604",
+        "OCC_main_C605",
+        "OCC_main_C606",
+        "OCC_main_C607",
+        "OCC_main_C608",
+        "OCC_main_C701",
+        "OCC_main_C702",
+        "OCC_main_C703",
+        "OCC_main_C704",
+        "OCC_main_C705",
+        "OCC_main_C710",
+        "OCC_main_C711",
+        "OCC_main_C712",
+        "OCC_main_C713",
+        "OCC_main_C714",
+        "OCC_main_C715",
+        "OCC_main_C801",
+        "OCC_main_C802",
+        "OCC_main_C803",
+        "OCC_main_C804",
+        "OCC_main_C805",
+        "OCC_main_C806",
+        "OCC_main_C807",
+        "OCC_main_C808",
+        "OCC_main_C809",
+        "OCC_main_C810",
+        "OCC_main_C811",
+        "OCC_main_C812",
+        "OCC_main_C813",
+        "OCC_main_C820",
+        "OCC_main_C821",
+        "OCC_main_C822",
+        "OCC_main_C823",
+        "OCC_main_C824",
+        "OCC_main_C825",
+        "OCC_main_C830",
+        "OCC_main_C831",
+        "OCC_main_C832",
+        "OCC_main_C901",
+        "OCC_main_C902",
+        "OCC_main_C903",
+        "OCC_main_C904",
+        "OCC_main_C905",
+        "OCC_main_D1201",
+        "OCC_main_D1202",
+        "OCC_main_D1203",
+        "OCC_main_D1204",
+        "OCC_main_D1205",
+        "OCC_main_D1206",
+        "OCC_main_D1207",
+        "OCC_main_D1301",
+        "OCC_main_D1302",
+        "OCC_main_FB1101",
+        "OCC_main_H_AUDIO_2_M",
+        "OCC_main_J1921",
+        "OCC_main_J501",
+        "OCC_main_J801",
+        "OCC_main_J901",
+        "OCC_main_J902",
+        "OCC_main_K1201",
+        "OCC_main_K1202",
+        "OCC_main_K1203",
+        "OCC_main_K1204",
+        "OCC_main_K1205",
+        "OCC_main_K1206",
+        "OCC_main_K1207",
+        "OCC_main_L1101",
+        "OCC_main_Q1201",
+        "OCC_main_Q1601",
+        "OCC_main_R1001",
+        "OCC_main_R1002",
+        "OCC_main_R1003",
+        "OCC_main_R1004",
+        "OCC_main_R1005",
+        "OCC_main_R1006",
+        "OCC_main_R101",
+        "OCC_main_R102",
+        "OCC_main_R103",
+        "OCC_main_R104",
+        "OCC_main_R1101",
+        "OCC_main_R1102",
+        "OCC_main_R1103",
+        "OCC_main_R1104",
+        "OCC_main_R111",
+        "OCC_main_R1201",
+        "OCC_main_R1202",
+        "OCC_main_R1203",
+        "OCC_main_R1204",
+        "OCC_main_R1205",
+        "OCC_main_R1206",
+        "OCC_main_R1207",
+        "OCC_main_R121",
+        "OCC_main_R1210",
+        "OCC_main_R1211",
+        "OCC_main_R122",
+        "OCC_main_R1301",
+        "OCC_main_R1302",
+        "OCC_main_R1303",
+        "OCC_main_R1304",
+        "OCC_main_R1601",
+        "OCC_main_R1602",
+        "OCC_main_R1603",
+        "OCC_main_R1604",
+        "OCC_main_R1701",
+        "OCC_main_R1702",
+        "OCC_main_R1703",
+        "OCC_main_R1704",
+        "OCC_main_R1705",
+        "OCC_main_R1706",
+        "OCC_main_R1707",
+        "OCC_main_R1708",
+        "OCC_main_R1709",
+        "OCC_main_R1710",
+        "OCC_main_R1711",
+        "OCC_main_R1712",
+        "OCC_main_R1715",
+        "OCC_main_R1716",
+        "OCC_main_R1717",
+        "OCC_main_R1801",
+        "OCC_main_R1802",
+        "OCC_main_R1901",
+        "OCC_main_R1902",
+        "OCC_main_R1903",
+        "OCC_main_R1911",
+        "OCC_main_R1912",
+        "OCC_main_R1913",
+        "OCC_main_R1921",
+        "OCC_main_R1922",
+        "OCC_main_R1923",
+        "OCC_main_R1924",
+        "OCC_main_R201",
+        "OCC_main_R202",
+        "OCC_main_R211",
+        "OCC_main_R212",
+        "OCC_main_R221",
+        "OCC_main_R222",
+        "OCC_main_R231",
+        "OCC_main_R232",
+        "OCC_main_R2351",
+        "OCC_main_R2352",
+        "OCC_main_R241",
+        "OCC_main_R242",
+        "OCC_main_R290",
+        "OCC_main_R291",
+        "OCC_main_R301",
+        "OCC_main_R302",
+        "OCC_main_R311",
+        "OCC_main_R312",
+        "OCC_main_R320",
+        "OCC_main_R321",
+        "OCC_main_R322",
+        "OCC_main_R501",
+        "OCC_main_R502",
+        "OCC_main_R503",
+        "OCC_main_R504",
+        "OCC_main_R505",
+        "OCC_main_R506",
+        "OCC_main_R590",
+        "OCC_main_R601",
+        "OCC_main_R602",
+        "OCC_main_R603",
+        "OCC_main_R691",
+        "OCC_main_R701",
+        "OCC_main_R702",
+        "OCC_main_R703",
+        "OCC_main_R801",
+        "OCC_main_R802",
+        "OCC_main_R803",
+        "OCC_main_R810",
+        "OCC_main_R811",
+        "OCC_main_R812",
+        "OCC_main_R813",
+        "OCC_main_R814",
+        "OCC_main_R815",
+        "OCC_main_R816",
+        "OCC_main_R817",
+        "OCC_main_R820",
+        "OCC_main_R821",
+        "OCC_main_R822",
+        "OCC_main_R823",
+        "OCC_main_R824",
+        "OCC_main_R826",
+        "OCC_main_R830",
+        "OCC_main_R831",
+        "OCC_main_R832",
+        "OCC_main_R850",
+        "OCC_main_R851",
+        "OCC_main_R852",
+        "OCC_main_R901",
+        "OCC_main_R902",
+        "OCC_main_R903",
+        "OCC_main_R904",
+        "OCC_main_R905",
+        "OCC_main_R906",
+        "OCC_main_R907",
+        "OCC_main_U1001",
+        "OCC_main_U101",
+        "OCC_main_U1101",
+        "OCC_main_U1301",
+        "OCC_main_U1701",
+        "OCC_main_U1702",
+        "OCC_main_U1703",
+        "OCC_main_U1901",
+        "OCC_main_U1902",
+        "OCC_main_U1921",
+        "OCC_main_U1922",
+        "OCC_main_U201",
+        "OCC_main_U301",
+        "OCC_main_U501",
+        "OCC_main_U601",
+        "OCC_main_U701",
+        "OCC_main_U801",
+        "OCC_main_U902",
+        "OCC_main_Y801"
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 1112,
+      "booleans": 835,
+      "interferences": [],
+      "elastic_snaps": [
+        {
+          "moving": "main_reference",
+          "installed": "lower_cup",
+          "swept_common_mm3": 1.1835,
+          "common_bbox": [
+            48.0,
+            -45.8,
+            -11.75,
+            106.5,
+            -3.2,
+            -1.5
+          ],
+          "designed_snap": "latch teeth 0.45 overlap, wall flexes",
+          "deflection_axis": "Y",
+          "interference_depth_mm": 0.45,
+          "allowed_mm": 0.5,
+          "ok": true
+        }
+      ],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "main_reference",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "OCC_main_C102",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C121",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C211",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C212",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C711",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C715",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C905",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_C811",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.105
+        },
+        {
+          "moving": "OCC_main_C103",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1702",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1704",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1705",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1706",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1707",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1708",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1709",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1710",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1711",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1904",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1921",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C1922",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C240",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C307",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C320",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C601",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C602",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C606",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C608",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C701",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C702",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C703",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C710",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C712",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C714",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C801",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C802",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C803",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C804",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C805",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C807",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C808",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C809",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C810",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C821",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C822",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C823",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C824",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C825",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C901",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C902",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C904",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1911",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1912",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1913",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1921",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1922",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1923",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_R1924",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.15
+        },
+        {
+          "moving": "OCC_main_C831",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.155
+        },
+        {
+          "moving": "OCC_main_C704",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.18
+        },
+        {
+          "moving": "OCC_main_C705",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.18
+        },
+        {
+          "moving": "OCC_main_C820",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.18
+        },
+        {
+          "moving": "OCC_main_C102",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.2
+        },
+        {
+          "moving": "OCC_main_C121",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.2
+        },
+        {
+          "moving": "OCC_main_C211",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.2
+        },
+        {
+          "moving": "OCC_main_C711",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.2
+        },
+        {
+          "moving": "OCC_main_C715",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.2
+        },
+        {
+          "moving": "OCC_main_J1921",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.205
+        },
+        {
+          "moving": "OCC_main_C301",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.23
+        },
+        {
+          "moving": "OCC_main_C103",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C1707",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C1708",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C1709",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C1710",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C1711",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C1922",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C240",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C320",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C601",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C606",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C608",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C701",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C702",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C703",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C710",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C712",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C714",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C802",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C803",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C804",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C805",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C807",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C808",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C809",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C810",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C821",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C825",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C902",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_R1921",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_R1922",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_R1923",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.25
+        },
+        {
+          "moving": "OCC_main_C307",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.271
+        },
+        {
+          "moving": "OCC_main_R1603",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.275
+        },
+        {
+          "moving": "OCC_main_R1901",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.275
+        },
+        {
+          "moving": "OCC_main_C111",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.28
+        },
+        {
+          "moving": "OCC_main_C241",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.28
+        },
+        {
+          "moving": "OCC_main_C704",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.28
+        },
+        {
+          "moving": "OCC_main_C705",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.28
+        },
+        {
+          "moving": "OCC_main_C903",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.28
+        },
+        {
+          "moving": "OCC_main_C111",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.33
+        },
+        {
+          "moving": "OCC_main_C221",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.33
+        },
+        {
+          "moving": "OCC_main_C231",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.33
+        },
+        {
+          "moving": "OCC_main_C241",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.33
+        },
+        {
+          "moving": "OCC_main_U1902",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.355
+        },
+        {
+          "moving": "OCC_main_K1202",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.375
+        },
+        {
+          "moving": "OCC_main_K1203",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.375
+        },
+        {
+          "moving": "OCC_main_C301",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.38
+        },
+        {
+          "moving": "OCC_main_C602",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.394
+        },
+        {
+          "moving": "OCC_main_C905",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.407
+        },
+        {
+          "moving": "OCC_main_U1703",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.455
+        },
+        {
+          "moving": "OCC_main_R101",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R102",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R103",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R104",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R111",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1201",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1202",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1203",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1204",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1205",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1206",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1207",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R121",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1210",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1211",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R122",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1604",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1701",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1702",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1703",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1704",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1705",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1706",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1707",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1708",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1709",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1710",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1711",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1712",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1715",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1716",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1717",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1801",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1802",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1902",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R201",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R202",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R211",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R212",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R221",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R222",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R231",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R232",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R241",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R242",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R290",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R291",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R301",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R302",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R311",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R312",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R320",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R321",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R322",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R503",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R504",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R505",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R506",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R601",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R602",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R603",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R691",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R701",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R702",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R703",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R801",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R802",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R803",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R811",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R812",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R813",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R814",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R815",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R816",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R821",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R822",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R823",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R824",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R830",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R831",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R832",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R850",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R852",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R901",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R902",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R903",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R904",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R906",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R907",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "OCC_main_R1601",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.525
+        },
+        {
+          "moving": "OCC_main_R1924",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.537
+        },
+        {
+          "moving": "OCC_main_C1904",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.563
+        },
+        {
+          "moving": "OCC_main_D1201",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_D1202",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_D1203",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_D1204",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_D1205",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_D1206",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_D1207",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R102",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1207",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R121",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1210",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1704",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1706",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1707",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1708",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1709",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1710",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1711",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1712",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1715",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1716",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1717",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1801",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R1802",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R201",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R202",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R211",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R212",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R221",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R222",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R231",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R232",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R241",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R242",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R290",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R291",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R301",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R302",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R312",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R320",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R504",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R506",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R601",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R602",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R603",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R691",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R701",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R801",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R803",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R812",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R813",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R814",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R816",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R822",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R824",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R850",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R852",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R901",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R902",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R903",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R904",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R906",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R907",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "OCC_main_R122",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.601
+        },
+        {
+          "moving": "OCC_main_R1206",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.605
+        },
+        {
+          "moving": "OCC_main_R832",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.605
+        },
+        {
+          "moving": "OCC_main_R802",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.625
+        },
+        {
+          "moving": "OCC_main_C1921",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.655
+        },
+        {
+          "moving": "OCC_main_C811",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.655
+        },
+        {
+          "moving": "OCC_main_C830",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.655
+        },
+        {
+          "moving": "OCC_main_C832",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.655
+        },
+        {
+          "moving": "OCC_main_C901",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.655
+        },
+        {
+          "moving": "OCC_main_R101",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.66
+        },
+        {
+          "moving": "OCC_main_R505",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.66
+        },
+        {
+          "moving": "OCC_main_R1102",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.69
+        },
+        {
+          "moving": "OCC_main_D1202",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "OCC_main_D1203",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "OCC_main_D1204",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "OCC_main_D1205",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "OCC_main_D1207",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "OCC_main_U1921",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.705
+        },
+        {
+          "moving": "OCC_main_R111",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.708
+        },
+        {
+          "moving": "OCC_main_R830",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.708
+        },
+        {
+          "moving": "OCC_main_C831",
+          "installed": "battery_max_reference",
+          "min_clearance_mm": 0.743
+        },
+        {
+          "moving": "OCC_main_R311",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.765
+        },
+        {
+          "moving": "OCC_main_C1702",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.795
+        },
+        {
+          "moving": "OCC_main_C1704",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.795
+        },
+        {
+          "moving": "OCC_main_C824",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.795
+        },
+        {
+          "moving": "OCC_main_R103",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.797
+        },
+        {
+          "moving": "OCC_main_R104",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.797
+        },
+        {
+          "moving": "OCC_main_C903",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.83
+        },
+        {
+          "moving": "OCC_main_R1702",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.831
+        },
+        {
+          "moving": "OCC_main_R1703",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.831
+        },
+        {
+          "moving": "OCC_main_D1201",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.835
+        },
+        {
+          "moving": "OCC_main_D1206",
+          "installed": "battery_top_foam",
+          "min_clearance_mm": 0.835
+        },
+        {
+          "moving": "OCC_main_U1922",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.925
+        },
+        {
+          "moving": "OCC_main_C231",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.93
+        },
+        {
+          "moving": "OCC_main_K1202",
+          "installed": "battery_max_reference",
+          "min_clearance_mm": 0.942
+        },
+        {
+          "moving": "OCC_main_K1203",
+          "installed": "battery_max_reference",
+          "min_clearance_mm": 0.942
+        },
+        {
+          "moving": "OCC_main_C104",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.96
+        },
+        {
+          "moving": "OCC_main_C202",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.96
+        },
+        {
+          "moving": "OCC_main_R1901",
+          "installed": "battery_top_separator",
+          "min_clearance_mm": 0.965
+        }
+      ],
+      "pass": true,
+      "seconds": 44.3
+    },
+    {
+      "step": "L5",
+      "description": "main/audio dielectric film",
+      "moving": [
+        "main_audio_dielectric_separator"
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 4,
+      "booleans": 3,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "main_reference",
+          "min_clearance_mm": 0.0
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_K1206",
+          "min_clearance_mm": 0.125
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "lower_cup",
+          "min_clearance_mm": 0.65
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C1901",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C1902",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C1903",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C1904",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C1921",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C1922",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C301",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_C307",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_D1301",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_D1302",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_J1921",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1201",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1202",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1203",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1204",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1205",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1206",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1207",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1210",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1211",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1302",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1303",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1304",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1701",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1702",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1703",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1704",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1705",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1707",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1708",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1709",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1710",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1711",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1715",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1716",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1717",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1801",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1802",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1911",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1912",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1913",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1921",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1922",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1923",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1924",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R201",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R202",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R211",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R212",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R221",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R222",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R231",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R232",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R241",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R242",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R290",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R291",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R301",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R302",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R311",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R312",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R320",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R321",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R322",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R601",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R602",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R603",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R701",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R702",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R703",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R826",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R831",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R832",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_U1901",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_U1902",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_U1921",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_U1922",
+          "min_clearance_mm": 0.8
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R1712",
+          "min_clearance_mm": 0.846
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_R815",
+          "min_clearance_mm": 0.846
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "OCC_main_Q1201",
+          "min_clearance_mm": 0.875
+        }
+      ],
+      "pass": true,
+      "seconds": 0.6
+    },
+    {
+      "step": "F1",
+      "description": "closed cup subassembly pushed into cover subassembly (4 zero-play snaps); FPCs pre-soldered and folded, coax mated",
+      "moving": [
+        "lower_cup",
+        "battery_bottom_insulator",
+        "ntc_electrical_separator",
+        "RT1921_body_reference",
+        "battery_max_reference",
+        "battery_top_foam",
+        "battery_top_separator",
+        "main_reference",
+        "U901_module_dimensioned_reference",
+        "OCC_main_C1001",
+        "OCC_main_C1002",
+        "OCC_main_C1003",
+        "OCC_main_C101",
+        "OCC_main_C102",
+        "OCC_main_C103",
+        "OCC_main_C104",
+        "OCC_main_C1101",
+        "OCC_main_C1102",
+        "OCC_main_C1103",
+        "OCC_main_C1104",
+        "OCC_main_C1105",
+        "OCC_main_C1106",
+        "OCC_main_C1107",
+        "OCC_main_C1108",
+        "OCC_main_C111",
+        "OCC_main_C121",
+        "OCC_main_C1301",
+        "OCC_main_C1302",
+        "OCC_main_C1303",
+        "OCC_main_C1701",
+        "OCC_main_C1702",
+        "OCC_main_C1703",
+        "OCC_main_C1704",
+        "OCC_main_C1705",
+        "OCC_main_C1706",
+        "OCC_main_C1707",
+        "OCC_main_C1708",
+        "OCC_main_C1709",
+        "OCC_main_C1710",
+        "OCC_main_C1711",
+        "OCC_main_C1901",
+        "OCC_main_C1902",
+        "OCC_main_C1903",
+        "OCC_main_C1904",
+        "OCC_main_C1921",
+        "OCC_main_C1922",
+        "OCC_main_C201",
+        "OCC_main_C202",
+        "OCC_main_C211",
+        "OCC_main_C212",
+        "OCC_main_C221",
+        "OCC_main_C222",
+        "OCC_main_C231",
+        "OCC_main_C232",
+        "OCC_main_C240",
+        "OCC_main_C241",
+        "OCC_main_C301",
+        "OCC_main_C302",
+        "OCC_main_C303",
+        "OCC_main_C304",
+        "OCC_main_C305",
+        "OCC_main_C306",
+        "OCC_main_C307",
+        "OCC_main_C320",
+        "OCC_main_C501",
+        "OCC_main_C502",
+        "OCC_main_C503",
+        "OCC_main_C601",
+        "OCC_main_C602",
+        "OCC_main_C603",
+        "OCC_main_C604",
+        "OCC_main_C605",
+        "OCC_main_C606",
+        "OCC_main_C607",
+        "OCC_main_C608",
+        "OCC_main_C701",
+        "OCC_main_C702",
+        "OCC_main_C703",
+        "OCC_main_C704",
+        "OCC_main_C705",
+        "OCC_main_C710",
+        "OCC_main_C711",
+        "OCC_main_C712",
+        "OCC_main_C713",
+        "OCC_main_C714",
+        "OCC_main_C715",
+        "OCC_main_C801",
+        "OCC_main_C802",
+        "OCC_main_C803",
+        "OCC_main_C804",
+        "OCC_main_C805",
+        "OCC_main_C806",
+        "OCC_main_C807",
+        "OCC_main_C808",
+        "OCC_main_C809",
+        "OCC_main_C810",
+        "OCC_main_C811",
+        "OCC_main_C812",
+        "OCC_main_C813",
+        "OCC_main_C820",
+        "OCC_main_C821",
+        "OCC_main_C822",
+        "OCC_main_C823",
+        "OCC_main_C824",
+        "OCC_main_C825",
+        "OCC_main_C830",
+        "OCC_main_C831",
+        "OCC_main_C832",
+        "OCC_main_C901",
+        "OCC_main_C902",
+        "OCC_main_C903",
+        "OCC_main_C904",
+        "OCC_main_C905",
+        "OCC_main_D1201",
+        "OCC_main_D1202",
+        "OCC_main_D1203",
+        "OCC_main_D1204",
+        "OCC_main_D1205",
+        "OCC_main_D1206",
+        "OCC_main_D1207",
+        "OCC_main_D1301",
+        "OCC_main_D1302",
+        "OCC_main_FB1101",
+        "OCC_main_H_AUDIO_2_M",
+        "OCC_main_J1921",
+        "OCC_main_J501",
+        "OCC_main_J801",
+        "OCC_main_J901",
+        "OCC_main_J902",
+        "OCC_main_K1201",
+        "OCC_main_K1202",
+        "OCC_main_K1203",
+        "OCC_main_K1204",
+        "OCC_main_K1205",
+        "OCC_main_K1206",
+        "OCC_main_K1207",
+        "OCC_main_L1101",
+        "OCC_main_Q1201",
+        "OCC_main_Q1601",
+        "OCC_main_R1001",
+        "OCC_main_R1002",
+        "OCC_main_R1003",
+        "OCC_main_R1004",
+        "OCC_main_R1005",
+        "OCC_main_R1006",
+        "OCC_main_R101",
+        "OCC_main_R102",
+        "OCC_main_R103",
+        "OCC_main_R104",
+        "OCC_main_R1101",
+        "OCC_main_R1102",
+        "OCC_main_R1103",
+        "OCC_main_R1104",
+        "OCC_main_R111",
+        "OCC_main_R1201",
+        "OCC_main_R1202",
+        "OCC_main_R1203",
+        "OCC_main_R1204",
+        "OCC_main_R1205",
+        "OCC_main_R1206",
+        "OCC_main_R1207",
+        "OCC_main_R121",
+        "OCC_main_R1210",
+        "OCC_main_R1211",
+        "OCC_main_R122",
+        "OCC_main_R1301",
+        "OCC_main_R1302",
+        "OCC_main_R1303",
+        "OCC_main_R1304",
+        "OCC_main_R1601",
+        "OCC_main_R1602",
+        "OCC_main_R1603",
+        "OCC_main_R1604",
+        "OCC_main_R1701",
+        "OCC_main_R1702",
+        "OCC_main_R1703",
+        "OCC_main_R1704",
+        "OCC_main_R1705",
+        "OCC_main_R1706",
+        "OCC_main_R1707",
+        "OCC_main_R1708",
+        "OCC_main_R1709",
+        "OCC_main_R1710",
+        "OCC_main_R1711",
+        "OCC_main_R1712",
+        "OCC_main_R1715",
+        "OCC_main_R1716",
+        "OCC_main_R1717",
+        "OCC_main_R1801",
+        "OCC_main_R1802",
+        "OCC_main_R1901",
+        "OCC_main_R1902",
+        "OCC_main_R1903",
+        "OCC_main_R1911",
+        "OCC_main_R1912",
+        "OCC_main_R1913",
+        "OCC_main_R1921",
+        "OCC_main_R1922",
+        "OCC_main_R1923",
+        "OCC_main_R1924",
+        "OCC_main_R201",
+        "OCC_main_R202",
+        "OCC_main_R211",
+        "OCC_main_R212",
+        "OCC_main_R221",
+        "OCC_main_R222",
+        "OCC_main_R231",
+        "OCC_main_R232",
+        "OCC_main_R2351",
+        "OCC_main_R2352",
+        "OCC_main_R241",
+        "OCC_main_R242",
+        "OCC_main_R290",
+        "OCC_main_R291",
+        "OCC_main_R301",
+        "OCC_main_R302",
+        "OCC_main_R311",
+        "OCC_main_R312",
+        "OCC_main_R320",
+        "OCC_main_R321",
+        "OCC_main_R322",
+        "OCC_main_R501",
+        "OCC_main_R502",
+        "OCC_main_R503",
+        "OCC_main_R504",
+        "OCC_main_R505",
+        "OCC_main_R506",
+        "OCC_main_R590",
+        "OCC_main_R601",
+        "OCC_main_R602",
+        "OCC_main_R603",
+        "OCC_main_R691",
+        "OCC_main_R701",
+        "OCC_main_R702",
+        "OCC_main_R703",
+        "OCC_main_R801",
+        "OCC_main_R802",
+        "OCC_main_R803",
+        "OCC_main_R810",
+        "OCC_main_R811",
+        "OCC_main_R812",
+        "OCC_main_R813",
+        "OCC_main_R814",
+        "OCC_main_R815",
+        "OCC_main_R816",
+        "OCC_main_R817",
+        "OCC_main_R820",
+        "OCC_main_R821",
+        "OCC_main_R822",
+        "OCC_main_R823",
+        "OCC_main_R824",
+        "OCC_main_R826",
+        "OCC_main_R830",
+        "OCC_main_R831",
+        "OCC_main_R832",
+        "OCC_main_R850",
+        "OCC_main_R851",
+        "OCC_main_R852",
+        "OCC_main_R901",
+        "OCC_main_R902",
+        "OCC_main_R903",
+        "OCC_main_R904",
+        "OCC_main_R905",
+        "OCC_main_R906",
+        "OCC_main_R907",
+        "OCC_main_U1001",
+        "OCC_main_U101",
+        "OCC_main_U1101",
+        "OCC_main_U1301",
+        "OCC_main_U1701",
+        "OCC_main_U1702",
+        "OCC_main_U1703",
+        "OCC_main_U1901",
+        "OCC_main_U1902",
+        "OCC_main_U1921",
+        "OCC_main_U1922",
+        "OCC_main_U201",
+        "OCC_main_U301",
+        "OCC_main_U501",
+        "OCC_main_U601",
+        "OCC_main_U701",
+        "OCC_main_U801",
+        "OCC_main_U902",
+        "OCC_main_Y801",
+        "main_audio_dielectric_separator"
+      ],
+      "direction": [
+        0,
+        0,
+        1
+      ],
+      "start_offset_mm": 30,
+      "pieces_tested": 388,
+      "booleans": 303,
+      "interferences": [],
+      "elastic_snaps": [
+        {
+          "moving": "lower_cup",
+          "installed": "upper_cover",
+          "swept_common_mm3": 1.265998,
+          "common_bbox": [
+            69.2,
+            -46.0,
+            -11.51,
+            105.4,
+            -3.0,
+            -2.32
+          ],
+          "designed_snap": "cup hooks 0.25 over blades, cup wall flexes",
+          "deflection_axis": "Y",
+          "interference_depth_mm": 0.25,
+          "allowed_mm": 0.3,
+          "ok": true
+        }
+      ],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "lower_cup",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.02
+        },
+        {
+          "moving": "OCC_main_Q1201",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.075
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "cover_native_reference",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "main_reference",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_K1206",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.1
+        },
+        {
+          "moving": "OCC_main_K1206",
+          "installed": "audio_native_reference",
+          "min_clearance_mm": 0.125
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.18
+        },
+        {
+          "moving": "OCC_main_C304",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.225
+        },
+        {
+          "moving": "OCC_main_C305",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.23
+        },
+        {
+          "moving": "OCC_main_C306",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.23
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "key_backer_bracket",
+          "min_clearance_mm": 0.3
+        },
+        {
+          "moving": "OCC_main_C222",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.355
+        },
+        {
+          "moving": "OCC_main_K1207",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.37
+        },
+        {
+          "moving": "OCC_main_K1201",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.375
+        },
+        {
+          "moving": "OCC_main_K1204",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.375
+        },
+        {
+          "moving": "OCC_main_K1205",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.375
+        },
+        {
+          "moving": "OCC_main_C1303",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.38
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "OCC_cover_D851",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "wheel_2_max_reference",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "switch_3_max_reference",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "lower_cup",
+          "installed": "key_backer_insulator",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.5
+        },
+        {
+          "moving": "main_reference",
+          "installed": "audio_load_frame",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "Kycon_vendor_1",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "Kycon_vendor_2",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "Kycon_vendor_3",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "Kycon_vendor_4",
+          "min_clearance_mm": 0.6
+        },
+        {
+          "moving": "main_reference",
+          "installed": "Kycon_vendor_1",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "main_reference",
+          "installed": "Kycon_vendor_2",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "main_reference",
+          "installed": "Kycon_vendor_3",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "main_reference",
+          "installed": "Kycon_vendor_4",
+          "min_clearance_mm": 0.7
+        },
+        {
+          "moving": "OCC_main_Q1201",
+          "installed": "audio_native_reference",
+          "min_clearance_mm": 0.875
+        },
+        {
+          "moving": "main_audio_dielectric_separator",
+          "installed": "upper_cover",
+          "min_clearance_mm": 0.919
+        }
+      ],
+      "pass": true,
+      "seconds": 31.4
+    },
+    {
+      "step": "F2",
+      "description": "module lowered into instrument cavity, 4 ST2.2 wood screws",
+      "moving": [
+        "lower_cup"
+      ],
+      "direction": [
+        0,
+        0,
+        -1
+      ],
+      "start_offset_mm": 25,
+      "pieces_tested": 91,
+      "booleans": 89,
+      "interferences": [],
+      "elastic_snaps": [],
+      "final_pose_clearances_below_1mm": [
+        {
+          "moving": "lower_cup",
+          "installed": "instrument_mount_land_INFERRED_REFERENCE",
+          "min_clearance_mm": 0.5
+        }
+      ],
+      "pass": true,
+      "seconds": 0.5
+    }
+  ],
+  "pass": true
+}

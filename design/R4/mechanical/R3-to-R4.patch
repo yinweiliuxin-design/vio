@@ -1,0 +1,1221 @@
+diff -ruN pa/mechanical/cad/assembly_sequence.py pb/mechanical/cad/assembly_sequence.py
+--- a/mechanical/cad/assembly_sequence.py	1970-01-01 00:00:00.000000000 +0000
++++ b/mechanical/cad/assembly_sequence.py	2026-10-15 07:20:07.291721251 +0000
+@@ -0,0 +1,134 @@
++"""R4 assembly order and swept-insertion interference check (review M1 fix 4).
++
++Every rigid part (or rigid board assembly) is moved along its insertion direction from a start pose
++L mm outside to its final pose. The exact swept volume is A(start) U A(final) U prisms of every boundary
++face of A(start) extruded by L along the direction (faces parallel to the direction add nothing).
++Each piece is intersected (OCC BRepAlgoAPI_Common) with every already-installed solid; a common volume
++>1e-4 mm3 is an interference. Designed elastic snaps are listed explicitly and pass only if their
++interference depth across the deflection axis stays within the designed hook overlap.
++Thin flexible items (FPCs, RF coax) are not swept; they are checked at the final pose by the pairwise
++collision check in build_mechanics.py.
++"""
++import json,math,time
++from OCP.BRepPrimAPI import BRepPrimAPI_MakePrism
++from OCP.BRepAlgoAPI import BRepAlgoAPI_Common
++from OCP.BRepAdaptor import BRepAdaptor_Surface
++from OCP.GeomAbs import GeomAbs_Plane,GeomAbs_Cylinder
++from OCP.gp import gp_Vec
++
++def run(cq,parts,refs,BASE,light=None):
++ light=light or {}
++ def get(n):return light.get(n) or (parts[n] if n in parts else refs[n])
++ R=lambda pre:sorted(n for n in refs if n.startswith(pre))
++ cover_board=["cover_native_reference"]+R("OCC_cover_")+R("wheel_")+R("switch_")
++ usb_board=["usb_reference","GCT_USB4120_body_max","J_USB_U_FH12_16_envelope"]+R("OCC_usb_")
++ audio_board=["audio_native_reference"]+R("Kycon_vendor_")+R("OCC_audio_")
++ main_board=["main_reference","U901_module_dimensioned_reference"]+R("OCC_main_")
++ UP=(0,0,1);DN=(0,0,-1)
++ # (step id, description, moving names, direction, length, elastic {installed: (axis, max depth, what)})
++ COVER=[
++  ("C1","5 keys inserted from inside, stem through Ø5.2, flange into recess",[f"button_{i}" for i in range(1,6)],UP,12,{}),
++  ("C2","3 light pipes from inside, flange under roof",[f"lightpipe_{i}" for i in range(1,4)],UP,12,{}),
++  ("C3","speaker LS901 into roof pocket (rim to pocket ceiling)",["speaker_working_nominal_reference"],UP,12,{}),
++  ("C4","control (cover) board with switches, wheels, LEDs; 2 roof pins locate",cover_board,UP,15,{}),
++  ("C5","PET backer films under keys 1-2 and speaker",["key_backer_insulator","speaker_backer_insulator"],UP,10,{}),
++  ("C6","key backer bracket + 2 M1.6 screws (clamps control board)",["key_backer_bracket"]+R("SCREW_keybacker"),UP,15,{}),
++  ("C7","USB board onto 4 roof posts (J401 into tight roof opening)",usb_board,UP,20,{}),
++  ("C8","USB bracket + 3 M1.6 screws (board clamped between bracket and 4 roof posts)",["usb_bracket"]+R("SCREW_usb"),UP,20,{}),
++  ("C10","audio board with 4 Kycon jacks, shoulders to roof pads",audio_board,UP,25,{}),
++  ("C11","audio frame snaps over south blade lips and hangs on key-backer ledge / USB-bracket rail",["audio_load_frame"],UP,25,
++   {"upper_cover":(1,.4,"blade lip 0.35 overlap, blade flexes +Y"),"key_backer_bracket":(1,.35,"web hook 0.3 over backer ledge, web flexes"),"usb_bracket":(1,.4,"web tab 0.35 over bracket rail, web flexes")}),
++ ]
++ CUP=[
++  ("L1","floor film, NTC separator, RT1921",["battery_bottom_insulator","ntc_electrical_separator","RT1921_body_reference"],DN,25,{}),
++  ("L2","battery pack (max envelope)",["battery_max_reference"],DN,25,{}),
++  ("L3","battery top foam + top separator",["battery_top_foam","battery_top_separator"],DN,25,{}),
++  ("L4","main board assembly snaps under 4 latch teeth",main_board,DN,25,{"lower_cup":(1,.5,"latch teeth 0.45 overlap, wall flexes")}),
++  ("L5","main/audio dielectric film",["main_audio_dielectric_separator"],DN,25,{}),
++ ]
++ def faces_for(shape,d):
++  out=[]
++  for f in shape.Faces():
++   s=BRepAdaptor_Surface(f.wrapped);t=s.GetType()
++   if t==GeomAbs_Plane:
++    n=s.Plane().Axis().Direction()
++    if abs(n.X()*d[0]+n.Y()*d[1]+n.Z()*d[2])<1e-6:continue
++   elif t==GeomAbs_Cylinder:
++    a=s.Cylinder().Axis().Direction()
++    if abs(abs(a.X()*d[0]+a.Y()*d[1]+a.Z()*d[2])-1)<1e-9:continue
++   out.append(f)
++  return out
++ def bb(s):b=s.BoundingBox();return (b.xmin,b.ymin,b.zmin,b.xmax,b.ymax,b.zmax)
++ def hit(a,b,e=1e-6):return not any(a[k+3]<=b[k]+e or b[k+3]<=a[k]+e for k in range(3))
++ def common(a,b):
++  op=BRepAlgoAPI_Common(a.wrapped,b.wrapped);op.Build()
++  if not op.IsDone():return -1,None,[]
++  r=cq.Shape.cast(op.Shape());v=r.Volume()
++  return v,(r.BoundingBox() if v>1e-4 else None),[x.BoundingBox() for x in r.Solids() if x.Volume()>1e-4]
++ def prism(f,vec):
++  pr=BRepPrimAPI_MakePrism(f.wrapped,gp_Vec(vec.x,vec.y,vec.z)).Shape();s=cq.Shape.cast(pr)
++  v=s.Volume()
++  if abs(v)<1e-7:return None   # face parallel to the motion (e.g. B-spline side wall): sweeps no volume
++  return s if v>0 else cq.Shape.cast(pr.Reversed())
++ def sweep_check(step,installed,check_pairs=True):
++  sid,desc,names,d,L,elastic=step;t0=time.time()
++  vec=cq.Vector(*d)*L;res={"step":sid,"description":desc,"moving":names,"direction":list(d),"start_offset_mm":L,"pieces_tested":0,"booleans":0,"interferences":[],"elastic_snaps":[]}
++  inst=[(n,get(n),bb(get(n))) for n in installed]
++  for mn in names:
++   m=get(mn);start=m.translate(vec*-1)
++   sw=tuple(min(a,b) for a,b in zip(bb(start)[:3],bb(m)[:3]))+tuple(max(a,b) for a,b in zip(bb(start)[3:],bb(m)[3:]))
++   near=[x for x in inst if hit(sw,x[2])]
++   if not near:continue
++   pieces=[start,m]+[q for q in (prism(f,vec) for f in faces_for(start,d)) if q is not None]
++   res["pieces_tested"]+=len(pieces)
++   for n,S,sb in near:
++    worst=0;box=None;depth=0
++    for p in pieces:
++     if not hit(bb(p),sb):continue
++     res["booleans"]+=1;v,b,sb_list=common(p,S)
++     if n in elastic:
++      for q in sb_list:depth=max(depth,[q.xlen,q.ylen,q.zlen][elastic[n][0]])
++     if v<0:worst=-1;break
++     if v>worst:worst=v
++     if b is not None:
++      box=b if box is None else box.add(b)
++    if worst==0 or (worst>0 and worst<=1e-4):continue
++    item={"moving":mn,"installed":n,"swept_common_mm3":round(worst,6)}
++    if box is not None:item["common_bbox"]=[round(v,3) for v in (box.xmin,box.ymin,box.zmin,box.xmax,box.ymax,box.zmax)]
++    if n in elastic and box is not None:
++     ax,lim,what=elastic[n]
++     item.update(designed_snap=what,deflection_axis="XYZ"[ax],interference_depth_mm=round(depth,3),allowed_mm=lim,ok=depth<=lim+1e-6)
++     res["elastic_snaps"].append(item)
++    else:res["interferences"].append(item)
++  # final-pose clearance to installed solids within 1 mm (0 = designed contact)
++  clear=[]
++  for mn in names:
++   m=get(mn);mb=bb(m);mb=(mb[0]-1,mb[1]-1,mb[2]-1,mb[3]+1,mb[4]+1,mb[5]+1)
++   for n,S,sb in inst:
++    if hit(mb,sb):
++     try:dist=m.distance(S)
++     except Exception:continue
++     if dist<1.0:clear.append({"moving":mn,"installed":n,"min_clearance_mm":round(dist,3)})
++  res["final_pose_clearances_below_1mm"]=sorted(clear,key=lambda c:c["min_clearance_mm"])
++  res["pass"]=not res["interferences"] and all(e["ok"] for e in res["elastic_snaps"])
++  res["seconds"]=round(time.time()-t0,1)
++  print(sid,"pass" if res["pass"] else "FAIL",res["booleans"],"booleans",res["seconds"],"s",flush=True)
++  return res
++ steps=[];installed=["upper_cover"]
++ for st in COVER:
++  steps.append(sweep_check(st,installed));installed+=st[2]
++ cover_side=list(installed)
++ installed=["lower_cup"]
++ for st in CUP:
++  steps.append(sweep_check(st,installed));installed+=st[2]
++ cup_side=list(installed)
++ steps.append(sweep_check(("F1","closed cup subassembly pushed into cover subassembly (4 zero-play snaps); FPCs pre-soldered and folded, coax mated",cup_side,UP,30,
++  {"upper_cover":(1,.3,"cup hooks 0.25 over blades, cup wall flexes")}),cover_side))
++ module=cover_side+cup_side
++ steps.append(sweep_check(("F2","module lowered into instrument cavity, 4 ST2.2 wood screws",["lower_cup"],DN,25,{}),["instrument_mount_land_INFERRED_REFERENCE"]))
++ order=[{"step":s["step"],"description":s["description"]} for s in steps]
++ out={"schema":"SmartVio.R4.assembly-sequence-check","method":__doc__.strip(),"orientation":"Cover subassembly built roof-down: parts move world +Z (toward the roof). Cup subassembly built upright: parts move world -Z. Then cup subassembly moves +Z into cover; finished module moves -Z into the instrument cavity.",
++  "cover_light_model":"upper cover checked without the 0.15 mm top legends (legends are >=0.3 mm from every opening, checked separately)" if "upper_cover" in light else "full",
++  "not_swept_flexible":sorted(n for n in refs if n.startswith("FPC_") or n.startswith("RF_")),"order":order,"steps":steps,"pass":all(s["pass"] for s in steps)}
++ (BASE/"assembly-sequence-check.json").write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf8")
++ return out
+diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics.py
+--- a/mechanical/cad/build_mechanics.py	2026-10-15 07:20:07.079076365 +0000
++++ b/mechanical/cad/build_mechanics.py	2026-10-15 07:20:07.080929943 +0000
+@@ -1,359 +1,420 @@
+-"""SmartVio R2 real prototype mechanics. Units mm.
+-Logical drawing Y is PCB Y (down). STEP world coordinates are X, -Y, Z.
+-Datum A=instrument mounting plane. No alteration to original instrument cavity.
+-CadQuery2.8/OCP7.9; dependency files live only in tools/ and are not delivery CAD.
+-"""
+-from pathlib import Path
+-import sys,json,hashlib,math,datetime
+-BASE=Path(__file__).resolve().parents[1]
+-sys.path.insert(0,str(BASE/"tools/cadquery_pkgs"))
+-import cadquery as cq
+-OUT=BASE/"cad";OUT.mkdir(exist_ok=True)
+-ECO=json.loads((BASE/"pcb-interface-eco.json").read_text("utf8"))
+-PAR={
+- "version":"R2 prototype engineering candidate","units":"mm","manufacturing_release":False,
+- "datum":"A instrument mounting surface Z0; STEP Y=-logical drawing Y",
+- "upper_outline":[148,49],"upper_corner_radius":2.0,"upper_roof_top":3.8,"upper_roof_thickness":1.3,"upper_side_wall":1.0,
+- "cup_outline":[77.0,45.0],"cup_origin":[35.5,2.0],"cup_bottom":-21.05,"cup_floor_top":-20.3,"cup_wall":0.8,"cup_corner_radius":1.2,
+- "main_origin":[36.7,3.2],"main_bottom":-12.55,"main_thickness":0.8,"main_xy":[74.6,42.6],"main_B_max_assembled_under_battery":1.05,
+- "audio_origin":[37.3,30],"audio_pcb_top":-9.65,"audio_pcb_thickness":1.0,"jack_mouth_top":3.85,"jack_seat_to_mouth_nominal":13.5,
+- "usb_origin":[86,5],"usb_top":-3.3,"usb_thickness":1.0,"sensor_origin":[90,16],"sensor_top":-7.0,"sensor_thickness":.8,
+- "cover_pcb_top":.5,"cover_pcb_thickness":.4,
+- "pack_box":[40,7.25,-20.2,92,41.75,-14.8],"battery_swell_Z_design_allowance":1.0,
+- "pack_bottom_insulation":.1,"pack_top_insulation":.1,"screw_xy":[[5.3,5.3],[142.7,5.3],[5.3,43.7],[142.7,43.7]],
+- "screw_through":2.5,"screw_counterbore":4.5,"screw_seat_z":1.7,"screw_passing_boss_dia":5.2,
+- "button_installed_switch_top_Z":[2.20,2.20,2.20,2.20,2.20],"button_initial_gap":.05,"button_hardstop_travel":.35,
+- "button_fit_basis":"2.20 is installed maximum screening height, not measured; shorten stock stem to each measured switch top+0.05 and verify0.25 travel before hardstop",
+- "snap_stations_x":[67,102],"snap_beam":[8,.8,4],"snap_hook_overlap":.25,
+- "upper_and_cup_join":"4 snaps only; four upper screws attach instrument; no lower shell screw",
+- "nominal_total_height":24.9,"total_height_limit":25.0,"nonwheel_outward_limit":5,
+- "process":"CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
+- "factory_tuning":"Adjust removable main support shims to measured nominal chain; do not compress pack or machine vendor parts",
+- "pending":"Native final8-layer0.8 acceptance and final assembly collision rerun after board routing; 25mm first sample requires measured selection; formal series-production worst-case stack remains HOLD"
+-}
+-(BASE/"parameters.json").write_text(json.dumps(PAR,ensure_ascii=False,indent=2),encoding="utf8")
+-def box(x,y,z,w,h,d):return cq.Workplane("XY").box(w,h,d,centered=(False,False,False)).translate((x,-y-h,z)).val()
+-def rr(x,y,z,w,h,d,r):
+- s=cq.Workplane("XY").box(w,h,d,centered=(False,False,False)).edges("|Z").fillet(r).val()
+- return s.translate((x,-y-h,z))
+-def cyl(x,y,z,r,h):return cq.Workplane("XY").center(x,-y).circle(r).extrude(h).translate((0,0,z)).val()
+-def sub(shape,tool):return shape.cut(tool)
+-parts={}
+-# UPPER. Real roof, perimeter skirt, mounting bores, control/port openings, four snap receiver tabs.
+-up=rr(0,0,PAR["upper_roof_top"]-PAR["upper_roof_thickness"],*PAR["upper_outline"],PAR["upper_roof_thickness"],PAR["upper_corner_radius"])
+-skirt=rr(0,0,0,148,49,2.5,2).cut(rr(1,1,-.1,146,47,2.7,1))
+-up=up.fuse(skirt)
+-# cover PCB edge supports, interrupted around slot passages
+-for xx,ww in [(2,59),(73,23),(109,37)]:
+- for yy in [1.0,47.4]:
+-  up=up.fuse(box(xx,yy,0,ww,.6,.1))
+-for x,y in PAR["screw_xy"]:
+- up=up.fuse(cyl(x,y,0,2.6,3.8))
+- up=up.cut(cyl(x,y,-.2,1.25,4.2)).cut(cyl(x,y,1.7,2.25,2.3))
+-# Wheel apertures + recessed finger access, no graphic substitution.
+-for x in [15,35,55]:
+- up=up.cut(cyl(x,10,2.0,7.4,2.1))
+- up=up.cut(cyl(x,10,2.3,7.6,1.7))
+-# Five guided plungers with underside retaining flange.
+-for i,x in enumerate([10,23,36,49,62]):
+- up=up.cut(cyl(x,25,2.3,2.6,1.8)).cut(cyl(x,25,3.3,3.6,.8)).cut(cyl(x,25,2.3,3.1,.5))
+- # Tip sized to measured installed switch top+0.05;2.25 is max-height reference.
+- pl=cyl(x,25,2.5,2.4,1.15).fuse(cyl(x,25,2.5,3.0,.28))
+- tip=PAR["button_installed_switch_top_Z"][i]+PAR["button_initial_gap"]
+- pl=pl.fuse(cyl(x,25,tip,.8,2.5-tip)).fuse(cyl(x,25,3.3+PAR["button_hardstop_travel"],3.0,.2))
+- parts[f"button_{i+1}"]=pl
+-# Lightpipe pockets. Positions are final electrical-native DRC positions.
+-for i,x in enumerate([15,35,55]):
+- up=up.cut(cyl(x,21,2.3,1.05,1.8))
+- parts[f"lightpipe_{i+1}"]=cyl(x,21,1.35,.95,2.35)
+-ports=[(46.5,37),(64.8,37),(83.1,37),(101.4,37)]
+-for x,y in ports:
+- # Shoulder collar transfers load; full jack lower body lies in free opening.
+- collar=box(x-5.4,y-5.85,.95,10.8,11.7,1.55).cut(box(x-4.15,y-5.05,.8,8.3,10.1,1.9))
+- up=up.fuse(collar)
+- up=up.cut(cyl(x,y,.8,3.3,3.2)).cut(cyl(x,y,3.0,6.0,1.0))
+-# USB-C face pocket/cable nose access.
+-up=up.cut(rr(92.9,6.75,2.3,10.2,4.5,1.8,1.4))
+-up=up.cut(rr(92.0,5.3,3.0,12,7.4,1.0,1.5))
+-# Speaker grille cut and retaining rebate.
+-up=up.cut(rr(125.1,15.6,2.2,13.8,18.8,2.0,1.6))
+-# Separate real perforated grille; perimeter carries onto roof, not diaphragm.
+-up=up.cut(rr(124.45,14.95,3.65,15.1,20.1,.5,1.85))
+-gr=rr(124.5,15,3.65,15,20,.2,1.8)
+-for yy in [17.4,19.4,21.4,23.4,25.4,27.4,29.4,31.4]:
+- gr=gr.cut(rr(126.4,yy,3.55,11.2,.8,.5,.35))
+-parts["speaker_grille"]=gr
+-# Four receiver blades pass only through explicitly requested PCB slots.
+-for x in PAR["snap_stations_x"]:
+- for yy in [3.0,45.3]:
+-  tab=box(x-4,yy,-5.2,8,.7,7.7)
+-  tab=tab.cut(box(x+2.0,yy-.1,-2.55,2.2,.9,1.4))
+-  up=up.fuse(tab)
+-  # Positive Z stop below cover PCB: seats on matching cup rim notch atZ-0.6.
+-  fy=2.1 if yy<10 else 45.3
+-  up=up.fuse(box(x-6.2,fy,-.6,2.4,1.6,.5))
+-parts["upper_cover"]=up.clean()
+-# LOWER CUP, genuine hollow functional shell.
+-cup=rr(*PAR["cup_origin"],PAR["cup_bottom"],*PAR["cup_outline"],-PAR["cup_bottom"],PAR["cup_corner_radius"]).cut(rr(36.3,2.8,PAR["cup_floor_top"],75.4,43.4,21,.4))
+-# Rim notches receive the positive assembly stops; do not load the cover PCB.
+-for x in PAR["snap_stations_x"]:
+- for y in [1.9,45.9]:
+-  cup=cup.cut(box(x-6.3,y,-.6,2.6,1.2,.8))
+-# Four integral longitudinal cantilever latches from wall material, with service slots.
+-for x in PAR["snap_stations_x"]:
+- for side in [0,1]:
+-  yy=2 if side==0 else 46.2
+-  cup=cup.cut(box(x-4,yy-.1,-5.4,8.4,1.0,.4))
+-  cup=cup.cut(box(x-4,yy-.1,-1.0,8.4,1.0,.4))
+-  cup=cup.cut(box(x+3.6,yy-.1,-5.4,.4,1.0,4.8))
+-  # Lead-in ramp;0.25 nominal engagement into the receiver aperture.
+-  yz=[(2.7,-2.3),(3.25,-2.3),(3.25,-2.0),(2.9,-1.5),(2.7,-1.5)]
+-  if side:yz=[(49-y,z) for y,z in yz]
+-  hook=cq.Workplane("YZ").polyline([(-y,z) for y,z in yz]).close().extrude(1.2).translate((x+2.2,0,0)).val()
+-  cup=cup.fuse(hook)
+-# Key reaction beam, integral to left cup wall, under keys3..5.
+-# Keys1..2 transfer through0.1 PET to original flat mounting land outside78mm cavity.
+-cup=cup.fuse(box(35.7,21.5,-7.0,30.7,7.0,7.0))
+-# Main lower ledges: do not drill PCB. Fixed bottom datum -12.55.
+-for y in [2.7,45.6]:
+- for x,w in [(36.7,25),(75,36.3)]:
+-  cup=cup.fuse(box(x,y,-13.35,w,.7,.8))
+-# End stop, two removable edge retainers supplied separately.
+-for x in [36.2,111.3]:
+- cup=cup.fuse(box(x,7,-13.35,.6,3,.8))
+-# Battery noncompressing lateral guides only; no top clamp.
+-for x,y,w,h in [(39.5,6.75,53,.5),(39.5,41.75,53,.5),(39.5,7.25,.5,34.5),(92,7.25,.5,34.5)]:
+- cup=cup.fuse(box(x,y,-20.3,w,h,3.2))
+-# Wire service opening in right battery guide.
+-cup=cup.cut(box(91.9,16,-18,1,5,1.5))
+-# NTC lateral pocket, away from pouch top.
+-cup=cup.cut(box(91.9,11.3,-20.0,.7,4.7,4.0))
+-ntcwall=box(92.0,11.3,-20.3,4.8,4.7,4.2).cut(box(91.9,11.8,-20.0,4.3,3.7,4.2))
+-cup=cup.fuse(ntcwall)
+-# Sidewall shelves support removable audio frame entirely above main PCB.
+-# Four shelves are continuous with cup wall; no column crosses main PCB volume.
+-for x in [36.2,110.7]:
+- for y in [29.2,44.0]:
+-  cup=cup.fuse(box(x,y,-11.55,1.2,1.0,.45))
+-# Four longitudinal12mm compliant main-board latches; assembly deflects wall outward.
+-# Unlike a short rigid tooth these have slots and a lead-in ramp, seated flex returns to zero.
+-for x in [38.0,95.0]:
+- for side in [0,1]:
+-  yy=2.0 if side==0 else 46.2
+-  cup=cup.cut(box(x,yy-.1,-12.1,12.1,1.0,.3))
+-  cup=cup.cut(box(x,yy-.1,-10.8,12.1,1.0,.3))
+-  cup=cup.cut(box(x+11.7,yy-.1,-12.1,.4,1.0,1.6))
+-  yz=[(2.7,-11.55),(3.65,-11.55),(3.65,-11.3),(2.9,-10.85),(2.7,-10.85)]
+-  if side:yz=[(49-y,z) for y,z in yz]
+-  tooth=cq.Workplane("YZ").polyline([(-y,z) for y,z in yz]).close().extrude(1.5).translate((x+10.0,0,0)).val()
+-  cup=cup.fuse(tooth)
+-parts["lower_cup"]=cup.clean()
+-# Removable audio load frame: open paths for every jack/terminal and underside wire routing.
+-carrier=box(36.5,29.2,-11.1,75,15.8,.45)
+-carrier=carrier.cut(box(37.3,30,-11.2,73.4,14,.7))
+-# Real AQY221R2VY K1206 at the north edge needs its 1.9mm installed envelope.
+-# A local clearance keeps all four corner seats and the connected frame intact.
+-carrier=carrier.cut(box(97.8,29.15,-11.2,6.1,.95,.7))
+-# Frame has edge pads only; PCB is seated atop at -10.65 and extends to -9.65.
+-for x in [37.3,110.2]:
+- for y in [30.0,42.8]:
+-  carrier=carrier.fuse(box(x,y,-11.1,.5,1.2,.45))
+-parts["audio_load_frame"]=carrier.clean()
+-# USB board cradle and sensor carrier. Clearance windows preserve all populated surfaces.
+-usbframe=box(85.2,4.2,-4.7,25.6,23.6,.4).cut(box(86,5,-4.8,24,22,.7))
+-# Extra ledges contact board perimeter only; screws not added to lower cup.
+-# Load path uses existing cover pass-throughs, no hidden collision through cover PCB.
+-# Front rail joins the existing north snap receiver; aft strut joins audio-3 shoulder.
+-usbframe=usbframe.fuse(box(98,3.6,-4.7,6,1.4,.4))
+-usbframe=usbframe.fuse(box(87.3,27.0,-4.7,.7,4.7,.4))
+-usbframe=usbframe.fuse(box(87.3,31.0,-4.7,.7,.7,6.0))
+-# Two underside edge seats retain board with removable acrylic adhesive dots.
+-for x in [86.0,109.6]:
+- for y in [5.0,25.5]:
+-  usbframe=usbframe.fuse(box(x,y,-4.7,.4,1.5,.4))
+-parts["upper_cover"]=parts["upper_cover"].fuse(usbframe).clean()
+-sensorframe=box(89.2,15.2,-8.2,17.6,11.6,.4).cut(box(90,16,-8.3,16,10,.7))
+-# Cantilever arms connect sensor tray to the USB cassette side legs.
+-for x,w in [(85.2,4.8),(106.0,4.8)]:
+- sensorframe=sensorframe.fuse(box(x,26.0,-8.2,w,1.8,.4))
+-for x in [85.2,110.0]:
+- sensorframe=sensorframe.fuse(box(x,27.0,-8.2,.8,.8,3.9))
+-for x in [90.0,105.6]:
+- for y in [16.0,24.5]:
+-  sensorframe=sensorframe.fuse(box(x,y,-8.2,.4,1.5,.4))
+-parts["upper_cover"]=parts["upper_cover"].fuse(sensorframe).clean()
+-# Thin support shims are real laser-cut parts, thickness controlled.
+-for t in [.05,.10,.20]:
+- sh=box(36.7,2.9,-12.55,22,.45,t)
+- parts[f"main_shim_{str(t).replace('.','p')}mm"]=sh
+-# Unbonded dielectric films; do not treat CAD film as material qualification.
+-parts["battery_bottom_insulator"]=box(40,7.25,-20.3,52,34.5,.1)
+-parts["main_audio_dielectric_separator"]=box(37.3,30,-11.75,73.4,14,.1).cut(box(64.45,42.3,-11.85,5.0,1.7,.3))
+-parts["key_backer_insulator"]=box(7.0,21.5,0,59.4,7.0,.1)
+-parts["ntc_electrical_separator"]=box(92.0,11.8,-19.9,.1,3.7,2.4)
+-parts["battery_top_separator"]=box(39.5,6.75,-13.8,53,35.5,.1)
+-# Speaker cradle supports only the rim, not diaphragm.
+-basket=rr(124.2,14.7,.5,15.6,20.6,2.8,1.5).cut(rr(125.325,15.925,.45,13.35,18.15,3.0,1.0))
+-parts["upper_cover"]=parts["upper_cover"].fuse(basket).clean()
+-# Precise manufacturer components and native board bodies go to REFERENCE assembly only.
+-refs={}
+-src=BASE.parent/"verification/references/STX-353K7A-6N-KTTR_rA1.STEP"
+-vendor_original=cq.importers.importStep(str(src)).val()
+-# Third vendor solid is the 0.1 mm shipping Kapton tape per official drawing.
+-# Retain original STEP unmodified; installation removes that packaging only.
+-vendor=cq.Compound.makeCompound(vendor_original.Solids()[:2]).rotate((0,0,0),(1,0,0),90)
+-for i,(x,y) in enumerate(ports):refs[f"Kycon_vendor_{i+1}"]=vendor.translate((x,-y,3.85))
+-refs["battery_max_reference"]=box(40,7.25,-20.2,52,34.5,5.4)
+-refs["battery_swell_allowance_reference"]=box(40,7.25,-14.8,52,34.5,1.0)
+-# Nominal original instrument cavity78x47x22 from the inherited mechanical
+-# contract. Origin35,1 is inferred by centering the cup, not a measured violin.
+-refs["instrument_mount_land_INFERRED_REFERENCE"]=box(0,0,-22,148,49,22).cut(box(35,1,-22.1,78,47,22.2))
+-(BASE/"reference/instrument-fit-basis.json").write_text(json.dumps({"cavityMm":[78,47,22],"inferredCavityOriginXY":[35,1],"datumZ":0,"basis":"inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument", "physicalMeasurement":False,"mountHoles":"new reserved pattern, factory fits actual instrument as authorized"},ensure_ascii=False,indent=2),encoding="utf8")
+-geo=json.loads((BASE/"reference/current-native-geometry.json").read_text("utf8"))
+-native_body_ledger=[]
+-def board_body(role,origin,top,thickness):
+- bd=geo["boards"][role];path=BASE/bd["native_body_STEP"]
+- assert hashlib.sha256(path.read_bytes()).hexdigest()==bd["native_body_sha256"]
+- body=cq.importers.importStep(str(path)).val();b=body.BoundingBox();assert b.zlen>0
+- # Native STEP exports laminate/copper presentation differently. Normalize only
+- # Z to the finished-board contract; keep exact native XY contours and holes.
+- transform=cq.Matrix([[1,0,0,0],[0,1,0,0],[0,0,thickness/b.zlen,0],[0,0,0,1]])
+- body=body.transformGeometry(transform);bb=body.BoundingBox();body=body.translate((origin[0],-origin[1],top-bb.zmax))
+- native_body_ledger.append({"board":role,"native_board_sha256":bd["sha256"],"native_body_sha256":bd["native_body_sha256"],
+-  "imported_laminate_body_height":b.zlen,"finished_board_contract_height":thickness,"XY_unchanged":True,"Z_normalized_to_contract":True})
+- return body
+-refs["main_reference"]=board_body("main",PAR["main_origin"],-11.75,.8)
+-refs["usb_reference"]=board_body("usb",PAR["usb_origin"],-3.3,1.0)
+-refs["sensor_reference"]=board_body("sensor",PAR["sensor_origin"],-7.0,.8)
+-refs["RT1921_body_reference"]=box(92.1,11.8,-19.9,4.0,3.7,2.4)
+-refs["speaker_working_max_reference"]=rr(125.425,15.925,.5,13.15,18.15,3.0,1.0)
+-for i,x in enumerate([15,35,55]):
+- pot=box(x-5.2,8.1,.5,10.4,10.4,1.5).fuse(cyl(x,10,2.0,7.1,1.0))
+- refs[f"wheel_{i+1}_max_reference"]=pot
+-for i,x in enumerate([10,23,36,49,62]):
+- refs[f"switch_{i+1}_max_reference"]=box(x-3.1,22.1,.5,6.2,5.8,PAR["button_installed_switch_top_Z"][i]-.5)
+-
+-refs["audio_native_reference"]=board_body("audio",PAR["audio_origin"],-9.65,1.0)
+-refs["cover_native_reference"]=board_body("cover",[0,0],.5,.4)
+-# Populate all native court occupancy screens, including real MPN height corrections.
+-# Courtyards are conservative XY screens, not invented exact package solids.
+-oldpath=BASE/"reference/legacy-occupancy-sources.json"
+-old={o["id"]:o for o in json.loads(oldpath.read_text("utf8"))["objects"]}
+-components={o["ref"]:o for o in json.loads((BASE.parent/"project/electrical/native-components.json").read_text("utf8"))}
+-transforms={"main":([36.7,3.2],-11.75,.8),"cover":([0,0],.5,.4),"usb":([86,5],-3.3,1),"sensor":([90,16],-7,.8),"audio":([37.3,30],-9.65,1)}
+-occupancy=[]
+-custom={"J401","J101","J102","J103","J104","J201","J202","J203","J204","RV810","RV811","RV812","SW810","SW811","SW812","SW813","SW814","LS810","SP810","LS901","J301"}
+-for bn,bd in geo["boards"].items():
+- origin,top,th=transforms[bn]
+- for f in bd["components"]:
+-  ref=f["ref"];o=old.get(ref,{})
+-  if ref in custom:continue
+-  if ref=="U901":continue # Replaced by the dimensioned module/connector/RF assembly below.
+-  if ref in ["H_AUDIO_1_M","H_AUDIO_1_R","H_COVER_2_M","H_COVER_2_R","H_COVER_3_M","H_COVER_3_R","H_COVER_1_M","H_COVER_1_R"]:
+-   continue # Real solder joints are included in the complete flex assemblies.
+-  co=f["court"]
+-  if not co:continue
+-  comp=components.get(ref,{})
+-  mpn=comp.get("mpn") or "";lib=f["library"]
+-  h=o.get("height_screen_mm")
+-  basis=o.get("height_basis","package-specific height not established")
+-  if mpn.startswith("RT0603"):
+-   h=.55;basis="YAGEO RT series V17 Feb2026 p5 RT0603 thickness0.45+/-0.1; +0.1 assembly budget"
+-  if mpn.startswith("CC0603"):
+-   h=.9;basis="YAGEO actual0603 MPN body thickness max0.9 + assembly budget0.1"
+-  if mpn.startswith("CC0805"):
+-   h=1.45;basis="YAGEO actual0805 MPN body thickness1.25+/-0.2 + assembly budget0.1"
+-  if mpn=="CC0805KKX5R6BB106":
+-   h=.95;basis="YAGEO exact MPN official0.85+/-0.1 mm; +0.1 assembly budget; https://www.yageogroup.com/download/specsheet/CC0805KKX5R6BB106"
+-  if ref in ["C811","C830","C831","C832"]:
+-   h=1.8;basis="KEMET1206 1.8 maximum body + assembly0.1"
+-  if ref.startswith("H_") or "WirePads" in lib:
+-   h=1.5;basis="ASSEMBLY REQUIREMENT horizontal thin-wall insulated wires + solder <=1.5; factory height-gauge acceptance"
+-  if ref in ["H_AUDIO_1_M","H_AUDIO_1_R","H_COVER_2_M","H_COVER_2_R","H_COVER_3_M","H_COVER_3_R","H_COVER_1_M","H_COVER_1_R"]:
+-   h=.3;basis="ASSEMBLY REQUIREMENT static thin FPC <=0.11mm plus solder/insulation <=0.30mm; incoming height gauge"
+-  if ref in ["J801","J902"]:
+-   h=.05;basis="DNP bare production test copper; no header installed"
+-  if h is None:h=2.0;basis="UNKNOWN maximum:2.0 screening reserve only; not source-verified"
+-  height=h if ("ASSEMBLY REQUIREMENT" in basis or ref in ["J801","J902"]) else h+.1
+-  # Keep same-board solder pads outside reference body thickness.
+-  z=top if f["side"]=="F" else top-th-height
+-  x,y=origin[0]+co[0],origin[1]+co[1]
+-  name="OCC_"+bn+"_"+ref
+-  polygons=f.get("courtContours",[])
+-  if polygons:
+-   solids=[cq.Workplane("XY").polyline([(origin[0]+px,-origin[1]-py) for px,py in pp]).close().extrude(height).translate((0,0,z)).val() for pp in polygons]
+-   refs[name]=solids[0]
+-   for solid in solids[1:]:refs[name]=refs[name].fuse(solid)
+-  else:refs[name]=box(x,y,z,co[2]-co[0],co[3]-co[1],height)
+-  if ref=="J501":
+-   # JST official (9.6)/(5.5) are reference only. Expanded installed screening envelope.
+-   refs[name]=refs[name].fuse(box(98.675,17.675,-18.35,10.2,10.0,5.8))
+-   basis+="; includes mated PHR-3 nominal reference plus factory acceptance envelope10.2x10.0x5.8, not guaranteed vendor maximum"
+-  occupancy.append({"name":name,"ref":ref,"board":bn,"mpn":mpn,"side":f["side"],"body_or_assembly_height":height,"basis":basis,"xy_conservative_courtyard":co,"source_board_sha256":bd["sha256"]})
+-# Official GCT A6 outer body:8.94+0.25 by3.16+0.25,6.50+0.25;0.1 solder budget.
+-refs["GCT_USB4120_body_max"]=rr(98-9.19/2,9-3.41/2,-3.3,9.19,3.41,6.85,1.5)
+-from rf_reference import build as build_rf_reference
+-refs.update(build_rf_reference(cq,box,geo,BASE))
+-from flex_reference import build as build_flex_reference
+-refs.update(build_flex_reference(cq,box,geo,BASE))
+-(BASE/"reference/native-board-body-ledger.json").write_text(json.dumps(native_body_ledger,ensure_ascii=False,indent=2),encoding="utf8")
+-(BASE/"reference/component-occupancy-ledger.json").write_text(json.dumps({"snapshot":geo,"objects":occupancy},ensure_ascii=False,indent=2),encoding="utf8")
+-
+-STOCK=OUT/"stock";STOCK.mkdir(exist_ok=True)
+-stock=parts["button_1"].fuse(cyl(10,25,1.75,.8,.75))
+-cq.exporters.export(stock,str(STOCK/"button_blank_TRIM_TIP_TO_MEASURED_SWITCH.step"))
+-checks=[];file_manifest=[]
+-for name,sh in parts.items():
+- fn=OUT/(name+".step");cq.exporters.export(sh,str(fn))
+- re=cq.importers.importStep(str(fn)).val();bb=re.BoundingBox()
+- checks.append({"part":name,"valid":re.isValid(),"solids":len(re.Solids()),"volume_mm3":round(re.Volume(),6),"bbox":[bb.xmin,bb.ymin,bb.zmin,bb.xmax,bb.ymax,bb.zmax]})
+- file_manifest.append({"file":str(fn.relative_to(BASE)),"sha256":hashlib.sha256(fn.read_bytes()).hexdigest()})
+-assy=cq.Assembly(name="SmartVio_R3_MECHANICAL_CANDIDATE")
+-for n,s in parts.items():
+- if "shim_" not in n:assy.add(s,name=n,color=cq.Color(.2,.28,.26,.9))
+-assy.save(str(OUT/"mechanical_parts_assembly.step"))
+-refassy=cq.Assembly(name="REFERENCE_NO_MANUFACTURING")
+-for n,s in refs.items():refassy.add(s,name=n,color=cq.Color(.4,.65,.35,.6))
+-refassy.save(str(OUT/"reference_components_NOT_MANUFACTURING.step"))
+-# Evaluate the complete pair set with AABB broadphase then genuine BRep intersections.
+-# All reference components are included; intended boundary contact is zero-volume.
+-from itertools import combinations
+-collisions=[];pair_count=0;exact_count=0
+-allsh={**{n:s for n,s in parts.items() if "shim_" not in n},**refs}
+-bounds={}
+-for n,q in allsh.items():
+- bb=q.BoundingBox();bounds[n]=(bb.xmin,bb.ymin,bb.zmin,bb.xmax,bb.ymax,bb.zmax)
+-for an,bn in combinations(allsh,2):
+- pair_count+=1;a=bounds[an];b=bounds[bn]
+- if any(a[k+3]<=b[k]+1e-7 or b[k+3]<=a[k]+1e-7 for k in range(3)):continue
+- exact_count+=1
+- try:v=allsh[an].intersect(allsh[bn]).Volume()
+- except Exception:v=-1
+- if v>1e-6 or v<0:collisions.append({"a":an,"b":bn,"intersection_mm3":round(v,8),"requires_review":True})
+-reference_ledger=[]
+-REFOUT=BASE/"reference/components";REFOUT.mkdir(exist_ok=True)
+-for name,sh in refs.items():
+- bb=sh.BoundingBox()
+- # Individual references allow independent audit by name; screen boxes are labeled OCC.
+- fn=REFOUT/(name+".step");cq.exporters.export(sh,str(fn))
+- reference_ledger.append({"name":name,"file":str(fn.relative_to(BASE)),"sha256":hashlib.sha256(fn.read_bytes()).hexdigest(),"valid":sh.isValid(),"solids":len(sh.Solids()),"volume_mm3":sh.Volume(),"bbox":[bb.xmin,bb.ymin,bb.zmin,bb.xmax,bb.ymax,bb.zmax],"source":"official Kycon nominal CAD packaging removed" if name.startswith("Kycon") else "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"})
+-flex_designs=json.loads((BASE/'reference/flex-installed-and-unfolded.json').read_text('utf8'))['designs']
+-modeled_connections=sum(len(d['sourceContacts']) for d in flex_designs)
+-status={"schema":"SmartVio.R3.mechanical.assembly-status","status":"MODELED_CAD_SCOPE_ZERO_INTERSECTIONS_NOT_FULL_ASSEMBLY_RELEASE" if not collisions else "CAD_INTERSECTIONS_REQUIRE_REVIEW","production_released":False,
+-"parameters":PAR,"real_parts_exported":len(parts),"source_vendor_model":str(src),"shipping_packaging_removed":"Only vendor third0.1mm Kapton shipping tape solid removed from installed reference; official drawing labels tape. Original STEP unaltered and hash preserved.","vendor_sha256":hashlib.sha256(src.read_bytes()).hexdigest(),
+-"step_roundtrip":checks,"reference_components":reference_ledger,"collision_pair_count":pair_count,"exact_intersection_count":exact_count,"file_manifest":file_manifest,"intersections":collisions,
+-"nominal_Z_chain":[["cup bottom",-21.05],["floor top",-20.3],["bottom insulation top / battery bottom",-20.2],["battery max top",-14.8],["swell allowance top",-13.8],["top separator top",-13.7],["main B max bottom",-13.6],["main board bottom",-12.55],["main board top",-11.75],["audio PCB top",-9.65],["jack lowest nominal",-11.0501],["jack mouth nominal",3.85]],
+-"nominal_limits":{"total":24.9,"nonwheel":3.85,"raw_cavity_depth":22},
+-"tolerance_limit_status":"Worst case dimensions and final board height-map not yet closed; assembly is not released merely by nominal dimensions.",
+-"physical_tests":0,"manufacturing_process":PAR["process"],
+-"modeled_board_interconnections":modeled_connections,"required_board_interconnections":37,"complete_harness_closed":False,
+-"remaining":["Independent native electrical and assembly version audit is mandatory; zero native connectivity alone does not release CAM",f"{37-modeled_connections} ordinary board interconnections need complete route, bend and installed-clearance review","confirm actual pickup model and independent four-string AFE/ADC capability","FPC custom thin stack and microdrill require supplier DFM confirmation","measure actual violin cavity and mounting surface; 25mm first sample needs measured selection","freeze actual material and qualified tolerance/process","native audio footprint STEP omits copper thickness: check1.0mm board as manufacturing contract","source-covered nominal vs worst-case geometry reported separately"]}
+-(BASE/"assembly-status.json").write_text(json.dumps(status,ensure_ascii=False,indent=2),encoding="utf8")
+-cq.exporters.export(cq.Compound.makeCompound([parts["upper_cover"],parts["lower_cup"],parts["speaker_grille"]]),str(BASE/"drawings/assembly-isometric.svg"),opt={"width":1000,"height":700,"projectionDir":(1,-1,0.7),"showAxes":False,"showHidden":False,"strokeWidth":.6})
+-(BASE/"requirements.txt").write_text("cadquery==2.8.0\n",encoding="ascii")
+-print(json.dumps({"parts":len(parts),"all_valid":all(x["valid"] and x["solids"]==1 and x["volume_mm3"]>0 for x in checks),"intersections":collisions},ensure_ascii=False))
+-
+-
+-
+-
+-
++"""SmartVio R4 real prototype mechanics. Units mm.
++Logical drawing Y is PCB Y (down). STEP world coordinates are X, -Y, Z.
++Datum A=instrument mounting plane. No alteration to original instrument cavity.
++CadQuery2.8/OCP7.9. Engineering root (project/, verification/) = env SMARTVIO_ENG or BASE.parent.
++R4 (review M1..M18, DECISIONS Q3/Q4/Q6): upper cover no longer carries any board tray; USB/sensor
++carrier, key backer and audio frame are separate parts installed in a swept-checked order
++(see cad/assembly_sequence.py and assembly-sequence-check.json).
++"""
++from pathlib import Path
++import sys,os,json,hashlib,math,datetime
++BASE=Path(__file__).resolve().parents[1]
++ENG=Path(os.environ.get("SMARTVIO_ENG",str(BASE.parent))).resolve()
++assert (ENG/"project").is_dir() and (ENG/"verification").is_dir(),"set SMARTVIO_ENG to the engineering root"
++sys.path.insert(0,str(Path(__file__).resolve().parent))
++import cadquery as cq
++OUT=BASE/"cad";OUT.mkdir(exist_ok=True)
++ECO=json.loads((BASE/"pcb-interface-eco.json").read_text("utf8"))
++FONT=os.environ.get("SMARTVIO_FONT","/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf")
++PAR={
++ "version":"R4 prototype engineering candidate","units":"mm","manufacturing_release":False,
++ "datum":"A instrument mounting surface Z0; STEP Y=-logical drawing Y",
++ "upper_outline":[148,49],"upper_corner_radius":2.0,"upper_roof_top":3.8,"upper_roof_thickness":1.3,"upper_side_wall":1.0,
++ "cup_outline":[77.0,45.0],"cup_origin":[35.5,2.0],"cup_bottom":-20.9,"cup_floor_top":-20.3,"cup_wall":0.8,"cup_corner_radius":1.2,"cup_inner_corner_radius":1.2,
++ "main_origin":[36.7,3.2],"main_bottom":-12.55,"main_thickness":0.8,"main_xy":[74.6,42.6],"main_B_max_assembled_under_battery":1.05,
++ "main_ledge_overlap":1.0,"main_xy_locating_gap":0.05,"main_latch_z_gap":0.0,
++ "audio_origin":[37.3,30],"audio_pcb_top":-9.65,"audio_pcb_thickness":1.0,"jack_mouth_top":3.85,"jack_seat_to_mouth_nominal":13.5,
++ "jack_shoulder_Z":1.45,"jack_shoulder_gap":0.005,"jack_shoulder_gap_note":"zero-gap design; 0.005 CAD offset only avoids coplanar boolean slivers on the vendor B-spline face","audio_frame_bottom":-11.15,"audio_frame_thickness":0.5,
++ "usb_origin":[86,5],"usb_top":-3.3,"usb_thickness":1.0,"sensor_board":"eliminated (ECO L-12, TMP117 on main B side)",
++ "cover_pcb_top":.5,"cover_pcb_thickness":.4,
++ "pack_box":[40,7.25,-20.2,92,41.75,-14.8],"battery_swell_Z_design_allowance":1.0,"battery_guide_gap":0.25,
++ "battery_top_foam":"1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
++ "pack_bottom_insulation":.1,"pack_top_insulation":.1,"screw_xy":[[5.3,5.3],[142.7,5.3],[5.3,43.7],[142.7,43.7]],
++ "screw_through":2.5,"screw_counterbore":4.5,"screw_seat_z":1.7,"screw_passing_boss_dia":5.2,"screw_boss_dia_above_cover_pcb":6.5,
++ "instrument_screw":"ST2.2x6.5 A2 stainless pan-head wood screw (non-magnetic), pilot 1.6x5 in wood, 0.15 N.m; threaded insert in wood preferred",
++ "internal_screw":"M1.6 thread-forming screw for plastics (PT/WN1452 type) into POM pilot 1.3; production PC/ABS: M1.6 heat-set brass insert",
++ "button_switch_top_max_Z":2.15,"button_switch_top_nominal_Z":2.0,"button_initial_gap_at_max":.05,"switch_travel":0.25,
++ "button_hole_dia":5.2,"button_stem_dia":5.0,"button_flange_dia":6.2,"button_flange_recess_dia":6.5,"button_top_Z":3.85,
++ "button_fit_basis":"SKQGABE010 h1.5 +0.15/-0, travel0.25, 1.57N (native-components.json). Nub designed to max switch top2.15+0.05; trim stock blank to measured switch top+0.05",
++ "wheel_window_dia":15.2,"wheel_thumb_notch":"north-edge notch 12 wide, floor Z1.5: knurled rim stands 1.5 above local floor (wheel top Z3.0 fixed by board stack)",
++ "legend_depth":0.15,"legend_font":Path(FONT).name,
++ "snap_stations_x":[67,102],"snap_beam":[8,.8,4],"snap_hook_overlap":.25,"snap_window_z_play":0.04,
++ "upper_and_cup_join":"4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
++ "nominal_total_height":24.75,"total_height_limit":25.0,"nonwheel_outward_limit":5,
++ "process":"CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
++ "factory_tuning":"Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
++ "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
++}
++(BASE/"parameters.json").write_text(json.dumps(PAR,ensure_ascii=False,indent=2),encoding="utf8")
++def box(x,y,z,w,h,d):return cq.Workplane("XY").box(w,h,d,centered=(False,False,False)).translate((x,-y-h,z)).val()
++def rr(x,y,z,w,h,d,r):
++ s=cq.Workplane("XY").box(w,h,d,centered=(False,False,False)).edges("|Z").fillet(r).val()
++ return s.translate((x,-y-h,z))
++def cyl(x,y,z,r,h):return cq.Workplane("XY").center(x,-y).circle(r).extrude(h).translate((0,0,z)).val()
++def yzprism(yz,x,w):return cq.Workplane("YZ").polyline([(-y,z) for y,z in yz]).close().extrude(w).translate((x,0,0)).val()
++def sub(shape,tool):return shape.cut(tool)
++parts={};screws={}
++# ---------------- UPPER COVER ----------------
++up=rr(0,0,PAR["upper_roof_top"]-PAR["upper_roof_thickness"],*PAR["upper_outline"],PAR["upper_roof_thickness"],PAR["upper_corner_radius"])
++skirt=rr(0,0,0,148,49,2.5,2).cut(rr(1,1,-.1,146,47,2.7,1))
++up=up.fuse(skirt)
++# R4 M1: the 0.1 mm edge ledges are deleted. The cover PCB is located by two roof pins and clamped against
++# roof standoffs (bottom face Z0.5) by the key backer and USB/sensor carrier screws; outboard of the cavity
++# the instrument face (via 0.1 PET) backs it.
++for x,y in [(3.5,24.5),(144.5,24.5)]:
++ up=up.fuse(cyl(x,y,.5,1.5,2.0)).fuse(cyl(x,y,.05,.7,.45))
++for x,y,r in [(25,10,1.2),(45,10,1.2),(70,20,1.5),(108,28,1.5),(140,10,1.5)]:
++ up=up.fuse(cyl(x,y,.5,r,2.0))
++# M14: stepped instrument-screw boss, Ø5.2 through the PCB cut-out, Ø6.5 above the PCB (wall 1.0 to counterbore).
++for x,y in PAR["screw_xy"]:
++ up=up.fuse(cyl(x,y,0,2.6,3.8)).fuse(cyl(x,y,.5,3.25,3.3))
++ up=up.cut(cyl(x,y,-.2,1.25,4.2)).cut(cyl(x,y,1.7,2.25,2.3))
++# Q3/M9: wheel window plus north-edge thumb notch with floor Z1.5 (rim top Z3.0 stands 1.5 proud of it).
++for x in [15,35,55]:
++ up=up.fuse(box(x-6,0,.6,12,3.2,.9).cut(cyl(x,10,.5,7.6,1.2)))
++ up=up.cut(box(x-6,-.1,1.5,12,10.1,2.5))
++ up=up.cut(cyl(x,10,.6,7.6,3.4))
++# M10: one-piece key, Ø5.0 stem in Ø5.2 hole, Ø6.2 flange in Ø6.5 x0.6 underside recess (retention overlap 0.5).
++KEYS=[10,23,36,49,62]
++for i,x in enumerate(KEYS):
++ up=up.cut(cyl(x,25,2.3,PAR["button_hole_dia"]/2,1.8)).cut(cyl(x,25,2.3,PAR["button_flange_recess_dia"]/2,.8))
++ tip=PAR["button_switch_top_max_Z"]+PAR["button_initial_gap_at_max"]
++ pl=cyl(x,25,3.1,PAR["button_stem_dia"]/2,PAR["button_top_Z"]-3.1).fuse(cyl(x,25,2.6,PAR["button_flange_dia"]/2,.5)).fuse(cyl(x,25,tip,.8,2.6-tip))
++ parts[f"button_{i+1}"]=pl.clean()
++# M4: key 3..5 reaction now through a separate backer plate screwed to two roof bosses (not through the cup).
++for x in [42.5,55.5]:
++ up=up.fuse(cyl(x,25,.5,2.0,2.0)).cut(cyl(x,25,.4,.65,2.9))
++# M11: light pipes Ø1.4 with Ø2.0 flange under the roof, 0.1 above LED; LP2 offset (-0.3,-0.3) for 0.5 wall to key 3.
++LP=[(15,21),(34.7,20.7),(55,21)]
++for i,(x,y) in enumerate(LP):
++ up=up.cut(cyl(x,y,2.3,.75,1.8))
++ parts[f"lightpipe_{i+1}"]=cyl(x,y,1.45,.7,3.8-1.45).fuse(cyl(x,y,2.1,1.0,.4)).clean()
++ports=[(46.5,37),(64.8,37),(83.1,37),(101.4,37)]
++JACK_NAMES=["FX SEND","LINE OUT","AUX","PHONES"]
++src=ENG/"verification/references/STX-353K7A-6N-KTTR_rA1.STEP"
++vendor_original=cq.importers.importStep(str(src)).val()
++# Third vendor solid is the 0.1 mm shipping Kapton tape per official drawing; removed for installation.
++vendor=cq.Compound.makeCompound(vendor_original.Solids()[:2]).rotate((0,0,0),(1,0,0),90)
++def upward_sweep(solid,z0,z1):
++ """Tool = the section of solid at z0 extruded to z1 (nose narrows upward, so this bounds it)."""
++ bb=solid.BoundingBox();slab=solid.intersect(cq.Solid.makeBox(bb.xlen+2,bb.ylen+2,.002,cq.Vector(bb.xmin-1,bb.ymin-1,z0)))
++ tool=None
++ for f in slab.Faces():
++  if f.geomType()=="PLANE" and f.normalAt().z<-.99:
++   w=f.outerWire().translate(cq.Vector(0,0,-.02)).offset2D(.02)[0]   # 0.02 clearance on the nose flank
++   s=cq.Solid.extrudeLinear(w,[],cq.Vector(0,0,z1-z0+.02));tool=s if tool is None else tool.fuse(s)
++ return tool
++for x,y in ports:
++ # M5: shoulder pad bears on the Kycon shoulder face Z1.45 (zero gap): plug withdrawal goes jack->roof.
++ jack=vendor.translate((x,-y,3.85))
++ pad=box(x-5.4,y-5.85,PAR["jack_shoulder_Z"]+PAR["jack_shoulder_gap"],10.8,11.7,2.5-PAR["jack_shoulder_Z"])
++ for zs in [1.4505,1.5,1.55,1.6,1.65,1.7,1.8,2.0,2.3]:pad=pad.cut(upward_sweep(jack,zs,4.5))
++ pad=pad.cut(cyl(x,y,.8,3.3,3.2))
++ up=up.fuse(pad)
++ up=up.cut(cyl(x,y,.8,3.3,3.2)).cut(cyl(x,y,3.0,6.0,1.0))
++# USB-C: opening tightened to official max body +0.1 for lateral load into roof; face pocket kept.
++up=up.cut(rr(93.305,7.195,2.3,9.39,3.61,1.8,1.6))
++up=up.cut(rr(92.0,5.3,3.0,12,7.4,1.0,1.5))
++# M1/M5: four roof posts through cover-PCB ECO holes clamp USB board between post ends and the carrier.
++USBPOST=[(88,8),(108.3,8),(88,22),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
++for x,y in USBPOST:
++ up=up.fuse(cyl(x,y,.5,2.5,2.0)).fuse(cyl(x,y,PAR["usb_top"],2.0,.5-PAR["usb_top"]))
++ if (x,y) in USBSCREW:up=up.cut(cyl(x,y,PAR["usb_top"]-.1,.65,4.5))
++# M6/M8: speaker pocket ceiling at PCB top+2.8 working height (rim compressed), integral POM slots (no metal grille).
++up=up.cut(rr(125.225,15.725,2.3,13.55,18.55,1.0,1.2))
++for yy in [17.4,19.4,21.4,23.4,25.4,27.4,29.4,31.4]:
++ up=up.cut(rr(126.4,yy,3.2,11.2,.8,.7,.35))
++# M15: coax retaining ribs (0.05 each side) on the y4.5 run and the x112.5 run.
++up=up.fuse(box(104,3.45,1.0,2,.55,1.5)).fuse(box(104,5.0,1.0,2,.55,1.5))
++up=up.fuse(box(111.45,31,1.0,.55,2,1.5)).fuse(box(113.0,31,1.0,.55,2,1.5))
++# Four receiver blades pass only through the existing PCB slots. R4: zero-play window, bottom lead-in chamfer,
++# no Z-stop below the cover PCB (M1). South blades extend to Z-11.65 with a lip that carries the audio frame (M5).
++for x in PAR["snap_stations_x"]:
++ for yy in [3.0,45.3]:
++  north=yy<10
++  tab=box(x-4,yy,-5.2,8,.7,7.7)
++  if not north:
++   x0,x1=(x-4,69.0) if x<80 else (x-4,104.5)
++   tab=tab.fuse(box(x0,yy,-11.65,x1-x0,.7,6.5))
++   tab=tab.fuse(yzprism([(44.85,-11.15),(45.3,-11.15),(45.3,-11.65),(44.85,-11.3)],x0,x1-x0))
++   tab=tab.cut(yzprism([(46.0,-11.66),(45.6,-11.66),(46.01,-11.25)],x0-.01,x1-x0+.02))
++  face=3.0 if north else 46.0;s=.4 if north else -.4;c0=x-4 if north else x1
++  tab=tab.cut(yzprism([(face,-5.21),(face+s,-5.21),(face,-4.8)],c0-.01,x+4-c0+.02))
++  tab=tab.cut(box(x+2.0,yy-.1,-2.32,2.2,.9,.84))
++  up=up.fuse(tab)
++cover_noleg=up.clean()
++# Q4: engraved legends 0.15 deep on the roof top.
++LEG=[("VOL",15,18.9,1.8),("TONE",35,18.9,1.8),("FX",55,18.9,1.8)]+[(t,x,29.7,1.8) for t,x in zip(["FX","MODE","MIX","PWR","BT"],KEYS)]
++LEG+=[(t,x,45.4,1.8) for t,(x,y) in zip(JACK_NAMES,ports)]+[("USB",98,15.6,1.8)]
++legend_solids=[]
++for t,x,y,fs in LEG:
++ tx=cq.Workplane("XY").text(t,fs,.3,combine=False,fontPath=FONT,halign="center",valign="center").val()
++ tx=tx.translate((x,-y,PAR["upper_roof_top"]-PAR["legend_depth"]))
++ legend_solids.append((t,x,y,tx));up=up.cut(tx)
++parts["upper_cover"]=up.clean()
++# ---------------- LOWER CUP ----------------
++cup=rr(*PAR["cup_origin"],PAR["cup_bottom"],*PAR["cup_outline"],-PAR["cup_bottom"],PAR["cup_corner_radius"]).cut(rr(36.3,2.8,PAR["cup_floor_top"],75.4,43.4,21,PAR["cup_inner_corner_radius"]))
++# Four integral cantilever latches from wall material, 0.5 service slots (M2), rectangular hook = positive stop both ways.
++for x in PAR["snap_stations_x"]:
++ for side in [0,1]:
++  yy=2 if side==0 else 46.2
++  cup=cup.cut(box(x-4,yy-.1,-5.5,8.4,1.0,.5))
++  cup=cup.cut(box(x-4,yy-.1,-1.0,8.4,1.0,.5))
++  cup=cup.cut(box(x+3.6,yy-.1,-5.5,.5,1.0,5.0))
++  yz=[(2.7,-2.3),(3.25,-2.3),(3.25,-1.5),(2.7,-1.5)]
++  if side:yz=[(49-y,z) for y,z in yz]
++  cup=cup.fuse(yzprism(yz,x+2.2,1.2))
++# M3: main ledges overlap the board edge by 1.0 (were 0.2); north-west segment stops before the pickup notch;
++# 0.5 overlap at x78.3-88 where B-side C811/C903 (h1.9/1.55) sit 0.56/0.73 from the edge.
++LEDGES=[(36.7,21.6,2.8,1.4),(75,3.3,2.8,1.4),(78.3,9.7,2.8,.9),(88,23.3,2.8,1.4),(36.7,25,44.8,1.5),(93,18.3,44.8,1.5)]
++for x,w,y,h in LEDGES:
++ cup=cup.fuse(box(x,y,-13.35,w,h,.8))
++# M3: lateral locating pads 0.05 from the board edge (replace the ineffective end stops below the board).
++for x,y,w,h in [(55,2.8,3,.35),(85,2.8,3,.35),(56,45.85,3,.35),(108,45.85,2,.35),(36.3,10,.35,3),(36.3,36,.35,3),(111.35,10,.35,3),(111.35,36,.35,3)]:
++ cup=cup.fuse(box(x,y,PAR["main_bottom"],w,h,PAR["main_thickness"]))
++# M16: battery lateral guides with 0.25 clearance (east guide stays the NTC contact side).
++for x,y,w,h in [(39.25,6.5,53.25,.5),(39.25,42.0,53.25,.5),(39.25,6.5,.5,36.0),(92,7.25,.5,34.5)]:
++ cup=cup.fuse(box(x,y,-20.3,w,h,3.2))
++cup=cup.cut(box(91.9,16,-18,1,5,1.5))
++cup=cup.cut(box(91.9,11.3,-20.0,.7,4.7,4.0))
++ntcwall=box(92.0,11.3,-20.3,4.8,4.7,4.2).cut(box(91.9,11.8,-20.0,4.3,3.7,4.2))
++cup=cup.fuse(ntcwall)
++# M7: pickup cable entry Ø3.0 in the floor under the main-board edge notch (x58.8-62.4); route to J101.
++cup=cup.cut(cyl(60.6,4.6,PAR["cup_bottom"]-.1,1.5,1.0))
++# R4: the R3 end shelves are removed (they lay inside the main-board footprint, so the board could not be
++# inserted past them); the audio frame now hangs from the cover side only (blade lips, key backer, USB bracket).
++# Main-board latches: 0.5 slots, tooth bottom at board top (zero Z gap, M3).
++for x in [38.0,95.0]:
++ for side in [0,1]:
++  yy=2.0 if side==0 else 46.2
++  cup=cup.cut(box(x,yy-.1,-12.3,12.1,1.0,.5))
++  cup=cup.cut(box(x,yy-.1,-10.8,12.1,1.0,.5))
++  cup=cup.cut(box(x+11.6,yy-.1,-12.3,.5,1.0,2.0))
++  yz=[(2.7,-11.75),(3.65,-11.75),(3.65,-11.5),(2.9,-11.05),(2.7,-11.05)]
++  if side:yz=[(49-y,z) for y,z in yz]
++  cup=cup.fuse(yzprism(yz,x+10.0,1.5))
++parts["lower_cup"]=cup.clean()
++# ---------------- AUDIO FRAME (separate, snaps onto south blade lips) ----------------
++fb=PAR["audio_frame_bottom"];ft=PAR["audio_frame_thickness"]
++carrier=box(36.5,29.2,fb,75,16.0,ft).cut(box(37.3,30,fb-.1,73.4,14,ft+.2))
++for x in [37.3,110.2]:
++ for y in [30.0,42.8]:
++  carrier=carrier.fuse(box(x,y,fb,.5,1.2,ft))
++# Transverse ribs under the board between jacks (no jack body / THT pin tail there).
++for x in [55.0,73.5,91.7]:
++ carrier=carrier.fuse(box(x,30,fb,1.0,14,ft))
++# North stiffening web beside the board edge, up to Z-4.0; two hanger zones: over the key-backer ledge
++# (x40-62, hook Z-1.6..-1.2) and over the USB-bracket south rail (x88-108, tab Z-4.3..-3.9).
++carrier=carrier.fuse(box(36.6,29.2,fb+ft,74.8,.8,-4.0-(fb+ft)))
++carrier=carrier.fuse(box(40,29.2,-4.0,22,.8,2.8)).fuse(box(40,28.8,-1.6,22,.4,.4))
++carrier=carrier.fuse(box(88,27.25,-4.3,20,1.95,.4))
++carrier=carrier.cut(box(97.8,29.15,fb-.1,6.1,.95,1.5))
++carrier=carrier.cut(box(75.8,44.95,fb-.1,2.4,.4,ft+.2))   # POTS3 lower bend passes under/behind the bar
++parts["audio_load_frame"]=carrier.clean()
++# ---------------- KEY BACKER (keys 3-5) ----------------
++kb=box(36.6,21.3,-1.1,30.0,7.4,1.2).fuse(box(40,28.0,-2.0,22,.7,.9)).fuse(box(40,28.7,-2.0,22,.4,.4))
++for x in [42.5,55.5]:
++ kb=kb.cut(cyl(x,25,-1.2,.9,1.4));screws[f"SCREW_keybacker_{x}"]=cyl(x,25,-2.0,1.5,.9)
++parts["key_backer_bracket"]=kb.clean()
++# ---------------- USB BRACKET (sensor board eliminated by ECO L-12) ----------------
++# Frame under the USB board; open window over all B-side parts incl. the FH12-16 ZIF (ECO L-10) so the
++# USB16 FPC enters the ZIF from -X below the west rail. Screws at 3 posts; post 4 (88,22) clamps only.
++ub=rr(85.4,4.4,-4.9,25.2,23.2,.6,1.0).cut(box(86.6,6.0,-5.0,19.6,20.2,.8))
++for x,y in USBSCREW:
++ ub=ub.cut(cyl(x,y,-5.0,.9,.8));screws[f"SCREW_usb_{x}_{y}"]=cyl(x,y,-5.8,1.5,.9)
++ub=ub.fuse(cyl(88,8,-4.9,1.6,.6)).cut(cyl(88,8,-5.0,.9,.8))
++parts["usb_bracket"]=ub.clean()
++# Thin support shims: now the full ledge set (M3), used only when measured latch gap>0.
++for t in [.05,.10,.20]:
++ sh=None
++ for x,w,y,h in LEDGES:
++  b=box(x,y+.4,PAR["main_bottom"],w,h-.4,t);sh=b if sh is None else sh.fuse(b)
++ parts[f"main_shim_{str(t).replace('.','p')}mm"]=sh.clean()
++parts["battery_bottom_insulator"]=box(40,7.25,-20.3,52,34.5,.1)
++parts["main_audio_dielectric_separator"]=box(37.3,30,-11.75,73.4,14,.1).cut(box(64.45,42.3,-11.85,5.0,1.7,.3))
++parts["key_backer_insulator"]=box(7.0,21.5,0,28.0,7.0,.1)
++parts["speaker_backer_insulator"]=box(124.5,15.0,0,15.0,20.0,.1)
++parts["ntc_electrical_separator"]=box(92.0,11.8,-19.9,.1,3.7,2.4)
++parts["battery_top_separator"]=box(39.5,6.75,-13.8,53,35.5,.1)
++parts["battery_top_foam"]=box(42,9.0,-14.8,48,30.8,1.0).cut(box(44,15.0,-14.9,44,6.4,1.2)).cut(box(44,27.4,-14.9,44,6.4,1.2))
++# ---------------- REFERENCES ----------------
++refs={}
++for i,(x,y) in enumerate(ports):refs[f"Kycon_vendor_{i+1}"]=vendor.translate((x,-y,3.85))
++refs["battery_max_reference"]=box(40,7.25,-20.2,52,34.5,5.4)
++refs["instrument_mount_land_INFERRED_REFERENCE"]=box(0,0,-22,148,49,22).cut(box(35,1,-22.1,78,47,22.2))
++(BASE/"reference/instrument-fit-basis.json").write_text(json.dumps({"cavityMm":[78,47,22],"inferredCavityOriginXY":[35,1],"datumZ":0,"basis":"inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument","physicalMeasurement":False,"mountHoles":"new reserved pattern, factory fits actual instrument as authorized","pickupEntry":"drill cavity floor under cup hole (60.6,4.6) after measuring the instrument"},ensure_ascii=False,indent=2),encoding="utf8")
++geo=json.loads((BASE/"reference/current-native-geometry.json").read_text("utf8"))
++for bd in geo["boards"].values():
++ bd["native_body_STEP"]=bd["native_body_STEP"].replace("\\","/")       # M17 POSIX paths
++ bd["file"]="project/pcb/"+bd["file"].replace("\\","/").split("/")[-1]  # M17 no local absolute path
++(BASE/"reference/current-native-geometry.json").write_text(json.dumps(geo,ensure_ascii=False,indent=1),encoding="utf8")
++native_body_ledger=[]
++def board_body(role,origin,top,thickness):
++ bd=geo["boards"][role];path=BASE/bd["native_body_STEP"]
++ assert hashlib.sha256(path.read_bytes()).hexdigest()==bd["native_body_sha256"]
++ body=cq.importers.importStep(str(path)).val();b=body.BoundingBox();assert b.zlen>0
++ transform=cq.Matrix([[1,0,0,0],[0,1,0,0],[0,0,thickness/b.zlen,0],[0,0,0,1]])
++ body=body.transformGeometry(transform);bb=body.BoundingBox();body=body.translate((origin[0],-origin[1],top-bb.zmax))
++ native_body_ledger.append({"board":role,"native_board_sha256":bd["sha256"],"native_body_sha256":bd["native_body_sha256"],
++  "imported_laminate_body_height":b.zlen,"finished_board_contract_height":thickness,"XY_unchanged":True,"Z_normalized_to_contract":True})
++ return body
++ECO_DELETED={"H_USB_1_M","H_USB_2_M","H_USB_1_R","H_USB_2_R","J1801"}   # ECO L-10/L-12
++# R4 mechanical ECO holes in the native boards (to be executed in KiCad; listed in pcb-interface-eco-R4.json).
++ECO_R4={"cover":[{"id":"KEYBACKER_%d"%i,"xy":[x,25],"dia":1.8,"type":"NPTH"} for i,x in enumerate([42.5,55.5])]+
++ [{"id":"USBPOST_%d"%i,"xy":list(p),"dia":4.4,"type":"NPTH, keep copper 0.5 away"} for i,p in enumerate(USBPOST)]+
++ [{"id":"PIN_ROUND","xy":[3.5,24.5],"dia":1.5,"type":"NPTH"},{"id":"PIN_SLOT","xy":[144.5,24.5],"slot":[2.5,1.5],"type":"NPTH slot along X"}]+
++ [{"id":"SNAP_SLOT_S_%d"%i,"rect":[x0,44.75,x0+8.8,46.1],"type":"enlarge existing south snap slot from y44.9 to y44.75 (blade lip passage)"} for i,x0 in enumerate([62.6,97.6])],
++ "usb":[{"id":"USBSCREW_%d"%i,"xy":[round(p[0]-86,2),p[1]-5],"dia":1.8,"type":"NPTH, keep-out Ø4.4 both sides"} for i,p in enumerate(USBSCREW)]+[{"id":"USBPOST_CLAMP","xy":[2,17],"keepout_top_dia":4.4,"type":"no hole; F-side keep-out for clamp post"}]}
++refs["main_reference"]=board_body("main",PAR["main_origin"],-11.75,.8)
++usbb=board_body("usb",PAR["usb_origin"],-3.3,1.0)
++for p in USBSCREW:usbb=usbb.cut(cyl(p[0],p[1],-4.5,.9,1.4))
++refs["usb_reference"]=usbb
++refs["RT1921_body_reference"]=box(92.1,11.8,-19.9,4.0,3.7,2.4)
++refs["speaker_working_nominal_reference"]=rr(125.425,15.925,.5,13.15,18.15,2.8,1.0)
++for i,x in enumerate([15,35,55]):
++ refs[f"wheel_{i+1}_max_reference"]=box(x-5.2,4.8,.5,10.4,10.4,1.5).fuse(cyl(x,10,2.0,7.1,1.0))
++for i,x in enumerate(KEYS):
++ refs[f"switch_{i+1}_max_reference"]=box(x-2.6,22.4,.5,5.2,5.2,PAR["button_switch_top_max_Z"]-.5)
++refs["audio_native_reference"]=board_body("audio",PAR["audio_origin"],-9.65,1.0)
++cov=board_body("cover",[0,0],.5,.4)
++for e in ECO_R4["cover"]:
++ if "rect" in e:cov=cov.cut(box(e["rect"][0],e["rect"][1],0,e["rect"][2]-e["rect"][0],e["rect"][3]-e["rect"][1],.6));continue
++ x,y=e["xy"]
++ cov=cov.cut(box(x-1.25,y-.75,0,2.5,1.5,.6) if "slot" in e else cyl(x,y,0,e["dia"]/2,.6))
++refs["cover_native_reference"]=cov
++oldpath=BASE/"reference/legacy-occupancy-sources.json"
++old={o["id"]:o for o in json.loads(oldpath.read_text("utf8"))["objects"]}
++components={o["ref"]:o for o in json.loads((ENG/"project/electrical/native-components.json").read_text("utf8"))}
++transforms={"main":([36.7,3.2],-11.75,.8),"cover":([0,0],.5,.4),"usb":([86,5],-3.3,1),"sensor":([90,16],-7,.8),"audio":([37.3,30],-9.65,1)}
++occupancy=[]
++custom={"J401","J101","J102","J103","J104","J201","J202","J203","J204","RV810","RV811","RV812","SW810","SW811","SW812","SW813","SW814","LS810","SP810","LS901","J301"}
++for bn,bd in geo["boards"].items():
++ origin,top,th=transforms[bn]
++ for f in bd["components"]:
++  ref=f["ref"];o=old.get(ref,{})
++  if ref in custom or bn=="sensor" or ref in ECO_DELETED:continue
++  if ref=="U901":continue
++  if ref in ["H_AUDIO_1_M","H_AUDIO_1_R","H_COVER_2_M","H_COVER_2_R","H_COVER_3_M","H_COVER_3_R","H_COVER_1_M","H_COVER_1_R"]:continue
++  co=f["court"]
++  if not co:continue
++  comp=components.get(ref,{})
++  mpn=comp.get("mpn") or "";lib=f["library"]
++  h=o.get("height_screen_mm")
++  basis=o.get("height_basis","package-specific height not established")
++  if mpn.startswith("RT0603"):
++   h=.55;basis="YAGEO RT series V17 Feb2026 p5 RT0603 thickness0.45+/-0.1; +0.1 assembly budget"
++  if mpn.startswith("CC0603"):
++   h=.9;basis="YAGEO actual0603 MPN body thickness max0.9 + assembly budget0.1"
++  if mpn.startswith("CC0805"):
++   h=1.45;basis="YAGEO actual0805 MPN body thickness1.25+/-0.2 + assembly budget0.1"
++  if mpn=="CC0805KKX5R6BB106":
++   h=.95;basis="YAGEO exact MPN official0.85+/-0.1 mm; +0.1 assembly budget"
++  if ref in ["C811","C830","C831","C832"]:
++   h=1.8;basis="KEMET1206 1.8 maximum body + assembly0.1"
++  if ref.startswith("H_") or "WirePads" in lib:
++   h=1.5;basis="ASSEMBLY REQUIREMENT horizontal thin-wall insulated wires + solder <=1.5; R4: these become FPC lands (<=0.3) per DECISIONS Q6, screen kept conservative"
++  if ref in ["J801","J902"]:
++   h=.05;basis="DNP bare production test copper; no header installed"
++  if h is None:h=2.0;basis="UNKNOWN maximum:2.0 screening reserve only; not source-verified"
++  height=h if ("ASSEMBLY REQUIREMENT" in basis or ref in ["J801","J902"]) else h+.1
++  z=top if f["side"]=="F" else top-th-height
++  x,y=origin[0]+co[0],origin[1]+co[1]
++  name="OCC_"+bn+"_"+ref
++  polygons=f.get("courtContours",[])
++  if polygons:
++   solids=[cq.Workplane("XY").polyline([(origin[0]+px,-origin[1]-py) for px,py in pp]).close().extrude(height).translate((0,0,z)).val() for pp in polygons]
++   refs[name]=solids[0]
++   for solid in solids[1:]:refs[name]=refs[name].fuse(solid)
++  else:refs[name]=box(x,y,z,co[2]-co[0],co[3]-co[1],height)
++  if ref=="J501":
++   refs[name]=refs[name].fuse(box(98.675,17.675,-18.35,10.2,10.0,5.8))
++   basis+="; includes mated PHR-3 nominal reference plus factory acceptance envelope10.2x10.0x5.8, not guaranteed vendor maximum"
++  occupancy.append({"name":name,"ref":ref,"board":bn,"mpn":mpn,"side":f["side"],"body_or_assembly_height":height,"basis":basis,"xy_conservative_courtyard":co,"source_board_sha256":bd["sha256"]})
++# ECO L-10: FH12-16S-0.5SH ZIF on USB board B side + USB16 FPC upper route reservation (centre-line per ECO,
++# flexible part: final-pose check only). Lower Z-fold on the main board is PCB scope.
++refs["J_USB_U_FH12_16_envelope"]=box(86.8,11.5,-6.3,5.5,13.0,2.0)
++refs["FPC_USB16_route_reservation"]=box(73.0,8.6,-7.75,6.5,13.9,.3).fuse(box(79.5,13.5,-7.75,7.3,9.0,.3)).fuse(box(85.0,13.5,-7.75,1.8,9.0,2.4))
++refs["GCT_USB4120_body_max"]=rr(98-9.19/2,9-3.41/2,-3.3,9.19,3.41,6.85,1.5)
++from rf_reference import build as build_rf_reference
++refs.update(build_rf_reference(cq,box,geo,BASE))
++from flex_reference import build as build_flex_reference
++refs.update(build_flex_reference(cq,box,geo,BASE))
++refs.update(screws)
++(BASE/"reference/native-board-body-ledger.json").write_text(json.dumps(native_body_ledger,ensure_ascii=False,indent=2),encoding="utf8")
++(BASE/"reference/component-occupancy-ledger.json").write_text(json.dumps({"snapshot":geo,"objects":occupancy},ensure_ascii=False,indent=2),encoding="utf8")
++(BASE/"pcb-interface-eco-R4.json").write_text(json.dumps({"schema":"SmartVio.R4.mechanical_to_electrical.v1","units":"mm","coordinates":"cover: cover-PCB XY (= global logical XY); usb: usb-PCB local XY",
++ "holes":ECO_R4,"recommended":[{"board":"cover","ref":"D851","move_to":[34.7,20.7],"why":"centre under offset light pipe 2 (M11)"},
++ {"board":"main","note":"chamfer main-board outline corners >=1.0x45 deg (cup inner corners now R1.2, 0.07 clearance)"},
++ {"board":"usb","note":"USB16 FPC (ECO L-10) enters the ZIF from -X under the bracket west rail (rail bottom z-4.9, FPC <= z-5.3); bend radius >=1.5"},
++ {"board":"usb","note":"keep F-side copper/parts out of dia4.4 at clamp post (88,22); ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"},
++ {"board":"cover","note":"antenna window GND keep-out >=5 mm is PCB-05; mechanical grille is now non-metallic"}]},ensure_ascii=False,indent=2),encoding="utf8")
++
++STOCK=OUT/"stock";STOCK.mkdir(exist_ok=True)
++stock=parts["button_1"].fuse(cyl(10,25,1.75,.8,.5))
++cq.exporters.export(stock,str(STOCK/"button_blank_TRIM_TIP_TO_MEASURED_SWITCH.step"))
++checks=[];file_manifest=[]
++for name,sh in parts.items():
++ fn=OUT/(name+".step");cq.exporters.export(sh,str(fn))
++ re=cq.importers.importStep(str(fn)).val();bb=re.BoundingBox()
++ checks.append({"part":name,"valid":re.isValid(),"solids":len(re.Solids()),"volume_mm3":round(re.Volume(),6),"bbox":[bb.xmin,bb.ymin,bb.zmin,bb.xmax,bb.ymax,bb.zmax]})
++ file_manifest.append({"file":str(fn.relative_to(BASE)),"sha256":hashlib.sha256(fn.read_bytes()).hexdigest()})
++assy=cq.Assembly(name="SmartVio_R4_MECHANICAL_CANDIDATE")
++for n,s in parts.items():
++ if "shim_" not in n:assy.add(s,name=n,color=cq.Color(.2,.28,.26,.9))
++assy.save(str(OUT/"mechanical_parts_assembly.step"))
++refassy=cq.Assembly(name="REFERENCE_NO_MANUFACTURING")
++for n,s in refs.items():refassy.add(s,name=n,color=cq.Color(.4,.65,.35,.6))
++refassy.save(str(OUT/"reference_components_NOT_MANUFACTURING.step"))
++from itertools import combinations
++collisions=[];pair_count=0;exact_count=0
++allsh={**{n:s for n,s in parts.items() if "shim_" not in n},**refs}
++bounds={}
++for n,q in allsh.items():
++ bb=q.BoundingBox();bounds[n]=(bb.xmin,bb.ymin,bb.zmin,bb.xmax,bb.ymax,bb.zmax)
++for an,bn in combinations(allsh,2):
++ pair_count+=1;a=bounds[an];b=bounds[bn]
++ if any(a[k+3]<=b[k]+1e-7 or b[k+3]<=a[k]+1e-7 for k in range(3)):continue
++ exact_count+=1
++ try:v=allsh[an].intersect(allsh[bn]).Volume()
++ except Exception:v=-1
++ if v>1e-6 or v<0:collisions.append({"a":an,"b":bn,"intersection_mm3":round(v,8),"requires_review":True})
++reference_ledger=[]
++REFOUT=BASE/"reference/components";REFOUT.mkdir(exist_ok=True)
++for name,sh in refs.items():
++ bb=sh.BoundingBox()
++ fn=REFOUT/(name+".step");cq.exporters.export(sh,str(fn))
++ reference_ledger.append({"name":name,"file":str(fn.relative_to(BASE)),"sha256":hashlib.sha256(fn.read_bytes()).hexdigest(),"valid":sh.isValid(),"solids":len(sh.Solids()),"volume_mm3":sh.Volume(),"bbox":[bb.xmin,bb.ymin,bb.zmin,bb.xmax,bb.ymax,bb.zmax],"source":"official Kycon nominal CAD packaging removed" if name.startswith("Kycon") else "native-board/courtyard screen or drawing-based dimensioned reference; see occupancy ledger"})
++flex_designs=json.loads((BASE/'reference/flex-installed-and-unfolded.json').read_text('utf8'))['designs']
++modeled_connections=sum(len(d['sourceContacts']) for d in flex_designs)
++# Envelope checks (R3 constraints kept).
++up_bb=parts["upper_cover"].BoundingBox();cup_bb=parts["lower_cup"].BoundingBox()
++cover_side=[n for n in parts if n.startswith(("button_","lightpipe_","upper_cover"))]+[n for n in refs if n.startswith("Kycon") or n=="GCT_USB4120_body_max"]
++zmax_nonwheel=max(allsh[n].BoundingBox().zmax for n in cover_side)
++zmin_all=min(b[2] for n,b in bounds.items() if not n.startswith("instrument_mount"))
++envelope={"cover_xy":[round(up_bb.xlen,3),round(up_bb.ylen,3)],"cover_xy_limit":[148,49],"nonwheel_protrusion":round(zmax_nonwheel,3),"nonwheel_protrusion_limit":5,
++ "wheel_top_Z":3.0,"cup_xy":[round(cup_bb.xlen,3),round(cup_bb.ylen,3)],"cup_depth":round(-cup_bb.zmin,3),"cavity":[78,47,22],
++ "total_height":round(zmax_nonwheel-zmin_all,3),"total_height_limit":25.0}
++envelope["pass"]=envelope["cover_xy"]==[148.0,49.0] and zmax_nonwheel<=5 and cup_bb.xlen<=77.0001 and cup_bb.ylen<=45.0001 and -cup_bb.zmin<22 and envelope["total_height"]<=25
++# Legend clearance: each legend bbox +0.3 must sit on solid roof (no hole/edge within 0.3).
++legend_check=[]
++for t,x,y,tx in legend_solids:
++ b=tx.BoundingBox();probe=cq.Solid.makeBox(b.xlen+.6,b.ylen+.6,.15,cq.Vector(b.xmin-.3,b.ymin-.3,PAR["upper_roof_top"]-.35))
++ v=cover_noleg.intersect(probe).Volume();legend_check.append({"text":t,"xy":[x,y],"bbox_xy":[round(b.xmin,2),round(-b.ymax,2),round(b.xmax,2),round(-b.ymin,2)],"solid_fraction_under_margin":round(v/probe.Volume(),6),"ok":v/probe.Volume()>.9999})
++status={"schema":"SmartVio.R4.mechanical.assembly-status","status":"MODELED_CAD_SCOPE_ZERO_INTERSECTIONS_NOT_FULL_ASSEMBLY_RELEASE" if not collisions else "CAD_INTERSECTIONS_REQUIRE_REVIEW","production_released":False,
++"parameters":PAR,"real_parts_exported":len(parts),"source_vendor_model":str(src.relative_to(ENG)),"shipping_packaging_removed":"Only vendor third0.1mm Kapton shipping tape solid removed from installed reference.","vendor_sha256":hashlib.sha256(src.read_bytes()).hexdigest(),
++"step_roundtrip":checks,"reference_components":reference_ledger,"collision_pair_count":pair_count,"exact_intersection_count":exact_count,"file_manifest":file_manifest,"intersections":collisions,
++"envelope":envelope,"legend_clearance":legend_check,
++"nominal_Z_chain":[["cup bottom",PAR["cup_bottom"]],["floor top",-20.3],["bottom insulation top / battery bottom",-20.2],["battery max top",-14.8],["foam (swell allowance) top",-13.8],["top separator top",-13.7],["main B max bottom",-13.6],["main board bottom",-12.55],["main board top / latch tooth bottom",-11.75],["audio frame bottom / blade lip top",PAR["audio_frame_bottom"]],["audio PCB top",-9.65],["jack shoulder / roof pad",1.45],["jack mouth nominal",3.85],["key top",PAR["button_top_Z"]]],
++"nominal_limits":{"total":round(3.85-PAR["cup_bottom"],3),"nonwheel":3.85,"raw_cavity_depth":22},
++"tolerance_limit_status":"Worst case dimensions and final board height-map not yet closed; assembly is not released merely by nominal dimensions.",
++"physical_tests":0,"manufacturing_process":PAR["process"],
++"modeled_board_interconnections":modeled_connections,"required_board_interconnections":37,"complete_harness_closed":False,
++"remaining":["Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun","Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team","confirm actual pickup cable and drill instrument cavity floor at the cup entry hole","FPC custom thin stack and microdrill require supplier DFM confirmation","measure actual violin cavity and mounting surface","freeze actual material and qualified tolerance/process","speaker back volume not provided (acoustic test)"]}
++from assembly_sequence import run as run_sequence
++seq=run_sequence(cq,parts,refs,BASE,light={"upper_cover":cover_noleg})
++status["assembly_sequence"]={"file":"assembly-sequence-check.json","pass":seq["pass"],"steps":len(seq["steps"])}
++(BASE/"assembly-status.json").write_text(json.dumps(status,ensure_ascii=False,indent=2),encoding="utf8")
++(BASE/"drawings").mkdir(exist_ok=True)
++cq.exporters.export(cq.Compound.makeCompound([parts["upper_cover"],parts["lower_cup"]]),str(BASE/"drawings/assembly-isometric.svg"),opt={"width":1000,"height":700,"projectionDir":(1,-1,0.7),"showAxes":False,"showHidden":False,"strokeWidth":.6})
++(BASE/"requirements.txt").write_text("cadquery==2.8.0\n",encoding="ascii")
++print(json.dumps({"parts":len(parts),"all_valid":all(x["valid"] and (x["part"].startswith("main_shim") or x["solids"]==1) and x["volume_mm3"]>0 for x in checks),"intersections":collisions,"envelope":envelope,"legends_ok":all(l["ok"] for l in legend_check),"sequence_pass":seq["pass"]},ensure_ascii=False))
+diff -ruN pa/mechanical/cad/flex_reference.py pb/mechanical/cad/flex_reference.py
+--- a/mechanical/cad/flex_reference.py	2026-10-15 07:20:07.286061911 +0000
++++ b/mechanical/cad/flex_reference.py	2026-10-15 07:20:07.290010888 +0000
+@@ -11,9 +11,10 @@
+  def fp(board,name):return next(v for v in geo['boards'][board]['components'] if v['ref']==name)
+  assert fp('main','H_COVER_3_M')['side']=='F','Thin POTS3 source needs the explicit F-side ECO'
+  origins={'main':[36.7,3.2],'cover':[0,0],'audio':[37.3,30]}
++ KEYS6_DY=.30  # R4 ECO L-09: H_COVER_1_M moved +0.30 in Y so the KEYS6 riser clears the cup wall 0.49
+  def pads(board,name):
+-  f=fp(board,name);o=origins[board]
+-  return {p['number']:[p['xy'][0]+o[0],p['xy'][1]+o[1],p['net']] for p in f['pads'] if p['number']}
++  f=fp(board,name);o=origins[board];dy=KEYS6_DY if name=='H_COVER_1_M' else 0
++  return {p['number']:[p['xy'][0]+o[0],p['xy'][1]+o[1]+dy,p['net']] for p in f['pads'] if p['number']}
+  def prism(xy,z,thickness=T):
+   return cq.Workplane('XY').polyline([(x,-y) for x,y in xy]).close().extrude(thickness).translate((0,0,z-thickness/2)).val()
+  def curved_strip(x,width,y,z,r=R,upper=False):
+@@ -34,12 +35,13 @@
+   if north:
+    ps={k:[v[0],-v[1],v[2]] for k,v in ps.items()};pt={k:[v[0],-v[1],v[2]] for k,v in pt.items()}
+   source_x=sum(v[0] for v in ps.values())/n;source_y=sum(v[1] for v in ps.values())/n
+-  start_y=-4.3 if north else 44.30 if name=='POTS3' else 44.65;end_y=start_y+R
++  start_y=-4.3-KEYS6_DY if north else 44.30 if name=='POTS3' else 44.65;end_y=start_y+R
+   lower_end=source_z+R;upper_start=target_z-R
+   assert upper_start>lower_end
+   source_min=min(v[0] for v in ps.values())-.75;source_max=max(v[0] for v in ps.values())+.75
+   if north:
+-   lower_poly=[(source_min,source_y-1.5),(source_max,source_y-1.5),(source_max,start_y),(source_min,start_y)]
++   # R4: tail 0.3 past the moved pad row (clears C605 at y7.48 after the +0.30 ECO shift)
++   lower_poly=[(source_min,source_y-1.2),(source_max,source_y-1.2),(source_max,start_y),(source_min,start_y)]
+   elif fromref=='H_COVER_3_M':
+    # Native source moves toF. A flat L brings the narrow bend clear of the x67 latch.
+    lower_poly=[(source_min,source_y-.75),(source_max,source_y-.75),(source_max,source_y-.4),
+@@ -127,9 +129,9 @@
+   [[(76.3,23.8),(77.7,23.8),(77.7,44.30),(76.3,44.30)],
+    [(70.7,23.8),(81.0,23.8),(81.0,27.0),(70.7,27.0)]])
+  make('KEYS6','H_COVER_1_M','cover','H_COVER_1_R',-11.47,.02,40.0,2.8,
+-  [[(38.6,-4.3),(41.4,-4.3),(41.4,-17.5),(38.6,-17.5)],
++  [[(38.6,-4.6),(41.4,-4.6),(41.4,-17.5),(38.6,-17.5)],
+    [(38.6,-12.5),(84.5,-12.5),(84.5,-17.5),(38.6,-17.5)]],north=True)
+- (BASE/'reference/flex-installed-and-unfolded.json').write_text(json.dumps({'revision':'R3','designs':ledgers,
++ (BASE/'reference/flex-installed-and-unfolded.json').write_text(json.dumps({'revision':'R4 (KEYS6 source +0.30 per ECO L-09; flat pattern un-mirroring is PCB scope)','designs':ledgers,
+   'nativeECORemaining':[],
+   'stack':[{'material':'copper','thicknessUm':12},{'material':'PI','thicknessUm':25},{'material':'copper','thicknessUm':12},
+            {'material':'coverlay+adhesive each face','thicknessUm':25,'faces':2}],
+diff -ruN pa/mechanical/parameters.json pb/mechanical/parameters.json
+--- a/mechanical/parameters.json	2026-10-15 07:20:07.294463454 +0000
++++ b/mechanical/parameters.json	2026-10-15 07:20:07.296161474 +0000
+@@ -1,119 +1,133 @@
+-{
+-  "version": "R2 prototype engineering candidate",
+-  "units": "mm",
+-  "manufacturing_release": false,
+-  "datum": "A instrument mounting surface Z0; STEP Y=-logical drawing Y",
+-  "upper_outline": [
+-    148,
+-    49
+-  ],
+-  "upper_corner_radius": 2.0,
+-  "upper_roof_top": 3.8,
+-  "upper_roof_thickness": 1.3,
+-  "upper_side_wall": 1.0,
+-  "cup_outline": [
+-    77.0,
+-    45.0
+-  ],
+-  "cup_origin": [
+-    35.5,
+-    2.0
+-  ],
+-  "cup_bottom": -21.05,
+-  "cup_floor_top": -20.3,
+-  "cup_wall": 0.8,
+-  "cup_corner_radius": 1.2,
+-  "main_origin": [
+-    36.7,
+-    3.2
+-  ],
+-  "main_bottom": -12.55,
+-  "main_thickness": 0.8,
+-  "main_xy": [
+-    74.6,
+-    42.6
+-  ],
+-  "main_B_max_assembled_under_battery": 1.05,
+-  "audio_origin": [
+-    37.3,
+-    30
+-  ],
+-  "audio_pcb_top": -9.65,
+-  "audio_pcb_thickness": 1.0,
+-  "jack_mouth_top": 3.85,
+-  "jack_seat_to_mouth_nominal": 13.5,
+-  "usb_origin": [
+-    86,
+-    5
+-  ],
+-  "usb_top": -3.3,
+-  "usb_thickness": 1.0,
+-  "sensor_origin": [
+-    90,
+-    16
+-  ],
+-  "sensor_top": -7.0,
+-  "sensor_thickness": 0.8,
+-  "cover_pcb_top": 0.5,
+-  "cover_pcb_thickness": 0.4,
+-  "pack_box": [
+-    40,
+-    7.25,
+-    -20.2,
+-    92,
+-    41.75,
+-    -14.8
+-  ],
+-  "battery_swell_Z_design_allowance": 1.0,
+-  "pack_bottom_insulation": 0.1,
+-  "pack_top_insulation": 0.1,
+-  "screw_xy": [
+-    [
+-      5.3,
+-      5.3
+-    ],
+-    [
+-      142.7,
+-      5.3
+-    ],
+-    [
+-      5.3,
+-      43.7
+-    ],
+-    [
+-      142.7,
+-      43.7
+-    ]
+-  ],
+-  "screw_through": 2.5,
+-  "screw_counterbore": 4.5,
+-  "screw_seat_z": 1.7,
+-  "screw_passing_boss_dia": 5.2,
+-  "button_installed_switch_top_Z": [
+-    2.2,
+-    2.2,
+-    2.2,
+-    2.2,
+-    2.2
+-  ],
+-  "button_initial_gap": 0.05,
+-  "button_hardstop_travel": 0.35,
+-  "button_fit_basis": "2.20 is installed maximum screening height, not measured; shorten stock stem to each measured switch top+0.05 and verify0.25 travel before hardstop",
+-  "snap_stations_x": [
+-    67,
+-    102
+-  ],
+-  "snap_beam": [
+-    8,
+-    0.8,
+-    4
+-  ],
+-  "snap_hook_overlap": 0.25,
+-  "upper_and_cup_join": "4 snaps only; four upper screws attach instrument; no lower shell screw",
+-  "nominal_total_height": 24.9,
+-  "total_height_limit": 25.0,
+-  "nonwheel_outward_limit": 5,
+-  "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
+-  "factory_tuning": "Adjust removable main support shims to measured nominal chain; do not compress pack or machine vendor parts",
+-  "pending": "Native final8-layer0.8 acceptance and final assembly collision rerun after board routing; 25mm first sample requires measured selection; formal series-production worst-case stack remains HOLD"
++{
++  "version": "R4 prototype engineering candidate",
++  "units": "mm",
++  "manufacturing_release": false,
++  "datum": "A instrument mounting surface Z0; STEP Y=-logical drawing Y",
++  "upper_outline": [
++    148,
++    49
++  ],
++  "upper_corner_radius": 2.0,
++  "upper_roof_top": 3.8,
++  "upper_roof_thickness": 1.3,
++  "upper_side_wall": 1.0,
++  "cup_outline": [
++    77.0,
++    45.0
++  ],
++  "cup_origin": [
++    35.5,
++    2.0
++  ],
++  "cup_bottom": -20.9,
++  "cup_floor_top": -20.3,
++  "cup_wall": 0.8,
++  "cup_corner_radius": 1.2,
++  "cup_inner_corner_radius": 1.2,
++  "main_origin": [
++    36.7,
++    3.2
++  ],
++  "main_bottom": -12.55,
++  "main_thickness": 0.8,
++  "main_xy": [
++    74.6,
++    42.6
++  ],
++  "main_B_max_assembled_under_battery": 1.05,
++  "main_ledge_overlap": 1.0,
++  "main_xy_locating_gap": 0.05,
++  "main_latch_z_gap": 0.0,
++  "audio_origin": [
++    37.3,
++    30
++  ],
++  "audio_pcb_top": -9.65,
++  "audio_pcb_thickness": 1.0,
++  "jack_mouth_top": 3.85,
++  "jack_seat_to_mouth_nominal": 13.5,
++  "jack_shoulder_Z": 1.45,
++  "jack_shoulder_gap": 0.005,
++  "jack_shoulder_gap_note": "zero-gap design; 0.005 CAD offset only avoids coplanar boolean slivers on the vendor B-spline face",
++  "audio_frame_bottom": -11.15,
++  "audio_frame_thickness": 0.5,
++  "usb_origin": [
++    86,
++    5
++  ],
++  "usb_top": -3.3,
++  "usb_thickness": 1.0,
++  "sensor_board": "eliminated (ECO L-12, TMP117 on main B side)",
++  "cover_pcb_top": 0.5,
++  "cover_pcb_thickness": 0.4,
++  "pack_box": [
++    40,
++    7.25,
++    -20.2,
++    92,
++    41.75,
++    -14.8
++  ],
++  "battery_swell_Z_design_allowance": 1.0,
++  "battery_guide_gap": 0.25,
++  "battery_top_foam": "1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
++  "pack_bottom_insulation": 0.1,
++  "pack_top_insulation": 0.1,
++  "screw_xy": [
++    [
++      5.3,
++      5.3
++    ],
++    [
++      142.7,
++      5.3
++    ],
++    [
++      5.3,
++      43.7
++    ],
++    [
++      142.7,
++      43.7
++    ]
++  ],
++  "screw_through": 2.5,
++  "screw_counterbore": 4.5,
++  "screw_seat_z": 1.7,
++  "screw_passing_boss_dia": 5.2,
++  "screw_boss_dia_above_cover_pcb": 6.5,
++  "instrument_screw": "ST2.2x6.5 A2 stainless pan-head wood screw (non-magnetic), pilot 1.6x5 in wood, 0.15 N.m; threaded insert in wood preferred",
++  "internal_screw": "M1.6 thread-forming screw for plastics (PT/WN1452 type) into POM pilot 1.3; production PC/ABS: M1.6 heat-set brass insert",
++  "button_switch_top_max_Z": 2.15,
++  "button_switch_top_nominal_Z": 2.0,
++  "button_initial_gap_at_max": 0.05,
++  "switch_travel": 0.25,
++  "button_hole_dia": 5.2,
++  "button_stem_dia": 5.0,
++  "button_flange_dia": 6.2,
++  "button_flange_recess_dia": 6.5,
++  "button_top_Z": 3.85,
++  "button_fit_basis": "SKQGABE010 h1.5 +0.15/-0, travel0.25, 1.57N (native-components.json). Nub designed to max switch top2.15+0.05; trim stock blank to measured switch top+0.05",
++  "wheel_window_dia": 15.2,
++  "wheel_thumb_notch": "north-edge notch 12 wide, floor Z1.5: knurled rim stands 1.5 above local floor (wheel top Z3.0 fixed by board stack)",
++  "legend_depth": 0.15,
++  "legend_font": "DejaVuSans-Bold.ttf",
++  "snap_stations_x": [
++    67,
++    102
++  ],
++  "snap_beam": [
++    8,
++    0.8,
++    4
++  ],
++  "snap_hook_overlap": 0.25,
++  "snap_window_z_play": 0.04,
++  "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
++  "nominal_total_height": 24.75,
++  "total_height_limit": 25.0,
++  "nonwheel_outward_limit": 5,
++  "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
++  "factory_tuning": "Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
++  "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
+ }
+\ No newline at end of file
