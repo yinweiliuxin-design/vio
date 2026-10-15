@@ -1,0 +1,1424 @@
+{
+ "schema": "smartvio.r4.eco.schematic.v1",
+ "date": "2026-10-15",
+ "baseline": "R3 native-netlist.xml (319 comps)",
+ "items": [
+  {
+   "id": "E-01",
+   "title": "J301 耳机检测按 DECISIONS Q7 改接（3 个阻容）",
+   "priority": "high",
+   "sources": [
+    "SCH-HPDET-J301",
+    "DECISIONS Q7"
+   ],
+   "sheets": [
+    "A12.kicad_sch"
+   ],
+   "boards": [
+    "audio",
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "R322",
+     "before": "1k RC0603FR-071KL",
+     "after": "100k RC0603FR-07100KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "HP_DETECT_RAW",
+      "2": "HP_DETECT_GPIO"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "C320",
+     "before": "0.01uF C0G C0603C103J3GACTU",
+     "after": "100nF X7R 10V CC0603KRX7R7BB104",
+     "footprint": "Passive_V26_ManufacturerLand:CC0603KRX7R7BB104",
+     "pins": {
+      "1": "HP_DETECT_GPIO",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "rewire",
+     "ref": "J301",
+     "pin": "6",
+     "before": "GND",
+     "after": "HP_DET_B",
+     "label_at_mm": [
+      388.62,
+      134.62
+     ],
+     "note": "把 J301.6 的全局标签 GND 改为 HP_DET_B"
+    },
+    {
+     "action": "add",
+     "ref": "R323",
+     "value": "0R",
+     "mpn": "RC0603JR-070RL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "dnp": true,
+     "pins": {
+      "1": "HP_DET_B",
+      "2": "GND"
+     },
+     "note": "默认不装；首样万用表判定为独立常闭开关时才装"
+    },
+    {
+     "action": "keep",
+     "ref": "R321",
+     "note": "100k V3D→HP_DETECT_RAW 不变"
+    }
+   ],
+   "new_nets": [
+    "HP_DET_B"
+   ],
+   "firmware": [
+    "HP_DETECT_ACTIVE 极性可配置（R323 装=插入高；不装=插入低）",
+    "PA4 200 ms 消抖"
+   ],
+   "bom": {
+    "added": [
+     "R323 0R 0603 (DNP)"
+    ],
+    "changed": [
+     "R322 1k→100k",
+     "C320 10nF C0G→100nF X7R"
+    ],
+    "cost_usd": "+0.00（DNP）"
+   },
+   "pcb": "audio 板：J301.6 焊盘与 GND 铜断开，旁边 ≤3 mm 放 R323 0603（一端 J301.6，一端套管 GND）。主板：R322/C320 原位改值，封装不变。",
+   "verify": [
+    "ERC：HP_DET_B 两个节点（J301.6、R323.1），无单端网络警告",
+    "首样万用表：未插/插 TRS 时量 4–5、5–6 通断，按 DECISIONS 表决定 R323",
+    "插拔 20 次 + 1 kHz 0 dBFS 播放时 PA4 无误判（200 ms 消抖）"
+   ],
+   "confidence": "high（电路）；J301 触点⑤定义仍待实测，本接法两种情况都可用"
+  },
+  {
+   "id": "E-02",
+   "title": "关机漏电：分压改高阻、LTC2954 EN 上拉改高阻、TPS3700 改由 USB 供电",
+   "priority": "high",
+   "sources": [
+    "A2",
+    "DECISIONS Q5",
+    "SCH-PINAUDIT-POWER"
+   ],
+   "sheets": [
+    "A28.kicad_sch",
+    "A21.kicad_sch",
+    "A32.kicad_sch",
+    "A33.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "R1705",
+     "before": "15k 0.1% RT0603BRD0715KL",
+     "after": "2.2M 1% RC0603FR-072M2L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "PACK_PLUS",
+      "2": "MON_BAT_DIV"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1706",
+     "before": "10k 0.1% RT0603BRD0710KL",
+     "after": "1.5M 1% RC0603FR-071M5L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "MON_BAT_DIV",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1709",
+     "before": "15k 0.1%",
+     "after": "2.2M 1% RC0603FR-072M2L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "SYS",
+      "2": "MON_SYS_DIV"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1710",
+     "before": "10k 0.1%",
+     "after": "1.5M 1% RC0603FR-071M5L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "MON_SYS_DIV",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1707",
+     "before": "100k 0.1%",
+     "after": "10M 1% RC0603FR-0710ML",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "MON_BAT_BUF_IN",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1711",
+     "before": "100k 0.1%",
+     "after": "10M 1% RC0603FR-0710ML",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "MON_SYS_BUF_IN",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1103",
+     "before": "33k 1% RC0603FR-0733KL",
+     "after": "2.2M 1% RC0603FR-072M2L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "SYS",
+      "2": "PWR_LTC_EN"
+     }
+    },
+    {
+     "action": "change_value",
+     "ref": "R1304",
+     "before": "100k 1% RC0603FR-07100KL",
+     "after": "4.7M 1% RC0603FR-074M7L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "SYS_ENABLE",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "rewire",
+     "ref": "U1921",
+     "pin": "5 (VDD)",
+     "before": "SYS",
+     "after": "USB_5V_SAFE",
+     "label_at_mm": [
+      95.25,
+      46.99
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "C1921",
+     "pin": "1",
+     "before": "SYS",
+     "after": "USB_5V_SAFE",
+     "label_at_mm": [
+      182.88,
+      72.39
+     ]
+    }
+   ],
+   "new_nets": [],
+   "firmware": [
+    "MON_BAT/MON_SYS 比例 0.3722，换算系数 2.65→2.687",
+    "MON_ENABLE 拉高后等待 ≥100 ms 再采样（τ≈8.2 ms）",
+    "出厂一点校准 PACK/SYS 增益（1% 电阻）"
+   ],
+   "off_state_budget_uA_at_3V7": {
+    "R3": {
+     "R1705_R1706": 148,
+     "R1709_R1710": 148,
+     "R1103": 112,
+     "TPS3700": 5.5,
+     "LTC2954": 6,
+     "BQ24074_IBAT_PDWN": 4.3,
+     "TPS63070_ISD": 2,
+     "MAX98357A_SD": 0.6,
+     "R903_GAIN": 0.5,
+     "misc": 0.1,
+     "total": 427
+    },
+    "R4": {
+     "dividers": 2.0,
+     "R1103": 1.7,
+     "TPS3700": 0,
+     "LTC2954": 6,
+     "BQ24074_IBAT_PDWN": 4.3,
+     "TPS63070_ISD": 2,
+     "MAX98357A_SD": 0.6,
+     "R903_GAIN": 0.5,
+     "misc": 0.1,
+     "total_typ": 17.2,
+     "total_max_est_at_4V2": 38
+    },
+    "ic_floor_typ": 12.9,
+    "note": "<10 µA 用现有 IC 无法达到（LTC2954+BQ24074+TPS63070 典型已 12.3 µA）；17 µA 典型下 6 个月耗 75 mAh（7.5%），满足“6 个月满电到约 20%”"
+   },
+   "bom": {
+    "added": [],
+    "changed": [
+     "R1705/R1709 15k 0.1%→2.2M 1%",
+     "R1706/R1710 10k 0.1%→1.5M 1%",
+     "R1707/R1711 100k 0.1%→10M 1%",
+     "R1103 33k→2.2M",
+     "R1304 100k→4.7M"
+    ],
+    "cost_usd": "约 −0.2（4 颗 0.1% 薄膜换成 1% 厚膜）"
+   },
+   "pcb": "主板：全部原封装改值；U1921.5 与 C1921.1 从 SYS 改接 USB_5V_SAFE（U1921 在主板 B 面 (65.75,38.75)，就近接 USB_5V_SAFE 走线即可）。SYS_ENABLE（4.7 MΩ 节点）走线 ≤10 mm，远离 L1101/BUCK_L1/L2。",
+   "verify": [
+    "ERC 无变化（只改值与 2 个引脚网络）",
+    "关机状态电池端串 µA 表：25 °C、3.7 V 下 ≤25 µA（目标典型 17 µA）",
+    "开机状态 VSYS=3.0 V 时量 SYS_ENABLE ≥1.2 V（阈值 0.83 V max）",
+    "插 USB、LTC 关断时 SYS_ENABLE ≈4.4 V，TPS63070 正常起机",
+    "充电窗口：拔 USB 后 CHARGE_GATE 为低；插 USB 后 U1921 VDD=5 V、NTC 窗口功能同 R3"
+   ],
+   "confidence": "高（拓扑与算术）；中（IC 静态电流取自检索到的手册数字：LTC2954 6 µA typ，BQ24074 IBAT(PDWN) 4.3/6.5 µA，TPS63070 ISD 2/12 µA，TPS3700 5.5 µA；MAX98357A 关断电流未核实）"
+  },
+  {
+   "id": "E-03",
+   "title": "PhotoMOS 分三组驱动 + LED 电流 7.6→5.3 mA",
+   "priority": "high",
+   "sources": [
+    "B4",
+    "FW-PORT-ENABLE-HP",
+    "HB-08",
+    "DECISIONS Q5"
+   ],
+   "sheets": [
+    "A22.kicad_sch",
+    "A17.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "R1201..R1207",
+     "before": "270R RC0603FR-07270RL",
+     "after": "390R RC0603FR-07390RL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "note": "I_LED=(3.3−1.25)/390≈5.3 mA，仍 ≥5 mA 推荐值，> AQY221R2V/R6V 最大动作电流 3 mA"
+    },
+    {
+     "action": "rewire",
+     "ref": "K1201",
+     "pin": "2 (LED_K)",
+     "before": "SSR_SINK",
+     "after": "SSR_SINK_HP",
+     "label_at_mm": [
+      187.96,
+      46.99
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "K1202",
+     "pin": "2 (LED_K)",
+     "before": "SSR_SINK",
+     "after": "SSR_SINK_HP",
+     "label_at_mm": [
+      327.66,
+      76.2
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "K1206",
+     "pin": "2 (LED_K)",
+     "before": "SSR_SINK",
+     "after": "SSR_SINK_RET",
+     "label_at_mm": [
+      46.99,
+      171.45
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "K1207",
+     "pin": "2 (LED_K)",
+     "before": "SSR_SINK",
+     "after": "SSR_SINK_RET",
+     "label_at_mm": [
+      187.96,
+      181.61
+     ]
+    },
+    {
+     "action": "keep",
+     "ref": "K1203,K1204,K1205,Q1201,R1210,R1211",
+     "note": "LINE OUT + FX SEND 组仍由 PA3 PORT_ENABLE/Q1201/SSR_SINK 驱动"
+    },
+    {
+     "action": "add",
+     "ref": "Q1202",
+     "value": "PMV30UN2R",
+     "mpn": "PMV30UN2R",
+     "footprint": "SmartVioV25:SOT-23",
+     "pins": {
+      "1 G": "SSR_GATE_HP",
+      "2 S": "GND",
+      "3 D": "SSR_SINK_HP"
+     }
+    },
+    {
+     "action": "add",
+     "ref": "R1212",
+     "value": "1k",
+     "mpn": "RC0603FR-071KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "HP_PORT_ENABLE",
+      "2": "SSR_GATE_HP"
+     }
+    },
+    {
+     "action": "add",
+     "ref": "R1213",
+     "value": "100k",
+     "mpn": "RC0603FR-07100KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "SSR_GATE_HP",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "add",
+     "ref": "Q1203",
+     "value": "PMV30UN2R",
+     "mpn": "PMV30UN2R",
+     "footprint": "SmartVioV25:SOT-23",
+     "pins": {
+      "1 G": "SSR_GATE_RET",
+      "2 S": "GND",
+      "3 D": "SSR_SINK_RET"
+     }
+    },
+    {
+     "action": "add",
+     "ref": "R1214",
+     "value": "1k",
+     "mpn": "RC0603FR-071KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "RET_PORT_ENABLE",
+      "2": "SSR_GATE_RET"
+     }
+    },
+    {
+     "action": "add",
+     "ref": "R1215",
+     "value": "100k",
+     "mpn": "RC0603FR-07100KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "SSR_GATE_RET",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "rewire",
+     "ref": "U801",
+     "pin": "61 (PD14)",
+     "before": "no_connect",
+     "after": "HP_PORT_ENABLE",
+     "label_at_mm": [
+      102.87,
+      69.85
+     ],
+     "note": "删除 A17 (102.87,69.85) 的 no_connect"
+    },
+    {
+     "action": "rewire",
+     "ref": "U801",
+     "pin": "62 (PD15)",
+     "before": "no_connect",
+     "after": "RET_PORT_ENABLE",
+     "label_at_mm": [
+      102.87,
+      72.39
+     ],
+     "note": "删除 A17 (102.87,72.39) 的 no_connect"
+    }
+   ],
+   "new_nets": [
+    "SSR_SINK_HP",
+    "SSR_GATE_HP",
+    "HP_PORT_ENABLE",
+    "SSR_SINK_RET",
+    "SSR_GATE_RET",
+    "RET_PORT_ENABLE"
+   ],
+   "firmware": [
+    "耳机路由置 PD14；需要 AUX/RETURN 时置 PD15；LINE/FX SEND 时置 PA3",
+    "复位/安全态 PD14/PD15 输出低"
+   ],
+   "bom": {
+    "added": [
+     "Q1202, Q1203 PMV30UN2R",
+     "R1212, R1214 1k",
+     "R1213, R1215 100k"
+    ],
+    "changed": [
+     "R1201–R1207 270R→390R"
+    ],
+    "cost_usd": "+0.11"
+   },
+   "pcb": "主板：SSR_SINK 公共铜切成三段（K1201/K1202 → Q1202；K1206/K1207 → Q1203；K1203–K1205 → Q1201）；Q1202/Q1203 各带 2 颗 0603，放在对应 PhotoMOS 旁；PD14/PD15 两条新 GPIO 走线。",
+   "verify": [
+    "ERC：新网络各 ≥2 节点；U801.61/62 无 no_connect 冲突",
+    "台架：V3D 电流在“仅耳机”模式比 R3 少约 42 mA（53→10.6 mA）",
+    "每组 PhotoMOS 导通电阻/隔离测试，0 °C 下仍可靠导通"
+   ],
+   "confidence": "高（电路）；PhotoMOS 推荐 LED 电流 ≥5 mA、最大动作电流 3 mA 来自 Panasonic 资料检索"
+  },
+  {
+   "id": "E-04",
+   "title": "BQ24074 默认 USB500（EN1 上拉到 V3D），禁止 ILIM 模式",
+   "priority": "high",
+   "sources": [
+    "FW-NO-CHARGE-PATH",
+    "B1",
+    "DECISIONS 本轮范围"
+   ],
+   "sheets": [
+    "A14.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "rewire",
+     "ref": "R590",
+     "pin": "2",
+     "before": "GND",
+     "after": "V3D",
+     "label_at_mm": [
+      510.54,
+      100.33
+     ],
+     "note": "R590 100k 由 EN1 下拉改为 EN1 上拉；EN2 仍由 R504 10k 下拉 → 复位态 EN2/EN1=0/1=USB500"
+    },
+    {
+     "action": "keep",
+     "ref": "R502",
+     "note": "1.5k（ILIM 模式 1.03 A）保留；无 Rp 检测，固件禁止 EN2=1"
+    },
+    {
+     "action": "keep",
+     "ref": "R501",
+     "note": "2.00k → ICHG 445 mA（KISET 890 AΩ）"
+    },
+    {
+     "action": "keep",
+     "ref": "R401,R402,U1401",
+     "note": "B1/B2：Rd 5.1k 正常时经 TPD2S300 呈现，无电时由 TPD2S300 内部 dead-battery Rd 呈现，不改"
+    }
+   ],
+   "new_nets": [],
+   "firmware": [
+    "PE12 默认高（或高阻）=USB500；EN2 永远为 0（除 USB 挂起 EN2/EN1=1/1）",
+    "不实现 USB-PD/Rp 检测；USB 输入上限 500 mA"
+   ],
+   "bom": {
+    "added": [],
+    "changed": [
+     "R590 接法改变"
+    ],
+    "cost_usd": "0"
+   },
+   "pcb": "主板：R590 第 2 脚由 GND 改接 V3D（就近 V3D 过孔）。",
+   "verify": [
+    "ERC 无新警告",
+    "5 V/500 mA 口 + 电池 3.6 V：输入电流 ≤500 mA，充电 + 系统同时工作 SYS 不从电池补电",
+    "MCU 复位保持中（BOOT0/NRST 拉低）时 EN1=3.3 V、EN2=0"
+   ],
+   "confidence": "高（USB100/500/ILIM 真值表与 KILIM/KISET 由检索确认）"
+  },
+  {
+   "id": "E-05",
+   "title": "eFuse 限流 0.50 A→1.34 A，ITIMER 加 10 nF",
+   "priority": "high",
+   "sources": [
+    "PWR-01",
+    "SCH-PINAUDIT-POWER"
+   ],
+   "sheets": [
+    "A20.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "R1005",
+     "before": "6.65k RC0603FR-076K65L",
+     "after": "2.49k 1% RC0603FR-072K49L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "EFUSE_ILM",
+      "2": "GND"
+     },
+     "note": "ILIM=3334/2490≈1.34 A（≈1.2–1.47 A）"
+    },
+    {
+     "action": "add",
+     "ref": "C1004",
+     "value": "0.01uF C0G 25V",
+     "mpn": "C0603C103J3GACTU",
+     "footprint": "Passive_V26_ManufacturerLand:C0603C103J3GACTU",
+     "pins": {
+      "1": "EFUSE_ITIMER",
+      "2": "GND"
+     }
+    },
+    {
+     "action": "rewire",
+     "ref": "U1001",
+     "pin": "10 (ITIMER)",
+     "before": "no_connect",
+     "after": "EFUSE_ITIMER",
+     "label_at_mm": [
+      90.17,
+      54.61
+     ],
+     "note": "删除 A20 (90.17,54.61) 的 no_connect"
+    },
+    {
+     "action": "keep",
+     "ref": "U1001.3 AUXOFF",
+     "note": "开漏输出，悬空合法"
+    }
+   ],
+   "new_nets": [
+    "EFUSE_ITIMER"
+   ],
+   "firmware": [
+    "USB_FLT 只记录、不永久锁死（配合 FW-FAULT-LATCH 修复）"
+   ],
+   "bom": {
+    "added": [
+     "C1004 10nF C0G 0603"
+    ],
+    "changed": [
+     "R1005 6.65k→2.49k"
+    ],
+    "cost_usd": "+0.01"
+   },
+   "pcb": "主板：C1004 紧贴 U1001.10（≤1.5 mm），地端直接打 GND 过孔。",
+   "verify": [
+    "ERC：EFUSE_ITIMER 2 节点",
+    "台架：VBUS 5 V 下 1.0 A 电子负载持续 10 min，FLT 不拉低，U1001 温升 <40 K",
+    "短路 OUT：限流约 1.3 A 后进入热保护（L 版需拔插恢复）"
+   ],
+   "confidence": "高（TI 手册 R_ILM=3334/ILIM，6.65k=0.50 A 为检索确认；ITIMER 时间常数按 1.8 µA 充电电流估算为数 ms，量级中等置信度）"
+  },
+  {
+   "id": "E-06",
+   "title": "eFuse OVLO 5.69 V→5.90 V",
+   "priority": "low",
+   "sources": [
+    "PWR-07"
+   ],
+   "sheets": [
+    "A20.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "R1003",
+     "before": "37.4k RC0603FR-0737K4L",
+     "after": "39.2k 1% RC0603FR-0739K2L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "VBUS_RAW",
+      "2": "USB_OV"
+     },
+     "note": "1.20×(1+39.2/10)=5.90 V；最小 1.183×(1+39.2×0.99/10.1)=5.73 V；最大 ≈6.11 V"
+    }
+   ],
+   "new_nets": [],
+   "bom": {
+    "added": [],
+    "changed": [
+     "R1003 37.4k→39.2k"
+    ],
+    "cost_usd": "0"
+   },
+   "pcb": "原位改值。",
+   "verify": [
+    "可调电源扫 VBUS：5.5 V 不断开，6.2 V 内断开"
+   ],
+   "confidence": "中（阈值 1.183/1.20/1.223 V 来自检索）"
+  },
+  {
+   "id": "E-07",
+   "title": "VBUS_RAW 加 TVS",
+   "priority": "medium",
+   "sources": [
+    "SCH-VBUS-NOTVS"
+   ],
+   "sheets": [
+    "A13.kicad_sch"
+   ],
+   "boards": [
+    "usb"
+   ],
+   "operations": [
+    {
+     "action": "add",
+     "ref": "D401",
+     "value": "SMF12A",
+     "mpn": "Littelfuse SMF12A",
+     "footprint": "Diode_SMD:D_SOD-123F（KiCad 标准库，需加入 fp-lib-table 或复制进 SmartVioV25）",
+     "symbol": "Device:D_TVS",
+     "pins": {
+      "K": "VBUS_RAW",
+      "A": "GND"
+     },
+     "note": "Vrwm 12 V（不影响 5 V），Vc≈19.9 V@10 A，低于 TPS25947 23 V 工作上限"
+    }
+   ],
+   "new_nets": [],
+   "bom": {
+    "added": [
+     "D401 SMF12A SOD-123FL"
+    ],
+    "changed": [],
+    "cost_usd": "+0.08"
+   },
+   "pcb": "USB 板：D401 放在 J401 VBUS 脚（A4/A9/B4/B9）与 C401 之间，阴极到 VBUS_RAW，阳极 ≥2 个 GND 过孔。",
+   "verify": [
+    "ERC",
+    "IEC 61000-4-2 接触 ±8 kV 打 USB 外壳/VBUS，eFuse 不损坏",
+    "热插拔 1 m 线示波器看 VBUS_RAW 过冲 <15 V"
+   ],
+   "confidence": "中（TPS25947 IN 绝对最大值未取得，选 12 V 档留余量）"
+  },
+  {
+   "id": "E-08",
+   "title": "ESP32 供电从 V3LOAD 移到 V3D",
+   "priority": "medium",
+   "sources": [
+    "B3",
+    "B7",
+    "SCH-XDOMAIN-DIRECT"
+   ],
+   "sheets": [
+    "A19.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "rewire",
+     "ref": "U901",
+     "pin": "3 (3V3)",
+     "before": "V3LOAD",
+     "after": "V3D",
+     "label_at_mm": [
+      46.99,
+      49.53
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "C902",
+     "pin": "1",
+     "before": "V3LOAD",
+     "after": "V3D",
+     "label_at_mm": [
+      205.74,
+      72.39
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "C903",
+     "pin": "1",
+     "before": "V3LOAD",
+     "after": "V3D",
+     "label_at_mm": [
+      345.44,
+      72.39
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "R902",
+     "pin": "2",
+     "before": "V3LOAD",
+     "after": "V3D",
+     "label_at_mm": [
+      510.54,
+      43.18
+     ]
+    },
+    {
+     "action": "rewire",
+     "ref": "J902",
+     "pin": "1 (3V3)",
+     "before": "V3LOAD",
+     "after": "V3D",
+     "label_at_mm": [
+      187.96,
+      158.75
+     ]
+    }
+   ],
+   "new_nets": [],
+   "firmware": [
+    "BT 关时 RF_ENABLE(PC5)=0，ESP32 处于 CHIP_PU 低的关断态",
+    "PD9 打开内部上拉（RF_TX 浮空问题）"
+   ],
+   "bom": {
+    "added": [],
+    "changed": [],
+    "cost_usd": "0"
+   },
+   "pcb": "主板：U901 3V3 焊盘与 C902/C903 改接 V3D 铜，不再经过 U1901；V3LOAD 只剩 U601/U701 数字电源和 FB1101→V3A。",
+   "verify": [
+    "ERC",
+    "BT A2DP 推流时用 FFT 测 LINE OUT/耳机静音底噪，蓝牙时隙杂散 < −100 dBFS；若不满足，R5 再加 V3A 独立 LDO",
+    "V3LOAD 关断时 ESP32 仍可工作，不再有 RF_RX/PLAY_* 反灌"
+   ],
+   "confidence": "中（效果需实测；拓扑改动确定）"
+  },
+  {
+   "id": "E-09",
+   "title": "V3D 输出电容 +22 µF",
+   "priority": "low",
+   "sources": [
+    "PWR-08"
+   ],
+   "sheets": [
+    "A21.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "add",
+     "ref": "C1109",
+     "value": "22uF 10V X5R 0805",
+     "mpn": "CC0805MKX5R6BB226",
+     "footprint": "Passive_V26_ManufacturerLand:CC0805MKX5R6BB226",
+     "pins": {
+      "1": "V3D",
+      "2": "GND"
+     }
+    }
+   ],
+   "new_nets": [],
+   "bom": {
+    "added": [
+     "C1109 22 µF 0805"
+    ],
+    "changed": [],
+    "cost_usd": "+0.03"
+   },
+   "pcb": "主板：C1109 紧挨 U1101 VOUT（7/8 脚）与 C1104/C1105 并排。",
+   "verify": [
+    "50→300 mA 负载阶跃，V3D 跌落 <100 mV，无振铃"
+   ],
+   "confidence": "中"
+  },
+  {
+   "id": "E-10",
+   "title": "两根静态跨域控制线串 1 kΩ",
+   "priority": "low",
+   "sources": [
+    "SCH-XDOMAIN-DIRECT",
+    "B7",
+    "PCM-03"
+   ],
+   "sheets": [
+    "A16.kicad_sch",
+    "A12.kicad_sch",
+    "A17.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "rewire",
+     "ref": "U801",
+     "pin": "22 (PA0)",
+     "before": "DAC_UNMUTE",
+     "after": "DAC_UNMUTE_MCU",
+     "label_at_mm": [
+      46.99,
+      97.79
+     ]
+    },
+    {
+     "action": "add",
+     "ref": "R704",
+     "value": "1k",
+     "mpn": "RC0603FR-071KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "DAC_UNMUTE_MCU",
+      "2": "DAC_UNMUTE"
+     }
+    },
+    {
+     "action": "rewire",
+     "ref": "U801",
+     "pin": "23 (PA1)",
+     "before": "HP_EN_VALIDATED",
+     "after": "HP_EN_MCU",
+     "label_at_mm": [
+      46.99,
+      100.33
+     ]
+    },
+    {
+     "action": "add",
+     "ref": "R324",
+     "value": "1k",
+     "mpn": "RC0603FR-071KL",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "HP_EN_MCU",
+      "2": "HP_EN_VALIDATED"
+     }
+    }
+   ],
+   "new_nets": [
+    "DAC_UNMUTE_MCU",
+    "HP_EN_MCU"
+   ],
+   "firmware": [
+    "关 V3LOAD 前先停 SAI1/SAI2/MCO2 并把 PE3–6、PC9、PD11–13、PE11、PA0、PA1 设为低或模拟态（含 HardFault 路径）"
+   ],
+   "bom": {
+    "added": [
+     "R704 1k",
+     "R324 1k"
+    ],
+    "changed": [],
+    "cost_usd": "+0.004"
+   },
+   "pcb": "主板：R704 靠 U801.22、R324 靠 U801.23。",
+   "verify": [
+    "ERC",
+    "V3LOAD 关、PA0/PA1 置高时 V3LOAD 电压 <0.3 V"
+   ],
+   "confidence": "高"
+  },
+  {
+   "id": "E-11",
+   "title": "PWR 键给 MCU 一路检测（解决插 USB 关机后开不了机）",
+   "priority": "medium",
+   "sources": [
+    "C11",
+    "FW-USB-SHUTDOWN-LATCH"
+   ],
+   "sheets": [
+    "A24.kicad_sch",
+    "A17.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "add",
+     "ref": "D1303",
+     "value": "BAS116,215",
+     "mpn": "BAS116,215",
+     "footprint": "SmartVioV25:SOT-23",
+     "pins": {
+      "1 A": "PWR_PB_SENSE",
+      "2 NC": "no_connect",
+      "3 K": "PWR_PB"
+     }
+    },
+    {
+     "action": "rewire",
+     "ref": "U801",
+     "pin": "51 (PB12)",
+     "before": "no_connect",
+     "after": "PWR_PB_SENSE",
+     "label_at_mm": [
+      102.87,
+      44.45
+     ],
+     "note": "删除 A17 (102.87,44.45) 的 no_connect；固件开内部上拉"
+    }
+   ],
+   "new_nets": [
+    "PWR_PB_SENSE"
+   ],
+   "firmware": [
+    "USB 维持的软关机状态下，PB12 低 ≥50 ms → 清关机锁存并 NVIC_SystemReset",
+    "C11（USB 强制 V3D）保持：充电管理需要 MCU"
+   ],
+   "bom": {
+    "added": [
+     "D1303 BAS116"
+    ],
+    "changed": [],
+    "cost_usd": "+0.03"
+   },
+   "pcb": "主板：D1303 放在 PWR_PB 进入主板处（KEYS6/COVER6 焊盘附近）。",
+   "verify": [
+    "ERC",
+    "插 USB→长按关机→再按 PWR 能开机",
+    "关机态电池电流不增加（二极管反偏）"
+   ],
+   "confidence": "中高（二极管反偏阻断 SYS 4.4 V 到 3.3 V 引脚；不依赖 FT 引脚）"
+  },
+  {
+   "id": "E-12",
+   "title": "充电终止电流 7.5 mA→50 mA",
+   "priority": "low",
+   "sources": [
+    "SCH-ITERM-TMR"
+   ],
+   "sheets": [
+    "A14.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "R2351",
+     "before": "499R 0.1% RT0603BRD07499RL",
+     "after": "3.32k 0.1% RT0603BRD073K32L",
+     "footprint": "SmartVioV25:R_0603_1608Metric",
+     "pins": {
+      "1": "CHG_ITERM_ECO",
+      "2": "GND"
+     },
+     "note": "ITERM=0.03×3320/2000≈50 mA（C/20）"
+    },
+    {
+     "action": "keep",
+     "ref": "R2352",
+     "note": "68.1k → 预充 54.5 min、快充 9.1 h；固件会话 3.46 h 已兜底，不改"
+    }
+   ],
+   "new_nets": [],
+   "bom": {
+    "added": [],
+    "changed": [
+     "R2351 499→3.32k"
+    ],
+    "cost_usd": "0"
+   },
+   "pcb": "原位改值。",
+   "verify": [
+    "满充时 CHG 熄灭点 IBAT≈45–55 mA"
+   ],
+   "confidence": "中高（公式检索确认）"
+  },
+  {
+   "id": "E-13",
+   "title": "ISET 监测支路电容 10 nF→100 pF",
+   "priority": "low",
+   "sources": [
+    "SCH-ISET-SWITCHED-CAP"
+   ],
+   "sheets": [
+    "A28.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_value",
+     "ref": "C1707",
+     "before": "0.01uF C0G C0603C103J3GACTU",
+     "after": "100pF C0G 50V C0603C101J5GACTU",
+     "footprint": "SmartVioV25:C_0603_1608Metric",
+     "pins": {
+      "1": "MON_ICHG_BUF_IN",
+      "2": "GND"
+     }
+    }
+   ],
+   "new_nets": [],
+   "bom": {
+    "added": [],
+    "changed": [
+     "C1707 10nF→100pF"
+    ],
+    "cost_usd": "0"
+   },
+   "pcb": "原位改值（同 0603）。",
+   "verify": [
+    "MON_ENABLE 切换时示波器看 ISET 跌落 <10 mV"
+   ],
+   "confidence": "中"
+  },
+  {
+   "id": "E-14",
+   "title": "U902 散热焊盘引脚编号 EP→17",
+   "priority": "low",
+   "sources": [
+    "HB-09"
+   ],
+   "sheets": [
+    "SmartVio.kicad_sym（U902 MAX98357AETE+ 符号）",
+    "A19.kicad_sch"
+   ],
+   "boards": [
+    "main"
+   ],
+   "operations": [
+    {
+     "action": "change_symbol_pin",
+     "ref": "U902",
+     "before": "pin number EP",
+     "after": "pin number 17 (GND)",
+     "note": "与封装 ADI_T1633_4_Official 焊盘 17 一致"
+    }
+   ],
+   "new_nets": [],
+   "bom": {
+    "added": [],
+    "changed": [],
+    "cost_usd": "0"
+   },
+   "pcb": "无。",
+   "verify": [
+    "从原理图更新 PCB 时 U902.17 仍为 GND；DRC 带 --schematic-parity"
+   ],
+   "confidence": "高"
+  }
+ ],
+ "no_change": [
+  {
+   "key": "SCH-PSYNC-PFM",
+   "decision": "撤回，不改",
+   "reason": "PS/SYNC=GND 是强制 PWM（TI 手册原文 “Pull to low for forced PWM”），不存在 PFM 突发纹波（PWR-06）"
+  },
+  {
+   "key": "B2",
+   "decision": "关闭，不改",
+   "reason": "VPWR=0 时 TPD2S300 内部 dead-battery Rd（4.1–6.1 kΩ）存在；V3D 起来后 ≤200 µs 切到 R401/R402 5.1k"
+  },
+  {
+   "key": "B1",
+   "decision": "不加 Rp 检测",
+   "reason": "不做 PD；输入固定 USB500（E-04），对任何合规 Type-C/USB2 源都合法"
+  },
+  {
+   "key": "C1",
+   "decision": "不改",
+   "reason": "V3_PG 未用；STM32 内部 BOR 已覆盖 V3D 欠压，R1104 保留作测试点"
+  },
+  {
+   "key": "SCH-PINAUDIT-POWER",
+   "decision": "关闭（R1005 由 E-05 处理）",
+   "reason": "AUXOFF 是开漏输出可悬空；ITIMER 可悬空（E-05 仍加 10 nF）；FB2 在 VSEL=低时可悬空"
+  },
+  {
+   "key": "SCH-LED-CURRENT",
+   "decision": "不改",
+   "reason": "亚毫安在室内可见且省电；首样太暗时 R850–R852 改 330 Ω"
+  },
+  {
+   "key": "SCH-HP-LEVEL",
+   "decision": "不改",
+   "reason": "16–32 Ω 练琴耳机够用；如需高阻耳机，R301/R302 22k→10k"
+  },
+  {
+   "key": "SCH-TPA-SE-INPUT",
+   "decision": "不改",
+   "reason": "只影响开关机爆音，首样实测后再定"
+  },
+  {
+   "key": "SCH-AUDIT-DOC-STALE",
+   "decision": "只改文档",
+   "reason": "native-components.json supplyAudit 改为 V3LOAD；固件 ICHG 公式用 R501=2000 Ω"
+  },
+  {
+   "key": "FW-RESET-KILL",
+   "decision": "暂不改",
+   "reason": "先台架验证电池供电下 IWDG 复位是否断电；若断电，R1302 由 PWR_KILL→GND 改为 PWR_KILL→V3D"
+  },
+  {
+   "key": "HB-10",
+   "decision": "不改",
+   "reason": "首样做敲击/振动测试后再决定 C111 是否换 C0G 1206"
+  },
+  {
+   "key": "HB-05/HB-04/B6/PCB-11(B5)",
+   "decision": "转 PCB/FPC ECO",
+   "reason": "不改网表，D1201–D1207 移到 audio 板属于版图"
+  },
+  {
+   "key": "B9/Q2",
+   "decision": "不做",
+   "reason": "DECISIONS Q2"
+  },
+  {
+   "key": "HB-08",
+   "decision": "只做 E-03",
+   "reason": "不换架构；PhotoMOS 留用"
+  },
+  {
+   "key": "D3/PCB-17",
+   "decision": "转 PCB ECO",
+   "reason": "H_*/FPC 连接器符号需随 Q6 FPC 化统一补进原理图"
+  }
+ ],
+ "battery_budget": {
+  "assumptions": {
+   "TPS63070_eta": 0.88,
+   "V3D": 3.3,
+   "Vbat_avg": 3.7,
+   "pack": "VARTA 56457 201 020, LPP 523450, 1000 mAh 3.7 Wh",
+   "usable_Wh_new": 3.4,
+   "usable_Wh_80pct": 2.72,
+   "speaker_avg_elec_mW": 100,
+   "class_d_eta": 0.85,
+   "MAX98357A_Iq_mA": 2.4
+  },
+  "cases": [
+   {
+    "name": "R3原样 耳机 BT关 MCU400MHz 7路PhotoMOS",
+    "v3d_mA": 242.6,
+    "batt_mW": 911,
+    "batt_mA": 246.1,
+    "h_new": 3.7,
+    "h_80pct": 3.0,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 120,
+     "TPA6132A2": 4,
+     "PhotoMOS": 53.1,
+     "ESP32": 0.01
+    },
+    "sys_mW": 1.1
+   },
+   {
+    "name": "R4 耳机 BT关 MCU120MHz 仅HP组(2路)",
+    "v3d_mA": 122.0,
+    "batt_mW": 457,
+    "batt_mA": 123.6,
+    "h_new": 7.4,
+    "h_80pct": 6.0,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 42,
+     "TPA6132A2": 4,
+     "PhotoMOS": 10.5,
+     "ESP32": 0.01
+    },
+    "sys_mW": 0.0
+   },
+   {
+    "name": "R4 耳机+AUX伴奏 BT关 MCU120MHz HP+RET组(4路)",
+    "v3d_mA": 132.5,
+    "batt_mW": 497,
+    "batt_mA": 134.3,
+    "h_new": 6.9,
+    "h_80pct": 5.5,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 42,
+     "TPA6132A2": 4,
+     "PhotoMOS": 21.0,
+     "ESP32": 0.01
+    },
+    "sys_mW": 0.0
+   },
+   {
+    "name": "R4 耳机 BT关 MCU200MHz 仅HP组",
+    "v3d_mA": 145.0,
+    "batt_mW": 544,
+    "batt_mA": 146.9,
+    "h_new": 6.3,
+    "h_80pct": 5.0,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 65,
+     "TPA6132A2": 4,
+     "PhotoMOS": 10.5,
+     "ESP32": 0.01
+    },
+    "sys_mW": 0.0
+   },
+   {
+    "name": "R4 耳机 BT关 MCU100MHz 仅HP组 LED/pots关",
+    "v3d_mA": 116.0,
+    "batt_mW": 435,
+    "batt_mA": 117.5,
+    "h_new": 7.8,
+    "h_80pct": 6.3,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.1,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 36.5,
+     "TPA6132A2": 4,
+     "PhotoMOS": 10.5,
+     "ESP32": 0.01
+    },
+    "sys_mW": 0.0
+   },
+   {
+    "name": "R4 外放100mW BT关 MCU120MHz",
+    "v3d_mA": 107.5,
+    "batt_mW": 530,
+    "batt_mA": 143.2,
+    "h_new": 6.4,
+    "h_80pct": 5.1,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 42,
+     "TPA6132A2": 0,
+     "PhotoMOS": 0,
+     "ESP32": 0.01
+    },
+    "sys_mW": 126.8
+   },
+   {
+    "name": "R4 外放100mW BLE连接 MCU120MHz",
+    "v3d_mA": 147.4,
+    "batt_mW": 680,
+    "batt_mA": 183.7,
+    "h_new": 5.0,
+    "h_80pct": 4.0,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 42,
+     "TPA6132A2": 0,
+     "PhotoMOS": 0,
+     "ESP32": 40
+    },
+    "sys_mW": 126.8
+   },
+   {
+    "name": "R4 外放100mW BLE+AUX MCU200MHz",
+    "v3d_mA": 180.9,
+    "batt_mW": 805,
+    "batt_mA": 217.7,
+    "h_new": 4.2,
+    "h_80pct": 3.4,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 65,
+     "TPA6132A2": 0,
+     "PhotoMOS": 10.5,
+     "ESP32": 40
+    },
+    "sys_mW": 126.8
+   },
+   {
+    "name": "R3原样 外放100mW BLE MCU400MHz 7路",
+    "v3d_mA": 278.6,
+    "batt_mW": 1172,
+    "batt_mA": 316.9,
+    "h_new": 2.9,
+    "h_80pct": 2.3,
+    "v3d_items": {
+     "PCM1864": 41.0,
+     "PCM5102A": 18.0,
+     "TLV9064x2": 4.3,
+     "LED_status": 0.6,
+     "pots_RV810_812": 1.0,
+     "pulls_mon_misc": 0.4,
+     "TPD2S300_TMP117": 0.15,
+     "MCU": 120,
+     "TPA6132A2": 0,
+     "PhotoMOS": 53.1,
+     "ESP32": 40
+    },
+    "sys_mW": 127.9
+   }
+  ]
+ },
+ "verdict": {
+  "headphones_bt_off_8h": "边缘：R3 原样约 3.7 h；R4（E-03 + 固件 MCU≤120 MHz）新电池约 7.4 h（仅耳机）/6.9 h（+AUX），100 MHz 约 7.8 h，需台架实测电池电流 ≤115 mA",
+  "speaker_moderate_4h": "满足：BT 关约 6.4 h，BLE 连接约 5.0 h（80% 容量 4.0 h）",
+  "storage_6_months": "满足：关机典型 17 µA，6 个月耗约 75 mAh；<10 µA 受 IC 静态电流限制无法达到"
+ },
+ "refdes_checked_free": [
+  "R323",
+  "R324",
+  "R704",
+  "R1212",
+  "R1213",
+  "R1214",
+  "R1215",
+  "Q1202",
+  "Q1203",
+  "C1004",
+  "C1109",
+  "D401",
+  "D1303"
+ ]
+}
