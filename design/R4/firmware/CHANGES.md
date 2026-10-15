@@ -47,14 +47,14 @@
 
 ```
    text    data     bss     dec     hex filename
-  44724      16   17416   62156    f2cc smartvio-r4.elf
-  44968      16   17416   62400    f3c0 smartvio-r4-SERVICE.elf
+  45264      16   17432   62712    f4f8 smartvio-r4.elf
+  45556      16   17432   63004    f61c smartvio-r4-SERVICE.elf
 ```
 
-- 段大小：.text 44052、.bss 5096、.dma 4128、栈预留 8192，DTCM 内有余量。
+- .dma 4128 B，栈预留 8192 B，DTCM 内有余量。
 - SHA256：
-  - elf `b97be80e…e1964857`
-  - bin `7330e01f…01df4200`
+  - elf `416b22af…1836e626`
+  - bin `9cd2ec7b…a269bd92`
 
 ### 1.4 主机测试（R4，全部通过）
 
@@ -67,8 +67,8 @@
 | test_audio_contract | 1162838（满幅 /2 不回绕） |
 | test_ui | 1233081 |
 | test_r2_charge / test_r2_charge_enabled_HOST_ONLY | 1253299 / 1253299 |
-| **test_r4_product**（新） | 10 组，4807 断言 |
-| **test_r4_product_r3board**（新） | 同一测试按 R3 板编译，4788 断言 |
+| **test_r4_product**（新） | 11 组，4977 断言 |
+| **test_r4_product_r3board**（新） | 同一测试按 R3 板编译，4958 断言 |
 | test_retry、test_rf_reply | 通过 |
 | test_waveforms | 改为 1/2 缩放后的期望值 |
 | test_service_clear_0 / _1 | 290 / 331 |
@@ -250,16 +250,43 @@ PACK 由 ADS1115 AIN1 测量（MON_BAT：R1705/R1706 分压 → U1702 TMUX → U
 
 验证：test_r4_product 的 LED 组。
 
-未做：USB 数据口（没有 USB 协议栈）、模式和蓝牙 LED。
+未做：USB 数据口（没有 USB 协议栈）、模式指示 LED。蓝牙 LED 见下一条。
 
 **FW-BT-SECURITY-STREAM（中，部分）**
 
-已做：MCU 在 BT 路由且已选定对端时，每 1 s 发一次 0x41 保活，避免 ESP 2 s 后断流（`uart_service`）。
+已做：
+- MCU 在 BT 路由且已选定对端时，每 1 s 发一次 0x41 保活，避免 ESP 2 s 后断流（`uart_service`）。
+- **产品模式 BT 键（只改 MCU，复用现有帧，ESP 协议不变）**：
+  - `sv_factory_buttons`：产品模式下 BT 键在任何路由都有效。原来只在 port==BT 时有效。
+  - `sv_ui.c`：BT 键长按门限改为 2 s，其他键仍为 1.5 s。
+  - 短按：开关蓝牙（`sv_product.c:sv_bt_key`）。
+    - 开：切到 BT 路由，即原有的 RF_ENABLE（PC5）上电 ESP32 加 UART；
+    - 关：回到之前的路由（如果耳机已插入，回到 HP）。
+    - 打开时如果已知对端，就自动发一次连接帧。
+  - 长按 ≥2 s：通过正常的产品命令路径（`command()`，产品会话加序号）发送现有的 0x36 帧。MCU 把它转成 0x40 加对端 BDADDR，ESP 由此打开 60 s 的配对/连接窗口。等 ESP 链路起来后再发；回复超时就重发，直到被接受或超过 8 s。
+  - LED2（PC7）只在 BT 路由打开时使用：
+    - 常亮：已连接（ESP 状态字节 connected 且 encrypted，3 s 内由 0x41 保活回复刷新）；
+    - 1 Hz 慢闪：配对窗口打开中；
+    - 灭：未连接。
+  - 叠加在电量显示之上。
+- 验证：test_r4_product 的 BT 组。覆盖：
+  - SPK 路由下短按也会上报；
+  - 长按在 2000–2040 ms 之间触发，松开后不再产生短按；
+  - 台架模式保留 R3 规则；
+  - 无对端时长按不动作；
+  - 开、关以及路由的恢复；
+  - 全 0 和全 FF 地址被拒；
+  - LED 三种状态、60 s 窗口到期，以及与电量显示的叠加。
+
+**限制（如实说明）**：
+- ESP 固件没有 inquiry/扫描，处于 NON_DISCOVERABLE，0x40 必须带目标耳机的 BDADDR（`sv_radio_open_local` 拒绝全 0 和全 FF）。
+- 所以长按只能对**本次上电内已知的对端**打开配对或连接窗口。对端地址来自任意一次 0x36（台架或 App），只存在 RAM 里，断电即丢失。
+- 新用户第一次配对一副从未见过的耳机，仍然需要 ESP 侧增加发现流程，或者有地址来源加持久化。这超出“只改 MCU、不发明 ESP 协议”的范围。
 
 未做：
 - Just Works 配对；
 - ESP 侧预缓冲和漂移补偿；
-- 产品模式下没有配对 UI，0x36 仍然只能由台架发送。
+- 首次发现新耳机。
 
 这些都需要 ESP-IDF 环境和实机。
 
@@ -368,7 +395,7 @@ PACK 由 ADS1115 AIN1 测量（MON_BAT：R1705/R1706 分压 → U1702 TMUX → U
 | 闲置自动关机 | 未做。需要可靠的“有无琴声”判据，属于新功能。UVLO 已经能防止过放。 |
 | MON_ENABLE 周期开关、LED 低占空比 | 未做，收益小。 |
 | E-02 要求的出厂一点校准 | `sv_mon_cal` 结构已有，但没有校准值存储，属于新功能，列为待办。 |
-| USB 数据口、产品模式蓝牙配对 UI、ESP 端 Just Works / 预缓冲 | 不在本轮范围，且需要 ESP-IDF 和实机。 |
+| USB 数据口；蓝牙首次发现新耳机（ESP 无 inquiry）和对端地址持久化；ESP 端 Just Works / 预缓冲 | 不在本轮范围，且需要 ESP-IDF 和实机。BT 键的开关、配对窗口和 LED 已在 MCU 侧实现，见 FW-BT-SECURITY-STREAM。 |
 | ESP32 镜像 | **必须由用户用 ESP-IDF 5.4.3 重新编译。** r2shared/sv_control.c 已改（解析器白名单），但本机没有 ESP-IDF，只做了语法检查。包里的 `artifacts/esp32/*.bin` 仍然是有 bug 的 R3 版本，不能用。sdkconfig 也不在包内（docs-esp-sdkconfig-missing），重编前要先补齐。 |
 | 时钟、cache/MPU、USART 中断、PB12 唤醒、充电、UVLO 阈值 | 只通过编译、主机模型和指令仿真验证，**硬件测试 0 项**。 |
 
@@ -382,3 +409,7 @@ PACK 由 ADS1115 AIN1 测量（MON_BAT：R1705/R1706 分压 → U1702 TMUX → U
 6. 插 USB → 按 PWR 关机 → 进入待机并继续充电 → 再按 PWR 能开机；拔掉 USB 后仍然开着。
 7. 测拾音电平，决定 `SV_PCM_PICKUP_PGA_DB`。
 8. 用 ESP-IDF 重编 ESP32，测 MCU↔ESP 握手（0x40/0xA0）和 BT 保活。
+9. BT 键：
+   - 短按开关 BT，LED2 跟随；
+   - 先用台架 0x36 给出耳机地址，再长按 2 s，LED2 慢闪，连上后常亮；
+   - 检查 ESP 首次 `radio_stack_init` 是否超出 MCU 的 1.5 s 回复超时（现有问题）。

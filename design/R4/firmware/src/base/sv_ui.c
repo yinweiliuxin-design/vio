@@ -30,7 +30,8 @@ uint32_t sv_ui_tick(sv_ui *u,uint8_t pressed,bool authorized,uint32_t now){
                 if(raw){b->pressed=now;b->long_sent=false;}
                 else {if(b->released && !b->long_sent)events|=1u<<i;b->released=true;}
             }
-            if(b->down && b->released && !b->long_sent && now-b->pressed>=1500){b->long_sent=true;events|=1u<<(8+i);}
+            /* R4: BT long press (pairing) needs >=2 s; other keys keep 1.5 s. */
+            if(b->down && b->released && !b->long_sent && now-b->pressed>=(i==SV_UI_BT?2000u:1500u)){b->long_sent=true;events|=1u<<(8+i);}
         }
     }
     if(u->chord_lock){events&=~0x303u;if(!(pressed&3u) && !u->buttons[0].down && !u->buttons[1].down)u->chord_lock=false;}

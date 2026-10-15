@@ -75,6 +75,12 @@ unsigned sv_factory_buttons(sv_factory *d,uint8_t pressed,uint32_t now){
     }
     if(e&(1u<<SV_UI_MIX))d->input=d->input==0?1:d->input==1?4:0;
     if(e&(1u<<(8+SV_UI_MIX)))d->input=0;
+    /* R4 product: the BT key works in every route (1=short: BT on/off, 2=long: pairing window). */
+    if(d->product && (d->grants&SV_D_RF)){
+        if(e&(1u<<SV_UI_BT))return 1;
+        if(e&(1u<<(8+SV_UI_BT)))return 2;
+        return 0;
+    }
     if(d->port==SV_BT && (d->grants&SV_D_RF)){
         if(e&(1u<<SV_UI_BT))return 1;
         if(e&(1u<<(8+SV_UI_BT)))return 2;

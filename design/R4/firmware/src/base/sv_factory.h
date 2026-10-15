@@ -20,7 +20,8 @@ void sv_factory_fault(sv_factory *,uint32_t);
  * no 2 s/60 s command timeouts. Faults still disarm; the caller retries. */
 enum {SV_PRODUCT_SESSION=0x53565234u};
 void sv_factory_product_arm(sv_factory *,uint8_t port,uint32_t now);
-/* Returns BT action:1=disconnect,2=reconnect selected peer; no new grants. */
+/* Returns BT action:1=disconnect,2=reconnect selected peer; no new grants.
+ * R4 product mode: 1=BT key short press, 2=BT key long press (>=2 s), any route. */
 unsigned sv_factory_buttons(sv_factory *,uint8_t pressed,uint32_t now);
 /* Factory mailbox/UART is not a security boundary: requires physical chord,
  * read nonce, explicit bench/load grants. Never grants charging or USB data. */

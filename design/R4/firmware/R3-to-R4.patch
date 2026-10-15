@@ -145,7 +145,7 @@ diff -ruN a/base/sv_control.h b/base/sv_control.h
  bool sv_parser_byte(sv_parser *p, uint8_t byte, uint32_t now, sv_frame *out);
 diff -ruN a/base/sv_factory.c b/base/sv_factory.c
 --- a/base/sv_factory.c	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_factory.c	2026-10-15 06:41:15.380264142 +0000
++++ b/base/sv_factory.c	2026-10-15 06:57:58.111587325 +0000
 @@ -2,6 +2,12 @@
  #include <string.h>
  void sv_factory_init(sv_factory *d,uint32_t faults){memset(d,0,sizeof(*d));d->faults=faults;}
@@ -168,7 +168,20 @@ diff -ruN a/base/sv_factory.c b/base/sv_factory.c
          d->armed=false;d->port=0;sv_ui_enable(&d->ui,false);sv_session_end(&d->session);
      }
  }
-@@ -85,7 +91,8 @@
+@@ -69,6 +75,12 @@
+     }
+     if(e&(1u<<SV_UI_MIX))d->input=d->input==0?1:d->input==1?4:0;
+     if(e&(1u<<(8+SV_UI_MIX)))d->input=0;
++    /* R4 product: the BT key works in every route (1=short: BT on/off, 2=long: pairing window). */
++    if(d->product && (d->grants&SV_D_RF)){
++        if(e&(1u<<SV_UI_BT))return 1;
++        if(e&(1u<<(8+SV_UI_BT)))return 2;
++        return 0;
++    }
+     if(d->port==SV_BT && (d->grants&SV_D_RF)){
+         if(e&(1u<<SV_UI_BT))return 1;
+         if(e&(1u<<(8+SV_UI_BT)))return 2;
+@@ -85,7 +97,8 @@
          int32_t l=0,r=0;
          if(d->armed && !d->faults && d->port && d->mode==1){l=r=sine[*phase%48]*256;*phase=(*phase%48+1)%48;}
          else if(d->armed && !d->faults && d->port && d->mode==2 && a && b){
@@ -180,7 +193,7 @@ diff -ruN a/base/sv_factory.c b/base/sv_factory.c
          l=limit(l,8388607);r=limit(r,8388607);
 diff -ruN a/base/sv_factory.h b/base/sv_factory.h
 --- a/base/sv_factory.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_factory.h	2026-10-15 01:09:21.722351802 +0000
++++ b/base/sv_factory.h	2026-10-15 06:57:58.112107085 +0000
 @@ -7,7 +7,7 @@
  enum {SV_D_FAULT_POWER=1,SV_D_FAULT_SENSOR=2,SV_D_FAULT_DMA=4,SV_D_FAULT_CODEC=8,SV_D_FAULT_CLOCK=16,SV_D_FAULT_RESET=32,SV_D_FAULT_PROTOCOL=64};
  typedef struct {
@@ -190,17 +203,20 @@ diff -ruN a/base/sv_factory.h b/base/sv_factory.h
      sv_session session;
      sv_speaker speaker;
      sv_ui ui;
-@@ -16,6 +16,10 @@
+@@ -16,7 +16,12 @@
  void sv_factory_tick(sv_factory *,bool chord,bool rails,bool sensor,uint32_t now);
  sv_result sv_factory_command(sv_factory *,const sv_frame *,uint32_t now);
  void sv_factory_fault(sv_factory *,uint32_t);
+-/* Returns BT action:1=disconnect,2=reconnect selected peer; no new grants. */
 +/* R4 FW-FAULT-LATCH: product (player) arm. All routes granted, live input,
 + * no 2 s/60 s command timeouts. Faults still disarm; the caller retries. */
 +enum {SV_PRODUCT_SESSION=0x53565234u};
 +void sv_factory_product_arm(sv_factory *,uint8_t port,uint32_t now);
- /* Returns BT action:1=disconnect,2=reconnect selected peer; no new grants. */
++/* Returns BT action:1=disconnect,2=reconnect selected peer; no new grants.
++ * R4 product mode: 1=BT key short press, 2=BT key long press (>=2 s), any route. */
  unsigned sv_factory_buttons(sv_factory *,uint8_t pressed,uint32_t now);
  /* Factory mailbox/UART is not a security boundary: requires physical chord,
+  * read nonce, explicit bench/load grants. Never grants charging or USB data. */
 diff -ruN a/base/sv_hw_rev.h b/base/sv_hw_rev.h
 --- a/base/sv_hw_rev.h	1970-01-01 00:00:00.000000000 +0000
 +++ b/base/sv_hw_rev.h	2026-10-15 06:47:35.529945893 +0000
@@ -358,8 +374,8 @@ diff -ruN a/base/sv_pcm1864.h b/base/sv_pcm1864.h
  /* One bounded register operation per tick; clocks running, outputs muted. */
 diff -ruN a/base/sv_product.c b/base/sv_product.c
 --- a/base/sv_product.c	1970-01-01 00:00:00.000000000 +0000
-+++ b/base/sv_product.c	2026-10-15 06:47:59.965120419 +0000
-@@ -0,0 +1,94 @@
++++ b/base/sv_product.c	2026-10-15 06:58:13.381907904 +0000
+@@ -0,0 +1,115 @@
 +#include "sv_product.h"
 +#include "sv_control.h"
 +#include <string.h>
@@ -420,6 +436,25 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +    if(was && !inserted && port==SV_HP)return SV_SPK;
 +    return port;
 +}
++void sv_bt_learn_peer(sv_bt_ui *b,const uint8_t p[6]){
++    unsigned any=0,ff=1;for(unsigned j=0;j<6;j++){any|=p[j];ff&=p[j]==255;}
++    if(!any || ff)return; /* same rule as sv_radio_open_local on the ESP */
++    memcpy(b->peer,p,6);b->have_peer=true;
++}
++uint8_t sv_bt_key(sv_bt_ui *b,unsigned action,uint8_t port,uint32_t now){
++    if(action==1 && port==SV_BT){b->pending=false;b->window=false;return b->prev_port?b->prev_port:SV_SPK;}
++    if(action!=1 && action!=2)return port;
++    if(action==2 && !b->have_peer)return port; /* nothing to pair with */
++    if(port!=SV_BT)b->prev_port=port;
++    if(b->have_peer){b->pending=true;b->pending_at=now;}
++    return SV_BT;
++}
++uint8_t sv_bt_led_state(const sv_bt_ui *b,bool route,bool connected,uint32_t now){
++    if(!route)return SV_BT_LED_OFF;
++    if(connected)return SV_BT_LED_ON;
++    if(b->pending || (b->window && now-b->window_at<SV_BT_WINDOW_MS))return SV_BT_LED_BLINK;
++    return SV_BT_LED_OFF;
++}
 +static uint8_t gauge(uint16_t mv){return mv>=3900?7u:mv>=3650?3u:1u;}
 +uint8_t sv_led_pattern(const sv_led_in *l,uint32_t now){
 +    if(l->fault)return (now/125u)&1u?4u:0u;                  /* LED3 fast blink: muted/recovering */
@@ -427,8 +462,10 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +    if(l->usb && l->charging){uint8_t g=gauge(l->pack_mv);     /* top gauge LED blinks 1 Hz */
 +        uint8_t top=g==7u?4u:g==3u?2u:1u;return (now/500u)&1u?g:(uint8_t)(g&~top);}
 +    if(l->usb && l->standby)return gauge(l->pack_mv);         /* charged / not charging */
-+    if((int32_t)(l->show_until-now)>0)return gauge(l->pack_mv);/* 5 s gauge after power-on/key */
-+    return 0;
++    uint8_t g=(int32_t)(l->show_until-now)>0?gauge(l->pack_mv):0u;/* 5 s gauge after power-on/key */
++    if(l->bt==SV_BT_LED_ON)g|=2u;                              /* BT: LED2 solid = connected */
++    else if(l->bt==SV_BT_LED_BLINK)g=(uint8_t)(((now/500u)&1u)?(g|2u):(g&~2u)); /* slow blink = pairing */
++    return g;
 +}
 +bool sv_power_kill(sv_power *p,bool req,uint32_t now){
 +    if(p->state==SV_PWR_RUN){if(!req)return false;p->state=SV_PWR_KILL;p->kill_at=now;return true;}
@@ -456,8 +493,8 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +}
 diff -ruN a/base/sv_product.h b/base/sv_product.h
 --- a/base/sv_product.h	1970-01-01 00:00:00.000000000 +0000
-+++ b/base/sv_product.h	2026-10-15 06:47:59.964853434 +0000
-@@ -0,0 +1,73 @@
++++ b/base/sv_product.h	2026-10-15 06:58:44.446358086 +0000
+@@ -0,0 +1,86 @@
 +#ifndef SV_PRODUCT_H
 +#define SV_PRODUCT_H
 +/* R4 product behaviour helpers (portable, host-tested). Pure functions/state
@@ -511,8 +548,21 @@ diff -ruN a/base/sv_product.h b/base/sv_product.h
 +/* Q7 auto routing on debounced HP detect edges. Returns new port. */
 +uint8_t sv_hp_auto_route(uint8_t port,bool was_inserted,bool inserted);
 +
++/* R4 product BT key (MCU side only, existing frames). Short press toggles the BT
++ * route (RF_ENABLE/ESP power + UART) and, if a peer is known, re-opens it; long
++ * press (>=2 s) opens the ESP 60 s pairing/connect window for the known peer by
++ * sending the normal 0x36 -> 0x40 frame. The ESP firmware has no inquiry/discovery,
++ * so the peer BDADDR must come from a 0x36 (bench/app) earlier in this power session. */
++enum {SV_BT_WINDOW_MS=60000,SV_BT_SEND_TIMEOUT_MS=8000};
++typedef struct {uint8_t prev_port,peer[6];bool have_peer,pending,window;uint32_t pending_at,window_at;} sv_bt_ui;
++void sv_bt_learn_peer(sv_bt_ui *,const uint8_t peer[6]);
++/* action 1=short, 2=long. Returns the new port (SV_BT on, previous route off). */
++uint8_t sv_bt_key(sv_bt_ui *,unsigned action,uint8_t port,uint32_t now);
++/* LED2 while the BT route is on: connected solid, pairing window slow blink, else off. */
++enum {SV_BT_LED_OFF,SV_BT_LED_BLINK,SV_BT_LED_ON};
++uint8_t sv_bt_led_state(const sv_bt_ui *,bool bt_route,bool connected,uint32_t now);
 +/* LED_ZONE_1..3 (PC6..PC8) pattern, bit n = LED n+1. */
-+typedef struct {bool playing,charging,usb,warn,fault,standby;uint16_t pack_mv;uint32_t show_until;} sv_led_in;
++typedef struct {bool playing,charging,usb,warn,fault,standby;uint16_t pack_mv;uint32_t show_until;uint8_t bt;} sv_led_in;
 +uint8_t sv_led_pattern(const sv_led_in *,uint32_t now);
 +
 +/* FW-USB-SHUTDOWN-LATCH: power state after a shutdown request. */
@@ -576,7 +626,7 @@ diff -ruN a/base/sv_telemetry.h b/base/sv_telemetry.h
  
 diff -ruN a/base/sv_ui.c b/base/sv_ui.c
 --- a/base/sv_ui.c	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_ui.c	2026-10-15 01:09:21.726104883 +0000
++++ b/base/sv_ui.c	2026-10-15 06:57:58.110655537 +0000
 @@ -12,7 +12,8 @@
      for(unsigned i=0;i<3;i++)if(raw[i]>4095){u->fresh=false;u->picked_up=false;return false;}
      for(unsigned i=0;i<3;i++)u->pots[i]=(uint16_t)raw[i];
@@ -587,6 +637,16 @@ diff -ruN a/base/sv_ui.c b/base/sv_ui.c
      return true;
  }
  uint32_t sv_ui_tick(sv_ui *u,uint8_t pressed,bool authorized,uint32_t now){
+@@ -29,7 +30,8 @@
+                 if(raw){b->pressed=now;b->long_sent=false;}
+                 else {if(b->released && !b->long_sent)events|=1u<<i;b->released=true;}
+             }
+-            if(b->down && b->released && !b->long_sent && now-b->pressed>=1500){b->long_sent=true;events|=1u<<(8+i);}
++            /* R4: BT long press (pairing) needs >=2 s; other keys keep 1.5 s. */
++            if(b->down && b->released && !b->long_sent && now-b->pressed>=(i==SV_UI_BT?2000u:1500u)){b->long_sent=true;events|=1u<<(8+i);}
+         }
+     }
+     if(u->chord_lock){events&=~0x303u;if(!(pressed&3u) && !u->buttons[0].down && !u->buttons[1].down)u->chord_lock=false;}
 diff -ruN a/base/sv_ui.h b/base/sv_ui.h
 --- a/base/sv_ui.h	2026-10-09 10:11:56.000000000 +0000
 +++ b/base/sv_ui.h	2026-10-15 01:09:21.725841669 +0000
@@ -969,7 +1029,7 @@ diff -ruN a/esp32/main/r2shared/sv_control.h b/esp32/main/r2shared/sv_control.h
  bool sv_parser_byte(sv_parser *p, uint8_t byte, uint32_t now, sv_frame *out);
 diff -ruN a/stm32/main.c b/stm32/main.c
 --- a/stm32/main.c	2026-10-09 14:05:04.000000000 +0000
-+++ b/stm32/main.c	2026-10-15 06:52:35.245703457 +0000
++++ b/stm32/main.c	2026-10-15 06:58:44.469450483 +0000
 @@ -1,4 +1,7 @@
 -/* Isolated V27 diagnostic image. Real peripherals, never hardware-qualified. */
 +/* SmartVio R4 image (was: isolated V27 diagnostic image). Real peripherals,
@@ -979,7 +1039,7 @@ diff -ruN a/stm32/main.c b/stm32/main.c
  #include "stm32h7xx_hal.h"
  #include "sv_telemetry.h"
  #include "sv_factory.h"
-@@ -10,14 +13,26 @@
+@@ -10,14 +13,27 @@
  #include "safety_inputs.h"
  #include "sv_rf_reply.h"
  #include "sv_service_clear.h"
@@ -1002,6 +1062,7 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +static uint32_t recover_count,logged_faults,show_until,ui_events_seen,vbus_seen_at;static bool recover_pending;
 +#if SV_PRODUCT_MODE
 +static uint32_t recover_at,recovered_at;static bool hp_was;static uint8_t user_port;
++static sv_bt_ui btui; /* R4 product BT key */
 +#endif
 +/* R4 USART3 RX: RXNE/RXFNE interrupt into a ring (FW-UART-OVERRUN). */
 +static volatile uint8_t rx_ring[512];static volatile uint32_t rx_head,rx_tail;
@@ -1011,7 +1072,7 @@ diff -ruN a/stm32/main.c b/stm32/main.c
  static sv_monitor monitor;
  static sv_pcm1864 codec;
  static sv_factory factory;
-@@ -55,8 +70,8 @@
+@@ -55,8 +71,8 @@
  uint32_t sv_target_millis(void){return milliseconds;}
  void SysTick_Handler(void){
      milliseconds++;sv_safety_inputs_tick(milliseconds);
@@ -1022,7 +1083,7 @@ diff -ruN a/stm32/main.c b/stm32/main.c
          GPIOE->BSRR=1u<<(14+16);
  }
  static void mode(GPIO_TypeDef *p,unsigned n,unsigned m){p->MODER=(p->MODER&~(3u<<(2*n)))|(m<<(2*n));}
-@@ -81,65 +96,208 @@
+@@ -81,65 +97,208 @@
      for(unsigned n=4;n<8;n++)mode(GPIOA,n,0);
      mode(GPIOC,0,0);mode(GPIOC,4,0);mode(GPIOE,8,0);mode(GPIOE,9,0);mode(GPIOE,15,0);
      unused(GPIOE,(15u<<3)|(1u<<11));unused(GPIOD,(3u<<8)|(7u<<11));unused(GPIOC,1u<<9);
@@ -1260,7 +1321,7 @@ diff -ruN a/stm32/main.c b/stm32/main.c
  static void service_clear_tick(uint8_t keys,uint32_t now){
      sv_mon_frame f;
      bool safe=power_state==0 && !factory.armed && !factory.programming && !factory.shutdown &&
-@@ -182,6 +340,7 @@
+@@ -182,9 +341,13 @@
          sv_frame check=*f;check.type=0x34;check.length=0;
          sv_result r=sv_factory_command(&factory,&check,now);if(r!=SV_OK)return r;
          sv_frame out=*f;out.type=f->type==0x36?0x40:f->type==0x37?0x41:f->type==0x38?0x42:f->type==0x39?0x43:0x22;
@@ -1268,7 +1329,13 @@ diff -ruN a/stm32/main.c b/stm32/main.c
          tx_count=sv_frame_encode(&out,tx,sizeof(tx));tx_at=0;tx_started=now;
          sv_rf_reply_begin(&sv_rf_reply_diag,out.type,out.seq,out.session_id,now);
          if(f->type==0x36)selected_peer=false;
-@@ -204,12 +363,9 @@
++#if SV_PRODUCT_MODE
++        if(f->type==0x36)sv_bt_learn_peer(&btui,f->payload); /* remembered for the BT key (RAM, this power session) */
++#endif
+         return SV_OK;
+     }
+     return sv_factory_command(&factory,f,now);
+@@ -204,12 +367,9 @@
  static void uart_service(uint32_t now){
      if(!uart_on)return;
      sv_rf_reply_poll(&sv_rf_reply_diag,now);
@@ -1284,7 +1351,7 @@ diff -ruN a/stm32/main.c b/stm32/main.c
              if(f.type==0xa0 || f.type==0xa1){
                  if(sv_rf_reply_accept(&sv_rf_reply_diag,&f,now)){
                      if(f.type==0xa1)memcpy((void*)sv_rf_pcm_diag,f.payload,32);
-@@ -226,38 +382,80 @@
+@@ -226,39 +386,89 @@
      }
      sv_parser_poll(&parser,now);
      if(tx_count && (USART3->ISR&USART_ISR_TXE_TXFNF)){USART3->TDR=tx[tx_at++];if(tx_at==tx_count)tx_count=0;}
@@ -1371,9 +1438,18 @@ diff -ruN a/stm32/main.c b/stm32/main.c
              unsigned bt_action=sv_factory_buttons(&factory,keys,now);
 +            if(factory.ui.events!=ui_events_seen){ui_events_seen=factory.ui.events;show_until=now+5000u;}
              if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++#if SV_PRODUCT_MODE
++            if(bt_action && factory.product){
++                /* R4 product BT key: short = BT route on/off, long (>=2 s) = pairing window for the known peer. */
++                uint8_t port=sv_bt_key(&btui,bt_action,factory.port,now);
++                if(port==SV_SPK && sv_safety_hp_inserted())port=SV_HP;
++                factory.port=port;sv_ui_diag.bt_result=(bt_action==2 && !btui.have_peer)?SV_NOT_READY:SV_OK;
++            }else
++#endif
              if(bt_action){
                  sv_frame f={.type=bt_action==1?0x38:0x39,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id};
-@@ -271,6 +469,28 @@
+                 sv_ui_diag.bt_result=selected_peer?command(&f,now):SV_NOT_READY;
+@@ -271,6 +481,28 @@
                  __DMB();sv_diag.completed=sv_diag.request;
              }
              latch_shutdown();
@@ -1402,24 +1478,39 @@ diff -ruN a/stm32/main.c b/stm32/main.c
              if((!factory.armed || factory.faults || factory.shutdown) && power_state && power_state!=4)power_off(now);
              if(power_state==4 && now-discharged_at>=1000){power_state=0;level(GPIOC,5,false);mode(GPIOC,5,1);}
              if(factory.armed && healthy && !factory.shutdown && !sv_safety_shutdown_requested() && !power_state){
-@@ -300,8 +520,14 @@
+@@ -300,30 +532,86 @@
                  static const uint8_t regs[]={0x72,0x73,0x74,0x75,0x78},masks[]={15,7,127,255,7},values[]={15,3,0x34,0,7};
                  uint8_t v;status_at=now;
                  if(!codec.bus.read(codec.bus.ctx,regs[status_index],&v) || (v&masks[status_index])!=values[status_index])sv_factory_fault(&factory,SV_D_FAULT_CODEC);
 -                status_index=(status_index+1)%5;
 +                status_index=(status_index+1)%5;audio_poll();
-             }
++            }
 +#if SV_PRODUCT_MODE
 +            /* Product UI (wheels/keys) is enabled only once audio runs and the pots are fresh. */
 +            if(factory.product && factory.armed && power_state==3 && !factory.ui.enabled && factory.ui.fresh){
 +                sv_ui_enable(&factory.ui,true);factory.ui.auto_pickup=true;factory.ui.picked_up=true;
-+            }
+             }
 +#endif
              latch_shutdown();
              if(factory.shutdown && power_state && power_state!=4)power_off(now);
              bool rf_on=sv_rf_request(&rf,power_state==3 && factory.port==SV_BT,factory.armed && healthy && !factory.faults && !factory.shutdown,now);
-@@ -310,20 +536,50 @@
+             level(GPIOC,5,rf_on);if(sv_rf_handshake_ready(&rf,now) && !uart_on)uart_start();
+             if(!rf_on && uart_on)uart_stop();
              if(!rf_on)selected_peer=false;
++            bool bt_connected=selected_peer && sv_rf_reply_diag.generation && now-sv_rf_reply_diag.received_at<3000u &&
++                sv_rf_reply_diag.status[3] && sv_rf_reply_diag.status[5]; /* ESP status: connected && encrypted */
++#if SV_PRODUCT_MODE
++            /* Send the existing 0x36 (-> ESP 0x40 with the peer BDADDR) through the normal command path
++             * once the ESP link is up; repeat after a reply timeout until accepted or 8 s. */
++            if(btui.pending){
++                if(factory.port!=SV_BT || selected_peer || now-btui.pending_at>=SV_BT_SEND_TIMEOUT_MS)btui.pending=false;
++                else if(uart_on && sv_rf_handshake_ready(&rf,now) && !tx_count && !sv_rf_reply_diag.pending){
++                    sv_frame f={.type=0x36,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id,.length=6};
++                    memcpy(f.payload,btui.peer,6);
++                    if(command(&f,now)==SV_OK){btui.window=true;btui.window_at=now;}
++                }
++            }
++#endif
              if(factory.port!=previous_port){previous_port=factory.port;port_changed=now;}
              uint8_t desired=0;
 -            if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50){
@@ -1470,14 +1561,20 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +            {
 +                sv_led_in li={.playing=power_state==3,.charging=charge_out.allow && !(GPIOD->IDR&(1u<<10)),.usb=vbus,
 +                    .warn=battery.warn,.fault=factory.faults!=0 && !factory.shutdown,.standby=pwr.state==SV_PWR_STANDBY,
-+                    .pack_mv=sv_battery_mv(&battery),.show_until=show_until};
++                    .pack_mv=sv_battery_mv(&battery),.show_until=show_until,
++#if SV_PRODUCT_MODE
++                    .bt=sv_bt_led_state(&btui,factory.port==SV_BT && rf_on,bt_connected,now)
++#else
++                    .bt=(uint8_t)(bt_connected?SV_BT_LED_ON:SV_BT_LED_OFF)
++#endif
++                    };
 +                uint8_t leds=(factory.shutdown && pwr.state!=SV_PWR_STANDBY)?0:sv_led_pattern(&li,now);
 +                GPIOC->BSRR=((uint32_t)(leds&7u)<<6)|((uint32_t)(~leds&7u)<<(6+16));sv_r4_diag.leds=leds;
 +            }
              service_clear_tick(keys,now);
              HAL_IWDG_Refresh(&watchdog);
              sv_diag.nonce=factory.nonce;sv_diag.faults=factory.faults;sv_diag.state=power_state;
-@@ -337,8 +593,12 @@
+@@ -337,8 +625,12 @@
              sv_ui_diag.fx=factory.ui.fx;sv_ui_diag.rate=factory.ui.rate;sv_ui_diag.input=factory.input;sv_ui_diag.port=factory.port;
              sv_ui_diag.events=factory.ui.events;sv_ui_diag.session_seq=factory.session.last_seq;
              sv_ui_diag.program_remaining_ms=factory.programming?300000-(now-factory.armed_at):0;
@@ -1493,8 +1590,8 @@ diff -ruN a/stm32/main.c b/stm32/main.c
  }
 diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
 --- a/tests/test_r4_product.c	1970-01-01 00:00:00.000000000 +0000
-+++ b/tests/test_r4_product.c	2026-10-15 06:49:20.212975311 +0000
-@@ -0,0 +1,164 @@
++++ b/tests/test_r4_product.c	2026-10-15 06:59:21.274316163 +0000
+@@ -0,0 +1,193 @@
 +/* R4 host tests for the review fixes (portable code only; hardware tests: 0). */
 +#include "sv_control.h"
 +#include "sv_factory.h"
@@ -1650,6 +1747,35 @@ diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
 +     l.warn=true;C(sv_led_pattern(&l,50)==1 && sv_led_pattern(&l,500)==0);
 +     l.fault=true;C(sv_led_pattern(&l,0)==0 && sv_led_pattern(&l,125)==4);
 +     sv_led_in u={.usb=true,.charging=true,.pack_mv=3700};C(sv_led_pattern(&u,0)==1 && sv_led_pattern(&u,500)==3);}
++
++    /* R4 product BT key: short = BT route on/off, long >= 2 s = pairing window (existing 0x36 -> 0x40). */
++    groups++;
++    {sv_factory d;sv_factory_init(&d,0);sv_factory_product_arm(&d,SV_SPK,0);sv_ui_enable(&d.ui,true);
++     uint32_t t=10;unsigned short_a=0,long_a=0;for(unsigned n=0;n<50;n++)C(!sv_factory_buttons(&d,0,t++)); /* key seen released first */
++     for(unsigned n=0;n<100;n++){unsigned a=sv_factory_buttons(&d,8,t++);if(a==1)short_a++;if(a==2)long_a++;}
++     for(unsigned n=0;n<100;n++){unsigned a=sv_factory_buttons(&d,0,t++);if(a==1)short_a++;if(a==2)long_a++;}
++     C(short_a==1 && long_a==0); /* short press in SPK route still reported (R3 needed port==BT) */
++     unsigned at=0;for(unsigned n=0;n<2100 && !long_a;n++){unsigned a=sv_factory_buttons(&d,8,t);if(a==2){long_a++;at=n;}t++;}
++     C(long_a==1 && at>=2000 && at<2040);for(unsigned n=0;n<100;n++)C(sv_factory_buttons(&d,0,t++)!=1); /* release after long: no short */
++     sv_factory b;sv_factory_init(&b,0);b.armed=true;b.grants=63;b.port=SV_SPK;sv_ui_enable(&b.ui,true);t=10;unsigned any=0;for(unsigned n=0;n<50;n++)any|=sv_factory_buttons(&b,0,t++);
++     for(unsigned n=0;n<100;n++)any|=sv_factory_buttons(&b,8,t++);for(unsigned n=0;n<100;n++)any|=sv_factory_buttons(&b,0,t++);
++     C(!any);} /* bench (non-product) keeps the R3 rule */
++    {sv_bt_ui b={0};const uint8_t zero[6]={0},ff[6]={255,255,255,255,255,255},peer[6]={0x11,0x22,0x33,0x44,0x55,0x66};
++     C(sv_bt_key(&b,2,SV_SPK,0)==SV_SPK && !b.pending);            /* long press without a known peer: no change */
++     C(sv_bt_key(&b,1,SV_HP,0)==SV_BT && b.prev_port==SV_HP && !b.pending); /* BT on, nothing to (re)connect */
++     C(sv_bt_key(&b,1,SV_BT,5)==SV_HP);                              /* BT off: previous route back */
++     sv_bt_learn_peer(&b,zero);sv_bt_learn_peer(&b,ff);C(!b.have_peer);
++     sv_bt_learn_peer(&b,peer);C(b.have_peer && !memcmp(b.peer,peer,6));
++     C(sv_bt_key(&b,2,SV_LINE,100)==SV_BT && b.pending && b.pending_at==100 && b.prev_port==SV_LINE);
++     C(sv_bt_led_state(&b,true,false,200)==SV_BT_LED_BLINK);C(sv_bt_led_state(&b,true,true,200)==SV_BT_LED_ON);
++     C(sv_bt_led_state(&b,false,true,200)==SV_BT_LED_OFF);
++     b.pending=false;b.window=true;b.window_at=300;C(sv_bt_led_state(&b,true,false,300+SV_BT_WINDOW_MS-1)==SV_BT_LED_BLINK);
++     C(sv_bt_led_state(&b,true,false,300+SV_BT_WINDOW_MS)==SV_BT_LED_OFF);
++     C(sv_bt_key(&b,1,SV_BT,400)==SV_LINE && !b.pending && !b.window);
++     C(sv_bt_key(&b,1,0,500)==SV_BT && b.pending);C(sv_bt_key(&b,1,SV_BT,600)==SV_SPK); /* from "off": back to SPK */
++     sv_led_in l={.pack_mv=4000,.bt=SV_BT_LED_ON};C(sv_led_pattern(&l,10000)==2);
++     l.bt=SV_BT_LED_BLINK;C(sv_led_pattern(&l,10000)==0 && sv_led_pattern(&l,10500)==2);
++     l.show_until=20000;C(sv_led_pattern(&l,10000)==5 && sv_led_pattern(&l,10500)==7);}
 +
 +    /* PCM-01 pickup PGA constant: +12 dB = 0x18 (0.5 dB steps). */
 +    groups++;C(SV_PCM_PICKUP_PGA_REG==(SV_PCM_PICKUP_PGA_DB*2));

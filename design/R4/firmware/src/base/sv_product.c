@@ -58,6 +58,25 @@ uint8_t sv_hp_auto_route(uint8_t port,bool was,bool inserted){
     if(was && !inserted && port==SV_HP)return SV_SPK;
     return port;
 }
+void sv_bt_learn_peer(sv_bt_ui *b,const uint8_t p[6]){
+    unsigned any=0,ff=1;for(unsigned j=0;j<6;j++){any|=p[j];ff&=p[j]==255;}
+    if(!any || ff)return; /* same rule as sv_radio_open_local on the ESP */
+    memcpy(b->peer,p,6);b->have_peer=true;
+}
+uint8_t sv_bt_key(sv_bt_ui *b,unsigned action,uint8_t port,uint32_t now){
+    if(action==1 && port==SV_BT){b->pending=false;b->window=false;return b->prev_port?b->prev_port:SV_SPK;}
+    if(action!=1 && action!=2)return port;
+    if(action==2 && !b->have_peer)return port; /* nothing to pair with */
+    if(port!=SV_BT)b->prev_port=port;
+    if(b->have_peer){b->pending=true;b->pending_at=now;}
+    return SV_BT;
+}
+uint8_t sv_bt_led_state(const sv_bt_ui *b,bool route,bool connected,uint32_t now){
+    if(!route)return SV_BT_LED_OFF;
+    if(connected)return SV_BT_LED_ON;
+    if(b->pending || (b->window && now-b->window_at<SV_BT_WINDOW_MS))return SV_BT_LED_BLINK;
+    return SV_BT_LED_OFF;
+}
 static uint8_t gauge(uint16_t mv){return mv>=3900?7u:mv>=3650?3u:1u;}
 uint8_t sv_led_pattern(const sv_led_in *l,uint32_t now){
     if(l->fault)return (now/125u)&1u?4u:0u;                  /* LED3 fast blink: muted/recovering */
@@ -65,8 +84,10 @@ uint8_t sv_led_pattern(const sv_led_in *l,uint32_t now){
     if(l->usb && l->charging){uint8_t g=gauge(l->pack_mv);     /* top gauge LED blinks 1 Hz */
         uint8_t top=g==7u?4u:g==3u?2u:1u;return (now/500u)&1u?g:(uint8_t)(g&~top);}
     if(l->usb && l->standby)return gauge(l->pack_mv);         /* charged / not charging */
-    if((int32_t)(l->show_until-now)>0)return gauge(l->pack_mv);/* 5 s gauge after power-on/key */
-    return 0;
+    uint8_t g=(int32_t)(l->show_until-now)>0?gauge(l->pack_mv):0u;/* 5 s gauge after power-on/key */
+    if(l->bt==SV_BT_LED_ON)g|=2u;                              /* BT: LED2 solid = connected */
+    else if(l->bt==SV_BT_LED_BLINK)g=(uint8_t)(((now/500u)&1u)?(g|2u):(g&~2u)); /* slow blink = pairing */
+    return g;
 }
 bool sv_power_kill(sv_power *p,bool req,uint32_t now){
     if(p->state==SV_PWR_RUN){if(!req)return false;p->state=SV_PWR_KILL;p->kill_at=now;return true;}

@@ -51,8 +51,21 @@ uint32_t sv_recover_delay(uint32_t attempts);
 /* Q7 auto routing on debounced HP detect edges. Returns new port. */
 uint8_t sv_hp_auto_route(uint8_t port,bool was_inserted,bool inserted);
 
+/* R4 product BT key (MCU side only, existing frames). Short press toggles the BT
+ * route (RF_ENABLE/ESP power + UART) and, if a peer is known, re-opens it; long
+ * press (>=2 s) opens the ESP 60 s pairing/connect window for the known peer by
+ * sending the normal 0x36 -> 0x40 frame. The ESP firmware has no inquiry/discovery,
+ * so the peer BDADDR must come from a 0x36 (bench/app) earlier in this power session. */
+enum {SV_BT_WINDOW_MS=60000,SV_BT_SEND_TIMEOUT_MS=8000};
+typedef struct {uint8_t prev_port,peer[6];bool have_peer,pending,window;uint32_t pending_at,window_at;} sv_bt_ui;
+void sv_bt_learn_peer(sv_bt_ui *,const uint8_t peer[6]);
+/* action 1=short, 2=long. Returns the new port (SV_BT on, previous route off). */
+uint8_t sv_bt_key(sv_bt_ui *,unsigned action,uint8_t port,uint32_t now);
+/* LED2 while the BT route is on: connected solid, pairing window slow blink, else off. */
+enum {SV_BT_LED_OFF,SV_BT_LED_BLINK,SV_BT_LED_ON};
+uint8_t sv_bt_led_state(const sv_bt_ui *,bool bt_route,bool connected,uint32_t now);
 /* LED_ZONE_1..3 (PC6..PC8) pattern, bit n = LED n+1. */
-typedef struct {bool playing,charging,usb,warn,fault,standby;uint16_t pack_mv;uint32_t show_until;} sv_led_in;
+typedef struct {bool playing,charging,usb,warn,fault,standby;uint16_t pack_mv;uint32_t show_until;uint8_t bt;} sv_led_in;
 uint8_t sv_led_pattern(const sv_led_in *,uint32_t now);
 
 /* FW-USB-SHUTDOWN-LATCH: power state after a shutdown request. */

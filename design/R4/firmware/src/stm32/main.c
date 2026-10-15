@@ -27,6 +27,7 @@ static sv_battery battery;static sv_power pwr;
 static uint32_t recover_count,logged_faults,show_until,ui_events_seen,vbus_seen_at;static bool recover_pending;
 #if SV_PRODUCT_MODE
 static uint32_t recover_at,recovered_at;static bool hp_was;static uint8_t user_port;
+static sv_bt_ui btui; /* R4 product BT key */
 #endif
 /* R4 USART3 RX: RXNE/RXFNE interrupt into a ring (FW-UART-OVERRUN). */
 static volatile uint8_t rx_ring[512];static volatile uint32_t rx_head,rx_tail;
@@ -344,6 +345,9 @@ static sv_result command(const sv_frame *f,uint32_t now){
         tx_count=sv_frame_encode(&out,tx,sizeof(tx));tx_at=0;tx_started=now;
         sv_rf_reply_begin(&sv_rf_reply_diag,out.type,out.seq,out.session_id,now);
         if(f->type==0x36)selected_peer=false;
+#if SV_PRODUCT_MODE
+        if(f->type==0x36)sv_bt_learn_peer(&btui,f->payload); /* remembered for the BT key (RAM, this power session) */
+#endif
         return SV_OK;
     }
     return sv_factory_command(&factory,f,now);
@@ -457,6 +461,14 @@ int main(void){
             unsigned bt_action=sv_factory_buttons(&factory,keys,now);
             if(factory.ui.events!=ui_events_seen){ui_events_seen=factory.ui.events;show_until=now+5000u;}
             if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+#if SV_PRODUCT_MODE
+            if(bt_action && factory.product){
+                /* R4 product BT key: short = BT route on/off, long (>=2 s) = pairing window for the known peer. */
+                uint8_t port=sv_bt_key(&btui,bt_action,factory.port,now);
+                if(port==SV_SPK && sv_safety_hp_inserted())port=SV_HP;
+                factory.port=port;sv_ui_diag.bt_result=(bt_action==2 && !btui.have_peer)?SV_NOT_READY:SV_OK;
+            }else
+#endif
             if(bt_action){
                 sv_frame f={.type=bt_action==1?0x38:0x39,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id};
                 sv_ui_diag.bt_result=selected_peer?command(&f,now):SV_NOT_READY;
@@ -534,6 +546,20 @@ int main(void){
             level(GPIOC,5,rf_on);if(sv_rf_handshake_ready(&rf,now) && !uart_on)uart_start();
             if(!rf_on && uart_on)uart_stop();
             if(!rf_on)selected_peer=false;
+            bool bt_connected=selected_peer && sv_rf_reply_diag.generation && now-sv_rf_reply_diag.received_at<3000u &&
+                sv_rf_reply_diag.status[3] && sv_rf_reply_diag.status[5]; /* ESP status: connected && encrypted */
+#if SV_PRODUCT_MODE
+            /* Send the existing 0x36 (-> ESP 0x40 with the peer BDADDR) through the normal command path
+             * once the ESP link is up; repeat after a reply timeout until accepted or 8 s. */
+            if(btui.pending){
+                if(factory.port!=SV_BT || selected_peer || now-btui.pending_at>=SV_BT_SEND_TIMEOUT_MS)btui.pending=false;
+                else if(uart_on && sv_rf_handshake_ready(&rf,now) && !tx_count && !sv_rf_reply_diag.pending){
+                    sv_frame f={.type=0x36,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id,.length=6};
+                    memcpy(f.payload,btui.peer,6);
+                    if(command(&f,now)==SV_OK){btui.window=true;btui.window_at=now;}
+                }
+            }
+#endif
             if(factory.port!=previous_port){previous_port=factory.port;port_changed=now;}
             uint8_t desired=0;
             if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50 &&
@@ -576,7 +602,13 @@ int main(void){
             {
                 sv_led_in li={.playing=power_state==3,.charging=charge_out.allow && !(GPIOD->IDR&(1u<<10)),.usb=vbus,
                     .warn=battery.warn,.fault=factory.faults!=0 && !factory.shutdown,.standby=pwr.state==SV_PWR_STANDBY,
-                    .pack_mv=sv_battery_mv(&battery),.show_until=show_until};
+                    .pack_mv=sv_battery_mv(&battery),.show_until=show_until,
+#if SV_PRODUCT_MODE
+                    .bt=sv_bt_led_state(&btui,factory.port==SV_BT && rf_on,bt_connected,now)
+#else
+                    .bt=(uint8_t)(bt_connected?SV_BT_LED_ON:SV_BT_LED_OFF)
+#endif
+                    };
                 uint8_t leds=(factory.shutdown && pwr.state!=SV_PWR_STANDBY)?0:sv_led_pattern(&li,now);
                 GPIOC->BSRR=((uint32_t)(leds&7u)<<6)|((uint32_t)(~leds&7u)<<(6+16));sv_r4_diag.leds=leds;
             }
