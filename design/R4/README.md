@@ -2,6 +2,8 @@
 
 在线版（含效果图）：https://claude.ai/artifact/BZ7bgUTucvGM85bej3NQhv ，本地 `report/index.html`。
 
+装琴效果图：`report/img/r4-on-violin-showcase.jpg`（你的实拍琴 + R4 模块按 3.18 px/mm 合成）。整机方案（琴 + 模块 + App）：https://claude.ai/artifact/1Rpw8Ssot14Bnj9UHH1J9D
+
 基线是 R3 完整交付包和 `review/R3-2026-10-13/` 的两轮审核。R4 只做让样机装得上、能出声、能安全充电、日常好用的修改，不加功能、不换架构、不加芯片。原 R3 文件一律未改。
 
 | 路径 | 内容 | 状态 |
@@ -12,7 +14,7 @@
 | `firmware/` | R3→R4 补丁、改动源码、Linux 构建脚本、ELF/BIN/MAP、`CHANGES.md` | 已编译，主机测试全过，硬件测试 0 |
 | `eco/` | 原理图 ECO（E-01…E-14）、PCB/FPC ECO（L-01…L-22） | 待在 KiCad 10 执行并跑 ERC/DRC |
 | `report/` | 设计方案页与 5 张效果图 | — |
-| `tools/` | 渲染：`step2mesh.cjs <mechanical 目录> r4mesh` 生成网格，`real_r4.html?view=hero|exploded|internal|section|product` | — |
+| `tools/` | `photo_r4.html` + `shot_alpha.cjs` 渲染模块俯视透明图，`composite_r4.py <照片> <模块图> <输出目录>` 合成装琴效果图；渲染：`step2mesh.cjs <mechanical 目录> r4mesh` 生成网格，`real_r4.html?view=hero|exploded|internal|section|product` | — |
 
 ## 还需要做的事
 

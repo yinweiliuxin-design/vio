@@ -1,0 +1,104 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+// Top-down orthographic render of the R4 cover for compositing onto the user's photo.
+// Screen up = toward the violin head (wheel end, cover X = 0); jack edge on the left, wheel notches on the right.
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const q = new URLSearchParams(location.search);
+const PXMM = +(q.get('pxmm') || 12.72), M = 5;
+const Wd = Math.round((49 + 2 * M) * PXMM), Ht = Math.round((148 + 2 * M) * PXMM);
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(Wd, Ht); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = 1.0;
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.55;
+
+const meta = await (await fetch('r4mesh.json')).json();
+const bin = await (await fetch('r4mesh.bin')).arrayBuffer();
+const std = (o) => new THREE.MeshStandardMaterial(o);
+const MAT = {
+  cover: std({ color: 0x1b1e21, roughness: 0.72, metalness: 0.0 }),
+  engrave: std({ color: 0x8d9296, roughness: 0.95 }),
+  key: std({ color: 0x24272b, roughness: 0.6 }),
+  pipeOn: std({ color: 0xffffff, emissive: 0x6fd3ff, emissiveIntensity: 1.1, roughness: 0.3 }),
+  pipeOff: std({ color: 0xcfd6da, roughness: 0.25, transparent: true, opacity: 0.85 }),
+  jack: std({ color: 0x141517, roughness: 0.55 }),
+  nickel: std({ color: 0x9fa4a8, metalness: 1, roughness: 0.4 }),
+  speaker: std({ color: 0x0b0c0d, roughness: 0.9 }),
+  wheel: std({ color: 0x141618, roughness: 0.6, metalness: 0.1 }),
+  knurl: std({ color: 0x24272a, roughness: 0.45, metalness: 0.2 }),
+  dot: std({ color: 0xe8ecef, roughness: 0.5 }),
+  board: std({ color: 0x15171a, roughness: 0.8 }),
+};
+function geomOf(p) {
+  const pos = new Float32Array(bin, p.posOff, p.posLen), idx = new Uint32Array(bin, p.idxOff, p.idxLen);
+  const w = new Float32Array(pos.length);
+  for (let i = 0; i < pos.length; i += 3) { w[i] = pos[i] - 74; w[i + 1] = pos[i + 2]; w[i + 2] = -pos[i + 1] - 24.5; }
+  const g = new THREE.BufferGeometry(); g.setAttribute('position', new THREE.BufferAttribute(w, 3)); g.setIndex(new THREE.BufferAttribute(idx, 1));
+  return g;
+}
+const root = new THREE.Group(); scene.add(root);
+for (const p of meta) {
+  const n = p.name; let mat = null;
+  if (n === 'upper_cover') {
+    // Split engraved-floor triangles (upward faces at Z 3.65) into a lighter material.
+    const g = geomOf(p); const pos = g.attributes.position.array, idx = g.index.array;
+    const a = [], b = [];
+    for (let t = 0; t < idx.length; t += 3) {
+      const i0 = idx[t] * 3, i1 = idx[t + 1] * 3, i2 = idx[t + 2] * 3;
+      const ys = [pos[i0 + 1], pos[i1 + 1], pos[i2 + 1]];
+      const flat = ys.every(y => Math.abs(y - 3.65) < 0.03);
+      const ux = pos[i1] - pos[i0], uy = pos[i1 + 1] - pos[i0 + 1], uz = pos[i1 + 2] - pos[i0 + 2];
+      const vx = pos[i2] - pos[i0], vy = pos[i2 + 1] - pos[i0 + 1], vz = pos[i2 + 2] - pos[i0 + 2];
+      const ny = uz * vx - ux * vz; // y component of cross(u, v)
+      (flat ? b : a).push(idx[t], idx[t + 1], idx[t + 2]);
+      void ny;
+    }
+    const all = new Uint32Array(a.length + b.length); all.set(a); all.set(b, a.length);
+    g.setIndex(new THREE.BufferAttribute(all, 1)); g.addGroup(0, a.length, 0); g.addGroup(a.length, b.length, 1);
+    g.computeVertexNormals();
+    const m = new THREE.Mesh(g, [MAT.cover, MAT.engrave]); m.castShadow = m.receiveShadow = true; root.add(m); continue;
+  }
+  if (n.startsWith('button_')) mat = MAT.key;
+  else if (n === 'lightpipe_1') mat = MAT.pipeOn;
+  else if (n.startsWith('lightpipe_')) mat = MAT.pipeOff;
+  else if (n.startsWith('Kycon')) mat = MAT.jack;
+  else if (n.startsWith('GCT')) mat = MAT.nickel;
+  else if (n.startsWith('speaker')) mat = MAT.speaker;
+  else if (n === 'cover_native_reference') mat = MAT.board;
+  if (!mat) continue;
+  const g = geomOf(p); g.computeVertexNormals();
+  const m = new THREE.Mesh(g, mat); m.castShadow = m.receiveShadow = true; root.add(m);
+}
+// Thumbwheels: Ø14 × 1.0 discs (top at Z 3.0) with a knurled rim and an index dot, at the R4 wheel centres.
+for (const [cx, cy] of [[15, 10], [35, 10], [55, 10]]) {
+  const wx = cx - 74, wz = cy - 24.5;
+  const disc = new THREE.Mesh(new THREE.CylinderGeometry(6.6, 6.6, 1.0, 96), MAT.wheel); disc.position.set(wx, 2.5, wz); disc.castShadow = disc.receiveShadow = true; root.add(disc);
+  for (let k = 0; k < 72; k++) {
+    const a = k / 72 * Math.PI * 2; const r = new THREE.Mesh(new THREE.BoxGeometry(0.28, 0.98, 0.7), MAT.knurl);
+    r.position.set(wx + Math.cos(a) * 6.75, 2.5, wz + Math.sin(a) * 6.75); r.rotation.y = -a; r.castShadow = true; root.add(r);
+  }
+  const d = new THREE.Mesh(new THREE.CylinderGeometry(0.45, 0.45, 0.05, 24), MAT.dot); d.position.set(wx + 4.3, 3.02, wz - 2.0); root.add(d);
+}
+// ST2.2 A2 pan-head wood screws seated in the Ø4.5 counterbores (seat Z 1.7).
+const steel = std({ color: 0xb8bcc0, metalness: 1, roughness: 0.3 }), slot = std({ color: 0x3a3d40, roughness: 0.7 });
+for (const [sx, sy] of [[5.3, 5.3], [142.7, 5.3], [5.3, 43.7], [142.7, 43.7]]) {
+  const hx = sx - 74, hz = sy - 24.5;
+  const head = new THREE.Mesh(new THREE.SphereGeometry(1.95, 48, 16, 0, Math.PI * 2, 0, Math.PI / 2), steel); head.scale.set(1, 0.62, 1); head.position.set(hx, 1.75, hz); head.castShadow = true; root.add(head);
+  for (const r of [0, Math.PI / 2]) { const c = new THREE.Mesh(new THREE.BoxGeometry(2.0, 0.4, 0.42), slot); c.position.set(hx, 2.85, hz); c.rotation.y = r + 0.4; root.add(c); }
+}
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(160, 420, -70); key.castShadow = true;
+key.shadow.mapSize.set(4096, 4096); const sc = key.shadow.camera; sc.left = -100; sc.right = 100; sc.top = 100; sc.bottom = -100; sc.near = 10; sc.far = 1000; key.shadow.bias = -0.0003; key.shadow.normalBias = 0.02;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xe8f0ff, 0.6); fill.position.set(-120, 300, 140); scene.add(fill);
+const hw = Wd / PXMM / 2, hh = Ht / PXMM / 2;
+const camera = new THREE.OrthographicCamera(-hw, hw, hh, -hh, 1, 2000);
+camera.up.set(-1, 0, 0); camera.position.set(0, 500, 0); camera.lookAt(0, 0, 0);
+renderer.render(scene, camera); window.DONE = 'ok';
+</script></body></html>
