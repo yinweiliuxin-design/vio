@@ -1,0 +1,32 @@
+{
+  "status": "ready for delivery",
+  "output": "E:\\codex\\Documents\\亚马逊图片\\sites\\artifacts\\v17-20261016\\SmartVio-V17-交付报告.docx",
+  "bytes": 48779,
+  "sha256": "e21fdf43efcb8047f665e9d7febcad863635802ebf4b28b0f17fcd64ca28ea47",
+  "validationSha256": "22b1f2d885b92f560d34cefda1f448c37542b6238f2b46b92c4f4761700d650b",
+  "sourceCommit": "d63e7a8e022bddcd41fabce012d7681f2bc55b72",
+  "githubProofCommit": "1e333f05cdfa0ba43afcf4d4f2a25b2ecf5e422b",
+  "pageCount": 9,
+  "visualReviewCompleted": true,
+  "fullTextLoaded": true,
+  "allSourceTextRunsPresent": true,
+  "allNineSectionsPresent": true,
+  "all79ActionsPresent": true,
+  "all14FunctionPagesPresent": true,
+  "all14AudioEvidencePresent": true,
+  "docxHasNoRendererWatermark": true,
+  "docxUnchangedByRenderer": true,
+  "helperSha256": "b5cbb15ea1a605e045bee345dfa90ddfbf4a5fdd96356c4011a8d4993aeca786",
+  "helperFrozenUnchanged": true,
+  "normalWordCopyedit": "仅校订 RMS 句，未更改已冻结 helper",
+  "authoringMarkerOwnedByRoot": true,
+  "repeatMarkerRun": false,
+  "renderEvidence": "E:\\codex\\Documents\\亚马逊图片\\sites\\artifacts\\v17-20261016\\word-render\\render-result.json",
+  "visualReviewEvidence": "E:\\codex\\Documents\\亚马逊图片\\sites\\artifacts\\v17-20261016\\word-render\\visual-review.json",
+  "coreProperties": {
+    "createdUtc": "2026-10-15T17:10:59+00:00",
+    "modifiedUtc": "2026-10-15T17:10:59+00:00",
+    "revision": 1
+  },
+  "metadataOnlyRerenderPixelIdentical": true
+}

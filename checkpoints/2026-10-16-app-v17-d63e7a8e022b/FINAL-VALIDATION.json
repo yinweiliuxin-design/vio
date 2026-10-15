@@ -1,0 +1,401 @@
+{
+  "finalized": true,
+  "version": "V17",
+  "date": "2026-10-16",
+  "summary": "V17已发布，用户报告的代码缺陷已修复并完成分层验收。真机扬声器、华为原生系统与真实琴端的效果仍待设备验收。",
+  "requirements": [
+    {
+      "id": 1,
+      "title": "客户播放无声",
+      "status": "fixed",
+      "result": "修复点击解锁、音频中断和音量同步；15类流程通过，14类取得非零信号；真机听音未测。"
+    },
+    {
+      "id": 2,
+      "title": "客户端不展示后台入口",
+      "status": "passed",
+      "result": "客户端14页四语四宽DOM无管理链接；后台保留独立鉴权。"
+    },
+    {
+      "id": 3,
+      "title": "六步动画学习未生效",
+      "status": "fixed",
+      "result": "首页显著入口、设置和首次引导进入六步；原课程保留，暂停重播与本机进度恢复通过。"
+    },
+    {
+      "id": 4,
+      "title": "全流程测试与修复",
+      "status": "partial",
+      "result": "296自动测试、320组独立布局组合和重点工作流通过；真机、真实琴、离线断网受限项列明。"
+    },
+    {
+      "id": 5,
+      "title": "当前版本Word报告",
+      "status": "completed",
+      "result": "交付可编辑Word；九节含功能清单、实测、修复、边界与源码备份。"
+    }
+  ],
+  "delivery": {
+    "url": "https://smartvio-studio-mobile.politecalf5.chatgpt.site/?v=20261016-v17-1#home",
+    "sourceCommit": "d63e7a8e022bddcd41fabce012d7681f2bc55b72",
+    "repositoryPath": "E:\\codex\\Documents\\亚马逊图片\\sites\\smartvio-mobile",
+    "githubBackup": {
+      "status": "passed",
+      "url": "https://github.com/yinweiliuxin-design/vio/tree/1e333f05cdfa0ba43afcf4d4f2a25b2ecf5e422b/checkpoints/2026-10-16-app-v17-d63e7a8e022b",
+      "commit": "1e333f05cdfa0ba43afcf4d4f2a25b2ecf5e422b",
+      "result": "私密仓库171源码文件；31分片和3元数据文件远端读回34/34；CRC与完整还原通过；旧备份保留。",
+      "archiveSha256": "a2f5a5c30fb1e0204a622f184d3918fdc6de13ebcf09e6beb5ca20d6ae12ed01"
+    },
+    "instructions": "先联网重新打开交付链接。已准备旧离线包的用户请到设置重新准备离线资源；不要清空整个站点数据，以免删除本机录音。客户界面不提供管理入口，管理端为同一站点 /admin.html，仍需服务端授权。",
+    "siteVersionNumber": 18
+  },
+  "automatedTests": {
+    "passed": 296,
+    "failed": 0,
+    "skipped": 0,
+    "command": "node --test tests/*.test.mjs",
+    "log": "final-full-tests.txt"
+  },
+  "browserTests": {
+    "summary": "客户端224组及后台96组独立布局组合通过；重点页面另80次复核；15类音频/录制任务及社区后台工作流通过",
+    "cases": [
+      {
+        "page": "home",
+        "area": "home",
+        "status": "passed",
+        "coverageType": "四语四宽布局与调音器及六步入口"
+      },
+      {
+        "page": "library",
+        "area": "library",
+        "status": "passed",
+        "coverageType": "搜索 范围 分类 收藏 列表切换实测"
+      },
+      {
+        "page": "practice",
+        "area": "practice",
+        "status": "passed",
+        "coverageType": "采样及合成示范 和弦 循环实际信号"
+      },
+      {
+        "page": "studio",
+        "area": "studio",
+        "status": "passed",
+        "coverageType": "合成录音 生成麦克风 视频 四轨 工程增开删"
+      },
+      {
+        "page": "performance",
+        "area": "performance",
+        "status": "passed",
+        "coverageType": "伴奏播放及解码 弦乐音阶实际信号 参数单测"
+      },
+      {
+        "page": "midi",
+        "area": "midi",
+        "status": "passed",
+        "coverageType": "示例MIDI真实回放 MIDI解析编辑导出单测"
+      },
+      {
+        "page": "tones",
+        "area": "tones",
+        "status": "passed",
+        "coverageType": "九音色逐一测输出 本机预设新建改名分组应用删除"
+      },
+      {
+        "page": "tuner",
+        "area": "tuner",
+        "status": "passed",
+        "coverageType": "参考音输出和静音恢复 检测算法单测 未连真实琴"
+      },
+      {
+        "page": "metronome",
+        "area": "metronome",
+        "status": "passed",
+        "coverageType": "实际节拍输出 停止与状态清理"
+      },
+      {
+        "page": "device",
+        "area": "device",
+        "status": "partial",
+        "coverageType": "能力边界与禁用入口 未连真实琴"
+      },
+      {
+        "page": "learn",
+        "area": "learn",
+        "status": "passed",
+        "coverageType": "四语设置入口 六步 CSS暂停恢复 重播 离页恢复"
+      },
+      {
+        "page": "community",
+        "area": "community",
+        "status": "passed",
+        "coverageType": "真实上传审核发布 视频播放 评论点赞举报 隐藏恢复"
+      },
+      {
+        "page": "shop",
+        "area": "shop",
+        "status": "partial",
+        "coverageType": "四语四宽页面布局 概念内容核对 未测支付"
+      },
+      {
+        "page": "profile",
+        "area": "profile",
+        "status": "partial",
+        "coverageType": "五国四语品牌 模式 导出下载请求 离线未完成真测"
+      }
+    ],
+    "evidence": "browser-task-results.json 和 admin-browser-actual-results.json"
+  },
+  "audioEvidence": [
+    {
+      "name": "小提琴采样示范",
+      "rms": 0.02299873042409285,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-sample"
+    },
+    {
+      "name": "纯净合成示范",
+      "rms": 0.034151998770684464,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-clean"
+    },
+    {
+      "name": "调音参考音",
+      "rms": 0.03774721940648804,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-reference"
+    },
+    {
+      "name": "独立节拍器",
+      "rms": 0.029441814886305553,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-metronome"
+    },
+    {
+      "name": "练习和弦",
+      "rms": 0.01863927015965929,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-chord"
+    },
+    {
+      "name": "创作音色试听",
+      "rms": 0.02787500951902804,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-tone"
+    },
+    {
+      "name": "独奏弦乐",
+      "rms": 0.02492120504087755,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-string"
+    },
+    {
+      "name": "弦乐和弦",
+      "rms": 0.034196629221340834,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-strings"
+    },
+    {
+      "name": "音阶",
+      "rms": 0.034486900184686066,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-scale"
+    },
+    {
+      "name": "MIDI回放",
+      "rms": 0.03408216203943249,
+      "contextState": "running 输出总线",
+      "status": "passed",
+      "evidence": "audio-midi"
+    },
+    {
+      "name": "原创伴奏文件",
+      "rms": 0.04466438721708268,
+      "contextState": "文件解码 PCM 非零",
+      "status": "passed",
+      "evidence": "audio-backing"
+    },
+    {
+      "name": "合成录音回放",
+      "rms": 0.026011138138041574,
+      "contextState": "文件解码 PCM 非零",
+      "status": "passed",
+      "evidence": "audio-record"
+    },
+    {
+      "name": "循环录音回放",
+      "rms": 0.025733060193177282,
+      "contextState": "文件解码 PCM 非零",
+      "status": "passed",
+      "evidence": "audio-loop"
+    },
+    {
+      "name": "生成测试麦克风录音",
+      "rms": 0.08352655295673309,
+      "contextState": "文件解码 PCM 非零",
+      "status": "passed",
+      "evidence": "audio-microphone"
+    }
+  ],
+  "fixes": [
+    {
+      "issue": "音频启动与中断",
+      "rootCause": "异步播放前未在点击阶段统一解锁，系统中断和零音量缺少明确状态。",
+      "change": "同步发起解锁；中断停止排程；显示试听、音量和恢复入口；超时释放资源。",
+      "status": "fixed"
+    },
+    {
+      "issue": "伴奏音量与重播",
+      "rootCause": "原生Audio与主音量不同步；延迟pause事件可覆盖刚开始的重播状态。",
+      "change": "伴奏音量同步且保留0静音；过期暂停事件失效；音量控件联动。",
+      "status": "fixed"
+    },
+    {
+      "issue": "六步入口仍见旧教学",
+      "rootCause": "设置入口仍调用七图导览，旧tutorialVersion会跳过新版教学。",
+      "change": "首页及通用教学入口进入六步，新版介绍状态独立；旧导览显式保留。",
+      "status": "fixed"
+    },
+    {
+      "issue": "暂停动画重置画面",
+      "rootCause": "暂停触发整段SVG重建，负延迟使顺序演示不直观。",
+      "change": "原节点暂停恢复；主动重播才重建；四弦和四拍按序示意。",
+      "status": "fixed"
+    },
+    {
+      "issue": "客户端后台入口",
+      "rootCause": "客户端设置渲染了管理入口。",
+      "change": "删除客户端入口及构造函数；服务端管理员鉴权保留。",
+      "status": "fixed"
+    },
+    {
+      "issue": "收藏和工程读取",
+      "rootCause": "取消收藏只刷新结果不刷新计数；工程异步读取缺录制及离页校验。",
+      "change": "同步曲数；录制前后保护与导航失效判断；新增13项行为测试。",
+      "status": "fixed"
+    },
+    {
+      "issue": "社区异步身份与媒体状态",
+      "rootCause": "迟到响应可能属于旧账号；媒体音轨元数据丢失和静音提示不完整。",
+      "change": "前后端写请求绑定当前身份；保留音轨元数据；静音/无音轨提示区分。",
+      "status": "fixed"
+    }
+  ],
+  "unreproduced": [
+    {
+      "issue": "用户所在设备的所有播放均无声",
+      "result": "尚无该设备型号、浏览器和输出路由证据；Windows Chromium内测到实际非零信号，不能据此保证手机扬声器已经出声。"
+    }
+  ],
+  "learning": {
+    "summary": "实际六步、设置入口、我看懂了标记、离页恢复、同SVG暂停和恢复均通过；组件release为20261016-v17-learning；原九课与guideV2保留。"
+  },
+  "audio": {
+    "summary": "九种创作音色另逐一试听，实际输出均非零。视频用生成摄像头录制，未测真实相机；社区MP4夹具用于流程，原文件无音轨不人为补音。"
+  },
+  "adminEntryHidden": {
+    "result": "224客户端布局组合的管理链接计数为0，设置不再显示后台入口"
+  },
+  "adminClientLink": {
+    "summary": "本机真实UI完成上传→ready→草稿→pending→审批→客户端短视频播放→隐藏移除→恢复；评论审批、点赞、举报处理及公告保存读回恢复通过。固定preview-owner身份；线上已部署同一源码并核对10个DB表，未往生产写入测试帖。"
+  },
+  "acceptanceMatrix": [
+    {
+      "area": "全量代码回归",
+      "coverageType": "自动行为与接口测试",
+      "result": "296通过 0失败 0跳过；含音频 生命周期 解析 权限与异步保护",
+      "status": "passed"
+    },
+    {
+      "area": "客户端与后台布局",
+      "coverageType": "Chromium真实DOM测宽",
+      "result": "客户端224+后台96独立组合；重点页80次复核，无横向溢出",
+      "status": "passed"
+    },
+    {
+      "area": "音频和录制",
+      "coverageType": "真实UI PCM与媒体时钟",
+      "result": "15流程；14项非零信号；视频生成设备录制保存；另9音色试听",
+      "status": "passed"
+    },
+    {
+      "area": "学习引导",
+      "coverageType": "真实CSS动画与存储",
+      "result": "六步 暂停 重播 进度恢复；四语言入口通过",
+      "status": "passed"
+    },
+    {
+      "area": "社区与后台",
+      "coverageType": "本机D1/R2兼容端到端",
+      "result": "帖子视频与评论举报审核发布闭环，设置独立GET读回",
+      "status": "passed"
+    },
+    {
+      "area": "预设与曲库",
+      "coverageType": "真实界面操作",
+      "result": "搜索筛选收藏与计数；预设新建改名分组应用删除",
+      "status": "passed"
+    },
+    {
+      "area": "工程",
+      "coverageType": "UI及异步行为测试",
+      "result": "新建 打开 实际回放 删除通过；没有更新改名入口，不能称完整CRUD",
+      "status": "partial"
+    },
+    {
+      "area": "三个导出按钮",
+      "coverageType": "真实浏览器下载事件",
+      "result": "JSON CSV 预设3个文件请求被捕获并取消写盘；未证明系统保存",
+      "status": "passed"
+    },
+    {
+      "area": "离线与设备连接",
+      "coverageType": "单测与能力入口核对",
+      "result": "缓存浏览器验证被工具SW策略禁止；真实琴及端到端延迟未测",
+      "status": "partial"
+    }
+  ],
+  "platforms": [
+    {
+      "name": "Windows Chromium 155",
+      "status": "passed",
+      "boundary": "真实浏览器界面与输出信号；测试麦克风/摄像头由浏览器生成，不是物理设备。"
+    },
+    {
+      "name": "手机 平板 桌面布局",
+      "status": "passed",
+      "boundary": "客户端320/390/768/1440px四语；后台390/768/1440px四语；仅视窗布局覆盖。"
+    },
+    {
+      "name": "iPhone iPad Safari",
+      "status": "not-tested",
+      "boundary": "未接实体设备；系统静音、AudioSession、耳机输出与录制编码需真机核实。"
+    },
+    {
+      "name": "Android HarmonyOS",
+      "status": "not-tested",
+      "boundary": "未接华为及其他实体手机；没有在本轮生成或验签HAP。"
+    },
+    {
+      "name": "macOS及其他浏览器",
+      "status": "not-tested",
+      "boundary": "未运行Mac Safari/Firefox/Edge独立内核测试，不以Chrome模拟代替。"
+    }
+  ],
+  "limitations": [
+    "离线准备真实失败原因为测试工具提示service workers are blocked by scenario policy；未绕过工具策略，不列为产品代码通过或产品已证实故障。",
+    "真实BLE MIDI电子琴、DSP参数同步及琴内保存、端到端延迟、断连恢复、功耗和发热仍待硬件验证。",
+    "线上身份和普通用户跨账号权限以自动服务端用例覆盖；本机UI使用固定管理员身份，未伪造生产用户测试。",
+    "完整源码备份不含用户录音、生产数据库、凭据或本机进度；本报告在源码归档后单独交付。",
+    "线上发布截图探针的社区状态请求401，缺少可用账户身份；未以此判定用户登录通过，也未绕过鉴权。实际用户会话需继续验收。"
+  ]
+}
