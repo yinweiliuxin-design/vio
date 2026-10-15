@@ -1,0 +1,9 @@
+{
+  "boardPath": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-session-review.kicad_pcb",
+  "boardSHA256": "75d4fb266ccae90f03651225f43a3660d2c99ac7063d660af2802938a8bdaf94",
+  "preAndPostFillMemoryNetsIdentical": true,
+  "pcbnewSaveDifferences": [],
+  "originalCopperAndPadNetGeometryPreserved": true,
+  "method": "Only cached filled_polygon/fill_segments from native fill grafted into original AST. All original expressions otherwise retained.",
+  "productionApproved": false
+}

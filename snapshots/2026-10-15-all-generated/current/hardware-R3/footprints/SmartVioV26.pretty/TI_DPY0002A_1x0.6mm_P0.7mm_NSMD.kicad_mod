@@ -1,0 +1,103 @@
+(footprint "TI_DPY0002A_1x0.6mm_P0.7mm_NSMD"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "TI DPY0002A 4224561/C 07/2024 PDF pp27-29. NSMD alternative; TI prefers SMD. Fabrication/assembly HOLD.")
+	(tags "TPD1E10B06DPYR X1SON DPY0002A official-example NSMD")
+	(property "Reference" "REF**"
+		(at 0 -0.9 0)
+		(layer "F.SilkS")
+		(uuid "d56e33ad-1735-4d6f-91c0-4e83fc21e62f")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Value" "TPD1E10B06DPYR"
+		(at 0 0.9 0)
+		(layer "F.Fab")
+		(uuid "c6e4e371-7949-4073-99e2-ede18de5b992")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.1)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "ef00907b-b093-4cec-96d0-46e89407a04a")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "bfb6e895-9ba2-4df1-9da5-5ad339da6c76")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -0.8 -0.65)
+		(end 0.8 0.65)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "e6a99a05-89a9-41cf-b705-c262065c6f6a")
+	)
+	(fp_line
+		(start -0.5 -0.3)
+		(end -0.3 -0.3)
+		(stroke
+			(width 0.1)
+			(type default)
+		)
+		(layer "F.Fab")
+		(uuid "514daca1-d3ef-4155-80e4-f4f6d40240b4")
+	)
+	(fp_rect
+		(start -0.5 -0.3)
+		(end 0.5 0.3)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "d88eec33-0e45-44fa-a723-82c84ed0b7ae")
+	)
+	(pad "1" smd roundrect
+		(at -0.35 0)
+		(size 0.3 0.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.166666667)
+		(solder_mask_margin 0.07)
+		(uuid "da6e040a-0d8c-4ed8-854c-9afa849b1d7c")
+	)
+	(pad "2" smd roundrect
+		(at 0.35 0)
+		(size 0.3 0.5)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(roundrect_rratio 0.166666667)
+		(solder_mask_margin 0.07)
+		(uuid "4a59e4ae-d7f2-4056-96a8-e2d4b1a28e7d")
+	)
+	(embedded_fonts no)
+)

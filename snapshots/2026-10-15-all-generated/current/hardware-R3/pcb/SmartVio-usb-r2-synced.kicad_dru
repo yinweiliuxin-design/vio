@@ -1,0 +1,7 @@
+(version 1)
+(rule "Filled laser microvia annulus"
+  (condition "A.Type == 'Via' && A.Via_Type == 'Micro'")
+  (constraint annular_width (min 0.075mm)))
+(rule "Contained filled laser hole to foreign copper"
+  (condition "(A.Type == 'Via' && A.Via_Type == 'Micro') || (B.Type == 'Via' && B.Via_Type == 'Micro')")
+  (constraint hole_clearance (min 0.200mm)))

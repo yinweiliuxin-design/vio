@@ -1,0 +1,946 @@
+{
+  "boardPath": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-fpc-keys6-r3-auto.kicad_pcb",
+  "boardSHA256": "52509043cf562b422932ee27a112901c7ea01f52e4d36e74f0587bda88123e2c",
+  "preAndPostFillMemoryNetsIdentical": true,
+  "pcbnewSaveDifferences": [
+    {
+      "uuid": "a329e7d1-0756-4642-9c5f-81930f1a7d53",
+      "before": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          37.650000000000006,
+          14.8
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          37.65,
+          14.8
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "291f4abd-9f5f-478b-b16d-e9e00fa0876a",
+      "before": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          39.150000000000006,
+          14.8
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          39.15,
+          14.8
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "0ffe59f9-f588-48e3-9cd7-e736805a3edd",
+      "before": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          40.650000000000006,
+          14.8
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          40.65,
+          14.8
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "32063ada-6fc5-447c-9898-2a6b1f6312f0",
+      "before": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          37.650000000000006,
+          13.3
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          37.65,
+          13.3
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "8bc7b7ab-350d-4b7b-afda-2996f2c70aaa",
+      "before": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          39.150000000000006,
+          13.3
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          39.15,
+          13.3
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "f43f6e4e-6883-4896-865b-701888daee18",
+      "before": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          40.650000000000006,
+          13.3
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          40.65,
+          13.3
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "a8396d6d-6adb-4188-912a-c580356580fa",
+      "before": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          76.25,
+          39.72269878025519
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          76.25,
+          39.722699
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "df6db51d-394b-4286-b821-a5318e946ce7",
+      "before": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          77.75,
+          39.72269878025519
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          77.75,
+          39.722699
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "89dd605e-c31d-46d7-85ad-a26bc3c5e74e",
+      "before": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          79.25,
+          39.72269878025519
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          79.25,
+          39.722699
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "9a1bcecc-4f1e-4131-bb7e-52017003020d",
+      "before": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          80.75,
+          39.72269878025519
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          80.75,
+          39.722699
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "4bc968f0-f7e5-49a0-85c0-6cfd35ff1cb4",
+      "before": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          82.25,
+          39.72269878025519
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          82.25,
+          39.722699
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "2a149127-8127-4a0e-a902-c5701f43987a",
+      "before": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          83.75,
+          39.72269878025519
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          83.75,
+          39.722699
+        ],
+        "size": [
+          0.75,
+          0.75
+        ],
+        "layers": [
+          "B.Cu",
+          "B.Mask"
+        ]
+      }
+    },
+    {
+      "uuid": "1dee837c-1d93-419f-9458-8faec23cd2a4",
+      "before": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          37.650000000000006,
+          14.8
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          37.65,
+          14.8
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "62a858ac-0352-410b-a293-e2208a866186",
+      "before": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          39.150000000000006,
+          14.8
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          39.15,
+          14.8
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "9b116d80-be64-4d18-ac79-760af0d4779f",
+      "before": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          40.650000000000006,
+          14.8
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          40.65,
+          14.8
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "575659fa-4061-43a7-ae2f-3e85e7f0b553",
+      "before": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          37.650000000000006,
+          13.3
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          37.65,
+          13.3
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "098b1fd0-2fec-4af0-95e5-b488a6ed8853",
+      "before": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          39.150000000000006,
+          13.3
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          39.15,
+          13.3
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "65ebe0f5-f0f0-4f64-84bb-cb2f4664ebcc",
+      "before": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          40.650000000000006,
+          13.3
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          40.65,
+          13.3
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "35c32c5d-1a8c-4cac-8cf9-f42c6ffe930b",
+      "before": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          76.25,
+          39.72269878025519
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "FX_RAW"
+        ],
+        "at": [
+          76.25,
+          39.722699
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "8b589f4e-a813-4b1a-85f5-a43e5e3218ec",
+      "before": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          77.75,
+          39.72269878025519
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "GND"
+        ],
+        "at": [
+          77.75,
+          39.722699
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "9cbbdc1a-27ad-4f15-a84c-29a92b775f31",
+      "before": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          79.25,
+          39.72269878025519
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_BT"
+        ],
+        "at": [
+          79.25,
+          39.722699
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "807fefb2-6608-42ef-af1f-51d16d20fe3a",
+      "before": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          80.75,
+          39.72269878025519
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_FX"
+        ],
+        "at": [
+          80.75,
+          39.722699
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "aae491ec-b68c-4548-9944-1cae052c9ed1",
+      "before": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          82.25,
+          39.72269878025519
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MIX"
+        ],
+        "at": [
+          82.25,
+          39.722699
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    },
+    {
+      "uuid": "1ccd6e28-97da-447c-ad1c-d03b1c3d742a",
+      "before": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          83.75,
+          39.72269878025519
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      },
+      "after": {
+        "net": [
+          "KEY_MODE"
+        ],
+        "at": [
+          83.75,
+          39.722699
+        ],
+        "size": [
+          0.35
+        ],
+        "drill": [
+          0.15
+        ],
+        "layers": [
+          "F.Cu",
+          "B.Cu"
+        ]
+      }
+    }
+  ],
+  "originalCopperAndPadNetGeometryPreserved": true,
+  "method": "Only cached filled_polygon/fill_segments from native fill grafted into original AST. All original expressions otherwise retained.",
+  "productionApproved": false
+}

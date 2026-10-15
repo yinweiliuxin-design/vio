@@ -1,0 +1,403 @@
+{
+  "source": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-escape-U801.3.kicad_pcb",
+  "sourceSHA256": "d3aa3c97d7f0652882a2e84f6b461608c9f60c45246f5a49896b40a3aa160967",
+  "board": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-one-closure2.kicad_pcb",
+  "boardSHA256": "69c779fba5c8e3e312f2582150cd5d2d7ffbfa2857893896414b37c3e3bdadbd",
+  "gridMm": 0.05,
+  "initialUnconnected": 16,
+  "finalUnconnected": 15,
+  "drcViolations": 2,
+  "elapsedSeconds": 187.84400000001187,
+  "acceptedRoutes": [
+    {
+      "net": "ADC_FS_SRC",
+      "ids": [
+        "175585f3-71f2-4e99-8847-380f51e3e07c",
+        "275e94e7-eb9c-42af-8b41-439fbc4d5f32",
+        "1d9087f3-3fc7-46ec-a532-adb81020a338",
+        "0d382853-70a5-4fda-bb39-518c804d763b",
+        "74af1eab-25c3-46c8-ab61-e075f929bf80",
+        "37a39020-a4f2-4d42-a6af-886ebdc99a87",
+        "2db63c16-e88a-4cbd-bd7f-54faa5b53e0b",
+        "452fc2bb-0d57-4d68-bd3e-9dd9f38591d4",
+        "78cdb722-5844-4e3d-958e-25f35f090246",
+        "ae595280-6bd5-4e6c-85b2-f4bd8fcfa81e",
+        "e1f53934-4bcd-4b59-a36c-d27b9c0ad7c3",
+        "74f49214-2c38-4c53-b22e-ad29122e4686",
+        "cb2a1491-fef9-49f8-95f4-ec97d279bf75",
+        "3647b687-576b-4b9c-8387-e1ce3070762a",
+        "516029b8-3414-4dad-a411-217609b2aded",
+        "303d8240-6369-4014-9add-637700daf693",
+        "e58c9ef1-a130-49dd-afb5-80f94ef3c532",
+        "d432f1f3-b00d-4d76-9405-6922a7d52cf5",
+        "d327af57-956c-4b2b-99aa-139744838633",
+        "5e51f9b5-30d2-4b0f-8174-7b8d63c5ba4c",
+        "2c0f57e8-a0a7-4771-9110-25d401c1759f",
+        "dc27b7be-9553-4527-b8db-8e4cb3daf738",
+        "adb66cd4-e415-4592-b9ff-c6b04a0cb4f6",
+        "b4a2e0e5-b140-4643-8221-a441a0165431",
+        "6aa49712-5cdf-4716-af2d-66f5d3e53087",
+        "ff863bac-d467-46af-bad5-dae0951fe9a1",
+        "ad9eb4a3-bbcf-4f18-8619-d09740a81494",
+        "d886afcd-9314-469d-8fcc-8515cb04a20c",
+        "73b2a710-4975-48fe-9372-ca3ea72ec865"
+      ],
+      "geometry": [
+        {
+          "viaXYMm": [
+            35.4,
+            0.65
+          ],
+          "diameterMm": 0.35,
+          "drillMm": 0.15
+        },
+        {
+          "viaXYMm": [
+            40.75,
+            0.75
+          ],
+          "diameterMm": 0.35,
+          "drillMm": 0.15
+        },
+        {
+          "start": [
+            25.2,
+            8.1
+          ],
+          "end": [
+            26.35,
+            6.95
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            26.35,
+            6.95
+          ],
+          "end": [
+            26.6,
+            6.95
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            26.6,
+            6.95
+          ],
+          "end": [
+            26.75,
+            6.800000000000001
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            26.75,
+            6.800000000000001
+          ],
+          "end": [
+            26.75,
+            6.45
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            26.75,
+            6.45
+          ],
+          "end": [
+            27.1,
+            6.1000000000000005
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            27.1,
+            6.1000000000000005
+          ],
+          "end": [
+            27.950000000000003,
+            6.1000000000000005
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            27.950000000000003,
+            6.1000000000000005
+          ],
+          "end": [
+            30.85,
+            3.2
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            30.85,
+            3.2
+          ],
+          "end": [
+            31.25,
+            3.2
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            31.25,
+            3.2
+          ],
+          "end": [
+            32.45,
+            2.0
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            32.45,
+            2.0
+          ],
+          "end": [
+            33.45,
+            2.0
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            33.45,
+            2.0
+          ],
+          "end": [
+            34.5,
+            0.9500000000000001
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            34.5,
+            0.9500000000000001
+          ],
+          "end": [
+            34.800000000000004,
+            0.9500000000000001
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            34.800000000000004,
+            0.9500000000000001
+          ],
+          "end": [
+            34.85,
+            0.9
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            34.85,
+            0.9
+          ],
+          "end": [
+            35.15,
+            0.9
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            35.15,
+            0.9
+          ],
+          "end": [
+            35.4,
+            0.65
+          ],
+          "widthMm": 0.15,
+          "layer": "In2.Cu"
+        },
+        {
+          "start": [
+            35.4,
+            0.65
+          ],
+          "end": [
+            36.65,
+            1.9000000000000001
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            36.65,
+            1.9000000000000001
+          ],
+          "end": [
+            36.9,
+            1.9000000000000001
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            36.9,
+            1.9000000000000001
+          ],
+          "end": [
+            36.95,
+            1.9500000000000002
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            36.95,
+            1.9500000000000002
+          ],
+          "end": [
+            37.0,
+            1.9500000000000002
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            37.0,
+            1.9500000000000002
+          ],
+          "end": [
+            37.15,
+            2.1
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            37.15,
+            2.1
+          ],
+          "end": [
+            39.400000000000006,
+            2.1
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            39.400000000000006,
+            2.1
+          ],
+          "end": [
+            40.75,
+            0.75
+          ],
+          "widthMm": 0.15,
+          "layer": "In3.Cu"
+        },
+        {
+          "start": [
+            40.75,
+            0.75
+          ],
+          "end": [
+            42.150000000000006,
+            0.75
+          ],
+          "widthMm": 0.15,
+          "layer": "F.Cu"
+        },
+        {
+          "start": [
+            42.150000000000006,
+            0.75
+          ],
+          "end": [
+            42.25,
+            0.8500000000000001
+          ],
+          "widthMm": 0.15,
+          "layer": "F.Cu"
+        },
+        {
+          "start": [
+            42.25,
+            0.8500000000000001
+          ],
+          "end": [
+            42.25,
+            2.15
+          ],
+          "widthMm": 0.15,
+          "layer": "F.Cu"
+        },
+        {
+          "start": [
+            42.25,
+            2.15
+          ],
+          "end": [
+            43.900000000000006,
+            3.8000000000000003
+          ],
+          "widthMm": 0.15,
+          "layer": "F.Cu"
+        },
+        {
+          "start": [
+            43.900000000000006,
+            3.8000000000000003
+          ],
+          "end": [
+            44.125,
+            3.8
+          ],
+          "widthMm": 0.15,
+          "layer": "F.Cu"
+        }
+      ],
+      "visited": 198200,
+      "round": 0
+    }
+  ],
+  "rejectedRoutes": [],
+  "rulesUnchanged": true,
+  "sourceNetsUnchanged": true,
+  "criticalPriorityCopperPreserved": true,
+  "electricalPerformanceReviewed": false,
+  "manufactureRelease": false,
+  "redundantReservedViasRemoved": [],
+  "temporaryReservedViasDuringWIPOnly": true,
+  "temporaryOpenTrackNetsDuringWIPOnly": [
+    "MON_USB_BUF"
+  ],
+  "fullNativeReportsPreserved": true
+}

@@ -1,0 +1,91 @@
+[
+  {
+    "pair": [
+      "H_AUDIO_1_M",
+      "H_AUDIO_1_R"
+    ],
+    "pins": {
+      "1": "GND",
+      "2": "HP_DETECT_RAW",
+      "3": "HP_L_PORT",
+      "4": "HP_R_PORT",
+      "5": "LINE_L_PORT",
+      "6": "LINE_R_PORT"
+    }
+  },
+  {
+    "pair": [
+      "H_AUDIO_2_M",
+      "H_AUDIO_2_R"
+    ],
+    "pins": {
+      "1": "RETURN_L_PORT",
+      "2": "RETURN_R_PORT",
+      "3": "SEND_T_PORT"
+    }
+  },
+  {
+    "pair": [
+      "H_USB_1_M",
+      "H_USB_1_R"
+    ],
+    "pins": {
+      "1": "GND",
+      "2": "USB_DM_MCU",
+      "3": "USB_DP_MCU",
+      "4": "V3D",
+      "5": "CC_FAULT_N",
+      "6": "USB_DATA_DISABLE"
+    }
+  },
+  {
+    "pair": [
+      "H_USB_2_M",
+      "H_USB_2_R"
+    ],
+    "pins": {
+      "1": "USB_DATA_FAULT_N",
+      "2": "USB_5V_SAFE",
+      "3": "VBUS_RAW"
+    }
+  },
+  {
+    "pair": [
+      "H_COVER_1_M",
+      "H_COVER_1_R"
+    ],
+    "pins": {
+      "1": "FX_RAW",
+      "2": "GND",
+      "3": "KEY_BT",
+      "4": "KEY_FX",
+      "5": "KEY_MIX",
+      "6": "KEY_MODE"
+    }
+  },
+  {
+    "pair": [
+      "H_COVER_2_M",
+      "H_COVER_2_R"
+    ],
+    "pins": {
+      "1": "LED_ZONE_1_A",
+      "2": "LED_ZONE_2_A",
+      "3": "LED_ZONE_3_A",
+      "4": "PWR_PB",
+      "5": "SPK_N",
+      "6": "SPK_P"
+    }
+  },
+  {
+    "pair": [
+      "H_COVER_3_M",
+      "H_COVER_3_R"
+    ],
+    "pins": {
+      "1": "TONE_RAW",
+      "2": "V3D",
+      "3": "VOL_RAW"
+    }
+  }
+]

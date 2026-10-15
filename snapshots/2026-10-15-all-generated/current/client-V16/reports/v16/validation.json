@@ -1,0 +1,55 @@
+{
+  "date": "2026-10-15",
+  "baselineCommit": "2c7f0a7ce5ffd97372092a1cc4ccaafc36439fbd",
+  "automatedTests": {
+    "command": "node --test tests/*.test.mjs",
+    "passed": 259,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "engine": "Chrome 155 Windows",
+    "mobileLayoutCases": 16,
+    "languages": [
+      "zh",
+      "en",
+      "ja",
+      "de"
+    ],
+    "pages": [
+      "learn",
+      "practice",
+      "midi",
+      "community"
+    ],
+    "iframeInnerWidth": 390,
+    "documentClientWidth": 375,
+    "overflowFailures": 0,
+    "audioSampleDecodeAndStop": true,
+    "videoUploadDecodeRangeReviewAndClientFeed": true,
+    "midiAddTempoPersist": true
+  },
+  "physicalHardwareTests": 0,
+  "runtimeSha256": {
+    "dist/client.js": "6e6766d5da5156a1eb6a0157304f1bc442b1edfc55a98f831cfb5c61020fb428",
+    "dist/midi.js": "b7293c177385a0aee6c840b11ea1128836ed2add2e60e426bd26cbbd9889ef7b",
+    "dist/learning-path.js": "af3ddba0b164af2fe9a26e55f5b734d39ad34ac15253df072e6446e98445a9ab",
+    "dist/learning-path.css": "b35439ce6308458c80253d529959d03943adf1a580960cc14bc4b9636f6d639b",
+    "dist/audio-engine.js": "f0fe8ede1fdb2d687414f735c61b7d5f69295eaea892e6264686865f25202ffd",
+    "dist/community.js": "79740eeadab7de5af3dfcfd9bd920919f8253b103190bc52f36182cd12bdd6d3",
+    "dist/community.css": "5365619ac9b6f3069aeb1a92be6f9f8b1c1be0f7a91a42a3eb7a6316b3efd924",
+    "dist/admin.js": "57382e7710fe369a0b40e2d3b3b0df938e955a19406333095195c5c400dfb1ac",
+    "worker/community.mjs": "1e3f413b94543172fb33c31574a2f029e517070150d4040f5d81eda496a85a1f",
+    "worker/video-inspection.mjs": "e56d34eb3a2bfbb2fc7cf211c6424d6ff16c64c5137261b3e877a582a575d84c",
+    "drizzle/0004_community_videos.sql": "4bbdfeae86b71f9db5e782d1edfa78d61cfcc4e15547b6e9a380cdb10315a18d",
+    "dist/assets/audio/violin/manifest.json": "017ade0f8db0164fb875efb961f9b88862aa85f795bf056d515c4d044d9095f6"
+  },
+  "limits": [
+    "No physical violin/BLE latency verification",
+    "No cross-OS or physical-phone claim",
+    "No copied proprietary platform code",
+    "Sample sequencing is not a full human performance",
+    "Community codec acceptance is deliberately bounded; no transcoding service"
+  ],
+  "reports": "Design report records reviewed decisions; this file records final execution checks."
+}

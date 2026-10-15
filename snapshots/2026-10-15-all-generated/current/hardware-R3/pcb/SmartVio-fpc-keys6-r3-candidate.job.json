@@ -1,0 +1,33 @@
+{
+  "elapsedSeconds": 9.35899999999674,
+  "returnCode": 0,
+  "sessionExists": true,
+  "sessionSHA256": "5c6cef698b423c45988d327e697c0dd7495a01c54b9d536bf58b1e5befc969d0",
+  "command": [
+    "E:\\codex\\Codex\\2026-10-01\\99\\work\\v26\\pcb\\java25\\jdk-25.0.4.1+1-jre\\bin\\java.exe",
+    "-Xmx6g",
+    "-Djava.awt.headless=true",
+    "-Duser.home=<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\reproduce\\electrical\\router\\home",
+    "-jar",
+    "E:\\codex\\Codex\\2026-10-01\\99\\work\\v26\\pcb\\freerouting-2.4.1.jar",
+    "--gui.enabled=false",
+    "--api_server.enabled=false",
+    "--mcp_server.enabled=false",
+    "--router.fanout.enabled=false",
+    "--router.optimizer.enabled=false",
+    "--router.automatic_neckdown=false",
+    "--router.strict_drc=true",
+    "--router.neck_width_um=0",
+    "--router.job_timeout=00:02:30",
+    "--user_data_path=<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\reproduce\\electrical\\router\\data",
+    "-da",
+    "-de",
+    "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-fpc-keys6-r3-candidate.dsn",
+    "-do",
+    "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-fpc-keys6-r3-candidate.ses",
+    "-mp",
+    "30",
+    "-mt",
+    "1"
+  ]
+}

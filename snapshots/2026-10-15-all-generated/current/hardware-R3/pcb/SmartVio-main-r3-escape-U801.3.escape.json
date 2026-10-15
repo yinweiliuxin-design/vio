@@ -1,0 +1,19 @@
+{
+  "pad": "U801.3",
+  "net": "ADC_FS_SRC",
+  "viaXY": [
+    25.2,
+    8.1
+  ],
+  "removed": [
+    {
+      "uuid": "c1190ef3-4747-44f7-8ec2-92c210c816e3",
+      "kind": "track",
+      "net": "MON_USB_BUF"
+    }
+  ],
+  "originalPriorityCopperPreserved": true,
+  "sourcePadNetsAndRulesUnchanged": true,
+  "nativeDRCRequired": true,
+  "productionApproved": false
+}

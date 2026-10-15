@@ -1,0 +1,2632 @@
+[
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/preview/R3-schematic-review.pdf",
+    "sourcePath": "deliveries/SmartVio-R3-最新方案与工程资料-20261013/1.1/drawings/E-R3-24页当前原理图.pdf",
+    "sha256": "865ac47f5251e089ea07863d02528d89249b9d151a54b828a48958c407b4e1d2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/preview/R3-mechanical-review.pdf",
+    "sourcePath": "deliveries/SmartVio-R3-最新方案与工程资料-20261013/1.1/drawings/M-R3-机械图与装配效果图.pdf",
+    "sha256": "d1ce354bcc5f127abd034c9ffa6cd29dc120662f21d3fda1e783898aec051ff3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/r3-work-state.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/r3-work-state.json",
+    "sha256": "c460f1827140777ddd7991abba897b1fa21149b20dd38ff14ce6a28ae6c892b3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/selected-boards.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/selected-boards.json",
+    "sha256": "dee89a9e61ff3f8e7ae288989174694fabce76c16346cc566d5b07d277815170"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A10.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A10.kicad_sch",
+    "sha256": "1a971b8fe593066b390ce234cb415dcb40a1133abbd6d6a532f88c9366c94431"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A11.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A11.kicad_sch",
+    "sha256": "d0158078b2af8a109f62d79578a0817f915f6c0dc276bb5d97b28ef2f0982313"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A12.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A12.kicad_sch",
+    "sha256": "73a0229e06175ece8226e173d924d64cc3979f3b13b869f933da06799306f5d8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A13.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A13.kicad_sch",
+    "sha256": "1c9af8ba364f6cca3c6ed79154f5c64994699442a0ba4e03194a02dbb5ca9f09"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A14.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A14.kicad_sch",
+    "sha256": "7dfe8b22229c0dae7b4565b3e134a9eceaece4b58ea0dd896b3e90a5abb8cc7e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A15.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A15.kicad_sch",
+    "sha256": "ce1a832d59984a63142eab2c514c912a094ca890d3ea6cb84cea5ac86daf4f74"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A16.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A16.kicad_sch",
+    "sha256": "57cf9bccadd294898ab2496961258fcb52e0cb8c8bd7955068b047f545c77bc5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A17.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A17.kicad_sch",
+    "sha256": "eaa2a350ff822907f0a5e7177cf73c4699e6af5b8bd4d90e47f95408f523cba8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A18.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A18.kicad_sch",
+    "sha256": "9cbfb1e0173289b02717c5862d90698a49eeb13cbea1099a7abf3c71eb9cc226"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A19.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A19.kicad_sch",
+    "sha256": "a18dedc11949f8397fdf63372f77fc39b1815cc15d716258afe3aede2ec52fd1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A20.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A20.kicad_sch",
+    "sha256": "1e030a081348576036626dd7ee72a261cfd13459c742a2bd8eeb199e7a2fbeec"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A21.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A21.kicad_sch",
+    "sha256": "16b55d6303282baf470d62282a204dc0154e3dfa2ab530ec50bd6c83da648569"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A22.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A22.kicad_sch",
+    "sha256": "61c53b8e0afcfc0005316b6058f6b894ad92cdbe7d270bd4d8994ab3d394bd0c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A23.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A23.kicad_sch",
+    "sha256": "0a84f48ec8ddf7473af77cc243b677d49b51db29186ac64e4d3d9917d1c3f6aa"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A24.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A24.kicad_sch",
+    "sha256": "944a7ef4d7c39a9463f4ccf480c9b72f5e8f8a362cc880898fbde421052283ee"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A25.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A25.kicad_sch",
+    "sha256": "65a8ea0ab0f75cc178c49c7a8356043f9414bd05890941c9d95709b6003f14fe"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A26.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A26.kicad_sch",
+    "sha256": "9adc9c2dc4945f218b7bdd462f6a112f17ec8e05dd3c30e2231e246a0e4d8169"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A27.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A27.kicad_sch",
+    "sha256": "c430356e2f23722658b7d01df550ae7c5413e8754ea888ecb0abf7239c8e3120"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A28.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A28.kicad_sch",
+    "sha256": "9d0477c3e8ef6d0006dc27c82884162f518792a9a855d6a7dd68d02ff1f80e46"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A29.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A29.kicad_sch",
+    "sha256": "60f76f6b64b18d3cfd56fe26bec7bef6133886654eb6731c99312c32543ac322"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A30.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A30.kicad_sch",
+    "sha256": "91606fdc9094194fe4ef1d6d2473ca3a7848b235127d75adafc2afcb3724c573"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A32.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A32.kicad_sch",
+    "sha256": "25984c69dd341d6134cda5fd0c5f792c3e76948137740ce2e5992b63dd28ac06"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/A33.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/A33.kicad_sch",
+    "sha256": "55979711e3263bc81ab867d91e76b487d66dfe678437a1ef3af9e719444d9c17"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/SmartVio.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/SmartVio.kicad_pro",
+    "sha256": "5e96cdbd82f1396476238f6e1a5f2a27805a512638a7074bbbdbb877c4e9b411"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/SmartVio.kicad_sch",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/SmartVio.kicad_sch",
+    "sha256": "4106aeb58dd004f2e4e3840bf396ceaf6d11c630f9a83c15cc868edeac82a45e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/SmartVio.kicad_sym",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/SmartVio.kicad_sym",
+    "sha256": "3ed241e1fce5fe6ea608b5215b415076780d0b31b07c103456bd2ccbc14cd7d5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/fp-lib-table",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/fp-lib-table",
+    "sha256": "47a064ecd1ff3b7997a73f44577948f355e4259c5925bb0f62bc82a1b15042dc"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/eda/sym-lib-table",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/eda/sym-lib-table",
+    "sha256": "bc0b9c126bc6f474fde622517e0c265cb9128009b43dcb5275913055130ceafa"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/electrical/external-components.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/electrical/external-components.json",
+    "sha256": "64c03897545d8a6a7deb42bf4e02d35a0ae08737fe7a472b13956e9097a45dd9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/electrical/footprint-map.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/electrical/footprint-map.json",
+    "sha256": "a37a3fc725e9527f1f255936daf6f687b30328d643aad5364bc9ecf8f45742b4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/electrical/integration-eco.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/electrical/integration-eco.json",
+    "sha256": "744270bc0d56f05a195dcf43c165f0070ef683d7b05ab34256bf5b9d58159240"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/electrical/native-components.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/electrical/native-components.json",
+    "sha256": "5a2f60292146d17b5580a552283c47f84253ea9f6fb473aae17089897766b094"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/electrical/proposed-harness.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/electrical/proposed-harness.json",
+    "sha256": "7814670faee8196423a642554176f32011f4ca100972a28910ef1dcf2d368626"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/0603HP-10NXGRW.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/0603HP-10NXGRW.kicad_mod",
+    "sha256": "39f096e2fa53a9f40b26ccd3f0b46dcc4acd1af26744e5113de829dfe77748b9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/742792625.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/742792625.kicad_mod",
+    "sha256": "8bc98bd3a2c7934b1b8641dfdeb0d1ec8ddb7145f96db3d098913759f7c604b1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/ABM8-24_576MHZ-B2-T.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/ABM8-24_576MHZ-B2-T.kicad_mod",
+    "sha256": "3e080451824389d64ad37e243a7a15f386d9b85b90bb2cff9c0d0bb268a15f06"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/ACM2012H-900-2P-T06.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/ACM2012H-900-2P-T06.kicad_mod",
+    "sha256": "c7c5853bf4b5842dcc8db563e04166fa2074b8e7415babef6902d5d0c8df6d8f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C0603C102J5GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C0603C102J5GACTU.kicad_mod",
+    "sha256": "28b585d379048c09cb88fd90b4f0191b39d5bf84f2723101ae620715553140cf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C0603C103J3GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C0603C103J3GACTU.kicad_mod",
+    "sha256": "04df940cb78cb8061543534b9cd57b4d5b294e168f9d3420721704cdc236c3aa"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C0603C222J5GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C0603C222J5GACTU.kicad_mod",
+    "sha256": "6188a3a430195dab3c02cbbc570ba114208b5191b63e20937fec888ec9d87dda"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C0603C300J5GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C0603C300J5GACTU.kicad_mod",
+    "sha256": "d1ea41f60e49eaba1d41242a73833d2f1b24173832661c0016fdf961c7c97b22"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C0603C472J5GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C0603C472J5GACTU.kicad_mod",
+    "sha256": "4f98a1a8d87b39b01ecff6fcf8b6c341e154a4b524f7239c1c8cacf08940196a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C1206C104J3GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C1206C104J3GACTU.kicad_mod",
+    "sha256": "7e786fb9e6d1606461a7087d0fcbce32531c0ea70f1588e78dab672c48495701"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/C2220C474J5GACTU.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/C2220C474J5GACTU.kicad_mod",
+    "sha256": "6b58416a3289e61f3bb15c8399a759278387c4fd236214cdb22d53d856bc6093"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R7BB104.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R7BB104.kicad_mod",
+    "sha256": "d1608f2b6d3cb7b694b62e793d5909f577e972ed420e7128cdc04275807fd6d5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R7BB105.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R7BB105.kicad_mod",
+    "sha256": "454eb25a790ad0622c68abb4382e2b8e700506f01636beadaefca6bfd833992f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R7BB225.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R7BB225.kicad_mod",
+    "sha256": "81fb2cd9b7717dd985e3947e6371e6d9d86fe188e33c234eae55b7cbdd66b3bf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R9BB104.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0603KRX7R9BB104.kicad_mod",
+    "sha256": "73aa3fc0f32cb40d9516d92d2670285a2762a06c5f533710b950a6fc730bbc58"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX5R6BB106.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX5R6BB106.kicad_mod",
+    "sha256": "f0308fe94053a9c916f86b05f8c9c9fc2eb3448d9ee5f135806bea527c6bf25a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX7R6BB475.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX7R6BB475.kicad_mod",
+    "sha256": "21d73b2b4bce019955dd1006e278f0df987e6885cfc38f0fed1c306d4494b899"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX7R7BB105.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX7R7BB105.kicad_mod",
+    "sha256": "b16f3f2fbcce7a3756a95ebfd00d396f8d6acca85b039b3ff98b7eceb6c6c089"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX7R7BB225.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0805KKX7R7BB225.kicad_mod",
+    "sha256": "67e78d1465a98d67f087ff036c4342b667d008bf14f1148693fa970735e1516d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/CC0805MKX5R6BB226.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/CC0805MKX5R6BB226.kicad_mod",
+    "sha256": "30d1ac132cef0228d683b0a7a181513f38db2f5f50a936069f154be92e5c0459"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/T520A226M010ATE080.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/T520A226M010ATE080.kicad_mod",
+    "sha256": "c229c6670689695a8832bd5913dba337665d57fa4bc1e90905bfd456ab683832"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/T520U476M010ATE055.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/T520U476M010ATE055.kicad_mod",
+    "sha256": "cd13511c14e9016aa1ada3c56c8ca80ad1ad0b96d54642ba4e5207ac51f7e89d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/Passive_V26_ManufacturerLand.pretty/XGL4020-152MEC.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/Passive_V26_ManufacturerLand.pretty/XGL4020-152MEC.kicad_mod",
+    "sha256": "b0ce146f0ada745ab11f6d1b30f2cafc1d6318f2242bbc36310b264e4e896a26"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ADI_T1633_4_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ADI_T1633_4_Official.kicad_mod",
+    "sha256": "7db62aec6c8e5ed9627e4a5567e0823ce7dd8d751bb35d0aeb6d8ec361e1fcc5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/CMC_2012_TENTATIVE_PINOUT.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/CMC_2012_TENTATIVE_PINOUT.kicad_mod",
+    "sha256": "45fa9f5eef69c2d3da99ed50d042ab88d0bd13b85badcf5d936d7d06a51a6ebe"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/C_0603_1608Metric.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/C_0603_1608Metric.kicad_mod",
+    "sha256": "d45eebd5cb9faace255d4ec95a0f9484efde898359507b02e2ba9bbb3ef6d857"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/C_0805_2012Metric.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/C_0805_2012Metric.kicad_mod",
+    "sha256": "e890bdf55fa18fc6df6878eb1b5251a991e1b93985509175eb269d3d002880b4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/Crystal_SMD_3225-4Pin_3.2x2.5mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/Crystal_SMD_3225-4Pin_3.2x2.5mm.kicad_mod",
+    "sha256": "0efc1a86f641a5e4d27a4483811386c23ddfa5b416c628f65cef963ef7edbb62"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_D850_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_D850_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "fdb8290e9d43b737a86da858dfc6f88b15e13afa00130372754915e91e32c541"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_D851_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_D851_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "3663524a8758c4a05bbec27254d62dc2d623b0f77e54682196af6f7cba237aa9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_D852_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_D852_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "f140e05508b31f8f2369a83912f44a809086b3b512378e523928670705aa1ca9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_LS901_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_LS901_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "7ca341ef64a7fa5d5908959e69b19a0f0b22693fd0f0885e2dd93aa9b81018c9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_RV810_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_RV810_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "34490e0726265272fd9bb2e8db974abb16637c32ec497cc8a8202dc6ec8366ce"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_RV811_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_RV811_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "c058c690140070b9f21e5cd796d12159bb1e359250a08bab7d1f702d848fa857"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_RV812_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_RV812_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "43120b07ac8ca7e659a540c6a4af3fea50c49ca5e8aa1a8c860439925e36a4d1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_SW810_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_SW810_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "f1dd263a974b2f62442395b6667f3d3708a0b6c74d594271b2e1c3a7bd12806d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_SW811_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_SW811_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "650d0c6cdd6495579066b69426763caa0e41a547ae4b9a922ea0213833e7d615"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_SW812_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_SW812_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "c412fd248a7c879b33e87831cda2ae6594c138b73a5dfef1625c24287aa6fc2c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_SW813_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_SW813_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "f7a3446c2323f419dc468b4ad392e9c254ab2c6e7faa9ef5c2bb784655fa56c9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ENVELOPE_SW814_NO_APPROVED_MPN.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ENVELOPE_SW814_NO_APPROVED_MPN.kicad_mod",
+    "sha256": "f9c8d1b4447e05420a2e48cbce2bf4f765f2fb72c603b06dce18fee6509d8701"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ESP32-MINI-1U.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ESP32-MINI-1U.kicad_mod",
+    "sha256": "c77d49a3f1ad47ccab4f85b87de26657254c3c918e8f26c245988f8c21517056"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/GCT_USB4120_03_C_DRAWING_A6.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/GCT_USB4120_03_C_DRAWING_A6.kicad_mod",
+    "sha256": "e09705f05764873f4b459057a1ff313358f4011911a7aaebb915f0b26ff7af15"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/GCT_USB4120_Official_A6.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/GCT_USB4120_Official_A6.kicad_mod",
+    "sha256": "2e130c086d054ae72e4964d2fde6eb5856bcf91ed6c0d647c41f7949e5764c24"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/Inductor_4x4_TENTATIVE.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/Inductor_4x4_TENTATIVE.kicad_mod",
+    "sha256": "b0cc5a59f1739b09ce7d17db6c5d6ced2eb468e04fc7e2fd5b457d79a8e4139d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/JST_GH_SM03B-GHS-TB_1x03-1MP_P1.25mm_Horizontal.kicad_mod",
+    "sha256": "8e8e864284f3ddf33f3de38999f3fb3d5c612286d5b98e25eb84ad94f00bce90"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/LQFP-100_14x14mm_P0.5mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/LQFP-100_14x14mm_P0.5mm.kicad_mod",
+    "sha256": "777168782dd4ed12f1ad208fd3d882297d1404158aeaedaa26ae42ddf1839623"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/L_0603_1608Metric.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/L_0603_1608Metric.kicad_mod",
+    "sha256": "3fcbaea27d33b968bc9da19e1fb7973635671eb634e8d84dbc897255cfda1478"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/Lumberg1503_18_BODY_ONLY_UNRESOLVED_PINS.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/Lumberg1503_18_BODY_ONLY_UNRESOLVED_PINS.kicad_mod",
+    "sha256": "e37ca6291eb9866803b0b162d96b863031f2c55f027631366021426cc1a1a082"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/MAX_T1633_4_TENTATIVE_LAND_EP17.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/MAX_T1633_4_TENTATIVE_LAND_EP17.kicad_mod",
+    "sha256": "f59bd5c22c03dd75a363284bc5bc1ac28b4ccfca77c43768f4ea5966077a5ca3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/MSOP-10_3x3mm_P0.5mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/MSOP-10_3x3mm_P0.5mm.kicad_mod",
+    "sha256": "58ac9b376faa5c5f6aa3f01271756228330de4931d48610c9d14ba9cc70c258d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/PROTO_JP1.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/PROTO_JP1.kicad_mod",
+    "sha256": "73c460445c80b4002a246f79354e4c60b2461cb3011037c402b0271dd57c319c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/PROTO_JP2.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/PROTO_JP2.kicad_mod",
+    "sha256": "b3716790c9cf5432aa031e1dbe86a67d304fcd323e4863bf7366fc4d287fd278"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/PROTO_JP3.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/PROTO_JP3.kicad_mod",
+    "sha256": "6bc3668b5b3aafd210e3a0042eb31da17baf1176d66b60fc26f846b6e8a9e8c1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/Panasonic_APV-AQY_SSOP-4_4.45x2.65mm_P1.27mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/Panasonic_APV-AQY_SSOP-4_4.45x2.65mm_P1.27mm.kicad_mod",
+    "sha256": "f3eec424c4cb9f408f5f886e602ba0e794d1a5fefb9690dcc625ea653900a3c9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/R_0603_1608Metric.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/R_0603_1608Metric.kicad_mod",
+    "sha256": "03fc7902b2661df01b4d828fdb6eab9eddf974e7130ed2b98892607387a50c4b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/SOT-23-6.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/SOT-23-6.kicad_mod",
+    "sha256": "ea29040bed73e5dfa455e36f2c9324b0de7782c5a6cf79040b7d885ff766fdb4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/SOT-23.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/SOT-23.kicad_mod",
+    "sha256": "7fb2859c6463f3a37966a1a20c31d8bfe7d4e8459d00bb165d5a7488270816c5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/ST_USBLC6_2SC6_SOT23_6L_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/ST_USBLC6_2SC6_SOT23_6L_Official.kicad_mod",
+    "sha256": "74e553e93bcce83fadb4a33da085a4db4892282d3b5baff3cfacab98a5846fc2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_DBT0030A_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_DBT0030A_Official.kicad_mod",
+    "sha256": "6c36523e7f69200d7762693c46cf55d45ad4cb4fee8ba5364e2eabbd6fef9822"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_DGS0010A_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_DGS0010A_Official.kicad_mod",
+    "sha256": "4091d91d43ef0c275c6245d1f9dcd796598efe94a0155a2949db4089b920e3b9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_PW0014A_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_PW0014A_Official.kicad_mod",
+    "sha256": "f75da99c880d9251994b776f3fbb84f336921403e109d388e6c6e5cb75692226"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_PW0020A_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_PW0020A_Official.kicad_mod",
+    "sha256": "6cde98657940a4aa0dd957bc4d6f641497f89580073175998802a7f8bc3d610d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_RGT0016C_BQ24074_EP17.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_RGT0016C_BQ24074_EP17.kicad_mod",
+    "sha256": "e07a4779c8ddb260d8ead86097e939c4523738a70a16132d092bad16ce7d64ae"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_RNM0015A_TPS63070.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_RNM0015A_TPS63070.kicad_mod",
+    "sha256": "0d54649800749edc4c50b62051a361d033d8c1e39b35f83a127fd965398fa956"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_RPW0010A_TPS259470.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_RPW0010A_TPS259470.kicad_mod",
+    "sha256": "88498bb7f92cc1e7df8ad6627aea0a02dc83b8886f109440b225106a9bc1733c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_RTE0016B_TPA6132_EP17_ALTERNATE.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_RTE0016B_TPA6132_EP17_ALTERNATE.kicad_mod",
+    "sha256": "c3ece1bcee4c9911450ab901cf5ee4ce0737e2aaf0e75d844042d3975da6a0eb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_RTE0016C_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_RTE0016C_Official.kicad_mod",
+    "sha256": "6c9d2d45be64833547988d4d62a993bd38b7c48840fd3dedc6349d139f9a8c4f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_RTE0016C_TPA6132_EP17.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_RTE0016C_TPA6132_EP17.kicad_mod",
+    "sha256": "0f31a8f12fce9bc8d992924c19683ed8dd218a5a126bf65727e2f0600003063d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_YFF0009_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_YFF0009_Official.kicad_mod",
+    "sha256": "6629beb84b2e7ccc4a862eacd66732a4305ff9d3c0e6c4605ca7af6cddefa52f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TI_YFF0009_TPD2S300.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TI_YFF0009_TPD2S300.kicad_mod",
+    "sha256": "6b8e7b6c8f9350414df43ebdd02bb995f7c4f9ff55c3ed2053d25b4c38dbe0b9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TPD1E10B06_DPY_TENTATIVE.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TPD1E10B06_DPY_TENTATIVE.kicad_mod",
+    "sha256": "e30cbc70b42848e0696b5d48e8a53e162c9a4105d66ea2de85e0f304844e26a2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TSOT-23-8.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TSOT-23-8.kicad_mod",
+    "sha256": "16e5e01fefc067a09326481d05ab472e4d00f4a9a3a2829043cd9a53f8fca4d8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TSSOP-14_4.4x5mm_P0.65mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TSSOP-14_4.4x5mm_P0.65mm.kicad_mod",
+    "sha256": "8da4c0cda07ca9aadbeb33cd860d9bc90a2b382263b25be3609543a6da4a7258"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TSSOP-20_4.4x6.5mm_P0.65mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TSSOP-20_4.4x6.5mm_P0.65mm.kicad_mod",
+    "sha256": "94f967893e344384ab679c2f671831c90227f85f3d27f320c42dbe55ba1689a4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/TSSOP-30_4.4x7.8mm_P0.5mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/TSSOP-30_4.4x7.8mm_P0.5mm.kicad_mod",
+    "sha256": "dc21e632c0c5530b2c89988babeaa7a5dcc90b1ddfb84d1cfd5cc43e5207ef26"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WSON-6-1EP_2x2mm_P0.65mm_EP1x1.6mm.kicad_mod",
+    "sha256": "d1e2fc3516c96e3c858b32e79dc4d47fd9d15783c0320ed08aeec9ffbbae0937"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WirePads_2_P1.5.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WirePads_2_P1.5.kicad_mod",
+    "sha256": "fe26bdd356b01c5ad2d892bfab094ee399867352a293d66ee0fafe90625d4eab"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WirePads_3_P1.5.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WirePads_3_P1.5.kicad_mod",
+    "sha256": "70f90b743dd14cfc9f507a3821fb5317603316746b6b6696bf6798f2f4945a12"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WirePads_4_P1.5.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WirePads_4_P1.5.kicad_mod",
+    "sha256": "e482d8fb57dfa02d2ba1ab204632613869713c58d292a72a16c2d99e7223acd5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WirePads_5_P1.5.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WirePads_5_P1.5.kicad_mod",
+    "sha256": "626db017bd4f9101bae43335926b0de213af6bb2919d15acb78ac72f321e61cb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WirePads_6_P1.2_R2.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WirePads_6_P1.2_R2.kicad_mod",
+    "sha256": "68424e9e84754b3946581ecc33ef072fa749d637baba7f3713956d6cb20f798d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV25.pretty/WirePads_6_P1.5.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV25.pretty/WirePads_6_P1.5.kicad_mod",
+    "sha256": "20f0040a9a014d075efb4fb7838ba5a64a35eaafeb3238ce60b3475a31166a23"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/Coilcraft_0603HP_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/Coilcraft_0603HP_Official.kicad_mod",
+    "sha256": "ff7403e37dc60b7c4d52d8e14a4cd587fd0e94ba857789464193b2155e910903"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/Coilcraft_XGL4020_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/Coilcraft_XGL4020_Official.kicad_mod",
+    "sha256": "cab033acb01c6e8281627369aadc6b674c783e7ccc35f187d3b82a5a37654973"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/FPC_AUDIO6.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/FPC_AUDIO6.kicad_mod",
+    "sha256": "517a1ad071c997a645326356290d50451d1a85e218045a96f6ea87d9073a15e7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/FPC_COVER6.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/FPC_COVER6.kicad_mod",
+    "sha256": "88ac0f50bedb52ae8c9a718cb0ba7a41e89bf1412912d0058b54480264007f20"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/FPC_KEYS6.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/FPC_KEYS6.kicad_mod",
+    "sha256": "dc4b77c711c7be28c28cdf5fbd781fe441e17ac89afbbf93b8491f758e9d3521"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/FPC_POTS3.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/FPC_POTS3.kicad_mod",
+    "sha256": "22e46bc9827cf171f878306303625eabfdd26ccda9fc06453fc65954928bcc35"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/TDK_ACM2012H_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/TDK_ACM2012H_Official.kicad_mod",
+    "sha256": "35d404240fdfd105cf93b68b4c6748fa3805e96c1c73ccf04e7851dba09f1477"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/TI_DBV0006A_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/TI_DBV0006A_Official.kicad_mod",
+    "sha256": "a971c1656900011be3d05359c2d9be2092cef0ffee12f5763f4ba136231ffa3b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/TI_DDC0006A_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/TI_DDC0006A_Official.kicad_mod",
+    "sha256": "639611f98b661da9a64ca6ae39b2a2ac5979dfe095e330e58b3611509c264cd0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/TI_DPY0002A_1x0.6mm_P0.7mm_NSMD.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/TI_DPY0002A_1x0.6mm_P0.7mm_NSMD.kicad_mod",
+    "sha256": "16f83d417233b2219386f03374785eb8e73fd5c3400f1af21765220b4b69778b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/WE_742792625_Official.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/WE_742792625_Official.kicad_mod",
+    "sha256": "ac8a24065f9e34d9af1aaa1229f77719734ad0a423b5b7d4ca8797e1fabef857"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVioV26.pretty/WirePads_Control6_2x3_R3.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVioV26.pretty/WirePads_Control6_2x3_R3.kicad_mod",
+    "sha256": "e8b894d20e7e0856a17e0da82f639579b1e581283a27bdd7fdaeb52ac21b3da6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_Battery_Revision.pretty/JST_PH_S3B_PH_SM4_TB_OfficialLand_3P.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_Battery_Revision.pretty/JST_PH_S3B_PH_SM4_TB_OfficialLand_3P.kicad_mod",
+    "sha256": "e31363cd0394b9222b325458883efad888a1d173d4e51e1e136b23e689a60e9b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_V26_Selection.pretty/Jack_Kycon_STX353K7A6N.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_V26_Selection.pretty/Jack_Kycon_STX353K7A6N.kicad_mod",
+    "sha256": "b3e5ef74f07d6103c87eff600a700000eb80e19c3307ceb839ad857343255a9b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_V26_Selection.pretty/LED_Kingbright_APT1608VRCXF_A_5MAV.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_V26_Selection.pretty/LED_Kingbright_APT1608VRCXF_A_5MAV.kicad_mod",
+    "sha256": "0f4d8161ce33de33ec4e72680577d54ca7ace33338b624788d1b5f1425869193"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_V26_Selection.pretty/Molex_PicoBlade_53261-0371_1x03-1MP_P1.25mm_Horizontal.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_V26_Selection.pretty/Molex_PicoBlade_53261-0371_1x03-1MP_P1.25mm_Horizontal.kicad_mod",
+    "sha256": "fe9f350da7392af8f1d26eed37e9e08d81c836f0690760e22b67847a24dd0ee3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_V26_Selection.pretty/Pot_Alps_RK10J11R0A0L.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_V26_Selection.pretty/Pot_Alps_RK10J11R0A0L.kicad_mod",
+    "sha256": "ada0fb27ccbd0013a8df37bdf70c74789cf1aed07790b2d0c1617c2b17d029c5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_V26_Selection.pretty/Speaker_PUI_AS01808AO_SC18_Spring_REFERENCE.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_V26_Selection.pretty/Speaker_PUI_AS01808AO_SC18_Spring_REFERENCE.kicad_mod",
+    "sha256": "e1d8866ca81874f5dffba4787be3d150eb30f295cda5a1c3736e65c6d51378fc"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/footprints/SmartVio_V26_Selection.pretty/Switch_Alps_SKQGABE010.kicad_mod",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/footprints/SmartVio_V26_Selection.pretty/Switch_Alps_SKQGABE010.kicad_mod",
+    "sha256": "611a84bcd6f725c3ff6a7e1f6950b8413fa18a5eff2e596739e410a06ee46e39"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-audio-r2-final.check.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-audio-r2-final.check.json",
+    "sha256": "aedeaf33a0228a495c48c95b14059ed3f1d6f7b0a704071fa5bf39a2389d7aaa"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-audio-r2-final.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-audio-r2-final.drc.json",
+    "sha256": "50c85914e8ea9578b2ae0046e7e86b15e7a41c8254239afb67dc43f551c6415c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-audio-r2-final.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-audio-r2-final.kicad_dru",
+    "sha256": "d626485f9c5bc5fe2470290929db8703d1dba64b2700d53eaaee0b2a0e0c657d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-audio-r2-final.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-audio-r2-final.kicad_pcb",
+    "sha256": "25da64c1b02364dcd03c20c53871a05d04f6725ecfea8d3735aebf277fa9698a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-audio-r2-final.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-audio-r2-final.kicad_pro",
+    "sha256": "70fab33291d8bd760498834caad38627204eca2f9faf9a3420440cc1f357a332"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-cover-r2-final4.check.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-cover-r2-final4.check.json",
+    "sha256": "b4e2704ae0c32e2e2a39f2b40cb47fdaa90d955a851c05369a03e32d860f12da"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-cover-r2-final4.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-cover-r2-final4.drc.json",
+    "sha256": "c1671ec0c1ec31f2319878057bbc9563a48b5177e0f1156909a819322223cb97"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-cover-r2-final4.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-cover-r2-final4.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-cover-r2-final4.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-cover-r2-final4.kicad_pcb",
+    "sha256": "98a7fea02aa2f9a1d3ce0872b45bf264233983ef728a673a537ac4167318f379"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-cover-r2-final4.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-cover-r2-final4.kicad_pro",
+    "sha256": "3a0776e1a3012549eb7d97e0f26baaf9cea1d78a11dc64707942179eb32dc8d0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-bus.independent-drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-bus.independent-drc.json",
+    "sha256": "bd36ecc91a5dc5960d3556e0a57f19dbc19dea441ac2d295e00eeba1f694959f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-bus.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-bus.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-bus.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-bus.kicad_pcb",
+    "sha256": "dfdf49a405214485539b57dd7155511355256563ed135075ac527c07075f815d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-bus.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-bus.kicad_pro",
+    "sha256": "e8f00ab554d3b05fd8e393ebac9ad3151e8d6cf406e237255722875b5d53787e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-candidate.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-candidate.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-candidate.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-candidate.kicad_pcb",
+    "sha256": "fe0b4c95da38408025e5eced3d4079e0483f0f5450dcf0fab48ebfd03a54916f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-audio6-r2-candidate.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-audio6-r2-candidate.kicad_pro",
+    "sha256": "47595877df0f55780d64fdf3227addbd3e8357592a61d23220c3b4f23ac65eb1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-bus.independent-drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-bus.independent-drc.json",
+    "sha256": "0004c045885149a54e24c4e916466cf9c807960d4b640d2c16c3837fbe35a013"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-bus.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-bus.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-bus.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-bus.kicad_pcb",
+    "sha256": "e63a0e746ffa9400915f1e7a2cf842a622dbd6c2dd115a5663ab261439926d7a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-bus.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-bus.kicad_pro",
+    "sha256": "eba09e42790387975535fee7e0cc23f39c8b341bbde1b65cb2f99ddf019eb105"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-candidate.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-candidate.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-candidate.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-candidate.kicad_pcb",
+    "sha256": "1d6590baad1d2077f9a41cd5c7fcc8096feced3f9fec71ee5e1722026a9db72b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-cover6-r2-candidate.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-cover6-r2-candidate.kicad_pro",
+    "sha256": "41f27e1bd7a8a2bb08112e7dbb816e807a5001419990887fe6a758f77b551a0c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.contract.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.contract.json",
+    "sha256": "7377f21e92bac943e033c7bc56ea6c9758f34a3df515a7804bbeb5a2710b4a5c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.dsn",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.dsn",
+    "sha256": "c79d08da1a35b1d737b70cb20c73501fe5913996850e955aada9f4b27566b80a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.job.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.job.json",
+    "sha256": "ef051572943b07eea3e32705366ca12fef96badcec8751d1c171f0c2edf95ada"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.kicad_pcb",
+    "sha256": "720ac74d93f1610d1d843cb122a60a30ef0d393938606311fe40f1dac54e29f8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.kicad_pro",
+    "sha256": "d2fd297a0a88dabc8a17f43afc1050bac4c83eff5e05a9389df0854c4e6fb9f1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r2-candidate.ses",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r2-candidate.ses",
+    "sha256": "b3fc355ddb87e28542b7e190cc7106d6818bf8e28f151543bfdb1260d9c53c4d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "d9f465b534801888cc3af9c155bdae183808f4730767d852b571c1ae792030b6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto-pcbnew-serialization-check.kicad_pro",
+    "sha256": "2f18265b3abd4d849a0b467ba22d641477b843348659c55d631317429f4fca8d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto.drc.json",
+    "sha256": "811f9201203b6a467a92e447fb226dab749290d9396aba2115dc85a800d3e498"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto.import.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto.import.json",
+    "sha256": "8e515ebbb3afe39d400ca7021785adeb0cfdc00958772a3eb087e545340aee4e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto.kicad_pcb",
+    "sha256": "52509043cf562b422932ee27a112901c7ea01f52e4d36e74f0587bda88123e2c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto.kicad_pro",
+    "sha256": "d2fd297a0a88dabc8a17f43afc1050bac4c83eff5e05a9389df0854c4e6fb9f1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-auto.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-auto.safe-fill.json",
+    "sha256": "25782a6ffd8c7a6713c3d19afb13b35068c457e223c61c7c9c6798878ee9fd10"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "d592b5feb0259cc2430f93a4291b1ed3b05d2ed90faa2dda0c050afceeef2506"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus-pcbnew-serialization-check.kicad_pro",
+    "sha256": "940a7fe7a1138aa28c91c3d87b324237e3d892a1a29477042180968b2e8de470"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.drc.json",
+    "sha256": "2c25a794d54ef37612e45220a2fad50318de92b1765cad1715359121c4874340"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.independent-drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.independent-drc.json",
+    "sha256": "1418cbbaa112a378502a8b2ce8d04cff36978e703227b0cf77c02c2b3e9f16f4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.kicad_pcb",
+    "sha256": "7eae0f97d6e41038ea8a30cbce976ac64d17ace4c30ac251e6c4e96f7e8bd0e6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.kicad_pro",
+    "sha256": "9ac88fb8a8b4a15da2d1a1bebc10980903e280a79f39ac4671820abd7b961795"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.route-eco.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.route-eco.json",
+    "sha256": "1c17f657182070f1b80647f80e4f4c2552d9ea263ababfcaf8cda158b6b2a9e3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-bus.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-bus.safe-fill.json",
+    "sha256": "5c6c3f21581ca3ca6b90e3aeecc905b64f9cbe08213afbec7c2cb2a217e04445"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.contract.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.contract.json",
+    "sha256": "92da85772a84782477c990936eaa7b06ef65f2b1ffd46cecafb089b63279c1fe"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.dsn",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.dsn",
+    "sha256": "1f527d3752d482dd8650ea32c1c08276b7ea85c400b521eead2621a2f62fcfa4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.job.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.job.json",
+    "sha256": "f4c05d9add1688ac65b7c1735cde883bb680886006b7f9801e2d6457872d2bbe"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.kicad_pcb",
+    "sha256": "c4aa697ab2eb42baf42512a5ea5d12bdcb7d5844c5726cc6c192a2df3f095ccf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.kicad_pro",
+    "sha256": "eccef8ee0a838b352ebfe0cea2b188717f95405e20ec60e0116ce5ce858ba833"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-keys6-r3-candidate.ses",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-keys6-r3-candidate.ses",
+    "sha256": "5c6cef698b423c45988d327e697c0dd7495a01c54b9d536bf58b1e5befc969d0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-bus.independent-drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-bus.independent-drc.json",
+    "sha256": "0c9757c86013ad448b17f2ff52883f86cc2fdc04080842aa4687786fe4a296cc"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-bus.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-bus.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-bus.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-bus.kicad_pcb",
+    "sha256": "36ffa35bdda83665c9a9284e47e5be4b89a0b52f00f94d26c097f6139313c722"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-bus.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-bus.kicad_pro",
+    "sha256": "74c5b509cadcca6275a795ebe735d48443319c57e58bd975eded4b62039fb792"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-candidate.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-candidate.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-candidate.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-candidate.kicad_pcb",
+    "sha256": "da58f958ee675cf74a114e31c5736c528ddbdbcb609e67a9370de729707b0064"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-fpc-pots3-r2-candidate.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-fpc-pots3-r2-candidate.kicad_pro",
+    "sha256": "12747ce7520a8f7b6d3c751eb20f2f8e624b5bbcb689c4cdf382767cb1d305d4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r2-eight-fixed.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r2-eight-fixed.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r2-eight-fixed.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r2-eight-fixed.kicad_pcb",
+    "sha256": "b8b854457e4d9b3e220cf4d461773608108ba93c0f504e31d8ceab24a84e6c10"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r2-eight-fixed.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r2-eight-fixed.kicad_pro",
+    "sha256": "c3c0266523df7a8ad73fae0b5bf65ad6f919595ca65e806ffb3cd6d55b0b6cd7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r2-precise-net-closure.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r2-precise-net-closure.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r2-precise-net-closure.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r2-precise-net-closure.kicad_pcb",
+    "sha256": "cc44e592ee62f646e01e8582c6028226aa319e2810a51ed8a0a0280f4650d5c0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r2-precise-net-closure.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r2-precise-net-closure.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "a2cd3eb2ef0994b477c7916707ec5057918ec916c73bb5be8f128cb095148b49"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure-pcbnew-serialization-check.kicad_pro",
+    "sha256": "c016bdad05340d3d5f6482f0a9ef50277253bd715cfee211cd2ae81898b99c72"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure.drc.json",
+    "sha256": "589d3361a63adb88be576e0208579571246ad20e0ff017358307ed4344a8b05e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure.kicad_pcb",
+    "sha256": "15c4597e6259091eeac02c4997ae3da1fe8554584812afce0e87b46609d36e66"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure.maze-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure.maze-result.json",
+    "sha256": "72383a00614bee8a8feb9a7bc9cd89a7e2263ef27622861e835a70fe3a7f5e09"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-access-closure.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-access-closure.safe-fill.json",
+    "sha256": "c7af63577c687f0f7ea8d3d2b28013861d22204a9c7cf8e424d4dbdd9c07e72b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-access.access-eco.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-access.access-eco.json",
+    "sha256": "88092b5538206aca9ac4215a35d99f74153a87b5bc187194f8acb3d36a981101"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-access.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-access.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-access.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-access.kicad_pcb",
+    "sha256": "bcbafb6eaa9d40334d244d73b5ffd5de8086e480c1392c7e5351f3bb28f85e4d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-access.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-access.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "eb8f8a6994af66f84f6c3260ad4b0e4bca650a72087dba2a18ba12e068627f0c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure-pcbnew-serialization-check.kicad_pro",
+    "sha256": "4520aaf81de555feab83f9be23d7a4529327f4b776f7d4e02986105e8d7019b3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure.drc.json",
+    "sha256": "5a649d861ceba7679882134567e82a5ce45454519382711823bbd3b655395188"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure.kicad_pcb",
+    "sha256": "2f84e075b74508c2f3c058eab985ad3f1b3945262588b252deca46fcf1544edf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure.safe-fill.json",
+    "sha256": "d5378007d36acbc44ce8cafb389e95a906be03d5df61be9abf8868431c190f9c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "f0d10b8e0521e593e1c10d67de8846896bb605e0d3690fd662ec060f6cdd56fe"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2-pcbnew-serialization-check.kicad_pro",
+    "sha256": "af96daf0246c107f6606c05044e876d195b13ae7a668d2bfdac7614fce17cc25"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2.drc.json",
+    "sha256": "c0caf607bc0eb10eebf6fe37884cf78ebdd4c12056b9e94c98c19ccef889de78"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2.group-result.json",
+    "sha256": "4656237ba8e35e6a7b2f9f6bd528377601802ab4282b06075a512477a5dcac02"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2.kicad_pcb",
+    "sha256": "3c90d3cb1b42aad4453c6d858efafe6c7319d9b05681c4f812f45ddb35eb481c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-batch-closure2.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-batch-closure2.safe-fill.json",
+    "sha256": "a0273f01a00c79e2bf39b4bb929c6302858a48df7ed0b43ae382e6530afb4fde"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "18339d6f5ee2eb92db4c5f3ca4519d890d705dba9cc6723a416d0d51a3e65e89"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11-pcbnew-serialization-check.kicad_pro",
+    "sha256": "744f27d2fbf4f83975bf018fc205bb70ee063ba1c4e12d18868f04efce3a9a91"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.cleanup.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.cleanup.json",
+    "sha256": "dc3c9d0b55d301ce54a831f313c2f4197c8d41ab67efd5ffb4c1e6481c223f3e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.drc.json",
+    "sha256": "dd7ca83aef8ed6fcab60a4701844ce8bfb369ac8584f0f212738a65c94cfe94f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.geometry.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.geometry.json",
+    "sha256": "0c9e1656a36e9c4b2bbf1a7a4f100c6759429300415861fb63510db5d5d92082"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.kicad_pcb",
+    "sha256": "76578c7173b3bedfec76dfb2472c48df6e7297a3fc5dee01f8a75564db417a3a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean11.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean11.safe-fill.json",
+    "sha256": "fe340d60ebd0955d65ab75ecb4b618d37527715128aee89e143dfaa341c17340"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "98e6c9c39d6eebd2f19e4ad1cdcdc04af9d874f61b8cf72a0bd0a19b228f9bc4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9-pcbnew-serialization-check.kicad_pro",
+    "sha256": "85fe3fae8b8e5f5432c54df460b9847738ff31d714eee55511dbc1b844323c9d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9.cleanup.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9.cleanup.json",
+    "sha256": "f3c029acc49d9e85c817d6732d319583bcff6b2e3f5b4aab1848d1e754cc8eb1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9.drc.json",
+    "sha256": "c903504e968ed6731e8a788bb08f9798e60ed5b51bd347033ccc9d5cddb77fbf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9.kicad_pcb",
+    "sha256": "db32824829f38d60df40328637a64dc5ed1dd07a45b94531ff1babf974e097d0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-clean9.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-clean9.safe-fill.json",
+    "sha256": "c3ade0899f5312679fc5a07d435ffd684c323db1a3d5b7ffebd3aa867ab4a28d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "fd9376538a604295bbb8efe42274d393bbe9f71d4a32da91f9c1d04faa6211e7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed-pcbnew-serialization-check.kicad_pro",
+    "sha256": "aeb9f48c417575c4049ad39c317845f3bd5d034d22fd8ee7b938878f655df0e2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed.drc.json",
+    "sha256": "4ac2d77b1daeaef237876028f6dc0321473cb69d2874ef304a28daf9ae449e28"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed.finalize.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed.finalize.json",
+    "sha256": "a7cca148bbeb811c7be9b53497fda0af3fab5c50d366fd325075f04afee3e4b2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed.kicad_pcb",
+    "sha256": "1d122deb08099383eb8b8187d022f1aad777d81e0d9af6a1d2a01e13fce85f5c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-core-closed.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-core-closed.safe-fill.json",
+    "sha256": "ddfbc0336359dd0b927048b57b57d71042845304764b57bd100e50ebed2e71cd"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-direct-access.direct-access.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-direct-access.direct-access.json",
+    "sha256": "a8d303392129149d7875794854b5e0a195876e2eb338340d404684c68f916ee6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-direct-access.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-direct-access.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-direct-access.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-direct-access.kicad_pcb",
+    "sha256": "068418274902f162e033e2a39b3bdd45f9c4965121d208075fb0a8f15b5ff779"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-direct-access.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-direct-access.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U601.10.escape.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U601.10.escape.json",
+    "sha256": "3ff196e0d3f33a1155ce129254638bd3677e28d1459131f5ab97a75d489df6a4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U601.10.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U601.10.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U601.10.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U601.10.kicad_pcb",
+    "sha256": "c09094429ba65a9087ae958d6a38a1e9c18e01e2bb16f8c557bb64fe031202ca"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U601.10.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U601.10.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U801.3.escape.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U801.3.escape.json",
+    "sha256": "2925d8893f762de76588191d7f9ee44562047f07c1bd0167c6fef8203a956934"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U801.3.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U801.3.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U801.3.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U801.3.kicad_pcb",
+    "sha256": "d3aa3c97d7f0652882a2e84f6b461608c9f60c45246f5a49896b40a3aa160967"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-escape-U801.3.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-escape-U801.3.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "ae6b2352da7f2cc1ecfac064ed34abd869ee26bb06446a5fa1f7cdf00a64c3e3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure-pcbnew-serialization-check.kicad_pro",
+    "sha256": "00dea74a3663330c26418d5b9edcb5ae88ce053c23f5e057bc15489c7b798448"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure.drc.json",
+    "sha256": "5c497a0b4d5c0b4ced55547cf734dc4e033cf371a87f7e770515d634326f442a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure.group-result.json",
+    "sha256": "d68b6f3d506a16aca78bf381cbab3f8f22e48fea7737bbd07defc5c063e8a213"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure.kicad_pcb",
+    "sha256": "866ac3df12481a043a566399d9ea0f097d2b8de70597789c569c7f7924f50d5b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-closure.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-closure.safe-fill.json",
+    "sha256": "8e51c56cec2216466d8edf9ce9b5df2350f49135203f7464ee090004d403c8a9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "027cacfa5acfcd1adcdb08c639db6c5cb849b4e83656a8c6ec5cdf2a3a889bd8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted-pcbnew-serialization-check.kicad_pro",
+    "sha256": "9d34e2d34884c4f67837e73dc284e34df359104d5fca8c4fc167e28268f82f29"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted.drc.json",
+    "sha256": "a0227e5a6b4032b35120a6e4295e70e561d9ae4bf98fb815e3f238db3b570673"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted.group-result.json",
+    "sha256": "b26d1647261e8ad6b0abb07d318102cac63415f583061d9e76231733812af618"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted.kicad_pcb",
+    "sha256": "88cd49b03a9252bb36acfededff0419346c7df13a6fb48f12ac0ec138985d03c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group-weighted.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group-weighted.safe-fill.json",
+    "sha256": "06ee816ff79060c518324859fee62faaa30f80b360c2800aeccde3e29d9e2260"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "50a346b057bc8afaf571301c1a639fd27d469c01e4849573a14ccaddbe1c3e65"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin-pcbnew-serialization-check.kicad_pro",
+    "sha256": "dc8bbfa1f34ed9bd5d2a962ad7924e1ffe3294bf46bee646e074a028a1541480"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin.drc.json",
+    "sha256": "6e58f07c50c732f0ed898a974c2f4ffc2d6aa43a720722c15e27049bec930285"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin.group-result.json",
+    "sha256": "7e074c52fe3f2bf2a7a8b4d48f2c8db3b61f2ff78462c8a407156c5ee5e11f25"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin.kicad_pcb",
+    "sha256": "b081241cf9c81335f2f266c20c4c1301482ac86decce453b67f97e7fc22c873f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group005margin.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group005margin.safe-fill.json",
+    "sha256": "5d58403c599acefb153ad5be0bfd5650b33b40c91cd061d39ecd68b3835f53f9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "50a346b057bc8afaf571301c1a639fd27d469c01e4849573a14ccaddbe1c3e65"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025-pcbnew-serialization-check.kicad_pro",
+    "sha256": "6535bd99dca65079e4b97cabab68b837f72cc56994b0a1b49c241cf89538ec17"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.drc.json",
+    "sha256": "d4101bf7c045a5ded8817426b62b77bb02b212479000476c228b6954ee6b4e11"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.geometry.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.geometry.json",
+    "sha256": "3b33a85ca8dc69e8aa7a81853b8c332250545c8422e000003f66cb614f1c2d2d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.group-result.json",
+    "sha256": "14681d321f096a74cbc38830044f6cf4579d0a782eec525391a917a84bb577e6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.kicad_pcb",
+    "sha256": "b081241cf9c81335f2f266c20c4c1301482ac86decce453b67f97e7fc22c873f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-group025.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-group025.safe-fill.json",
+    "sha256": "e28702224ee345dd3ec612c949eb4dfedfb1cdd5701691351d1c1012cee619c5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "ac93869c3e8d11beb8ba71ef4c4c7064d94121dd9511decc41c31338b0b98204"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean-pcbnew-serialization-check.kicad_pro",
+    "sha256": "965c730eac26e280f798419c980e307122aa57384abce6940594b690f4827e83"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean.cleanup.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean.cleanup.json",
+    "sha256": "51e7ea60950fc7d8f6bb6d61e57fa4063af79395c2af11b8de43026559bed1c4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean.drc.json",
+    "sha256": "f64112f0306efbe1c62579206f949faacf650943b8f688b99cbd8033fc750f75"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean.kicad_pcb",
+    "sha256": "5dd0853f25075fe563352c31f980f47d5a4a1a8426d3ec6ab984ef2dbbbc02ce"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-access-clean.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-access-clean.safe-fill.json",
+    "sha256": "3e363412a98e37c7a83715bd4638c7058a3b2ad66e195aca99ddde89a00e9c16"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-merged.keys-eco.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-merged.keys-eco.json",
+    "sha256": "805ac7ee6d50a425eee86e6cf01680e76dc78c47c9a8a54faab3fc9007ebb045"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-merged.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-merged.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-merged.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-merged.kicad_pcb",
+    "sha256": "d9661956b9eb5e80a5641e70b43519c90ad75c2c1868144070d665df8667c697"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-merged.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-merged.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-relocated.keys-eco.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-relocated.keys-eco.json",
+    "sha256": "4a17b6a83593864068325974a5fc48f4ed3e8833e29862a1ad8ce8ae4480ba6c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-relocated.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-relocated.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-relocated.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-relocated.kicad_pcb",
+    "sha256": "a9b6cd1ff7c955f546441ca0eab16da9e4b0b4d5b91fba4635a0aa283b98dc37"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-keys-relocated.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-keys-relocated.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "b12691b3f67b5ef9f7774d4c03e7dbd5951a7fd5e42206268ec517372cc67850"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked-pcbnew-serialization-check.kicad_pro",
+    "sha256": "e62f4eee97974593b29a5592fb35dc4bced81bf9b4cfcbeff2cb3343d2d07c6f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.check.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.check.json",
+    "sha256": "a8e6f7b922acf60616247d5ce50cd69efe2c6f395ee25dcd45c699965f48f1c8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.drc.json",
+    "sha256": "a8960f5d44bf7c6fcc84d1d11886c7e1f2add4711aa3c550f528b0597e6966d6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.group-result.json",
+    "sha256": "3698979d8273839c250d8d1dceca2884ec11e8bb4088bfffbe625f11eb9e291c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.kicad_pcb",
+    "sha256": "bd2740bea32d6123404d4e7e5cab2b5f80c005b24658d96b6ebe3b7cc8e2bc7b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.kicad_pro",
+    "sha256": "be5be71beb3a89a239ceeba87424dacf00d9ea20bbdeb34b2cca1dd1d82d1b15"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-linked.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-linked.safe-fill.json",
+    "sha256": "8186776f3309b3a26bf4ae2ae9a5ff16de554473f8c0ce69c11d64e6c3f456de"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "5726d460ede06d8e7c692000ae152111644fc4d7e7ba5c4bb32ded158ef6204e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape-pcbnew-serialization-check.kicad_pro",
+    "sha256": "edb0b7c366530ace26b6069d2862f94b3e5912570984e9224fa3fbbd0193d826"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape.drc.json",
+    "sha256": "93f0b2d6ee3b4061c9dd1aec3c0d0ae6875a67dd405bcb54e71b81ed069e4eb0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape.kicad_pcb",
+    "sha256": "c2b8653c91abfa27ffc8b1cf0949999e2edd558814e174c17d80724eeefac113"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape.offpad-eco.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape.offpad-eco.json",
+    "sha256": "fd6c80decca47ee860d112dfb393df1b12d8f2f2ff7c86f1e579f901ded35e69"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-monitor-escape.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-monitor-escape.safe-fill.json",
+    "sha256": "df7469c4280fa512427f5e7f54e212b224235fa072cd5c612e41fd32c7754763"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "32b578d2b0a85558f8812e87547a7ae91907b8484da8f42f383e9cb3b1b41b39"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure-pcbnew-serialization-check.kicad_pro",
+    "sha256": "88e5b794c0deb7d856d7a6053bcd11fa5ea7fa53488c1face6d5eaa4e541ae04"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure.drc.json",
+    "sha256": "90755c3a2f7a7c25a4376b68d785d78b0eeb542e483a8273f4bc98e8f6b9aa9c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure.kicad_pcb",
+    "sha256": "6f9cf633d14d8634121a3ca1cd4588a78fd9d2f98f6e20885c12b6e11b25a403"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure.safe-fill.json",
+    "sha256": "dca04ad5f293b9df738660f1f38f0516d349a3cdfa4bf1c756673de562050540"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "7458b2200aabfec3978f45aaa8ba576346c7b07e29ed60f7b512c2c5878383fb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2-pcbnew-serialization-check.kicad_pro",
+    "sha256": "cb7278670a1090c46c283fd86180b93640b8ab7e21115a983a1e218142bdb7fb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2.drc.json",
+    "sha256": "433c8b52f21b1753f487eaf34aeccf794880e0769ac2d324dc11781755bd7e6c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2.kicad_pcb",
+    "sha256": "69c779fba5c8e3e312f2582150cd5d2d7ffbfa2857893896414b37c3e3bdadbd"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2.maze-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2.maze-result.json",
+    "sha256": "4495c9a1a8a674eed2d0f6b4b7c3d46576c4477d04998b63edf4044f8932454b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-one-closure2.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-one-closure2.safe-fill.json",
+    "sha256": "57e1e1633587bf7b685833cb2fe118d426d20b514acff663e1b082f0dff9f3d2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "9ac623b1f4abed1db086104b6d3360d1b9abd43788ccba136bf44b1a0d463463"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes-pcbnew-serialization-check.kicad_pro",
+    "sha256": "5a0827aa991e3f3660a37677a8ffa5f384f3415b6a4021901d8aa184a9dc929f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes.drc.json",
+    "sha256": "50c6fdf50d30fa18be820e1b7730eb1d6b05732b97f75490caf2c7fc3385ba14"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes.group-result.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes.group-result.json",
+    "sha256": "a6f43c8a2e95db3da12a2106df588c4531f0423d627ceb247dc04cef91a95f88"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes.kicad_pcb",
+    "sha256": "ed86e6cfbe4fb82e7c7b13ec20b5e28a8df5c1f28ae1d993e95066eb050b9691"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-region-routes.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-region-routes.safe-fill.json",
+    "sha256": "e2664aab46901fdb3f5000b6291da894e6c09d7b3a6e87c0296430f82b06bb31"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.contract.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.contract.json",
+    "sha256": "9258a6502fac453f4362abb0d892902fd1084bc5fdf7ab1f68b20ab760f744ba"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.dsn",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.dsn",
+    "sha256": "12e21a97ab45998554705097a69a3fea5e4bd986c80ece9c986e4f8b11544521"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.job.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.job.json",
+    "sha256": "7f8f27dc258bca2bad6b5ca8de901e3dfb83ba8330ec34024740f70253a2327a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.kicad_pcb",
+    "sha256": "cc44e592ee62f646e01e8582c6028226aa319e2810a51ed8a0a0280f4650d5c0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-ripup-candidate.ses",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-ripup-candidate.ses",
+    "sha256": "361c0a510ff1d7302970c5b8b83d91681c7a5a7907d41764244125076bc2d35f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review-pcbnew-serialization-check.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review-pcbnew-serialization-check.kicad_pcb",
+    "sha256": "83114bde3a425e79d6bc6491a47ab79afbf030a111e0585085dd7a1be6cf09c9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review-pcbnew-serialization-check.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review-pcbnew-serialization-check.kicad_pro",
+    "sha256": "f16b649be26e8b5582a88d12b86e5e93d0b9e1a2017cbab78b9508022ce3eb46"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review.import.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review.import.json",
+    "sha256": "be97c4da6f1f3ee6f1f4d610a99ff70d2da4c53ce0b0290da3d8d2673060694a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review.kicad_pcb",
+    "sha256": "75d4fb266ccae90f03651225f43a3660d2c99ac7063d660af2802938a8bdaf94"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review.kicad_pro",
+    "sha256": "ae57991ce3bba8d989dcd9581388ff81fc451aa2ccfd2d7fcbf76051668eaa6e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-main-r3-session-review.safe-fill.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-main-r3-session-review.safe-fill.json",
+    "sha256": "cae0422f9fef2d095008e2f40e4e7a445bbe05510ba9e949a930557faa24876b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-sensor-r2-synced.check.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-sensor-r2-synced.check.json",
+    "sha256": "f2c043cd2f10bd68b7e742aad39710d1d3e67d5a7abb68558321586af3ab8bc2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-sensor-r2-synced.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-sensor-r2-synced.drc.json",
+    "sha256": "86383e01b7c5e0a63577801c18a2417cc35c3fefdc5c78f24a637c6d5d360809"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-sensor-r2-synced.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-sensor-r2-synced.kicad_dru",
+    "sha256": "7d26c90af126d96870bb398b1ebb9b4794a676f3d12924c3dccdce8b3135b116"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-sensor-r2-synced.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-sensor-r2-synced.kicad_pcb",
+    "sha256": "e55a9597be110d6f9b51fe42343a87f83d8a50047c582b812bc6714a6f0cb237"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-sensor-r2-synced.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-sensor-r2-synced.kicad_pro",
+    "sha256": "62512b69dda3ff8a3308d958ebc716a4722085efdcb87b0e7318cb1c67cb411d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-usb-r2-synced.check.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-usb-r2-synced.check.json",
+    "sha256": "e6c916dc6d097516bfb8b2e90f20901c66e245c1f21a36ee19c6dd0b559d1bf7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-usb-r2-synced.drc.json",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-usb-r2-synced.drc.json",
+    "sha256": "bf2a3209782a0b0d5fea79ad760a5c5199b0c3ce479ead9f2c7cf1e298818d06"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-usb-r2-synced.kicad_dru",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-usb-r2-synced.kicad_dru",
+    "sha256": "fc16b9100fef1a4cb223e5ddafcea3ba0137507080701ba820e2c841c15037dd"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-usb-r2-synced.kicad_pcb",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-usb-r2-synced.kicad_pcb",
+    "sha256": "7c35a87ff30df5b5a5851097fcd866542e496dff278b1bb30a97a15831609436"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/SmartVio-usb-r2-synced.kicad_pro",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/SmartVio-usb-r2-synced.kicad_pro",
+    "sha256": "6ffc3a98c7a722c8513aae16fe6f835f6331c3660621c0f9decfb25f248dbbe9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/hardware-R3/pcb/fp-lib-table",
+    "sourcePath": "deliveries/SmartVio-工程整改-20261012-R3/project/pcb/fp-lib-table",
+    "sha256": "47a064ecd1ff3b7997a73f44577948f355e4259c5925bb0f62bc82a1b15042dc"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/preview/violin-render-20261009.png",
+    "sourcePath": "deliveries/SmartVio-最终效果图-20261009/SmartVio-整机外观效果图-20261009.png",
+    "sha256": "6a293f952dfd165bab79bf920ed58763e5c31adf04343a049f7c6cecb881cea1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/.gitignore",
+    "sourcePath": "client-current/.gitignore",
+    "sha256": "c1b1c4b2de095ff97e03325f1cdf648b9eb14c0afaf83373869d98c3a2f436a6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/README.txt",
+    "sourcePath": "client-current/README.txt",
+    "sha256": "a91b25ad07238e51ed645337697af971b08537dceacbb87be822340a813342f4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle.config.ts",
+    "sourcePath": "client-current/drizzle.config.ts",
+    "sha256": "98ce916dbc6ac36109c0c41d0d39bdf7d4c97d00bfe875f7e2267766307abba7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/mobile-home-preview.jpg",
+    "sourcePath": "client-current/mobile-home-preview.jpg",
+    "sha256": "7d02abbe408e40430a7aa6ca530c3e459a4da6e7b418db984515156c17bd9e61"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/preview/client-home.jpg",
+    "sourcePath": "client-current/mobile-home-preview.jpg",
+    "sha256": "7d02abbe408e40430a7aa6ca530c3e459a4da6e7b418db984515156c17bd9e61"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/package.json",
+    "sourcePath": "client-current/package.json",
+    "sha256": "4c9887f2c016368bb80bae7e32e37b616e3bec7140497930bfdab6d01e94243c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/pnpm-lock.yaml",
+    "sourcePath": "client-current/pnpm-lock.yaml",
+    "sha256": "97091aed83475654b0e893650f93371ce587c574cb55d46f8a3cc5fccf521b12"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/pnpm-workspace.yaml",
+    "sourcePath": "client-current/pnpm-workspace.yaml",
+    "sha256": "ac02d96368617c760f093cfe61fdec64b6244007ab3553e0d6621f706f54a353"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/asset-notes/beginner-photo-generation.json",
+    "sourcePath": "client-current/asset-notes/beginner-photo-generation.json",
+    "sha256": "b4a2fb182f52ab206654d5982530269302c8057abe8fbca9f7c67d9c504f3ed6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/asset-notes/catalog-source-verification.json",
+    "sourcePath": "client-current/asset-notes/catalog-source-verification.json",
+    "sha256": "f6e8c18e712bea83a516b9e3bb5a7dfef38da390d58516209145f077122e5af7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/asset-notes/song-cover-generation.json",
+    "sourcePath": "client-current/asset-notes/song-cover-generation.json",
+    "sha256": "728ff60192149bf469fc7d65374c169e073db2b35aae2b0b7a3d6addcbc808d4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/catalog/expansion-20261014.json",
+    "sourcePath": "client-current/catalog/expansion-20261014.json",
+    "sha256": "fd78adb5a46a62b1c39826ec62c5309cca4ce4c2ecd2ddf3a14b8febeebe6107"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/db/schema.ts",
+    "sourcePath": "client-current/db/schema.ts",
+    "sha256": "3381bcc2e4a75a8e0316244b80bfead17c81f8a2500ce903a478fae94abf8efe"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/LUCIDE-LICENSE.txt",
+    "sourcePath": "client-current/dist/LUCIDE-LICENSE.txt",
+    "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/admin.css",
+    "sourcePath": "client-current/dist/admin.css",
+    "sha256": "62a73ced97936fce4ae3bc6d6bbb670998c58fcdfd2f81f9916e0aaac7eb8bf0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/admin.html",
+    "sourcePath": "client-current/dist/admin.html",
+    "sha256": "1c77238a4b18c82762dee3121e27d7b9c774bd54a8ee5434c999495e6790afe8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/admin.js",
+    "sourcePath": "client-current/dist/admin.js",
+    "sha256": "2017172c8c1a3d2000a26ae12cd545ce1d3e74b72a3d140cb6055198ed0a4918"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/audio-engine.js",
+    "sourcePath": "client-current/dist/audio-engine.js",
+    "sha256": "44843c5d92a00e8ac09fa47fd74468cbd0e4b70e70d0af010aed854a39be5a08"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/client.html",
+    "sourcePath": "client-current/dist/client.html",
+    "sha256": "98433feec2dec091141ae1313a4fbc974190a587db50680f2d734a21edc23a35"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/client.js",
+    "sourcePath": "client-current/dist/client.js",
+    "sha256": "442c2ea3774f03478e1781ad5b39e0f9c73b5697d591db98e38af7393ee33e71"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/common.js",
+    "sourcePath": "client-current/dist/common.js",
+    "sha256": "0e0410476a39ed62497d3bfd2b158b2fb40f812e6c24927e20667b1a86bc3c47"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/community.css",
+    "sourcePath": "client-current/dist/community.css",
+    "sha256": "01b6ff29905bb8dafe9931816511e087a0d43695c3b27e7ad5d58beca66e91b3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/community.js",
+    "sourcePath": "client-current/dist/community.js",
+    "sha256": "0c097da7813ab3a97b9e4ab9ebc98c108f27e892ef55833635e61d0e65ba6603"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/device-bridge.js",
+    "sourcePath": "client-current/dist/device-bridge.js",
+    "sha256": "6dff3d8672d1f7f8f83ead60fe33ea1f0b98eef229fa16315e069714a16ac1e9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/favicon.svg",
+    "sourcePath": "client-current/dist/favicon.svg",
+    "sha256": "aea21c1655f464243a74d45138b831b7ae6d9695c7c13503817d0ccbf9695746"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/i18n.js",
+    "sourcePath": "client-current/dist/i18n.js",
+    "sha256": "b41926a9f60b7ba52c8518dc8b4977fed93ecb78ab8dcb2325c545a412d7b7f6"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/identity.js",
+    "sourcePath": "client-current/dist/identity.js",
+    "sha256": "be280c7fa8aa39ff048354e1f5840bfacd5803df617a6146d583b186a910b1df"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/index.html",
+    "sourcePath": "client-current/dist/index.html",
+    "sha256": "98433feec2dec091141ae1313a4fbc974190a587db50680f2d734a21edc23a35"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning-path.css",
+    "sourcePath": "client-current/dist/learning-path.css",
+    "sha256": "b35439ce6308458c80253d529959d03943adf1a580960cc14bc4b9636f6d639b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning-path.js",
+    "sourcePath": "client-current/dist/learning-path.js",
+    "sha256": "af3ddba0b164af2fe9a26e55f5b734d39ad34ac15253df072e6446e98445a9ab"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/lucide.min.js",
+    "sourcePath": "client-current/dist/lucide.min.js",
+    "sha256": "ab85225ecc1daa2033607856f03dd2dabcbc08e2d260a5b97e17c690aa929766"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/media-store.js",
+    "sourcePath": "client-current/dist/media-store.js",
+    "sha256": "27d1156f8fda5e97b7ee6f7e3df41a2c6de74db1f9eebc464254379c3e005fa8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/midi.js",
+    "sourcePath": "client-current/dist/midi.js",
+    "sha256": "43967a20ebe046821607a2b05a81db1909d08f79bf4a146b53440a1479c57dbf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/module.png",
+    "sourcePath": "client-current/dist/module.png",
+    "sha256": "818d1f3d2497105b22c6c15ffa0d9e366142c5b018fb32a11e85c871630cf63b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/offline.js",
+    "sourcePath": "client-current/dist/offline.js",
+    "sha256": "eec50d59aead8cfd9cbf876f25e851d2eabaee0d6c4c4be7cb87fab9525bffb8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/performance.js",
+    "sourcePath": "client-current/dist/performance.js",
+    "sha256": "d6196d0bee6788d6d48b0d27c7e8fbb712b53781c32b9623c530f8cf3e89c602"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/pitch.js",
+    "sourcePath": "client-current/dist/pitch.js",
+    "sha256": "e7066d03607b78766a5eb7ba401b978d95cc69c7029a46d12a6738cea529afe5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/preset-cloud.css",
+    "sourcePath": "client-current/dist/preset-cloud.css",
+    "sha256": "d1d37049246d279e6449b3fb137e8d75f311ef4a5a5ba2fe274b930d02f697a9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/preset-cloud.js",
+    "sourcePath": "client-current/dist/preset-cloud.js",
+    "sha256": "1b7fad12974f05ffaf8552e1deedd4bd6707b72d79425335a76898c5ace8ac79"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/score-model.js",
+    "sourcePath": "client-current/dist/score-model.js",
+    "sha256": "4466e21a207d7b4324df52d1441b5ff0be25950eefe48633aa4927258084cf02"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/seed.js",
+    "sourcePath": "client-current/dist/seed.js",
+    "sha256": "74ed6bd3a01539153e69de9051e03bb7cafb93d979b70085997e01c70b96b3cb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/style.css",
+    "sourcePath": "client-current/dist/style.css",
+    "sha256": "b1157d6627fd29d8a2d83318be2ec6813a21628b6899597d7eda3e1c153d154d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/sw.js",
+    "sourcePath": "client-current/dist/sw.js",
+    "sha256": "e70aa5f0e5ca8107b7e69cddf6b56a3e53b26473652f23cf466c9a1280085729"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/tutorial.css",
+    "sourcePath": "client-current/dist/tutorial.css",
+    "sha256": "cd8ae69a7317b5166bc71545a5d37588e32c7cb86cc2e4332a0de18995b51405"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/tutorial.js",
+    "sourcePath": "client-current/dist/tutorial.js",
+    "sha256": "7441afc623f633dcae3363277b47a3172efab42a6f90bd485b2c9f72ba01d679"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/video-capture.js",
+    "sourcePath": "client-current/dist/video-capture.js",
+    "sha256": "ebc1e89d8ee3bdbaab7a51d052307ef96ab5e5576ae021e238b9c482c50bb5a2"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/violin.png",
+    "sourcePath": "client-current/dist/violin.png",
+    "sha256": "2934c234811bb047777974d059b00233a1f8e425f5b55ebc4ea5fb9967baa07a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/brands/silvio-wordmark.png",
+    "sourcePath": "client-current/dist/brands/silvio-wordmark.png",
+    "sha256": "d09f2df80e1095b7a60527c5f77738a21813ddbb9db7c3c633ef039eefc48e8f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/brands/vellen-wordmark.png",
+    "sourcePath": "client-current/dist/brands/vellen-wordmark.png",
+    "sha256": "dede05934d790437edd3b56306e7b6618474ba1d652db3b9a3bea43a60209546"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s001.jpg",
+    "sourcePath": "client-current/dist/covers/s001.jpg",
+    "sha256": "a80bd61fc5614080c820c1779a8f42e992fd13c9a0e442159976cb38fa98198b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s002.jpg",
+    "sourcePath": "client-current/dist/covers/s002.jpg",
+    "sha256": "e2b2c4bba6d761ff3d006691d8f08d74c5e14758bf8afe28f3a68f50e4a1cf46"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s003.jpg",
+    "sourcePath": "client-current/dist/covers/s003.jpg",
+    "sha256": "70768b3616f330b8a6546a6abee3c5ba5ba0870c4f3f9035d8c4b81804679f7a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s004.jpg",
+    "sourcePath": "client-current/dist/covers/s004.jpg",
+    "sha256": "d22a7bb42950bfb143f5d44e9fa6bb89071e3bc2118bbd8f9af7a43d6a23db6b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s005.jpg",
+    "sourcePath": "client-current/dist/covers/s005.jpg",
+    "sha256": "455f81d2fc337ba0e85dec74c785ea8c99ec4a53cb161a8667e3d89063cf132c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s006.jpg",
+    "sourcePath": "client-current/dist/covers/s006.jpg",
+    "sha256": "470b23d962c9d32f0aac90f2d862653e6631b886bded8e86f9319d69116d8f80"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s007.jpg",
+    "sourcePath": "client-current/dist/covers/s007.jpg",
+    "sha256": "39750ddd583a9b138874cceee23c6ba8b4a88db977ed60cac62f0a9ee3d01edf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s008.jpg",
+    "sourcePath": "client-current/dist/covers/s008.jpg",
+    "sha256": "bd53bcc9a0f3067ee5e31a57cf6c6fedb37303923f8f3df8fe3ab5b70189d19f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s009.jpg",
+    "sourcePath": "client-current/dist/covers/s009.jpg",
+    "sha256": "b0cad83ce1bae3b980ca089831a37234196da2d78b9b9c0daf030e3adccd2b03"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s010.jpg",
+    "sourcePath": "client-current/dist/covers/s010.jpg",
+    "sha256": "8b167581591867f4b9841c6b52c59def2d368cdd455be94a237768f9d7ac5d72"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s011.jpg",
+    "sourcePath": "client-current/dist/covers/s011.jpg",
+    "sha256": "50589e4f97d5634b930c41a0bb97d4dfca0f34441c20d76477b24ef73bd62264"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s012.jpg",
+    "sourcePath": "client-current/dist/covers/s012.jpg",
+    "sha256": "216f5b03f48f50b5c1e3ce184501fe76f40c60dbd7bbd19b97f90cb5dc0e67bd"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s013.jpg",
+    "sourcePath": "client-current/dist/covers/s013.jpg",
+    "sha256": "920a6ba8e6f5385aa40d4ef3e9563deed5a329bad50a75512fd9aa6477f45d43"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s014.jpg",
+    "sourcePath": "client-current/dist/covers/s014.jpg",
+    "sha256": "fdb77113f6719d8da3ae07cefc685fc6bfd81291dec419d6b83c3a20c2e93a01"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s015.jpg",
+    "sourcePath": "client-current/dist/covers/s015.jpg",
+    "sha256": "2edcf8e6dcf231fb2a3de23d459c7ad7b3b11c8fbf619d5e5be5d5a47dc70d77"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s016.jpg",
+    "sourcePath": "client-current/dist/covers/s016.jpg",
+    "sha256": "93e64bc4143df69602bdfc5cf9db9fa010055437efaf606e895ba277e1b04571"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s017.jpg",
+    "sourcePath": "client-current/dist/covers/s017.jpg",
+    "sha256": "418fb8f5b3e68de0d105e1f7f3350da5d7f29957e8d8b33489c5095d9f12d48b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s018.jpg",
+    "sourcePath": "client-current/dist/covers/s018.jpg",
+    "sha256": "055c65ade15013ecd077b791f44b79e0d57c1379477111ff8915fe9a684f48be"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s019.jpg",
+    "sourcePath": "client-current/dist/covers/s019.jpg",
+    "sha256": "c87a1f3a42164b6fee9d1fb1fca6894a08e5a2f8254b3c807a73b60c4cd5440a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s020.jpg",
+    "sourcePath": "client-current/dist/covers/s020.jpg",
+    "sha256": "3a9109ca2f62a89cd2636d4cc5e9e882a50e8d1a95ae40dfb69bd22fb1bb375c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s021.jpg",
+    "sourcePath": "client-current/dist/covers/s021.jpg",
+    "sha256": "d95f80b47ce2dc734e15f7bfc5289e72c32734d08cc848b9fc39c8fa05a354f8"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s022.jpg",
+    "sourcePath": "client-current/dist/covers/s022.jpg",
+    "sha256": "1ffed426f1ddebc1371a69cd62dd664eb467c6efc70f7e6fbeb7888a0a448dfc"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s023.jpg",
+    "sourcePath": "client-current/dist/covers/s023.jpg",
+    "sha256": "6d2da60db136a7d8ad795d0cd60e1d90ea13cc2b7a9da3998a0541000013c150"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s024.jpg",
+    "sourcePath": "client-current/dist/covers/s024.jpg",
+    "sha256": "68f81f8e415901f3b1e62f500be8c39a4442f5c71055d1fc8e2d2a0027e8a78d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s025.jpg",
+    "sourcePath": "client-current/dist/covers/s025.jpg",
+    "sha256": "b4a3a2cbdae3480b115b77967b248b91afe27e423db552fa321c06cb3517e967"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s026.jpg",
+    "sourcePath": "client-current/dist/covers/s026.jpg",
+    "sha256": "fabed6ad06dd542ad73a396a982ad639375355c498a8e45fb076aaceab4632d4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s027.jpg",
+    "sourcePath": "client-current/dist/covers/s027.jpg",
+    "sha256": "d61f5f5a7870a136e49c38a660ff02cf962787407587332773ccf05c923b5035"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s028.jpg",
+    "sourcePath": "client-current/dist/covers/s028.jpg",
+    "sha256": "a02e4ae5c3943b7029822d6835086e84eaca0b6dd2b02dbf54fd6c280ea9778d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s029.jpg",
+    "sourcePath": "client-current/dist/covers/s029.jpg",
+    "sha256": "fb2920acf62c774550aeed2cd1a2286856899428dfa8a8ce109164fe84986cca"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s030.jpg",
+    "sourcePath": "client-current/dist/covers/s030.jpg",
+    "sha256": "6d2814fdbd660a309f2decfb5ba63452141b9022aaa0dd91b89e89e2b7d1c83c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s031.jpg",
+    "sourcePath": "client-current/dist/covers/s031.jpg",
+    "sha256": "3376619699a8a77240cce552b705b8de00fc53c5da25d3cf5bd5be45e5eb4e30"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s032.jpg",
+    "sourcePath": "client-current/dist/covers/s032.jpg",
+    "sha256": "728263cf9cefaad2a146253d94196ebe7ee5540c6ca63019394490150508bee7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s033.jpg",
+    "sourcePath": "client-current/dist/covers/s033.jpg",
+    "sha256": "696fac10ab1f84f532f667638a7bb23878ffeaa90c5cb165dc0e9902df01123e"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s034.jpg",
+    "sourcePath": "client-current/dist/covers/s034.jpg",
+    "sha256": "286ed2919487c75685a6f11e8d9f36f2b735a6ac72c0aab303387687693b1ade"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/covers/s035.jpg",
+    "sourcePath": "client-current/dist/covers/s035.jpg",
+    "sha256": "d2d6a5cb0dbbd5d25ab8330258c7425b4c591c5e7e4c25071c6fb8c0d57adf39"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/icons/apple-touch-icon.png",
+    "sourcePath": "client-current/dist/icons/apple-touch-icon.png",
+    "sha256": "5fb2057faf557f39b3c1295f1a2600f20d1c67f60e6c95846418f2c465e46355"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/icons/icon-192.png",
+    "sourcePath": "client-current/dist/icons/icon-192.png",
+    "sha256": "efe59c3e46191aa85ffcfb607b1d4b5ee0af84adae30c5636cc86f17c6e92acb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/icons/icon-512.png",
+    "sourcePath": "client-current/dist/icons/icon-512.png",
+    "sha256": "8600ad9482987361705718eb23015e52d4f07807ab03b658a351873bfa69cd9f"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning/confidence.jpg",
+    "sourcePath": "client-current/dist/learning/confidence.jpg",
+    "sha256": "b24d6af5abd4a39c1fa89001269fa111d24cb5677c5652df6856dcb6a3332474"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning/listen.jpg",
+    "sourcePath": "client-current/dist/learning/listen.jpg",
+    "sha256": "89e776fc674d58079bd151fbfea80044d5114a309cd2f570264125da4abed848"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning/phrase.jpg",
+    "sourcePath": "client-current/dist/learning/phrase.jpg",
+    "sha256": "6356f4f6f53e8cb782d55f78af868186cfa0297d5910eed29baba84d1b285620"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning/record.jpg",
+    "sourcePath": "client-current/dist/learning/record.jpg",
+    "sha256": "9879ac94d8f5988235c44cfb6e18e0e12310650157c5b661187358abb58ac72c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning/tuner.jpg",
+    "sourcePath": "client-current/dist/learning/tuner.jpg",
+    "sha256": "55207d659bd8f016f3dcd1c55c5156e2cd0bf8120a871a83c70e1a6ef5b98669"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/learning/welcome.jpg",
+    "sourcePath": "client-current/dist/learning/welcome.jpg",
+    "sha256": "4b91fb4fff1d98cbcf066a3d712897bbfcd967f40bc34d0eb852553ebb8edc76"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/reports/SmartVio-feasibility-20261014.pdf",
+    "sourcePath": "client-current/dist/reports/SmartVio-feasibility-20261014.pdf",
+    "sha256": "d40cd85d31f4d4a3c384ec4d2a97da7fcfecb5a50d139c797ea6732156ddef0d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/reports/backend-validation-20261014.json",
+    "sourcePath": "client-current/dist/reports/backend-validation-20261014.json",
+    "sha256": "a6a62cac698e8cf0799862050385194ebb06e846e129e48785391fddfc6bf9f1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/reports/browser-validation-20261014.json",
+    "sourcePath": "client-current/dist/reports/browser-validation-20261014.json",
+    "sha256": "17689306fc73c0474dd222c551184c729a222bd57dc00ba8502025ef9dead74d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/reports/feasibility-20261014.html",
+    "sourcePath": "client-current/dist/reports/feasibility-20261014.html",
+    "sha256": "fd7f95b8e53bdb9d67d0abad88a99a612ae72f05abcb6584592564a30c293f75"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/server/index.js",
+    "sourcePath": "client-current/dist/server/index.js",
+    "sha256": "8362f19b9e7dd3d38a2e4f519837c07e1a55c77209f7bd6fa7a3498df8eb0718"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/0000_wise_roland_deschain.sql",
+    "sourcePath": "client-current/drizzle/0000_wise_roland_deschain.sql",
+    "sha256": "abaf9c1a0fd9a108aa4eedc6a61e430fa109c1b437a4ec0fbcc87fd324b8b8f3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/0001_furry_zarek.sql",
+    "sourcePath": "client-current/drizzle/0001_furry_zarek.sql",
+    "sha256": "aa30c2d99662875a2c37ad57603d3cec649bc8802c206ef2a55c11a471db2dee"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/0002_learn_onboarding.sql",
+    "sourcePath": "client-current/drizzle/0002_learn_onboarding.sql",
+    "sha256": "213dfca8c6b72878611367b186902c21b05ddcda7f6ef3821dcbd89b63f7f1b9"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/0003_private_preset_backup.sql",
+    "sourcePath": "client-current/drizzle/0003_private_preset_backup.sql",
+    "sha256": "2a6ba61c11cd59630f979d118b232db3bf894c32af2f1a669518e3c899ac380b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/0004_community_videos.sql",
+    "sourcePath": "client-current/drizzle/0004_community_videos.sql",
+    "sha256": "4bbdfeae86b71f9db5e782d1edfa78d61cfcc4e15547b6e9a380cdb10315a18d"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/meta/0000_snapshot.json",
+    "sourcePath": "client-current/drizzle/meta/0000_snapshot.json",
+    "sha256": "f829f68d0e6ab7d5f65f07024973bb3c915f7c1472ef651ababefb938e493ecf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/meta/0001_snapshot.json",
+    "sourcePath": "client-current/drizzle/meta/0001_snapshot.json",
+    "sha256": "71c03615f9765b65cd6e70d9b9f058cdfc38b6bcf61bd603737995571e616fbf"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/meta/0002_snapshot.json",
+    "sourcePath": "client-current/drizzle/meta/0002_snapshot.json",
+    "sha256": "06e8e92cd10d2b2b0562f8e8880c7d17e57755ac95da45bd46d4af6de1d9098b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/meta/0003_snapshot.json",
+    "sourcePath": "client-current/drizzle/meta/0003_snapshot.json",
+    "sha256": "4b00a8cf401b89ac57ec210c0277152fe601da4697743c53912bc99bfc839478"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/meta/0004_snapshot.json",
+    "sourcePath": "client-current/drizzle/meta/0004_snapshot.json",
+    "sha256": "bcff4f0f68fd9d3915dcf17d9abfb1cf9aab32f3281ce8f4ab8fa693224ba3d5"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/drizzle/meta/_journal.json",
+    "sourcePath": "client-current/drizzle/meta/_journal.json",
+    "sha256": "5cd5b33717dc016da3f102209f0d9ee58525ae0bfe8471cec2e7047199f29234"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/apply-catalog.cjs",
+    "sourcePath": "client-current/scripts/apply-catalog.cjs",
+    "sha256": "4d36db85eeadabc2b9d4097ba1240db4c5a57f0f058cf0f3c07256acd4195076"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/build-worker.cjs",
+    "sourcePath": "client-current/scripts/build-worker.cjs",
+    "sha256": "ca09058c49df70088b2cb64d44f0738e9cccc252e0930e13467c0ccbd5618b94"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/package-release.cjs",
+    "sourcePath": "client-current/scripts/package-release.cjs",
+    "sha256": "41247e8b12762a3f38fbcd5c0865af4d50fbd45e2e9e9979ef98b69f9cd55f9c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/prepare-source-backup.cjs",
+    "sourcePath": "client-current/scripts/prepare-source-backup.cjs",
+    "sha256": "900740c817542c62c58036542cb62909f8893c79025058f31775e1e13b6e1932"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/preview.mjs",
+    "sourcePath": "client-current/scripts/preview.mjs",
+    "sha256": "1d2544f01f2755d7a31a0f79bdbe45a7285156783e7b2fdf57cfbf99dfff7839"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/render-feasibility-report.py",
+    "sourcePath": "client-current/scripts/render-feasibility-report.py",
+    "sha256": "108e05bd45e7206ce6450d431697434968b0d4251e4def616cada52b77c0e8e0"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/scripts/validate-catalog.cjs",
+    "sourcePath": "client-current/scripts/validate-catalog.cjs",
+    "sha256": "963476dbe320ad8f43e5f5a8cf3a567f5695a7d66a4ba170833e0ccd1db92c19"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/audio-engine.test.mjs",
+    "sourcePath": "client-current/tests/audio-engine.test.mjs",
+    "sha256": "91732dc0e4b569da90cd4ee3686e94be773b6ddfd1b960741a734aa309af0e58"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/ble-midi.test.mjs",
+    "sourcePath": "client-current/tests/ble-midi.test.mjs",
+    "sha256": "bb51ae81cf17bf786abec7127d537e7acbe94f60cff9a6fcbd1d8924459fe8af"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/community-api.test.mjs",
+    "sourcePath": "client-current/tests/community-api.test.mjs",
+    "sha256": "21fbacf6efc0eba6b11a15a614eeb9416a2cd852ab403d03339da7e854553efc"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/community-video.test.mjs",
+    "sourcePath": "client-current/tests/community-video.test.mjs",
+    "sha256": "a9f17de27979785a6ba72c3477e5aaa71a8c154c8a19de52886ca7b053426b3c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/d1-sqlite.mjs",
+    "sourcePath": "client-current/tests/d1-sqlite.mjs",
+    "sha256": "3b7e474a9a01feb7faa0fdd10cd3e64a23fffd6aefd3c1721fa59241534c0cf3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/device-bridge.test.mjs",
+    "sourcePath": "client-current/tests/device-bridge.test.mjs",
+    "sha256": "24fcf9f4665b45228bbcc347b9713c432dbe81bd1dcc80f73f5132ad6c6bc6b7"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/learning-path.test.mjs",
+    "sourcePath": "client-current/tests/learning-path.test.mjs",
+    "sha256": "9576053afca97e698c6623cb635342d08e5c487af125d835d4b6b2cc3cd85c93"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/local-preset.test.mjs",
+    "sourcePath": "client-current/tests/local-preset.test.mjs",
+    "sha256": "ac399b97cee6645381ec3d226757160fa8d0620c2e03d8c99b61dd7d128575de"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/midi.test.mjs",
+    "sourcePath": "client-current/tests/midi.test.mjs",
+    "sha256": "70502515aa3dd1dafc3d1fdbde4265aead9ce35499d48c9f817a4cd13fea2200"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/performance.test.mjs",
+    "sourcePath": "client-current/tests/performance.test.mjs",
+    "sha256": "62a9b5188409a346649afa5801467fdc472f3f4ee9287706ac7758181849d829"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/preset-api.test.mjs",
+    "sourcePath": "client-current/tests/preset-api.test.mjs",
+    "sha256": "986404d90dcc6d51ad543e27a77606eb15f8394c81561671241e900b33b90567"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/source-backup.test.mjs",
+    "sourcePath": "client-current/tests/source-backup.test.mjs",
+    "sha256": "d882f09ab2afa753147e46b726da99f7ee992298519b5b4c621ae26655d7954c"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/video-capture.test.mjs",
+    "sourcePath": "client-current/tests/video-capture.test.mjs",
+    "sha256": "b75252cb3cd57734d5595434c8117daaec23442ee44df671db39ccb1a380bd0a"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/tests/video-inspection.test.mjs",
+    "sourcePath": "client-current/tests/video-inspection.test.mjs",
+    "sha256": "22684f9a999cb8f5c919f952893d09a98b85a9211ca6e9622e6061abd57ea015"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/worker/community.mjs",
+    "sourcePath": "client-current/worker/community.mjs",
+    "sha256": "895cac6a8d84025664d1627f0812e325841b763687b9c25ee91ce2a39fb25356"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/worker/video-inspection.mjs",
+    "sourcePath": "client-current/worker/video-inspection.mjs",
+    "sha256": "31516332df65952fbc1067a2443964a08d7e1a77a6c3e037b03e78d28a8b43e1"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-de.webmanifest",
+    "sourcePath": "client-current/dist/manifest-de.webmanifest",
+    "sha256": "443a54c4a06e035f26355ef20bb1dd78438384b153d1d22d57917719b9210471"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-en.webmanifest",
+    "sourcePath": "client-current/dist/manifest-en.webmanifest",
+    "sha256": "c66f54583069f96985aabd7ba359091c33afed4371c2850cb60e4565f3a181d4"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-ja.webmanifest",
+    "sourcePath": "client-current/dist/manifest-ja.webmanifest",
+    "sha256": "f3e2c61f0f0ab6964a88b2516c26677edb3aacfcf02769dfb6bad393664e3fdb"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-vellen-de.webmanifest",
+    "sourcePath": "client-current/dist/manifest-vellen-de.webmanifest",
+    "sha256": "443a54c4a06e035f26355ef20bb1dd78438384b153d1d22d57917719b9210471"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-vellen-en.webmanifest",
+    "sourcePath": "client-current/dist/manifest-vellen-en.webmanifest",
+    "sha256": "ff8e3de3a28e4dc8e835fcf344b1a190889da779d163ecadb443f8ceaa123927"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-vellen-ja.webmanifest",
+    "sourcePath": "client-current/dist/manifest-vellen-ja.webmanifest",
+    "sha256": "93f8d639a894288d14218e3608ab804e6a1fcf9d5e1199253cafb47e5cd0ebe3"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-vellen-zh.webmanifest",
+    "sourcePath": "client-current/dist/manifest-vellen-zh.webmanifest",
+    "sha256": "fa417cdae7eb057db0183374804896755a821e33b3c32673113af17fe41b0e1b"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest-zh.webmanifest",
+    "sourcePath": "client-current/dist/manifest-zh.webmanifest",
+    "sha256": "b2a87de9249fbedf04d68fcf5dc93cbb7a48244d5194fcc0b0b2db6b565c6235"
+  },
+  {
+    "repoPath": "snapshots/2026-10-15-all-generated/current/client/dist/manifest.webmanifest",
+    "sourcePath": "client-current/dist/manifest.webmanifest",
+    "sha256": "2ea73f5808ce0beb8b8f2b24da841e68c9144dab8cd3f42f00d8694470631f0a"
+  }
+]

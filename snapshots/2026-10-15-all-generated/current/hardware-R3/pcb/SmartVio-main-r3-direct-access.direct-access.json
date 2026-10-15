@@ -1,0 +1,172 @@
+{
+  "sourceSHA256": "cc44e592ee62f646e01e8582c6028226aa319e2810a51ed8a0a0280f4650d5c0",
+  "nativeRulesUnchanged": true,
+  "records": [
+    {
+      "pad": "U801.3",
+      "net": "ADC_FS_SRC",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "R810.1",
+      "net": "ADC_FS_SRC",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U902.16",
+      "net": "PLAY_BCK",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "R601.1",
+      "net": "ADC_XI",
+      "via": [
+        3.975,
+        31.799999999999997
+      ],
+      "uuid": "271bf660-c02b-4647-b3ca-8c1729ff3441",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "U601.10",
+      "net": "ADC_XI",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U601.23",
+      "net": "I2C_AUDIO_SDA",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U1902.3",
+      "net": "I2C_AUDIO_SDA",
+      "via": [
+        57.15,
+        38.150000000000006
+      ],
+      "uuid": "fe9d3c55-8e14-40ed-b299-f59bd5104da4",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "R291.1",
+      "net": "LINE_AC_R",
+      "via": [
+        7.975,
+        34.3
+      ],
+      "uuid": "cb7ec451-5129-4fa3-9303-d9032eecbf7a",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "C202.2",
+      "net": "LINE_AC_R",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "R232.1",
+      "net": "RET_AC_R",
+      "via": [
+        25.075,
+        34.8
+      ],
+      "uuid": "50ede156-5067-4166-8c8b-aa9d96361eb4",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "C222.2",
+      "net": "RET_AC_R",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "H_USB_2_M.1",
+      "net": "USB_DATA_FAULT_N",
+      "via": [
+        27.25,
+        1.5
+      ],
+      "uuid": "6790a03c-3aad-4280-a121-b0baaacf1d65",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "U801.39",
+      "net": "USB_DATA_FAULT_N",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U1701.6",
+      "net": "MON_SYS_ADC",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U1902.2",
+      "net": "I2C_SDA",
+      "via": [
+        57.15,
+        38.8
+      ],
+      "uuid": "4ae287a9-3072-428d-b4ad-4a37cc3f1d9d",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "R702.1",
+      "net": "DAC_RAW_R",
+      "via": [
+        7.975,
+        38.3
+      ],
+      "uuid": "e08ecdce-5557-4521-bb48-1b518081b8cc",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "U701.7",
+      "net": "DAC_RAW_R",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U701.17",
+      "net": "DAC_UNMUTE",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "R703.1",
+      "net": "DAC_UNMUTE",
+      "via": [
+        11.475,
+        38.8
+      ],
+      "uuid": "ba62bf92-36d7-409a-9688-c11bac9ae500",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "U801.22",
+      "net": "DAC_UNMUTE",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "R231.2",
+      "net": "RET_BIAS_L",
+      "via": [
+        19.775000000000002,
+        35.8
+      ],
+      "uuid": "eb071a22-7ab7-4211-a09b-c29abe0eb7d0",
+      "status": "EXACT_GEOMETRY_CANDIDATE_NATIVE_CHECK_REQUIRED"
+    },
+    {
+      "pad": "U201.10",
+      "net": "RET_BIAS_L",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "U801.47",
+      "net": "CHG_PGOOD_N",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    },
+    {
+      "pad": "R1902.2",
+      "net": "CHG_PGOOD_N",
+      "status": "NO_DIRECT_THROUGH_VIA_SITE"
+    }
+  ],
+  "productionApproved": false
+}

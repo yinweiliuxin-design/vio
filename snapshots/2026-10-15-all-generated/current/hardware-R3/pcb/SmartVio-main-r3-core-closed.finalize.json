@@ -1,0 +1,28 @@
+{
+  "sourceSHA256": "ed86e6cfbe4fb82e7c7b13ec20b5e28a8df5c1f28ae1d993e95066eb050b9691",
+  "resultSHA256": "1d122deb08099383eb8b8187d022f1aad777d81e0d9af6a1d2a01e13fce85f5c",
+  "unusedNewViasRemoved": [
+    {
+      "uuid": "29f331aa-7d9e-4ca4-998c-7e671381d5fe",
+      "net": "RET_AC_R",
+      "xy": [
+        25.075,
+        34.8
+      ]
+    },
+    {
+      "uuid": "838e5ca8-d96f-47a7-a498-c4c1f0f55575",
+      "net": "CHG_PGOOD_N",
+      "xy": [
+        37.2,
+        20.775
+      ]
+    }
+  ],
+  "nativeViolations": 0,
+  "nativeUnconnected": 0,
+  "originalPriorityCopperPreserved": true,
+  "padNetsAndRulesUnchanged": true,
+  "electricalPerformanceReviewed": false,
+  "manufacturingReleased": false
+}

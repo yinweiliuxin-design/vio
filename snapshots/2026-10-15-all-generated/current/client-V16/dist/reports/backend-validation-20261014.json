@@ -1,0 +1,157 @@
+{
+  "at": "2026-10-13T23:41:47.265Z",
+  "target": "http://127.0.0.1:18912",
+  "environment": "isolated loopback preview; scripts/preview.mjs injects preview-owner and strips supplied identity headers",
+  "productionTouched": false,
+  "credentialsUsed": false,
+  "checks": [
+    {
+      "label": "fixture identity and owner whitelist are active",
+      "passed": true,
+      "evidence": {
+        "status": 200
+      }
+    },
+    {
+      "label": "preview identity cannot be changed through caller header",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "community, admin and private preset routes are live",
+      "passed": true,
+      "evidence": {
+        "community": 200,
+        "admin": 200,
+        "preset": 200
+      }
+    },
+    {
+      "label": "admin catalog is sourced from all 68 packaged songs",
+      "passed": true,
+      "evidence": {
+        "catalog": 68
+      }
+    },
+    {
+      "label": "private API state is not cacheable",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "admin audit excludes individual private backup entries",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "test fixture has capacity for one additive test preset",
+      "passed": true,
+      "evidence": {
+        "existingPresetCount": 0
+      }
+    },
+    {
+      "label": "named grouped preset actually persists through HTTP",
+      "passed": true,
+      "evidence": {
+        "version": 1
+      }
+    },
+    {
+      "label": "independent HTTP reload restores saved preset",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "admin aggregate preset count updates with private-client mutation",
+      "passed": true,
+      "evidence": {
+        "presetOwners": 1,
+        "presetCount": 1
+      }
+    },
+    {
+      "label": "admin response never exposes test preset ID/name/parameters",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "stale preset version returns CAS conflict",
+      "passed": true,
+      "evidence": {
+        "status": 409,
+        "code": "CONFLICT"
+      }
+    },
+    {
+      "label": "account-switch guard rejects mismatched read account",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "unsupported digital gain is rejected",
+      "passed": true,
+      "evidence": {
+        "status": 422
+      }
+    },
+    {
+      "label": "cross-origin write is rejected",
+      "passed": true,
+      "evidence": {
+        "status": 403
+      }
+    },
+    {
+      "label": "admin backup feature switch persists",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "admin switch propagates to client community and preset APIs",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "disabled feature prevents new backup writes",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "disabled feature keeps existing backup readable",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "temporary test preset is absent after cleanup",
+      "passed": true,
+      "evidence": {}
+    },
+    {
+      "label": "feature setting restored in admin and client",
+      "passed": true,
+      "evidence": {}
+    }
+  ],
+  "cleanup": {
+    "preset": true,
+    "settings": true
+  },
+  "github": {
+    "baseTreeMustBeTreeSha": true,
+    "commitShaNotDocumentedAsCreateTreeBase": true,
+    "sources": [
+      "https://docs.github.com/en/rest/git/trees#create-a-tree",
+      "https://docs.github.com/en/rest/git/commits#get-a-commit-object"
+    ]
+  },
+  "final": {
+    "presetCount": 0,
+    "presetVersion": 2,
+    "settingsVersion": 4,
+    "cloudPresetBackupEnabled": true,
+    "catalogCount": 68
+  },
+  "result": "PASS",
+  "checkCount": 21
+}

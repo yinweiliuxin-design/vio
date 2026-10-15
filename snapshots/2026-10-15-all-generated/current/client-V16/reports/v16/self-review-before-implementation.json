@@ -1,0 +1,46 @@
+{
+  "schemaVersion": 1,
+  "reviewedAt": "2026-10-15T07:02:33.411Z",
+  "phase": "review-before-implementation",
+  "reviewer": "Codex primary agent",
+  "evidence": [
+    {
+      "file": "learning-midi-feasibility.json",
+      "sha256": "78c31205c356243fb5e275b92f5ee8db43c4d65f468290462323d116fce35db3"
+    },
+    {
+      "file": "community-feasibility.json",
+      "sha256": "16a8678b144f6724af2a6595366c37cd7b565a33bf1c1d55d851d7f80070b2d9"
+    }
+  ],
+  "decisions": [
+    {
+      "area": "learning",
+      "decision": "APPROVED",
+      "scope": "One six-step beginner path with independent stable IDs/local version; retain old nine lessons and guideV2 data under a secondary entry. Original animated SVG, motion controls, no permissions or progress auto-grant."
+    },
+    {
+      "area": "midi",
+      "decision": "APPROVED",
+      "scope": "Fix stale concurrent/late imports using separate import request and document revision; test injected ports, permission refusal, hotplug, editing, tempo and SMF roundtrip."
+    },
+    {
+      "area": "community",
+      "decision": "APPROVED_WITH_GATES",
+      "scope": "Original short-video music feed, existing text/image posts retained. Separate controlled media lifecycle; server-validated MP4/WebM real containers, maximum60s/20000000bytes, authenticated GET/HEAD/Range, review-before-publication, explicit cleanup. No proprietary platform code or recommendation claims."
+    },
+    {
+      "area": "audio",
+      "decision": "APPROVED_WITH_GATES",
+      "scope": "See audio-feasibility.json, reviewed before sound edits. Independent CC0 violin-sample demonstrations; preserve pure tuner references, nine creator presets, microphone recording and separate accompaniment."
+    }
+  ],
+  "conditions": [
+    "No C-drive generated workspace artifacts; all temporary paths E:/codex/Temp",
+    "No proprietary TikTok/X/YouTube code or videos copied",
+    "Unsupported formats report honestly and retain local originals",
+    "No production fake posts or private-user data tests",
+    "Site audience stays owner-private",
+    "Code changed only after review of its section; combined PDF to document decisions and final results separately"
+  ]
+}

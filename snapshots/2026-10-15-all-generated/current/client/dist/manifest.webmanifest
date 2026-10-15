@@ -1,0 +1,17 @@
+{
+  "id": "./",
+  "name": "Silvio 手机琴房",
+  "short_name": "Silvio",
+  "description": "手机浏览器里的电子小提琴练习与录音琴房，数据保存于当前浏览器。",
+  "lang": "zh-CN",
+  "start_url": "./",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#f7f6f2",
+  "theme_color": "#17634e",
+  "icons": [
+    { "src": "icons/icon-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icons/icon-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any maskable" }
+  ]
+}

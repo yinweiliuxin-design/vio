@@ -1,0 +1,22 @@
+{
+  "revision": "R3",
+  "status": "NATIVE_ELECTRICAL_LINKED_PASS_SYSTEM_MANUFACTURING_HOLD",
+  "updatedAt": "2026-10-12T19:00:33",
+  "baselineMainUnconnected": 15,
+  "currentMainUnconnected": 0,
+  "nativeBoardsClean": 5,
+  "nativeFlexBoardsClean": 4,
+  "modeledFlexConnections": 21,
+  "ordinaryConnectionsUnclosed": 16,
+  "manufacturingReleased": false,
+  "physicalTests": 0,
+  "sourceSHA256": "b29b1b0dc3a89bbdd789515018d0a282d7ca252f25c1febe192f95cd58c9e7fa",
+  "selectedBoardSHA256": {
+    "main": "bd2740bea32d6123404d4e7e5cab2b5f80c005b24658d96b6ebe3b7cc8e2bc7b",
+    "usb": "7c35a87ff30df5b5a5851097fcd866542e496dff278b1bb30a97a15831609436",
+    "audio": "25da64c1b02364dcd03c20c53871a05d04f6725ecfea8d3735aebf277fa9698a",
+    "cover": "98a7fea02aa2f9a1d3ce0872b45bf264233983ef728a673a537ac4167318f379",
+    "sensor": "e55a9597be110d6f9b51fe42343a87f83d8a50047c582b812bc6714a6f0cb237"
+  },
+  "originalsPreserved": true
+}

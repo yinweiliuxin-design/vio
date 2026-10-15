@@ -52,7 +52,8 @@ python RESTORE.py --target E:/codex/SmartVio-restored-20261015
 
 ## 可直接浏览
 
-- [当前客户端源码](current/client/)
+- [V16 客户端源码（较新，可直接浏览）](current/client-V16/)
+- [V15 客户端源码（全量采集时的历史副本）](current/client/)
 - [R3 原生EDA、PCB和元件资料](current/hardware-R3/)
 - [机械图与装配效果](preview/R3-mechanical-review.pdf)
 - [24页当前原理图](preview/R3-schematic-review.pdf)
@@ -62,3 +63,5 @@ python RESTORE.py --target E:/codex/SmartVio-restored-20261015
 本次全量采集时的客户端 Git 源提交：`2c7f0a7ce5ffd97372092a1cc4ccaafc36439fbd`（V15）。直接浏览的副本与归档内相同，若脱敏过，以清单记录为准。
 
 采集后另一个任务完成了 V16，源码提交为 `6f461b9612ac69310ec269f289e429fb473664bb`。其已验证备份保留在 [V16 检查点](../../checkpoints/2026-10-15-app-v16-6f461b9612ac/)，不要用本目录的 V15 副本覆盖 V16。历史 V26 及其他已有检查点同样保留，不重写旧交接文档。
+
+V16 的过滤后可浏览副本单独放在 `current/client-V16/`，其源哈希、过滤后哈希及排除项记录于 `V16-DIRECT-FILES.json`。它不改变 20,259 条路径的历史归档清单。

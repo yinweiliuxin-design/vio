@@ -1,0 +1,639 @@
+{
+  "schema": 1,
+  "generatedAtUtc": "2026-10-15T07:21:28.457871+00:00",
+  "scope": "Independent local-file/data QA only. No browser, network, human listening, phone, Bluetooth, hardware, or legal clearance verification performed.",
+  "sourceOriginLimitation": "The local files match the supplied pinned-commit manifest. Their download provenance at GitHub was not independently fetched or verified in this offline read-only check. The full local CC0 license was compared byte-for-byte, which is provenance evidence, not a legal opinion.",
+  "pass": true,
+  "checks": [
+    {
+      "name": "license_bytes_match_original",
+      "passed": true
+    },
+    {
+      "name": "license_sha_matches_manifest",
+      "passed": true
+    },
+    {
+      "name": "license_CC0_title_and_all_four_legal_sections_present",
+      "passed": true,
+      "detail": {
+        "bytes": 6555,
+        "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673"
+      }
+    },
+    {
+      "name": "pinned_commit_matches_record",
+      "passed": true
+    },
+    {
+      "name": "seven_unique_expected_pitches",
+      "passed": true
+    },
+    {
+      "name": "all_seven_audio_assets_pass_data_checks",
+      "passed": true
+    },
+    {
+      "name": "total_wav_bytes_matches_manifest",
+      "passed": true,
+      "detail": 864668
+    },
+    {
+      "name": "total_wav_bytes_under_decimal_one_megabyte",
+      "passed": true,
+      "detail": 864668
+    },
+    {
+      "name": "complete_directory_under_decimal_one_megabyte",
+      "passed": true,
+      "detail": 875978
+    }
+  ],
+  "wavTotalBytes": 864668,
+  "completeDirectoryBytes": 875978,
+  "samples": [
+    {
+      "note": "A3",
+      "midi": 57,
+      "originalFile": "LLVln_ArcoVib_A3_p.wav",
+      "originalBytes": 2911130,
+      "originalSha256": "8daa4ca0eba8a834814435047e36b47826e730a7796c325966323f53debc9e46",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 727771,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "a9131953c5f56c8e7091f6e9c8adbc695dbfdc055a5be8c51f1786fc6983ba51",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.19033112113766779,
+      "rmsDbFS": -14.409803883937276,
+      "peakLinear": 0.79998779296875,
+      "peakDbFS": -1.9383327973301165,
+      "clippedSamples": 0,
+      "dcOffset": 0.0001453583781913063,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.0901997793740616,
+      "expectedEqualTemperamentHz": 220.0,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          220.62884216660404,
+          220.1756430307855,
+          220.5479864190446,
+          220.45543623580878,
+          220.3606058346942
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.973300521180516,
+          0.974796336678416,
+          0.9731945822064108,
+          0.963787110254968,
+          0.9592158815545985
+        ],
+        "spectralFundamentalHzPerWindow": [
+          220.1622148789631,
+          219.82988503048077,
+          220.66928004960116,
+          220.06592694760695,
+          220.39849131715346
+        ],
+        "medianHz": 220.45543623580878,
+        "medianDeviationCents": 3.5802350692002824
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": 0.02294921875,
+        "boundaryStepAbs": 0.02294921875,
+        "normalAdjacentStepP99": 0.21630126953125028,
+        "normalAdjacentStepP999": 0.2779964599609377,
+        "boundaryStepVsP99": 0.10609840062304579,
+        "slopeBeforeBoundary": 0.024871826171875,
+        "slopeAcrossBoundary": 0.02294921875,
+        "slopeAfterBoundary": 0.000823974609375,
+        "derivativeJumpAtBoundary": 0.022125244140625,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    },
+    {
+      "note": "E4",
+      "midi": 64,
+      "originalFile": "LLVln_ArcoVib_E4_p.wav",
+      "originalBytes": 2600174,
+      "originalSha256": "57c5aec0678a5d582d87ab33cd2f8954fea26ffd04c932eb6753d6a78e08736b",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 650032,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "e4ef838ca90a55faa8294e3bb2af09c68ec2eb0deeb3fe85c09792ba41141207",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.18736647469653858,
+      "rmsDbFS": -14.54616228783462,
+      "peakLinear": 0.788848876953125,
+      "peakDbFS": -2.0601237682991167,
+      "clippedSamples": 0,
+      "dcOffset": 1.0955484314261419e-05,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.023720268145333238,
+      "expectedEqualTemperamentHz": 329.6275569128699,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          331.1087188977097,
+          330.65512327116494,
+          330.6436899919848,
+          330.20762777777804,
+          330.1592434148745
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.9853750144450986,
+          0.9917590579470472,
+          0.9915006071936832,
+          0.9941141342082329,
+          0.9942899982961992
+        ],
+        "spectralFundamentalHzPerWindow": [
+          331.4872891998521,
+          330.3025788166244,
+          330.31650297667375,
+          329.8979870279857,
+          329.6612729066101
+        ],
+        "medianHz": 330.6436899919848,
+        "medianDeviationCents": 5.328614813990325
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": 0.02691650390625,
+        "boundaryStepAbs": 0.02691650390625,
+        "normalAdjacentStepP99": 0.17507751464843757,
+        "normalAdjacentStepP999": 0.2239844360351575,
+        "boundaryStepVsP99": 0.15374049580438345,
+        "slopeBeforeBoundary": -0.00372314453125,
+        "slopeAcrossBoundary": 0.02691650390625,
+        "slopeAfterBoundary": 0.027069091796875,
+        "derivativeJumpAtBoundary": 0.0306396484375,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    },
+    {
+      "note": "A4",
+      "midi": 69,
+      "originalFile": "LLVln_ArcoVib_A4_p.wav",
+      "originalBytes": 2612122,
+      "originalSha256": "0d05607b46b78690893006d5aa7923ac304c7fb497df1e96536dc88ac5ac487f",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 653019,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "95204f8a19e1a655b8259c9a1bd64fb229e2d111c69f63656a9fcfcf6f8d28ad",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.19873423413179064,
+      "rmsDbFS": -14.034546290023638,
+      "peakLinear": 0.79998779296875,
+      "peakDbFS": -1.9383327973301165,
+      "clippedSamples": 0,
+      "dcOffset": 7.196197163761338e-05,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.05458511478690248,
+      "expectedEqualTemperamentHz": 440.0,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          440.0902202624305,
+          440.8453949730715,
+          440.5044477409473,
+          439.9508239790685,
+          441.31147433464184
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.975340582685905,
+          0.9881954072294487,
+          0.9887276884829045,
+          0.9881971978954176,
+          0.9857666500678285
+        ],
+        "spectralFundamentalHzPerWindow": [
+          442.4999573233204,
+          440.5478235282375,
+          440.8155090170623,
+          438.06748189107407,
+          435.7853490639239
+        ],
+        "medianHz": 440.5044477409473,
+        "medianDeviationCents": 1.9836747057690591
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": 0.037109375,
+        "boundaryStepAbs": 0.037109375,
+        "normalAdjacentStepP99": 0.27056518554687514,
+        "normalAdjacentStepP999": 0.3619771728515646,
+        "boundaryStepVsP99": 0.13715502578424243,
+        "slopeBeforeBoundary": 0.16790771484375,
+        "slopeAcrossBoundary": 0.037109375,
+        "slopeAfterBoundary": -0.038360595703125,
+        "derivativeJumpAtBoundary": 0.13079833984375,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    },
+    {
+      "note": "E5",
+      "midi": 76,
+      "originalFile": "LLVln_ArcoVib_E5_p.wav",
+      "originalBytes": 2517094,
+      "originalSha256": "c60c3bcfc64ea00ebf8d97b16f2876c892393839a017a945c5e557359b6369a4",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 629262,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "018f6b1cee9aa9e4951c1d4e5a576ec078a19a10fd11de9dfa9e0c2f1a09fce2",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.17869237801751411,
+      "rmsDbFS": -14.957879431759578,
+      "peakLinear": 0.79998779296875,
+      "peakDbFS": -1.9383327973301165,
+      "clippedSamples": 0,
+      "dcOffset": 9.613234826110503e-05,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.017462420223517947,
+      "expectedEqualTemperamentHz": 659.2551138257398,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          663.3076754971318,
+          660.4486447053896,
+          660.7835084284499,
+          661.3657785574434,
+          663.5585500768365
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.9776754437961952,
+          0.9873427945497923,
+          0.9901520936130962,
+          0.9882255505599601,
+          0.9888817571183147
+        ],
+        "spectralFundamentalHzPerWindow": [
+          660.6094860070959,
+          659.6904309299381,
+          661.115619852341,
+          661.3229333146601,
+          662.2204378381139
+        ],
+        "medianHz": 661.3657785574434,
+        "medianDeviationCents": 5.533848180090262
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": -0.036285400390625,
+        "boundaryStepAbs": 0.036285400390625,
+        "normalAdjacentStepP99": 0.24270446777343757,
+        "normalAdjacentStepP999": 0.35345367431640673,
+        "boundaryStepVsP99": 0.1495044599858668,
+        "slopeBeforeBoundary": -0.04345703125,
+        "slopeAcrossBoundary": -0.036285400390625,
+        "slopeAfterBoundary": 0.016937255859375,
+        "derivativeJumpAtBoundary": 0.05322265625,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    },
+    {
+      "note": "A5",
+      "midi": 81,
+      "originalFile": "LLVln_ArcoVib_A5_p.wav",
+      "originalBytes": 2562122,
+      "originalSha256": "204834bfb91ee62d53d3b2c9e9d37928617f643922f434323508a15a70ee591c",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 640519,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "4eb52850bfd4265ed548cc497434047be1e510bfc6e24ba2036efaa069689dea",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.16906030606256642,
+      "rmsDbFS": -15.439166982474905,
+      "peakLinear": 0.79998779296875,
+      "peakDbFS": -1.9383327973301165,
+      "clippedSamples": 0,
+      "dcOffset": 2.6525677235179785e-05,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.03221266852715794,
+      "expectedEqualTemperamentHz": 880.0,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          879.710550323793,
+          879.4168984456693,
+          882.583404547558,
+          884.2345138303216,
+          881.0073039186303
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.9964530113163482,
+          0.9969427633840625,
+          0.995630111434689,
+          0.9962836177789196,
+          0.9980201275898672
+        ],
+        "spectralFundamentalHzPerWindow": [
+          879.306118269478,
+          878.176203688162,
+          878.7184985480402,
+          876.838077219525,
+          877.3968832521748
+        ],
+        "medianHz": 881.0073039186303,
+        "medianDeviationCents": 1.980547187968345
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": 0.015228271484375,
+        "boundaryStepAbs": 0.015228271484375,
+        "normalAdjacentStepP99": 0.2733758544921887,
+        "normalAdjacentStepP999": 0.3752550659179694,
+        "boundaryStepVsP99": 0.05570452267140558,
+        "slopeBeforeBoundary": -0.027496337890625,
+        "slopeAcrossBoundary": 0.015228271484375,
+        "slopeAfterBoundary": 0.065185546875,
+        "derivativeJumpAtBoundary": 0.049957275390625,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    },
+    {
+      "note": "E6",
+      "midi": 88,
+      "originalFile": "LLVln_ArcoVib_E6_p.wav",
+      "originalBytes": 2514702,
+      "originalSha256": "f1f0f8062eda1af6147852bf61b39e6b8734d4b0236737810c9d660297a34f0c",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 628664,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "7a226d7b585ab8a77e862f81937885d6269e9a2acf50e0c9c412b8ac3c01d277",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.15953015706673224,
+      "rmsDbFS": -15.943144144338842,
+      "peakLinear": 0.79998779296875,
+      "peakDbFS": -1.9383327973301165,
+      "clippedSamples": 0,
+      "dcOffset": 0.00015541771140189706,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.01215759197783085,
+      "expectedEqualTemperamentHz": 1318.5102276514797,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          1324.717176246819,
+          1322.942836437017,
+          1327.1835270449533,
+          1324.6992715494462,
+          1318.752881196958
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.9654525271304013,
+          0.9663113111334822,
+          0.9497094363605003,
+          0.962398666692172,
+          0.9704884073220371
+        ],
+        "spectralFundamentalHzPerWindow": [
+          1328.3478836449365,
+          1328.3465363864768,
+          1330.1780258141798,
+          1319.3208831568281,
+          1327.4128002191187
+        ],
+        "medianHz": 1324.6992715494462,
+        "medianDeviationCents": 8.107343070578239
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": -0.038726806640625,
+        "boundaryStepAbs": 0.038726806640625,
+        "normalAdjacentStepP99": 0.4218334960937504,
+        "normalAdjacentStepP999": 0.6459459838867194,
+        "boundaryStepVsP99": 0.09180590683111177,
+        "slopeBeforeBoundary": -0.0487060546875,
+        "slopeAcrossBoundary": -0.038726806640625,
+        "slopeAfterBoundary": 0.016143798828125,
+        "derivativeJumpAtBoundary": 0.05487060546875,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    },
+    {
+      "note": "A6",
+      "midi": 93,
+      "originalFile": "LLVln_ArcoVib_A6_p.wav",
+      "originalBytes": 2614110,
+      "originalSha256": "0f212759660b2fb0d645b2089adbf4222eebc829927c1e002caa434ecd804f0b",
+      "originalHashMatchesManifest": true,
+      "originalBytesMatchManifest": true,
+      "sourceHeader": {
+        "channels": 2,
+        "bitsPerSample": 16,
+        "sampleRate": 44100,
+        "frames": 653516,
+        "compression": "NONE"
+      },
+      "bytes": 123524,
+      "sha256": "f7766cc378eb4df3f6f71bd87cf4a6b349df488a0965ca082de5291ae71ba881",
+      "hashMatchesManifest": true,
+      "header": {
+        "channels": 1,
+        "bitsPerSample": 16,
+        "sampleRate": 22050,
+        "frames": 61740,
+        "compression": "NONE"
+      },
+      "headerMatchesManifest": true,
+      "durationSeconds": 2.8,
+      "rmsLinear": 0.15748663460804316,
+      "rmsDbFS": -16.055125950157304,
+      "peakLinear": 0.79998779296875,
+      "peakDbFS": -1.9383327973301165,
+      "clippedSamples": 0,
+      "dcOffset": 7.785837898217323e-05,
+      "startSample": 0,
+      "endSample": 0,
+      "first100msRms": 0.004806689587604996,
+      "expectedEqualTemperamentHz": 1760.0,
+      "approximatePitch": {
+        "method": "Normalized autocorrelation around expected period (+/- 3 semitones), parabolic refinement, five 220 ms sustain windows; independent spectral peak near fundamental. Vibrato means these are not calibrated tuning measurements.",
+        "autocorrelationHzPerWindow": [
+          1753.5243249568096,
+          1753.1118880610522,
+          1759.920213065127,
+          1755.7358189692152,
+          1761.9412080972081
+        ],
+        "autocorrelationNormalizedPeak": [
+          0.8879844356872981,
+          0.936183827890457,
+          0.9014814135300036,
+          0.9162926477927829,
+          0.9006372522083042
+        ],
+        "spectralFundamentalHzPerWindow": [
+          1739.8297981163125,
+          1754.5840014613207,
+          1752.8450319659378,
+          1753.6149693874013,
+          1757.6502040621826
+        ],
+        "medianHz": 1755.7358189692152,
+        "medianDeviationCents": -4.1995755039696006
+      },
+      "loop": {
+        "startFrame": 18522,
+        "endFrameExclusive": 57330,
+        "validBounds": true,
+        "boundaryStepLinear": -0.041839599609375,
+        "boundaryStepAbs": 0.041839599609375,
+        "normalAdjacentStepP99": 0.4958489990234387,
+        "normalAdjacentStepP999": 0.6253903198242221,
+        "boundaryStepVsP99": 0.08437971981747865,
+        "slopeBeforeBoundary": -0.03265380859375,
+        "slopeAcrossBoundary": -0.041839599609375,
+        "slopeAfterBoundary": -0.018310546875,
+        "derivativeJumpAtBoundary": 0.023529052734375,
+        "matchesOriginalLoopStartPreviousSample": true
+      },
+      "passed": true
+    }
+  ],
+  "qualityLimits": [
+    "These are seven single-note arco vibrato source samples and not a recorded teacher performance. Pitch shifting and loop playback can alter timbre; sequence playback requires browser scheduling/listening QA.",
+    "Data checks can detect silence, clipping, wrong format, gross pitch or seam errors. They do not establish natural bow articulation, pleasant sustained looping, sample transitions, real device latency or perceived sound quality.",
+    "A3 is the lowest source; violin G3 and other lower notes require downward transposition. High and low ranges may sound less natural than notes near original recordings.",
+    "All reported pitch deviations are approximate vibrato-window measurements; these assets must not be presented as a calibrated tuner reference."
+  ],
+  "criteria": {
+    "format": "Uncompressed WAV PCM16 mono 22050 Hz, 61740 frames / 2.8 seconds; source/output bytes and hashes exactly match manifest.",
+    "signal": "RMS > 0.02 full scale, peak 0.5..0.801, no int16 rail clipping, exact zero start/end. Converter normalizes before crossfade/fades so final peak may be below 0.8.",
+    "pitch": "Approximate five-window median within 50 cents of named equal-temperament note; this coarse wrong-note check is not tuner certification.",
+    "loop": "In-bounds start/end, wrap step no greater than natural adjacent-step 99.9 percentile, final loop sample identical to sample before loop start.",
+    "license": "The original and distributed local LICENSE bytes must match exactly; SHA equals manifest; CC0 title and all four legal sections present. No external canonical-text comparison or network provenance check."
+  },
+  "findings": [
+    {
+      "severity": "info",
+      "message": "No local manifest/hash/format/silence/clipping/gross-pitch/loop-wrap data defects detected."
+    },
+    {
+      "severity": "info",
+      "message": "E4 final peak 0.78885 is below pre-fade normalization target 0.8 because crossfade/fades occur after normalization; no clipping or silence defect."
+    }
+  ]
+}

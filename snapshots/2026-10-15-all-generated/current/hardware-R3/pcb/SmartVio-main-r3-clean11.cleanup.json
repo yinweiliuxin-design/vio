@@ -1,0 +1,97 @@
+{
+  "sourceSHA256": "866ac3df12481a043a566399d9ea0f097d2b8de70597789c569c7f7924f50d5b",
+  "output": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-clean11.kicad_pcb",
+  "boardSHA256": "76578c7173b3bedfec76dfb2472c48df6e7297a3fc5dee01f8a75564db417a3a",
+  "unconnected": 11,
+  "drcViolations": 0,
+  "removedFailedUnprotectedCopper": [
+    {
+      "uuid": "18dc6453-46c2-474b-9978-d0a589d58a56",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "bc344e86-e873-40a8-918e-fa40e21027ea",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 0,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "5ab87032-eec8-4ed0-b9ee-5cd8ac17381f",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "5fb3b43e-49e7-4603-8a47-6ded9eae0ad0",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 1,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "29f4263c-7ba7-49c0-a6db-36213e996619",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 2,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "ddc4f0c1-7186-4bf5-b0c0-ae87445545ad",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 2,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "137cdda9-b44b-4d6b-98d6-f696fac6b07e",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 3,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "8102c641-1451-4f7a-9330-1cf4d4375788",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 3,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "c1f6f5a8-5a45-47b9-815b-904c81320711",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 4,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "5da5e0c0-f93c-49ba-9dea-6c955a9933d6",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 5,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "a54e8375-9e91-4018-b581-87c8c2062288",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 6,
+      "supplementalGroundStitch": false
+    },
+    {
+      "uuid": "f88f5bcb-d3bc-42e8-bc2f-21aafd0ebb4e",
+      "net": "MON_USB_BUF",
+      "kind": "segment",
+      "iteration": 7,
+      "supplementalGroundStitch": false
+    }
+  ],
+  "protectedCopperPreserved": true,
+  "netlistAndRulesUnchanged": true,
+  "productionApproved": false,
+  "temporaryReservedViaWarnings": 0
+}

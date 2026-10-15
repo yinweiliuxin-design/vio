@@ -1,1 +1,1 @@
-{"status": "ARCHIVE_PARTS_COMPLETE", "partsUploaded": 94, "totalParts": 94, "remaining": "Publish direct files and perform remote audit"}
+{"status": "PAYLOAD_COMPLETE_PENDING_REMOTE_AUDIT", "partsUploaded": 94, "totalParts": 94, "expectedPublishedFiles": 799, "manufacturingReleased": false}

@@ -1,0 +1,102 @@
+(footprint "TDK_ACM2012H_Official"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(descr "https://product.tdk.cn/system/files/dam/doc/product/emc/emc/cmf_cmc/catalog/cmf_automotive_signal_acm2012h-t06_zh.pdf")
+	(property "Reference" "REF**"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(uuid "3b17bc14-cfa7-47d0-931c-aaee4d000913")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" "ACM2012H-900-2P-T06"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(uuid "d589ba97-ee47-421b-bf99-4635860c2189")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "44660f42-77a8-4311-93fd-6d0de6e567d8")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "95835f45-88ca-4189-9dea-8804f3c58fc6")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr smd)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_rect
+		(start -1.55 -0.95)
+		(end 1.55 0.95)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "a69a8f66-56f9-49b1-920c-2cc12b275381")
+	)
+	(fp_rect
+		(start -1.1 -0.7)
+		(end 1.1 0.7)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.Fab")
+		(uuid "ab2e447c-2a6a-47c8-8b07-a00865f6cdbf")
+	)
+	(pad "1" smd rect
+		(at -0.925 -0.4)
+		(size 0.75 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "85d018c7-d974-487f-a733-164d9f2a0a8e")
+	)
+	(pad "2" smd rect
+		(at -0.925 0.4)
+		(size 0.75 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "7ea64ed1-8551-42bc-be84-744fd4dd8e4a")
+	)
+	(pad "3" smd rect
+		(at 0.925 0.4)
+		(size 0.75 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "b78c8c24-fbec-417b-8226-aa2f5c6f715b")
+	)
+	(pad "4" smd rect
+		(at 0.925 -0.4)
+		(size 0.75 0.4)
+		(layers "F.Cu" "F.Mask" "F.Paste")
+		(thermal_bridge_angle 45)
+		(uuid "83c59e04-3b77-4729-9b7b-e84e5ebe623d")
+	)
+	(embedded_fonts no)
+)

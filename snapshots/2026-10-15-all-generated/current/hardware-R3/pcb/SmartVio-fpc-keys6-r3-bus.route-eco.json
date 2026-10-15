@@ -1,0 +1,165 @@
+{
+  "routeSourceSHA256": "52509043cf562b422932ee27a112901c7ea01f52e4d36e74f0587bda88123e2c",
+  "outlineSourceSHA256": "c4aa697ab2eb42baf42512a5ea5d12bdcb7d5844c5726cc6c192a2df3f095ccf",
+  "resultSHA256": "7eae0f97d6e41038ea8a30cbce976ac64d17ace4c30ac251e6c4e96f7e8bd0e6",
+  "flatExtensionMm": 0.6,
+  "shiftBoundaryYmm": 20,
+  "padNetIdentityPreserved": true,
+  "endpointRoundingCorrections": [
+    {
+      "track": "3e579fdb-72ee-40b6-bec4-643962ad0cd6",
+      "field": "start",
+      "before": [
+        37.65,
+        14.8
+      ],
+      "after": [
+        37.650000000000006,
+        14.8
+      ]
+    },
+    {
+      "track": "972f7df3-9dff-4975-add2-80e53ed71b0e",
+      "field": "end",
+      "before": [
+        76.25,
+        40.322700000000005
+      ],
+      "after": [
+        76.25,
+        40.322698780255195
+      ]
+    },
+    {
+      "track": "c550ac64-f241-49ee-a53e-0cbe94bde75e",
+      "field": "start",
+      "before": [
+        39.15,
+        14.8
+      ],
+      "after": [
+        39.150000000000006,
+        14.8
+      ]
+    },
+    {
+      "track": "95005e30-2b5a-4485-b4b6-9b625cd14572",
+      "field": "start",
+      "before": [
+        77.75,
+        40.322700000000005
+      ],
+      "after": [
+        77.75,
+        40.322698780255195
+      ]
+    },
+    {
+      "track": "ffeb2d52-d21e-4017-a461-60cdb93c2c6e",
+      "field": "end",
+      "before": [
+        79.25,
+        40.322700000000005
+      ],
+      "after": [
+        79.25,
+        40.322698780255195
+      ]
+    },
+    {
+      "track": "ca371a68-61bf-4f2f-8c80-435117a70cb8",
+      "field": "start",
+      "before": [
+        40.65,
+        14.8
+      ],
+      "after": [
+        40.650000000000006,
+        14.8
+      ]
+    },
+    {
+      "track": "10ec1ac4-daa0-46fc-932b-2518b3252528",
+      "field": "start",
+      "before": [
+        37.65,
+        13.3
+      ],
+      "after": [
+        37.650000000000006,
+        13.3
+      ]
+    },
+    {
+      "track": "5429c645-498f-413b-8cee-ac24079948b0",
+      "field": "start",
+      "before": [
+        80.75,
+        40.322700000000005
+      ],
+      "after": [
+        80.75,
+        40.322698780255195
+      ]
+    },
+    {
+      "track": "65b93729-3186-4b3c-9d24-7796b888542c",
+      "field": "start",
+      "before": [
+        39.15,
+        13.3
+      ],
+      "after": [
+        39.150000000000006,
+        13.3
+      ]
+    },
+    {
+      "track": "03575686-7da4-4c03-b650-c4e2523527a6",
+      "field": "start",
+      "before": [
+        82.25,
+        40.322700000000005
+      ],
+      "after": [
+        82.25,
+        40.322698780255195
+      ]
+    },
+    {
+      "track": "961fa243-f648-465f-9691-8b16f9f69708",
+      "field": "start",
+      "before": [
+        83.75,
+        40.322700000000005
+      ],
+      "after": [
+        83.75,
+        40.322698780255195
+      ]
+    },
+    {
+      "track": "f9afbc50-b53f-4eef-97ce-429dd38b8f3f",
+      "field": "end",
+      "before": [
+        40.65,
+        13.3
+      ],
+      "after": [
+        40.650000000000006,
+        13.3
+      ]
+    }
+  ],
+  "removedUnusedVias": [
+    "098b1fd0-2fec-4af0-95e5-b488a6ed8853",
+    "62a858ac-0352-410b-a293-e2208a866186",
+    "9b116d80-be64-4d18-ac79-760af0d4779f"
+  ],
+  "nativeViolations": 0,
+  "nativeUnconnected": 0,
+  "allNativeChecksIncluded": true,
+  "supplierDFM": "PENDING",
+  "physicalTests": 0,
+  "manufacturingReleased": false
+}

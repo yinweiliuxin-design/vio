@@ -1,0 +1,9 @@
+{
+  "boardSHA256": "98a7fea02aa2f9a1d3ce0872b45bf264233983ef728a673a537ac4167318f379",
+  "projectSHA256": "3a0776e1a3012549eb7d97e0f26baaf9cea1d78a11dc64707942179eb32dc8d0",
+  "drcSHA256": "c1671ec0c1ec31f2319878057bbc9563a48b5177e0f1156909a819322223cb97",
+  "errors": 0,
+  "warnings": 0,
+  "unconnected": 0,
+  "ignoredChecks": []
+}

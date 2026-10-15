@@ -1,0 +1,210 @@
+{
+  "schemaVersion": 1,
+  "report": "SmartVio / Silvio / VELLEN 音乐短视频社区融合可行性研究",
+  "date": "2026-10-15",
+  "language": "zh-CN",
+  "projectRoot": "E:/codex/Documents/亚马逊图片/sites/smartvio-mobile",
+  "status": "READ_ONLY_FEASIBILITY_NO_IMPLEMENTATION",
+  "decision": {
+    "recommendation": "可在现有 Cloudflare Worker + D1 + R2 社区基础上增建受审核的音乐短视频 MVP。先补媒体校验、鉴权播放、取消与删除，再增加信息流交互。",
+    "confidence": "架构可行；尚未实施或进行本轮视频实测。真实格式覆盖、端到端播放、生产权限和资源预算须通过下面门槛。",
+    "priority": ["P0 服务端媒体边界与账号权限", "P0 审核及删除生命周期", "P1 单条视频投稿与播放", "P1 客户端和管理员联动", "P2 竖屏连续浏览及偏好设置"],
+    "doNotClaim": ["未获得 TikTok、X、YouTube 的专有后端源码或推荐模型", "未进行闭源 App 反编译、认证绕过、受保护接口抓取或视频下载", "公开帮助文档、公开源码及现有项目代码审查不能称为反爬取得闭源代码", "本报告不代表新功能已经上线、真机全面兼容、版权已获授权或成本已核准"]
+  },
+  "methods": {
+    "performed": ["只读审查社区客户端、CSS、管理员预览、Worker 路由、D1 schema、迁移、现有测试与本地视频录制模块", "联网核对官方平台帮助、W3C/RFC、Cloudflare 和 WebKit/Chrome 文档", "读取 PeerTube 与 WebRTC samples 的公开 LICENSE 及相关源码/文档", "计算关键文件 SHA-256 以固定本次观察范围"],
+    "notPerformed": ["本轮未运行现有测试或新增视频测试", "未操作真实账号、生产后台、R2 对象或真实硬件", "未查看 TikTok/X/YouTube 实时登录界面或私有网络流量", "未复制、安装、执行第三方项目", "未修改现有项目代码、数据库或部署配置"],
+    "evidenceLabels": {"observed-source": "本地源码或公开原始文档可直接确认", "proposal-inference": "根据现有架构提出的实现建议，尚未实施", "unverified-runtime": "需要部署或真机验证，当前不算通过"}
+  },
+  "baseline": {
+    "package": "smartvio-community-studio 0.15.0；package.json 为本次只读观察",
+    "coreFileHashes": {
+      "dist/community.js": "956C44BAF6FA1BBF0B2231590B6E04C9FD8A6A67CFB53937F0DA2E5D3AD10BDD",
+      "dist/community.css": "6D6CC292C3E98E1AD0180AFA2FDE634FE461F3B8A26C3AD36619E2A91F4E6A0E",
+      "worker/community.mjs": "06F09C1E2B0552A0BA60C12B15240F75BCEA61C521587417C4B98D49C0DB1B45",
+      "db/schema.ts": "C641F281D3E98984B2E5B081586D5F369531329C4A7BF2B4A2278D9908D0C2FA",
+      "dist/admin.js": "EF717CC74DC86F4C0345A0944F9B3D88CCC1A8EBEAC02FB1649BB04CB7A40D32",
+      "dist/video-capture.js": "EBC1E89D8EE3BDBAAB7A51D052307EF96AB5E5576AE021E238B9C482C50BB5A2"
+    },
+    "existingFeatures": [
+      {"feature": "社区组织", "evidence": "dist/community.js:119-130,146", "finding": "现有社区、我的投稿、本机草稿；练习/求助/作品话题；搜索及最新/热门/最早排序。热门只是当前可见数据排序，不是大型平台的个性化推荐。", "level": "observed-source"},
+      {"feature": "语言与离线", "evidence": "dist/community.js:91-107", "finding": "中英日德四语言；离线模式使用本机草稿。切换模式会 abort 当前请求，但这不等于远端对象必然未写入。", "level": "observed-source"},
+      {"feature": "文字及图片投稿", "evidence": "dist/community.js:84-86,123,140; worker/community.mjs:61-79,196-211", "finding": "最多4附件。仅同源 community/media 图片、HTTPS 外链、本地媒体元数据；图片支持 PNG/JPEG/WebP，最大5 MiB。没有 video 附件或视频播放器。", "level": "observed-source"},
+      {"feature": "草稿与审核", "evidence": "worker/community.mjs:101-116; tests/community-api.test.mjs:50-86", "finding": "本人草稿→主动提交 pending→管理员审核 published/rejected；已发布编辑退回草稿；隐藏/删除不应绕过审核恢复公开。有版本比较与部分写操作的请求幂等。", "level": "observed-source"},
+      {"feature": "互动及治理", "evidence": "worker/community.mjs; dist/community.js:143-146; dist/admin.js", "finding": "已有点赞、评论待审、举报、账号暂停、发帖/评论/点赞开关和审计。无需另建一套独立短视频账号或审核后台。", "level": "observed-source"},
+      {"feature": "可信身份", "evidence": "worker/community.mjs:1-26,214-235", "finding": "服务端使用 Sites 注入的 oai-authenticated-user-id；管理员来自 ADMIN_USER_IDS 白名单。所有媒体 GET/HEAD 目前也要求身份。该身份头可信依赖 Sites 的注入/剥离边界；不得把相同处理器暴露在允许客户端伪造头的公共直连地址。", "level": "observed-source"},
+      {"feature": "媒体私密性", "evidence": "worker/community.mjs:208-211", "finding": "本人/管理员能读本人私有图片；其他已获站点访问身份的访客，只能读取被 published 帖子引用的图片。隐藏最后一条公开引用后再次读取即拒绝。published 不自动代表全球匿名可访问。", "level": "observed-source"},
+      {"feature": "现有媒体安全边界", "evidence": "worker/community.mjs:28-35,196-211; db/schema.ts:96-103", "finding": "读取体积有界，检查图片签名/部分结构；R2 写入后 D1 登记失败会尝试删除刚写入对象。该补偿删除失败被吞掉，尚未形成可重试的孤儿清理任务。", "level": "observed-source"},
+      {"feature": "媒体缺口", "evidence": "worker/community.mjs:203-224; db/schema.ts:96-103; dist/admin.js:318-324", "finding": "schema 限定图片 MIME 和5 MiB；无媒体 DELETE、视频容器/时长/编码校验、Range/206/416、上传会话/视频取消或视频审核预览。仅放开前端选择器不能闭环。", "level": "observed-source"},
+      {"feature": "现有本地录像", "evidence": "dist/video-capture.js:13-30; dist/media-store.js:10,167-243", "finding": "单 MediaStream 摄像头+麦克风录制，优先探测 WebM VP8/VP9+Opus，其次 MP4；默认最长10分钟，200 MiB保护；本机 IndexedDB/内存持久化反馈。源为麦克风，不能称为电子琴直连干声与伴奏混音。", "level": "observed-source"},
+      {"feature": "取消现状", "evidence": "dist/community.js:92,106,133,140,149", "finding": "通用请求20秒超时；模式切换会取消控制器。关闭投稿弹窗或 pagehide 不提供专门的上传取消/远端确认清理流程；图片上传也没有请求幂等会话。", "level": "observed-source"},
+      {"feature": "离线缓存边界", "evidence": "dist/sw.js:1-18,110-116", "finding": "Service Worker 仅白名单静态资源缓存，不缓存账号、API 或用户媒体；新增私有视频须继续遵守此边界。", "level": "observed-source"}
+    ],
+    "testEvidenceScope": {
+      "readTests": ["tests/community-api.test.mjs：真实 SQLite 查询/迁移与内存 R2 替身，覆盖草稿/审核/图片鉴权、跨站写入、版本冲突、图片大小/魔数、D1失败回滚补偿", "tests/video-capture.test.mjs：现有录制模块测试；不等于社区视频上传或真机画音同步已验证"],
+      "notCoveredByCurrentTests": ["真实视频样本的容器及时长验证", "视频 GET Range 和跳转播放", "视频上传取消后远端清理", "视频删除与多引用竞争", "管理员视频播放及审核前后权限", "iPhone/iPad/Android/HarmonyOS 实机视频端到端投稿"],
+      "thisStudyRanTests": false
+    }
+  },
+  "publicPlatformReference": [
+    {"platform": "TikTok", "sourceIds": ["tiktok-help", "tiktok-newsroom"], "documentedBehavior": "For You / Following 分类、点赞评论分享等反馈影响内容发现；官方说明属于公开产品行为。", "adopt": "设计作品、练习、求助筛选与连续浏览；保留最新/热门的可解释排序和清晰的点赞/评论/举报按钮。", "exclude": "不声称获得其排序模型，不采集用户隐蔽行为画像，不复制品牌/素材/完整界面。", "evidenceNote": "帮助页官方搜索索引可读，直接打开失败；另读取 TikTok 官方 Newsroom 说明。较早公告只作为交互原理参考，不当作2026所有界面实测。"},
+    {"platform": "X", "sourceIds": ["x-video-help"], "documentedBehavior": "文字配视频、投稿前预览，时间线播放与可关闭的自动播放设置。", "adopt": "保留音乐文字上下文、预览/删除附件、静音初始播放、自动播放开关及失败后的手动播放按钮。", "exclude": "不抄订阅档位/上传上限，不以 X 专有播放器或后端为可移植代码。"},
+    {"platform": "YouTube Shorts", "sourceIds": ["youtube-shorts-help", "youtube-music-rights"], "documentedBehavior": "竖屏短视频流、录制或导入、预览、草稿、标题与隐私设置。", "adopt": "从本地演奏录像挑选片段，确认预览与分享范围后提交审核；标题/曲名/练习说明是视频上下文。", "exclude": "不移植其推荐/转码/Content ID，不导入其音乐库。平台内可用的音乐权限不自动适用于 SmartVio。"}
+  ],
+  "openSource": [
+    {
+      "project": "PeerTube",
+      "repository": "https://github.com/Chocobozzz/PeerTube",
+      "inspectedBranch": "develop",
+      "commitPinned": false,
+      "sourceIds": ["peertube-readme", "peertube-license", "peertube-dependencies"],
+      "license": "AGPL-3.0-or-later（README Code 段明确 v3 或任何后续版本；LICENSE 正文为 GNU AGPL v3）",
+      "separateAssetLicense": "README 将其 Logo 单列为 CC BY-SA 4.0；本项目不使用其 Logo。代码许可不覆盖全部第三方资源。",
+      "observedArchitecture": "上传、视频管理、播放与管理员治理分层。官方依赖说明列出 Node、PostgreSQL、Redis、FFmpeg 等；不是一个可直接塞进现有 Worker 的播放器文件。",
+      "allowedReferencePlan": "只研究功能分层、媒体状态和审核管理的架构，以现有项目独立实现。",
+      "directReuseDecision": "本轮不复制。若以后直接改造并提供网络服务，AGPL 第13节要求向交互用户提供适用的对应源码；需先核定代码边界、依赖和履约方案。不能据此断言所有无关服务都自动开源。",
+      "remainingGate": "真正使用代码前固定 commit、逐文件核对许可和第三方依赖，不以浮动分支当作已锁定供应链。"
+    },
+    {
+      "project": "WebRTC samples / getusermedia/record",
+      "repository": "https://github.com/webrtc/samples",
+      "inspectedBranch": "gh-pages",
+      "commitPinned": false,
+      "sourceIds": ["webrtc-sample", "webrtc-license"],
+      "license": "BSD-3-Clause",
+      "observedPatterns": "MediaRecorder.isTypeSupported 探测、开始/停止、收集完成录制的 Blob、回放、下载与 object URL 回收。",
+      "directReuseDecision": "如后续需要，小范围改编该示例可行；保留版权、许可条款和免责声明，二进制发布同步附带，不以 Google/贡献者名义背书。",
+      "limits": "示例不是视频上传后端，不含账号鉴权、审核、服务器格式校验或删除生命周期；不照搬日志和全局状态设计。当前项目已有独立录制实现，优先完善现有代码。",
+      "remainingGate": "复制前固定 revision 和文件范围，记录 THIRD_PARTY_NOTICES；本轮没有复制代码或示例素材。"
+    }
+  ],
+  "mvpProposal": {
+    "level": "proposal-inference",
+    "product": "电子小提琴音乐作品与练习求助短视频，沿用现有社区账号、帖子、评论、点赞、举报和管理员。",
+    "bounds": {"videosPerPost": 1, "attachmentsTotal": 4, "maxDurationSeconds": 60, "maxBytes": 20000000, "sizeConvention": "20 MB 采用十进制20,000,000字节，不与旧图片5 MiB混写", "preferredCapture": "720p、24/30fps、约2 Mbps视频+128 kbps音频，仅建议目标码率，实际以完整文件字节为准", "longLocalRecording": "保留现有本地长录像；社区投稿另有严格边界，超限不丢失原文件。无转码服务时明确提示导出/裁剪后再投稿。"},
+    "phase1Include": ["从设备选取或从本人本地录像明确选择一条视频", "预览、曲名/标题、练习说明、话题和权利确认", "上传/取消/失败重试及远端状态核对", "服务端限定格式校验和私有存储", "本人草稿与审核队列中的受控播放", "管理员预览后批准、拒绝、隐藏与举报处理", "已审核作品在现有 feed 中 inline 播放", "本人撤回与明确的视频删除确认"],
+    "phase2AfterEvidence": ["可关闭的竖屏连续浏览，键盘/屏幕阅读器同样可用", "单播放器静音预览、点击开启声音、离屏及页面不可见时暂停", "游标分页而非一次装载所有视频", "本人手动填写字幕或练习提示；自动字幕单列成本与隐私", "跨设备分享帖子链接，打开后仍按站点访问权限检查"],
+    "outOfScope": ["复制大型平台推荐算法、P2P联邦、直播、私信、商业广告分发", "自动抓取搬运第三方视频/音乐", "大型全格式在线剪辑、HLS多码率、自动版权识别", "未经独立评估和成本确认就购买转码/视频服务", "宣称已经生成华为原生HAP或打通原生相册权限"],
+    "ui": {
+      "feed": "保留作品/练习/求助筛选和文字卡片，增加真实时长、播放控件、错误状态。竖屏不强行裁掉琴弓和手部，默认 contain，封面与播放器避免布局抖动。",
+      "playback": "默认点击播放，或在用户明确开启后仅一个当前可见视频 muted+playsinline 自动播放。处理 play() 拒绝，不以点击或开始加载伪造播放成功。",
+      "resource": "preload=none/metadata 仍可能由浏览器取部分文件，不等于零流量。仅活动卡片绑定源；关闭弹窗、切路由、切账号、pagehide 时暂停/清源，清理 Blob URL、观察器和事件。",
+      "privacy": "分享前清楚显示站点内审核后可见；本机草稿/录像不自动上传。默认不嵌 TikTok/X/YouTube iframe，也不自动暴露地理位置。",
+      "accessibility": "四语言状态文案、可点击控件、原生字幕/替代文字预留、焦点回收、减少动态效果；不靠只有滑动手势才能退出或举报。"
+    },
+    "stateModel": {
+      "media": ["uploading", "validating", "ready-private", "rejected", "cancelled", "deleting", "deleted"],
+      "post": ["draft", "pending", "published", "rejected", "hidden", "deleted"],
+      "rule": "媒体技术校验成功不代表帖子审核批准。仅 ready-private 且本人拥有、未删除的视频可绑定本人帖子；发布还须帖子状态/权利确认/设置允许均满足。"
+    }
+  },
+  "mediaContract": {
+    "level": "proposal-inference",
+    "containerValidation": {
+      "required": ["服务端按实际收到的字节计数，0字节或20,000,000+1字节拒绝；无 Content-Length 的流也受同一限额", "MIME、容器签名、轨道编码声明与可解析结构一致；扩展名、浏览器 file.type、客户端 duration 都不能作为可信最终依据", "限定深度、box/EBML数量、表项数量、轨道数、时基、维度和时间线计算，防整数溢出、NaN、巨幅尺寸与解析耗尽", "检查确实存在视频轨道及媒体载荷，时间线可计算且完整；音频可按产品明确要求，不把音频改名为视频接受", "将实际 MIME、容器、编码声明、计算时长、尺寸、字节数、对象版本/ETag、校验器版本保存在服务器，客户端不可改写", "媒体字节校验只是限定容器/时间线的验证，不等于完整解码、恶意内容扫描或版权识别"],
+      "recommendedFormats": "优先可验证的 MP4 H.264/AAC 与 WebM VP8/VP9+Opus 子集。每个已支持子集必须有真实浏览器/手机录制样本及独立解码工具交叉验证。",
+      "criticalCaveat": "仅搜 ftyp/moov 或 EBML 魔数、只信 mvhd/mdhd/Duration 字段不够。fragmented MP4、WebM缺少Duration、未知大小Cluster和不同时间基须正确解析相应时间线；做不到时明确拒绝为 UNSUPPORTED_PROFILE/DURATION_UNVERIFIED，不用客户端时长兜底。",
+      "strictFirstReleaseAlternative": "若短期只能可靠校验普通非分片 MP4，则首版明确仅支持这一子集，拒绝 fragmented MP4、无法计算时长的 WebM 和其他未支持格式。此时不能宣称浏览器录像一键投稿全覆盖；保留本地文件并给格式说明。",
+      "futureFullFormatPath": "要接受广泛手机HEVC/MOV、任意fragmented/缺时长录像并统一兼容，可另接受控验证/转码队列。普通Worker不是现成FFmpeg服务；此项需独立运行资源、费用和权限设计。",
+      "sources": ["mediarecorder-spec", "isobmff-note", "webm-note", "safari-184"]
+    },
+    "uploadAndCancel": {
+      "proposalEndpoints": ["POST /api/community/video-uploads：创建本人幂等上传会话", "POST /api/community/video-uploads/:id/content：有界接收并验证", "GET /api/community/video-uploads/:id：核对取消/超时后的服务端事实", "POST /api/community/video-uploads/:id/cancel：只取消本人的未绑定会话，幂等", "POST /api/community/video-media/:id/delete：经同源校验的逻辑撤回/物理清理请求"],
+      "rule": "以上为拟议接口，不是当前可调用接口；方法可沿用现有POST action风格，但协议含义必须保留。",
+      "requirements": ["沿用同源Origin检查、平台身份及服务端管理员判断；暂停账号禁止写入", "clientRequestId+本人+内容摘要/版本确定幂等；相同ID不同内容409", "取消按会话版本/CAS落库，晚到完成响应不得把取消状态改成ready；客户端也校验会话ID、草稿ID、账号与generation", "AbortController只停止本地请求，不能证明R2/D1从未写入；UI在远端核对后才能显示已清理，否则明确结果待确认", "关闭编辑器提示上传仍在进行或执行显式取消，不让晚到结果写入另一个草稿", "R2写成功、D1登记失败时补偿删除；删除失败落cleanup记录可重试，不吞错后声称清理完成", "D1/R2不是跨服务原子事务，使用独有不可变对象key、会话和清理状态处理失败及重试", "20秒现有请求超时不适合所有移动网络20MB上传；上传专用超时/进度方案不得牺牲取消和身份隔离"]
+    },
+    "playbackRange": {
+      "proposalEndpoint": "GET/HEAD /api/community/video-media/:id",
+      "authorization": "每次请求包括Range/HEAD先鉴权；本人和管理员按需看私有媒体，其他获站点访问权的用户只看被published帖子引用且未撤回的媒体。不返回可绕过后续审核的永久公开R2地址。",
+      "responses": ["完整GET 200，真实Content-Type/Content-Length、nosniff、private/no-store、CORP same-origin、适当Vary", "有效单字节区间GET 206，Content-Range与实际部分长度一致，Accept-Ranges: bytes", "支持 bytes=0-0、起点至结尾、suffix及范围尾部裁切；对超过对象长度且无可满足字节的区间416并带 bytes */size", "HEAD返回完整表示的头且无body；Range仅定义GET，HEAD不伪造部分body", "多段range首版不实现，可忽略该Range返回200完整表示；过量或恶意小区间按明确资源策略拒绝，不能错误返回一段206却标称多段", "R2原生 range 只解决取对象片段；Worker仍负责权限、HTTP状态、Content-Range和长度。R2条件读取不支持If-Range，若要支持须在Worker明确实现，首版可固定不可变对象并不实现此优化"],
+      "limits": "隐藏后可阻止新的GET/Range，但无法收回用户已收到、缓存于播放器内或自行保存的字节。不能承诺绝对不可下载。",
+      "sources": ["r2-workers-api", "http-rfc9110"]
+    },
+    "deleteAndRetention": {
+      "requirements": ["区分删本机副本、撤回帖子、删除云视频，不把软删除帖子显示为R2已物理删除", "先撤回所有相关公开引用再处理对象；权限查询同时检查媒体墓碑/状态", "媒体多帖子引用时，明确选择一条视频独占绑定一个帖子，或检查全部引用，避免删除仍在使用的附件", "物理删除使用deleting→R2 delete→deleted/D1墓碑，失败可重试且审计清楚；不能先删除DB唯一记录后丢失对象key", "未绑定上传按明确保留期清理；cleanup只处理经所有权/状态确认的对象，不批量删其他用户或已绑定媒体", "用户页和管理员同时测试撤回、拒绝、隐藏、硬删除、过期清理；已删除媒体不得复活为published"],
+      "policyChoices": "保留天数、账号配额、投诉保存和备份删除时限需要形成产品策略。此报告不给未核定政策伪装为已上线值。"
+    }
+  },
+  "dataAndCodeMap": [
+    {"file": "dist/community.js", "existing": "附件归一化、草稿保存、请求控制、feed渲染、投稿", "proposed": "视频附件与上传状态、本人本地录像明确选取、取消及账号/generation隔离、单播放器生命周期、四语言文案", "danger": "不要把kind=media统一当视频或图片，旧数据必须继续显示"},
+    {"file": "dist/community.css", "existing": "图片卡片、响应式弹窗", "proposed": "视频预览比例/contain、进度与错误、触控和窄屏、减少动画", "danger": "避免竖屏强裁琴弓/手部或视频原生控件撑宽"},
+    {"file": "worker/community.mjs", "existing": "cAttachments/cUpload/cMedia、可信身份、审核动作、CAS和审计", "proposed": "视频会话/所有权、容器与时间线校验、Range/HEAD、取消/删除/清理、pending到published联动", "danger": "服务端不接受客户端任意R2key、远端URL、MIME、duration或status"},
+    {"file": "db/schema.ts + drizzle 新增迁移", "existing": "community_media图片5MiB约束，post附件JSON", "proposed": "建议新增community_video_media及upload/cleanup状态表，保留图片原表和旧迁移；记录owner、不可变objectKey/version、size、duration、container、codec、验证状态、删除状态、timestamps和requestId唯一约束", "danger": "不要原地更改0000旧迁移或只改TS不部署SQL。当前最大编号0003，实施时重新确定空闲编号并同步迁移元数据"},
+    {"file": "dist/admin.js + dist/admin.css", "existing": "318-324附件预览只有img/外链/本地元数据，后台审批及举报", "proposed": "受鉴权的视频预览、字节/时长/格式/校验状态、待审播放、隐藏/撤回/删除反馈、清理失败提示", "danger": "后台不能用本机角色绕过服务端权限，也不能在媒体未ready时批准"},
+    {"file": "dist/video-capture.js + dist/media-store.js", "existing": "本地摄像头麦克风录像和IndexedDB保存", "proposed": "可选社区短片录制参数；本地文件在上传失败、格式不支持或取消后仍可导出", "danger": "社区60秒限制不能偷偷取代既有本地长录像；现有采集source仍为microphone，不伪称琴直录混音"},
+    {"file": "dist/sw.js", "existing": "只缓存静态白名单", "proposed": "保持API/视频不缓存；发布新代码时更新静态资源版本", "danger": "私有视频、待审内容及账号响应不得被离线缓存公开"},
+    {"file": "scripts/build-worker.cjs + .openai/hosting.json + scripts/preview.mjs", "existing": "Worker源码打包，DB/BUCKET绑定，本地模拟身份和媒体服务", "proposed": "同源生产/预览都包含新接口和迁移；验证本地R2替身支持HEAD/Range；如需要Cron清理，应单独实现受控调度入口", "danger": "构建产物不代表生产迁移/配额/调度已配置，预览身份不可流入公共生产入口"},
+    {"file": "tests/community-api.test.mjs + 拟新增community-video测试", "existing": "真实SQLite+R2替身，图片/审核/权限", "proposed": "真实容器夹具、Range字节断言、取消晚完成竞争、删除/多引用、迁移保留旧图片；再执行本地HTTP+真浏览器闭环", "danger": "mock协议/伪造容器单测不能替代真实文件可解码和手机播放证据"}
+  ],
+  "compatibilityAssessment": {
+    "status": "推断的工程路径，当前没有本轮真机通过记录",
+    "matrix": [
+      {"platform": "Windows Chrome / Edge、macOS Chromium", "path": "运行时检测MediaRecorder和录制MIME；既有模块常选择WebM。MP4/H264/AAC和WebM具体支持按设备探测", "gate": "真实录制→导出→服务器校验→另一个账号Range播放/跳转；不可由桌面尺寸模拟代替Android"},
+      {"platform": "iPhone / iPad / macOS Safari", "path": "不能写只支持MP4：WebKit18.4官方已增加WebM VP8/VP9+Opus录制及fragmented MP4。旧版本与App内WebView仍需独立探测", "gate": "playsinline、用户手势、相册HEVC/MOV、旋转方向、后台暂停与Range实测；不支持格式明确保留本地文件"},
+      {"platform": "Android 各品牌浏览器/WebView", "path": "依浏览器内核、录制器和硬件编码器探测，品牌名不能直接决定编码能力", "gate": "摄像头权限拒绝/撤销、内存压力、锁屏/切后台、弱网上传、格式及时长"},
+      {"platform": "HarmonyOS 5/6/NEXT", "path": "网页方案只覆盖其实际浏览器/WebView能力；原生HAP及ArkWeb/相册权限桥是单独项目", "gate": "真实华为系统网页播放/上传后再定义原生桥；当前不能声称原生应用已实现或签名可安装"}
+    ],
+    "codecRule": "MediaRecorder.isTypeSupported与video.canPlayType是能力提示；初始化或播放仍可能失败。完整文件通过服务端子集验证，也不保证所有客户端具备该编码器/解码器。",
+    "sources": ["mediarecorder-spec", "safari-184", "chrome-autoplay"]
+  },
+  "risksAndMitigations": [
+    {"priority": "P0", "risk": "格式/时长伪造及解析耗尽", "mitigation": "服务器有界容器/轨道/时间线解析，未知或不支持fail closed；真实录制样本独立验证。不得只验证魔数或客户端duration。"},
+    {"priority": "P0", "risk": "未审核或已撤回视频被直链访问", "mitigation": "私有R2、不返回public URL；每个GET/HEAD/Range都查可信身份、媒体状态和published引用；防缓存越权。"},
+    {"priority": "P0", "risk": "伪造身份头、开发预览身份误入生产", "mitigation": "确认只有Sites可信dispatch能注入身份；直连公共Worker必须另设可信鉴权层，不能接受浏览器自带用户ID。"},
+    {"priority": "P0", "risk": "取消/超时后已写云端、跨账号晚回包", "mitigation": "幂等会话、取消终态/CAS、状态查询和generation+account检查；cleanup可重试且UI不虚报。"},
+    {"priority": "P0", "risk": "第三方歌曲伴奏、翻奏录音、肖像或未成年人隐私", "mitigation": "本人演奏不自动拥有作曲/伴奏录音/画面全部权利；保留声明、投诉、审核/撤回流程，默认不公开个人位置。管理员须核对素材授权，不把勾选框当作授权证明。"},
+    {"priority": "P1", "risk": "存储、读取次数和审核队列无界增长", "mitigation": "每账号配额/频率、上传并发、未绑定保留期、报表和开关；视频分页、按需取源、单播放器。20MB×1000条即约20GB原片，另计封面/副本与操作次数；仅为算术示例，不是账单预测。"},
+    {"priority": "P1", "risk": "Worker内存/CPU和移动弱网", "mitigation": "官方当前每isolate128MB，多个请求共享；不能拿20MB小于128MB就断言安全。尽量流式/分段，避免多个全量副本，测解析预算和并发；平台body上限还可能受Sites入口限制。"},
+    {"priority": "P1", "risk": "仅容器校验却宣称完整安全扫描", "mitigation": "明确验证级别。未经解码/转码或安全扫描不承诺所有恶意媒体可识别，保持浏览器沙箱播放和技术审核隔离。"},
+    {"priority": "P1", "risk": "全平台编码兼容与音画同步夸大", "mitigation": "保存真实编码和source，按实际浏览器样本验证；同流录制减少时钟差，但不是所有硬件/系统的零偏移保证。"},
+    {"priority": "P1", "risk": "借开源名义搬入强copyleft/第三方素材", "mitigation": "PeerTube仅架构参考；若改编BSD示例则固定revision、保留notices，并独立核对资产、依赖和商标。"}
+  ],
+  "selfReviewGates": [
+    {"id": "G0", "name": "范围和证据", "passWhen": "明确哪些是公开文档行为、开源代码和自己的实现；记录revision/来源与许可；不得出现取得闭源平台后端代码的说法。"},
+    {"id": "G1", "name": "非破坏迁移", "passWhen": "旧用户/草稿/帖子/图片在新旧迁移数据库中保留；SQL/schema/快照一致；迁移重复运行安全，原迁移不可改写。"},
+    {"id": "G2", "name": "上传边界", "passWhen": "真实有效60秒内文件成功；空文件、20MB+1、>60秒、伪MIME、音频冒充、截断、无媒体载荷、不支持编码、缺时长和超深结构各有明确失败，失败对象不进入可绑定ready状态。"},
+    {"id": "G3", "name": "真实格式覆盖", "passWhen": "Chrome/WebKit实际录制、普通MP4、fragmented MP4、WebM缺Duration、手机MOV/HEVC各标支持或明确拒绝；不能用合成魔数夹具代替全部真实样本。"},
+    {"id": "G4", "name": "访问权限", "passWhen": "匿名、本人、他人、管理员、暂停账号覆盖GET/HEAD/Range与写入；pending他人拒绝，publish他人允许，hide/delete后新请求拒绝；本机角色和伪身份头不能越权。"},
+    {"id": "G5", "name": "HTTP播放", "passWhen": "真实字节断言200/206/416、0-0/尾部/后缀/越界、HEAD无body、长度/类型/Content-Range正确；浏览器能播放并拖动，失败有反馈。"},
+    {"id": "G6", "name": "取消与故障恢复", "passWhen": "上传前取消、中途取消、取消晚于R2写入、D1失败、R2删除失败、丢响应重试、切草稿/账号/离线/路由均不误绑定、不重复发帖；待核对结果不显示已清理。"},
+    {"id": "G7", "name": "审核联动", "passWhen": "本人上传→私有草稿→提交pending→管理员本人授权播放→批准→第二账号看到并播放→管理员隐藏→第二账号GET/Range被拒。拒绝/改稿/举报同样有审计。"},
+    {"id": "G8", "name": "删除与保留", "passWhen": "撤回和物理删除区别清楚；多引用/孤儿/cleanup竞争不误删；删除失败可重试；R2和D1最终状态可查，不靠仅删除帖子假装清云。"},
+    {"id": "G9", "name": "资源及易用性", "passWhen": "同屏最多一个活动播放器；离屏/后台暂停；不预载50条全视频；object URL/媒体轨道/事件清理；320宽和四语言无溢出；键盘及触屏可操作。"},
+    {"id": "G10", "name": "上线前真实环境", "passWhen": "生产迁移、DB/R2绑定、管理员白名单、Sites站点访问范围、配额/费用/cleanup入口确认；至少记录明确机型和系统的浏览器验证，未测平台标未测。若站点仍仅所有者可访，不把内部PASS说成消费者社区已公开。"}
+  ],
+  "implementationSequence": [
+    {"step": 1, "deliverable": "冻结可支持的容器/编码子集和20MB/60秒定义，取得有权使用的真实短片测试夹具。"},
+    {"step": 2, "deliverable": "新增非破坏媒体schema、校验/上传会话/取消和受控Range读取；先API验证权限和失败恢复。"},
+    {"step": 3, "deliverable": "社区投稿预览/进度与管理员视频预览，接通现有审核和举报。"},
+    {"step": 4, "deliverable": "删除、孤儿清理与配额；客户端/后台端到端两身份验证。"},
+    {"step": 5, "deliverable": "资源受控信息流交互、四语言与真机兼容记录；通过门槛后按授权部署。"}
+  ],
+  "sources": [
+    {"id": "tiktok-help", "title": "TikTok Help: How TikTok recommends content", "url": "https://support.tiktok.com/en/using-tiktok/exploring-videos/how-tiktok-recommends-content", "kind": "official-help", "access": "官方搜索索引摘录可读；直接页面打开失败，未当作完整抓取", "supports": "For You/Following 和互动反馈的公开说明", "reuse": "产品行为参考，不获得代码或素材许可"},
+    {"id": "tiktok-newsroom", "title": "TikTok Newsroom: How TikTok recommends videos #ForYou", "url": "https://newsroom.tiktok.com/how-tiktok-recommends-videos-for-you?lang=en", "kind": "official-primary", "access": "已读取", "supports": "官方对发现流与用户反馈的原理性说明；较早公告不是当日界面实测", "reuse": "独立交互设计参考"},
+    {"id": "x-video-help", "title": "X Help: How to share and watch videos on X", "url": "https://help.x.com/en/using-x/x-videos", "kind": "official-help", "access": "已读取", "supports": "视频与发帖结合、投稿预览、可配置自动播放", "reuse": "行为参考，未获取专有实现"},
+    {"id": "youtube-shorts-help", "title": "YouTube Help: Get started creating YouTube Shorts", "url": "https://support.google.com/youtube/answer/10059070?hl=en", "kind": "official-help", "access": "已读取", "supports": "竖屏导入/录制、预览、草稿、标题/隐私和Shorts Feed", "reuse": "行为参考，不移植素材/后端"},
+    {"id": "youtube-music-rights", "title": "YouTube Help: Music eligibility for YouTube Shorts", "url": "https://support.google.com/youtube/answer/13486873?hl=en", "kind": "official-help", "access": "已读取", "supports": "Shorts音乐使用涉及平台协议和地域/作品权利，不能当作本站通用授权", "reuse": "不下载音乐库；未引用易变化的具体申诉/时长封锁规则"},
+    {"id": "peertube-readme", "title": "PeerTube official repository README", "url": "https://github.com/Chocobozzz/PeerTube/blob/develop/README.md", "readUrl": "https://raw.githubusercontent.com/Chocobozzz/PeerTube/develop/README.md", "kind": "official-open-source", "access": "已读取；浮动develop分支，未pin提交", "supports": "视频/管理员架构、Code AGPLv3-or-later与Logo独立许可", "reuse": "本轮仅架构参考"},
+    {"id": "peertube-license", "title": "PeerTube LICENSE", "url": "https://github.com/Chocobozzz/PeerTube/blob/develop/LICENSE", "readUrl": "https://raw.githubusercontent.com/Chocobozzz/PeerTube/develop/LICENSE", "kind": "license-primary", "access": "已读取", "supports": "GNU AGPLv3，特别是第13节网络交互源码提供义务", "reuse": "本轮不复制代码；未来复用需按具体范围履约"},
+    {"id": "peertube-dependencies", "title": "PeerTube official documentation: Dependencies", "url": "https://docs.joinpeertube.org/support/doc/dependencies", "kind": "project-primary", "access": "已读取；页面自身提醒社区维护内容可能过时", "supports": "Node/PostgreSQL/Redis/FFmpeg等独立服务依赖，整套移植不适合现有Worker"},
+    {"id": "webrtc-license", "title": "WebRTC samples LICENSE.md", "url": "https://github.com/webrtc/samples/blob/gh-pages/LICENSE.md", "readUrl": "https://raw.githubusercontent.com/webrtc/samples/gh-pages/LICENSE.md", "kind": "license-primary", "access": "已读取；浮动分支，未pin提交", "supports": "BSD三条款：保留声明/免责、二进制附带、不得冒名背书", "reuse": "少量样例代码未来可按许可改编；本轮没有复制"},
+    {"id": "webrtc-sample", "title": "WebRTC samples: getusermedia/record main.js", "url": "https://github.com/webrtc/samples/blob/gh-pages/src/content/getusermedia/record/js/main.js", "readUrl": "https://raw.githubusercontent.com/webrtc/samples/gh-pages/src/content/getusermedia/record/js/main.js", "kind": "official-open-source", "access": "已读取", "supports": "运行时MIME探测、MediaRecorder完成Blob与回放/下载示例，不含安全上传后端"},
+    {"id": "mediarecorder-spec", "title": "W3C MediaStream Recording", "url": "https://www.w3.org/TR/mediastream-recording/", "kind": "standard-primary", "access": "已读取", "supports": "容器与编码组合依实现支持；timeslice单个Blob不一定独立可播放，完成录制的组合才满足可播放要求"},
+    {"id": "isobmff-note", "title": "W3C ISO BMFF Byte Stream Format", "url": "https://www.w3.org/TR/mse-byte-stream-format-isobmff/", "kind": "standard-primary", "access": "已读取", "supports": "初始化与媒体片段结构；fragmented MP4不能仅看moov元数据判断完整时间线"},
+    {"id": "webm-note", "title": "W3C WebM Byte Stream Format", "url": "https://www.w3.org/TR/mse-byte-stream-format-webm/", "kind": "standard-primary", "access": "已读取", "supports": "EBML/Segment/Info/Tracks/Cluster、时间基、支持编码和未知长度结构；不是单魔数即可验证"},
+    {"id": "r2-workers-api", "title": "Cloudflare R2 Workers API reference", "url": "https://developers.cloudflare.com/r2/api/workers/workers-api-reference/", "kind": "vendor-primary", "access": "已读取", "supports": "R2流式对象、offset/length/suffix ranged reads、对象版本/ETag、删除与multipart abort；条件操作不支持If-Range"},
+    {"id": "worker-limits", "title": "Cloudflare Workers limits", "url": "https://developers.cloudflare.com/workers/platform/limits/", "kind": "vendor-primary", "access": "已读取", "supports": "128MB每isolate内存、CPU及请求体受套餐和入口约束；建议流式降低大缓冲风险", "caveat": "未核对当前Sites实际套餐或入口额外限制，不能仅由Cloudflare通用文档宣称生产可用"},
+    {"id": "http-rfc9110", "title": "RFC 9110 HTTP Semantics", "url": "https://www.rfc-editor.org/rfc/rfc9110.html", "kind": "standard-primary", "access": "已读取", "supports": "GET Range/Accept-Ranges/Content-Range、206及416；HEAD不返回消息体"},
+    {"id": "safari-184", "title": "WebKit Features in Safari 18.4", "url": "https://webkit.org/blog/16574/webkit-features-in-safari-18-4/", "kind": "vendor-primary", "access": "已读取", "supports": "MediaRecorder新增WebM VP8/VP9+Opus及fragmented MP4；不代表每台设备所有编码均可用"},
+    {"id": "chrome-autoplay", "title": "Chrome for Developers: Autoplay policy", "url": "https://developer.chrome.com/blog/autoplay/", "kind": "vendor-primary", "access": "已读取", "supports": "静音自动播放、开启声音的用户手势限制和play()失败处理", "licenseNote": "该页标正文CC BY4.0、代码样例Apache2.0；本轮仅行为参考，不复制代码/图片"}
+  ],
+  "finalReview": {
+    "onlyNewFile": "E:/codex/Documents/亚马逊图片/sites/artifacts/v16-20261015/community-feasibility.json",
+    "repoCodeModified": false,
+    "runtimeVideoVerified": false,
+    "closedSourceObtained": false,
+    "thirdPartyCodeCopied": false,
+    "nextAction": "供主任务阅读后确定实施范围。报告完成不等于通过自审门槛；此子任务未部署或开放社区。"
+  }
+}

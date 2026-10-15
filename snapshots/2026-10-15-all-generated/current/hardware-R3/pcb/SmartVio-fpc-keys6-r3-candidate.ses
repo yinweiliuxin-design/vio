@@ -1,0 +1,136 @@
+(session "SmartVio-fpc-keys6-r3-candidate"
+  (base_design "SmartVio-fpc-keys6-r3-candidate")
+  (placement
+    (resolution um 10)
+    (component "SmartVioV26:FPC_KEYS6"
+      (place "FPC_KEYS6" 0 0 front 0)
+    )
+  )
+  (was_is
+  )
+  (routes 
+    (resolution um 10)
+    (parser
+      (host_cad "KiCad's Pcbnew")
+      (host_version "10.0.6")
+    )
+    (library_out 
+      (padstack "Via[0-1]_350:150_um"
+        (shape
+          (circle F.Cu 3500 0 0)
+        )
+        (shape
+          (circle B.Cu 3500 0 0)
+        )
+        (attach off)
+      )
+    )
+    (network_out 
+      (net GND
+        (wire
+          (path F.Cu 1500
+            777500 -403227
+            773463 -407264
+            422869 -407264
+          )
+        )
+        (wire
+          (path B.Cu 1500
+            391500 -154017
+            392974 -155491
+            392974 -377369
+            422869 -407264
+          )
+        )
+        (wire
+          (path B.Cu 1500
+            391500 -148000
+            391500 -154017
+          )
+        )
+        (via "Via[0-1]_350:150_um" 422869 -407264
+        )
+      )
+      (net "KEY_BT"
+        (wire
+          (path B.Cu 1500
+            406500 -148000
+            406500 -154017
+          )
+        )
+        (wire
+          (path F.Cu 1500
+            792500 -403227
+            787946 -398673
+            435259 -398673
+          )
+        )
+        (wire
+          (path B.Cu 1500
+            406500 -154017
+            406717 -154234
+            406717 -370131
+            435259 -398673
+          )
+        )
+        (via "Via[0-1]_350:150_um" 435259 -398673
+        )
+      )
+      (net "KEY_FX"
+        (wire
+          (path F.Cu 1500
+            376500 -133000
+            382319 -133000
+            402510 -153191
+            402510 -180111
+          )
+        )
+        (wire
+          (path B.Cu 1500
+            425942 -395361
+            402510 -371929
+            402510 -180111
+          )
+        )
+        (wire
+          (path F.Cu 1500
+            807500 -403227
+            798510 -394237
+            427066 -394237
+            425942 -395361
+          )
+        )
+        (via "Via[0-1]_350:150_um" 425942 -395361
+        )
+        (via "Via[0-1]_350:150_um" 402510 -180111
+        )
+      )
+      (net "KEY_MODE"
+        (wire
+          (path B.Cu 1500
+            406500 -133000
+            406500 -139017
+          )
+        )
+        (wire
+          (path F.Cu 1500
+            403991 -382706
+            816979 -382706
+            837500 -403227
+          )
+        )
+        (via "Via[0-1]_350:150_um" 403991 -382706
+        )
+        (wire
+          (path B.Cu 1500
+            406500 -139017
+            404244 -139017
+            398300 -144961
+            398300 -377015
+            403991 -382706
+          )
+        )
+      )
+    )
+  )
+)

@@ -1,0 +1,21 @@
+{
+  "source": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-direct-access.kicad_pcb",
+  "sourceSHA256": "068418274902f162e033e2a39b3bdd45f9c4965121d208075fb0a8f15b5ff779",
+  "board": "<LOCAL_USER_HOME>\\Documents\\亚马逊图片\\SmartVio-工程整改-20261012-R3\\project\\pcb\\SmartVio-main-r3-access-closure.kicad_pcb",
+  "boardSHA256": "15c4597e6259091eeac02c4997ae3da1fe8554584812afce0e87b46609d36e66",
+  "gridMm": 0.05,
+  "initialUnconnected": 15,
+  "finalUnconnected": 15,
+  "drcViolations": 9,
+  "elapsedSeconds": 55.20299999997951,
+  "acceptedRoutes": [],
+  "rejectedRoutes": [],
+  "rulesUnchanged": true,
+  "sourceNetsUnchanged": true,
+  "criticalPriorityCopperPreserved": true,
+  "electricalPerformanceReviewed": false,
+  "manufactureRelease": false,
+  "redundantReservedViasRemoved": [],
+  "temporaryReservedViasDuringWIPOnly": true,
+  "fullNativeReportsPreserved": true
+}
