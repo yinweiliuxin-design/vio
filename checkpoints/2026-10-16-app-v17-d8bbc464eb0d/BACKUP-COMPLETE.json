@@ -1,0 +1,231 @@
+{
+  "status": "PASS",
+  "version": "V17",
+  "date": "2026-10-16",
+  "sourceCommit": "d8bbc464eb0dc70cd1a159cf97002b893519149a",
+  "repository": "yinweiliuxin-design/vio",
+  "checkpoint": "checkpoints/2026-10-16-app-v17-d8bbc464eb0d",
+  "payloadCommit": "3501a44853fbe665190db4594011cad838002a3f",
+  "sourceFiles": 171,
+  "archiveSha256": "1ea2c07ad9010493c153bd4b9973fb565664b7bb8e4a8a2bcd417f62879f23f1",
+  "archiveBytes": 8114275,
+  "parts": 31,
+  "remotePayloadFilesReadBack": 34,
+  "allRemoteUtf8ContentsMatched": true,
+  "allGitBlobHashesMatched": true,
+  "crcVerified": true,
+  "restoreVerifierPassed": true,
+  "restoredSourceFiles": 171,
+  "privacy": {
+    "userRecordings": false,
+    "productionDatabase": false,
+    "credentials": false,
+    "approvedCC0Samples": true
+  },
+  "verified": [
+    {
+      "name": "FILE-MANIFEST.json",
+      "sha": "1db2be6d100a551ed5f7079ce35da788cb178566",
+      "bytes": 34048,
+      "contentMatched": true
+    },
+    {
+      "name": "README-恢复与校验.txt",
+      "sha": "e31ae4c76c620123bc53c2afc26365bcf8402acd",
+      "bytes": 1296,
+      "contentMatched": true
+    },
+    {
+      "name": "RESTORE-VERIFY.cjs",
+      "sha": "9292d20290b1003c764981f33c192d0373cf1c2a",
+      "bytes": 4334,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0001.b64",
+      "sha": "68e2c03de12899959ab5078a4b64f44267e2931d",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0002.b64",
+      "sha": "b1816770f48ef9d4edb32b7f756f3b7de49d4736",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0003.b64",
+      "sha": "bb651b0c4168643a2bfa5c923317b530239e4e18",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0004.b64",
+      "sha": "3c6cf29c2f9868feb0ec397f55493ac8eb18c62d",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0005.b64",
+      "sha": "e91f708d7ff8420f6cec1268ad5f9174bf84c877",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0006.b64",
+      "sha": "5960295150379aa95cc78580c6ddccbccdb3c3de",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0007.b64",
+      "sha": "36f22dc16c26889a6ff8121481a061e92ea41fe2",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0008.b64",
+      "sha": "b3a2a0897b6e635df8c34e331d9998fe5362610f",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0009.b64",
+      "sha": "e8234d50e57c396ade8a973b845f31f5bc12c82c",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0010.b64",
+      "sha": "5fabf56c381c677477a3377628d74be885b65408",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0011.b64",
+      "sha": "2b8055d1d0269764699331b4b0790bebb290c429",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0012.b64",
+      "sha": "d31a779aeaf51a6a6c699495f8af6e8ecf4ca786",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0013.b64",
+      "sha": "cd79fa6ec13f577b1218759a3fde4ddeb33872ab",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0014.b64",
+      "sha": "ab8ebb4f21daee7d21a517e2fe0a5fdebdb52c47",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0015.b64",
+      "sha": "3f5013d2ee76502662db2b1ae7d0adf1c34d73e2",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0016.b64",
+      "sha": "7c8ab4715636a0f0e4a4e23c9a724c4485511b2b",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0017.b64",
+      "sha": "1bfc2fd47e95957002b9b22cb6fa61330f067881",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0018.b64",
+      "sha": "31d4da427de0fb20773f2b21e734d08fa5eccfb6",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0019.b64",
+      "sha": "b813159a08fcd08e305271fe13f55695f6dcd391",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0020.b64",
+      "sha": "11f1d2a78917e8283ccd72b69aa0e8d77573c33b",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0021.b64",
+      "sha": "0f3992e5729ea87367591f4e02ecf53746b0cb10",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0022.b64",
+      "sha": "8b3354111d0039ede40eb75d5b40b54254e4f297",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0023.b64",
+      "sha": "bb7084fc00282016039da59c550a351d850ecb8d",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0024.b64",
+      "sha": "050d36023665c4d8c8e36a922d1780ceca049478",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0025.b64",
+      "sha": "ad71176995541d7f1f86718f521fe28be846504c",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0026.b64",
+      "sha": "8104e95cb2a6c9a3a8b385dce75671ec5e1dac06",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0027.b64",
+      "sha": "c9a7713c9b6f29dd8078ef0b04f1ac021d7df2b0",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0028.b64",
+      "sha": "5e9b533991d1428b83c936705606b1a937f85012",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0029.b64",
+      "sha": "cb7bf30c3ecc212972954c552d83f592f9174c6e",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0030.b64",
+      "sha": "9b5d64079b01bd4d8fc93d5b27c4305ab5927a0b",
+      "bytes": 349529,
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0031.b64",
+      "sha": "9ef397fa5f79b88ae39296bb3802dd902dcded37",
+      "bytes": 333277,
+      "contentMatched": true
+    }
+  ]
+}
