@@ -179,7 +179,7 @@ if (view === 'hero') {
   L('mid', 112, 40, -3.3, 'USB 支架 · 音频载框 · Kycon ×4', 'USB16 FPC（取代散线）', 90, 20);
   L('main', 111.3, 40, -11.75, '主板 8 层 0.8 mm', 'TMP117 并入主板', 90, 30);
   L('battery', 92, 40, -14.8, '电池 + PORON 泡棉', '绝缘片 / NTC 隔片', 105, 30);
-  L('cup', 112.5, 44, -16, '下杯 77×45', 'lower_cup.step · Ø3 拾音线孔', 110, 75);
+  L('cup', 112.5, 44, -16, '下杯 77×45', '拾音线走琴上原穿线孔', 110, 75);
   setCap('R4 结构分层爆炸图', '沿 Z 向分开；装配顺序见 assembly-sequence-check.json', SRC);
 } else if (view === 'section') {
   scene.background = bgGradient('#f5f4f1', '#dcd9d4');
@@ -193,6 +193,13 @@ if (view === 'hero') {
   L(70, -12.1, '主板', '', 140, 60); L(70, -17.5, '电池', '+ PORON 泡棉与膨胀预留', 140, 100);
   L(46.5, -10.5, 'Kycon 插座 → 音频板', '', -160, 40, 'end');
   setCap('R4 A-A 剖切 · Y = 37（插座中心）', '剖面直接由 STEP 实体裁切；可与 M-R3-02 的 Z 链逐层对照', SRC);
+} else if (view === 'bottom') {
+  scene.background = new THREE.Color('#f4f6f8');
+  addAll((n, g) => ['cover', 'controls', 'cup'].includes(g) || n.startsWith('SCREW_'));
+  addLights(200, [-0.4, -1.0, 0.6], 2.6); const amb = new THREE.HemisphereLight(0xffffff, 0x9aa3ab, 0.6); scene.add(amb);
+  const f = new THREE.DirectionalLight(0xdfe9ff, 0.8); f.position.set(200, -300, -200); scene.add(f);
+  camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 3000); camera.position.set(-170, -250, 300); camera.lookAt(4, -6, 0);
+  setCap('', '', '');
 } else if (view === 'top') {
   scene.background = new THREE.Color('#f7f6f4');
   addAll((n, g) => ['cover', 'controls'].includes(g) || n.startsWith('Kycon') || n.startsWith('GCT'));

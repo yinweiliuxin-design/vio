@@ -1,0 +1,149 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>
+:root{--ink:#14202b;--muted:#566370;--line:#c9d3dc;--blue:#0f4c8a;--blue-soft:#e6eff8;--warn:#a2410f;--warn-soft:#fbeee4;--ok:#1d6b45;--panel:#ffffff;--bg:#eef2f6}
+*{box-sizing:border-box}
+body{margin:0;width:1600px;background:var(--bg);font-family:"WenQuanYi Zen Hei","Noto Sans CJK SC",sans-serif;color:var(--ink)}
+.wrap{padding:18px 22px 14px;display:grid;gap:12px}
+h1{margin:0;font-size:34px;color:var(--blue);letter-spacing:.02em}
+.sub{font-size:17px;color:var(--blue);margin-top:4px}
+.top{display:grid;grid-template-columns:1100px 1fr;gap:14px}
+.hero{position:relative;background:var(--panel);border:1px solid var(--line);border-radius:10px;overflow:hidden;height:470px}
+.hero img{position:absolute;left:0;top:4px;width:1100px}
+.call{position:absolute;font-size:15px;color:var(--ink);background:rgba(255,255,255,.88);padding:3px 8px;border-radius:6px;border:1px solid var(--line)}
+.call b{color:var(--blue)}
+svg.ov{position:absolute;left:0;top:0;width:1100px;height:470px;pointer-events:none}
+.band{position:absolute;left:12px;bottom:12px;background:var(--blue);color:#fff;font-size:15px;padding:7px 12px;border-radius:6px}
+.side{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:14px 16px;display:grid;gap:8px;align-content:start;font-size:14.5px}
+.side h3{margin:0;font-size:17px;color:var(--blue)}
+.kv{display:grid;grid-template-columns:auto 1fr;gap:4px 10px}
+.kv div:nth-child(odd){color:var(--muted)}
+.chip{display:inline-block;padding:1px 8px;border-radius:999px;font-size:13px;font-weight:700}
+.warnbox{background:var(--warn-soft);border-left:4px solid var(--warn);padding:8px 10px;border-radius:0 6px 6px 0;font-size:13.5px;color:#4a2610;display:grid;gap:3px}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:12px}
+.panel{background:var(--panel);border:1px solid var(--line);border-radius:10px;padding:10px 12px;display:grid;gap:6px;align-content:start;position:relative}
+.ph{display:flex;align-items:center;gap:8px;font-size:18px;font-weight:700}
+.num{width:26px;height:26px;border-radius:50%;background:var(--blue);color:#fff;display:grid;place-items:center;font-size:15px;flex:none}
+.ph small{font-size:13px;font-weight:400;color:var(--muted)}
+.note{font-size:13px;color:var(--muted);line-height:1.5}
+.dimwrap{position:relative;padding:22px 52px 4px 4px}
+.dimwrap img{width:100%;display:block}
+.dimh{position:absolute;left:4px;right:52px;top:4px;height:14px;border-left:1.5px solid var(--blue);border-right:1.5px solid var(--blue)}
+.dimh:before{content:"";position:absolute;left:0;right:0;top:7px;border-top:1.5px solid var(--blue)}
+.dimh span{position:absolute;left:50%;top:-4px;transform:translateX(-50%);background:#fff;padding:0 6px;color:var(--blue);font-weight:700;font-size:14px}
+.dimv{position:absolute;right:30px;top:22px;bottom:4px;width:14px;border-top:1.5px solid var(--blue);border-bottom:1.5px solid var(--blue)}
+.dimv:before{content:"";position:absolute;top:0;bottom:0;left:7px;border-left:1.5px solid var(--blue)}
+.dimv span{position:absolute;left:16px;top:50%;transform:translateY(-50%);color:var(--blue);font-weight:700;font-size:14px;white-space:nowrap}
+ul.legend{margin:0;padding-left:18px;font-size:13.5px;display:grid;gap:2px}
+.flow{display:grid;gap:5px;font-size:13.8px}
+.flow div{display:grid;grid-template-columns:86px 1fr;gap:6px}
+.flow b{color:var(--blue)}
+.flow .x{color:var(--warn)}
+.foot{display:flex;justify-content:space-between;font-size:13px;color:var(--muted);background:var(--blue-soft);padding:7px 12px;border-radius:6px}
+img.fit{width:100%;display:block;border-radius:6px}
+</style></head><body><div class="wrap">
+
+<div><h1>智能电子小提琴 ｜ 整机综合效果图（按 R4 实际设计）</h1>
+<div class="sub">原琴体、原拾音器、原穿线孔保留；模块取代原控制盒，不新增开腔</div></div>
+
+<div class="top">
+  <div class="hero">
+    <img src="main.jpg" alt="">
+    <svg class="ov" viewBox="0 0 1100 470">
+      <defs><marker id="a" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0f4c8a"/></marker></defs>
+      <path d="M700 92 L760 182" stroke="#0f4c8a" stroke-width="2" fill="none" marker-end="url(#a)"/>
+      <path d="M120 60 L95 128" stroke="#0f4c8a" stroke-width="2" fill="none" marker-end="url(#a)"/>
+      <path d="M985 60 L978 250" stroke="#0f4c8a" stroke-width="2" fill="none" marker-end="url(#a)"/>
+    </svg>
+    <div class="call" style="left:560px;top:52px"><b>智能一体机模块 R4</b>　取代原黑色控制盒</div>
+    <div class="call" style="left:80px;top:24px">琴头（滚轮一端朝这边）</div>
+    <div class="call" style="left:920px;top:24px">琴尾（背面视角）</div>
+    <div class="band">你的实拍琴（白色）＋ R4 CAD 等比合成（3.18 px/mm）；模块完全落在中央实心梁内</div>
+  </div>
+  <div class="side">
+    <h3>主要约束（R4 实际值）</h3>
+    <div class="kv">
+      <div>上盖</div><div>148 × 49 mm，4 颗 A2 不锈钢木螺钉</div>
+      <div>上下壳</div><div>只用 4 个卡扣连接</div>
+      <div>下杯</div><div>77 × 45 mm，伸入原腔 20.9 mm</div>
+      <div>原腔</div><div>78 × 47 × 22 mm（不改）</div>
+      <div>外凸</div><div>3.85 mm（限 5，不含滚轮）</div>
+      <div>总高</div><div>24.75 mm（限 25；滚轮不高出盖面）</div>
+    </div>
+    <h3>长度坐标（距琴尾金属基准）</h3>
+    <div class="kv">
+      <div>原腔</div><div>145 – 223 mm</div>
+      <div>上盖</div><div>约 110 – 258 mm</div>
+      <div>下杯</div><div>约 145.5 – 222.5 mm</div>
+    </div>
+    <div class="warnbox">
+      <div><b>待实测</b>：110–258 mm 段中央梁宽须 ≥ 49 mm；原穿线孔在腔内的位置。</div>
+      <div><b>不采用</b>：“下壳浅框 140×43”“下沉舱 76×43×18”——前者要铣琴面，后者装不下电池和主板叠层。</div>
+    </div>
+  </div>
+</div>
+
+<div class="grid3">
+  <div class="panel">
+    <div class="ph"><span class="num">1</span>前面板（上盖）<small>与 R4 CAD 一致</small></div>
+    <div class="dimwrap"><div class="dimh"><span>148 mm</span></div><img src="panel_top.png" alt=""><div class="dimv"><span>49 mm</span></div></div>
+    <ul class="legend">
+      <li>琴头端：3 个 Ø14 圆盘滚轮 VOL / TONE / FX，旁开拇指缺口</li>
+      <li>5 键 FX · MODE · MIX · PWR · BT；3 颗点状指示灯</li>
+      <li>4 个插孔沿一边排开：FX SEND · LINE OUT · AUX · PHONES</li>
+      <li>USB-C 竖装；琴尾端扬声器 8 条出声槽</li>
+    </ul>
+  </div>
+  <div class="panel">
+    <div class="ph"><span class="num">2</span>内部结构爆炸图<small>R4 CAD 渲染</small></div>
+    <img class="fit" src="exploded.jpg" alt="">
+    <div class="note">上盖不再带托架；按键支架、USB 支架、音频载框为独立件。14 步装配模拟与全部零件碰撞检查 0 干涉。</div>
+  </div>
+  <div class="panel">
+    <div class="ph"><span class="num">3</span>下杯外观（从下往上看）</div>
+    <img class="fit" src="bottom.jpg" alt="">
+    <div class="note">下杯 77 × 45 × 20.9 mm 一体件，四面卡扣挂在上盖上，不设螺丝孔；整机只靠上盖四角 4 颗螺钉固定在琴上。</div>
+  </div>
+</div>
+
+<div class="grid3">
+  <div class="panel">
+    <div class="ph"><span class="num">4</span>拾音连接<small>走原穿线孔</small></div>
+    <svg viewBox="0 0 470 210" style="width:100%">
+      <defs><marker id="b" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0 0L10 5L0 10z" fill="#0f4c8a"/></marker></defs>
+      <rect x="10" y="118" width="450" height="56" rx="6" fill="#f3efe8" stroke="#c9b9a0"/>
+      <text x="22" y="194" font-size="13" fill="#566370">琴身中央梁（剖面示意）</text>
+      <path d="M48 118 L60 70 L120 70 L132 118" fill="#d9c3a0" stroke="#8a6d45"/>
+      <rect x="66" y="104" width="48" height="12" fill="#14202b"/>
+      <text x="40" y="58" font-size="13.5" fill="#14202b">琴码 + 原拾音器</text>
+      <path d="M90 128 C 90 150, 150 150, 220 150 L 300 150" stroke="#0f4c8a" stroke-width="2.4" fill="none" stroke-dasharray="6 4"/>
+      <text x="140" y="142" font-size="13" fill="#0f4c8a">原穿线孔（不新钻）</text>
+      <rect x="300" y="96" width="140" height="78" rx="4" fill="#ffffff" stroke="#14202b"/>
+      <rect x="292" y="88" width="156" height="10" rx="2" fill="#2a2e33"/>
+      <text x="314" y="124" font-size="13.5" fill="#14202b">下杯（原腔内）</text>
+      <path d="M300 150 L 350 150" stroke="#0f4c8a" stroke-width="2.4" fill="none" marker-end="url(#b)"/>
+      <rect x="352" y="138" width="78" height="26" rx="4" fill="#e6eff8" stroke="#0f4c8a"/>
+      <text x="364" y="156" font-size="13.5" fill="#0f4c8a" font-weight="700">J101 输入</text>
+    </svg>
+    <div class="note">原拾音器 → 原穿线孔 → 下杯入口 → J101（高阻缓冲）。下杯入口按实测的原穿线孔位置开，R4 原先在腔底新钻 Ø3 孔的做法取消。</div>
+  </div>
+  <div class="panel">
+    <div class="ph"><span class="num">5</span>安装高度剖面<small>A-A，插座中心</small></div>
+    <img class="fit" src="section.jpg" alt="">
+    <div class="note">外凸 3.85 mm（≤ 5）；下杯伸入原腔 20.9 mm；总高 24.75 mm（≤ 25）。滚轮顶面低于盖面 0.8 mm，靠拇指缺口拨动，不额外凸出。</div>
+  </div>
+  <div class="panel">
+    <div class="ph"><span class="num">6</span>信号流程<small>按网表与 R4 固件</small></div>
+    <div class="flow">
+      <div><b>拾音输入</b><span>原拾音器 → 原穿线孔 → J101 → 高阻缓冲 → PCM1864</span></div>
+      <div><b>主声道</b><span>PCM1864 → STM32 混音 / 音色 / 效果 → PCM5102A → 耳机或扬声器；插上耳机自动关外放</span></div>
+      <div><b>LINE OUT</b><span>线路输出，与 FX SEND 同一组，按模式接通</span></div>
+      <div><b>FX SEND</b><span>缓冲后的干声，不经过 DSP</span></div>
+      <div><b>AUX/RETURN</b><span>输入 → PCM1864 → 与琴声混合（MIX 键）</span></div>
+      <div><b>蓝牙</b><span>琴声 → 蓝牙耳机；延迟约 0.1–0.25 s，实时练琴用有线</span></div>
+      <div><b>USB-C</b><span>充电。<span class="x">USB 音频 / MIDI、与手机 App 的数据连接尚未实现</span></span></div>
+    </div>
+  </div>
+</div>
+
+<div class="foot"><span>综合效果图，非生产放行图：梁宽、原穿线孔位置、琴腔实测与实物装配待确认。</span><span>SmartVio R4 · 2026-10-15</span></div>
+</div></body></html>
