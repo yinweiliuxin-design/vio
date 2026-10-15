@@ -1,0 +1,2548 @@
+{
+  "status": "PASS",
+  "repository": "yinweiliuxin-design/vio",
+  "branch": "main",
+  "verifiedContentCommit": "d6c4dbeea65c6bc9730c176316d2c9e849dcbf91",
+  "verifiedTree": "c908808de9bdc8454b9bc547cbcb72483f75d8c4",
+  "verifiedAt": "2026-10-15T09:12:23.059Z",
+  "addedGitFiles": 421,
+  "existingGitFilesPreserved": 84,
+  "totalGitFiles": 505,
+  "allAddedBlobHashesMatch": true,
+  "allExistingFilesUnchanged": true,
+  "logicalProjectFiles": 9283,
+  "uniqueContentObjects": 4226,
+  "archiveParts": 213,
+  "archiveBytes": 889232166,
+  "fullRestorationTest": "PASS; 9283 files independently rehashed",
+  "scope": "Frozen capture documented in FILE-MANIFEST.json; original repository and V16 checkpoint preserved.",
+  "verificationScope": "File integrity and restoration only; no product manufacturing approval.",
+  "files": [
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/E-R3-24页当前原理图.pdf",
+      "bytes": 14795248,
+      "sha256": "865ac47f5251e089ea07863d02528d89249b9d151a54b828a48958c407b4e1d2",
+      "gitSHA": "12f2ef81f8410bdf5fa28f446b724b865f55d880"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/server/index.js",
+      "bytes": 10429363,
+      "sha256": "591fbe3520089b529d3feea1d0a1f216bec43174cf34ba58788f75033d0ffed5",
+      "gitSHA": "71d29e9639abaf3877fc06802b410194766332b5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/FILE-MANIFEST.json",
+      "bytes": 5037423,
+      "sha256": "4bf2c80f6d922bc54991dac4370514d1aea1ee86052cf0f0d2c6999121284b83",
+      "gitSHA": "c011481571a828c7c979e103e8953cd83746244e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0001",
+      "bytes": 4194304,
+      "sha256": "9ef7a14d2686076fdeb3b81284045f6455c07be3e06b3db881bab206d4e234cd",
+      "gitSHA": "2b60cfbb45ee911fe2ef79c95968c32f186720f5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0002",
+      "bytes": 4194304,
+      "sha256": "c1a38e036c93fa7960959b3f3c9ef189535761a4ba273b012804cbd2a383b310",
+      "gitSHA": "737094f392718da04715ede3624e7782569bd383"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0003",
+      "bytes": 4194304,
+      "sha256": "b998ccd04b1ad21ab6ed746505abc3525cc04879dd3e1d16b6207913ddf2032c",
+      "gitSHA": "96689bc2f995a0252585f5e7cb0d58929262c374"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0004",
+      "bytes": 4194304,
+      "sha256": "7e743b4a120eb07c3a22a0883bf9c005a51c6bfb5288d1a89494837dcf01aa77",
+      "gitSHA": "5d8beb9f0c1776eb3e66f1f0218631f26bab4f79"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0005",
+      "bytes": 4194304,
+      "sha256": "553f6f13816b8f338d0609e45b332cb5164e35b20b10aa2dcf86c4a9073adbde",
+      "gitSHA": "1588032a23fc8893b0b82a07682a9371bfa1f52c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0006",
+      "bytes": 4194304,
+      "sha256": "bfc8e3cdd6a9dc3a005400ce6d82aadfd47725f83a93eeee49014a103af64eb9",
+      "gitSHA": "3ebf10e79c60da8d22632cbf2f8210d7e1099617"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0007",
+      "bytes": 4194304,
+      "sha256": "0998b3a1c0a2d4285252cc36e42d646abe07abe0e25557c9e836e6798b3b1976",
+      "gitSHA": "81237297ced2bb3a63ffb8725339d10b1c7ebe5a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0008",
+      "bytes": 4194304,
+      "sha256": "2acf9487c19c1c32fbb93c05fd4f551449005c920df70c3f7744f9c4961d609b",
+      "gitSHA": "14e53ee5604ffcb174624abc307e5854f1475326"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0009",
+      "bytes": 4194304,
+      "sha256": "4b14e3bc7e9f83d4c1e0ea17de1c424eb5e704881edf096495c70faf577239b7",
+      "gitSHA": "f68cf5ab3a8913023e5ae71ee070242a6ca742b8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0010",
+      "bytes": 4194304,
+      "sha256": "fbc4df6770fb7901699ab45955dc2e715ecf0d0772cb4b8bf965f62148df6974",
+      "gitSHA": "3df924124208ad6c7aac8d8fe5f9c9c32d0e0106"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0011",
+      "bytes": 4194304,
+      "sha256": "65e72ba1838713a5db65c1ff2c571a4e4cf7095574e2df2ca188d4e55fe65bbf",
+      "gitSHA": "3ab54dbfa5174c38320337b97a91347a13fe80a5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0012",
+      "bytes": 4194304,
+      "sha256": "d610a776b449fd9c7a6d78e05698cf57904645cfd85b58630da627ab8e606be7",
+      "gitSHA": "7807e117465f1276d3303eb5d8d3c533b3a9a0f6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0013",
+      "bytes": 4194304,
+      "sha256": "f5c6f148a983bc085de50a656ee6b41a812a330dd73b5dca2c71f82b64fea7e5",
+      "gitSHA": "c08ed32a9f063e13afdaf36a84348e61af22a217"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0014",
+      "bytes": 4194304,
+      "sha256": "f97a05aa61cdc070f3d6d2d400ff2c2b2754446321be947706c15e16d8d12e0f",
+      "gitSHA": "fa40f2233f3f35988c3b696e32de845207166f93"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0015",
+      "bytes": 4194304,
+      "sha256": "bdbe03fc0ab86d116c61994e185b1572fdfc934c5441afa0a56cf5d0a3bce90f",
+      "gitSHA": "9c0bdb269879cff9721c5d6aa77688c4631a9c17"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0016",
+      "bytes": 4194304,
+      "sha256": "d2e3f14df6c35cd357ec2404459cd584cd176cc2eb5e2f1972ec773b8e0f99bf",
+      "gitSHA": "bb00906c0def9a5539a533a82d9745ad091c057e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0017",
+      "bytes": 4194304,
+      "sha256": "bf78da8cf389457b672a97697f54e7a5e20b4a03b5ab0a64d2da69c0503da804",
+      "gitSHA": "24b1a48d057056d052131cc76ba34849f0fe6c68"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0018",
+      "bytes": 4194304,
+      "sha256": "dcf1eff6da6e83854b350c35fc70e7f47b477454731febdbb697e71c3afd3e1a",
+      "gitSHA": "8eac9512647f85600c0b6ef3dbb481c433e5be9c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0019",
+      "bytes": 4194304,
+      "sha256": "d1c8905be74d542aa1d927480c81c783f20a5c2c84359dc58f3c17de0a8498a4",
+      "gitSHA": "7728cb513614f280533ecdc2f8283747b0e49f50"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0020",
+      "bytes": 4194304,
+      "sha256": "287bf00a122f63ade31961c6e781f41aeb7a9debe8bf65d9096a380efe6e05e0",
+      "gitSHA": "1fba017bad3983f85d7f3c6afceb077a4c730ded"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0021",
+      "bytes": 4194304,
+      "sha256": "33633c85e07204928b00d5d44cd61e5643fea19a30c228c645e93a5446a454ed",
+      "gitSHA": "d3e61f7f48744f5cbf9730549b8bfc69d0fec269"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0022",
+      "bytes": 4194304,
+      "sha256": "2004c735083a5aa8a284d160757f4693866c66307433511d732632ab2a8a3efa",
+      "gitSHA": "eaca1bc0a8dd8c4fee70c75e723c168d1f41c25d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0023",
+      "bytes": 4194304,
+      "sha256": "73ec252095ffc5937c4ecdfdabbbf8ee07de05600702c877b11ded3dc7e34676",
+      "gitSHA": "4fba509f22c4de3aef97b5c0ea553939457edec4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0024",
+      "bytes": 4194304,
+      "sha256": "a6a1af2561b05c4a61c88d315c0624ea85fc6ab2a6416278db24f035821dde00",
+      "gitSHA": "d323d91f02a2c02ecf31cab72e89f52506775ff2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0025",
+      "bytes": 4194304,
+      "sha256": "b0ee2eee01fec88c4fe51a432291112a7950f1585a4b73f5ce46fd708ddc4142",
+      "gitSHA": "45333914c79150f2eab772810a9ffba7c04ffc97"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0026",
+      "bytes": 4194304,
+      "sha256": "9ae583a8d370a3daef6ab3ed34bb686f1a8e168b8ae64ef5374829e5e16457ca",
+      "gitSHA": "1d7ac00da83117c977ff4f4faa0d1da483cd253a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0027",
+      "bytes": 4194304,
+      "sha256": "1266c54e07e1e2e658fce93d363cb3db8bd796155dfa6f4b481ed5f8ec3fbed4",
+      "gitSHA": "e004d1ff0958d06c66931b2ac1633713a4b636bf"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0028",
+      "bytes": 4194304,
+      "sha256": "002f3c9b8de13f3cddd642be7007389ec9b66a780e1cfb6b8afe4641c64f793d",
+      "gitSHA": "641ccc55da740e29e4469f4ac69732c5a0a093b9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0029",
+      "bytes": 4194304,
+      "sha256": "c00b6b23f146219a160743ba1d972ea31c1afe46d6f19286c0aad216519aa8d5",
+      "gitSHA": "de1315730239d1a2c5a598ab284712ba1c9cafce"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0030",
+      "bytes": 4194304,
+      "sha256": "526b43070009111d09db60ae4502c78ff44fc8b5871c3dba1b271c57872b7596",
+      "gitSHA": "d241408929c0eb539647bef80855f85062d4a72e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0031",
+      "bytes": 4194304,
+      "sha256": "7b023bf7fe8b300a4e520e6591412fc9f23546dc8f5321da792a7494fd790d5a",
+      "gitSHA": "3483f7ce913da7fac6a18ed74abb12c695c1353c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0032",
+      "bytes": 4194304,
+      "sha256": "6fcb8689c57d9fc2999768b7b5b83ebb1e52821078f60799cf09b6c4aef1c87d",
+      "gitSHA": "3ad95de192d54c190ce18ca26022bcc9c61899e1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0033",
+      "bytes": 4194304,
+      "sha256": "d663882648746c65b8da2c6c28c1ee70ee58837c1699dd40451f1514dc3ef70a",
+      "gitSHA": "777b83b2088bed06a8be15a041f149c633779bd8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0034",
+      "bytes": 4194304,
+      "sha256": "f1299815a420dc4f7ae43e5ebb6dd70a18d966d1ac0ed188b54becfcfa90bf74",
+      "gitSHA": "9b4fc8749b016e1ca792f5b8c3b8c0fdef86701b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0035",
+      "bytes": 4194304,
+      "sha256": "8c4eaa6747c43d3cc532b83d0891281ea74ce3c1176fbf6c6fe49d5d162acd8c",
+      "gitSHA": "0cf91c4036ccf0944e8953aed4deacd2a1d5c1c2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0036",
+      "bytes": 4194304,
+      "sha256": "9df9fa6e3654839ddf02ea4cfae738fda530d69d99cbea79e6a2d733246b1ffb",
+      "gitSHA": "b746e7afc8ca507f2b2c04b20a7930de37d52a2f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0037",
+      "bytes": 4194304,
+      "sha256": "9111ebcb24496c54f04dba989f4f98aa1b5d06080970d62141777cdde2d2fb23",
+      "gitSHA": "62e099b6d4b8c26cb441c7b9c0a559ac0fef60ff"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0038",
+      "bytes": 4194304,
+      "sha256": "70848f59126b5be13762ecbb975db3603744abab6bedb20468ea5d0372622059",
+      "gitSHA": "7b786d8775beae2ab1dab1f7ade8d2a94f3352cb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0039",
+      "bytes": 4194304,
+      "sha256": "56f30656ca25896f94510d51dd50658e96996582d096cc3565027deeb88ac685",
+      "gitSHA": "033dc12df7f839d93e2bbaa5cb125ab947dd12e2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0040",
+      "bytes": 4194304,
+      "sha256": "67e4e7c4e8aac5889423e7957c017f25d1595a1dbd2d72a99483fbb1d8bad783",
+      "gitSHA": "43e3587fb9541d3c19d078621282b891c2995a85"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0041",
+      "bytes": 4194304,
+      "sha256": "d4d88dd1e94d26a8a7737dfc92eed1a1c54fae20c5678547256b8489b7f7499e",
+      "gitSHA": "afeec1e49467a4af57726c3417487802fbe256e1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0042",
+      "bytes": 4194304,
+      "sha256": "4af328e3b19a2d180bb72cb28dc1025ebb3efdc2cbe3dac94a57a3d8294daf74",
+      "gitSHA": "cdededfc7b4fbeb87efedbe8224ec5465bbcd50a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0043",
+      "bytes": 4194304,
+      "sha256": "a6394fdb1e741eb7166487f78f68d44b489da63f0a94f6911b7ec7bcb2f8cf0a",
+      "gitSHA": "c56aeedbbb828a1129fde15e5b0fa313dea443e8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0044",
+      "bytes": 4194304,
+      "sha256": "266495499fe6bbebbfca16ecadc636209cc604bc3dbcee851450dd099929164f",
+      "gitSHA": "2c6c861c7979b1a171a4d88e689031d75ac4d093"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0045",
+      "bytes": 4194304,
+      "sha256": "b051b96d7488b3e093baeb4e6fde97aaa1409c3ecefe402c08d2a82cb7ceabcc",
+      "gitSHA": "d1e8488aa4c0596a62477b6314a1be845974ecbf"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0046",
+      "bytes": 4194304,
+      "sha256": "e02774573bc557709eab5ab2415a44e90222a7b7e81dc4e7ce009b15a169fb31",
+      "gitSHA": "8ff77b2ad3758fea89c112dfac561ff503e6c63f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0047",
+      "bytes": 4194304,
+      "sha256": "7bb845bc5ec7dd0bc24f3c65e58f39b722023d08966a25619ad4c27a375c310b",
+      "gitSHA": "c107ce36fdb955c8e25d643755ef5e98362bbb7b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0048",
+      "bytes": 4194304,
+      "sha256": "1989829dab205203837f21a49b4f0e9bbac55baec4f54b05072564903e5c34fd",
+      "gitSHA": "be2a34ea5b5308da8436b4f0be4f844d8631892b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0049",
+      "bytes": 4194304,
+      "sha256": "174ff6e38bda1cfe07a7e24e20ea8cda3b0f1e14dce3c569c789f47d4182117d",
+      "gitSHA": "831e0bcb6675ae13eb0ba9a8b87d3a8cff08dc02"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0050",
+      "bytes": 4194304,
+      "sha256": "c9bb4b18f9f8bc3a42c17430879c72a12817e4fe99a4f518bce5358385073f35",
+      "gitSHA": "946e96fd8ac6bcdff05c6f35e037493ed0e352f4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0051",
+      "bytes": 4194304,
+      "sha256": "bade6da1a694d0dec84c9c9403c022b3f7638e907e98f723686031b0f2aadd04",
+      "gitSHA": "26b0e5adf1c958491a5f3de4da6c422668810982"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0052",
+      "bytes": 4194304,
+      "sha256": "e78e85ac9e0d2c4a7205fc7bc35672e75483db3dfae7b3ebe81fbd8263ddd425",
+      "gitSHA": "6957baae3f24a20675b1216875c464a8fb4b622e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0053",
+      "bytes": 4194304,
+      "sha256": "9f68e1ddc0b87d9557214b5fea6534f839e95c3fc88d964ebfb1a9b6bd92877c",
+      "gitSHA": "939b271e2fcae3b253acc612b8b9e60620cb5e66"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0054",
+      "bytes": 4194304,
+      "sha256": "e4ee015c41c70704cf8da10b2201450ce756e875d9089263e16c9135fa18aa08",
+      "gitSHA": "efb46e6f61f5c1081c79d3affb76f08bf1b31a8c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0055",
+      "bytes": 4194304,
+      "sha256": "ecce3035caef566c7f342cea256fe2b2696e2a00bff27236065c381ead33ef68",
+      "gitSHA": "37009fe4c9c5a67d255df2b63de3a4b4fd49131d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0056",
+      "bytes": 4194304,
+      "sha256": "506f9196e0368b840abae00aa4e1cc4a41c9285bc3db19b7b060d63b8161e9e1",
+      "gitSHA": "29496b583ad2e68c4219b6b7f881760b281b2275"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0057",
+      "bytes": 4194304,
+      "sha256": "b1dad8132616bb6eb6cc4bdc141b691b7223fe8d2f628de2ae3ddbd1d287f522",
+      "gitSHA": "0345549d887029b64307b0d881b618b3892c5ccb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0058",
+      "bytes": 4194304,
+      "sha256": "c472df0b67ba958069196166c30800f347df4a3e84f9d349cd3eca8dd640c66f",
+      "gitSHA": "896eb35eb8faee56f608fe0bef8e60f5e11fb827"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0059",
+      "bytes": 4194304,
+      "sha256": "5898ac1142ca97fefeaef3b3c0ef2c57b79b7c75633b318214d400b9c47fe43a",
+      "gitSHA": "2dd05cd731b6ba11015b0122d93643678b311859"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0060",
+      "bytes": 4194304,
+      "sha256": "a682ad41e572ecd9b466da5d4574cf892c54eace8970b4802f74664aa79012c3",
+      "gitSHA": "928ff63f52b96444d3223e3219a95629f86c347e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0061",
+      "bytes": 4194304,
+      "sha256": "f3f6760b84ff807c465fd91701a5476f314693de820ca49454c7215837869e0d",
+      "gitSHA": "6c4a23c420562628b5a3a1a3779e73249824c032"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0062",
+      "bytes": 4194304,
+      "sha256": "befd2d045d5afa1d51acd14fb7cff697ccf1818f2aa00f79d191fd119e2562a5",
+      "gitSHA": "79bdb3cbc007092b1e712bd9910fe71f881482cb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0063",
+      "bytes": 4194304,
+      "sha256": "afb9348a616f6401286dfb4bb0c011ca8469e64e6e1824ab5fdb10023f7cb5e4",
+      "gitSHA": "19ce5603d7627abb45802d3aa9004fcc1dffd77f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0064",
+      "bytes": 4194304,
+      "sha256": "1af49375126284a60359716ab57fe64801c9c6e1bd07d3cba0b57f73de751383",
+      "gitSHA": "cb0520afd2ec4720347ebe5e8062f37edf15afd6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0065",
+      "bytes": 4194304,
+      "sha256": "65f691e4219c93f80bcdd5138c71f609f356520ae36100381349bf5e84e9cbd9",
+      "gitSHA": "9c758632f0f77c3f8446f122dc13c3ba4365e257"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0066",
+      "bytes": 4194304,
+      "sha256": "bdc38156db258d71e71c69a132f3f8e577f3eaf86ef058d07531a98556d3f5f9",
+      "gitSHA": "46e5c2e7d5851d668b0ca9b2b63ff42893836886"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0067",
+      "bytes": 4194304,
+      "sha256": "61b03df86e4b95aadf9f94f1369fd2028b2cb3f5a0b2103ce6204d47cb3b23a8",
+      "gitSHA": "1bfa12b537c61867eb13c3bd885c6b566c8d06fe"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0068",
+      "bytes": 4194304,
+      "sha256": "d9439b4afcfb645903136a3ef1064f9e97c18a4aed98cc62e2023a36054f3225",
+      "gitSHA": "a431c2a18f8e49b9d0041c52a59cca0a7ab92737"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0069",
+      "bytes": 4194304,
+      "sha256": "a408d9cc9e2fed58292926a7c11ed2fe2f75798c416756684abe6fcdf91a5303",
+      "gitSHA": "8d280e0352a28ee1367ef976bd0b9f83930b1295"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0070",
+      "bytes": 4194304,
+      "sha256": "3ff7d72572454c11b2fae521b5d6e270547818078efa9eff27ab180023c65d95",
+      "gitSHA": "ab78cc86c247f29fd6e3368c90ebed5239dd5642"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0071",
+      "bytes": 4194304,
+      "sha256": "8fa3e025a44123cd3625c835a017417c80484f73fa4857444aa7de636ec9518c",
+      "gitSHA": "e13c38576ec05ba7f5603799f480ef5824ed34f8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0072",
+      "bytes": 4194304,
+      "sha256": "201b3cbf6c5eda2e1c2cbd5286ef65baa13dceca13ca81f38f417c7d3f9738f0",
+      "gitSHA": "2ae2c18bc56744d810a97e5017042bc6f1fd1794"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0073",
+      "bytes": 4194304,
+      "sha256": "f66d86a079a882dfa68e5ffbd1380b86bc143f0c77fd547208b3b41ff06141e7",
+      "gitSHA": "42b95cbed8e34737ad81d0cb249df986eeacf9d7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0074",
+      "bytes": 4194304,
+      "sha256": "c5ad2c4feca32f9aba9fbb335ab4a4a44b95fb51ba65bf54f4fe0bc252c91a6b",
+      "gitSHA": "ca82a3bf2fe5c988de76c44082fc23078ca066fb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0075",
+      "bytes": 4194304,
+      "sha256": "ced1f4066ea0d5af849a351d2b09dce471ca8698b44fe2b115bd85da48162164",
+      "gitSHA": "0f712842a8c11bb41162445ac4f110da12381916"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0076",
+      "bytes": 4194304,
+      "sha256": "abb492b12446736998154a02d26ff69c76d88bfdbd7828bd5aa05927da98e093",
+      "gitSHA": "d3b1f430a29a8ba18918d4e55e6f693d2b0062c1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0077",
+      "bytes": 4194304,
+      "sha256": "20e9da912468619f543d86b73f21b8ed591eb7eace9c278ff6e107dda1aaee8c",
+      "gitSHA": "31cd80d05e565ba881e79f536faca5133a31cbc6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0078",
+      "bytes": 4194304,
+      "sha256": "b19b4b7c02a3f3f4a5f7197590f2320d90368e1b7f896256e239167a3f4b6501",
+      "gitSHA": "23d776cf990e10ef0e876ab6e06503ed3ba9a817"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0079",
+      "bytes": 4194304,
+      "sha256": "517d7156ed1db8c5b0401a09c4cae55cb13340e47295cc15b12339c8066556b2",
+      "gitSHA": "a267acbe1a9d0af7712da4d2e2d352bbb2c20e53"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0080",
+      "bytes": 4194304,
+      "sha256": "9c3c33294e75fef665275d042e6715ebc3589304c6e17a7cb03f0318f8ec936e",
+      "gitSHA": "5ec2d55e3f73373fe679f22a25c9464cc5ed2ee6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0081",
+      "bytes": 4194304,
+      "sha256": "6ed66f67aaadf20f6b7ec39710acf619b2950b3033139ad2629910a69545e85b",
+      "gitSHA": "6b053738768a151e060c1fa358cca45d64659109"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0082",
+      "bytes": 4194304,
+      "sha256": "5704c21dbd13c2edcd6ce471c68de868c777f97b640a0b65df0df2d890f17bbf",
+      "gitSHA": "91316d3542efa28d71762bf183484dcd796c55fc"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0083",
+      "bytes": 4194304,
+      "sha256": "eba8d64481798c1f4935efb900b3d04c528902da4c0d7214ff298f8ee9354618",
+      "gitSHA": "4430ac925313ffd9f5c7672350c83f321b2e6680"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0084",
+      "bytes": 4194304,
+      "sha256": "71b170584b392d49e2a3c13e3af567e5bc9200da9c228ae3cdce1329181d7813",
+      "gitSHA": "3cd59ca27d80d9e75d202fc526f41c52749af58d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0085",
+      "bytes": 4194304,
+      "sha256": "9c3a7860c171f56fd6e4568a5146212cda93097a10e0376ef752f4d258684a70",
+      "gitSHA": "d82d0775cbe539a8033efe6e6b710f4d6a226422"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0086",
+      "bytes": 4194304,
+      "sha256": "3aa705e198aa75243fbdf702489325f1afa5697c7a91153e8f59199a54fa679c",
+      "gitSHA": "852bdf867c4e96a9badf70f78b8ad01cc78907cf"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0087",
+      "bytes": 4194304,
+      "sha256": "71fb34adc20bb3950d1feb5a583724a77e2f4c78fb9bef151189fb57f97304a3",
+      "gitSHA": "c8e1f51c11f3aca3909da5ade70f423aca392e6a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0088",
+      "bytes": 4194304,
+      "sha256": "a472256a91c0670df85a752b03e24e1050491bb35a89829a5d7c99e417f863ee",
+      "gitSHA": "649e1f38326a48b0c3bf9373d000de3c86070039"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0089",
+      "bytes": 4194304,
+      "sha256": "b9e0fda520e3ca26f1fb7095b892d0264e46052c48fbdda8722677e86d6af0b5",
+      "gitSHA": "23c595cf507a5f503288621373e9b7a8272ff2f9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0090",
+      "bytes": 4194304,
+      "sha256": "f654efa65485701c2cfcfa6a2477a4423f9532d78f215c789882475911768832",
+      "gitSHA": "19280737b2750f047b165dbc63a4175f1816b894"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0091",
+      "bytes": 4194304,
+      "sha256": "8bd135839c51c9a12f67cebad386073cfec3bff7c31b1662de90fd5dc089e156",
+      "gitSHA": "c6b79abdab83f8940e2799bb1eeff10398a2becf"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0092",
+      "bytes": 4194304,
+      "sha256": "a9a155308db8eee1a97b698cc2c1dc4880c9dff19ee3d3906784b36f81d37587",
+      "gitSHA": "06e15c0498fd26f07b4aec3a5177d59e20ad9e43"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0093",
+      "bytes": 4194304,
+      "sha256": "6b8d69f82b01186d861bdab2e3ad5d08e928ed6a4b1fd2912344d80c8058fa1e",
+      "gitSHA": "f433de93f0014ba93c83e90b3a82175310b386b3"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0094",
+      "bytes": 4194304,
+      "sha256": "334b5b563f4c5416a8afc0f45f6139f93db69ee4410704091e18f8de24aafb0a",
+      "gitSHA": "f8e9d802ec391a7a5a1eff83d0d6b02bce5762b6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0095",
+      "bytes": 4194304,
+      "sha256": "1d2bad5d481affd839c5f5a429059065755523b587131b5b96399d926f227ae4",
+      "gitSHA": "fe3c7f5e05c7af1ab6c9f6a8fae886f8b8959725"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0096",
+      "bytes": 4194304,
+      "sha256": "7dffa94f96c4af1127d452f92a860519b1b5e82725f43d157585d61ce2f7bca2",
+      "gitSHA": "03ea9752b1d5bbede3ea39f8a6c95937f5485be0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0097",
+      "bytes": 4194304,
+      "sha256": "1f6e2bc5a72e8b44a73341ac08d880115a49a2f26dde9076428fc21eb0ad7a31",
+      "gitSHA": "0c36a746ad9e1b4c3b462049e5fecb5f8a539279"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0098",
+      "bytes": 4194304,
+      "sha256": "0c91f731c0563c21ee0f12c70847fb2e9fc9b9a9d8f6bb1514d6c1bccdfe4876",
+      "gitSHA": "58d8099b8b5421930400118183f3718eaf7f89ab"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0099",
+      "bytes": 4194304,
+      "sha256": "fd18a8709601a83f343cd4ae3ae82e5bba46a2cfc4c26242b495f3c3c7f416a2",
+      "gitSHA": "398ae658b17984c615ca7d8dd863e0261c63b86a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0100",
+      "bytes": 4194304,
+      "sha256": "57a2f12443c73b8645114e78e029f3a7de5da197707e0b5addcf123eed26e1a5",
+      "gitSHA": "bd0d16d614c1d1510f735e355602536385c67d63"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0101",
+      "bytes": 4194304,
+      "sha256": "5ae63818eb4234380d1b76e13f45f9162d2209393915812c1dc311c5d2aae3f2",
+      "gitSHA": "252a677b91152a5531705835c95c83a073f6530f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0102",
+      "bytes": 4194304,
+      "sha256": "dc552663ea6592c6ffc97459415a6abfd1d874f14530d726179fc617835b0896",
+      "gitSHA": "b9fad4c5606eb60d43170f671c99a7b47525e782"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0103",
+      "bytes": 4194304,
+      "sha256": "f1b8179b14e269a67dba0f9d09e9f907e98c4eb836b821aabc2a04008408bb8c",
+      "gitSHA": "bd9afae9ea25f2ba7a90b680dca677a9333c6a7b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0104",
+      "bytes": 4194304,
+      "sha256": "ea2d0ec9b4e00d73430907694f10b752646548d3fde7ce3e9f5dd817c8fc4883",
+      "gitSHA": "ecdece4bae286468310eddb42d506b9ba150d98c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0105",
+      "bytes": 4194304,
+      "sha256": "64fce161938eae4702f0b7b682fef017a54101123e6c3125105ffc42920c7933",
+      "gitSHA": "54b0821bc75d326d5be250b09e652a67121e75e8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0106",
+      "bytes": 4194304,
+      "sha256": "314f93c248b7556255b4dfbdec7fc6d4b4dffa2c52092dc8193b48aa22afae64",
+      "gitSHA": "3fc4a99ceeaaaa47c713d6d2e06231e36a63e03b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0107",
+      "bytes": 4194304,
+      "sha256": "65ee2f5017fc3e0a1da311e6ae25ae53390ce90623d8048b914a798a25d8af9d",
+      "gitSHA": "0525aff8ad4be1a2aae9c99406d1547d7a1c20dd"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0108",
+      "bytes": 4194304,
+      "sha256": "9ba8a7b2d10d6788e2b5cbca435afc5ea15d212ab8f2f393492348bccc2a9764",
+      "gitSHA": "74c2f6c19bf60781fbfec96f8c21c6341e106b12"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0109",
+      "bytes": 4194304,
+      "sha256": "35129765186852e998043ca3b7853077754f8f6ea01bb212607ceee0b43db8e5",
+      "gitSHA": "ed68755d21a162dbb6b079a33011c823321c52e1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0110",
+      "bytes": 4194304,
+      "sha256": "f1d18120919d964cd707746357e636b4466e5f80d688ce072a833e16e559068d",
+      "gitSHA": "7f83524cd331ba2cb9cbc2a784c467250f68b393"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0111",
+      "bytes": 4194304,
+      "sha256": "1b203752542eb1df0f39472dd64d33c302be06326487c6a98b6f713efc000fd8",
+      "gitSHA": "4d42f8eccc6974d8638f31219f3dc182854b543d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0112",
+      "bytes": 4194304,
+      "sha256": "49dd5e62c5a280e74fe1c6c76fe255b70c6a5065d18a3e3089fb6bde2d4d068a",
+      "gitSHA": "e3261b6095e09c8594b74f0726c7b72d5e4aef6c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0113",
+      "bytes": 4194304,
+      "sha256": "e816d2b9241811373b70e139cd4a059dcaebfe4be5fd0651277f2da76a81e7bd",
+      "gitSHA": "e6b0195a921f12cc4a4d7ab33b6095805947fd5f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0114",
+      "bytes": 4194304,
+      "sha256": "cde091c0605dc859d66b8addbaa91af095bd97b243d2b5e7cde2a92b71ec6956",
+      "gitSHA": "f3d4ef56aa04734f3a10251a999e8ecfb63fc531"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0115",
+      "bytes": 4194304,
+      "sha256": "6278ca989c674af65841179ca193b8c2cb47e6851f15a87c34e75a048538707b",
+      "gitSHA": "10f44b66efc592af53f9387b384d7d5b600a1a72"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0116",
+      "bytes": 4194304,
+      "sha256": "3cc0ce85f49c4e6b59cb4935f7db3825f82eeb43c73496f90ae400d470c5ad47",
+      "gitSHA": "21599bf7912da55acc6326deda60a1099b99f7d5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0117",
+      "bytes": 4194304,
+      "sha256": "075e61ba0893577e2567120ca52dd64f71e6b51d5fca64b691e5da409d15e300",
+      "gitSHA": "c07928c15796eb365b72010cf508e74e1b2f406b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0118",
+      "bytes": 4194304,
+      "sha256": "610b1a54a35aadb102e338cf20939b3f3a206d66d97d2a5f0f144418ce27e5f3",
+      "gitSHA": "1b40a374c4770483260747983572c6c0d0db916d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0119",
+      "bytes": 4194304,
+      "sha256": "117c59a8aa81ac8684680e1486f2c391ed83a125a0f60b4cf969c52f58a9f347",
+      "gitSHA": "b47dc2ecaee82bd0f34182f30d10683fbd7a598f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0120",
+      "bytes": 4194304,
+      "sha256": "1bccc18279457e1ee1161003422fe0efb0adf061b1d12022da501ce608eb4b6e",
+      "gitSHA": "c6e4fc465c04b43b94d194ec09d08e9a11febd4d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0121",
+      "bytes": 4194304,
+      "sha256": "e42e5dff9b6e0a5d5ce7061a0e7c6a98dbac14c13fb16d5884d0ae3d0189369c",
+      "gitSHA": "498f1f8d38760e1a0cc136814024f894136feaa5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0122",
+      "bytes": 4194304,
+      "sha256": "6e8f39f881f5ee342c97938dfb612c7b35995929c11dee2335dae1f90034e25c",
+      "gitSHA": "98703aea1d51e2b2a9674c7c5b1599e665ad450a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0123",
+      "bytes": 4194304,
+      "sha256": "6569ec029d35351098ac18eff3154f35b5aa1fa47a6ab54980822c53b18271f1",
+      "gitSHA": "c7bbf32ed3e6b3b4ed93050d3a9a2ab5a6414b01"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0124",
+      "bytes": 4194304,
+      "sha256": "0cd6e80172f8ef4e5d5822439eb6f3bf59d55259410c134b6f5419909bbbb8d9",
+      "gitSHA": "01445feae7265137b22a38615d658dc5c79fe143"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0125",
+      "bytes": 4194304,
+      "sha256": "9ba45318dfd97b12b0729907b72b54670d43d5c022307a00e6f0762766a63281",
+      "gitSHA": "74770b44293d3bc666af30f3066ccfb4cba3a942"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0126",
+      "bytes": 4194304,
+      "sha256": "5ea4e29d4120334ebc401cd086051a4e72aee30533b03173f356f10da0687744",
+      "gitSHA": "568041dc1a18e5e6ea16d5525ed112719b369d33"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0127",
+      "bytes": 4194304,
+      "sha256": "317befd2639707f0b7330c5d69459915d9262b46084313da651ac88033607559",
+      "gitSHA": "8d6eb07924e04cef6223c08bcd98918025523c80"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0128",
+      "bytes": 4194304,
+      "sha256": "c9d8e5379425cc005ca93305d415020d6a7a077ff4a3733cf8a9bc5abbee0eea",
+      "gitSHA": "bfc7b3417a6af55b73ff5fe57a1eb399a2b8dcd1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0129",
+      "bytes": 4194304,
+      "sha256": "b9f0f4b03189a05c615c16463094c0002c112ff8a1325901d7203001142dd0ad",
+      "gitSHA": "8df18946aebb28b0fc280cfec130b60acc333042"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0130",
+      "bytes": 4194304,
+      "sha256": "c94d0fd0a2740737608bda8b9709ab3cbfc5b81308748c4fb7c6ed6a50f6b603",
+      "gitSHA": "f0f789adc3c1d72e4eec545f5a423b5015d4adb2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0131",
+      "bytes": 4194304,
+      "sha256": "0501a684932cd4860ef064ac4876d0d59ab70318d51d8c20674fda7d1062da3f",
+      "gitSHA": "cad3ce50df22dc8df8a8b5ef3f318337536f058a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0132",
+      "bytes": 4194304,
+      "sha256": "07966bd5dc014c9875bf95d83aa424f04a6a05a9f464e30e08e8a2099ea78319",
+      "gitSHA": "4530ec82340cde0707c6bb14d325c9918222e253"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0133",
+      "bytes": 4194304,
+      "sha256": "d3fd6cc794c17cf637f7a12b87cb3bd902686399700eddc7263e40b9c36aefdd",
+      "gitSHA": "de64513a2d7673c93f07375ddb42efab45dc1207"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0134",
+      "bytes": 4194304,
+      "sha256": "64d16548c0b41efe4500e230ce769822cac7bb0e02d352f71eded62c1ccf8bd2",
+      "gitSHA": "235d2ed3afd9d31406e693eb988a6edb0507e378"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0135",
+      "bytes": 4194304,
+      "sha256": "5ce9bb9b500de6d7f05966138c93e2a515c87576c29e3d2ac0dd14fb0519702f",
+      "gitSHA": "02d82273512cf8e2f8816d1bd6528dfcfa1fae17"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0136",
+      "bytes": 4194304,
+      "sha256": "bee410996eb444120223edb2600d7c542b0472d365e3a2e96c3f401252b82a5d",
+      "gitSHA": "ee65b83dc7ef086788caae7f0a988563540d7fe8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0137",
+      "bytes": 4194304,
+      "sha256": "4fa0d11f0682191c56055e2313f27b49488d2de1f39a5719b6be4f807af492a8",
+      "gitSHA": "ab0b71559f78268870672f075d4d93636b576609"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0138",
+      "bytes": 4194304,
+      "sha256": "92119d5ff0f172afd93acb97ce894f2f8eb6acaf77efb8d2aad8bc2c504ea9e8",
+      "gitSHA": "5840abd601e2007c0cd0a591e2e38699c0ee4db2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0139",
+      "bytes": 4194304,
+      "sha256": "1a29f6b9b277f01def65c89c05a4b4683f45291b8cc67bff6bc388f4d46120d6",
+      "gitSHA": "8a2adc4d6a6f74ed8b50f4c8aab8ce89a465a6fe"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0140",
+      "bytes": 4194304,
+      "sha256": "e9cfd5870811134672f3485f709c7d047109a8ab8a257a1e27a6c76c20c3f185",
+      "gitSHA": "1f3d4bd4e60e64031c4cbacd3e2d4588590bc9e9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0141",
+      "bytes": 4194304,
+      "sha256": "f97d9bb946d277262957c2d7e1e08921ad9f0a80c55a523225f7a8520ab9b2e1",
+      "gitSHA": "f3383960becae02fc608423c87a1a2f12b305cf9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0142",
+      "bytes": 4194304,
+      "sha256": "88ed10a9aebd59b93a63fdd2802ede7cd3e56941c9c65333add5f60a37dda8f0",
+      "gitSHA": "6bd8d4353cbc7934845b63d278e98b74b7fc0886"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0143",
+      "bytes": 4194304,
+      "sha256": "6c6971425e368aeb7d1d9263b93c9253c67fb025c86ba2c523c445de1e3d2b59",
+      "gitSHA": "1c6edd01dca8f5692f613519f12756bf003b1eff"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0144",
+      "bytes": 4194304,
+      "sha256": "a13b586988355566b03b5f5e85e9ac27796ce0da015a5ccbc8c91b7eaf67aab3",
+      "gitSHA": "5c4d2a1b6c62a0f6caed77fe676f535a5c782234"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0145",
+      "bytes": 4194304,
+      "sha256": "97792c7dc4dc0dca07e58b6da416eb49827e29fc58e32254d80da9f62ad1f1d3",
+      "gitSHA": "fbc79be4c6da3f4ca33681a03f10e9b1b09abf33"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0146",
+      "bytes": 4194304,
+      "sha256": "10b85046c1c4ae84ae52e6831d093e15903e4271cb304e5b12481a814422a22a",
+      "gitSHA": "d47ac0adfb6091f083be6ba6f0b7d39bb929b43a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0147",
+      "bytes": 4194304,
+      "sha256": "fabff40af695599758d772f6c6ff99b1a28ba44de462f7d4103d541b7c50976e",
+      "gitSHA": "6edc04f57dcae57e69339935de680ccb39eb33ee"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0148",
+      "bytes": 4194304,
+      "sha256": "e15119172b4cc8db5071540d3fa9eabbe31cd38a28628083fea03cda8da65363",
+      "gitSHA": "fa9070ad3fa632d8b6cedbae3851c3189b6cc9c0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0149",
+      "bytes": 4194304,
+      "sha256": "0600e1c74f10fe09b5584ea8b17e6345f5db64b774e85c122fbc980e5e783d94",
+      "gitSHA": "4aad738dfdc5bc9aedf3f2a6a9e961d0c99487b4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0150",
+      "bytes": 4194304,
+      "sha256": "39d658b68d338fb30c1c07a6e01b245ad0b0b6b2cefbe84fd21afa76d45e1da5",
+      "gitSHA": "aa42776236d90094bbd0c2fd4fb2c80b5023cd49"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0151",
+      "bytes": 4194304,
+      "sha256": "35a4b1d44cf3b232318280b426a3ae50d8ad92d0fe1df81636cfda28e4a1e587",
+      "gitSHA": "328fa7f3ac96ec028e6e46f54692a4c633a9c47e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0152",
+      "bytes": 4194304,
+      "sha256": "ad3dfb8fa288a379eb6331c6cb5b0304e007fc8bc78bb071cab8c85c719ab3e7",
+      "gitSHA": "acab4116745ee3c38907adf6f11f6f8bd1ee0428"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0153",
+      "bytes": 4194304,
+      "sha256": "2aef6d4254a9578621ea905f664251ff65e5a67d9ecd37cc6a377dffcecef676",
+      "gitSHA": "748f96128a9827c77d0572632e9241a9befe80a7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0154",
+      "bytes": 4194304,
+      "sha256": "208bb17c20fe83e3b3b53209153145009f39e3e3a92e1d2285e4f2e349c10239",
+      "gitSHA": "302cfd4eeaded6ee4e993e7a87c31f3f5e6d8011"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0155",
+      "bytes": 4194304,
+      "sha256": "f1e71277b907b9b4806e67bd6b91b0b1d49f538321ebf11ed487b3351177a9c4",
+      "gitSHA": "cf65a6448538f67f58bd2cd15b6cb977ab1f5fb5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0156",
+      "bytes": 4194304,
+      "sha256": "9512d0a48d00c667cbe66e47ab56c6bb256afea63de0d5875c377f468cad9fab",
+      "gitSHA": "ce292b28a5d5cf1a97326c9e04c29e3de0254f6a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0157",
+      "bytes": 4194304,
+      "sha256": "b439985870d410e1fda1b8a1bb65105a106bf608eb93ad19b518eddb93d9dedd",
+      "gitSHA": "3ac49e17f6de7aa48706d31e818889c97205a3cd"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0158",
+      "bytes": 4194304,
+      "sha256": "ec01db7b54547ce4223ac4e31f59bb35af0fd805eeb443e9d7595becb567d96e",
+      "gitSHA": "15e44945ba1df577b3a1c3ab7298f5e14c1c9d22"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0159",
+      "bytes": 4194304,
+      "sha256": "8a853c32d7e5c67b47aec14ab22e7df7dff2be1bfb3f2072ad146a3d3ae7f8ae",
+      "gitSHA": "75653bec771e93115b0dea1c41405edbbe9abb35"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0160",
+      "bytes": 4194304,
+      "sha256": "46a8c79ffeb67b8d7610ff19dab033fffe7bcf24f200b25cdb709f1be347a52c",
+      "gitSHA": "5f147c03b3a6c162dafb81653d99bb9f6331e3ba"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0161",
+      "bytes": 4194304,
+      "sha256": "0a71a9ac62f0c136faedd987da19d25f5409e1fab05dd8f3b66582f8ceb70645",
+      "gitSHA": "ec9a27c10b7dfa74f2a0920fc8bd4c072a7e0482"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0162",
+      "bytes": 4194304,
+      "sha256": "afb315460f545322a8ccd631e287ca4be648533ac2c58ad86d1840891a9082f1",
+      "gitSHA": "5a53acf71341f33829ff5003ba7fe4babeb863c5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0163",
+      "bytes": 4194304,
+      "sha256": "f9ebde696bf1ae37c34b09721ac17f38c49772186fa4449871b0cf209a0ff653",
+      "gitSHA": "8464b966eb08b0ed20d5d92935b007bdfd4edbe7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0164",
+      "bytes": 4194304,
+      "sha256": "36c22617e01d758372d281f6745e38570a43fca1cb8fa376514c47d50851f523",
+      "gitSHA": "24476b31005245abe00e81594a2907c297c5d53f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0165",
+      "bytes": 4194304,
+      "sha256": "afc6093a491b5b5b02bdc280db59ac9b826eabf252a256426e2a847a04ccac90",
+      "gitSHA": "e08fb34519c30a33b735c86f26e873d46166f51a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0166",
+      "bytes": 4194304,
+      "sha256": "f16fabffee4ded88de39904a2e074a14fee6e32f87601d7b8cd5bf89d857c8be",
+      "gitSHA": "cf9d80c372392381670ddbcdfd31cf456dc542c1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0167",
+      "bytes": 4194304,
+      "sha256": "cb4b7d9677f3b0e1c7fe0ee94bef0b1cefdd33c277ed3ca703213e88ad5c81e8",
+      "gitSHA": "619b5de726aa4c63f02b5dfb79e61a17b4aba9e4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0168",
+      "bytes": 4194304,
+      "sha256": "731a5fb53b4712c6932508cba2a7a93667655c60a0047c5a1e30985a1e2b0c79",
+      "gitSHA": "12407222a0c12772070318636a9e38e8fb3bc883"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0169",
+      "bytes": 4194304,
+      "sha256": "d236a9885046ca5198b137b35797a35e66c5bb9e4a7bba303f3e9004481c4d6d",
+      "gitSHA": "d89547dff02036fbed322c6701b43686c40d29f0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0170",
+      "bytes": 4194304,
+      "sha256": "1e38348b93a618462f316bf9132cc763b5da9be76491e9bfdae4fdf07faac1fa",
+      "gitSHA": "223a537d906ebac5b057e5349c577e3d9ea570f3"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0171",
+      "bytes": 4194304,
+      "sha256": "6d323303ecf920e13f9a9d49f1a682dce5f5b7e9c04735a2ea9a4ed3b147ae01",
+      "gitSHA": "37d17783707ad3e84aa1a3e7f5672094db3d5287"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0172",
+      "bytes": 4194304,
+      "sha256": "791c4a51e562f5ce5e2e34a29c74aa130e3c49d0f0d2b8629db6be62707b7b9d",
+      "gitSHA": "b6221ec9ceea6ba9c3715542d60cdb24aa4e2a57"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0173",
+      "bytes": 4194304,
+      "sha256": "d798db58fc40c898f62873e7d89b93f74cc921dc41c9792b050a54a9d2924632",
+      "gitSHA": "012bcd0087fa163b9b2141b860b13bd7e70ac14a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0174",
+      "bytes": 4194304,
+      "sha256": "0d774b119dbc4d457cf4882c50515929ff4f57fda0c5199478c5e76fde9a3747",
+      "gitSHA": "1c9693f4e35b14507f25ae0ca0f62789e97f4926"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0175",
+      "bytes": 4194304,
+      "sha256": "9b342d9bb146879e73a6265cbed51cceddf1251d615d92b33e50e32314e280ab",
+      "gitSHA": "d6de6af2aae30a3ab2bd117c1537853a427d15ca"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0176",
+      "bytes": 4194304,
+      "sha256": "2e99bcedaf426c80527835c269b17b4066969f97ff617fa89d7babf8b1047b61",
+      "gitSHA": "6b11f60f3baf542b52a1ded6c10d07ff623d6ab4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0177",
+      "bytes": 4194304,
+      "sha256": "9fb72c51580b7510cf316f1cfe8fce343331e450e0ccf991dbbe7a9c0798adc6",
+      "gitSHA": "c275c377f45e2eda0aa87577e2964bc047c5a7eb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0178",
+      "bytes": 4194304,
+      "sha256": "46195868a9547594538ffc3c47905ee6af89d86c5ea3dd1ef0defc10059ab6ec",
+      "gitSHA": "83be5fd127700eca7719fb79e5e79290837de8fa"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0179",
+      "bytes": 4194304,
+      "sha256": "eba18194858f43c4eb01a112168df639c3232651a7529c5ef6b3c85103f99aad",
+      "gitSHA": "d902a33191a8133e2634094d3ce26e846ae9dfe8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0180",
+      "bytes": 4194304,
+      "sha256": "6c162448c04388bc08e3aa3f0ab59122ad95df8d5c88ed5c5ff6c4a852d1e742",
+      "gitSHA": "734d948c188d7952e2221774875aea2b87cf3c83"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0181",
+      "bytes": 4194304,
+      "sha256": "eac998f690fe8ba2cc0458272108218d2b6bb397551200dcd10e3f28c2759d15",
+      "gitSHA": "95f33f1c6fe04bec9daa6fdc149be8c1f08b1d91"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0182",
+      "bytes": 4194304,
+      "sha256": "a6204173b9cbd45d761023e7b37c1a43d1c77f083ed3b8dd875f47fd49c65503",
+      "gitSHA": "361559fdd83bddde3bc5b2389ffada96fbd1e161"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0183",
+      "bytes": 4194304,
+      "sha256": "52659d11c68bc060e7428fac93c7b45d8d7bfa1e631a52d746e0ed54dcf8794f",
+      "gitSHA": "9b05a9110c5af968fcf2e0e644bec162640446b2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0184",
+      "bytes": 4194304,
+      "sha256": "868adacbb279f97f5e05f7ca5c8b4cbc8e2e4fd5052f7df3d899618bea96a888",
+      "gitSHA": "037bc542e3c942950de4b094ad1f7bfc56ffbb2e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0185",
+      "bytes": 4194304,
+      "sha256": "8f9ebd2d702c5c7ef637d974272ea5eb952e7513f6e3d7c3bb2d14f556bbec4c",
+      "gitSHA": "23eebbaaa2afe5c4e93a3ba4ba61185987ae736f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0186",
+      "bytes": 4194304,
+      "sha256": "d42a8b26171f8afdfd1b5b8ac6015eef6ff01baf0525816617b6bffb51d9e408",
+      "gitSHA": "eccda4ac498e713c811671c737cfb959750268f0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0187",
+      "bytes": 4194304,
+      "sha256": "37e7cb22e9592e3563bdecd463300eab1b13b77a47d2469037e1130b46ae8b1f",
+      "gitSHA": "b702437b5b6b6b196cf333c8a283e1685fc2f66a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0188",
+      "bytes": 4194304,
+      "sha256": "42a9dabd98f5013e93849129f68133427faedaafd169fd96cba27049f7103290",
+      "gitSHA": "fe11ed7c2cebb3439f2d9cbe23c88bad6016d0bf"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0189",
+      "bytes": 4194304,
+      "sha256": "b831aee2d591100e3cfb95d26f931121cbf64bc4e540190d85eea944162ced2e",
+      "gitSHA": "4a7ab1c56a298e7fb4c8231293b27262b5353ca2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0190",
+      "bytes": 4194304,
+      "sha256": "6d05d1bfa4de98242495a77ca38c3c123fbe2889376c2a729e8b89bce9be9152",
+      "gitSHA": "b46d3a489a8030e20d178fa9336f1cbb55d74416"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0191",
+      "bytes": 4194304,
+      "sha256": "6368c27a367a322569959302c886f53be548f4e840f8ab7bf7b3f2b08e4e5d7e",
+      "gitSHA": "58a3cd5c381e08076091c9be05c69f50637a1634"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0192",
+      "bytes": 4194304,
+      "sha256": "3b9b20f74bd7880aa363c0d260652cac25cb5a34bc58874e5f2fb7a2554ebf36",
+      "gitSHA": "65a88536a16724f311f86382f6946536892e4353"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0193",
+      "bytes": 4194304,
+      "sha256": "c2feb0b514c88822a810f0a312af8d83aac1b7b185fc4f0a830dc991acc2aa7e",
+      "gitSHA": "314920eb699aa90a72c4b8c67ee6404da3626fb1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0194",
+      "bytes": 4194304,
+      "sha256": "d736ab472aac6d9b3861ca26ad07a5a37164fca0618336ecc8b78c8bccdc2208",
+      "gitSHA": "83578219c18e00998712e353197fdd31fea7604f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0195",
+      "bytes": 4194304,
+      "sha256": "709011bea12e22ebce37aa22c9ce5f23ca3dc815f51cb56ae7eaf35b2650a50f",
+      "gitSHA": "9d655902116f7e7eac64d5b588c48814623a8080"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0196",
+      "bytes": 4194304,
+      "sha256": "5dc7237eaf55a39644499f4be45c3f3674a4151260078cbc6826bdcf44930f8b",
+      "gitSHA": "8a8286a8732d855455045a41d836e4891ecf98ba"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0197",
+      "bytes": 4194304,
+      "sha256": "f6ff6b690eba22eedfc33d038b33903e7923a72ea96cb750067b34d42b0f7c11",
+      "gitSHA": "b4de82f9dbfc86eb7bb2097a9312ae6375749334"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0198",
+      "bytes": 4194304,
+      "sha256": "6f484050ab327b9d53cb90bf99fa636e208722aa858374e8b8cb5775289c422b",
+      "gitSHA": "2245281a5eac5b78f5e5564ac84354102472bbad"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0199",
+      "bytes": 4194304,
+      "sha256": "8f1f7bd71fe49e7be50089b2470f89522adc20c9710c8b4e4c371c48a3edc434",
+      "gitSHA": "4d8339901dc516b4424d91f278c8d925d82e4ad7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0200",
+      "bytes": 4194304,
+      "sha256": "22faa5e35370e1b22fe06337c8b462938c190c5db0b8101636b79b8b3cce788c",
+      "gitSHA": "551af118931471fbfcc74ae46bca7df2129ad6b9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0201",
+      "bytes": 4194304,
+      "sha256": "e5decd46832827f13a2aedd59e52899fd4c44c8ee6c89944dfc87b8383e03be2",
+      "gitSHA": "5f16cf29e9a55de69f81a7c3e1cce153174189ff"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0202",
+      "bytes": 4194304,
+      "sha256": "e1e664382a56fc4773c4c4d79dc53dec1f7b1ddf659e2c14b27020ac9be1649b",
+      "gitSHA": "f085f5a644d3d454cfdd745c1d73d3630e2c2c08"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0203",
+      "bytes": 4194304,
+      "sha256": "6ae45d50e99817395a6b3629539799b4b878b42a7c2ed3fbe12c93cb5530d387",
+      "gitSHA": "57d5b15f255dec15f942e663abb4d94189217012"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0204",
+      "bytes": 4194304,
+      "sha256": "b205720e80ee19f63701fe4207b891352365f135bc7c3b76f6938faa7238eb6e",
+      "gitSHA": "af27179ef969296b919e966c537f068ffde2c4ad"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0205",
+      "bytes": 4194304,
+      "sha256": "cae5bc9bb6d49a551203052428683d1178ef94bf5da8e13d9e66eb5ff680778c",
+      "gitSHA": "99de93d1e1c212f7c1743a3e0ccf23b50a344b1d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0206",
+      "bytes": 4194304,
+      "sha256": "ee00f6fc2f87d9d6fa15cc04a5866f1af6e2fdc0d46aa4f113ddd06b9e24a71a",
+      "gitSHA": "1022b5c03b3a9e7a140cadf36d82d7272923af6c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0207",
+      "bytes": 4194304,
+      "sha256": "a552ed2a9506ccd35978188ef40b04be4308014cf4fc7cdd58931c196a90cbd8",
+      "gitSHA": "cb80dd3c5dac90e7d8c07e2bff0a47f146448a18"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0208",
+      "bytes": 4194304,
+      "sha256": "12046f5fbb337d5adf9fb4533ab6b0e83fa8561a0e7f1e7a1e5c43e9ac770e40",
+      "gitSHA": "7e3ceb117fde3d95ca17367f5a6009bf51fdbc8a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0209",
+      "bytes": 4194304,
+      "sha256": "56b6edb586af118ae9b6c0c2dccc4e572b09b0a6e53ee857af09e61e3b01a4f1",
+      "gitSHA": "cd337a4b596d7ce1cb6974d92433f28dd04ab598"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0210",
+      "bytes": 4194304,
+      "sha256": "37018d0a69f4bf7cc92e2602dc48c33aa53b4d3bc020f8fd6806b3d7618ffc66",
+      "gitSHA": "cb58d7e93cf2b6b234b8f9b67c24bba73ccf2d55"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0211",
+      "bytes": 4194304,
+      "sha256": "03f138ac89fe232a99bc2e69fab61865c839ae2bd85a1e0043d0233d7992dab0",
+      "gitSHA": "cac653c2c983b73d4125a80e2d673bc2a7431b06"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0212",
+      "bytes": 4194304,
+      "sha256": "04969fabee6f5f76d353bc71749fa54c27ba147af2e930bac8ef3db5be493120",
+      "gitSHA": "770f6a565d5b9e218bc2fdbc0a29ee0d37ff1cb9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/module.png",
+      "bytes": 1551200,
+      "sha256": "818d1f3d2497105b22c6c15ffa0d9e366142c5b018fb32a11e85c871630cf63b",
+      "gitSHA": "a9ffab7026186250b93ca0b116d25e21727caa44"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/E-R3-PCB与FPC审查图.html",
+      "bytes": 1415971,
+      "sha256": "6a4e9c8cc50b591cf0d2e763770dcc3ee20a7a9cd555e620d8447972be46175b",
+      "gitSHA": "199729b808a332aecb893d77c66512ddbc37545f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/E-R3-PCB与FPC审查图.pdf",
+      "bytes": 1060903,
+      "sha256": "8415828f75a0a70248d472d0dc129bcccc5b503f8e33366c199581566d60fa7d",
+      "gitSHA": "d5a7695b0a91aba012d3941857f4e687fd6dd086"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/M-R3-机械图与装配效果图.html",
+      "bytes": 1057969,
+      "sha256": "835ca923137a5b1efb0e9c45b6ab99c7326c216583d80036b5a49165674b1c7c",
+      "gitSHA": "eb9d91618ad5a6b5fcf89595de382f393841c308"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/violin.png",
+      "bytes": 966251,
+      "sha256": "2934c234811bb047777974d059b00233a1f8e425f5b55ebc4ea5fb9967baa07a",
+      "gitSHA": "5938be2b659475f69014fb31e8cf53e0eeeef4a0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/EXCLUDED-BUILD-CACHE.json",
+      "bytes": 795388,
+      "sha256": "d4da47c2bfb116123ebbdabf890d9e5381431d845bb5fa7084901b52cbab469a",
+      "gitSHA": "c5331c0e5b2abe6abb15d2ad47cfd350cccb577b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/M-R3-机械图与装配效果图.pdf",
+      "bytes": 626378,
+      "sha256": "d1ce354bcc5f127abd034c9ffa6cd29dc120662f21d3fda1e783898aec051ff3",
+      "gitSHA": "b5daadfdd31f278f68ca2b2071436c8526cdb125"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/reports/SmartVio-feasibility-20261014.pdf",
+      "bytes": 539016,
+      "sha256": "d40cd85d31f4d4a3c384ec4d2a97da7fcfecb5a50d139c797ea6732156ddef0d",
+      "gitSHA": "f2f3cc827d3fd2160bdd45dbdae8c50c208a1d58"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/lucide.min.js",
+      "bytes": 397450,
+      "sha256": "ab85225ecc1daa2033607856f03dd2dabcbc08e2d260a5b97e17c690aa929766",
+      "gitSHA": "e214bc7dfbe475ab06587a8efa20cca5ce136ca4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/mechanical-svg/M-R3-01_上盖与外观_实际CAD.svg",
+      "bytes": 381299,
+      "sha256": "ca8bbb82539d93ce9348ca6f34a1dee098991a270e98b752f7df71447e181842",
+      "gitSHA": "f1cc36cb3de8d17cd01de4796745dfc915269897"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/main-B.svg",
+      "bytes": 357269,
+      "sha256": "a07af5e57e385d8e1f865ec5667f200f0bc8c1b46e09fdbc9207c52c2bed64b9",
+      "gitSHA": "3d70e093bb4a6cc841848e5072c6a0ee84445b7e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/reports/SmartVio-feasibility-20261015.pdf",
+      "bytes": 354193,
+      "sha256": "ca76f11331566641697cef8a496c80791830ab097447e47f955035d93de95fb4",
+      "gitSHA": "f2d1a2a12fabeb180ba83280da2b08876ea8fb2a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/main-F.svg",
+      "bytes": 350996,
+      "sha256": "63153478065a839795bae7c18fe66806e471d36f0aeba903b6cc5da182611fbe",
+      "gitSHA": "495f04abee13a9dfb431d0bb63da7e844e7ce6b0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/brands/silvio-wordmark.png",
+      "bytes": 210478,
+      "sha256": "d09f2df80e1095b7a60527c5f77738a21813ddbb9db7c3c633ef039eefc48e8f",
+      "gitSHA": "735964028a4f4288980b85fe81f9cee917f65590"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/brands/vellen-wordmark.png",
+      "bytes": 197740,
+      "sha256": "dede05934d790437edd3b56306e7b6618474ba1d652db3b9a3bea43a60209546",
+      "gitSHA": "be5d905453d8fc6a7b182c0bf96684fadfb27f7b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/visuals/M-R3-01_上盖与外观_实际CAD.png",
+      "bytes": 175330,
+      "sha256": "88407d2de32eab8b36f8d1deac012cc6821d1a25da62ef4f1eac94fd5be5b7ab",
+      "gitSHA": "242c9ec4397b3a1ae466e56dfdc7164b9c967ee1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/visuals/R3-02-内部装配与软排线.png",
+      "bytes": 157014,
+      "sha256": "ef947b97481b251cf00b023c096ac26bbf922a0eb21c9c53194a485866843a63",
+      "gitSHA": "b89b1f7ae57ae69382154a57b1c10dc4a6faa466"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/visuals/R3-03-结构分层爆炸效果图.png",
+      "bytes": 147869,
+      "sha256": "a87cdba48c0593c1865dc0f7b847d8f0b38c3e3b5c49eaaadad847c770097e30",
+      "gitSHA": "9ab66ecc298c2ae067d4f0ccc53ae27e33779b86"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/i18n.js",
+      "bytes": 142770,
+      "sha256": "d617326a1474de7276e7dfa8ba83d5519a85c77fac16c7cd8fa76835a40b3475",
+      "gitSHA": "4c984b2f772c68d64651a2bd0b753f8932c7cdbc"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/visuals/R3-01-当前模块装配效果图.png",
+      "bytes": 127745,
+      "sha256": "b39896a6ff48d5c5d9cddde3a74b40ef411fc1b81299b90bf631b33ab123e6ea",
+      "gitSHA": "40d7d07c7085c0223b7b81ecb79ac95d16337435"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/A3.wav",
+      "bytes": 123524,
+      "sha256": "a9131953c5f56c8e7091f6e9c8adbc695dbfdc055a5be8c51f1786fc6983ba51",
+      "gitSHA": "4e88fbf12aa43a483dd23efdc3a54582eeb74e8a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/A4.wav",
+      "bytes": 123524,
+      "sha256": "95204f8a19e1a655b8259c9a1bd64fb229e2d111c69f63656a9fcfcf6f8d28ad",
+      "gitSHA": "23ed5b0cda6a45b9cd1beab15c600ec6a4439654"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/A5.wav",
+      "bytes": 123524,
+      "sha256": "4eb52850bfd4265ed548cc497434047be1e510bfc6e24ba2036efaa069689dea",
+      "gitSHA": "92bd3897b700346ec431d63124126c486ccd8081"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/A6.wav",
+      "bytes": 123524,
+      "sha256": "f7766cc378eb4df3f6f71bd87cf4a6b349df488a0965ca082de5291ae71ba881",
+      "gitSHA": "111c70cfc6a43557216b1944a6c33bcbf24129c2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/E4.wav",
+      "bytes": 123524,
+      "sha256": "e4ef838ca90a55faa8294e3bb2af09c68ec2eb0deeb3fe85c09792ba41141207",
+      "gitSHA": "bf834b7918e6eb419829cca2209401c2b92d477b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/E5.wav",
+      "bytes": 123524,
+      "sha256": "018f6b1cee9aa9e4951c1d4e5a576ec078a19a10fd11de9dfa9e0c2f1a09fce2",
+      "gitSHA": "a2f86f32f48f035254a0f6356b088831b944187c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/E6.wav",
+      "bytes": 123524,
+      "sha256": "7a226d7b585ab8a77e862f81937885d6269e9a2acf50e0c9c412b8ac3c01d277",
+      "gitSHA": "c579ca26667c0b0885d1013b1e4227d1e85a8fa7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/visuals/M-R3-02_下杯与装配剖面_实际CAD.png",
+      "bytes": 121555,
+      "sha256": "cf115697d3b099509b66071f7b48f5407d8a28e1b93ee0d0b3654bbfc17a70d7",
+      "gitSHA": "1ac30cf9c27fcc5d17742faef57e454db5c3aa7e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/client.js",
+      "bytes": 121054,
+      "sha256": "14d0b0eb04f7560fab3bd1456d0d20a5a734ad80f4ebd362f906955257bcd029",
+      "gitSHA": "c7a648e4bdc1a1751c14e3348a1959af06e7b360"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning/confidence.jpg",
+      "bytes": 119311,
+      "sha256": "b24d6af5abd4a39c1fa89001269fa111d24cb5677c5652df6856dcb6a3332474",
+      "gitSHA": "09fe9ce917cbb0b36388316d40dec6f93be47d36"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/reports/SmartVio-R3-当前方案与缺项清单.pdf",
+      "bytes": 117661,
+      "sha256": "f5428f84bb4a62b990935f493ccee32898579c266f4f998f36a5a53cbaac3f61",
+      "gitSHA": "68b98e98d07fb3560051a5d56ca36b6afa03dfec"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/style.css",
+      "bytes": 117622,
+      "sha256": "ab100ffbcd991d48eaa7758b092daf7f062557db759f6231a9bfd461c8b21acf",
+      "gitSHA": "c18ad4ed151ac50ba30a85c158f6c1ce7d9d16a9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/mechanical-svg/M-R3-02_下杯与装配剖面_实际CAD.svg",
+      "bytes": 98032,
+      "sha256": "ef34a9fddf5b5b8d5e304864d2b337a82770229a587b63326e113e9ffe359bbc",
+      "gitSHA": "68ff533cc819b0629da6466adc1d5af5ea5508fb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning/record.jpg",
+      "bytes": 94290,
+      "sha256": "9879ac94d8f5988235c44cfb6e18e0e12310650157c5b661187358abb58ac72c",
+      "gitSHA": "f8bfefd48dff46283a65f0ef3f4efdd9c31f09e4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/asset-notes/catalog-source-verification.json",
+      "bytes": 94101,
+      "sha256": "41cb6e5ba4cb7031e88dd59906c8b76a38a111fdc8e47fc10ef8840b4643b320",
+      "gitSHA": "ac5edc31166481a2d101f0f0a39c8c6d40bf84ce"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning/welcome.jpg",
+      "bytes": 88904,
+      "sha256": "4b91fb4fff1d98cbcf066a3d712897bbfcd967f40bc34d0eb852553ebb8edc76",
+      "gitSHA": "35b24de8d00d2609ce25cc276765875fd44d45b1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s019.jpg",
+      "bytes": 88790,
+      "sha256": "c87a1f3a42164b6fee9d1fb1fca6894a08e5a2f8254b3c807a73b60c4cd5440a",
+      "gitSHA": "83bddbd3f2f40c2f9a2b3aeb1745bc8ca788342d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning/listen.jpg",
+      "bytes": 86990,
+      "sha256": "89e776fc674d58079bd151fbfea80044d5114a309cd2f570264125da4abed848",
+      "gitSHA": "cc45582caa0c09dbdecef7b779a09fa6022f616a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/seed.js",
+      "bytes": 83828,
+      "sha256": "74ed6bd3a01539153e69de9051e03bb7cafb93d979b70085997e01c70b96b3cb",
+      "gitSHA": "f97058ea785dbc649abaa94f3e50c1fae60de182"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning/phrase.jpg",
+      "bytes": 83259,
+      "sha256": "6356f4f6f53e8cb782d55f78af868186cfa0297d5910eed29baba84d1b285620",
+      "gitSHA": "aa1478a2cf57e5850abdbcf4c469c53ca14b6f63"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s031.jpg",
+      "bytes": 80526,
+      "sha256": "3376619699a8a77240cce552b705b8de00fc53c5da25d3cf5bd5be45e5eb4e30",
+      "gitSHA": "0fcc6803dfc633c265b087d2abdcce0f77f78b0c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s018.jpg",
+      "bytes": 79629,
+      "sha256": "055c65ade15013ecd077b791f44b79e0d57c1379477111ff8915fe9a684f48be",
+      "gitSHA": "d733fd43490c7e86ee491a34ee1c593704277af0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s025.jpg",
+      "bytes": 77459,
+      "sha256": "b4a3a2cbdae3480b115b77967b248b91afe27e423db552fa321c06cb3517e967",
+      "gitSHA": "ac90a81fd900d6fdd42ce1ee3c45374ef8247a18"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s004.jpg",
+      "bytes": 77078,
+      "sha256": "d22a7bb42950bfb143f5d44e9fa6bb89071e3bc2118bbd8f9af7a43d6a23db6b",
+      "gitSHA": "3cacbb76ff20c0e7e3104b2cb3e54755c433f38b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/reports/SmartVio-R3-首样工作测试与候选BOM.xlsx",
+      "bytes": 75659,
+      "sha256": "875053ca34373b122bafe472d22ec4936d4c5e047504701a85262b40d84c22bb",
+      "gitSHA": "3acffa551c8e2b927c1d515f213103ba279fbe02"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning/tuner.jpg",
+      "bytes": 75461,
+      "sha256": "55207d659bd8f016f3dcd1c55c5156e2cd0bf8120a871a83c70e1a6ef5b98669",
+      "gitSHA": "081d2016d6b1c411ea4a1bf43bcca74913a09d96"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s034.jpg",
+      "bytes": 74601,
+      "sha256": "286ed2919487c75685a6f11e8d9f36f2b735a6ac72c0aab303387687693b1ade",
+      "gitSHA": "41a555d46396f5173afa58be323b510621a9351c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s032.jpg",
+      "bytes": 73214,
+      "sha256": "728263cf9cefaad2a146253d94196ebe7ee5540c6ca63019394490150508bee7",
+      "gitSHA": "62cea2105b3d648d427d9143d534b4382fac3680"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/community.js",
+      "bytes": 73119,
+      "sha256": "ff1044e3339560b051b5005d11707870d2a594c73328aa0e2e336df626d9bb2e",
+      "gitSHA": "dad1e72231205046550581d4afe3eaa6544abae7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s014.jpg",
+      "bytes": 73024,
+      "sha256": "fdb77113f6719d8da3ae07cefc685fc6bfd81291dec419d6b83c3a20c2e93a01",
+      "gitSHA": "68faddcec7034f79d579de93d150ef339ec8a9b2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s007.jpg",
+      "bytes": 72545,
+      "sha256": "39750ddd583a9b138874cceee23c6ba8b4a88db977ed60cac62f0a9ee3d01edf",
+      "gitSHA": "30ac3a7172ec401a4fd4d9bfc2a9ae5270237981"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s016.jpg",
+      "bytes": 72373,
+      "sha256": "93e64bc4143df69602bdfc5cf9db9fa010055437efaf606e895ba277e1b04571",
+      "gitSHA": "2a3828cea1f043860dc03decac33b9f66ca77ca7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/catalog/expansion-20261014.json",
+      "bytes": 71570,
+      "sha256": "fd78adb5a46a62b1c39826ec62c5309cca4ce4c2ecd2ddf3a14b8febeebe6107",
+      "gitSHA": "4d6fbd0d577cce422ae306aaf66a47800bc631d0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/cover-F.svg",
+      "bytes": 69941,
+      "sha256": "017ddc95f3d73dd6d16255b21ada72ba313bba3669eee3fb6128d105f9606e8f",
+      "gitSHA": "b6ea9fdb3bfa700573807bb89b4e30d3e8b79006"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s013.jpg",
+      "bytes": 69580,
+      "sha256": "920a6ba8e6f5385aa40d4ef3e9563deed5a329bad50a75512fd9aa6477f45d43",
+      "gitSHA": "5f27cdbcc528cfa0816a07a05ac0e0cd6d2676ed"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s005.jpg",
+      "bytes": 69229,
+      "sha256": "455f81d2fc337ba0e85dec74c785ea8c99ec4a53cb161a8667e3d89063cf132c",
+      "gitSHA": "fac7470cb6f5e8d8335516992987911887dde4a9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/usb-F.svg",
+      "bytes": 68781,
+      "sha256": "6952f303f9698fa20e9e63ef185a2f14ff0ace49479b71b5b2d4eeb2c65f3383",
+      "gitSHA": "be707b6858dddb1598ff080e3a4f013c8cda3ce2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s021.jpg",
+      "bytes": 68176,
+      "sha256": "d95f80b47ce2dc734e15f7bfc5289e72c32734d08cc848b9fc39c8fa05a354f8",
+      "gitSHA": "01918cb655522e215d67d76334186b7e9f52b126"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s030.jpg",
+      "bytes": 67786,
+      "sha256": "6d2814fdbd660a309f2decfb5ba63452141b9022aaa0dd91b89e89e2b7d1c83c",
+      "gitSHA": "f96eda9736556ae12a8059cddf832e0ed0161192"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s009.jpg",
+      "bytes": 67409,
+      "sha256": "b0cad83ce1bae3b980ca089831a37234196da2d78b9b9c0daf030e3adccd2b03",
+      "gitSHA": "ce37869e7615f8509aae00bc5bf1e9dff264b87e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s027.jpg",
+      "bytes": 66631,
+      "sha256": "d61f5f5a7870a136e49c38a660ff02cf962787407587332773ccf05c923b5035",
+      "gitSHA": "26fb3ba950da9b7b5bb313cd5bba2c942d13e48b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s028.jpg",
+      "bytes": 65999,
+      "sha256": "a02e4ae5c3943b7029822d6835086e84eaca0b6dd2b02dbf54fd6c280ea9778d",
+      "gitSHA": "c986cb236f63a06490e436c53c90f6d249603f25"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s033.jpg",
+      "bytes": 64376,
+      "sha256": "696fac10ab1f84f532f667638a7bb23878ffeaa90c5cb165dc0e9902df01123e",
+      "gitSHA": "3bb2a8956292702157fe25d95e91d124b7f5c096"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s017.jpg",
+      "bytes": 63536,
+      "sha256": "418fb8f5b3e68de0d105e1f7f3350da5d7f29957e8d8b33489c5095d9f12d48b",
+      "gitSHA": "7bd6b8cfe952f9c60b300f72f30d92ce4e344207"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s035.jpg",
+      "bytes": 63372,
+      "sha256": "d2d6a5cb0dbbd5d25ab8330258c7425b4c591c5e7e4c25071c6fb8c0d57adf39",
+      "gitSHA": "42d74c825c7946cc7c9316a52ae90e42b4dc7064"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s015.jpg",
+      "bytes": 63213,
+      "sha256": "2edcf8e6dcf231fb2a3de23d459c7ad7b3b11c8fbf619d5e5be5d5a47dc70d77",
+      "gitSHA": "0474c844e2e5eac016d7e7cc828dd64c58e01df6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s020.jpg",
+      "bytes": 62897,
+      "sha256": "3a9109ca2f62a89cd2636d4cc5e9e882a50e8d1a95ae40dfb69bd22fb1bb375c",
+      "gitSHA": "4be55ef9339caa1a9fc1be596b31808dd1dff3e4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s006.jpg",
+      "bytes": 62106,
+      "sha256": "470b23d962c9d32f0aac90f2d862653e6631b886bded8e86f9319d69116d8f80",
+      "gitSHA": "9d8fba968e91a8cba0c42111a334ec035f044219"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/admin.js",
+      "bytes": 60837,
+      "sha256": "3227941fa5bf352e436a12c16e0916fc7ad7f1ff2da3cc07f41f5a4ca15a06be",
+      "gitSHA": "d9f99813346e4db6fad36b06fc12824d91448c63"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s023.jpg",
+      "bytes": 60144,
+      "sha256": "6d2da60db136a7d8ad795d0cd60e1d90ea13cc2b7a9da3998a0541000013c150",
+      "gitSHA": "07365dc92f9b8b670d9df8cc63962c7bf19c5ad8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s002.jpg",
+      "bytes": 59916,
+      "sha256": "e2b2c4bba6d761ff3d006691d8f08d74c5e14758bf8afe28f3a68f50e4a1cf46",
+      "gitSHA": "9782d784584003d23bc54e3459269b2ec96c301a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/worker/community.mjs",
+      "bytes": 59354,
+      "sha256": "1e3f413b94543172fb33c31574a2f029e517070150d4040f5d81eda496a85a1f",
+      "gitSHA": "79fddfd39078205bf079670b2898c5c8d820828e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s011.jpg",
+      "bytes": 59085,
+      "sha256": "50589e4f97d5634b930c41a0bb97d4dfca0f34441c20d76477b24ef73bd62264",
+      "gitSHA": "c4002eb842f7f17f2522c88eb1d7f32e25df4e8e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/asset-notes/song-cover-generation.json",
+      "bytes": 58079,
+      "sha256": "728ff60192149bf469fc7d65374c169e073db2b35aae2b0b7a3d6addcbc808d4",
+      "gitSHA": "da2381494471aa0d41fb7659930eb4de99194313"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s024.jpg",
+      "bytes": 57597,
+      "sha256": "68f81f8e415901f3b1e62f500be8c39a4442f5c71055d1fc8e2d2a0027e8a78d",
+      "gitSHA": "ea11cafc407491ab7d35b5db529a979e1af50eeb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s022.jpg",
+      "bytes": 56479,
+      "sha256": "1ffed426f1ddebc1371a69cd62dd664eb467c6efc70f7e6fbeb7888a0a448dfc",
+      "gitSHA": "1d1e0481fbb1c98ff72f76b31f9bc18cf5d64c93"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/cover-B.svg",
+      "bytes": 56466,
+      "sha256": "1ea054151c83b947c7e9717d6835a309edf0420b56371e7534e95129e5d35540",
+      "gitSHA": "85c0ef19e37ea5e558a49fd4467cb33e0abe6997"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s029.jpg",
+      "bytes": 51646,
+      "sha256": "fb2920acf62c774550aeed2cd1a2286856899428dfa8a8ce109164fe84986cca",
+      "gitSHA": "530696b23280b00a15c04ddb584233dc59ee1460"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s010.jpg",
+      "bytes": 50388,
+      "sha256": "8b167581591867f4b9841c6b52c59def2d368cdd455be94a237768f9d7ac5d72",
+      "gitSHA": "8480d5cd615414c514957f5b31ad806e6718cebc"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s012.jpg",
+      "bytes": 49150,
+      "sha256": "216f5b03f48f50b5c1e3ce184501fe76f40c60dbd7bbd19b97f90cb5dc0e67bd",
+      "gitSHA": "fed25eed9283c28ae8f08f7412621646b4e1bd7d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s008.jpg",
+      "bytes": 49071,
+      "sha256": "bd53bcc9a0f3067ee5e31a57cf6c6fedb37303923f8f3df8fe3ab5b70189d19f",
+      "gitSHA": "2ead459444de63642b6e92a352a7d7d33b7cda1e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/reports/feasibility-20261014.html",
+      "bytes": 45605,
+      "sha256": "fd7f95b8e53bdb9d67d0abad88a99a612ae72f05abcb6584592564a30c293f75",
+      "gitSHA": "f4eb6dba537fbc00e6a3ff190a637cb345ec0470"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/midi.js",
+      "bytes": 45321,
+      "sha256": "b7293c177385a0aee6c840b11ea1128836ed2add2e60e426bd26cbbd9889ef7b",
+      "gitSHA": "32ab92a831d1f943874fa62bd2e2b3a09d989a38"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/tutorial.js",
+      "bytes": 45265,
+      "sha256": "7441afc623f633dcae3363277b47a3172efab42a6f90bd485b2c9f72ba01d679",
+      "gitSHA": "5e11ca3d1ff65021c3a372804a2e698642c70d92"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s001.jpg",
+      "bytes": 45106,
+      "sha256": "a80bd61fc5614080c820c1779a8f42e992fd13c9a0e442159976cb38fa98198b",
+      "gitSHA": "93bb59043da37cedc74313a163107f0b2413d90f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s003.jpg",
+      "bytes": 44582,
+      "sha256": "70768b3616f330b8a6546a6abee3c5ba5ba0870c4f3f9035d8c4b81804679f7a",
+      "gitSHA": "bbf1befae36e7ca9471f1c6ad9354c618655e26a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/covers/s026.jpg",
+      "bytes": 43477,
+      "sha256": "fabed6ad06dd542ad73a396a982ad639375355c498a8e45fb076aaceab4632d4",
+      "gitSHA": "7dbbfe52fe587ac5d0c5fb6a4352b4fe62f02b5b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/audio-engine.test.mjs",
+      "bytes": 43056,
+      "sha256": "dba0cd574f9aecbb048319eeb1e65b5b7b460c4c5eb3e0050bc0b86220f7892e",
+      "gitSHA": "131d1b23de2133f3640a2804e60685e4adf2feca"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/usb-B.svg",
+      "bytes": 41348,
+      "sha256": "273a851832943a730c9e2ec553c842e274527ca47ada19510268d70387d37fff",
+      "gitSHA": "af06aae7cf90b584258f5366a0e83218eff3619b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/archive-parts/all-objects.zip.part-0213",
+      "bytes": 39718,
+      "sha256": "3864d529e06a609d9ddfbc7b954d8dfe4b8d04a1b6c511137676e71b308da31f",
+      "gitSHA": "df053035582d316f7223472c0724b958717992c4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/ARCHIVES.json",
+      "bytes": 39106,
+      "sha256": "4cb59f116d3759d238bff32cdcb2bebf55cd3cc051c541ab4ca686241d3ee023",
+      "gitSHA": "29bd71f4fb3ad9ba7f10292084885e525444057e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/audio-engine.js",
+      "bytes": 37094,
+      "sha256": "f0fe8ede1fdb2d687414f735c61b7d5f69295eaea892e6264686865f25202ffd",
+      "gitSHA": "a2bec8f14425ce76cc3308cc2a56d23420fc0b96"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/meta/0004_snapshot.json",
+      "bytes": 35859,
+      "sha256": "bcff4f0f68fd9d3915dcf17d9abfb1cf9aab32f3281ce8f4ab8fa693224ba3d5",
+      "gitSHA": "00014994263a1395bf941b7afbe4a787ed1a4982"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/community-video.test.mjs",
+      "bytes": 35389,
+      "sha256": "8be69d5841ecab68c2af0237c20935d8bcd640897db8fd055f3c4a3e9b60a5ce",
+      "gitSHA": "7ed4ada1bb1bbaa084b52ab5b66a03cdb21476fe"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/audio-F.svg",
+      "bytes": 34104,
+      "sha256": "cb3aba2276175c11d0ae668060fdb81451a786e7323b55eebb31908aaac7de9e",
+      "gitSHA": "8efa4096aea4bb7889c0cec8508cc84397c374ac"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/worker/video-inspection.mjs",
+      "bytes": 34008,
+      "sha256": "e56d34eb3a2bfbb2fc7cf211c6424d6ff16c64c5137261b3e877a582a575d84c",
+      "gitSHA": "5f106255df17b2510af4912fb4de5a5d5b613dc1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/community-api.test.mjs",
+      "bytes": 33177,
+      "sha256": "75587fd496ec823f047337613d4b512c92eb4ba7400757fce90868e827377ea1",
+      "gitSHA": "c92b329b7e2257801b4685a4c0302dc60c91b84c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/performance.js",
+      "bytes": 31644,
+      "sha256": "0823d26d82d6d8f480c71f6aa7479f48c3ce121ff6fd43c4379b6293d5ac79fb",
+      "gitSHA": "bf9bab2fb4736635142a096bf6a8a5f9462182e5"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/video-inspection.test.mjs",
+      "bytes": 30489,
+      "sha256": "8163da77ff409b6b4fb7795e0f0a1a03f246d0348b290c3fd1312dba5c8e1ea7",
+      "gitSHA": "2be54f65da27bb69a3576544eaef716bb3b920ed"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/device-bridge.js",
+      "bytes": 29341,
+      "sha256": "6dff3d8672d1f7f8f83ead60fe33ea1f0b98eef229fa16315e069714a16ac1e9",
+      "gitSHA": "78ca558767e1674f9d15f5b400e3d5a463f63af9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/pnpm-lock.yaml",
+      "bytes": 29303,
+      "sha256": "97091aed83475654b0e893650f93371ce587c574cb55d46f8a3cc5fccf521b12",
+      "gitSHA": "3f97e0c8c2ab693064bb54a2ab34199d68c278db"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/meta/0003_snapshot.json",
+      "bytes": 28484,
+      "sha256": "4b00a8cf401b89ac57ec210c0277152fe601da4697743c53912bc99bfc839478",
+      "gitSHA": "3b93a21c5f8481367fe29fa641cac270a950162d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/audio-B.svg",
+      "bytes": 28466,
+      "sha256": "b2dc00f684ae79539b1e6060db96659b86458bc9c6eceb8b9e9d5092c5a02666",
+      "gitSHA": "95d78bd866a06add6fb4d4cfb024a11ebbe5255f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/midi.test.mjs",
+      "bytes": 28389,
+      "sha256": "70502515aa3dd1dafc3d1fdbde4265aead9ce35499d48c9f817a4cd13fea2200",
+      "gitSHA": "51694d59b5fcfc1183ccb72bf3ad221891f5b4bb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/meta/0002_snapshot.json",
+      "bytes": 25934,
+      "sha256": "06e8e92cd10d2b2b0562f8e8880c7d17e57755ac95da45bd46d4af6de1d9098b",
+      "gitSHA": "7fe53002c6c396bd2232534e923fc4ed21ad5c21"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/mobile-home-preview.jpg",
+      "bytes": 25568,
+      "sha256": "7d02abbe408e40430a7aa6ca530c3e459a4da6e7b418db984515156c17bd9e61",
+      "gitSHA": "9c3b476d61bb0723861635c78c784a3b176208f2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/performance.test.mjs",
+      "bytes": 25237,
+      "sha256": "62a9b5188409a346649afa5801467fdc472f3f4ee9287706ac7758181849d829",
+      "gitSHA": "651b17f766c30e4d9254ed2df907c08a33ed3993"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning-path.js",
+      "bytes": 25003,
+      "sha256": "af3ddba0b164af2fe9a26e55f5b734d39ad34ac15253df072e6446e98445a9ab",
+      "gitSHA": "39d3891616e65fc2e5de99b1348e3a977ea9085c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/meta/0001_snapshot.json",
+      "bytes": 24399,
+      "sha256": "71c03615f9765b65cd6e70d9b9f058cdfc38b6bcf61bd603737995571e616fbf",
+      "gitSHA": "56aa8ead5f8326daf1f06bc4e8e99f9a49f532b7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/meta/0000_snapshot.json",
+      "bytes": 24022,
+      "sha256": "f829f68d0e6ab7d5f65f07024973bb3c915f7c1472ef651ababefb938e493ecf",
+      "gitSHA": "177b1a6e1b8bc1a9e2f7d9320581115669b34983"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/reports/browser-validation-20261014.json",
+      "bytes": 24021,
+      "sha256": "17689306fc73c0474dd222c551184c729a222bd57dc00ba8502025ef9dead74d",
+      "gitSHA": "eb4467acdf904bf0c4ce3ebf9e21a8bb4e957789"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/ARCHIVE-SANITIZATION.json",
+      "bytes": 22239,
+      "sha256": "84c0ccbf2ac301ff44d84880714bd4c0a7224413593cf4d2808df17f4af8926d",
+      "gitSHA": "492d7660bbbb902b8696dc8b7c9717d749b90c4a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/PRIVACY-FINAL-PASS.json",
+      "bytes": 21974,
+      "sha256": "843ca876afafae1b51e96e2d2cffc661e82fde28014423a6b07bd2e412870a9f",
+      "gitSHA": "c05db69b05f89ccecba48e59142cd823a2349ab6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/device-bridge.test.mjs",
+      "bytes": 20667,
+      "sha256": "24fcf9f4665b45228bbcc347b9713c432dbe81bd1dcc80f73f5132ad6c6bc6b7",
+      "gitSHA": "355600447cb10e58fcb48006b75110233b98d585"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/preset-api.test.mjs",
+      "bytes": 18804,
+      "sha256": "986404d90dcc6d51ad543e27a77606eb15f8394c81561671241e900b33b90567",
+      "gitSHA": "e6fea5c3602f7d0c14eb14ddf62292cecd06a787"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/common.js",
+      "bytes": 18759,
+      "sha256": "0e0410476a39ed62497d3bfd2b158b2fb40f812e6c24927e20667b1a86bc3c47",
+      "gitSHA": "cd6a28c9ea78eb36e740391af11cd0f1efe05260"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/prepare-source-backup.cjs",
+      "bytes": 16604,
+      "sha256": "8a752279b751fd09a36bfaf251df49e05622b71ea6aec42b47cd67a29dc1f6e6",
+      "gitSHA": "6d29019f1d52616eac4e2a945496b4932c8b7493"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/preset-cloud.js",
+      "bytes": 15693,
+      "sha256": "1b7fad12974f05ffaf8552e1deedd4bd6707b72d79425335a76898c5ace8ac79",
+      "gitSHA": "daff4bc8590deb5afd8f20ef5f210ad4212d345b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/render-feasibility-report.py",
+      "bytes": 15530,
+      "sha256": "030a1bf8b8212b1f74130998b64a58d5e4a220275763e472571352391c40f594",
+      "gitSHA": "48f485bceb4ede90ae485d663fdb91d3363a9b7e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/media-store.js",
+      "bytes": 15524,
+      "sha256": "27d1156f8fda5e97b7ee6f7e3df41a2c6de74db1f9eebc464254379c3e005fa8",
+      "gitSHA": "069a6a119e9c82a410c84b077ae4a04b4a7ba925"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/admin.css",
+      "bytes": 15041,
+      "sha256": "62a73ced97936fce4ae3bc6d6bbb670998c58fcdfd2f81f9916e0aaac7eb8bf0",
+      "gitSHA": "8398b29fd5eadb57145983d4c3da05759709dbc1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/tutorial.css",
+      "bytes": 14809,
+      "sha256": "cd8ae69a7317b5166bc71545a5d37588e32c7cb86cc2e4332a0de18995b51405",
+      "gitSHA": "d2727c6730e3485e5e92428432496565525a10f8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/asset-notes/beginner-photo-generation.json",
+      "bytes": 14490,
+      "sha256": "b4a2fb182f52ab206654d5982530269302c8057abe8fbca9f7c67d9c504f3ed6",
+      "gitSHA": "afa760084d8c4ebeab7fd177d767c6c287a7b0ef"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/icons/icon-512.png",
+      "bytes": 13814,
+      "sha256": "8600ad9482987361705718eb23015e52d4f07807ab03b658a351873bfa69cd9f",
+      "gitSHA": "2e5b758cef6e684d5db775cbfa8be6abfd042ff4"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/render-v16-report.py",
+      "bytes": 13265,
+      "sha256": "c0aece7f95714b9e86ff7bf7290c8eb00811b6619843244a7460621718aed382",
+      "gitSHA": "97c891d5659b86d3d2b518a8ef69ea4dd090a3ad"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/community.css",
+      "bytes": 12940,
+      "sha256": "f1579bef78841149dd88775eb5364eefc187e9ca0980b095463290acf5e0b0f9",
+      "gitSHA": "4d5430a633a1a18600ce15d3957810fdd8c06d87"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/SOURCE-CAPTURE.json",
+      "bytes": 12694,
+      "sha256": "1b81f05d5df2181107a23fb3c912f5f71fae873e9fe8493fb09c2a1ef35ae93f",
+      "gitSHA": "a7d0baa40da4fb01d21537cc3bf35255bc9b27cf"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/sensor-F.svg",
+      "bytes": 12189,
+      "sha256": "67ab21327ca06380f898a5fadfac7d9c7f785563611807aed538d05bc7525803",
+      "gitSHA": "077113ce45528063b449ec96d5536653a3281513"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/db/schema.ts",
+      "bytes": 10800,
+      "sha256": "3381bcc2e4a75a8e0316244b80bfead17c81f8a2500ce903a478fae94abf8efe",
+      "gitSHA": "ba8eda54e265bb0112074584933f77ee113faeec"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/learning-path.test.mjs",
+      "bytes": 10287,
+      "sha256": "eb0fb3239e8b34bf813b4ae4e7b6cbe305e56935ccc2721ba7e1f3c291939147",
+      "gitSHA": "5091813843ee85ddda4c4414ea5c9b6b14e79a77"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/validate-catalog.cjs",
+      "bytes": 10114,
+      "sha256": "963476dbe320ad8f43e5f5a8cf3a567f5695a7d66a4ba170833e0ccd1db92c19",
+      "gitSHA": "88ae755706a02dbc8e02251beff957e0b4f2bf52"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/reports/feasibility-20261015.html",
+      "bytes": 10055,
+      "sha256": "cceada211e59ac2c0c2efc0b375370880d90f02a416570580d133f9473f645e1",
+      "gitSHA": "9c4a4172d57d1176ce77e95215ed1140e24ce18d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/sw.js",
+      "bytes": 9864,
+      "sha256": "b9bbdc17db02cd46973574a9f488940b0360238d1ecba56b0ae671dad4bf96bf",
+      "gitSHA": "8cb3272941a916e2deb968ab39b51cdb3d95a401"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/reproduce/prepare_snapshot.py",
+      "bytes": 9538,
+      "sha256": "b26b26e0212301904ff110ef146965f170b8b707a1e27d96b792edce4bc5edb4",
+      "gitSHA": "c62f9d8b2f51fd55c5fcccfc8e9f7a02dcaa63a1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/learning-path.css",
+      "bytes": 9452,
+      "sha256": "b35439ce6308458c80253d529959d03943adf1a580960cc14bc4b9636f6d639b",
+      "gitSHA": "bdce7329583dabfcb40cc633e86f891d361fe6b3"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/reproduce/scan_privacy.py",
+      "bytes": 8906,
+      "sha256": "376bfe1eeef2bda75fd7358726a36880013edea099e3cb00d5ea1b9dbcbedc09",
+      "gitSHA": "0a58ff12475e5ed6a7798b46ed33dfd323becf3e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/ble-midi.test.mjs",
+      "bytes": 8450,
+      "sha256": "bb51ae81cf17bf786abec7127d537e7acbe94f60cff9a6fcbd1d8924459fe8af",
+      "gitSHA": "364903a2e011b4b4d1e20f8671fa71e8e7c077ed"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/video-capture.test.mjs",
+      "bytes": 8069,
+      "sha256": "b75252cb3cd57734d5595434c8117daaec23442ee44df671db39ccb1a380bd0a",
+      "gitSHA": "71b731050f1bee2134c930b49c088115a449d55c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/README.txt",
+      "bytes": 7926,
+      "sha256": "a91b25ad07238e51ed645337697af971b08537dceacbb87be822340a813342f4",
+      "gitSHA": "556440614d627caf1e988adcfbd51bb954a32f8b"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/local-preset.test.mjs",
+      "bytes": 7795,
+      "sha256": "ac399b97cee6645381ec3d226757160fa8d0620c2e03d8c99b61dd7d128575de",
+      "gitSHA": "16c5bea010be2cdea404e8d6358cfcc46d7fb01d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/review/current-feature-gap-review.txt",
+      "bytes": 7534,
+      "sha256": "03bc05eac93de808ac3484d6727bcb668aa43b81bb8f222080e97c3b505161cd",
+      "gitSHA": "e5da89c2a97e98b138b9f28d418e7c56404e3890"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/reproduce/build_inventory.py",
+      "bytes": 7333,
+      "sha256": "e103ae761fa8cd2d3f1543961a034dd7dcab5703dd4d668d8875026db2fbea53",
+      "gitSHA": "d19399871756b267a5e3dcae693b25fa2f56ef60"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/LICENSE.txt",
+      "bytes": 6555,
+      "sha256": "36ffd9dc085d529a7e60e1276d73ae5a030b020313e6c5408593a6ae2af39673",
+      "gitSHA": "670154e3538863b2d9891fd5483160fbdfc89164"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/0000_wise_roland_deschain.sql",
+      "bytes": 6552,
+      "sha256": "abaf9c1a0fd9a108aa4eedc6a61e430fa109c1b437a4ec0fbcc87fd324b8b8f3",
+      "gitSHA": "82bbe9ed17b8447b91a3e36eab5298d056d0ed7f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/score-model.js",
+      "bytes": 6455,
+      "sha256": "4466e21a207d7b4324df52d1441b5ff0be25950eefe48633aa4927258084cf02",
+      "gitSHA": "48851de5160a096f2567823cd667d94a7eed150e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/video-capture.js",
+      "bytes": 6345,
+      "sha256": "ebc1e89d8ee3bdbaab7a51d052307ef96ab5e5576ae021e238b9c482c50bb5a2",
+      "gitSHA": "fe70dda863fa64ed4f5b32245d1d5a7e69962245"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/reproduce/finalize_upload_docs.py",
+      "bytes": 6227,
+      "sha256": "c38065d71c2caa522e5e3ba7ddc28d474d1a3752f3eff17d2a7832d859fd7444",
+      "gitSHA": "5c68d7413c30c2a91d238a12a3986d8a70c7b95e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/KEYS6-B.svg",
+      "bytes": 5910,
+      "sha256": "47ecb3dd6815e6f367b8be17f24f45138b72d4677808a33803a24b733081fa24",
+      "gitSHA": "024891f76f24a9a57c12927c03e8196d8fd2361c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/source-backup.test.mjs",
+      "bytes": 5714,
+      "sha256": "d882f09ab2afa753147e46b726da99f7ee992298519b5b4c621ae26655d7954c",
+      "gitSHA": "8edc0216e55d691ca46c897cccb4ca195afe4c94"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/convert-violin-samples.py",
+      "bytes": 5448,
+      "sha256": "ad4b429b857c839f3c079949c6b5d614810b5c7692a3d300d929a94f7b678701",
+      "gitSHA": "881d65bae3f3089730b43ec98a9d82699c9f1dac"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/README.md",
+      "bytes": 5357,
+      "sha256": "fbacb5b750d5718dc73f85dacdc0ec77d471436d6a7b2b16267771aa7c8c7dca",
+      "gitSHA": "05711090e2657320290a21be60749e46558ac120"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/offline.js",
+      "bytes": 5199,
+      "sha256": "6cc372f2549beb8792c19f9461b4d2442c4391cca7d5a86fd0375e4e218b4ef2",
+      "gitSHA": "5612c50acd9e6eff09f9c5311f2f4f79922147b2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/KEYS6-F.svg",
+      "bytes": 5059,
+      "sha256": "456632e8a0b40bade62dcf5090b5ca5fdb78b4c6bd330a579a00d0bb2b808beb",
+      "gitSHA": "03beaa8d1ad27323e58668b468769cf8fed7dffb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/COVER6-F.svg",
+      "bytes": 4830,
+      "sha256": "7428bd1318305d413097c1137254bdba587b4325e083cbc497aba1d328579426",
+      "gitSHA": "1ed0123ebd6419b4d99b4e1a966003e4661f6cdd"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/AUDIO6-F.svg",
+      "bytes": 4738,
+      "sha256": "c9ce9c504c2abeda53e95c165d867f52d340b690b48acddc163be07787c1866a",
+      "gitSHA": "c9fa2ab37c35197eded4aa50d2f47f0777e3d78c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/build-worker.cjs",
+      "bytes": 4700,
+      "sha256": "7b1998017b58483689d3929651b4dc52e2418b35ed8941e549bfd48bedd186bf",
+      "gitSHA": "dcd7b33a8c15353401f1b02a0c76f106357409d7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/assets/audio/violin/manifest.json",
+      "bytes": 4616,
+      "sha256": "017ade0f8db0164fb875efb961f9b88862aa85f795bf056d515c4d044d9095f6",
+      "gitSHA": "b73e54be7266b628efae695b766ff6f4d7262391"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/client.html",
+      "bytes": 4494,
+      "sha256": "02eb9f0e07aaa3e216477e52ffe298bb7bf27b38c4a2db36ea2d95d9b562591d",
+      "gitSHA": "69f47a8f8a7a336e942e9f8fc5bb8111253b2eb0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/index.html",
+      "bytes": 4494,
+      "sha256": "02eb9f0e07aaa3e216477e52ffe298bb7bf27b38c4a2db36ea2d95d9b562591d",
+      "gitSHA": "69f47a8f8a7a336e942e9f8fc5bb8111253b2eb0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/icons/apple-touch-icon.png",
+      "bytes": 4376,
+      "sha256": "5fb2057faf557f39b3c1295f1a2600f20d1c67f60e6c95846418f2c465e46355",
+      "gitSHA": "90cdd0efc89339390430a4630fc79f3204d59d18"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/pitch.js",
+      "bytes": 4335,
+      "sha256": "e7066d03607b78766a5eb7ba401b978d95cc69c7029a46d12a6738cea529afe5",
+      "gitSHA": "42ba5b49b115eb1b4c1d4f4903ba4ba28f449ef6"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/icons/icon-192.png",
+      "bytes": 4218,
+      "sha256": "efe59c3e46191aa85ffcfb607b1d4b5ee0af84adae30c5636cc86f17c6e92acb",
+      "gitSHA": "e511d239d9b9aefd1480788d5d9bbe06cfac4317"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/COVER6-B.svg",
+      "bytes": 4188,
+      "sha256": "cecfc59d28abdbad7c060f2a7fdc23a5ffb6187572bda1ba5a4b26a6481959ea",
+      "gitSHA": "12c12434650958cbb5c16e8a335e834034c5ec86"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/POTS3-B.svg",
+      "bytes": 3874,
+      "sha256": "c741df614338fb42421c5fe5c5ab4c5a8cca43b8443d68b88087c3e495ee0f62",
+      "gitSHA": "9113f549420de6a2601d561f2337729eeacc37d0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/reports/backend-validation-20261014.json",
+      "bytes": 3749,
+      "sha256": "a6a62cac698e8cf0799862050385194ebb06e846e129e48785391fddfc6bf9f1",
+      "gitSHA": "ccef54bf450e51cf8535f66562ce500e229ac512"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/RESTORATION-QA.json",
+      "bytes": 3709,
+      "sha256": "3c3817e6075f4fc79fc417297c8d278cf043d6a9e0081dd1bef74814c6ccb9dc",
+      "gitSHA": "b37d26b500b18528b4d810b3a4ad8c91b7fbdc7c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/package-release.cjs",
+      "bytes": 3362,
+      "sha256": "0db23c6a0841022eb457ec071a08f5890a03607166e9faefebffa1e75a650062",
+      "gitSHA": "cb5203bc76980f57c2d37842230c3eea781277f7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/LUCIDE-LICENSE.txt",
+      "bytes": 3208,
+      "sha256": "b495047bd93a9b06913511076f504daba17d5bbeb3e0650f3bb53a4220329c57",
+      "gitSHA": "718bb3f0e44153809972abed31839375804bf652"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/restore.py",
+      "bytes": 3118,
+      "sha256": "1d63798015a05e945c37c7503b94485843021af0dbcb22e72049e9aedb019dc9",
+      "gitSHA": "d6f2e349f24c65c33ac39cb554d91cfd42ce03ae"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/preview.mjs",
+      "bytes": 3097,
+      "sha256": "8366dd939bf5e71abfc7fe0fa1ca221f4f3f0a89aa4287a4add0ea845cb00ec7",
+      "gitSHA": "93a5c8927d2dfeda9a1659bbe4246be3708d394c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/tests/d1-sqlite.mjs",
+      "bytes": 2749,
+      "sha256": "3b7e474a9a01feb7faa0fdd10cd3e64a23fffd6aefd3c1721fa59241534c0cf3",
+      "gitSHA": "efef2334c42a7248c9f13d8cd848c9cca0b1435c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/AUDIO6-B.svg",
+      "bytes": 2708,
+      "sha256": "2a2095497ed98aaea8913cfbae4a3837e210310f34ce778ebd47f34bc0b48664",
+      "gitSHA": "73191c568dd7c37f7e8ca98d94a54c88d4986d4d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/BROWSABLE-R3-FILES.json",
+      "bytes": 2564,
+      "sha256": "fbf12e4f0fec30f91927dd2991ff0f2199455bb135a6c4d22e5ea211caddd33f",
+      "gitSHA": "3141b0876366848aa706530d5ef6e7fcafe19e3f"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/POTS3-F.svg",
+      "bytes": 2556,
+      "sha256": "2952d4084af5b6a744e4f5f42fc9ee28969eae454c7b8e3ba68959ab0cd88b9a",
+      "gitSHA": "24b73e07c4f414f8fe5605b2bfe8c5eb644d60f9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/0004_community_videos.sql",
+      "bytes": 2516,
+      "sha256": "4bbdfeae86b71f9db5e782d1edfa78d61cfcc4e15547b6e9a380cdb10315a18d",
+      "gitSHA": "a704ce8b2f8a07dad1eafb62de2717624049e3e7"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/reproduce/finalize_inventory.py",
+      "bytes": 2229,
+      "sha256": "10abad85d1468a8a8b2062ab5a8cc5517d201b1237562717f462f12595d4fc77",
+      "gitSHA": "7dbdc2dba47e4924b0bc9d9d7c3657aab551b73d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/admin.html",
+      "bytes": 2085,
+      "sha256": "3d6ea3ca2e1eaf9716845cf38b2f1f0cb3322a8df8c54d314c5c447b0a13bf77",
+      "gitSHA": "b4840e868fdb921dceeb6add71c207b041a84ae2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/drawings/pcb-svg/sensor-B.svg",
+      "bytes": 1862,
+      "sha256": "6ee183932f6985ff7582933bd35a4f297ad834b1f4df991df4767a2832ba36a3",
+      "gitSHA": "448460f9d55aa86424520cea528f80617da0b2c1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/identity.js",
+      "bytes": 1780,
+      "sha256": "be280c7fa8aa39ff048354e1f5840bfacd5803df617a6146d583b186a910b1df",
+      "gitSHA": "1d5638445ce2663015716f15d2d05dcb227d8d16"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/scripts/apply-catalog.cjs",
+      "bytes": 1457,
+      "sha256": "4d36db85eeadabc2b9d4097ba1240db4c5a57f0f058cf0f3c07256acd4195076",
+      "gitSHA": "6b4b8063cf5793cfd05c907e4cfef1cf3b7abbca"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/engineering/project/selected-boards.json",
+      "bytes": 1274,
+      "sha256": "dee89a9e61ff3f8e7ae288989174694fabce76c16346cc566d5b07d277815170",
+      "gitSHA": "ff5f59cbccfec49a1e860cc2c888cc4adab5d2ec"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/先读我_当前版本.txt",
+      "bytes": 1084,
+      "sha256": "6bb09c0ee222a4fbe6964fcc4e616ba568c25ee609a83aeb92d7f2228c42e7ff",
+      "gitSHA": "5ee2ddf73fcd365290f48246ef90f7d18ac8391a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-engineering/r3-view/review/current-snapshot.json",
+      "bytes": 977,
+      "sha256": "181cbbed957860796005a33245d668bdd21dc5012add1583fd93a628770bc919",
+      "gitSHA": "edda8e6d894c6d74847a2381f8d450b943939894"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/0002_learn_onboarding.sql",
+      "bytes": 954,
+      "sha256": "213dfca8c6b72878611367b186902c21b05ddcda7f6ef3821dcbd89b63f7f1b9",
+      "gitSHA": "65851a61e7b7bf47a29a16fa8916a364db7fe1a9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/0003_private_preset_backup.sql",
+      "bytes": 940,
+      "sha256": "2a6ba61c11cd59630f979d118b232db3bf894c32af2f1a669518e3c899ac380b",
+      "gitSHA": "85b5b8ae21ec4e284285454c4e030933c58cf092"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/meta/_journal.json",
+      "bytes": 786,
+      "sha256": "5cd5b33717dc016da3f102209f0d9ee58525ae0bfe8471cec2e7047199f29234",
+      "gitSHA": "ec89318409e7a814d55ea2f582977583b70062bd"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-vellen-ja.webmanifest",
+      "bytes": 700,
+      "sha256": "93f8d639a894288d14218e3608ab804e6a1fcf9d5e1199253cafb47e5cd0ebe3",
+      "gitSHA": "b0d76f4740bc434f827f83926930e9849d7ef4c8"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-ja.webmanifest",
+      "bytes": 694,
+      "sha256": "f3e2c61f0f0ab6964a88b2516c26677edb3aacfcf02769dfb6bad393664e3fdb",
+      "gitSHA": "1e80937810ac26a12aa8b0a2adcee7d2729bca7b"
+    },
+    {
+      "path": "SMARTVIO-GENERATED-INDEX.md",
+      "bytes": 689,
+      "sha256": "ddf1fb33500d9497b827c9fad34147b88c3eb3a24e1089a537499a097cd0943a",
+      "gitSHA": "d02390f6ef43bb5e29b4373a8b757aa69b38d3c9"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-de.webmanifest",
+      "bytes": 654,
+      "sha256": "443a54c4a06e035f26355ef20bb1dd78438384b153d1d22d57917719b9210471",
+      "gitSHA": "026411ab1ce3f34f3cc5b0561d40a25047354843"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-vellen-de.webmanifest",
+      "bytes": 654,
+      "sha256": "443a54c4a06e035f26355ef20bb1dd78438384b153d1d22d57917719b9210471",
+      "gitSHA": "026411ab1ce3f34f3cc5b0561d40a25047354843"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-en.webmanifest",
+      "bytes": 651,
+      "sha256": "c66f54583069f96985aabd7ba359091c33afed4371c2850cb60e4565f3a181d4",
+      "gitSHA": "fe05e443292aef5454f0e5182652390ce5b3dcb0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-vellen-en.webmanifest",
+      "bytes": 651,
+      "sha256": "ff8e3de3a28e4dc8e835fcf344b1a190889da779d163ecadb443f8ceaa123927",
+      "gitSHA": "0e7805b29ad1597891d0d51a880e2d0b5035a05d"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-vellen-zh.webmanifest",
+      "bytes": 640,
+      "sha256": "fa417cdae7eb057db0183374804896755a821e33b3c32673113af17fe41b0e1b",
+      "gitSHA": "c9fce971ceefddd552d95fa6cc82c01cd5a0078c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest-zh.webmanifest",
+      "bytes": 640,
+      "sha256": "b2a87de9249fbedf04d68fcf5dc93cbb7a48244d5194fcc0b0b2db6b565c6235",
+      "gitSHA": "5c3f7ac8288a139ba19ecedd8d212b1ffcc97f0a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/SCOPE-EXCLUSIONS.json",
+      "bytes": 628,
+      "sha256": "8b6daf2368e7327a3d482b334f43067d16b54453472ff81c49a74bf3b7abdc81",
+      "gitSHA": "4bb1152f49f7e929d2d0a46a358fbcef4af8236e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/preset-cloud.css",
+      "bytes": 612,
+      "sha256": "d1d37049246d279e6449b3fb137e8d75f311ef4a5a5ba2fe274b930d02f697a9",
+      "gitSHA": "89d0c4a13d8149e2262e159202b80b0f9f5cfccb"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/manifest.webmanifest",
+      "bytes": 590,
+      "sha256": "2ea73f5808ce0beb8b8f2b24da841e68c9144dab8cd3f42f00d8694470631f0a",
+      "gitSHA": "a5ce73c398f65662c034172c68b1ba28911419ad"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/audit/PRIVACY-INITIAL-SCAN.json",
+      "bytes": 499,
+      "sha256": "c308e9c65a8e074a40d1b4f04e53d052d52659dba5715b517a8aa92d4f172f5a",
+      "gitSHA": "2f261743e29c78fbefc1b4727bc69fa59ad0b45e"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/package.json",
+      "bytes": 467,
+      "sha256": "4c9887f2c016368bb80bae7e32e37b616e3bec7140497930bfdab6d01e94243c",
+      "gitSHA": "9cd66a621d275d1488669d71f495501d9c84e563"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/恢复全部资料.cmd",
+      "bytes": 362,
+      "sha256": "192a26a1ebe7cb311e30a440fb39ea4cd11421c858ca760029c0195715f617f9",
+      "gitSHA": "a9e61d1c9811bf4d93391eb6cd4166c030f8ed5c"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/dist/favicon.svg",
+      "bytes": 278,
+      "sha256": "aea21c1655f464243a74d45138b831b7ae6d9695c7c13503817d0ccbf9695746",
+      "gitSHA": "12ec36067e8bd02bbf157df81199b462329d59a1"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle.config.ts",
+      "bytes": 133,
+      "sha256": "98ce916dbc6ac36109c0c41d0d39bdf7d4c97d00bfe875f7e2267766307abba7",
+      "gitSHA": "c4ce96ef61ddf6a930dd8538bb436598122fce8a"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/drizzle/0001_furry_zarek.sql",
+      "bytes": 129,
+      "sha256": "aa30c2d99662875a2c37ad57603d3cec649bc8802c206ef2a55c11a471db2dee",
+      "gitSHA": "a3f389d0e43c5a7f52f03c96dac2dfae745f32c2"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/.gitignore",
+      "bytes": 68,
+      "sha256": "c1b1c4b2de095ff97e03325f1cdf648b9eb14c0afaf83373869d98c3a2f436a6",
+      "gitSHA": "1574225f807f3c7159f1d8b74e16687c04abe0a0"
+    },
+    {
+      "path": "smartvio-generated/2026-10-15/current-software/mobile/pnpm-workspace.yaml",
+      "bytes": 29,
+      "sha256": "ac02d96368617c760f093cfe61fdec64b6244007ab3553e0d6621f706f54a353",
+      "gitSHA": "5ed0b5af0d45919f64c66edfb16a5f4512461fa1"
+    }
+  ]
+}
