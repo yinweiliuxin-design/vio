@@ -48,7 +48,7 @@
 ## 补完的核对
 
 - PCM1864 时钟与 SAI、电源 IC 逐脚与封装两项已在 `design/R4/checks/` 补完。更正：SCH-PSYNC-PFM、FW-PCM1864-CLKCFG 不成立；B2 关闭；新增 PWR-01（eFuse 只限流 0.5 A）。
-- TPS3700、TPD2S300、TPS259470 的 TI 规格书不在包内，ti.com 被网络策略拦截，相关结论按器件常识判断。
+- TPS3700、TPD2S300、TPS259470 的关键事实已用搜索到的 TI 官方页面摘录核对（ti.com 本身仍被拦截），详见 `design/R4/checks/power-ic-pins-footprints.md`。
 
 ## 目录
 
