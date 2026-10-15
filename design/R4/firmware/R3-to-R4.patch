@@ -1,0 +1,1681 @@
+diff -ruN a/base/stm32/audio_hw.c b/base/stm32/audio_hw.c
+--- a/base/stm32/audio_hw.c	2026-10-08 16:17:28.000000000 +0000
++++ b/base/stm32/audio_hw.c	2026-10-15 06:47:35.557964723 +0000
+@@ -35,7 +35,11 @@
+      * target WCET and NDTR/IRQ races still require on-board qualification. */
+     return sv_dma_half_free(half,n);
+ }
+-void sv_audio_emergency_mute(void){GPIOA->BSRR=0x0fu<<16;GPIOC->BSRR=1u<<(5+16);GPIOE->BSRR=1u<<(14+16);}
++void sv_audio_emergency_mute(void){GPIOA->BSRR=0x0fu<<16;GPIOC->BSRR=1u<<(5+16);GPIOE->BSRR=1u<<(14+16);
++#if SV_HAS_GROUPED_PORTS
++    GPIOD->BSRR=3u<<(14+16); /* R4 E-03 HP/RET PhotoMOS groups off */
++#endif
++}
+ static void pin(GPIO_TypeDef *p,uint16_t bits,uint32_t af){
+     GPIO_InitTypeDef g={0};g.Pin=bits;g.Mode=GPIO_MODE_AF_PP;g.Pull=GPIO_NOPULL;
+     g.Speed=GPIO_SPEED_FREQ_HIGH;g.Alternate=af;HAL_GPIO_Init(p,&g);
+diff -ruN a/base/stm32/board_pins.h b/base/stm32/board_pins.h
+--- a/base/stm32/board_pins.h	2026-10-08 16:17:28.000000000 +0000
++++ b/base/stm32/board_pins.h	2026-10-15 06:47:35.556757134 +0000
+@@ -2,6 +2,7 @@
+ #define SV_BOARD_PINS_H
+ #include <stdint.h>
+ #include <stdbool.h>
++#include "sv_hw_rev.h"
+ #define SV_PE_BOOT (1u<<7)
+ #define SV_PE_USB_DISABLE (1u<<10)
+ #define SV_PE_EN1 (1u<<12)
+@@ -10,7 +11,12 @@
+ #define SV_PE_AUDIO_POWER (1u<<2)
+ #define SV_PC_AUDIO_BUS (1u<<13)
+ /* BSRR low16=set, high16=reset. CE gate LOW independently disables charging. */
++#if SV_EN1_DEFAULT_HIGH
++/* R4 E-04: EN2/EN1=0/1 (USB500) from reset; EN2 is never driven high. */
++#define SV_E_BOOT_BSRR (SV_PE_BOOT|SV_PE_USB_DISABLE|SV_PE_EN1|((SV_PE_EN2|SV_PE_CHARGE|SV_PE_AUDIO_POWER)<<16))
++#else
+ #define SV_E_BOOT_BSRR (SV_PE_BOOT|SV_PE_USB_DISABLE|((SV_PE_EN1|SV_PE_EN2|SV_PE_CHARGE|SV_PE_AUDIO_POWER)<<16))
++#endif
+ #define SV_E_MUTE_BSRR (SV_PE_USB_DISABLE|(SV_PE_CHARGE<<16))
+ #define SV_E_SAFE_MODE_MASK ((3u<<4)|(3u<<14)|(3u<<20)|(3u<<24)|(3u<<26)|(3u<<28))
+ #define SV_E_SAFE_MODE_BITS ((1u<<4)|(1u<<14)|(1u<<20)|(1u<<24)|(1u<<26)|(1u<<28))
+@@ -20,9 +26,17 @@
+ #define SV_C_RF_OFF_BSRR ((SV_PC_RF|SV_PC_AUDIO_BUS)<<16)
+ /* Only the32 unused digital GPIOs. PC2_C/PC3_C analog pads are excluded. */
+ #define SV_UNUSED_A ((1u<<8)|(1u<<10)|(1u<<15))
++#if SV_HAS_PWR_PB_SENSE
++#define SV_UNUSED_B ((1u<<2)|(0x1fu<<3)|(0xeu<<12)) /* R4 E-11: PB12 = PWR_PB_SENSE */
++#else
+ #define SV_UNUSED_B ((1u<<2)|(0x1fu<<3)|(0xfu<<12))
++#endif
+ #define SV_UNUSED_C ((7u<<10)|(3u<<14))
++#if SV_HAS_GROUPED_PORTS
++#define SV_UNUSED_D 0xffu /* R4 E-03: PD14/PD15 drive the HP/RET PhotoMOS groups */
++#else
+ #define SV_UNUSED_D (0xffu|(3u<<14))
++#endif
+ #define SV_UNUSED_E 3u
+ static inline uint32_t sv_gpio_mode_mask(uint16_t pins){
+     uint32_t mask=0;
+diff -ruN a/base/stm32/safety_inputs.c b/base/stm32/safety_inputs.c
+--- a/base/stm32/safety_inputs.c	2026-10-08 16:17:28.000000000 +0000
++++ b/base/stm32/safety_inputs.c	2026-10-15 06:47:35.557577154 +0000
+@@ -8,7 +8,8 @@
+ extern uint32_t sv_target_millis(void);
+ sv_input_guard sv_input_safety;
+ static volatile bool initialized;
+-static bool hp_raw(void){return !(GPIOA->IDR&GPIO_PIN_4);}
++/* R4 Q7: polarity from HP_DETECT_ACTIVE_HIGH (sv_input_guard.h). */
++static bool hp_raw(void){return sv_hp_inserted_from_pin((GPIOA->IDR&GPIO_PIN_4)!=0);}
+ void sv_safety_inputs_init(uint32_t boot_at){
+     initialized=false;sv_input_guard_init(&sv_input_safety,boot_at);
+     /* PC4 and PA4 cannot both own EXTI4. Route it to the short LTC INT pulse;
+@@ -35,6 +36,12 @@
+     }
+ }
+ bool sv_safety_shutdown_requested(void){return sv_input_safety.shutdown;}
++bool sv_safety_hp_inserted(void){return sv_input_safety.hp_inserted;}
++void sv_safety_rearm(uint32_t now){
++    uint32_t primask=__get_PRIMASK();__disable_irq();
++    sv_input_guard_rearm(&sv_input_safety,now);
++    __DMB();__set_PRIMASK(primask);
++}
+ static bool permitted(bool headphone){
+     uint32_t primask=__get_PRIMASK();__disable_irq();
+     bool raw=hp_raw(),ok=false;
+@@ -54,6 +61,9 @@
+     bool raw=hp_raw();
+     if(initialized)sv_input_observe_hp(&sv_input_safety,raw,sv_target_millis());
+     desired=initialized?sv_input_output_mask(&sv_input_safety,desired,raw):0;
+-    GPIOA->BSRR=((uint32_t)(15u&~desired)<<16)|desired;
++    GPIOA->BSRR=((uint32_t)(15u&~desired)<<16)|(desired&15u);
++#if SV_HAS_GROUPED_PORTS
++    GPIOD->BSRR=((uint32_t)(3u&~(desired>>4))<<(14+16))|((uint32_t)((desired>>4)&3u)<<14);
++#endif
+     __DMB();__set_PRIMASK(primask);return desired;
+ }
+diff -ruN a/base/stm32/safety_inputs.h b/base/stm32/safety_inputs.h
+--- a/base/stm32/safety_inputs.h	2026-10-08 16:17:28.000000000 +0000
++++ b/base/stm32/safety_inputs.h	2026-10-15 01:07:50.757955355 +0000
+@@ -4,6 +4,8 @@
+ void sv_safety_inputs_init(uint32_t boot_at);
+ void sv_safety_inputs_tick(uint32_t now);
+ bool sv_safety_shutdown_requested(void);
++bool sv_safety_hp_inserted(void);
++void sv_safety_rearm(uint32_t now);
+ bool sv_safety_speaker_permitted(void);
+ bool sv_safety_headphone_permitted(void);
+ uint8_t sv_safety_apply_outputs(uint8_t desired);
+diff -ruN a/base/sv_control.c b/base/sv_control.c
+--- a/base/sv_control.c	2026-10-09 10:05:00.000000000 +0000
++++ b/base/sv_control.c	2026-10-15 06:52:35.163007561 +0000
+@@ -205,6 +205,14 @@
+     out[f->length+12]=(uint8_t)crc;out[f->length+13]=(uint8_t)(crc>>8);
+     return (size_t)f->length+14;
+ }
++/* R4 FW-PARSER-WHITELIST: every frame type actually used on the MCU<->ESP link
++ * (legacy 1..6, telemetry 0x20..0x22, factory 0x30..0x3C, radio 0x40..0x43,
++ * ESP replies 0xA0/0xA1, MCU result 0xB0, 0x80). CRC+length still gate frames;
++ * the dispatcher decides what a type means. */
++bool sv_frame_type_known(uint8_t t) {
++    return (t>=1 && t<=6) || (t>=0x20 && t<=0x22) || (t>=0x30 && t<=0x3c) ||
++        (t>=0x40 && t<=0x43) || t==0x80 || t==0xa0 || t==0xa1 || t==0xb0;
++}
+ static void discard(sv_parser *p, uint16_t n) {
+     p->count=(uint16_t)(p->count-n);
+     memmove(p->bytes,p->bytes+n,p->count);
+@@ -220,7 +228,7 @@
+         if (b[0]!=0x53 || b[1]!=0x56) { discard(p,1); continue; }
+         if (p->count<12) return false;
+         uint16_t n=le16(b+10);
+-        if (b[2]!=3 || !((b[3]>=1 && b[3]<=6) || b[3]==0x80) || n>256) {p->errors++;discard(p,1);continue;}
++        if (b[2]!=3 || !sv_frame_type_known(b[3]) || n>256) {p->errors++;discard(p,1);continue;}
+         uint16_t total=(uint16_t)(n+14);
+         if (p->count<total) return false;
+         if (sv_crc16(b+2,(size_t)n+10)!=le16(b+total-2)) {p->errors++;discard(p,1);continue;}
+diff -ruN a/base/sv_control.h b/base/sv_control.h
+--- a/base/sv_control.h	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_control.h	2026-10-15 01:07:29.036855329 +0000
+@@ -73,6 +73,7 @@
+ typedef enum { SV_OK, SV_AUTH, SV_FRAME, SV_LENGTH, SV_RANGE, SV_REPLAY,
+                SV_NOT_READY, SV_PHYSICAL } sv_result;
+ uint16_t sv_crc16(const uint8_t *bytes, size_t length);
++bool sv_frame_type_known(uint8_t type);
+ void sv_parser_reset(sv_parser *p);
+ void sv_parser_poll(sv_parser *p, uint32_t now);
+ bool sv_parser_byte(sv_parser *p, uint8_t byte, uint32_t now, sv_frame *out);
+diff -ruN a/base/sv_factory.c b/base/sv_factory.c
+--- a/base/sv_factory.c	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_factory.c	2026-10-15 06:41:15.380264142 +0000
+@@ -2,6 +2,12 @@
+ #include <string.h>
+ void sv_factory_init(sv_factory *d,uint32_t faults){memset(d,0,sizeof(*d));d->faults=faults;}
+ void sv_factory_fault(sv_factory *d,uint32_t f){d->faults|=f;d->armed=false;d->programming=false;d->port=0;d->window=false;sv_ui_enable(&d->ui,false);sv_session_end(&d->session);}
++void sv_factory_product_arm(sv_factory *d,uint8_t port,uint32_t now){
++    d->faults=0;d->product=true;d->grants=SV_D_POWER|SV_D_ADC|SV_D_LINE|SV_D_HP|SV_D_SPK|SV_D_RF;
++    d->armed=true;d->programming=false;d->window=false;d->armed_at=d->last_command=now;
++    d->port=port;d->mode=2;
++    sv_session_end(&d->session);sv_session_begin_trusted(&d->session,SV_PRODUCT_SESSION);d->session.have_seq=true;
++}
+ void sv_factory_tick(sv_factory *d,bool chord,bool rails,bool sensor,uint32_t now){
+     if(d->armed && (!rails || !sensor))sv_factory_fault(d,!rails?SV_D_FAULT_POWER:SV_D_FAULT_SENSOR);
+     if(d->faults || d->shutdown)return;
+@@ -13,7 +19,7 @@
+         d->opened_at=now;d->window=true;d->chord_used=true;
+     }
+     if(d->window && now-d->opened_at>=60000){d->window=false;d->armed=false;d->port=0;sv_session_end(&d->session);}
+-    if(d->armed && (now-d->armed_at>=60000 || now-d->last_command>=2000)){
++    if(d->armed && !d->product && (now-d->armed_at>=60000 || now-d->last_command>=2000)){
+         d->armed=false;d->port=0;sv_ui_enable(&d->ui,false);sv_session_end(&d->session);
+     }
+ }
+@@ -85,7 +91,8 @@
+         int32_t l=0,r=0;
+         if(d->armed && !d->faults && d->port && d->mode==1){l=r=sine[*phase%48]*256;*phase=(*phase%48+1)%48;}
+         else if(d->armed && !d->faults && d->port && d->mode==2 && a && b){
+-            int32_t pickup=sv_sample24(a[2*n])/16,rl=sv_sample24(a[2*n+1])/16,rr=sv_sample24(b[2*n])/16;
++            /* PCM-01: was /16 (-24 dB); now -6 dB headroom, pickup gain comes from the PGA. */
++            int32_t pickup=sv_sample24(a[2*n])/2,rl=sv_sample24(a[2*n+1])/2,rr=sv_sample24(b[2*n])/2;
+             if(d->input==0){l=r=pickup;}else if(d->input==1){l=rl;r=rr;}else if(d->input==2){l=r=rl;}else if(d->input==3){l=r=rr;}else {l=pickup/2+rl/2;r=pickup/2+rr/2;}
+         }
+         l=limit(l,8388607);r=limit(r,8388607);
+diff -ruN a/base/sv_factory.h b/base/sv_factory.h
+--- a/base/sv_factory.h	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_factory.h	2026-10-15 01:09:21.722351802 +0000
+@@ -7,7 +7,7 @@
+ enum {SV_D_FAULT_POWER=1,SV_D_FAULT_SENSOR=2,SV_D_FAULT_DMA=4,SV_D_FAULT_CODEC=8,SV_D_FAULT_CLOCK=16,SV_D_FAULT_RESET=32,SV_D_FAULT_PROTOCOL=64};
+ typedef struct {
+     uint32_t faults,nonce,opened_at,held_at,armed_at,last_command;
+-    bool holding,chord_used,window,armed,shutdown,programming;uint8_t grants,port,mode,input;
++    bool holding,chord_used,window,armed,shutdown,programming,product;uint8_t grants,port,mode,input;
+     sv_session session;
+     sv_speaker speaker;
+     sv_ui ui;
+@@ -16,6 +16,10 @@
+ void sv_factory_tick(sv_factory *,bool chord,bool rails,bool sensor,uint32_t now);
+ sv_result sv_factory_command(sv_factory *,const sv_frame *,uint32_t now);
+ void sv_factory_fault(sv_factory *,uint32_t);
++/* R4 FW-FAULT-LATCH: product (player) arm. All routes granted, live input,
++ * no 2 s/60 s command timeouts. Faults still disarm; the caller retries. */
++enum {SV_PRODUCT_SESSION=0x53565234u};
++void sv_factory_product_arm(sv_factory *,uint8_t port,uint32_t now);
+ /* Returns BT action:1=disconnect,2=reconnect selected peer; no new grants. */
+ unsigned sv_factory_buttons(sv_factory *,uint8_t pressed,uint32_t now);
+ /* Factory mailbox/UART is not a security boundary: requires physical chord,
+diff -ruN a/base/sv_hw_rev.h b/base/sv_hw_rev.h
+--- a/base/sv_hw_rev.h	1970-01-01 00:00:00.000000000 +0000
++++ b/base/sv_hw_rev.h	2026-10-15 06:47:35.529945893 +0000
+@@ -0,0 +1,31 @@
++#ifndef SV_HW_REV_H
++#define SV_HW_REV_H
++/* Single board-revision switch (design/R4/eco/ECO-R4-schematic.md).
++ * SV_HW_REV_R4=1 (default): R4 board with ECO E-02/E-03/E-04/E-11 fitted.
++ * SV_HW_REV_R4=0: R3 board (behaviour of the R3 hardware stays reachable).
++ * Build with EXTRA_CFLAGS="-DSV_HW_REV_R4=0" for an R3 board. */
++#ifndef SV_HW_REV_R4
++#define SV_HW_REV_R4 1
++#endif
++#if SV_HW_REV_R4
++/* E-02: PACK/SYS dividers 2.2M/1.5M with 10M buffer load: 3.504/1.304 = 2.687.
++ * USB divider (R1701/R1702/R1703) is unchanged at 2.65. High-Z input: settle >=100 ms. */
++#define SV_MON_DIV_USB_X1000 2650
++#define SV_MON_DIV_PACK_X1000 2687
++#define SV_MON_SETTLE_MS 100u
++/* E-03: PhotoMOS groups. PD14 HP_PORT_ENABLE (K1201/K1202), PD15 RET_PORT_ENABLE
++ * (K1206/K1207); PA3 PORT_ENABLE keeps LINE L/R + FX SEND (K1203-K1205). */
++#define SV_HAS_GROUPED_PORTS 1
++/* E-04: R590 pulls EN1 up (USB500 default); firmware never sets EN2=1. */
++#define SV_EN1_DEFAULT_HIGH 1
++/* E-11: PB12 = PWR_PB_SENSE (BAS116 to PWR_PB), internal pull-up, active low. */
++#define SV_HAS_PWR_PB_SENSE 1
++#else
++#define SV_MON_DIV_USB_X1000 2650
++#define SV_MON_DIV_PACK_X1000 2650
++#define SV_MON_SETTLE_MS 20u
++#define SV_HAS_GROUPED_PORTS 0
++#define SV_EN1_DEFAULT_HIGH 0
++#define SV_HAS_PWR_PB_SENSE 0
++#endif
++#endif
+diff -ruN a/base/sv_input_guard.c b/base/sv_input_guard.c
+--- a/base/sv_input_guard.c	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_input_guard.c	2026-10-15 06:47:35.557326895 +0000
+@@ -13,8 +13,12 @@
+ }
+ void sv_input_observe_hp(sv_input_guard *g,bool hp,uint32_t now){
+     if(!g->hp_seen || hp!=g->hp_raw){g->hp_seen=true;g->hp_raw=hp;g->hp_changed=now;}
+-    g->hp_inserted=hp && now-g->hp_changed>=SV_HP_INSERT_DEBOUNCE_MS;
+-    g->hp_clear=!hp && now-g->hp_changed>=SV_HP_RELEASE_GUARD_MS;
++    /* R4: hp_inserted is the debounced state; it only changes after the raw
++     * level has been stable for the debounce time (glitches on the tip-contact
++     * variant cannot drop the headphone route). */
++    if(hp && now-g->hp_changed>=SV_HP_INSERT_DEBOUNCE_MS)g->hp_inserted=true;
++    if(!hp && now-g->hp_changed>=SV_HP_RELEASE_GUARD_MS)g->hp_inserted=false;
++    g->hp_clear=!hp && !g->hp_inserted && now-g->hp_changed>=SV_HP_RELEASE_GUARD_MS;
+ }
+ void sv_input_guard_tick(sv_input_guard *g,bool hp,bool power_low,uint32_t now){
+     sv_input_observe_hp(g,hp,now);
+@@ -26,11 +30,18 @@
+     else if(now-g->power_low_at>=SV_PWR_LEVEL_FILTER_MS)g->shutdown=true;
+ }
+ bool sv_input_speaker_allowed(const sv_input_guard *g,bool hp){return !g->shutdown && g->hp_seen && g->hp_clear && !g->hp_raw && !g->hp_inserted && !hp;}
+-bool sv_input_headphone_allowed(const sv_input_guard *g,bool hp){return !g->shutdown && g->hp_seen && g->hp_inserted && g->hp_raw && hp;}
++bool sv_input_headphone_allowed(const sv_input_guard *g,bool hp){(void)hp;return !g->shutdown && g->hp_seen && g->hp_inserted;}
+ uint8_t sv_input_output_mask(const sv_input_guard *g,uint8_t desired,bool hp){
+     if(g->shutdown)return 0;
+-    desired&=15;
++    /* bits0-3 PA0..PA3; R4 E-03: bit4 PD14 HP group, bit5 PD15 RET group. */
++    desired&=SV_HAS_GROUPED_PORTS?63u:15u;
++    if(!sv_input_headphone_allowed(g,hp))desired&=(uint8_t)~16u;
+     if(!sv_input_speaker_allowed(g,hp))desired&=(uint8_t)~4u;
+     if((desired&2u) && !sv_input_headphone_allowed(g,hp))desired&=(uint8_t)~3u;
+     return desired;
+ }
++void sv_input_guard_rearm(sv_input_guard *g,uint32_t now){
++    /* R4 FW-USB-SHUTDOWN-LATCH: USB keeps the MCU alive after KILL; clear the
++     * PWR latch so the next PWR/INT event is seen (1 s ignore window again). */
++    g->shutdown=false;g->armed=false;g->power_tracking=false;g->boot_at=now;
++}
+diff -ruN a/base/sv_input_guard.h b/base/sv_input_guard.h
+--- a/base/sv_input_guard.h	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_input_guard.h	2026-10-15 06:47:35.557028589 +0000
+@@ -2,9 +2,23 @@
+ #define SV_INPUT_GUARD_H
+ #include <stdbool.h>
+ #include <stdint.h>
++#include "sv_hw_rev.h"
++/* R4 DECISIONS Q7: J301 headphone-detect polarity on PA4 (HP_DETECT_GPIO).
++ *   1 (default) = plug inserted reads HIGH: R323 0R fitted, J301 pins 5-6 are a
++ *                 separate normally-closed switch that opens on insertion.
++ *   0           = plug inserted reads LOW: R323 not fitted, pin 5 touches the
++ *                 tip and is pulled low through the headphone coil.
++ * Flip with -DHP_DETECT_ACTIVE_HIGH=0 (build_r4_linux.sh: EXTRA_CFLAGS) or edit
++ * the default below, after the one-minute multimeter check on the first sample. */
++#ifndef HP_DETECT_ACTIVE_HIGH
++#define HP_DETECT_ACTIVE_HIGH 1
++#endif
++static inline bool sv_hp_inserted_from_pin(bool pin_high){return HP_DETECT_ACTIVE_HIGH?pin_high:!pin_high;}
++/* Q7: 200 ms debounce on both edges. Speaker is still cut on the first raw
++ * insertion edge; headphone/speaker route changes follow the debounced state. */
+ enum {SV_PWR_STARTUP_IGNORE_MS=1000,SV_PWR_INT_MIN_MS=26,
+       SV_SAFETY_SAMPLE_MS=1,SV_PWR_LEVEL_FILTER_MS=2,
+-      SV_HP_INSERT_DEBOUNCE_MS=30,SV_HP_RELEASE_GUARD_MS=50};
++      SV_HP_INSERT_DEBOUNCE_MS=200,SV_HP_RELEASE_GUARD_MS=200};
+ typedef char sv_assert_int_filter_fits[
+     (SV_PWR_LEVEL_FILTER_MS+SV_SAFETY_SAMPLE_MS<SV_PWR_INT_MIN_MS)?1:-1];
+ /* IRQ writers have the same preemption priority; main reads volatile fields.
+@@ -20,4 +34,5 @@
+ bool sv_input_speaker_allowed(const sv_input_guard *,bool hp_raw_inserted);
+ bool sv_input_headphone_allowed(const sv_input_guard *,bool hp_raw_inserted);
+ uint8_t sv_input_output_mask(const sv_input_guard *,uint8_t desired,bool hp_raw_inserted);
++void sv_input_guard_rearm(sv_input_guard *,uint32_t now);
+ #endif
+diff -ruN a/base/sv_pcm1864.c b/base/sv_pcm1864.c
+--- a/base/sv_pcm1864.c	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_pcm1864.c	2026-10-15 06:41:15.377812023 +0000
+@@ -3,7 +3,7 @@
+ /* TI SLAS831D: masked page0 configuration; page1 indirect 4.20 coefficients.
+  * No coefficient access without running audio clocks. All outputs stay muted. */
+ static const uint8_t cfg[][3]={
+-    {0x71,0x8f,0x0f},{0x05,0x41,0},{0x01,0xff,0},{0x02,0xff,0},
++    {0x71,0x8f,0x0f},{0x05,0x41,0},{0x01,0xff,SV_PCM_PICKUP_PGA_REG},{0x02,0xff,0},
+     {0x03,0xff,0},{0x04,0xff,0},{0x06,0xbf,1},{0x07,0xbf,1},
+     {0x08,0xbf,4},{0x09,0xbf,0},{0x0b,0x1f,0},{0x0c,3,0},
+     {0x0d,0xff,0},{0x10,0xf0,0x50},{0x15,0x20,0x20},{0x20,0xf1,0x41}
+@@ -20,7 +20,13 @@
+     uint8_t v=0;
+     if(p->ready || p->fault)return;
+     if(now-p->at>10000){p->fault|=SV_PCM_TIMEOUT;return;}
+-    if(p->phase==0){if(wr(p,0,0))p->phase=1;return;}
++    /* PCM-02: no reset pin/brown-out detector (SLAS831D p79): software reset
++     * 0x00=0xFE, wait >=1 ms (2 ticks), then page 0, before any configuration. */
++    if(p->phase==0){
++        if(p->sub==0){if(wr(p,0,0xfe)){p->reset_at=now;p->sub=1;}return;}
++        if(now-p->reset_at<2)return;
++        if(wr(p,0,0)){p->sub=0;p->phase=1;}return;
++    }
+     if(p->phase==1){
+         const uint8_t *c=cfg[p->index];
+         if(p->sub==0){
+diff -ruN a/base/sv_pcm1864.h b/base/sv_pcm1864.h
+--- a/base/sv_pcm1864.h	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_pcm1864.h	2026-10-15 06:41:15.378332307 +0000
+@@ -7,7 +7,15 @@
+     bool (*read)(void *,uint8_t,uint8_t *);
+     bool (*write)(void *,uint8_t,uint8_t);
+ } sv_codec_bus;
+-typedef struct {sv_codec_bus bus;uint32_t at,fault;uint8_t phase,index,sub,old;bool ready;} sv_pcm1864;
++/* PCM-01: pickup (VINL1 -> ADC1L) PGA gain, PGA_VAL_CH1_L reg 0x01, 7.1 two's
++ * complement, 0.5 dB steps (SLAS831D Table 27: 0x18 = +12.0 dB, 0x28 = +20 dB).
++ * AUX L/R (0x02..0x04) stay 0 dB. Change only this constant after measuring. */
++#ifndef SV_PCM_PICKUP_PGA_DB
++#define SV_PCM_PICKUP_PGA_DB 12
++#endif
++#define SV_PCM_PICKUP_PGA_REG ((uint8_t)(int8_t)(SV_PCM_PICKUP_PGA_DB*2))
++typedef char sv_pcm_pga_range[(SV_PCM_PICKUP_PGA_DB>=-12 && SV_PCM_PICKUP_PGA_DB<=40)?1:-1];
++typedef struct {sv_codec_bus bus;uint32_t at,fault,reset_at;uint8_t phase,index,sub,old;bool ready;} sv_pcm1864;
+ enum {SV_PCM_BUS=1,SV_PCM_READBACK=2,SV_PCM_TIMEOUT=4,SV_PCM_RESERVED=8};
+ void sv_pcm_start(sv_pcm1864 *,sv_codec_bus,uint32_t now);
+ /* One bounded register operation per tick; clocks running, outputs muted. */
+diff -ruN a/base/sv_product.c b/base/sv_product.c
+--- a/base/sv_product.c	1970-01-01 00:00:00.000000000 +0000
++++ b/base/sv_product.c	2026-10-15 06:47:59.965120419 +0000
+@@ -0,0 +1,94 @@
++#include "sv_product.h"
++#include "sv_control.h"
++#include <string.h>
++uint8_t sv_route_outputs(uint8_t port,uint8_t input){
++#if SV_HAS_GROUPED_PORTS
++    /* R4 E-03: HP -> PD14 only; AUX/RETURN -> PD15; LINE/FX SEND -> PA3. */
++    uint8_t aux=input?SV_OUT_RETGRP:0; /* 0=pickup only; 1..4 use AUX/RETURN (J202) */
++    if(port==SV_LINE)return SV_OUT_DAC|SV_OUT_PORTS|aux;
++    if(port==SV_HP)return SV_OUT_DAC|SV_OUT_HP|SV_OUT_HPGRP|aux;
++#else
++    /* R3: one PORT_ENABLE (PA3) for all 7 PhotoMOS. */
++    uint8_t aux=input?SV_OUT_PORTS:0;
++    if(port==SV_LINE)return SV_OUT_DAC|SV_OUT_PORTS;
++    if(port==SV_HP)return SV_OUT_DAC|SV_OUT_HP|SV_OUT_PORTS;
++#endif
++    if(port==SV_SPK)return SV_OUT_SPK|aux;
++    if(port==SV_BT)return aux;
++    return 0;
++}
++void sv_battery_init(sv_battery *b){memset(b,0,sizeof(*b));}
++uint16_t sv_battery_mv(const sv_battery *b){return (uint16_t)(b->filtered_mv_x8/8u);}
++void sv_battery_update(sv_battery *b,uint16_t mv,uint32_t generation,bool usb,uint32_t now){
++    /* One sample per monitor frame (~4/s); implausible readings are ignored. */
++    if(generation!=b->generation && mv>=2000 && mv<=4500){
++        b->generation=generation;
++        if(!b->valid){b->valid=true;b->filtered_mv_x8=(uint32_t)mv*8u;}
++        else b->filtered_mv_x8=b->filtered_mv_x8-b->filtered_mv_x8/8u+mv; /* tau ~8 frames ~2 s */
++    }
++    if(!b->valid)return;
++    uint16_t f=sv_battery_mv(b);
++    if(!b->warn && f<SV_BAT_WARN_MV)b->warn=true;
++    else if(b->warn && f>SV_BAT_WARN_CLEAR_MV)b->warn=false;
++    /* Shutdown only on battery; with VBUS the charger supplies SYS (DPPM). */
++    if(usb || f>=SV_BAT_OFF_MV){b->low_tracking=false;return;}
++    if(!b->low_tracking){b->low_tracking=true;b->low_since=now;}
++    else if(now-b->low_since>=SV_BAT_OFF_HOLD_MS)b->shutdown=true; /* latched until reboot */
++}
++sv_charge_out sv_charge_decide(sv_charge *c,const sv_charge_in *i,uint32_t now){
++    sv_charge_out o={false,false,false};
++    bool usb_fault=i->port_fault || i->efuse_fault;
++    /* EN2=0/EN1=1: BQ24074 USB500 input limit; any USB fault falls back to USB100. */
++    o.en1=!usb_fault && !i->service_image;o.en2=false;
++    bool ok=i->vbus && i->frame_valid && !usb_fault && !i->system_fault && !i->service_image &&
++        i->pack_mv>=SV_CHG_PACK_MIN_MV && i->pack_mv<SV_CHG_PACK_MAX_MV &&
++        i->board_deci_c>=SV_CHG_TEMP_MIN_DECI_C && i->board_deci_c<=SV_CHG_TEMP_MAX_DECI_C;
++    if(!ok){c->qualifying=false;return o;}
++    if(!c->qualifying){c->qualifying=true;c->since=now;}
++    o.allow=now-c->since>=SV_CHG_QUALIFY_MS;
++    return o;
++}
++uint32_t sv_recover_delay(uint32_t attempts){
++    uint32_t d=SV_RECOVER_FIRST_MS;
++    for(uint32_t n=0;n<attempts && d<SV_RECOVER_MAX_MS;n++)d*=2u;
++    return d>SV_RECOVER_MAX_MS?SV_RECOVER_MAX_MS:d;
++}
++uint8_t sv_hp_auto_route(uint8_t port,bool was,bool inserted){
++    if(!was && inserted && port==SV_SPK)return SV_HP;
++    if(was && !inserted && port==SV_HP)return SV_SPK;
++    return port;
++}
++static uint8_t gauge(uint16_t mv){return mv>=3900?7u:mv>=3650?3u:1u;}
++uint8_t sv_led_pattern(const sv_led_in *l,uint32_t now){
++    if(l->fault)return (now/125u)&1u?4u:0u;                  /* LED3 fast blink: muted/recovering */
++    if(l->warn && !l->usb)return now%2000u<100u?1u:0u;        /* LED1 short flash: low battery */
++    if(l->usb && l->charging){uint8_t g=gauge(l->pack_mv);     /* top gauge LED blinks 1 Hz */
++        uint8_t top=g==7u?4u:g==3u?2u:1u;return (now/500u)&1u?g:(uint8_t)(g&~top);}
++    if(l->usb && l->standby)return gauge(l->pack_mv);         /* charged / not charging */
++    if((int32_t)(l->show_until-now)>0)return gauge(l->pack_mv);/* 5 s gauge after power-on/key */
++    return 0;
++}
++bool sv_power_kill(sv_power *p,bool req,uint32_t now){
++    if(p->state==SV_PWR_RUN){if(!req)return false;p->state=SV_PWR_KILL;p->kill_at=now;return true;}
++    if(p->state==SV_PWR_KILL){
++        if(now-p->kill_at<SV_KILL_HOLD_MS)return true;
++        p->state=SV_PWR_STANDBY; /* still alive: USB_WAKE keeps V3D on */
++    }
++    return false;
++}
++bool sv_power_standby_wake(const sv_power *p,bool pwr_event,bool key,bool vbus){
++    if(p->state!=SV_PWR_STANDBY)return false;
++    if(!vbus)return true; /* alive without USB: the LTC2954 was turned on */
++#if SV_HAS_PWR_PB_SENSE
++    (void)pwr_event;(void)key;return false; /* R4: the power key is read on PB12 */
++#else
++    return pwr_event || key;
++#endif
++}
++bool sv_power_pb_wake(sv_power *p,bool pb_low,uint32_t now){
++    if(p->state!=SV_PWR_STANDBY){p->pb_released=false;p->pb_tracking=false;return false;}
++    if(!pb_low){p->pb_released=true;p->pb_tracking=false;return false;}
++    if(!p->pb_released)return false; /* still the press that switched us off */
++    if(!p->pb_tracking){p->pb_tracking=true;p->pb_since=now;}
++    return now-p->pb_since>=SV_PB_WAKE_MS;
++}
+diff -ruN a/base/sv_product.h b/base/sv_product.h
+--- a/base/sv_product.h	1970-01-01 00:00:00.000000000 +0000
++++ b/base/sv_product.h	2026-10-15 06:47:59.964853434 +0000
+@@ -0,0 +1,73 @@
++#ifndef SV_PRODUCT_H
++#define SV_PRODUCT_H
++/* R4 product behaviour helpers (portable, host-tested). Pure functions/state
++ * machines only; stm32/main.c applies the results to GPIO. */
++#include <stdbool.h>
++#include <stdint.h>
++#include "sv_hw_rev.h"
++/* 1 = R4 product image: powers up playable, faults auto-recover (no permanent
++ * flash latch), auto HP/SPK routing, UVLO, simple charging. 0 = R3 bench flow. */
++#ifndef SV_PRODUCT_MODE
++#define SV_PRODUCT_MODE 1
++#endif
++
++/* PA0 DAC_UNMUTE, PA1 HP_EN_VALIDATED, PA2 SPK_ENABLE, PA3 PORT_ENABLE (R3: all 7
++ * PhotoMOS; R4 E-03: LINE L/R + FX SEND only), R4: PD14 HP group, PD15 RET group. */
++enum {SV_OUT_DAC=1u<<0,SV_OUT_HP=1u<<1,SV_OUT_SPK=1u<<2,SV_OUT_PORTS=1u<<3,SV_OUT_HPGRP=1u<<4,SV_OUT_RETGRP=1u<<5};
++/* FW-PORT-ENABLE-HP: HP needs its PhotoMOS (K1201/K1202 in series with HP_L/R);
++ * AUX/RETURN input (K1206/K1207) needs its PhotoMOS in every route. */
++uint8_t sv_route_outputs(uint8_t port,uint8_t input);
++
++/* UVLO on PACK_PLUS (ADS1115 AIN1, SV_MON_BAT; R1705 15k/R1706 10k, buffered). */
++enum {SV_BAT_WARN_MV=3450,SV_BAT_WARN_CLEAR_MV=3550,SV_BAT_OFF_MV=3300,
++      SV_BAT_OFF_HOLD_MS=3000,SV_BAT_FLASH_MIN_MV=3500};
++typedef struct {
++    bool valid,warn,shutdown;
++    uint32_t filtered_mv_x8,generation,low_since;bool low_tracking;
++} sv_battery;
++void sv_battery_init(sv_battery *);
++/* Call once per new monitor frame (generation changes). usb: VBUS present. */
++void sv_battery_update(sv_battery *,uint16_t pack_mv,uint32_t generation,bool usb,uint32_t now);
++uint16_t sv_battery_mv(const sv_battery *);
++
++/* FW-NO-CHARGE-PATH: simple charge enable. The TPS3700 (U1921) cell-NTC window
++ * and the BQ24074 TS pin gate CE in hardware after CHARGE_ALLOW (R1601/Q1601),
++ * so firmware only adds: VBUS present, no USB/charger fault, plausible pack
++ * voltage, board temperature sane, input fresh, 2 s qualification. */
++typedef struct {
++    bool vbus,frame_valid,port_fault,efuse_fault,system_fault,service_image;
++    uint16_t pack_mv;int16_t board_deci_c;
++} sv_charge_in;
++typedef struct {bool allow,en1,en2;} sv_charge_out;
++typedef struct {bool qualifying;uint32_t since;} sv_charge;
++enum {SV_CHG_QUALIFY_MS=2000,SV_CHG_PACK_MIN_MV=2500,SV_CHG_PACK_MAX_MV=4250,
++      SV_CHG_TEMP_MIN_DECI_C=0,SV_CHG_TEMP_MAX_DECI_C=450};
++sv_charge_out sv_charge_decide(sv_charge *,const sv_charge_in *,uint32_t now);
++
++/* FW-FAULT-LATCH: retry delay after a muting fault; never a permanent latch. */
++enum {SV_RECOVER_FIRST_MS=1000,SV_RECOVER_MAX_MS=30000,SV_RECOVER_STABLE_MS=60000};
++uint32_t sv_recover_delay(uint32_t attempts);
++
++/* Q7 auto routing on debounced HP detect edges. Returns new port. */
++uint8_t sv_hp_auto_route(uint8_t port,bool was_inserted,bool inserted);
++
++/* LED_ZONE_1..3 (PC6..PC8) pattern, bit n = LED n+1. */
++typedef struct {bool playing,charging,usb,warn,fault,standby;uint16_t pack_mv;uint32_t show_until;} sv_led_in;
++uint8_t sv_led_pattern(const sv_led_in *,uint32_t now);
++
++/* FW-USB-SHUTDOWN-LATCH: power state after a shutdown request. */
++enum {SV_PWR_RUN,SV_PWR_KILL,SV_PWR_STANDBY};
++enum {SV_KILL_HOLD_MS=1500};
++typedef struct {uint8_t state;bool pb_released,pb_tracking;uint32_t kill_at,pb_since;} sv_power;
++/* kill_requested: shutdown latched and audio already off. Returns true while KILL
++ * (PE7) must be LOW. After SV_KILL_HOLD_MS still alive => USB holds V3D =>
++ * STANDBY (KILL released HIGH so a later PWR turn-on is accepted). */
++bool sv_power_kill(sv_power *,bool kill_requested,uint32_t now);
++/* In STANDBY, software re-init into play on: VBUS loss while still alive (the
++ * LTC2954 must be on); R3 board also on PWR INT edge or any front key. */
++bool sv_power_standby_wake(const sv_power *,bool pwr_event,bool key,bool vbus);
++/* R4 E-11: PB12 (PWR_PB_SENSE) low >= 50 ms in STANDBY, after it was seen released
++ * there, requests clear-latch + NVIC_SystemReset into play. */
++enum {SV_PB_WAKE_MS=50};
++bool sv_power_pb_wake(sv_power *,bool pb_low,uint32_t now);
++#endif
+diff -ruN a/base/sv_telemetry.c b/base/sv_telemetry.c
+--- a/base/sv_telemetry.c	2026-10-09 10:05:00.000000000 +0000
++++ b/base/sv_telemetry.c	2026-10-15 06:52:35.194202545 +0000
+@@ -1,9 +1,13 @@
+ #include "sv_telemetry.h"
+ #include "sv27_power_profile.h"
++#include "sv_hw_rev.h"
+ #include <string.h>
+ 
+ enum { INIT, ADC_START, ADC_WAIT, TEMP_WAIT, IDLE, FAILED };
+ static uint32_t age(uint32_t a, uint32_t b) { return a-b; }
++uint32_t sv_mon_divider_x1000(unsigned ch) {
++    return ch==SV_MON_ISET?1000u:ch==SV_MON_USB?(uint32_t)SV_MON_DIV_USB_X1000:(uint32_t)SV_MON_DIV_PACK_X1000;
++}
+ static void fail(sv_monitor *m, uint32_t f) {
+     m->fault |= f; m->frame.valid=false; m->stage=FAILED;
+ }
+@@ -71,9 +75,10 @@
+             int32_t raw=signed_word(v);
+             if(raw < -16 || raw > 21000){fail(m,SV_MON_RANGE);return;}
+             if(raw<0)raw=0;
+-            /* AIN0..2 use 2.65 divider; AIN3 is the undivided buffered ISET. */
+-            int64_t factor=m->channel==SV_MON_ISET?500:1325;
+-            int64_t uv=((int64_t)raw*factor*m->cal.gain_ppm[m->channel]+2000000)/4000000;
++            /* AIN0 USB 2.65 divider; AIN1 PACK / AIN2 SYS divider per board (R4 E-02: 2.687);
++             * AIN3 is the undivided buffered ISET. LSB 125 uV: uv = raw*ratio_x1000/8. */
++            int64_t factor=sv_mon_divider_x1000(m->channel);
++            int64_t uv=((int64_t)raw*factor*m->cal.gain_ppm[m->channel]+4000000)/8000000;
+             int64_t mv=(uv+500)/1000+m->cal.offset_mv[m->channel];
+             if(mv < -10 || mv > 6500){fail(m,SV_MON_RANGE);return;}
+             m->pending_mv[m->channel]=(uint16_t)(mv<0?0:mv);
+diff -ruN a/base/sv_telemetry.h b/base/sv_telemetry.h
+--- a/base/sv_telemetry.h	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_telemetry.h	2026-10-15 06:49:20.212573954 +0000
+@@ -32,6 +32,8 @@
+ void sv_mon_init(sv_monitor *, uint32_t, sv_mon_bus, const sv_mon_cal *);
+ void sv_mon_tick(sv_monitor *, uint32_t, bool rail_and_switch_settled);
+ bool sv_mon_snapshot(const sv_monitor *, uint32_t, sv_mon_frame *);
++/* ADS1115 channel divider ratio x1000 (R4 E-02: PACK/SYS 2687, USB 2650, ISET 1000). */
++uint32_t sv_mon_divider_x1000(unsigned channel);
+ /* ISET estimate only during qualified active charging; mirror is +/-10%. */
+ bool sv_mon_charge_current(const sv_mon_frame *, bool actively_charging, uint16_t *ma);
+ 
+diff -ruN a/base/sv_ui.c b/base/sv_ui.c
+--- a/base/sv_ui.c	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_ui.c	2026-10-15 01:09:21.726104883 +0000
+@@ -12,7 +12,8 @@
+     for(unsigned i=0;i<3;i++)if(raw[i]>4095){u->fresh=false;u->picked_up=false;return false;}
+     for(unsigned i=0;i<3;i++)u->pots[i]=(uint16_t)raw[i];
+     u->sampled=now;u->generation++;u->fresh=true;
+-    if(u->enabled && raw[0]<=64)u->picked_up=true;
++    /* R4 product: no 'roll VOL to zero first' pickup after a stale scan. */
++    if(u->enabled && (raw[0]<=64 || u->auto_pickup))u->picked_up=true;
+     return true;
+ }
+ uint32_t sv_ui_tick(sv_ui *u,uint8_t pressed,bool authorized,uint32_t now){
+diff -ruN a/base/sv_ui.h b/base/sv_ui.h
+--- a/base/sv_ui.h	2026-10-09 10:11:56.000000000 +0000
++++ b/base/sv_ui.h	2026-10-15 01:09:21.725841669 +0000
+@@ -8,7 +8,7 @@
+ typedef struct {
+     sv_button buttons[4];
+     uint16_t pots[3]; uint32_t sampled,generation,events;
+-    bool enabled,fresh,picked_up,muted,fx,chord_lock;
++    bool enabled,fresh,picked_up,muted,fx,chord_lock,auto_pickup;
+     uint8_t rate;
+     float gain,tone,depth,filter[2][4]; uint32_t phase;
+ } sv_ui;
+diff -ruN a/base/tests/safety_hal_model.h b/base/tests/safety_hal_model.h
+--- a/base/tests/safety_hal_model.h	2026-10-08 16:17:30.000000000 +0000
++++ b/base/tests/safety_hal_model.h	2026-10-15 06:47:35.558223690 +0000
+@@ -3,7 +3,8 @@
+ /* GPIO layout comes from pinned ST CMSIS. The HAL/NVIC API below is a host
+  * semantic shim, NOT electrical EXTI, NVIC scheduling, or timing simulation. */
+ #include "i2c-model-device.h"
+-extern GPIO_TypeDef sv_fake_gpioa,sv_fake_gpioc,sv_fake_gpioe;
++extern GPIO_TypeDef sv_fake_gpioa,sv_fake_gpioc,sv_fake_gpiod,sv_fake_gpioe;
++#define GPIOD (&sv_fake_gpiod)
+ #define GPIOA (&sv_fake_gpioa)
+ #define GPIOC (&sv_fake_gpioc)
+ #define GPIOE (&sv_fake_gpioe)
+diff -ruN a/base/tests/test_audio_contract.c b/base/tests/test_audio_contract.c
+--- a/base/tests/test_audio_contract.c	2026-10-08 16:17:30.000000000 +0000
++++ b/base/tests/test_audio_contract.c	2026-10-15 06:42:57.838741987 +0000
+@@ -64,13 +64,14 @@
+         if(mode<2)C(abs(sv_sample24(out[254]))<16);
+     }
+     f[0]=NAN;C(!sv_speaker_process(&s,f,out,128,5500));for(unsigned i=0;i<256;i++)C(!out[i]);
++    /* R4 PCM-01: ADC words scaled 1/2 (was 1/16); full scale must not wrap. */
+     groups++;sv_factory d;sv_factory_init(&d,0);d.armed=true;d.port=SV_LINE;d.mode=2;d.input=1;
+     uint32_t a[256],b[256],spk[256],phase=0;
+     for(unsigned j=0;j<128;j++){a[2*j]=0x80000000u;a[2*j+1]=0x7fffff00u;b[2*j]=0x80000000u;b[2*j+1]=0;}
+     sv_factory_render(&d,a,b,out,spk,128,&phase);
+-    for(unsigned j=0;j<128;j++){C(sv_sample24(out[2*j])==8388607/16);C(sv_sample24(out[2*j+1])==-8388608/16);C(!spk[2*j]&&!spk[2*j+1]);}
++    for(unsigned j=0;j<128;j++){C(sv_sample24(out[2*j])==8388607/2);C(sv_sample24(out[2*j+1])==-8388608/2);C(!spk[2*j]&&!spk[2*j+1]);}
+     d.port=SV_HP;sv_factory_render(&d,a,b,out,spk,128,&phase);
+-    for(unsigned j=0;j<128;j++){C(sv_sample24(out[2*j])==8388607/16);C(sv_sample24(out[2*j+1])==-8388608/16);}
++    for(unsigned j=0;j<128;j++){C(sv_sample24(out[2*j])==8388607/2);C(sv_sample24(out[2*j+1])==-8388608/2);}
+     d.port=SV_SPK;sv_factory_render(&d,a,b,out,spk,128,&phase);
+     for(unsigned j=0;j<128;j++){C(!out[2*j]&&!out[2*j+1]);C(!spk[2*j+1]);C(abs(sv_sample24(spk[2*j]))<=cap);}
+     printf("{\"groups\":%u,\"assertions\":%u,\"hardware_tests\":0,\"suite\":\"audio_contract\",\"HPF850Gain\":%.6f,\"lowOctaveRatio\":%.6f,\"speakerCap24\":%d}\n",groups,checks,at850,at200/at100,cap);
+diff -ruN a/base/tests/test_diagnostics.c b/base/tests/test_diagnostics.c
+--- a/base/tests/test_diagnostics.c	2026-10-08 16:17:30.000000000 +0000
++++ b/base/tests/test_diagnostics.c	2026-10-15 06:41:31.635616807 +0000
+@@ -6,11 +6,13 @@
+ #include <string.h>
+ static unsigned checks,groups;
+ #define C(x) do{checks++;if(!(x)){fprintf(stderr,"FAIL diagnostics line%d\n",__LINE__);exit(1);}}while(0)
+-typedef struct {uint8_t page,r[2][256],coeff[24][3];unsigned ops,fail;bool stopped,mismatch;} chip;
++typedef struct {uint8_t page,r[2][256],coeff[24][3];unsigned ops,fail,resets,reset_op,page0_op;bool stopped,mismatch;} chip;
+ static bool read_reg(void *ctx,uint8_t r,uint8_t *v){chip *c=ctx;c->ops++;if(c->fail==c->ops)return false;*v=c->r[c->page][r];if(c->mismatch && c->page==1 && r==8)*v^=1;return true;}
+ static bool write_reg(void *ctx,uint8_t r,uint8_t v){
+     chip *c=ctx;c->ops++;if(c->fail==c->ops)return false;
+-    if(!r){c->page=v;return v<2;}c->r[c->page][r]=v;
++    /* R4 PCM-02: 0x00=0xFE is the software reset (SLAS831D p85). */
++    if(!r && v==0xfe){c->resets++;c->reset_op=c->ops;c->page=0;return true;}
++    if(!r){if(!c->page0_op)c->page0_op=c->ops;c->page=v;return v<2;}c->r[c->page][r]=v;
+     if(c->page==1 && r==1){unsigned a=c->r[1][2];C(a<24);
+         if(v==1)memcpy(c->coeff[a],c->r[1]+4,3);
+         if(v==2)memcpy(c->r[1]+8,c->coeff[a],3);
+@@ -28,6 +30,8 @@
+     chip c;sv_pcm1864 p;groups++;reset(&c);run(&p,&c);C(p.ready && !p.fault && c.page==0);
+     C(c.r[0][5]==0x86 && c.r[0][6]==0x41 && c.r[0][7]==0x41 && c.r[0][8]==0x44 && c.r[0][9]==0x40);
+     C(c.r[0][0xb]==0x60 && c.r[0][0x10]==0x51 && c.r[0][0x71]==0x78);
++    /* R4 PCM-02: reset is the first operation, page 0 select follows; PCM-01: pickup PGA +12 dB, AUX 0 dB. */
++    C(c.resets==1 && c.reset_op==1 && c.page0_op==2);C(c.r[0][1]==0x18 && c.r[0][2]==0 && c.r[0][3]==0 && c.r[0][4]==0);
+     for(unsigned i=0;i<24;i++){C(c.coeff[i][0]==((i==0||i==7||i==14||i==21)?16:0));C(!c.coeff[i][1]&&!c.coeff[i][2]);}
+     unsigned operations=c.ops;groups++;
+     for(unsigned fail=1;fail<=operations;fail++){reset(&c);c.fail=fail;run(&p,&c);C(!p.ready && (p.fault&SV_PCM_BUS));unsigned before=c.ops;sv_pcm_tick(&p,10002);C(c.ops==before);}
+diff -ruN a/base/tests/test_safety_inputs.c b/base/tests/test_safety_inputs.c
+--- a/base/tests/test_safety_inputs.c	2026-10-08 16:17:30.000000000 +0000
++++ b/base/tests/test_safety_inputs.c	2026-10-15 06:47:59.964424525 +0000
+@@ -4,25 +4,28 @@
+ #include <stdlib.h>
+ #include <string.h>
+ #include <limits.h>
+-GPIO_TypeDef sv_fake_gpioa,sv_fake_gpioc,sv_fake_gpioe;
++GPIO_TypeDef sv_fake_gpioa,sv_fake_gpioc,sv_fake_gpiod,sv_fake_gpioe;
+ uint32_t sv_model_pending,sv_model_primask;
+ static unsigned groups,checks,muted,enabled_irq;
+ static uint32_t now;static bool inject_hp;
+ extern sv_input_guard sv_input_safety;
+ extern void EXTI4_IRQHandler(void);
++/* R4 Q7: PA4 level for a given plug state under HP_DETECT_ACTIVE_HIGH. */
++#define HP_PIN(ins) (((ins)!=0)==(HP_DETECT_ACTIVE_HIGH!=0)?GPIO_PIN_4:0u)
++enum {D=SV_HP_INSERT_DEBOUNCE_MS,R=SV_HP_RELEASE_GUARD_MS};
+ #define C(x) do{checks++;if(!(x)){fprintf(stderr,"FAIL target safety line%d: %s\n",__LINE__,#x);exit(1);}}while(0)
+ void HAL_GPIO_Init(GPIO_TypeDef *port,GPIO_InitTypeDef *g){C(port==GPIOC);C(g->Pin==GPIO_PIN_4);C(g->Mode==GPIO_MODE_IT_FALLING);C(g->Pull==GPIO_NOPULL);}
+ void HAL_NVIC_SetPriority(int irq,unsigned preempt,unsigned sub){C(irq==EXTI4_IRQn && preempt==0 && sub==0);}
+ void HAL_NVIC_EnableIRQ(int irq){C(irq==EXTI4_IRQn);enabled_irq++;}
+-void sv_model_disable_irq(void){sv_model_primask=1;if(inject_hp){GPIOA->IDR&=~GPIO_PIN_4;inject_hp=false;}}
++void sv_model_disable_irq(void){sv_model_primask=1;if(inject_hp){GPIOA->IDR=HP_PIN(true);inject_hp=false;}}
+ uint32_t sv_target_millis(void){return now;}
+-void sv_audio_emergency_mute(void){muted++;GPIOA->BSRR=15u<<16;GPIOC->BSRR=1u<<21;GPIOE->BSRR=1u<<30;}
++void sv_audio_emergency_mute(void){muted++;GPIOA->BSRR=15u<<16;GPIOC->BSRR=1u<<21;GPIOE->BSRR=1u<<30;if(SV_HAS_GROUPED_PORTS)GPIOD->BSRR=3u<<30;}
+ static void reset(uint32_t boot){
+     memset(GPIOA,0,sizeof(*GPIOA));memset(GPIOC,0,sizeof(*GPIOC));memset(GPIOE,0,sizeof(*GPIOE));
+-    GPIOA->IDR=GPIO_PIN_4;GPIOC->IDR=GPIO_PIN_4;now=boot;muted=enabled_irq=0;sv_model_primask=0;inject_hp=false;
++    GPIOA->IDR=HP_PIN(false);GPIOC->IDR=GPIO_PIN_4;now=boot;muted=enabled_irq=0;sv_model_primask=0;inject_hp=false;
+     sv_model_pending=GPIO_PIN_4;sv_safety_inputs_init(boot);C(!sv_model_pending&&enabled_irq==1);
+ }
+-static void tick(uint32_t at,bool hp,bool power){now=at;GPIOA->IDR=hp?0:GPIO_PIN_4;GPIOC->IDR=power?0:GPIO_PIN_4;sv_safety_inputs_tick(now);}
++static void tick(uint32_t at,bool hp,bool power){now=at;GPIOA->IDR=HP_PIN(hp);GPIOC->IDR=power?0:GPIO_PIN_4;sv_safety_inputs_tick(now);}
+ static void power_edge(uint32_t at){now=at;sv_model_pending|=GPIO_PIN_4;EXTI4_IRQHandler();C(!sv_model_pending);}
+ static bool legacy_30ms(unsigned width,unsigned gap){
+     bool tracking=false,shutdown=false;unsigned started=0;
+@@ -30,7 +33,7 @@
+     return shutdown;
+ }
+ int main(void){
+-    groups++;GPIOA->IDR=GPIO_PIN_4;C(!sv_safety_apply_outputs(15));C(GPIOA->BSRR==(15u<<16));
++    groups++;GPIOA->IDR=HP_PIN(false);C(!sv_safety_apply_outputs(15));C(GPIOA->BSRR==(15u<<16));
+     C(!sv_safety_speaker_permitted());C(!sv_safety_headphone_permitted());
+     groups++;C(!legacy_30ms(26,1));C(!legacy_30ms(26,100));C(legacy_30ms(32,1));
+     /* Pulse arrives/recedes while main never polls. Hardware pending remains;
+@@ -59,29 +62,45 @@
+     groups++;uint32_t boot=UINT32_MAX-500;reset(boot);tick(boot+999,false,false);power_edge(boot+999);C(!sv_safety_shutdown_requested());
+     tick(boot+1000,false,false);power_edge(boot+1001);C(sv_safety_shutdown_requested());
+     reset(0);tick(1000,false,false);tick(UINT32_MAX,false,false);power_edge(2);C(sv_safety_shutdown_requested());
+-    groups++;reset(0);tick(0,false,false);C(!sv_safety_apply_outputs(4));tick(50,false,false);C(sv_safety_speaker_permitted());C(sv_safety_apply_outputs(4)==4);
+-    /* Raw LOW before any debounce immediately clears the actual target BSRR. */
+-    tick(51,true,false);C(GPIOA->BSRR==(4u<<16));C(!sv_safety_speaker_permitted());C(!sv_safety_apply_outputs(4));C(!(GPIOA->BSRR&4));C(GPIOA->BSRR&(4u<<16));
+-    C(!sv_safety_headphone_permitted());tick(80,true,false);C(!sv_safety_headphone_permitted());tick(81,true,false);C(sv_safety_headphone_permitted());C(sv_safety_apply_outputs(3)==3);
+-    C(sv_safety_apply_outputs(9)==9);C(!sv_safety_apply_outputs(4));
+-    groups++;tick(82,false,false);C(!sv_safety_headphone_permitted());C(!sv_safety_apply_outputs(3));C(!sv_safety_apply_outputs(4));
+-    for(unsigned t=83;t<180;t++){tick(t,(t&1)!=0,false);C(!sv_safety_apply_outputs(4));}
+-    tick(180,false,false);tick(229,false,false);C(!sv_safety_apply_outputs(4));tick(230,false,false);C(sv_safety_apply_outputs(4)==4);
++    groups++;reset(0);tick(0,false,false);C(!sv_safety_apply_outputs(4));tick(R-1,false,false);C(!sv_safety_speaker_permitted());
++    tick(R,false,false);C(sv_safety_speaker_permitted());C(sv_safety_apply_outputs(4)==4);
++    /* Raw insertion edge immediately clears the actual target BSRR (before debounce). */
++    uint32_t t0=R+1;tick(t0,true,false);C(GPIOA->BSRR==(4u<<16));C(!sv_safety_speaker_permitted());C(!sv_safety_apply_outputs(4));C(!(GPIOA->BSRR&4));C(GPIOA->BSRR&(4u<<16));
++    C(!sv_safety_headphone_permitted());tick(t0+D-1,true,false);C(!sv_safety_headphone_permitted());tick(t0+D,true,false);C(sv_safety_headphone_permitted());
++    /* FW-PORT-ENABLE-HP: the HP route PA0|PA1|PA3 (=11) passes the final mask unchanged. */
++    C(sv_safety_apply_outputs(11)==11);C(GPIOA->BSRR==(11u|(4u<<16)));C(sv_safety_apply_outputs(3)==3);
++#if SV_HAS_GROUPED_PORTS
++    /* R4 E-03: HP group PD14 (bit4) + RET group PD15 (bit5) reach GPIOD only while HP is debounced in. */
++    C(sv_safety_apply_outputs(1|2|16|32)==(1|2|16|32));C(GPIOD->BSRR==((3u<<14)));C(GPIOA->BSRR==(3u|(12u<<16)));
++    C(sv_safety_apply_outputs(32)==32);C(GPIOD->BSRR==((1u<<15)|(1u<<30)));
++#endif
++    C(sv_safety_apply_outputs(9)==9);C(!sv_safety_apply_outputs(4));C(sv_safety_apply_outputs(12)==8);
++    /* Q7: raw glitches while inserted (tip-contact variant, loud audio) keep HP and never enable SPK. */
++    groups++;uint32_t t1=t0+D+1;
++    for(uint32_t t=t1;t<t1+100;t++){tick(t,(t&1)!=0,false);C(sv_safety_headphone_permitted());C(!sv_safety_apply_outputs(4));}
++    /* Real unplug: debounced state changes only after R ms stable; then SPK. */
++    uint32_t t2=t1+100;tick(t2,false,false);C(!sv_safety_apply_outputs(4));
++    tick(t2+R-2,false,false);C(sv_safety_headphone_permitted());C(!sv_safety_apply_outputs(4));
++    tick(t2+R,false,false);C(!sv_safety_headphone_permitted());C(!sv_safety_apply_outputs(3));C(sv_safety_apply_outputs(4)==4);
++    C(!sv_safety_apply_outputs(16));C(sv_safety_apply_outputs(8|32)==(SV_HAS_GROUPED_PORTS?40:8));
+     C(!sv_safety_apply_outputs(0)); /* stable unplug alone never grants a port */
+-    groups++;reset(0);tick(0,false,false);tick(50,false,false);C(sv_safety_apply_outputs(4)==4);
++    groups++;reset(0);tick(0,false,false);tick(R,false,false);C(sv_safety_apply_outputs(4)==4);
+     /* Insertion races with main's old desired=SPK. Commit rechecks raw input
+      * after masking IRQs and also starts release guard for a sub-tick event. */
+-    now=51;inject_hp=true;C(!sv_safety_apply_outputs(4));C(!sv_model_primask);
+-    GPIOA->IDR=GPIO_PIN_4;now=52;C(!sv_safety_apply_outputs(4));now=101;C(!sv_safety_apply_outputs(4));now=102;C(sv_safety_apply_outputs(4)==4);
++    now=R+1;inject_hp=true;C(!sv_safety_apply_outputs(4));C(!sv_model_primask);
++    GPIOA->IDR=HP_PIN(false);now=R+2;C(!sv_safety_apply_outputs(4));now=2*R+1;C(!sv_safety_apply_outputs(4));now=2*R+2;C(sv_safety_apply_outputs(4)==4);
+     sv_model_primask=1;C(sv_safety_apply_outputs(4)==4);C(sv_model_primask==1);sv_model_primask=0;
+     groups++;reset(0);tick(0,false,false);tick(1000,false,false);C(sv_safety_apply_outputs(4)==4);power_edge(1001);
+     for(unsigned mask=0;mask<256;mask++){C(!sv_safety_apply_outputs((uint8_t)mask));C(GPIOA->BSRR==(15u<<16));}
+     C(GPIOC->BSRR==(1u<<21));C(GPIOE->BSRR==(1u<<30)); /* no PC13/PE8 rewrite */
+     groups++;reset(UINT32_MAX-20);tick(UINT32_MAX-20,true,false);tick(0,false,false);
+-    tick(49,false,false);C(!sv_safety_apply_outputs(4));tick(50,false,false);C(sv_safety_apply_outputs(4)==4);
++    tick(R-1,false,false);C(!sv_safety_apply_outputs(4));tick(R,false,false);C(sv_safety_apply_outputs(4)==4);
+     groups++;reset(0);EXTI4_IRQHandler();C(!sv_safety_shutdown_requested());C(!muted);
+     sv_input_safety.ignored_edges=UINT32_MAX;power_edge(999);C(sv_input_safety.ignored_edges==UINT32_MAX);
+     sv_input_safety.power_edges=UINT32_MAX;power_edge(1000);power_edge(1001);C(sv_input_safety.power_edges==UINT32_MAX);
+-    C(sv_safety_shutdown_requested());sv_model_primask=1;C(!sv_safety_apply_outputs(15));C(sv_model_primask==1);
+-    printf("{\"groups\":%u,\"assertions\":%u,\"suite\":\"target_safety_inputs\",\"legacy26msNegativeReproduced\":true,\"hardware_tests\":0}\n",groups,checks);return 0;
++    C(sv_safety_shutdown_requested());sv_model_primask=1;C(!sv_safety_apply_outputs(15));C(sv_model_primask==1);sv_model_primask=0;
++    /* R4 FW-USB-SHUTDOWN-LATCH: rearm clears the latch, ignores INT for 1 s, then sees the next edge. */
++    groups++;sv_safety_rearm(5000);C(!sv_safety_shutdown_requested());power_edge(5999);C(!sv_safety_shutdown_requested());
++    tick(6000,false,false);power_edge(6001);C(sv_safety_shutdown_requested());
++    printf("{\"groups\":%u,\"assertions\":%u,\"suite\":\"target_safety_inputs\",\"legacy26msNegativeReproduced\":true,\"hp_active_high\":%d,\"hp_debounce_ms\":%d,\"hardware_tests\":0}\n",groups,checks,HP_DETECT_ACTIVE_HIGH,(int)D);return 0;
+ }
+diff -ruN a/build_r4_linux.sh b/build_r4_linux.sh
+--- a/build_r4_linux.sh	1970-01-01 00:00:00.000000000 +0000
++++ b/build_r4_linux.sh	2026-10-15 06:49:32.724610688 +0000
+@@ -0,0 +1,159 @@
++#!/usr/bin/env bash
++# SmartVio STM32H743 firmware: Linux rebuild of build.py (which was Windows-only:
++# tcc for host tests, arm-none-eabi-gcc 14.2 for target, absolute E:/ paths).
++#
++#   ./build_r4_linux.sh [FIRMWARE_ROOT] [OUT_DIR]
++#
++# FIRMWARE_ROOT defaults to the directory of this script (it must contain base/,
++# stm32/, tests/, esp32/ and vendor-source/). OUT_DIR defaults to
++# FIRMWARE_ROOT/build-linux. IMAGE (env) selects the ELF base name
++# (default smartvio-r4). Same target flags, linker script, vendor sources and
++# object list as build.py; host tests use gcc -std=c11 -Wall -Werror instead of
++# tcc (the tcc-only -D__GNUC__=9 shim is dropped: gcc defines __GNUC__ itself).
++# ESP32: ESP-IDF 5.4.3 is not available here, so only a host -fsyntax-only check
++# of the shared r2shared/*.c files is done. The ESP32 image must be rebuilt
++# with ESP-IDF by the user.
++set -euo pipefail
++HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
++FW="$(cd "${1:-$HERE}" && pwd)"
++OUT="${2:-$FW/build-linux}"
++IMAGE="${IMAGE:-smartvio-r4}"
++# Extra target/host defines, e.g. EXTRA_CFLAGS="-DHP_DETECT_ACTIVE_HIGH=0" (J301 tip-contact variant)
++# or EXTRA_CFLAGS="-DSV_HW_REV_R4=0" (firmware for an R3 board; see base/sv_hw_rev.h).
++read -r -a EXTRA <<< "${EXTRA_CFLAGS:-}"
++HOSTCC="${HOSTCC:-gcc}"
++ARMCC="${ARMCC:-arm-none-eabi-gcc}"
++ARMBIN="$(dirname "$(command -v "$ARMCC")")"
++BASE="$FW/base"; VENDOR="$FW/vendor-source"
++DSP="$VENDOR/cmsis-dsp-1.16.2"; HAL="$VENDOR/stm32h7xx-hal-driver-1.11.4"
++mkdir -p "$OUT/obj" "$OUT/host"
++LOG="$OUT/build.log"; : > "$LOG"
++run(){ echo "+ $*" >>"$LOG"; "$@" >>"$LOG" 2>&1 || { echo "FAILED: $*" >&2; tail -40 "$LOG" >&2; exit 1; }; }
++
++# Portable core (build.py order) + R4 portable modules when present.
++CORE=()
++for n in sv_control sv_telemetry sv_foundation sv_radio_core sv_factory sv_pcm1864 sv_speaker sv_ui \
++         sv_audio_meter sv_input_guard sv27_charge_session sv27_charge_gate sv_product; do
++  [ -f "$BASE/$n.c" ] && CORE+=("$BASE/$n.c")
++done
++CORE+=("$DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_f32.c" "$DSP/Source/FilteringFunctions/arm_biquad_cascade_df1_init_f32.c")
++# -Wno-misleading-indentation: gcc-only style warning (tcc has none) hit by one-line test macros.
++HOSTW=(-Wall -Werror -Wno-misleading-indentation)
++COMMON=(-std=c11 "${HOSTW[@]}" "${EXTRA[@]}" -D__GNUC_PYTHON__ "-I$BASE" "-I$DSP/Include" "-I$FW/stm32" "-I$FW/esp32/main")
++
++# ---------------------------------------------------------------- host tests
++echo "== host tests ($($HOSTCC --version | head -1))"
++RESULTS="$OUT/host-tests.txt"; : > "$RESULTS"
++host(){ # name exe -- compile args...
++  local name="$1" exe="$OUT/host/$1"; shift
++  run "$HOSTCC" "$@" -o "$exe" -lm
++  local o; o="$("$exe" 2>&1)" || { echo "TEST FAILED: $name" >&2; echo "$o" >&2; exit 1; }
++  printf '%s: %s\n' "$name" "$(echo "$o" | tr '\n' ' ' | cut -c1-400)" | tee -a "$RESULTS"
++}
++for n in legacy_telemetry test_foundation test_radio_core test_diagnostics test_audio_contract test_ui; do
++  case "$n" in
++    # These suites assert R3 board constants (2.65 divider, EN1 low at boot, 30 unused pins):
++    # run them against the R3 board configuration (R4 constants are covered by test_r4_product).
++    legacy_telemetry|test_foundation|test_diagnostics) R3HW=(-DSV_HW_REV_R4=0);;
++    *) R3HW=();;
++  esac
++  host "$n" "${COMMON[@]}" "${R3HW[@]}" "${CORE[@]}" "$BASE/tests/$n.c"
++done
++for f in "$FW"/tests/test_*.c; do
++  n="$(basename "$f" .c)"
++  case "$n" in test_service_clear) continue;; esac
++  host "$n" "${COMMON[@]}" "${CORE[@]}" "$f"
++done
++for e in 0 1; do
++  host "test_service_clear_$e" "${COMMON[@]}" "-DSV_DIAGNOSTIC_SERVICE_CLEAR=$e" "$FW/tests/test_service_clear.c"
++done
++# i2c-model-device.h: Linux port of generate-i2c-test-header.ps1 (official ST CMSIS types).
++cat > "$OUT/gen_i2c_header.py" <<'PY'
++import re, sys, hashlib, json, pathlib
++src = pathlib.Path(sys.argv[1]).read_text(encoding='utf-8', errors='replace')
++out = pathlib.Path(sys.argv[2])
++lines = ['/* GENERATED from pinned official ST CMSIS; host RAM, not hardware. */',
++         '#ifndef SV_I2C_MODEL_DEVICE_H', '#define SV_I2C_MODEL_DEVICE_H', '#include <stdint.h>',
++         '#define __IO volatile', '#define __I volatile const', '#define __O volatile']
++for t in ('I2C_TypeDef', 'GPIO_TypeDef', 'RCC_TypeDef'):
++    m = re.search(r'(?si)typedef struct\s*\{(?:(?!typedef struct).)*?\}\s*' + t + r'\s*;', src)
++    if not m: raise SystemExit('Missing official type ' + t)
++    lines.append(m.group(0))
++for l in src.splitlines():
++    # PowerShell -match is case-insensitive: _Pos/_Msk helpers are included too.
++    if re.match(r'^#define\s+(RCC|I2C)_[A-Z0-9_]+\s+', l, re.I): lines.append(l)
++lines += ['extern I2C_TypeDef sv_fake_i2c;', 'extern GPIO_TypeDef sv_fake_gpiob;', 'extern RCC_TypeDef sv_fake_rcc;',
++          '#define I2C1 (&sv_fake_i2c)', '#define GPIOB (&sv_fake_gpiob)', '#define RCC (&sv_fake_rcc)',
++          'uint32_t sv_i2c_model_status(void);', '#endif']
++out.write_text('\n'.join(lines) + '\n', encoding='utf-8')
++PY
++run python3 -I "$OUT/gen_i2c_header.py" "$VENDOR/st/stm32h743xx.h" "$OUT/i2c-model-device.h"
++H=(-std=c11 "${HOSTW[@]}" "${EXTRA[@]}" "-I$BASE" "-I$OUT" "-I$BASE/stm32")
++host test_i2c_probe "${H[@]}" -DSV_I2C_REGISTER_MODEL "$BASE/stm32/i2c_probe.c" "$BASE/tests/test_i2c_probe.c"
++host test_esp_pcm "${H[@]}" "-I$BASE/tests/esp_model" "$BASE/tests/test_esp_pcm.c"
++host test_safety_inputs "${H[@]}" -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
++host test_r2_charge_enabled_HOST_ONLY "${COMMON[@]}" -DSV27_HOST_MODEL_ENABLE "${CORE[@]}" "$FW/tests/test_r2_charge.c"
++if [ -f "$BASE/sv_product.c" ]; then
++  # R4: J301 detect with the other polarity (DECISIONS Q7, HP_DETECT_ACTIVE_HIGH=0).
++  host test_safety_inputs_active_low "${H[@]}" -DHP_DETECT_ACTIVE_HIGH=0 -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" \
++       "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
++  # R4 firmware built for an R3 board (SV_HW_REV_R4=0): routes/wake/detect still correct.
++  host test_r4_product_r3board "${COMMON[@]}" -DSV_HW_REV_R4=0 "${CORE[@]}" "$FW/tests/test_r4_product.c"
++  host test_safety_inputs_r3board "${H[@]}" -DSV_HW_REV_R4=0 -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" \
++       "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
++fi
++
++# ------------------------------------------------- ESP32 shared code (syntax only)
++echo "== ESP32 shared sources: host gcc -fsyntax-only (ESP-IDF not installed)"
++for f in "$FW"/esp32/main/r2shared/*.c; do
++  run "$HOSTCC" -std=gnu11 -Wall -Werror -fsyntax-only "-I$FW/esp32/main/r2shared" "-I$FW/esp32/main" "-I$BASE/tests/esp_model" "$f"
++  echo "syntax OK: esp32/main/r2shared/$(basename "$f")" | tee -a "$RESULTS"
++done
++
++# ---------------------------------------------------------------- STM32 target
++echo "== target ($($ARMCC --version | head -1))"
++FLAGS=(-std=c11 -mcpu=cortex-m7 -mthumb -mfpu=fpv5-d16 -mfloat-abi=hard -Os -g3 -ffunction-sections -fdata-sections
++       -fno-common -Wall -Wextra -Werror -DSTM32H743xx -DHSE_VALUE=24576000 -DUSE_HAL_DRIVER "${EXTRA[@]}"
++       "-I$FW/stm32" "-I$BASE" "-I$BASE/stm32" "-I$VENDOR/st" "-I$VENDOR/cmsis" "-I$HAL/Inc" "-I$DSP/Include")
++SRCS=("${CORE[@]}" "$FW/stm32/main.c" "$FW/stm32/fault_store.c")
++for n in i2c_probe.c audio_hw.c syscalls.c startup_stm32h743xx.s pot_adc.c safety_inputs.c; do SRCS+=("$BASE/stm32/$n"); done
++SRCS+=("$VENDOR/st/system_stm32h7xx.c")
++for n in hal hal_rcc hal_rcc_ex hal_gpio hal_dma hal_dma_ex hal_sai hal_sai_ex hal_cortex hal_pwr hal_pwr_ex hal_flash hal_flash_ex hal_iwdg hal_adc hal_adc_ex; do
++  SRCS+=("$HAL/Src/stm32h7xx_$n.c")
++done
++OBJS=()
++for s in "${SRCS[@]}"; do
++  b="$(basename "$s")"; o="$OUT/obj/${b%.*}.o"
++  run "$ARMCC" "${FLAGS[@]}" -c "$s" -o "$o"; OBJS+=("$o")
++done
++LD="$BASE/stm32/stm32h743vi.ld"
++link(){ # elf objs...
++  local elf="$1"; shift
++  run "$ARMCC" "${FLAGS[@]}" -nostartfiles --specs=nano.specs --specs=nosys.specs "-T$LD" -Wl,--gc-sections \
++      "-Wl,-Map=${elf%.elf}.map" "$@" -Wl,--start-group -lc -lm -lgcc -Wl,--end-group -o "$elf"
++  run "$ARMBIN/arm-none-eabi-objcopy" -O binary "$elf" "${elf%.elf}.bin"
++  run "$ARMBIN/arm-none-eabi-objcopy" -O ihex "$elf" "${elf%.elf}.hex"
++  "$ARMBIN/arm-none-eabi-nm" -n "$elf" > "${elf%.elf}.symbols.txt"
++  (cd "$(dirname "$elf")" && "$ARMBIN/arm-none-eabi-size" "$(basename "$elf")") | tee -a "$RESULTS"
++}
++link "$OUT/$IMAGE.elf" "${OBJS[@]}"
++# SERVICE variant (SV_DIAGNOSTIC_SERVICE_CLEAR=1 for main.c and fault_store.c), as build.py.
++SOBJS=()
++for o in "${OBJS[@]}"; do case "$(basename "$o")" in main.o|fault_store.o) ;; *) SOBJS+=("$o");; esac; done
++for s in "$FW/stm32/main.c" "$FW/stm32/fault_store.c"; do
++  b="$(basename "$s" .c)"; o="$OUT/obj/$b-service.o"
++  run "$ARMCC" "${FLAGS[@]}" -DSV_DIAGNOSTIC_SERVICE_CLEAR=1 -c "$s" -o "$o"; SOBJS+=("$o")
++done
++link "$OUT/$IMAGE-SERVICE.elf" "${SOBJS[@]}"
++# Compile check of the board-revision dependent target sources for an R3 board
++# (SV_HW_REV_R4=0) and for the SV_PRODUCT_MODE=0 bench flow (objects discarded).
++if [ -f "$BASE/sv_hw_rev.h" ]; then
++  for d in "-DSV_HW_REV_R4=0" "-DSV_PRODUCT_MODE=0" "-DSV_CPU_FAST_MHZ=200" "-DHP_DETECT_ACTIVE_HIGH=0"; do
++    for s in "$FW/stm32/main.c" "$BASE/stm32/safety_inputs.c" "$BASE/stm32/audio_hw.c" "$BASE/sv_telemetry.c" "$BASE/sv_product.c" "$BASE/sv_input_guard.c"; do
++      run "$ARMCC" "${FLAGS[@]}" $d -c "$s" -o "$OUT/obj/variant.o"
++    done
++    echo "target compile OK with $d" | tee -a "$RESULTS"
++  done
++  rm -f "$OUT/obj/variant.o"
++fi
++echo "== DONE: host tests + target ELF in $OUT (hardware tests: 0)"
+diff -ruN a/esp32/main/r2shared/sv_control.c b/esp32/main/r2shared/sv_control.c
+--- a/esp32/main/r2shared/sv_control.c	2026-10-09 10:05:00.000000000 +0000
++++ b/esp32/main/r2shared/sv_control.c	2026-10-15 06:52:35.221218298 +0000
+@@ -205,6 +205,14 @@
+     out[f->length+12]=(uint8_t)crc;out[f->length+13]=(uint8_t)(crc>>8);
+     return (size_t)f->length+14;
+ }
++/* R4 FW-PARSER-WHITELIST: every frame type actually used on the MCU<->ESP link
++ * (legacy 1..6, telemetry 0x20..0x22, factory 0x30..0x3C, radio 0x40..0x43,
++ * ESP replies 0xA0/0xA1, MCU result 0xB0, 0x80). CRC+length still gate frames;
++ * the dispatcher decides what a type means. */
++bool sv_frame_type_known(uint8_t t) {
++    return (t>=1 && t<=6) || (t>=0x20 && t<=0x22) || (t>=0x30 && t<=0x3c) ||
++        (t>=0x40 && t<=0x43) || t==0x80 || t==0xa0 || t==0xa1 || t==0xb0;
++}
+ static void discard(sv_parser *p, uint16_t n) {
+     p->count=(uint16_t)(p->count-n);
+     memmove(p->bytes,p->bytes+n,p->count);
+@@ -220,7 +228,7 @@
+         if (b[0]!=0x53 || b[1]!=0x56) { discard(p,1); continue; }
+         if (p->count<12) return false;
+         uint16_t n=le16(b+10);
+-        if (b[2]!=3 || !((b[3]>=1 && b[3]<=6) || b[3]==0x80) || n>256) {p->errors++;discard(p,1);continue;}
++        if (b[2]!=3 || !sv_frame_type_known(b[3]) || n>256) {p->errors++;discard(p,1);continue;}
+         uint16_t total=(uint16_t)(n+14);
+         if (p->count<total) return false;
+         if (sv_crc16(b+2,(size_t)n+10)!=le16(b+total-2)) {p->errors++;discard(p,1);continue;}
+diff -ruN a/esp32/main/r2shared/sv_control.h b/esp32/main/r2shared/sv_control.h
+--- a/esp32/main/r2shared/sv_control.h	2026-10-09 10:11:56.000000000 +0000
++++ b/esp32/main/r2shared/sv_control.h	2026-10-15 01:07:29.048127948 +0000
+@@ -73,6 +73,7 @@
+ typedef enum { SV_OK, SV_AUTH, SV_FRAME, SV_LENGTH, SV_RANGE, SV_REPLAY,
+                SV_NOT_READY, SV_PHYSICAL } sv_result;
+ uint16_t sv_crc16(const uint8_t *bytes, size_t length);
++bool sv_frame_type_known(uint8_t type);
+ void sv_parser_reset(sv_parser *p);
+ void sv_parser_poll(sv_parser *p, uint32_t now);
+ bool sv_parser_byte(sv_parser *p, uint8_t byte, uint32_t now, sv_frame *out);
+diff -ruN a/stm32/main.c b/stm32/main.c
+--- a/stm32/main.c	2026-10-09 14:05:04.000000000 +0000
++++ b/stm32/main.c	2026-10-15 06:52:35.245703457 +0000
+@@ -1,4 +1,7 @@
+-/* Isolated V27 diagnostic image. Real peripherals, never hardware-qualified. */
++/* SmartVio R4 image (was: isolated V27 diagnostic image). Real peripherals,
++ * never hardware-qualified (hardware tests: 0). SV_PRODUCT_MODE=1 (sv_product.h):
++ * powers up playable, transient faults auto-recover, auto HP/SPK route, UVLO,
++ * simple USB500 charging. SV_PRODUCT_MODE=0 keeps the R3 bench arm flow. */
+ #include "stm32h7xx_hal.h"
+ #include "sv_telemetry.h"
+ #include "sv_factory.h"
+@@ -10,14 +13,26 @@
+ #include "safety_inputs.h"
+ #include "sv_rf_reply.h"
+ #include "sv_service_clear.h"
+-#include "sv27_charge_gate.h"
+-_Static_assert(!SV27_NORMAL_CHARGE_RELEASED,"R2 images must remain noncharging");
++#include "sv27_power_profile.h"
++#include "sv_product.h"
++/* R4 FW-NO-CHARGE-PATH: the V27 one-shot session/journal gate (always vetoed)
++ * is replaced by the simple gate in sv_product.c; TPS3700 + BQ24074 TS still
++ * veto CE in hardware. */
+ #include <string.h>
+ static volatile uint32_t milliseconds;
+ static volatile uint32_t charge_gate_tick;
+-static sv27_charge_session charge_session;
+-volatile struct {uint32_t version,profile,release,journal,session_locked,session_started,
+-    active_since,source_grant_ma,gate_result,iset_estimate_ma,iset_estimate_valid;} sv_charge_diag;
++static sv_charge charge;static sv_charge_out charge_out;
++volatile struct {uint32_t version,vbus,usb_mv,pack_mv,board_deci_c,allow,en1,en2,port_fault,efuse_fault,chg_status_n,pgood_n,iset_estimate_ma,iset_estimate_valid;} sv_charge_diag;
++static sv_battery battery;static sv_power pwr;
++static uint32_t recover_count,logged_faults,show_until,ui_events_seen,vbus_seen_at;static bool recover_pending;
++#if SV_PRODUCT_MODE
++static uint32_t recover_at,recovered_at;static bool hp_was;static uint8_t user_port;
++#endif
++/* R4 USART3 RX: RXNE/RXFNE interrupt into a ring (FW-UART-OVERRUN). */
++static volatile uint8_t rx_ring[512];static volatile uint32_t rx_head,rx_tail;
++static uint32_t rf_ka_session,rf_ka_at;static uint16_t rf_ka_seq;
++volatile struct {uint32_t version,product,hw_rev_r4,hp_active_high,pll1,cpu_hz,battery_mv,battery_warn,battery_off,
++    power,recoveries,retained_faults,rx_errors,rx_drops,tx_timeouts,keepalives,hp_inserted,leds;} sv_r4_diag;
+ static sv_monitor monitor;
+ static sv_pcm1864 codec;
+ static sv_factory factory;
+@@ -55,8 +70,8 @@
+ uint32_t sv_target_millis(void){return milliseconds;}
+ void SysTick_Handler(void){
+     milliseconds++;sv_safety_inputs_tick(milliseconds);
+-    /* Independent veto for stalled foreground. Target release remains zero. */
+-    if(!SV27_NORMAL_CHARGE_RELEASED || (uint32_t)(milliseconds-charge_gate_tick)>SV27_INPUT_MAX_AGE_MS)
++    /* Independent veto: a stalled foreground drops CHARGE_ALLOW within 100 ms. */
++    if((uint32_t)(milliseconds-charge_gate_tick)>SV27_INPUT_MAX_AGE_MS)
+         GPIOE->BSRR=1u<<(14+16);
+ }
+ static void mode(GPIO_TypeDef *p,unsigned n,unsigned m){p->MODER=(p->MODER&~(3u<<(2*n)))|(m<<(2*n));}
+@@ -81,65 +96,208 @@
+     for(unsigned n=4;n<8;n++)mode(GPIOA,n,0);
+     mode(GPIOC,0,0);mode(GPIOC,4,0);mode(GPIOE,8,0);mode(GPIOE,9,0);mode(GPIOE,15,0);
+     unused(GPIOE,(15u<<3)|(1u<<11));unused(GPIOD,(3u<<8)|(7u<<11));unused(GPIOC,1u<<9);
++    /* R4 FW-UNUSED-STATUS-IO: PA9 VBUS_SENSE, PB11 CHG_PGOOD_N, PD10 CHG_STATUS_N
++     * inputs (external pull-ups R816/R817, R505, R506); LED_ZONE_1..3 PC6..PC8 outputs. */
++    mode(GPIOA,9,0);mode(GPIOB,11,0);mode(GPIOD,10,0);
++    GPIOC->BSRR=7u<<(6+16);GPIOC->OTYPER&=~(7u<<6);for(unsigned n=6;n<9;n++)mode(GPIOC,n,1);
++#if SV_HAS_GROUPED_PORTS
++    /* R4 E-03: PD14 HP_PORT_ENABLE, PD15 RET_PORT_ENABLE push-pull, low (R1213/R1215 hold gates low in reset). */
++    GPIOD->BSRR=3u<<(14+16);GPIOD->OTYPER&=~(3u<<14);mode(GPIOD,14,1);mode(GPIOD,15,1);
++#endif
++#if SV_HAS_PWR_PB_SENSE
++    /* R4 E-11: PB12 PWR_PB_SENSE input with internal pull-up; low (~0.6 V via BAS116) = key pressed. */
++    GPIOB->PUPDR=(GPIOB->PUPDR&~(3u<<24))|(1u<<24);mode(GPIOB,12,0);
++#endif
++}
++static bool pwr_key_low(void){
++#if SV_HAS_PWR_PB_SENSE
++    return !(GPIOB->IDR&(1u<<12));
++#else
++    return false;
++#endif
++}
++static bool vbus_present(void){return (GPIOA->IDR&(1u<<9))!=0;}
++/* FW-SYSTICK-PRIO: SysTick_Config() resets the priority to 15; restore 0 every time. */
++static void systick_start(void){SystemCoreClockUpdate();SysTick_Config(SystemCoreClock/1000u);NVIC_SetPriority(SysTick_IRQn,0);}
++/* FW-RT-BUDGET + R4 battery budget: fast mode runs the CPU from PLL1 off HSE
++ * 24.576 MHz instead of HSI 64 MHz at 7 WS, with I/D-cache on (main()).
++ * Default SV_CPU_FAST_MHZ=120: M6 N117 P4 -> 119.808 MHz, VOS2, AXI/AHB /1
++ * = 119.8 MHz (<=150), APB /2 = 59.9 MHz (<=75), Flash 2 WS (VOS2 <=165 MHz).
++ * Option 200: M6 N96 P2 -> 196.608 MHz, VOS1, AHB /2 = 98.3 MHz, APB /1, 2 WS.
++ * USART3/I2C1 kernels stay on HSI (HSIDIV=1): BRR/TIMINGR unchanged. ADC sync
++ * clock = HCLK/4 (30.0 / 24.6 MHz). SAI/MCO2 stay on PLL2 (audio_hw.c), unchanged.
++ * Falls back to HSI 64 MHz if HSE/PLL1 fail. */
++#ifndef SV_CPU_FAST_MHZ
++#define SV_CPU_FAST_MHZ 120
++#endif
++#if SV_CPU_FAST_MHZ==120
++enum {SV_PLL1N=117,SV_PLL1P=4};
++#define SV_FAST_VOS PWR_REGULATOR_VOLTAGE_SCALE2
++#define SV_FAST_HPRE RCC_HCLK_DIV1
++#define SV_FAST_APB_DIV(n) RCC_APB##n##_DIV2
++#elif SV_CPU_FAST_MHZ==200
++enum {SV_PLL1N=96,SV_PLL1P=2};
++#define SV_FAST_VOS PWR_REGULATOR_VOLTAGE_SCALE1
++#define SV_FAST_HPRE RCC_HCLK_DIV2
++#define SV_FAST_APB_DIV(n) RCC_APB##n##_DIV1
++#else
++#error "SV_CPU_FAST_MHZ must be 120 or 200"
++#endif
++static bool pll1_start(void){
++    if(HAL_PWREx_ConfigSupply(PWR_LDO_SUPPLY)!=HAL_OK)return false;
++    __HAL_PWR_VOLTAGESCALING_CONFIG(SV_FAST_VOS);
++    uint32_t t=milliseconds;
++    while(!__HAL_PWR_GET_FLAG(PWR_FLAG_VOSRDY))if(milliseconds-t>10)return false;
++    /* Own bounded HSE wait (<=50 ms) keeps the main loop below its 100 ms gap check. */
++    RCC->CR|=RCC_CR_HSEON;t=milliseconds;
++    while(!(RCC->CR&RCC_CR_HSERDY))if(milliseconds-t>50){RCC->CR&=~RCC_CR_HSEON;return false;}
++    RCC_OscInitTypeDef o={0};o.OscillatorType=RCC_OSCILLATORTYPE_HSE;o.HSEState=RCC_HSE_ON;
++    o.PLL.PLLState=RCC_PLL_ON;o.PLL.PLLSource=RCC_PLLSOURCE_HSE;
++    o.PLL.PLLM=6;o.PLL.PLLN=SV_PLL1N;o.PLL.PLLP=SV_PLL1P;o.PLL.PLLQ=8;o.PLL.PLLR=8;
++    o.PLL.PLLRGE=RCC_PLL1VCIRANGE_2;o.PLL.PLLVCOSEL=RCC_PLL1VCOWIDE;o.PLL.PLLFRACN=0;
++    if(HAL_RCC_OscConfig(&o)!=HAL_OK)return false;
++    RCC_ClkInitTypeDef c={0};
++    c.ClockType=RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_D1PCLK1|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2|RCC_CLOCKTYPE_D3PCLK1;
++    c.SYSCLKSource=RCC_SYSCLKSOURCE_PLLCLK;c.SYSCLKDivider=RCC_SYSCLK_DIV1;c.AHBCLKDivider=SV_FAST_HPRE;
++    c.APB3CLKDivider=SV_FAST_APB_DIV(3);c.APB1CLKDivider=SV_FAST_APB_DIV(1);c.APB2CLKDivider=SV_FAST_APB_DIV(2);c.APB4CLKDivider=SV_FAST_APB_DIV(4);
++    uwTickPrio=0; /* HAL_InitTick inside ClockConfig: SysTick priority 0 */
++    return HAL_RCC_ClockConfig(&c,FLASH_LATENCY_2)==HAL_OK;
++}
++/* D-cache safety: the SAI/ADC DMA buffers (.dma, D2 SRAM1 0x30000000) and the
++ * Bank2 fault-journal sector are mapped normal non-cacheable, so no cache
++ * maintenance is needed for DMA or for flash programming read-back. */
++static void caches_on(void){
++    HAL_MPU_Disable();
++    MPU_Region_InitTypeDef r={0};
++    r.Enable=MPU_REGION_ENABLE;r.Number=MPU_REGION_NUMBER0;r.BaseAddress=0x30000000u;r.Size=MPU_REGION_SIZE_128KB;
++    r.SubRegionDisable=0;r.TypeExtField=MPU_TEX_LEVEL1;r.AccessPermission=MPU_REGION_FULL_ACCESS;
++    r.DisableExec=MPU_INSTRUCTION_ACCESS_DISABLE;r.IsShareable=MPU_ACCESS_SHAREABLE;
++    r.IsCacheable=MPU_ACCESS_NOT_CACHEABLE;r.IsBufferable=MPU_ACCESS_NOT_BUFFERABLE;
++    HAL_MPU_ConfigRegion(&r);
++    r.Number=MPU_REGION_NUMBER1;r.BaseAddress=FLASH_BANK2_BASE+7u*128u*1024u;
++    HAL_MPU_ConfigRegion(&r);
++    HAL_MPU_Enable(MPU_PRIVILEGED_DEFAULT);
++    SCB_EnableICache();SCB_EnableDCache();
++}
++static void clocks_slow(void){
++    if(__HAL_RCC_GET_SYSCLK_SOURCE()!=RCC_CFGR_SWS_HSI){
++        RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_1;
++        RCC_ClkInitTypeDef c={0};
++        c.ClockType=RCC_CLOCKTYPE_SYSCLK|RCC_CLOCKTYPE_HCLK|RCC_CLOCKTYPE_D1PCLK1|RCC_CLOCKTYPE_PCLK1|RCC_CLOCKTYPE_PCLK2|RCC_CLOCKTYPE_D3PCLK1;
++        c.SYSCLKSource=RCC_SYSCLKSOURCE_HSI;c.SYSCLKDivider=RCC_SYSCLK_DIV1;c.AHBCLKDivider=RCC_HCLK_DIV1;
++        c.APB3CLKDivider=RCC_APB3_DIV1;c.APB1CLKDivider=RCC_APB1_DIV1;c.APB2CLKDivider=RCC_APB2_DIV1;c.APB4CLKDivider=RCC_APB4_DIV1;
++        uwTickPrio=0;(void)HAL_RCC_ClockConfig(&c,FLASH_LATENCY_7); /* R3 reset latency for journal writes */
++    }
++    if(__HAL_RCC_GET_SYSCLK_SOURCE()==RCC_CFGR_SWS_HSI){
++        __HAL_RCC_PLL_DISABLE();
++        /* FW-HSE-LEFT-ON: HSE/CSI off once neither PLL needs them (audio already stopped). */
++        if(!(RCC->CR&(RCC_CR_PLL1ON|RCC_CR_PLL2ON|RCC_CR_PLL3ON)))RCC->CR&=~(RCC_CR_HSEON|RCC_CR_CSION);
++    }
++    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_8;
+ }
+ static void cpu(bool fast){
+     if(pot_initialized){sv_pot_adc_stop();pot_initialized=false;}
+-    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|(fast?RCC_CR_HSIDIV_1:RCC_CR_HSIDIV_8);
+-    SystemCoreClockUpdate();SysTick_Config(SystemCoreClock/1000u);
++    if(fast){
++        RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_1;systick_start();
++        sv_r4_diag.pll1=__HAL_RCC_GET_SYSCLK_SOURCE()==RCC_CFGR_SWS_PLL1 || pll1_start();
++    }else clocks_slow();
++    systick_start();sv_r4_diag.cpu_hz=SystemCoreClock;
+ }
+ static void pots_start(uint32_t now){
+     pot_initialized=sv_pot_adc_init();pot_generation=0;factory.ui.fresh=false;factory.ui.picked_up=false;
+     sv_pot_init(&pot_scan,sv_pot_adc_bus(),now);
+     if(!pot_initialized){pot_scan.fault=true;sv_factory_fault(&factory,SV_D_FAULT_SENSOR);}
+ }
+-static void uart_stop(void){sv_rf_reply_cancel(&sv_rf_reply_diag);USART3->CR1=0;uart_on=false;tx_count=0;sv_parser_reset(&parser);unused(GPIOD,3u<<8);}
++static void uart_stop(void){
++    NVIC_DisableIRQ(USART3_IRQn);sv_rf_reply_cancel(&sv_rf_reply_diag);USART3->CR1=0;uart_on=false;tx_count=0;
++    rx_head=rx_tail=0;sv_parser_reset(&parser);unused(GPIOD,3u<<8);
++}
+ static void uart_start(void){
+     RCC->D2CCIP2R=(RCC->D2CCIP2R&~RCC_D2CCIP2R_USART28SEL)|(3u<<RCC_D2CCIP2R_USART28SEL_Pos);
+     RCC->APB1LENR|=RCC_APB1LENR_USART3EN;(void)RCC->APB1LENR;
+     USART3->CR1=0;USART3->CR2=0;USART3->CR3=0;USART3->PRESC=0;USART3->BRR=(64000000u+57600u)/115200u;
+-    GPIOD->AFR[1]=(GPIOD->AFR[1]&~0xffu)|0x77u;mode(GPIOD,8,2);mode(GPIOD,9,2);
+-    USART3->CR1=USART_CR1_RE|USART_CR1_TE|USART_CR1_UE;uart_on=true;
++    GPIOD->AFR[1]=(GPIOD->AFR[1]&~0xffu)|0x77u;
++    /* FW-UART-OVERRUN: PD9 (RF_TX) internal pull-up; the line floats while the ESP boots. */
++    GPIOD->PUPDR=(GPIOD->PUPDR&~(3u<<18))|(1u<<18);mode(GPIOD,8,2);mode(GPIOD,9,2);
++    rx_head=rx_tail=0;
++    USART3->CR3=USART_CR3_EIE;
++    USART3->CR1=USART_CR1_FIFOEN|USART_CR1_RXNEIE_RXFNEIE|USART_CR1_RE|USART_CR1_TE|USART_CR1_UE;uart_on=true;
++    NVIC_SetPriority(USART3_IRQn,2);NVIC_EnableIRQ(USART3_IRQn);
++}
++void USART3_IRQHandler(void){
++    uint32_t isr=USART3->ISR;
++    if(isr&(USART_ISR_ORE|USART_ISR_FE|USART_ISR_NE|USART_ISR_PE)){
++        /* Counted only; the parser resynchronises on magic+CRC. Never a latched fault. */
++        USART3->ICR=USART_ICR_ORECF|USART_ICR_FECF|USART_ICR_NECF|USART_ICR_PECF;sv_r4_diag.rx_errors++;
++    }
++    while(USART3->ISR&USART_ISR_RXNE_RXFNE){
++        uint8_t b=(uint8_t)USART3->RDR;uint32_t next=(rx_head+1u)%sizeof(rx_ring);
++        if(next!=rx_tail){rx_ring[rx_head]=b;rx_head=next;}else sv_r4_diag.rx_drops++;
++    }
+ }
+ static void power_off(uint32_t now){
+     sv_audio_emergency_mute();level(GPIOC,13,false);sv_rf_request(&rf,false,false,now);
+     uart_stop();sv_audio_hw_stop();level(GPIOE,2,false);power_state=4;discharged_at=now;
+     cpu(false);pots_start(now);selected_peer=false;if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+ }
++static void request_off(void){
++    factory.shutdown=true;factory.armed=false;factory.programming=false;
++    factory.port=0;factory.window=false;sv_ui_enable(&factory.ui,false);sv_session_end(&factory.session);
++}
+ static void latch_shutdown(void){
+-    if(sv_safety_shutdown_requested()){
+-        factory.shutdown=true;factory.armed=false;factory.programming=false;
+-        factory.port=0;factory.window=false;sv_ui_enable(&factory.ui,false);sv_session_end(&factory.session);
+-    }
++    if(sv_safety_shutdown_requested())request_off();
+ }
+ static bool evidence(uint32_t now){
+     sv_mon_frame f;if(!sv_mon_snapshot(&monitor,now,&f))return false;
++#if SV_PRODUCT_MODE
++    /* Player window: SYS plausible, TMP117 board -20..60 C. USB port fault lines
++     * (PE8/PE9) only gate charging, they must not mute a battery-powered player. */
++    return f.mv[SV_MON_SYS]>=2900 && f.mv[SV_MON_SYS]<=4600 && f.temperature_deci_c>=-200 && f.temperature_deci_c<=600;
++#else
+     /* TMP117 is board temperature, not the cell NTC. Diagnostic window only. */
+     return f.mv[SV_MON_SYS]>=2900 && f.mv[SV_MON_SYS]<=4600 && f.temperature_deci_c>=100 && f.temperature_deci_c<=400 &&
+         (GPIOE->IDR&((1u<<8)|(1u<<9)))==((1u<<8)|(1u<<9));
++#endif
+ }
+-static void charge_gate_apply(uint32_t now){
+-    /* All unsupported real-world qualifiers stay false. VBUS voltage is not
+-     * USB current authorization; TMP117 is not the cell NTC. No SWD override. */
+-    sv27_gate_inputs i={0};sv_mon_frame f;
+-    i.sampled_at=now;i.fault=factory.faults!=0 || factory.shutdown;
+-    uint16_t current_ma=0;bool frame=sv_mon_snapshot(&monitor,now,&f);
+-    bool current_valid=frame && sv_mon_charge_current(&f,monitor.cal.electrical_calibration_approved,&current_ma);
+-    /* A qualified source/pack adapter does not exist on the present hardware.
+-     * Do not populate grant_verified, pack_present, or cell temperature from
+-     * synthetic defaults. This explicitly vetoes every release request. */
+-    bool permit=sv27_final_charge_gate(&charge_session,&i,now,sv_charge_store_commit_active,0);
+-    level(GPIOE,14,permit);
++/* FW-RT-BUDGET: service the audio DMA halves after every blocking monitor I2C
++ * transaction (~0.5 ms at 100 kHz) instead of once per main-loop pass. */
++static sv_mon_bus mon_hw;
++static void audio_poll(void){
++    if(power_state==2 || power_state==3){uint32_t e=sv_audio_hw_service(&factory,milliseconds);if(e)sv_factory_fault(&factory,e);}
++}
++static bool mon_read(void *c,uint8_t a,uint8_t r,uint8_t *d,size_t n,uint32_t t){bool ok=mon_hw.read(c,a,r,d,n,t);audio_poll();return ok;}
++static bool mon_write(void *c,uint8_t a,uint8_t r,const uint8_t *d,size_t n,uint32_t t){bool ok=mon_hw.write(c,a,r,d,n,t);audio_poll();return ok;}
++static sv_mon_bus monitor_bus(void){mon_hw=sv_stm32_monitor_bus();sv_mon_bus b={mon_hw.ctx,mon_read,mon_write};return b;}
++static void charge_apply(uint32_t now,bool vbus){
++    /* FW-NO-CHARGE-PATH: CHARGE_ALLOW (PE14) -> R1601 -> CHARGE_GATE, which the
++     * TPS3700 window (U1921 OUTA/OUTB, cell NTC) pulls low out of window; BQ24074
++     * TS also stops outside its NTC window. EN1=1/EN2=0 = USB500. No USB-PD. */
++    sv_mon_frame f;bool frame=sv_mon_snapshot(&monitor,now,&f);
++    sv_charge_in i={0};
++    (void)vbus;i.vbus=frame && f.mv[SV_MON_USB]>=4400 && f.mv[SV_MON_USB]<=5600;i.frame_valid=frame;
++    i.port_fault=(GPIOE->IDR&((1u<<8)|(1u<<9)))!=((1u<<8)|(1u<<9)); /* TPD2S300 / TPD2S703 FLT_N */
++    i.efuse_fault=!(GPIOE->IDR&(1u<<15));                             /* TPS259470 FLT via R1901 */
++    i.system_fault=(factory.faults&SV_D_FAULT_POWER)!=0;i.service_image=SV_DIAGNOSTIC_SERVICE_CLEAR;
++    i.pack_mv=f.mv[SV_MON_BAT];i.board_deci_c=f.temperature_deci_c;
++    charge_out=sv_charge_decide(&charge,&i,now);
++    GPIOE->BSRR=sv_input_mode_bsrr(charge_out.en1,charge_out.en2);
++    level(GPIOE,14,charge_out.allow);
+     charge_gate_tick=milliseconds;
+-    if(charge_session.started && charge_session.locked){
+-        level(GPIOE,14,false);(void)sv_charge_store_close();
+-    }
+-    sv_charge_diag.version=2;sv_charge_diag.profile=SV27_PROFILE_ID;
+-    sv_charge_diag.release=SV27_NORMAL_CHARGE_RELEASED;
+-    sv_charge_diag.journal=sv_charge_store_state();sv_charge_diag.session_locked=charge_session.locked;
+-    sv_charge_diag.session_started=charge_session.started;sv_charge_diag.active_since=charge_session.first_enabled_at;
+-    sv_charge_diag.source_grant_ma=i.source_grant_ma;sv_charge_diag.gate_result=permit;
++    uint16_t current_ma=0;bool current_valid=frame && sv_mon_charge_current(&f,charge_out.allow,&current_ma);
++    sv_charge_diag.version=3;sv_charge_diag.vbus=i.vbus;sv_charge_diag.usb_mv=f.mv[SV_MON_USB];sv_charge_diag.pack_mv=i.pack_mv;
++    sv_charge_diag.board_deci_c=(uint32_t)(int32_t)i.board_deci_c;sv_charge_diag.allow=charge_out.allow;
++    sv_charge_diag.en1=charge_out.en1;sv_charge_diag.en2=charge_out.en2;sv_charge_diag.port_fault=i.port_fault;
++    sv_charge_diag.efuse_fault=i.efuse_fault;sv_charge_diag.chg_status_n=(GPIOD->IDR>>10)&1u;sv_charge_diag.pgood_n=(GPIOB->IDR>>11)&1u;
+     sv_charge_diag.iset_estimate_ma=current_ma;sv_charge_diag.iset_estimate_valid=current_valid;
+ }
++/* "Save state" before KILL / on faults: append new fault bits to the Bank2
++ * journal once per boot (product), never below 3.1 V pack without USB
++ * (FW-FLASH-ECC-BOOTLOOP mitigation); a full/corrupt journal never mutes. */
++static void journal_save(bool vbus){
++    uint32_t fresh=factory.faults&~logged_faults;
++    if(!fresh || !(vbus || sv_battery_mv(&battery)>=3100))return;
++    (void)sv_fault_store_append(factory.faults);logged_faults|=factory.faults;
++}
+ static void service_clear_tick(uint8_t keys,uint32_t now){
+     sv_mon_frame f;
+     bool safe=power_state==0 && !factory.armed && !factory.programming && !factory.shutdown &&
+@@ -182,6 +340,7 @@
+         sv_frame check=*f;check.type=0x34;check.length=0;
+         sv_result r=sv_factory_command(&factory,&check,now);if(r!=SV_OK)return r;
+         sv_frame out=*f;out.type=f->type==0x36?0x40:f->type==0x37?0x41:f->type==0x38?0x42:f->type==0x39?0x43:0x22;
++        if(out.type>=0x40){rf_ka_session=out.session_id;rf_ka_seq=out.seq;rf_ka_at=now;}
+         tx_count=sv_frame_encode(&out,tx,sizeof(tx));tx_at=0;tx_started=now;
+         sv_rf_reply_begin(&sv_rf_reply_diag,out.type,out.seq,out.session_id,now);
+         if(f->type==0x36)selected_peer=false;
+@@ -204,12 +363,9 @@
+ static void uart_service(uint32_t now){
+     if(!uart_on)return;
+     sv_rf_reply_poll(&sv_rf_reply_diag,now);
+-    if(USART3->ISR&(USART_ISR_ORE|USART_ISR_FE|USART_ISR_NE|USART_ISR_PE)){
+-        USART3->ICR=USART_ICR_ORECF|USART_ICR_FECF|USART_ICR_NECF|USART_ICR_PECF;
+-        USART3->RQR=USART_RQR_RXFRQ;sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);return;
+-    }
+-    for(unsigned n=0;n<128 && (USART3->ISR&USART_ISR_RXNE_RXFNE);n++){
+-        sv_frame f;if(sv_parser_byte(&parser,(uint8_t)USART3->RDR,now,&f)){
++    for(unsigned n=0;n<128 && rx_tail!=rx_head;n++){
++        uint8_t b=rx_ring[rx_tail];rx_tail=(rx_tail+1u)%sizeof(rx_ring);
++        sv_frame f;if(sv_parser_byte(&parser,b,now,&f)){
+             if(f.type==0xa0 || f.type==0xa1){
+                 if(sv_rf_reply_accept(&sv_rf_reply_diag,&f,now)){
+                     if(f.type==0xa1)memcpy((void*)sv_rf_pcm_diag,f.payload,32);
+@@ -226,38 +382,80 @@
+     }
+     sv_parser_poll(&parser,now);
+     if(tx_count && (USART3->ISR&USART_ISR_TXE_TXFNF)){USART3->TDR=tx[tx_at++];if(tx_at==tx_count)tx_count=0;}
+-    if(tx_count && now-tx_started>=250){tx_count=0;sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);}
++    /* FW-UART-OVERRUN: a stuck TX is dropped and counted, not a latched fault. */
++    if(tx_count && now-tx_started>=250){tx_count=0;sv_r4_diag.tx_timeouts++;}
++    /* FW-BT-SECURITY-STREAM (part): ESP quiesces after 2 s without MCU traffic;
++     * keep the selected-peer session alive with 0x41 once per second. */
++    if(selected_peer && factory.port==SV_BT && !tx_count && !sv_rf_reply_diag.pending && now-rf_ka_at>=1000){
++        sv_frame k={.type=0x41,.seq=++rf_ka_seq,.session_id=rf_ka_session};
++        tx_count=sv_frame_encode(&k,tx,sizeof(tx));tx_at=0;tx_started=rf_ka_at=now;
++        sv_rf_reply_begin(&sv_rf_reply_diag,k.type,k.seq,k.session_id,now);sv_r4_diag.keepalives++;
++    }
++}
++void HardFault_Handler(void){
++    /* PCM-03: stop PLL2 (SAI kernel + MCO2) and float the clock/data pins into
++     * the V3LOAD domain before AUDIO_PWR_EN goes low: PC9 MCO2, PE3-PE6 SAI1,
++     * PE11 SAI2_SD_B, PD11-PD13 SAI2, PD8 USART3_TX (RF_RX). */
++    sv_audio_emergency_mute();RCC->CR&=~RCC_CR_PLL2ON;
++    GPIOC->MODER|=3u<<18;GPIOE->MODER|=(0xffu<<6)|(3u<<22);GPIOD->MODER|=(0x3fu<<22)|(3u<<16);
++    GPIOC->BSRR=SV_PC_AUDIO_BUS<<16;GPIOE->BSRR=SV_PE_AUDIO_POWER<<16;__disable_irq();for(;;)__NOP();
+ }
+-void HardFault_Handler(void){sv_audio_emergency_mute();GPIOC->BSRR=SV_PC_AUDIO_BUS<<16;GPIOE->BSRR=SV_PE_AUDIO_POWER<<16;__disable_irq();for(;;)__NOP();}
+ void NMI_Handler(void){HardFault_Handler();}
+ int main(void){
+-    safe_gpio();cpu(false);HAL_NVIC_SetPriority(SysTick_IRQn,0,0);sv_safety_inputs_init(0);
++    caches_on(); /* FW-RT-BUDGET: I/D-cache, DMA + journal regions non-cacheable */
++    safe_gpio();cpu(false);sv_safety_inputs_init(0);
+     watchdog.Instance=IWDG1;watchdog.Init.Prescaler=IWDG_PRESCALER_256;watchdog.Init.Reload=249;watchdog.Init.Window=IWDG_WINDOW_DISABLE;
+     if(HAL_IWDG_Init(&watchdog)!=HAL_OK)HardFault_Handler();
+-    uint32_t retained=sv_fault_store_load(),faults=retained;if(RCC->RSR&RCC_RSR_IWDG1RSTF)faults|=SV_D_FAULT_RESET;
+-    RCC->RSR|=RCC_RSR_RMVF;sv_factory_init(&factory,faults);recorded=retained;
+-    sv27_session_init(&charge_session,sv_charge_store_state());
++    uint32_t reset_flags=RCC->RSR;
++    uint32_t retained=sv_fault_store_load(),faults=retained;if(reset_flags&RCC_RSR_IWDG1RSTF)faults|=SV_D_FAULT_RESET;
++    RCC->RSR|=RCC_RSR_RMVF;recorded=retained;
++#if SV_PRODUCT_MODE
++    /* FW-FAULT-LATCH: journal faults are history, not a boot-time mute. */
++    /* Only this boot's IWDG reset (if any) is a live fault: it mutes once, recovers and is logged. */
++    sv_factory_init(&factory,faults&~retained);logged_faults=retained;sv_r4_diag.retained_faults=faults;
++#else
++    sv_factory_init(&factory,faults);
++#endif
+     bool core_ok=startup_core();if(!core_ok)sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);
+     if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-    sv_mon_init(&monitor,milliseconds,sv_stm32_monitor_bus(),NULL);level(GPIOB,10,true);
++    sv_mon_init(&monitor,milliseconds,monitor_bus(),NULL);level(GPIOB,10,true);
+     sv_parser_reset(&parser);sv_rf_request(&rf,false,false,milliseconds);pots_start(milliseconds);
++    sv_battery_init(&battery);
++    bool boot_decided=!SV_PRODUCT_MODE;
++    show_until=milliseconds+5000u;
+     uint32_t last=milliseconds,last_codec=milliseconds;
+     for(;;){
+         uint32_t now=milliseconds;
+         latch_shutdown();
+         if(now-last>=1){
+             if(now-last>100)sv_factory_fault(&factory,SV_D_FAULT_RESET);
+-            last=now;sv_mon_tick(&monitor,now,now>=20);
++            last=now;sv_mon_tick(&monitor,now,now>=SV_MON_SETTLE_MS);
+             if(pot_initialized)sv_pot_tick(&pot_scan,now);
+             if(pot_scan.valid && pot_scan.generation!=pot_generation){
+                 pot_generation=pot_scan.generation;
+                 if(!sv_ui_pots(&factory.ui,pot_scan.raw,pot_scan.sampled))sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+             }
+             if(pot_scan.fault)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++            /* VBUS: PA9 (USB_5V_SAFE/2, near VIH at 4.75 V) or the ADS1115 USB channel. */
++            sv_mon_frame mf;bool mframe=sv_mon_snapshot(&monitor,now,&mf);
++            bool vbus=vbus_present() || (mframe && mf.mv[SV_MON_USB]>=4000);if(vbus)vbus_seen_at=now;
++            if(mframe)sv_battery_update(&battery,mf.mv[SV_MON_BAT],mf.generation,vbus,now);
++            if(!boot_decided && (mframe || now>=1500)){
++                /* FW-USB-SHUTDOWN-LATCH: powered only by USB (no LTC2954 turn-on) => charge-only standby. */
++                boot_decided=true;
++                /* R4 E-11: a power-key wake reboots via NVIC_SystemReset (SFTRSTF) or the key is still held. */
++                bool key_on=(reset_flags&RCC_RSR_SFTRSTF)!=0 || pwr_key_low();
++                if(vbus && !key_on){request_off();pwr.state=SV_PWR_STANDBY;}
++            }
++#if SV_PRODUCT_MODE
++            /* FW-NO-UVLO: filtered PACK < 3.30 V for 3 s on battery => orderly off. */
++            if(battery.shutdown && pwr.state==SV_PWR_RUN && !factory.shutdown)request_off();
++#endif
+             bool healthy=evidence(now);bool chord=(GPIOA->IDR&((1u<<5)|(1u<<6)))==0;
+             sv_factory_tick(&factory,chord,healthy,healthy,now);
+             uint8_t keys=(uint8_t)((~GPIOA->IDR>>5)&7u);if(!(GPIOC->IDR&1u))keys|=8;
+             unsigned bt_action=sv_factory_buttons(&factory,keys,now);
++            if(factory.ui.events!=ui_events_seen){ui_events_seen=factory.ui.events;show_until=now+5000u;}
+             if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+             if(bt_action){
+                 sv_frame f={.type=bt_action==1?0x38:0x39,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id};
+@@ -271,6 +469,28 @@
+                 __DMB();sv_diag.completed=sv_diag.request;
+             }
+             latch_shutdown();
++#if SV_PRODUCT_MODE
++            /* FW-FAULT-LATCH: product state machine. A fault mutes (power_off below),
++             * waits 1,2,4..30 s, re-initialises the failed block and re-arms. */
++            bool hp_now=sv_safety_hp_inserted();
++            if(hp_now!=hp_was){if(factory.armed)factory.port=sv_hp_auto_route(factory.port,hp_was,hp_now);hp_was=hp_now;}
++            if(factory.armed && factory.port)user_port=factory.port;
++            if(boot_decided && !factory.armed && !factory.shutdown && !power_state && pwr.state==SV_PWR_RUN){
++                if(factory.faults){
++                    if(!recover_pending){recover_pending=true;recover_at=now+sv_recover_delay(recover_count);}
++                    else if((int32_t)(now-recover_at)>=0){
++                        recover_pending=false;recover_count++;sv_r4_diag.recoveries++;
++                        if(monitor.fault){(void)sv_stm32_i2c1_init();sv_mon_init(&monitor,now,monitor_bus(),NULL);}
++                        if(pot_scan.fault)pots_start(now);
++                        factory.faults=0;
++                    }
++                }else if(healthy && factory.ui.fresh && !pot_scan.fault){
++                    uint8_t port=hp_now?SV_HP:(user_port==SV_LINE || user_port==SV_BT)?user_port:SV_SPK;
++                    sv_factory_product_arm(&factory,port,now);recovered_at=now;
++                }
++            }
++            if(recover_count && power_state==3 && now-recovered_at>=SV_RECOVER_STABLE_MS)recover_count=0;
++#endif
+             if((!factory.armed || factory.faults || factory.shutdown) && power_state && power_state!=4)power_off(now);
+             if(power_state==4 && now-discharged_at>=1000){power_state=0;level(GPIOC,5,false);mode(GPIOC,5,1);}
+             if(factory.armed && healthy && !factory.shutdown && !sv_safety_shutdown_requested() && !power_state){
+@@ -300,8 +520,14 @@
+                 static const uint8_t regs[]={0x72,0x73,0x74,0x75,0x78},masks[]={15,7,127,255,7},values[]={15,3,0x34,0,7};
+                 uint8_t v;status_at=now;
+                 if(!codec.bus.read(codec.bus.ctx,regs[status_index],&v) || (v&masks[status_index])!=values[status_index])sv_factory_fault(&factory,SV_D_FAULT_CODEC);
+-                status_index=(status_index+1)%5;
++                status_index=(status_index+1)%5;audio_poll();
+             }
++#if SV_PRODUCT_MODE
++            /* Product UI (wheels/keys) is enabled only once audio runs and the pots are fresh. */
++            if(factory.product && factory.armed && power_state==3 && !factory.ui.enabled && factory.ui.fresh){
++                sv_ui_enable(&factory.ui,true);factory.ui.auto_pickup=true;factory.ui.picked_up=true;
++            }
++#endif
+             latch_shutdown();
+             if(factory.shutdown && power_state && power_state!=4)power_off(now);
+             bool rf_on=sv_rf_request(&rf,power_state==3 && factory.port==SV_BT,factory.armed && healthy && !factory.faults && !factory.shutdown,now);
+@@ -310,20 +536,50 @@
+             if(!rf_on)selected_peer=false;
+             if(factory.port!=previous_port){previous_port=factory.port;port_changed=now;}
+             uint8_t desired=0;
+-            if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50){
+-                if(factory.port==SV_LINE)desired=(1u<<0)|(1u<<3);
+-                if(factory.port==SV_HP && sv_safety_headphone_permitted())desired=(1u<<0)|(1u<<1);
+-                if(factory.port==SV_SPK && sv_safety_speaker_permitted())desired=1u<<2;
++            if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50 &&
++               (!factory.product || factory.ui.enabled)){
++                /* FW-PORT-ENABLE-HP: HP = PA0|PA1|PA3; AUX/RETURN input adds PA3 in every route. */
++                desired=sv_route_outputs(factory.port,factory.input);
++                if(factory.port==SV_HP && !sv_safety_headphone_permitted())desired=0;
++                if(factory.port==SV_SPK && !sv_safety_speaker_permitted())desired=0;
+             }
+             sv_safety_apply_outputs(desired);
+-            /* Real final output path: Profile C/session/journal plus explicit
+-             * absent hardware qualification. Normal charge remains HOLD. */
+-            charge_gate_apply(now);
+-            if(factory.shutdown && (power_state==0 || power_state==4))level(GPIOE,7,false);
++            charge_apply(now,vbus);
++            /* FW-USB-SHUTDOWN-LATCH / FW-NO-UVLO: mute -> save -> KILL low. If still
++             * alive 1.5 s later USB holds V3D: release KILL, charge-only standby, and
++             * leave it again on PWR/key (or LTC EN with the ECO) or VBUS loss. */
++            bool off=factory.shutdown && (power_state==0 || power_state==4);
++            if(off && pwr.state==SV_PWR_RUN)journal_save(vbus);
++            uint8_t before=pwr.state;bool kill=sv_power_kill(&pwr,off,now);
++            level(GPIOE,7,!kill);
++            if(before==SV_PWR_KILL && pwr.state==SV_PWR_STANDBY)sv_safety_rearm(now);
++#if SV_HAS_PWR_PB_SENSE
++            /* R4: in standby the key is read on PB12; an LTC INT edge must not hold the guard latched. */
++            if(pwr.state==SV_PWR_STANDBY && sv_safety_shutdown_requested())sv_safety_rearm(now);
++#endif
++            if(sv_power_pb_wake(&pwr,pwr_key_low(),now)){
++                /* R4 E-11 / FW-USB-SHUTDOWN-LATCH: clear the latch and restart into play. */
++                sv_safety_rearm(now);factory.shutdown=false;GPIOC->BSRR=7u<<(6+16);__DSB();NVIC_SystemReset();
++            }
++            if(sv_power_standby_wake(&pwr,sv_safety_shutdown_requested(),keys!=0,now-vbus_seen_at<300u)){ /* VBUS loss debounced 300 ms */
++                sv_safety_rearm(now);pwr.state=SV_PWR_RUN;factory.shutdown=false;sv_battery_init(&battery);
++                recover_count=0;recover_pending=false;factory.faults=0;show_until=now+5000u;
++            }
++#if !SV_PRODUCT_MODE
+             if(factory.faults!=recorded && (power_state==0 || power_state==4)){
+                 if(sv_fault_store_append(factory.faults))recorded=factory.faults;
+                 else {factory.faults|=SV_D_FAULT_RESET;recorded=factory.faults;}
+             }
++#else
++            if(factory.faults && (power_state==0 || power_state==4))journal_save(vbus);
++#endif
++            {
++                sv_led_in li={.playing=power_state==3,.charging=charge_out.allow && !(GPIOD->IDR&(1u<<10)),.usb=vbus,
++                    .warn=battery.warn,.fault=factory.faults!=0 && !factory.shutdown,.standby=pwr.state==SV_PWR_STANDBY,
++                    .pack_mv=sv_battery_mv(&battery),.show_until=show_until};
++                uint8_t leds=(factory.shutdown && pwr.state!=SV_PWR_STANDBY)?0:sv_led_pattern(&li,now);
++                GPIOC->BSRR=((uint32_t)(leds&7u)<<6)|((uint32_t)(~leds&7u)<<(6+16));sv_r4_diag.leds=leds;
++            }
+             service_clear_tick(keys,now);
+             HAL_IWDG_Refresh(&watchdog);
+             sv_diag.nonce=factory.nonce;sv_diag.faults=factory.faults;sv_diag.state=power_state;
+@@ -337,8 +593,12 @@
+             sv_ui_diag.fx=factory.ui.fx;sv_ui_diag.rate=factory.ui.rate;sv_ui_diag.input=factory.input;sv_ui_diag.port=factory.port;
+             sv_ui_diag.events=factory.ui.events;sv_ui_diag.session_seq=factory.session.last_seq;
+             sv_ui_diag.program_remaining_ms=factory.programming?300000-(now-factory.armed_at):0;
++            sv_r4_diag.version=1;sv_r4_diag.product=SV_PRODUCT_MODE;sv_r4_diag.hw_rev_r4=SV_HW_REV_R4;
++            sv_r4_diag.hp_active_high=HP_DETECT_ACTIVE_HIGH;sv_r4_diag.battery_mv=sv_battery_mv(&battery);
++            sv_r4_diag.battery_warn=battery.warn;sv_r4_diag.battery_off=battery.shutdown;sv_r4_diag.power=pwr.state;
++            sv_r4_diag.hp_inserted=sv_safety_hp_inserted();
+         }
+-        if(power_state==2 || power_state==3){uint32_t e=sv_audio_hw_service(&factory,now);if(e)sv_factory_fault(&factory,e);}
++        audio_poll();
+         uart_service(now);
+     }
+ }
+diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
+--- a/tests/test_r4_product.c	1970-01-01 00:00:00.000000000 +0000
++++ b/tests/test_r4_product.c	2026-10-15 06:49:20.212975311 +0000
+@@ -0,0 +1,164 @@
++/* R4 host tests for the review fixes (portable code only; hardware tests: 0). */
++#include "sv_control.h"
++#include "sv_factory.h"
++#include "sv_product.h"
++#include "sv_pcm1864.h"
++#include "sv_telemetry.h"
++#include "stm32/board_pins.h"
++#include <stdio.h>
++#include <stdlib.h>
++#include <string.h>
++static unsigned checks,groups;
++#define C(x) do{checks++;if(!(x)){fprintf(stderr,"FAIL r4 line%d: %s\n",__LINE__,#x);exit(1);}}while(0)
++static unsigned feed(sv_parser *p,const uint8_t *b,size_t n,sv_frame *out,uint8_t *types){
++    unsigned k=0;sv_frame f;for(size_t i=0;i<n;i++)if(sv_parser_byte(p,b[i],0,&f)){if(out)*out=f;if(types)types[k]=f.type;k++;}return k;
++}
++int main(void){
++    /* FW-PARSER-WHITELIST: every type used by stm32/main.c and smartvio_rf.c round-trips. */
++    groups++;
++    static const uint8_t used[]={1,2,3,4,5,6,0x20,0x21,0x22,0x30,0x31,0x32,0x33,0x34,0x35,0x36,0x37,0x38,0x39,0x3a,0x3b,0x3c,
++                                 0x40,0x41,0x42,0x43,0x80,0xa0,0xa1,0xb0};
++    for(unsigned i=0;i<sizeof(used);i++){
++        sv_parser p;sv_parser_reset(&p);sv_frame in={.type=used[i],.seq=(uint16_t)(0x1234+i),.session_id=0x53562601u+i,.length=(uint16_t)(i%10)},out;
++        for(unsigned k=0;k<in.length;k++)in.payload[k]=(uint8_t)(k*7+i);
++        uint8_t b[270];size_t n=sv_frame_encode(&in,b,sizeof(b));C(n==in.length+14u);
++        C(feed(&p,b,n,&out,NULL)==1);C(out.type==in.type && out.seq==in.seq && out.session_id==in.session_id && out.length==in.length);
++        C(!memcmp(out.payload,in.payload,in.length));
++        b[n-1]^=1;sv_parser_reset(&p);C(feed(&p,b,n,NULL,NULL)==0);
++    }
++    for(unsigned t=0;t<256;t++){
++        bool known=false;for(unsigned i=0;i<sizeof(used);i++)if(used[i]==t)known=true;
++        C(sv_frame_type_known((uint8_t)t)==known);
++        if(!known){sv_parser p;sv_parser_reset(&p);sv_frame in={.type=(uint8_t)t,.seq=1,.session_id=2};uint8_t b[32];
++            size_t n=sv_frame_encode(&in,b,sizeof(b));C(feed(&p,b,n,NULL,NULL)==0);}
++    }
++    /* stm32/main.c startup_core(): 0x30 self-test frame (17 bytes) now parses (BRINGUP never armed in R3). */
++    {sv_parser p;sv_parser_reset(&p);sv_frame in={.type=0x30,.seq=0x1234,.session_id=0x53562601,.length=3,.payload={0,0x53,0x56}},out;
++     uint8_t b[270];size_t n=sv_frame_encode(&in,b,sizeof(b));C(n==17);C(feed(&p,b,n,&out,NULL)==1 && out.type==0x30 && !memcmp(out.payload,in.payload,3));}
++    /* Realistic MCU<->ESP byte stream with line noise between frames. */
++    {uint8_t s[1200];size_t n=0;const uint8_t seq[]={0x40,0xa0,0x41,0xa0,0x22,0xa1,0x30,0xb0,0x43,0xa0};
++     for(unsigned i=0;i<sizeof(seq);i++){sv_frame f={.type=seq[i],.seq=(uint16_t)i,.session_id=77,.length=(uint16_t)(seq[i]==0xa1?32:seq[i]==0xa0?9:seq[i]==0x40?6:0)};
++        s[n++]=0x00;s[n++]=0x53;s[n++]=0xff; /* noise incl. a lone magic byte */
++        n+=sv_frame_encode(&f,s+n,sizeof(s)-n);}
++     sv_parser p;sv_parser_reset(&p);uint8_t got[16];C(feed(&p,s,n,NULL,got)==sizeof(seq));C(!memcmp(got,seq,sizeof(seq)));}
++
++    /* FW-PORT-ENABLE-HP: route masks (PA0 DAC, PA1 HP, PA2 SPK, PA3 PORT_ENABLE). */
++    groups++;
++#if SV_HAS_GROUPED_PORTS
++    /* R4 E-03: HP group PD14 only; RET group PD15 only with AUX/RETURN; PA3 only LINE/FX SEND. */
++    C(sv_route_outputs(SV_HP,0)==(SV_OUT_DAC|SV_OUT_HP|SV_OUT_HPGRP));
++    C(sv_route_outputs(SV_LINE,0)==(SV_OUT_DAC|SV_OUT_PORTS));
++    for(uint8_t in=1;in<=4;in++){C(sv_route_outputs(SV_SPK,in)==(SV_OUT_SPK|SV_OUT_RETGRP));C(sv_route_outputs(SV_BT,in)==SV_OUT_RETGRP);
++        C(sv_route_outputs(SV_HP,in)==(SV_OUT_DAC|SV_OUT_HP|SV_OUT_HPGRP|SV_OUT_RETGRP));C(sv_route_outputs(SV_LINE,in)==(SV_OUT_DAC|SV_OUT_PORTS|SV_OUT_RETGRP));}
++    for(uint8_t in=0;in<5;in++)C(!(sv_route_outputs(SV_HP,in)&SV_OUT_PORTS) && !(sv_route_outputs(SV_SPK,in)&(SV_OUT_PORTS|SV_OUT_HPGRP)));
++#else
++    /* R3 board: HP route must include PA3 PORT_ENABLE (the R3 HP-silent bug). */
++    C(sv_route_outputs(SV_HP,0)==(SV_OUT_DAC|SV_OUT_HP|SV_OUT_PORTS));C(sv_route_outputs(SV_HP,0)==11);
++    C(sv_route_outputs(SV_LINE,0)==(SV_OUT_DAC|SV_OUT_PORTS));
++    for(uint8_t in=1;in<=4;in++){C(sv_route_outputs(SV_SPK,in)==(SV_OUT_SPK|SV_OUT_PORTS));C(sv_route_outputs(SV_BT,in)==SV_OUT_PORTS);
++        C(sv_route_outputs(SV_HP,in)&SV_OUT_PORTS);}
++#endif
++    C(sv_route_outputs(SV_SPK,0)==SV_OUT_SPK);
++    C(sv_route_outputs(SV_BT,0)==0);C(sv_route_outputs(0,1)==0);
++    for(uint8_t port=0;port<16;port++)for(uint8_t in=0;in<5;in++){uint8_t m=sv_route_outputs(port,in);C(!((m&SV_OUT_HP) && (m&SV_OUT_SPK)));}
++
++    /* Q7 auto routing on debounced edges. */
++    groups++;
++    C(sv_hp_auto_route(SV_SPK,false,true)==SV_HP);C(sv_hp_auto_route(SV_HP,true,false)==SV_SPK);
++    C(sv_hp_auto_route(SV_LINE,false,true)==SV_LINE);C(sv_hp_auto_route(SV_BT,true,false)==SV_BT);
++    C(sv_hp_auto_route(0,false,true)==0);C(sv_hp_auto_route(SV_HP,true,true)==SV_HP);
++
++    /* FW-FAULT-LATCH: product arm, no 2 s/60 s timeout, faults cleared by re-arm. */
++    groups++;
++    {sv_factory d;sv_factory_init(&d,0);sv_factory_product_arm(&d,SV_SPK,100);
++     C(d.armed && d.product && d.mode==2 && d.port==SV_SPK && !d.faults && d.session.authorized);
++     C((d.grants&(SV_D_POWER|SV_D_ADC|SV_D_LINE|SV_D_HP|SV_D_SPK|SV_D_RF))==63);
++     for(uint32_t t=100;t<=600100;t+=50)sv_factory_tick(&d,false,true,true,t);C(d.armed && d.port==SV_SPK);
++     sv_factory_fault(&d,SV_D_FAULT_CODEC);C(!d.armed && d.faults==SV_D_FAULT_CODEC);
++     sv_factory_product_arm(&d,SV_HP,700000);C(d.armed && !d.faults && d.port==SV_HP);
++     sv_factory b;sv_factory_init(&b,0);b.armed=true;b.armed_at=b.last_command=0;sv_factory_tick(&b,false,true,true,2000);C(!b.armed);}
++    C(sv_recover_delay(0)==1000 && sv_recover_delay(1)==2000 && sv_recover_delay(2)==4000 && sv_recover_delay(4)==16000);
++    C(sv_recover_delay(5)==30000 && sv_recover_delay(100)==30000 && sv_recover_delay(0xffffffffu)==30000);
++
++    /* FW-NO-UVLO / task 3: PACK filtered, warn 3.45 V (clear 3.55 V), off < 3.30 V for 3 s on battery. */
++    groups++;
++    {sv_battery b;sv_battery_init(&b);uint32_t g=0,t=0;
++     for(int k=0;k<40;k++){sv_battery_update(&b,3700,++g,false,t+=250);}C(b.valid && sv_battery_mv(&b)==3700 && !b.warn && !b.shutdown);
++     sv_battery_update(&b,3000,++g,false,t+=250);C(!b.warn && !b.shutdown && sv_battery_mv(&b)>3600); /* one load dip filtered */
++     for(int k=0;k<4;k++)sv_battery_update(&b,1500,++g,false,t+=250);C(sv_battery_mv(&b)>3600);      /* implausible ignored */
++     for(int k=0;k<40;k++)sv_battery_update(&b,3440,++g,false,t+=250);C(b.warn && !b.shutdown);
++     for(int k=0;k<40;k++)sv_battery_update(&b,3520,++g,false,t+=250);C(b.warn);       /* hysteresis */
++     for(int k=0;k<40;k++)sv_battery_update(&b,3560,++g,false,t+=250);C(!b.warn);
++     for(int k=0;k<60;k++)sv_battery_update(&b,3250,++g,true,t+=250);C(b.warn && !b.shutdown); /* USB: never off */
++     uint32_t start=t;bool off=false;
++     for(int k=0;k<40 && !off;k++){sv_battery_update(&b,3250,++g,false,t+=250);off=b.shutdown;}
++     C(off);
++     sv_battery_init(&b);g=0;t=0;for(int k=0;k<20;k++)sv_battery_update(&b,3290,++g,false,t+=250);
++     uint32_t first_low=0;sv_battery_init(&b);g=0;t=0;
++     for(int k=0;k<100;k++){sv_battery_update(&b,3290,++g,false,t+=250);if(!first_low && b.low_tracking)first_low=t;if(b.shutdown)break;}
++     C(b.shutdown && t-first_low>=SV_BAT_OFF_HOLD_MS && t-first_low<SV_BAT_OFF_HOLD_MS+300);
++     /* recovery above 3.30 V before the hold time cancels */
++     sv_battery_init(&b);g=0;t=0;for(int k=0;k<8;k++)sv_battery_update(&b,3290,++g,false,t+=250);
++     for(int k=0;k<20;k++)sv_battery_update(&b,3400,++g,false,t+=250);C(!b.shutdown && !b.low_tracking);(void)start;}
++
++    /* FW-NO-CHARGE-PATH: USB500 default, charge only with VBUS/no fault/plausible pack/board temp. */
++    groups++;
++    {sv_charge c={0};sv_charge_in i={.vbus=true,.frame_valid=true,.pack_mv=3800,.board_deci_c=250};
++     sv_charge_out o=sv_charge_decide(&c,&i,0);C(o.en1 && !o.en2 && !o.allow);
++     o=sv_charge_decide(&c,&i,1999);C(!o.allow);o=sv_charge_decide(&c,&i,2000);C(o.allow && o.en1 && !o.en2);
++     sv_charge_in j=i;j.port_fault=true;o=sv_charge_decide(&c,&j,2001);C(!o.allow && !o.en1 && !o.en2);
++     o=sv_charge_decide(&c,&i,2002);C(!o.allow); /* re-qualify 2 s after any veto */
++     o=sv_charge_decide(&c,&i,4002);C(o.allow);
++     for(unsigned k=0;k<8;k++){sv_charge cc={0};sv_charge_in x=i;
++        switch(k){case 0:x.vbus=false;break;case 1:x.frame_valid=false;break;case 2:x.efuse_fault=true;break;case 3:x.system_fault=true;break;
++                  case 4:x.pack_mv=4250;break;case 5:x.pack_mv=2400;break;case 6:x.board_deci_c=451;break;case 7:x.board_deci_c=-1;break;}
++        for(uint32_t t=0;t<5000;t+=10)C(!sv_charge_decide(&cc,&x,t).allow);}
++     sv_charge cc={0};sv_charge_in s=i;s.service_image=true;o=sv_charge_decide(&cc,&s,9000);C(!o.allow && !o.en1 && !o.en2);}
++
++    /* FW-USB-SHUTDOWN-LATCH: KILL 1.5 s, then (still alive => USB) standby with KILL released; wake. */
++    groups++;
++    {sv_power p={0};C(!sv_power_kill(&p,false,0));C(sv_power_kill(&p,true,10));C(sv_power_kill(&p,true,1509));
++     C(!sv_power_kill(&p,true,1510) && p.state==SV_PWR_STANDBY);C(!sv_power_kill(&p,true,99999));
++     C(!sv_power_standby_wake(&p,false,false,true));
++     C(sv_power_standby_wake(&p,false,false,false)); /* VBUS gone but alive */
++#if SV_HAS_PWR_PB_SENSE
++     C(!sv_power_standby_wake(&p,true,true,true)); /* R4: INT/keys do not wake, PB12 does */
++     /* E-11: the key that caused the shutdown is still held -> no wake until released. */
++     C(!sv_power_pb_wake(&p,true,2000));C(!sv_power_pb_wake(&p,true,3000));
++     C(!sv_power_pb_wake(&p,false,3001));C(!sv_power_pb_wake(&p,true,3002));C(!sv_power_pb_wake(&p,true,3051));
++     C(sv_power_pb_wake(&p,true,3052));
++     C(!sv_power_pb_wake(&p,false,3060));C(!sv_power_pb_wake(&p,true,3061));C(!sv_power_pb_wake(&p,false,3100)); /* 40 ms bounce */
++#else
++     C(sv_power_standby_wake(&p,true,false,true));C(sv_power_standby_wake(&p,false,true,true));
++#endif
++     sv_power r={0};C(!sv_power_standby_wake(&r,true,true,false));C(!sv_power_pb_wake(&r,true,0));}
++
++    /* E-02 / E-04 board constants. */
++    groups++;
++    C(sv_mon_divider_x1000(SV_MON_USB)==2650 && sv_mon_divider_x1000(SV_MON_ISET)==1000);
++#if SV_HW_REV_R4
++    C(sv_mon_divider_x1000(SV_MON_BAT)==2687 && sv_mon_divider_x1000(SV_MON_SYS)==2687 && SV_MON_SETTLE_MS>=100);
++    {uint32_t uv=(uint32_t)((9826ull*2687u*1000000u+4000000u)/8000000u);C(uv/1000==3300);} /* 3.30 V pack code */
++    C((SV_E_BOOT_BSRR&SV_PE_EN1) && (SV_E_BOOT_BSRR&(SV_PE_EN2<<16)) && (SV_E_BOOT_BSRR&(SV_PE_CHARGE<<16)));
++    C(!(SV_UNUSED_B&(1u<<12)) && !(SV_UNUSED_D&(3u<<14)));
++#else
++    C(sv_mon_divider_x1000(SV_MON_BAT)==2650 && (SV_E_BOOT_BSRR&(SV_PE_EN1<<16)));
++#endif
++    C(!(SV_E_BOOT_BSRR&SV_PE_EN2)); /* EN2 never high: ILIM (1.03 A) mode never selected */
++
++    /* LEDs (FW-UNUSED-STATUS-IO part). */
++    groups++;
++    {sv_led_in l={.pack_mv=4000,.show_until=5000};C(sv_led_pattern(&l,0)==7);C(sv_led_pattern(&l,5000)==0);
++     l.pack_mv=3700;C(sv_led_pattern(&l,0)==3);l.pack_mv=3500;C(sv_led_pattern(&l,0)==1);
++     l.warn=true;C(sv_led_pattern(&l,50)==1 && sv_led_pattern(&l,500)==0);
++     l.fault=true;C(sv_led_pattern(&l,0)==0 && sv_led_pattern(&l,125)==4);
++     sv_led_in u={.usb=true,.charging=true,.pack_mv=3700};C(sv_led_pattern(&u,0)==1 && sv_led_pattern(&u,500)==3);}
++
++    /* PCM-01 pickup PGA constant: +12 dB = 0x18 (0.5 dB steps). */
++    groups++;C(SV_PCM_PICKUP_PGA_REG==(SV_PCM_PICKUP_PGA_DB*2));
++#if SV_PCM_PICKUP_PGA_DB==12
++    C(SV_PCM_PICKUP_PGA_REG==0x18);
++#endif
++    printf("{\"suite\":\"r4_product\",\"groups\":%u,\"assertions\":%u,\"hw_rev_r4\":%d,\"hardware_tests\":0}\n",groups,checks,SV_HW_REV_R4);
++    return 0;
++}
+diff -ruN a/tests/test_waveforms.c b/tests/test_waveforms.c
+--- a/tests/test_waveforms.c	2026-10-09 09:30:28.000000000 +0000
++++ b/tests/test_waveforms.c	2026-10-15 06:41:31.636194678 +0000
+@@ -15,13 +15,14 @@
+     assert(peak==131072 && sum==0 && phase==0);
+     for(unsigned i=0;i<128;i++){a[2*i]=(uint32_t)16000*256;a[2*i+1]=(uint32_t)-32000*256;b[2*i]=(uint32_t)48000*256;b[2*i+1]=0;}
+     d.mode=2;
+-    const int expected[5][2]={{1000,1000},{-2000,3000},{-2000,-2000},{3000,3000},{-500,2000}};
++    /* R4 PCM-01: ADC words now scaled 1/2 (was 1/16). */
++    const int expected[5][2]={{8000,8000},{-16000,24000},{-16000,-16000},{24000,24000},{-4000,16000}};
+     for(unsigned input=0;input<5;input++){
+         d.input=input;sv_factory_render(&d,a,b,dac,spk,64,&phase);
+         for(unsigned n=0;n<64;n++){assert(sv_sample24(dac[2*n])==expected[input][0]);assert(sv_sample24(dac[2*n+1])==expected[input][1]);}
+     }
+     sv_factory_fault(&d,SV_D_FAULT_DMA);sv_factory_render(&d,a,b,dac,spk,64,&phase);
+     for(unsigned i=0;i<128;i++)assert(!dac[i] && !spk[i]);
+-    puts("PASS: 48-sample 1kHz digital tone peak131072, stereo/zero-DC, all five ADC routes at1/16, fault silence; no analog measurements");
++    puts("PASS: 48-sample 1kHz digital tone peak131072, stereo/zero-DC, all five ADC routes at 1/2 (R4 PCM-01), fault silence; no analog measurements");
+     return 0;
+ }
