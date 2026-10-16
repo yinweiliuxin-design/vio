@@ -1,0 +1,73 @@
+{
+  "finalized": true,
+  "version": "V17.1",
+  "date": "2026-10-16",
+  "summary": "根据用户确认的 iPhone／iPad Safari 和 App 内浏览器场景，修复可复现的音频恢复缺陷并发布。未连接实体 iPhone／iPad，实际扬声器听音仍待确认。",
+  "fixes": [
+    {
+      "issue": "再次点击无法重试",
+      "rootCause": "复用尚未完成的旧 resume 请求。",
+      "change": "显式点击同步重试，隔离迟到应答并保留超时和取消控制。",
+      "status": "fixed"
+    },
+    {
+      "issue": "旧上下文清空新播放",
+      "rootCause": "旧请求失败时清理了新的音频图。",
+      "change": "按上下文身份清理；旧上下文关闭时及时取消等待。",
+      "status": "fixed"
+    },
+    {
+      "issue": "录音与调音恢复",
+      "rootCause": "授权后上下文可能暂停；调音另建未解锁上下文。",
+      "change": "授权前后验证运行，调音共用主上下文；最后一个麦克风任务退出后恢复播放会话。",
+      "status": "fixed"
+    },
+    {
+      "issue": "iPhone 伴奏音量",
+      "rootCause": "原生音量属性可能忽略写入或只读。",
+      "change": "应用音量零始终暂停和阻止播放；不可控时提示使用手机音量键。",
+      "status": "fixed"
+    },
+    {
+      "issue": "启动结果不清楚",
+      "rootCause": "仅有播放标志，不能证明实际输出。",
+      "change": "启动声音按钮核对时钟前进与输出信号；四语声音帮助支持复制链接到 Safari。",
+      "status": "fixed"
+    }
+  ],
+  "automatedTests": {
+    "passed": 341,
+    "failed": 0,
+    "skipped": 0,
+    "command": "node --test tests/*.test.mjs",
+    "newSinceV17": 45
+  },
+  "browserTests": {
+    "summary": "15 类播放及录制流程通过；四语言 × 三种宽度的声音测试和帮助 12/12 通过。",
+    "platform": "Windows Chromium 155；麦克风与摄像头由浏览器生成，不能视为 iOS 真机通过。"
+  },
+  "audioEvidence": [],
+  "delivery": {
+    "url": "https://smartvio-studio-mobile.politecalf5.chatgpt.site/?v=20261016-v17-ios-1#practice",
+    "sourceCommit": "8491158a6b04aa595fdceaab0a54b4e4d21f587c",
+    "githubBackup": {
+      "status": "passed",
+      "url": "https://github.com/yinweiliuxin-design/vio/tree/c7bce6603922ba31b18a7140a2f86364d305b129/checkpoints/2026-10-16-app-v17-1-ios-8491158a6b04",
+      "commit": "c7bce6603922ba31b18a7140a2f86364d305b129",
+      "result": "175 源码文件；35 个远端备份文件读回比对，CRC 和完整还原通过。不含用户录音、生产数据库或凭据。"
+    }
+  },
+  "userSteps": [
+    "用有站点访问权限的账号在 Safari 打开新版链接。",
+    "进入练习，点击“启动声音并试听”，调高手机媒体音量；仍无声时关闭静音模式再试。",
+    "在控制中心确认蓝牙耳机、AirPlay 和扬声器的输出位置。",
+    "App 内浏览器仍无声时，点“听不到声音？”复制链接到 Safari。",
+    "已准备旧离线包时，联网进入设置重新准备离线资源；不要清空网站数据，以免删除本机录音。"
+  ],
+  "limitations": [
+    "尚未进行实体 iPhone/iPad、真实耳机、锁屏、来电中断或蓝牙输出的听音验收。",
+    "具体型号、iOS/iPadOS 版本和 App 内浏览器名称仍未知；不能宣称所有 Apple 设备已通过。",
+    "网站不能更改第三方 App 的 WKWebView 媒体策略，Safari 打开为用户主动操作。"
+  ],
+  "baselineReport": "SmartVio V17 九页完整报告保留，本补充只描述 V17.1 的 iOS 声音改动。"
+}
