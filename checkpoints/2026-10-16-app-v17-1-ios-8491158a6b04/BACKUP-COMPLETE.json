@@ -1,0 +1,244 @@
+{
+  "status": "PASS",
+  "date": "2026-10-16",
+  "release": "V17.1",
+  "sourceCommit": "8491158a6b04aa595fdceaab0a54b4e4d21f587c",
+  "checkpoint": "checkpoints/2026-10-16-app-v17-1-ios-8491158a6b04",
+  "payloadCommit": "3d7665cdb8f8d9af1bf302d913177ae18420e162",
+  "sourceFiles": 175,
+  "archiveBytes": 8128890,
+  "archiveSha256": "7e106029f2603eb28922c88d9024169dd9fc1f102c835bdf016292ffbd45e09d",
+  "parts": 32,
+  "remoteFilesReadBack": 35,
+  "allGitBlobHashesAndUtf8ContentsMatched": true,
+  "crcVerified": true,
+  "restoreVerifierPassed": true,
+  "automatedTests": {
+    "passed": 341,
+    "failed": 0,
+    "skipped": 0
+  },
+  "browser": {
+    "audioWorkflows": 15,
+    "soundHelpCases": 12,
+    "physicalIOSDevice": false
+  },
+  "privacy": {
+    "userRecordings": false,
+    "productionDatabase": false,
+    "credentials": false,
+    "approvedCC0Samples": true
+  },
+  "verified": [
+    {
+      "name": "FILE-MANIFEST.json",
+      "bytes": 34899,
+      "blobSha": "fb1ad0ab0c6e093835c65f2abc8530d081b301bd",
+      "contentMatched": true
+    },
+    {
+      "name": "README-恢复与校验.txt",
+      "bytes": 1296,
+      "blobSha": "c159fa44d53f36357450975d2de9e9572cd68214",
+      "contentMatched": true
+    },
+    {
+      "name": "RESTORE-VERIFY.cjs",
+      "bytes": 4334,
+      "blobSha": "9292d20290b1003c764981f33c192d0373cf1c2a",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0001.b64",
+      "bytes": 349529,
+      "blobSha": "a63b9e6257af33a09834ff6526e7b3693ef95879",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0002.b64",
+      "bytes": 349529,
+      "blobSha": "f69bd135e97761ccb330653bc81d0acd0c0cd640",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0003.b64",
+      "bytes": 349529,
+      "blobSha": "6368f7a86422aaf3d889cac25d9e966ffbccd726",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0004.b64",
+      "bytes": 349529,
+      "blobSha": "fd727c8501f503b1673323d737662023d3632a9c",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0005.b64",
+      "bytes": 349529,
+      "blobSha": "47045219c7713198bb66b71cecb8bea46fa7ec02",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0006.b64",
+      "bytes": 349529,
+      "blobSha": "5af729e490d42d92103b35c8305379a45a49e8c6",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0007.b64",
+      "bytes": 349529,
+      "blobSha": "3e2142c8e314ee43d6af8ab7363cf8800e2c3b5c",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0008.b64",
+      "bytes": 349529,
+      "blobSha": "74b83c597787f294b9028b241f21accdddea88e7",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0009.b64",
+      "bytes": 349529,
+      "blobSha": "1aa535b99a01c7378e5fbaa22dda7a5f968ac478",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0010.b64",
+      "bytes": 349529,
+      "blobSha": "ab78a714e3002e553b9c2b0d440472935ad9f12f",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0011.b64",
+      "bytes": 349529,
+      "blobSha": "8b8f15d7b5186dbb38675675406ff814d66826fe",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0012.b64",
+      "bytes": 349529,
+      "blobSha": "350a3b5f58c46c2661303ebd2c82252d7287a2b6",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0013.b64",
+      "bytes": 349529,
+      "blobSha": "ffab74391cffcfd96fdbe9fd39dbefef9f5748b1",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0014.b64",
+      "bytes": 349529,
+      "blobSha": "471ed47dc3d6bb668bd70da735ecc0a448712c76",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0015.b64",
+      "bytes": 349529,
+      "blobSha": "1ca087444cab2c00704e67827da355e714d7e931",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0016.b64",
+      "bytes": 349529,
+      "blobSha": "900a84eae43a0bbf5f4ffff132dfcca3c043558b",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0017.b64",
+      "bytes": 349529,
+      "blobSha": "fee489ce522556edd6748febce577533ba225efa",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0018.b64",
+      "bytes": 349529,
+      "blobSha": "101b1dc876852a1b6d46b14003394347bc3575b6",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0019.b64",
+      "bytes": 349529,
+      "blobSha": "71607407003143f142478f860285d44c4a88c0e2",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0020.b64",
+      "bytes": 349529,
+      "blobSha": "15ca8eb3207357520cd41cec94badc2c289da48b",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0021.b64",
+      "bytes": 349529,
+      "blobSha": "18d8df492d44d4a0510d02b1d1936fb9340b9985",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0022.b64",
+      "bytes": 349529,
+      "blobSha": "b96fe76a26452b90983a1d6d95ff566d516b43ad",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0023.b64",
+      "bytes": 349529,
+      "blobSha": "496d2576f16d1150db2cb35217bee9cc4462f592",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0024.b64",
+      "bytes": 349529,
+      "blobSha": "acbec3ec3a15da51e2396527889c5f5b583fb1b8",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0025.b64",
+      "bytes": 349529,
+      "blobSha": "fe2d9a8a34f139f8146dcd6f849ac2de92134b7e",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0026.b64",
+      "bytes": 349529,
+      "blobSha": "9cec30c9835a39d7acd561f2aefcf586ba239e7a",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0027.b64",
+      "bytes": 349529,
+      "blobSha": "4c30ce34990d3667c130152c03342f282e96edaa",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0028.b64",
+      "bytes": 349529,
+      "blobSha": "f983506f07602669d31b89367815609c4cd1a3a8",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0029.b64",
+      "bytes": 349529,
+      "blobSha": "0fd3ae40bf3b93e646f2964240da3ddf0474e247",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0030.b64",
+      "bytes": 349529,
+      "blobSha": "3505c49963e35b6ff04f92dc660d28bd38b0bc03",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0031.b64",
+      "bytes": 349529,
+      "blobSha": "6d2e37814bf1fcff2596215ed4ba419aed926f5b",
+      "contentMatched": true
+    },
+    {
+      "name": "source.zip.part-0032.b64",
+      "bytes": 3237,
+      "blobSha": "2461b61a704e893b5cb39d0edacf49c1902ea746",
+      "contentMatched": true
+    }
+  ]
+}
