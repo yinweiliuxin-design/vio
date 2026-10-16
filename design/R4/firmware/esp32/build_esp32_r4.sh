@@ -82,7 +82,7 @@ for off,f in sorted(j['flash_files'].items(),key=lambda kv:int(kv[0],16)): lines
 open(sys.argv[2],'w').write('\n'.join(lines)+'\n')
 PY
 chroot "$IDF_ROOT" bash -c "export IDF_PATH=/opt/esp/idf IDF_TOOLS_PATH=/opt/esp; . /opt/esp/idf/export.sh >/dev/null 2>&1; xtensa-esp32-elf-size /work/r4build/esp32/build/smartvio_rf_diag.elf" > "$OUT_DIR/size.txt" 2>/dev/null || true
-( cd "$OUT_DIR" && sha256sum bootloader.bin partition-table.bin smartvio_rf_diag.bin smartvio_rf_diag.elf > SHA256SUMS )
+( cd "$OUT_DIR" && sha256sum bootloader.bin partition-table.bin smartvio_rf_diag.bin smartvio_rf_diag.elf > SHA256SUMS && xz -9 -f smartvio_rf_diag.elf smartvio_rf_diag.map )  # elf/map shipped as .xz (repo size)
 rm -rf "$B/esp-idf" "$B/bootloader/esp-idf"
 echo "== flash (from $OUT_DIR): python -m esptool --chip esp32 -b 460800 write_flash @flash_args"
 cat "$OUT_DIR/flash_args" "$OUT_DIR/size.txt" "$OUT_DIR/SHA256SUMS"

@@ -67,9 +67,12 @@ void sv_bt_learn_peer(sv_bt_ui *b,const uint8_t p[6]){
 uint8_t sv_bt_key(sv_bt_ui *b,unsigned action,uint8_t port,uint32_t now){
     if(action==1 && port==SV_BT){b->pending=false;b->window=false;return b->prev_port?b->prev_port:SV_SPK;}
     if(action!=1 && action!=2)return port;
-    if(action==2 && !b->have_peer)return port; /* nothing to pair with */
     if(port!=SV_BT)b->prev_port=port;
-    if(b->have_peer){b->pending=true;b->pending_at=now;}
+    /* long: 6xFF = search for a new headset; short: known peer, else 6x00 = ESP's stored one or search */
+    if(action==2)memset(b->req,0xFF,6);
+    else if(b->have_peer)memcpy(b->req,b->peer,6);
+    else memset(b->req,0,6);
+    b->pending=true;b->pending_at=now;
     return SV_BT;
 }
 uint8_t sv_bt_led_state(const sv_bt_ui *b,bool route,bool connected,uint32_t now){

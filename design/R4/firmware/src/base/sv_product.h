@@ -65,9 +65,11 @@ uint8_t sv_hp_auto_route(uint8_t port,bool was_inserted,bool inserted);
  * sending the normal 0x36 -> 0x40 frame. The ESP firmware has no inquiry/discovery,
  * so the peer BDADDR must come from a 0x36 (bench/app) earlier in this power session. */
 enum {SV_BT_WINDOW_MS=60000,SV_BT_SEND_TIMEOUT_MS=8000};
-typedef struct {uint8_t prev_port,peer[6];bool have_peer,pending,window;uint32_t pending_at,window_at;} sv_bt_ui;
+/* req = address sent with the pending 0x36: the known peer, 6x00 (ESP reconnects its
+ * NVS-stored headset or searches) or 6xFF (search for a new headset). */
+typedef struct {uint8_t prev_port,peer[6],req[6];bool have_peer,pending,window;uint32_t pending_at,window_at;} sv_bt_ui;
 void sv_bt_learn_peer(sv_bt_ui *,const uint8_t peer[6]);
-/* action 1=short, 2=long. Returns the new port (SV_BT on, previous route off). */
+/* action 1=short (BT on: reconnect; BT off), 2=long (pair a new headset). Returns the new port. */
 uint8_t sv_bt_key(sv_bt_ui *,unsigned action,uint8_t port,uint32_t now);
 /* LED2 while the BT route is on: connected solid, pairing window slow blink, else off. */
 enum {SV_BT_LED_OFF,SV_BT_LED_BLINK,SV_BT_LED_ON};

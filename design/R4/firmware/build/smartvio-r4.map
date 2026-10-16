@@ -4267,7 +4267,7 @@ END GROUP
  .isr_vector    0x08000000      0x298 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
                 0x08000000                g_pfnVectors
 
-.text           0x08000298     0xae54
+.text           0x08000298     0xae5c
  *(.text*)
  .text.discard  0x08000298       0x12 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .text.sv_crc16
@@ -4432,750 +4432,749 @@ END GROUP
                 0x08001d14       0x36 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
                 0x08001d14                sv_bt_learn_peer
  .text.sv_bt_key
-                0x08001d4a       0x3e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x08001d4a       0x5c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
                 0x08001d4a                sv_bt_key
  .text.sv_bt_led_state
-                0x08001d88       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
-                0x08001d88                sv_bt_led_state
+                0x08001da6       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x08001da6                sv_bt_led_state
  .text.sv_led_pattern
-                0x08001db4       0xd4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
-                0x08001db4                sv_led_pattern
+                0x08001dd2       0xd4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x08001dd2                sv_led_pattern
  .text.sv_power_kill
-                0x08001e88       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
-                0x08001e88                sv_power_kill
+                0x08001ea6       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x08001ea6                sv_power_kill
  .text.sv_power_standby_wake
-                0x08001eb0        0xe /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
-                0x08001eb0                sv_power_standby_wake
+                0x08001ece        0xe /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x08001ece                sv_power_standby_wake
  .text.sv_power_pb_wake
-                0x08001ebe       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
-                0x08001ebe                sv_power_pb_wake
+                0x08001edc       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x08001edc                sv_power_pb_wake
  .text.arm_biquad_cascade_df1_f32
-                0x08001ef6       0x88 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
-                0x08001ef6                arm_biquad_cascade_df1_f32
+                0x08001f14       0x88 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
+                0x08001f14                arm_biquad_cascade_df1_f32
  .text.arm_biquad_cascade_df1_init_f32
-                0x08001f7e       0x16 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
-                0x08001f7e                arm_biquad_cascade_df1_init_f32
+                0x08001f9c       0x16 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
+                0x08001f9c                arm_biquad_cascade_df1_init_f32
  .text.sv_rf_u32
-                0x08001f94        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .text.unused   0x08001f98       0x32 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- *fill*         0x08001fca        0x2 
+                0x08001fb2        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .text.unused   0x08001fb6       0x32 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.evidence
-                0x08001fcc       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08001fe8       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.request_off
-                0x0800200c       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002028       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.latch_shutdown
-                0x08002034       0x12 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- *fill*         0x08002046        0x2 
+                0x08002050       0x12 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ *fill*         0x08002062        0x2 
  .text.pots_start
-                0x08002048       0x6c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002064       0x6c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.journal_save
-                0x080020b4       0x3c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x080020d0       0x3c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.audio_poll
-                0x080020f0       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x0800210c       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.mon_write
-                0x08002124       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002140       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.mon_read
-                0x08002144       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002160       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.uart_stop
-                0x08002164       0x78 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002180       0x78 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.systick_start
-                0x080021dc       0x44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .text.cpu      0x08002220      0x19c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x080021f8       0x44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .text.cpu      0x0800223c      0x19c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.power_off
-                0x080023bc       0x80 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .text.command  0x0800243c      0x1d8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x080023d8       0x80 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .text.command  0x08002458      0x1d8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .text.HAL_GetTick
-                0x08002614        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x08002614                HAL_GetTick
+                0x08002630        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002630                HAL_GetTick
  .text.sv_target_millis
-                0x08002620        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x08002620                sv_target_millis
+                0x0800263c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x0800263c                sv_target_millis
  .text.SysTick_Handler
-                0x0800262c       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x0800262c                SysTick_Handler
+                0x08002648       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002648                SysTick_Handler
  .text.sv_early_safe_gpio
-                0x08002660       0xa8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x08002660                sv_early_safe_gpio
+                0x0800267c       0xa8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x0800267c                sv_early_safe_gpio
  .text.USART3_IRQHandler
-                0x08002708       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x08002708                USART3_IRQHandler
+                0x08002724       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002724                USART3_IRQHandler
  .text.HardFault_Handler
-                0x08002768       0x58 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x08002768                HardFault_Handler
+                0x08002784       0x58 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x08002784                HardFault_Handler
  .text.NMI_Handler
-                0x080027c0        0x6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x080027c0                NMI_Handler
- *fill*         0x080027c6        0x2 
+                0x080027dc        0x6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x080027dc                NMI_Handler
+ *fill*         0x080027e2        0x2 
  .text.startup.main
-                0x080027c8     0x1810 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x080027c8                main
+                0x080027e4     0x17fc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x080027e4                main
  .text.sv_journal_crc
-                0x08003fd8       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x08003fe0       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
  .text.sv_journal_read.constprop.0
-                0x08004010      0x100 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x08004018      0x100 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
  .text.append_record
-                0x08004110       0x80 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x08004118       0x80 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
  .text.sv_fault_store_load
-                0x08004190       0x48 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
-                0x08004190                sv_fault_store_load
+                0x08004198       0x48 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x08004198                sv_fault_store_load
  .text.sv_fault_store_append
-                0x080041d8       0x44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
-                0x080041d8                sv_fault_store_append
+                0x080041e0       0x44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x080041e0                sv_fault_store_append
  .text.sv_fault_store_service_ready
-                0x0800421c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
-                0x0800421c                sv_fault_store_service_ready
+                0x08004224        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x08004224                sv_fault_store_service_ready
  .text.abort_transfer
-                0x08004220       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
- .text.expired  0x0800424c       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x08004228       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+ .text.expired  0x08004254       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.wait_flag
-                0x08004278       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
- .text.begin    0x080042a4       0x3c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x08004280       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+ .text.begin    0x080042ac       0x3c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.idle.constprop.0
-                0x080042e0       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x080042e8       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.read_word
-                0x08004308       0xdc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x08004310       0xdc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.codec_read
-                0x080043e4       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x080043ec       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.write_word
-                0x08004400       0xbc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x08004408       0xbc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.codec_write
-                0x080044bc       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x080044c4       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .text.sv_stm32_i2c1_init
-                0x080044dc       0xcc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
-                0x080044dc                sv_stm32_i2c1_init
+                0x080044e4       0xcc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x080044e4                sv_stm32_i2c1_init
  .text.sv_stm32_monitor_bus
-                0x080045a8       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
-                0x080045a8                sv_stm32_monitor_bus
+                0x080045b0       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x080045b0                sv_stm32_monitor_bus
  .text.sv_stm32_codec_bus
-                0x080045bc       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
-                0x080045bc                sv_stm32_codec_bus
+                0x080045c4       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x080045c4                sv_stm32_codec_bus
  .text.free_half
-                0x080045d0       0x70 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .text.pin      0x08004640       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .text.analog   0x0800465c       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x080045d8       0x70 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .text.pin      0x08004648       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .text.analog   0x08004664       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .text.sv_sai_registers_valid
-                0x08004678       0x88 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004680       0x88 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .text.registers_valid
-                0x08004700       0x64 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .text.block    0x08004764      0x114 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004708       0x64 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .text.block    0x0800476c      0x114 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .text.sv_audio_emergency_mute
-                0x08004878       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004878                sv_audio_emergency_mute
+                0x08004880       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004880                sv_audio_emergency_mute
  .text.sv_audio_hw_start
-                0x08004898      0x3f4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004898                sv_audio_hw_start
+                0x080048a0      0x3f4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x080048a0                sv_audio_hw_start
  .text.sv_audio_hw_stop
-                0x08004c8c       0x90 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004c8c                sv_audio_hw_stop
+                0x08004c94       0x90 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004c94                sv_audio_hw_stop
  .text.sv_audio_hw_pairs
-                0x08004d1c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004d1c                sv_audio_hw_pairs
+                0x08004d24        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004d24                sv_audio_hw_pairs
  .text.sv_audio_hw_codec_ready
-                0x08004d28       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004d28                sv_audio_hw_codec_ready
+                0x08004d30       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004d30                sv_audio_hw_codec_ready
  .text.sv_audio_hw_ready
-                0x08004d60       0x88 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004d60                sv_audio_hw_ready
+                0x08004d68       0x88 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004d68                sv_audio_hw_ready
  .text.sv_audio_hw_service
-                0x08004de8      0x2bc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08004de8                sv_audio_hw_service
+                0x08004df0      0x2bc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08004df0                sv_audio_hw_service
  .text.HAL_SAI_TxHalfCpltCallback
-                0x080050a4       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x080050a4                HAL_SAI_TxHalfCpltCallback
+                0x080050ac       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x080050ac                HAL_SAI_TxHalfCpltCallback
  .text.HAL_SAI_RxHalfCpltCallback
-                0x080050cc        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x080050cc                HAL_SAI_RxHalfCpltCallback
+                0x080050d4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x080050d4                HAL_SAI_RxHalfCpltCallback
  .text.HAL_SAI_TxCpltCallback
-                0x080050d0       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x080050d0                HAL_SAI_TxCpltCallback
+                0x080050d8       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x080050d8                HAL_SAI_TxCpltCallback
  .text.HAL_SAI_RxCpltCallback
-                0x080050f8        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x080050f8                HAL_SAI_RxCpltCallback
+                0x08005100        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005100                HAL_SAI_RxCpltCallback
  .text.HAL_SAI_ErrorCallback
-                0x080050fc       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x080050fc                HAL_SAI_ErrorCallback
+                0x08005104       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005104                HAL_SAI_ErrorCallback
  .text.DMA1_Stream0_IRQHandler
-                0x08005110        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08005110                DMA1_Stream0_IRQHandler
+                0x08005118        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005118                DMA1_Stream0_IRQHandler
  .text.DMA1_Stream1_IRQHandler
-                0x0800511c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x0800511c                DMA1_Stream1_IRQHandler
+                0x08005124        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005124                DMA1_Stream1_IRQHandler
  .text.DMA1_Stream2_IRQHandler
-                0x08005128        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08005128                DMA1_Stream2_IRQHandler
+                0x08005130        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005130                DMA1_Stream2_IRQHandler
  .text.DMA1_Stream3_IRQHandler
-                0x08005134        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08005134                DMA1_Stream3_IRQHandler
+                0x0800513c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x0800513c                DMA1_Stream3_IRQHandler
  .text.SAI1_IRQHandler
-                0x08005140       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x08005140                SAI1_IRQHandler
+                0x08005148       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005148                SAI1_IRQHandler
  .text.SAI2_IRQHandler
-                0x0800515c       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x0800515c                SAI2_IRQHandler
- .text._init    0x08005178        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
-                0x08005178                _init
- .text._fini    0x0800517a        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
-                0x0800517a                _fini
+                0x08005164       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x08005164                SAI2_IRQHandler
+ .text._init    0x08005180        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
+                0x08005180                _init
+ .text._fini    0x08005182        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
+                0x08005182                _fini
  .text.Reset_Handler
-                0x0800517c       0x54 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
-                0x0800517c                Reset_Handler
+                0x08005184       0x54 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
+                0x08005184                Reset_Handler
  .text.Default_Handler
-                0x080051d0        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
-                0x080051d0                RTC_Alarm_IRQHandler
-                0x080051d0                EXTI2_IRQHandler
-                0x080051d0                TIM8_CC_IRQHandler
-                0x080051d0                HRTIM1_Master_IRQHandler
-                0x080051d0                DebugMon_Handler
-                0x080051d0                UART8_IRQHandler
-                0x080051d0                SPI4_IRQHandler
-                0x080051d0                TIM1_CC_IRQHandler
-                0x080051d0                BDMA_Channel6_IRQHandler
-                0x080051d0                DMA2_Stream5_IRQHandler
-                0x080051d0                HRTIM1_FLT_IRQHandler
-                0x080051d0                JPEG_IRQHandler
-                0x080051d0                DMA1_Stream5_IRQHandler
-                0x080051d0                BDMA_Channel1_IRQHandler
-                0x080051d0                HRTIM1_TIMD_IRQHandler
-                0x080051d0                TAMP_STAMP_IRQHandler
-                0x080051d0                PendSV_Handler
-                0x080051d0                EXTI3_IRQHandler
-                0x080051d0                LPTIM4_IRQHandler
-                0x080051d0                TIM8_TRG_COM_TIM14_IRQHandler
-                0x080051d0                LPTIM2_IRQHandler
-                0x080051d0                DFSDM1_FLT1_IRQHandler
-                0x080051d0                DMAMUX2_OVR_IRQHandler
-                0x080051d0                TIM8_UP_TIM13_IRQHandler
-                0x080051d0                I2C3_ER_IRQHandler
-                0x080051d0                DFSDM1_FLT2_IRQHandler
-                0x080051d0                MDMA_IRQHandler
-                0x080051d0                LPTIM3_IRQHandler
-                0x080051d0                HSEM1_IRQHandler
-                0x080051d0                EXTI0_IRQHandler
-                0x080051d0                I2C2_EV_IRQHandler
-                0x080051d0                FPU_IRQHandler
-                0x080051d0                OTG_HS_WKUP_IRQHandler
-                0x080051d0                FDCAN1_IT1_IRQHandler
-                0x080051d0                UsageFault_Handler
-                0x080051d0                LTDC_ER_IRQHandler
-                0x080051d0                DMA2_Stream2_IRQHandler
-                0x080051d0                HRTIM1_TIME_IRQHandler
-                0x080051d0                SPI1_IRQHandler
-                0x080051d0                TIM6_DAC_IRQHandler
-                0x080051d0                DCMI_IRQHandler
-                0x080051d0                HRTIM1_TIMC_IRQHandler
-                0x080051d0                DMA2_Stream3_IRQHandler
-                0x080051d0                DFSDM1_FLT3_IRQHandler
-                0x080051d0                USART6_IRQHandler
-                0x080051d0                TIM17_IRQHandler
-                0x080051d0                BDMA_Channel7_IRQHandler
-                0x080051d0                LPTIM5_IRQHandler
-                0x080051d0                UART5_IRQHandler
-                0x080051d0                ADC3_IRQHandler
-                0x080051d0                TIM4_IRQHandler
-                0x080051d0                BDMA_Channel2_IRQHandler
-                0x080051d0                QUADSPI_IRQHandler
-                0x080051d0                I2C1_EV_IRQHandler
-                0x080051d0                DMA1_Stream6_IRQHandler
-                0x080051d0                DMAMUX1_OVR_IRQHandler
-                0x080051d0                TIM16_IRQHandler
-                0x080051d0                UART4_IRQHandler
-                0x080051d0                BDMA_Channel5_IRQHandler
-                0x080051d0                TIM3_IRQHandler
-                0x080051d0                RCC_IRQHandler
-                0x080051d0                TIM8_BRK_TIM12_IRQHandler
-                0x080051d0                TIM1_TRG_COM_IRQHandler
-                0x080051d0                Default_Handler
-                0x080051d0                ECC_IRQHandler
-                0x080051d0                CEC_IRQHandler
-                0x080051d0                EXTI15_10_IRQHandler
-                0x080051d0                BDMA_Channel0_IRQHandler
-                0x080051d0                DMA1_Stream7_IRQHandler
-                0x080051d0                HRTIM1_TIMA_IRQHandler
-                0x080051d0                SPI5_IRQHandler
-                0x080051d0                TIM7_IRQHandler
-                0x080051d0                SDMMC1_IRQHandler
-                0x080051d0                TIM5_IRQHandler
-                0x080051d0                DMA2_Stream7_IRQHandler
-                0x080051d0                TIM15_IRQHandler
-                0x080051d0                PVD_AVD_IRQHandler
-                0x080051d0                I2C3_EV_IRQHandler
-                0x080051d0                EXTI9_5_IRQHandler
-                0x080051d0                RTC_WKUP_IRQHandler
-                0x080051d0                LTDC_IRQHandler
-                0x080051d0                SAI3_IRQHandler
-                0x080051d0                ETH_WKUP_IRQHandler
-                0x080051d0                SPDIF_RX_IRQHandler
-                0x080051d0                SPI2_IRQHandler
-                0x080051d0                OTG_HS_EP1_IN_IRQHandler
-                0x080051d0                MemManage_Handler
-                0x080051d0                SVC_Handler
-                0x080051d0                CRS_IRQHandler
-                0x080051d0                RNG_IRQHandler
-                0x080051d0                HRTIM1_TIMB_IRQHandler
-                0x080051d0                FDCAN2_IT1_IRQHandler
-                0x080051d0                ETH_IRQHandler
-                0x080051d0                TIM1_UP_IRQHandler
-                0x080051d0                BDMA_Channel4_IRQHandler
-                0x080051d0                OTG_HS_EP1_OUT_IRQHandler
-                0x080051d0                WWDG_IRQHandler
-                0x080051d0                SPI6_IRQHandler
-                0x080051d0                MDIOS_IRQHandler
-                0x080051d0                I2C4_EV_IRQHandler
-                0x080051d0                FDCAN2_IT0_IRQHandler
-                0x080051d0                LPUART1_IRQHandler
-                0x080051d0                FDCAN1_IT0_IRQHandler
-                0x080051d0                TIM2_IRQHandler
-                0x080051d0                OTG_FS_WKUP_IRQHandler
-                0x080051d0                OTG_HS_IRQHandler
-                0x080051d0                DMA2D_IRQHandler
-                0x080051d0                TIM1_BRK_IRQHandler
-                0x080051d0                EXTI1_IRQHandler
-                0x080051d0                SDMMC2_IRQHandler
-                0x080051d0                OTG_FS_EP1_OUT_IRQHandler
-                0x080051d0                BDMA_Channel3_IRQHandler
-                0x080051d0                UART7_IRQHandler
-                0x080051d0                MDIOS_WKUP_IRQHandler
-                0x080051d0                USART2_IRQHandler
-                0x080051d0                DFSDM1_FLT0_IRQHandler
-                0x080051d0                SAI4_IRQHandler
-                0x080051d0                I2C2_ER_IRQHandler
-                0x080051d0                DMA2_Stream1_IRQHandler
-                0x080051d0                FLASH_IRQHandler
-                0x080051d0                DMA2_Stream4_IRQHandler
-                0x080051d0                BusFault_Handler
-                0x080051d0                USART1_IRQHandler
-                0x080051d0                OTG_FS_IRQHandler
-                0x080051d0                SPI3_IRQHandler
-                0x080051d0                WAKEUP_PIN_IRQHandler
-                0x080051d0                DMA1_Stream4_IRQHandler
-                0x080051d0                OTG_FS_EP1_IN_IRQHandler
-                0x080051d0                I2C1_ER_IRQHandler
-                0x080051d0                FMC_IRQHandler
-                0x080051d0                FDCAN_CAL_IRQHandler
-                0x080051d0                SWPMI1_IRQHandler
-                0x080051d0                COMP1_IRQHandler
-                0x080051d0                LPTIM1_IRQHandler
-                0x080051d0                I2C4_ER_IRQHandler
-                0x080051d0                DMA2_Stream6_IRQHandler
- *fill*         0x080051d2        0x2 
- .text.stop     0x080051d4       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .text.poll     0x080051f0       0x98 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .text.start    0x08005288       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x080051d8        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
+                0x080051d8                RTC_Alarm_IRQHandler
+                0x080051d8                EXTI2_IRQHandler
+                0x080051d8                TIM8_CC_IRQHandler
+                0x080051d8                HRTIM1_Master_IRQHandler
+                0x080051d8                DebugMon_Handler
+                0x080051d8                UART8_IRQHandler
+                0x080051d8                SPI4_IRQHandler
+                0x080051d8                TIM1_CC_IRQHandler
+                0x080051d8                BDMA_Channel6_IRQHandler
+                0x080051d8                DMA2_Stream5_IRQHandler
+                0x080051d8                HRTIM1_FLT_IRQHandler
+                0x080051d8                JPEG_IRQHandler
+                0x080051d8                DMA1_Stream5_IRQHandler
+                0x080051d8                BDMA_Channel1_IRQHandler
+                0x080051d8                HRTIM1_TIMD_IRQHandler
+                0x080051d8                TAMP_STAMP_IRQHandler
+                0x080051d8                PendSV_Handler
+                0x080051d8                EXTI3_IRQHandler
+                0x080051d8                LPTIM4_IRQHandler
+                0x080051d8                TIM8_TRG_COM_TIM14_IRQHandler
+                0x080051d8                LPTIM2_IRQHandler
+                0x080051d8                DFSDM1_FLT1_IRQHandler
+                0x080051d8                DMAMUX2_OVR_IRQHandler
+                0x080051d8                TIM8_UP_TIM13_IRQHandler
+                0x080051d8                I2C3_ER_IRQHandler
+                0x080051d8                DFSDM1_FLT2_IRQHandler
+                0x080051d8                MDMA_IRQHandler
+                0x080051d8                LPTIM3_IRQHandler
+                0x080051d8                HSEM1_IRQHandler
+                0x080051d8                EXTI0_IRQHandler
+                0x080051d8                I2C2_EV_IRQHandler
+                0x080051d8                FPU_IRQHandler
+                0x080051d8                OTG_HS_WKUP_IRQHandler
+                0x080051d8                FDCAN1_IT1_IRQHandler
+                0x080051d8                UsageFault_Handler
+                0x080051d8                LTDC_ER_IRQHandler
+                0x080051d8                DMA2_Stream2_IRQHandler
+                0x080051d8                HRTIM1_TIME_IRQHandler
+                0x080051d8                SPI1_IRQHandler
+                0x080051d8                TIM6_DAC_IRQHandler
+                0x080051d8                DCMI_IRQHandler
+                0x080051d8                HRTIM1_TIMC_IRQHandler
+                0x080051d8                DMA2_Stream3_IRQHandler
+                0x080051d8                DFSDM1_FLT3_IRQHandler
+                0x080051d8                USART6_IRQHandler
+                0x080051d8                TIM17_IRQHandler
+                0x080051d8                BDMA_Channel7_IRQHandler
+                0x080051d8                LPTIM5_IRQHandler
+                0x080051d8                UART5_IRQHandler
+                0x080051d8                ADC3_IRQHandler
+                0x080051d8                TIM4_IRQHandler
+                0x080051d8                BDMA_Channel2_IRQHandler
+                0x080051d8                QUADSPI_IRQHandler
+                0x080051d8                I2C1_EV_IRQHandler
+                0x080051d8                DMA1_Stream6_IRQHandler
+                0x080051d8                DMAMUX1_OVR_IRQHandler
+                0x080051d8                TIM16_IRQHandler
+                0x080051d8                UART4_IRQHandler
+                0x080051d8                BDMA_Channel5_IRQHandler
+                0x080051d8                TIM3_IRQHandler
+                0x080051d8                RCC_IRQHandler
+                0x080051d8                TIM8_BRK_TIM12_IRQHandler
+                0x080051d8                TIM1_TRG_COM_IRQHandler
+                0x080051d8                Default_Handler
+                0x080051d8                ECC_IRQHandler
+                0x080051d8                CEC_IRQHandler
+                0x080051d8                EXTI15_10_IRQHandler
+                0x080051d8                BDMA_Channel0_IRQHandler
+                0x080051d8                DMA1_Stream7_IRQHandler
+                0x080051d8                HRTIM1_TIMA_IRQHandler
+                0x080051d8                SPI5_IRQHandler
+                0x080051d8                TIM7_IRQHandler
+                0x080051d8                SDMMC1_IRQHandler
+                0x080051d8                TIM5_IRQHandler
+                0x080051d8                DMA2_Stream7_IRQHandler
+                0x080051d8                TIM15_IRQHandler
+                0x080051d8                PVD_AVD_IRQHandler
+                0x080051d8                I2C3_EV_IRQHandler
+                0x080051d8                EXTI9_5_IRQHandler
+                0x080051d8                RTC_WKUP_IRQHandler
+                0x080051d8                LTDC_IRQHandler
+                0x080051d8                SAI3_IRQHandler
+                0x080051d8                ETH_WKUP_IRQHandler
+                0x080051d8                SPDIF_RX_IRQHandler
+                0x080051d8                SPI2_IRQHandler
+                0x080051d8                OTG_HS_EP1_IN_IRQHandler
+                0x080051d8                MemManage_Handler
+                0x080051d8                SVC_Handler
+                0x080051d8                CRS_IRQHandler
+                0x080051d8                RNG_IRQHandler
+                0x080051d8                HRTIM1_TIMB_IRQHandler
+                0x080051d8                FDCAN2_IT1_IRQHandler
+                0x080051d8                ETH_IRQHandler
+                0x080051d8                TIM1_UP_IRQHandler
+                0x080051d8                BDMA_Channel4_IRQHandler
+                0x080051d8                OTG_HS_EP1_OUT_IRQHandler
+                0x080051d8                WWDG_IRQHandler
+                0x080051d8                SPI6_IRQHandler
+                0x080051d8                MDIOS_IRQHandler
+                0x080051d8                I2C4_EV_IRQHandler
+                0x080051d8                FDCAN2_IT0_IRQHandler
+                0x080051d8                LPUART1_IRQHandler
+                0x080051d8                FDCAN1_IT0_IRQHandler
+                0x080051d8                TIM2_IRQHandler
+                0x080051d8                OTG_FS_WKUP_IRQHandler
+                0x080051d8                OTG_HS_IRQHandler
+                0x080051d8                DMA2D_IRQHandler
+                0x080051d8                TIM1_BRK_IRQHandler
+                0x080051d8                EXTI1_IRQHandler
+                0x080051d8                SDMMC2_IRQHandler
+                0x080051d8                OTG_FS_EP1_OUT_IRQHandler
+                0x080051d8                BDMA_Channel3_IRQHandler
+                0x080051d8                UART7_IRQHandler
+                0x080051d8                MDIOS_WKUP_IRQHandler
+                0x080051d8                USART2_IRQHandler
+                0x080051d8                DFSDM1_FLT0_IRQHandler
+                0x080051d8                SAI4_IRQHandler
+                0x080051d8                I2C2_ER_IRQHandler
+                0x080051d8                DMA2_Stream1_IRQHandler
+                0x080051d8                FLASH_IRQHandler
+                0x080051d8                DMA2_Stream4_IRQHandler
+                0x080051d8                BusFault_Handler
+                0x080051d8                USART1_IRQHandler
+                0x080051d8                OTG_FS_IRQHandler
+                0x080051d8                SPI3_IRQHandler
+                0x080051d8                WAKEUP_PIN_IRQHandler
+                0x080051d8                DMA1_Stream4_IRQHandler
+                0x080051d8                OTG_FS_EP1_IN_IRQHandler
+                0x080051d8                I2C1_ER_IRQHandler
+                0x080051d8                FMC_IRQHandler
+                0x080051d8                FDCAN_CAL_IRQHandler
+                0x080051d8                SWPMI1_IRQHandler
+                0x080051d8                COMP1_IRQHandler
+                0x080051d8                LPTIM1_IRQHandler
+                0x080051d8                I2C4_ER_IRQHandler
+                0x080051d8                DMA2_Stream6_IRQHandler
+ *fill*         0x080051da        0x2 
+ .text.stop     0x080051dc       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .text.poll     0x080051f8       0x98 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .text.start    0x08005290       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
  .text.sv_pot_adc_stop
-                0x080052bc       0x48 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x080052bc                sv_pot_adc_stop
+                0x080052c4       0x48 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x080052c4                sv_pot_adc_stop
  .text.sv_pot_adc_init
-                0x08005304      0x260 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x08005304                sv_pot_adc_init
+                0x0800530c      0x260 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x0800530c                sv_pot_adc_init
  .text.sv_pot_adc_bus
-                0x08005564       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x08005564                sv_pot_adc_bus
+                0x0800556c       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x0800556c                sv_pot_adc_bus
  .text.HAL_ADC_ConvCpltCallback
-                0x08005578       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x08005578                HAL_ADC_ConvCpltCallback
+                0x08005580       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x08005580                HAL_ADC_ConvCpltCallback
  .text.HAL_ADC_ErrorCallback
-                0x080055a0       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x080055a0                HAL_ADC_ErrorCallback
+                0x080055a8       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x080055a8                HAL_ADC_ErrorCallback
  .text.DMA2_Stream0_IRQHandler
-                0x080055c4        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x080055c4                DMA2_Stream0_IRQHandler
+                0x080055cc        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x080055cc                DMA2_Stream0_IRQHandler
  .text.ADC_IRQHandler
-                0x080055d0        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x080055d0                ADC_IRQHandler
+                0x080055d8        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x080055d8                ADC_IRQHandler
  .text.permitted
-                0x080055dc       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x080055e4       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
  .text.sv_safety_inputs_init
-                0x0800563c       0x58 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x0800563c                sv_safety_inputs_init
+                0x08005644       0x58 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x08005644                sv_safety_inputs_init
  .text.sv_safety_inputs_tick
-                0x08005694       0x54 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x08005694                sv_safety_inputs_tick
+                0x0800569c       0x54 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x0800569c                sv_safety_inputs_tick
  .text.EXTI4_IRQHandler
-                0x080056e8       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x080056e8                EXTI4_IRQHandler
+                0x080056f0       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x080056f0                EXTI4_IRQHandler
  .text.sv_safety_shutdown_requested
-                0x08005728        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x08005728                sv_safety_shutdown_requested
+                0x08005730        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x08005730                sv_safety_shutdown_requested
  .text.sv_safety_hp_inserted
-                0x08005734        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x08005734                sv_safety_hp_inserted
+                0x0800573c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x0800573c                sv_safety_hp_inserted
  .text.sv_safety_rearm
-                0x08005740       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x08005740                sv_safety_rearm
+                0x08005748       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x08005748                sv_safety_rearm
  .text.sv_safety_speaker_permitted
-                0x08005760        0x6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x08005760                sv_safety_speaker_permitted
+                0x08005768        0x6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x08005768                sv_safety_speaker_permitted
  .text.sv_safety_headphone_permitted
-                0x08005766        0x6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x08005766                sv_safety_headphone_permitted
+                0x0800576e        0x6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x0800576e                sv_safety_headphone_permitted
  .text.sv_safety_apply_outputs
-                0x0800576c       0x78 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x0800576c                sv_safety_apply_outputs
+                0x08005774       0x78 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x08005774                sv_safety_apply_outputs
  .text.SystemInit
-                0x080057e4       0xc0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
-                0x080057e4                SystemInit
+                0x080057ec       0xc0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+                0x080057ec                SystemInit
  .text.SystemCoreClockUpdate
-                0x080058a4      0x144 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
-                0x080058a4                SystemCoreClockUpdate
+                0x080058ac      0x144 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+                0x080058ac                SystemCoreClockUpdate
  .text.HAL_InitTick
-                0x080059e8       0x4c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
-                0x080059e8                HAL_InitTick
+                0x080059f0       0x4c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
+                0x080059f0                HAL_InitTick
  .text.HAL_GetREVID
-                0x08005a34        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
-                0x08005a34                HAL_GetREVID
+                0x08005a3c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
+                0x08005a3c                HAL_GetREVID
  .text.HAL_RCC_OscConfig
-                0x08005a40      0x550 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
-                0x08005a40                HAL_RCC_OscConfig
+                0x08005a48      0x550 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x08005a48                HAL_RCC_OscConfig
  .text.HAL_RCC_MCOConfig
-                0x08005f90       0x9c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
-                0x08005f90                HAL_RCC_MCOConfig
+                0x08005f98       0x9c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x08005f98                HAL_RCC_MCOConfig
  .text.HAL_RCC_GetSysClockFreq
-                0x0800602c      0x144 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
-                0x0800602c                HAL_RCC_GetSysClockFreq
+                0x08006034      0x144 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x08006034                HAL_RCC_GetSysClockFreq
  .text.HAL_RCC_ClockConfig
-                0x08006170      0x24c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
-                0x08006170                HAL_RCC_ClockConfig
+                0x08006178      0x24c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x08006178                HAL_RCC_ClockConfig
  .text.HAL_RCC_GetHCLKFreq
-                0x080063bc       0x44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
-                0x080063bc                HAL_RCC_GetHCLKFreq
+                0x080063c4       0x44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x080063c4                HAL_RCC_GetHCLKFreq
  .text.HAL_RCC_GetPCLK1Freq
-                0x08006400       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
-                0x08006400                HAL_RCC_GetPCLK1Freq
+                0x08006408       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x08006408                HAL_RCC_GetPCLK1Freq
  .text.RCCEx_PLL2_Config
-                0x08006424       0xec /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x0800642c       0xec /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
  .text.RCCEx_PLL3_Config
-                0x08006510       0xec /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x08006518       0xec /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
  .text.HAL_RCCEx_PeriphCLKConfig
-                0x080065fc      0x9cc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
-                0x080065fc                HAL_RCCEx_PeriphCLKConfig
+                0x08006604      0x9cc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x08006604                HAL_RCCEx_PeriphCLKConfig
  .text.HAL_RCCEx_GetD3PCLK1Freq
-                0x08006fc8       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
-                0x08006fc8                HAL_RCCEx_GetD3PCLK1Freq
+                0x08006fd0       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x08006fd0                HAL_RCCEx_GetD3PCLK1Freq
  .text.HAL_RCCEx_GetPLL2ClockFreq
-                0x08006fec      0x154 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
-                0x08006fec                HAL_RCCEx_GetPLL2ClockFreq
+                0x08006ff4      0x154 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x08006ff4                HAL_RCCEx_GetPLL2ClockFreq
  .text.HAL_RCCEx_GetPLL3ClockFreq
-                0x08007140      0x154 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
-                0x08007140                HAL_RCCEx_GetPLL3ClockFreq
+                0x08007148      0x154 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x08007148                HAL_RCCEx_GetPLL3ClockFreq
  .text.HAL_RCCEx_GetPLL1ClockFreq
-                0x08007294      0x154 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
-                0x08007294                HAL_RCCEx_GetPLL1ClockFreq
+                0x0800729c      0x154 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x0800729c                HAL_RCCEx_GetPLL1ClockFreq
  .text.HAL_RCCEx_GetPeriphCLKFreq
-                0x080073e8      0x2d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
-                0x080073e8                HAL_RCCEx_GetPeriphCLKFreq
+                0x080073f0      0x2d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x080073f0                HAL_RCCEx_GetPeriphCLKFreq
  .text.HAL_GPIO_Init
-                0x080076b8      0x1d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
-                0x080076b8                HAL_GPIO_Init
+                0x080076c0      0x1d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
+                0x080076c0                HAL_GPIO_Init
  .text.DMA_SetConfig
-                0x08007888      0x14c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08007890      0x14c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .text.DMA_CalcBaseAndBitshift
-                0x080079d4       0x9c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x080079dc       0x9c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .text.DMA_CalcDMAMUXChannelBaseAndMask
-                0x08007a70       0x94 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08007a78       0x94 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .text.DMA_CalcDMAMUXRequestGenBaseAndMask
-                0x08007b04       0x70 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08007b0c       0x70 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .text.HAL_DMA_Init
-                0x08007b74      0x330 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x08007b74                HAL_DMA_Init
+                0x08007b7c      0x330 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08007b7c                HAL_DMA_Init
  .text.HAL_DMA_DeInit
-                0x08007ea4      0x148 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x08007ea4                HAL_DMA_DeInit
+                0x08007eac      0x148 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08007eac                HAL_DMA_DeInit
  .text.HAL_DMA_Start_IT
-                0x08007fec      0x1d8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x08007fec                HAL_DMA_Start_IT
+                0x08007ff4      0x1d8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08007ff4                HAL_DMA_Start_IT
  .text.HAL_DMA_Abort
-                0x080081c4      0x228 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x080081c4                HAL_DMA_Abort
+                0x080081cc      0x228 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x080081cc                HAL_DMA_Abort
  .text.HAL_DMA_Abort_IT
-                0x080083ec      0x120 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x080083ec                HAL_DMA_Abort_IT
+                0x080083f4      0x120 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x080083f4                HAL_DMA_Abort_IT
  .text.HAL_DMA_IRQHandler
-                0x0800850c      0x3a0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x0800850c                HAL_DMA_IRQHandler
+                0x08008514      0x3a0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x08008514                HAL_DMA_IRQHandler
  .text.HAL_DMA_GetError
-                0x080088ac        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
-                0x080088ac                HAL_DMA_GetError
+                0x080088b4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x080088b4                HAL_DMA_GetError
  .text.SAI_InterruptFlag
-                0x080088b0       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x080088b8       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.SAI_Disable
-                0x080088dc       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x080088e4       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.HAL_SAI_MspInit
-                0x0800891c        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x0800891c                HAL_SAI_MspInit
- *fill*         0x0800891e        0x2 
+                0x08008924        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008924                HAL_SAI_MspInit
+ *fill*         0x08008926        0x2 
  .text.HAL_SAI_Init
-                0x08008920      0x378 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008920                HAL_SAI_Init
+                0x08008928      0x378 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008928                HAL_SAI_Init
  .text.HAL_SAI_InitProtocol
-                0x08008c98      0x128 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008c98                HAL_SAI_InitProtocol
+                0x08008ca0      0x128 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008ca0                HAL_SAI_InitProtocol
  .text.HAL_SAI_MspDeInit
-                0x08008dc0        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008dc0                HAL_SAI_MspDeInit
- *fill*         0x08008dc2        0x2 
+                0x08008dc8        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008dc8                HAL_SAI_MspDeInit
+ *fill*         0x08008dca        0x2 
  .text.HAL_SAI_DeInit
-                0x08008dc4       0x7c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008dc4                HAL_SAI_DeInit
+                0x08008dcc       0x7c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008dcc                HAL_SAI_DeInit
  .text.HAL_SAI_DMAStop
-                0x08008e40       0x9c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008e40                HAL_SAI_DMAStop
+                0x08008e48       0x9c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008e48                HAL_SAI_DMAStop
  .text.HAL_SAI_Abort
-                0x08008edc       0xaa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008edc                HAL_SAI_Abort
- *fill*         0x08008f86        0x2 
+                0x08008ee4       0xaa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008ee4                HAL_SAI_Abort
+ *fill*         0x08008f8e        0x2 
  .text.HAL_SAI_Transmit_DMA
-                0x08008f88       0xd8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08008f88                HAL_SAI_Transmit_DMA
+                0x08008f90       0xd8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08008f90                HAL_SAI_Transmit_DMA
  .text.HAL_SAI_Receive_DMA
-                0x08009060       0xa0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x08009060                HAL_SAI_Receive_DMA
+                0x08009068       0xa0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08009068                HAL_SAI_Receive_DMA
  .text.SAI_DMATxCplt
-                0x08009100       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08009108       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.SAI_DMATxHalfCplt
-                0x08009138        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08009140        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.SAI_DMARxCplt
-                0x08009142       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x0800914a       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.SAI_DMARxHalfCplt
-                0x0800917a        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x08009182        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.SAI_DMAError
-                0x08009184       0x3c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x0800918c       0x3c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .text.HAL_SAI_IRQHandler
-                0x080091c0      0x128 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
-                0x080091c0                HAL_SAI_IRQHandler
+                0x080091c8      0x128 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x080091c8                HAL_SAI_IRQHandler
  .text.SAI_DMAAbort
-                0x080092e8       0x42 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
- *fill*         0x0800932a        0x2 
+                0x080092f0       0x42 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+ *fill*         0x08009332        0x2 
  .text.HAL_NVIC_SetPriority
-                0x0800932c       0x64 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x0800932c                HAL_NVIC_SetPriority
+                0x08009334       0x64 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x08009334                HAL_NVIC_SetPriority
  .text.HAL_NVIC_EnableIRQ
-                0x08009390       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x08009390                HAL_NVIC_EnableIRQ
+                0x08009398       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x08009398                HAL_NVIC_EnableIRQ
  .text.HAL_NVIC_DisableIRQ
-                0x080093ac       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x080093ac                HAL_NVIC_DisableIRQ
+                0x080093b4       0x24 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x080093b4                HAL_NVIC_DisableIRQ
  .text.HAL_SYSTICK_Config
-                0x080093d0       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x080093d0                HAL_SYSTICK_Config
+                0x080093d8       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x080093d8                HAL_SYSTICK_Config
  .text.HAL_MPU_Disable
-                0x080093f8       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x080093f8                HAL_MPU_Disable
+                0x08009400       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x08009400                HAL_MPU_Disable
  .text.HAL_MPU_Enable
-                0x08009414       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x08009414                HAL_MPU_Enable
+                0x0800941c       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x0800941c                HAL_MPU_Enable
  .text.HAL_MPU_ConfigRegion
-                0x08009434       0x58 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
-                0x08009434                HAL_MPU_ConfigRegion
+                0x0800943c       0x58 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x0800943c                HAL_MPU_ConfigRegion
  .text.HAL_PWREx_ConfigSupply
-                0x0800948c       0x48 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
-                0x0800948c                HAL_PWREx_ConfigSupply
+                0x08009494       0x48 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
+                0x08009494                HAL_PWREx_ConfigSupply
  .text.HAL_FLASH_Unlock
-                0x080094d4       0x4c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
-                0x080094d4                HAL_FLASH_Unlock
+                0x080094dc       0x4c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x080094dc                HAL_FLASH_Unlock
  .text.HAL_FLASH_Lock
-                0x08009520       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
-                0x08009520                HAL_FLASH_Lock
+                0x08009528       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x08009528                HAL_FLASH_Lock
  .text.FLASH_WaitForLastOperation
-                0x08009550       0xb8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
-                0x08009550                FLASH_WaitForLastOperation
+                0x08009558       0xb8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x08009558                FLASH_WaitForLastOperation
  .text.HAL_FLASH_Program
-                0x08009608       0xac /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
-                0x08009608                HAL_FLASH_Program
+                0x08009610       0xac /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x08009610                HAL_FLASH_Program
  .text.HAL_IWDG_Init
-                0x080096b4       0x5e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
-                0x080096b4                HAL_IWDG_Init
+                0x080096bc       0x5e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
+                0x080096bc                HAL_IWDG_Init
  .text.HAL_IWDG_Refresh
-                0x08009712        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
-                0x08009712                HAL_IWDG_Refresh
+                0x0800971a        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
+                0x0800971a                HAL_IWDG_Refresh
  .text.LL_ADC_IsEnabled
-                0x0800971e        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
- .text.LL_ADC_REG_IsConversionOngoing
                 0x08009726        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+ .text.LL_ADC_REG_IsConversionOngoing
+                0x0800972e        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
  .text.HAL_ADC_MspInit
-                0x0800972e        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800972e                HAL_ADC_MspInit
+                0x08009736        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009736                HAL_ADC_MspInit
  .text.HAL_ADC_MspDeInit
-                0x08009730        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009730                HAL_ADC_MspDeInit
+                0x08009738        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009738                HAL_ADC_MspDeInit
  .text.HAL_ADC_ConvHalfCpltCallback
-                0x08009732        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009732                HAL_ADC_ConvHalfCpltCallback
+                0x0800973a        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800973a                HAL_ADC_ConvHalfCpltCallback
  .text.ADC_DMAHalfConvCplt
-                0x08009734        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009734                ADC_DMAHalfConvCplt
+                0x0800973c        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800973c                ADC_DMAHalfConvCplt
  .text.HAL_ADC_LevelOutOfWindowCallback
-                0x0800973e        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800973e                HAL_ADC_LevelOutOfWindowCallback
+                0x08009746        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009746                HAL_ADC_LevelOutOfWindowCallback
  .text.HAL_ADC_IRQHandler
-                0x08009740      0x274 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009740                HAL_ADC_IRQHandler
+                0x08009748      0x274 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009748                HAL_ADC_IRQHandler
  .text.ADC_DMAConvCplt
-                0x080099b4       0x68 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x080099b4                ADC_DMAConvCplt
+                0x080099bc       0x68 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x080099bc                ADC_DMAConvCplt
  .text.ADC_DMAError
-                0x08009a1c       0x1a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009a1c                ADC_DMAError
- *fill*         0x08009a36        0x2 
+                0x08009a24       0x1a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009a24                ADC_DMAError
+ *fill*         0x08009a3e        0x2 
  .text.HAL_ADC_ConfigChannel
-                0x08009a38      0x418 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009a38                HAL_ADC_ConfigChannel
+                0x08009a40      0x418 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009a40                HAL_ADC_ConfigChannel
  .text.ADC_ConversionStop
-                0x08009e50       0xcc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009e50                ADC_ConversionStop
+                0x08009e58       0xcc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009e58                ADC_ConversionStop
  .text.ADC_Enable
-                0x08009f1c       0xb4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009f1c                ADC_Enable
+                0x08009f24       0xb4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009f24                ADC_Enable
  .text.HAL_ADC_Start_DMA
-                0x08009fd0      0x110 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x08009fd0                HAL_ADC_Start_DMA
+                0x08009fd8      0x110 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x08009fd8                HAL_ADC_Start_DMA
  .text.ADC_Disable
-                0x0800a0e0       0x6a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800a0e0                ADC_Disable
- *fill*         0x0800a14a        0x2 
+                0x0800a0e8       0x6a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800a0e8                ADC_Disable
+ *fill*         0x0800a152        0x2 
  .text.HAL_ADC_DeInit
-                0x0800a14c      0x1b4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800a14c                HAL_ADC_DeInit
+                0x0800a154      0x1b4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800a154                HAL_ADC_DeInit
  .text.HAL_ADC_Stop_DMA
-                0x0800a300       0x7c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800a300                HAL_ADC_Stop_DMA
+                0x0800a308       0x7c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800a308                HAL_ADC_Stop_DMA
  .text.ADC_ConfigureBoostMode
-                0x0800a37c      0x12c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800a37c                ADC_ConfigureBoostMode
+                0x0800a384      0x12c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800a384                ADC_ConfigureBoostMode
  .text.HAL_ADC_Init
-                0x0800a4a8      0x210 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
-                0x0800a4a8                HAL_ADC_Init
+                0x0800a4b0      0x210 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0800a4b0                HAL_ADC_Init
  .text.HAL_ADCEx_Calibration_Start
-                0x0800a6b8       0xa0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
-                0x0800a6b8                HAL_ADCEx_Calibration_Start
+                0x0800a6c0       0xa0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0800a6c0                HAL_ADCEx_Calibration_Start
  .text.HAL_ADCEx_InjectedConvCpltCallback
-                0x0800a758        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
-                0x0800a758                HAL_ADCEx_InjectedConvCpltCallback
- .text.HAL_ADCEx_InjectedQueueOverflowCallback
-                0x0800a75a        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
-                0x0800a75a                HAL_ADCEx_InjectedQueueOverflowCallback
- .text.HAL_ADCEx_LevelOutOfWindow2Callback
-                0x0800a75c        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
-                0x0800a75c                HAL_ADCEx_LevelOutOfWindow2Callback
- .text.HAL_ADCEx_LevelOutOfWindow3Callback
-                0x0800a75e        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
-                0x0800a75e                HAL_ADCEx_LevelOutOfWindow3Callback
- .text.HAL_ADCEx_EndOfSamplingCallback
                 0x0800a760        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
-                0x0800a760                HAL_ADCEx_EndOfSamplingCallback
- *fill*         0x0800a762        0x2 
- .text          0x0800a764       0x50 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
-                0x0800a764                __libc_init_array
- .text          0x0800a7b4       0xa4 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
-                0x0800a7b4                memset
- .text          0x0800a858      0x100 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
-                0x0800a858                memmove
- .text          0x0800a958      0x134 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
-                0x0800a958                memcpy
- .text          0x0800aa8c       0x5c /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
-                0x0800aa8c                memcmp
- .text          0x0800aae8       0xa0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
-                0x0800aae8                __aeabi_ldivmod
- .text          0x0800ab88       0x30 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x0800ab88                __aeabi_uldivmod
- .text          0x0800abb8      0x2bc /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
-                0x0800abb8                __udivmoddi4
- .text          0x0800ae74        0x4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
-                0x0800ae74                __aeabi_ldiv0
-                0x0800ae74                __aeabi_idiv0
+                0x0800a760                HAL_ADCEx_InjectedConvCpltCallback
+ .text.HAL_ADCEx_InjectedQueueOverflowCallback
+                0x0800a762        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0800a762                HAL_ADCEx_InjectedQueueOverflowCallback
+ .text.HAL_ADCEx_LevelOutOfWindow2Callback
+                0x0800a764        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0800a764                HAL_ADCEx_LevelOutOfWindow2Callback
+ .text.HAL_ADCEx_LevelOutOfWindow3Callback
+                0x0800a766        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0800a766                HAL_ADCEx_LevelOutOfWindow3Callback
+ .text.HAL_ADCEx_EndOfSamplingCallback
+                0x0800a768        0x2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0800a768                HAL_ADCEx_EndOfSamplingCallback
+ *fill*         0x0800a76a        0x2 
+ .text          0x0800a76c       0x50 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+                0x0800a76c                __libc_init_array
+ .text          0x0800a7bc       0xa4 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+                0x0800a7bc                memset
+ .text          0x0800a860      0x100 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+                0x0800a860                memmove
+ .text          0x0800a960      0x134 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+                0x0800a960                memcpy
+ .text          0x0800aa94       0x5c /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+                0x0800aa94                memcmp
+ .text          0x0800aaf0       0xa0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
+                0x0800aaf0                __aeabi_ldivmod
+ .text          0x0800ab90       0x30 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x0800ab90                __aeabi_uldivmod
+ .text          0x0800abc0      0x2bc /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x0800abc0                __udivmoddi4
+ .text          0x0800ae7c        0x4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+                0x0800ae7c                __aeabi_ldiv0
+                0x0800ae7c                __aeabi_idiv0
  *(.rodata*)
  .rodata.sine.0
-                0x0800ae78       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
+                0x0800ae80       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
  .rodata.grants.1
-                0x0800aed8        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
+                0x0800aee0        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
  .rodata.ports.2
-                0x0800aedd        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
+                0x0800aee5        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
  .rodata.sv_pcm_tick.str1.1
-                0x0800aee2       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+                0x0800aeea       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
                                   0x6 (size before relaxing)
  .rodata.value.3
-                0x0800aef2        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+                0x0800aefa        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
  .rodata.mask.4
-                0x0800aef7        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
- .rodata.r.5    0x0800aefc        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
- .rodata.cfg    0x0800af01       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
- *fill*         0x0800af31        0x3 
- .rodata.coeff  0x0800af34       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_speaker.o
+                0x0800aeff        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+ .rodata.r.5    0x0800af04        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+ .rodata.cfg    0x0800af09       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+ *fill*         0x0800af39        0x3 
+ .rodata.coeff  0x0800af3c       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_speaker.o
  .rodata.coeff.0
-                0x0800af48       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
+                0x0800af50       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
  .rodata.periods.1
-                0x0800af5c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
+                0x0800af64        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
  .rodata.main.str1.1
-                0x0800af68        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x0800af70        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .rodata.values.0
-                0x0800af68        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x0800af70        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .rodata.masks.1
-                0x0800af6d        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x0800af75        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .rodata.regs.2
-                0x0800af72        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- *fill*         0x0800af77        0x1 
- .rodata        0x0800af78      0x10c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .rodata        0x0800b084       0x18 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x0800af7a        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ *fill*         0x0800af7f        0x1 
+ .rodata        0x0800af80      0x10c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .rodata        0x0800b08c       0x18 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .rodata.modes.0
-                0x0800b09c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .rodata        0x0800b0a0        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .rodata        0x0800b0ac       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x0800b0a4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .rodata        0x0800b0a8        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .rodata        0x0800b0b4       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
  .rodata.D1CorePrescTable
-                0x0800b0d4       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
-                0x0800b0d4                D1CorePrescTable
+                0x0800b0dc       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+                0x0800b0dc                D1CorePrescTable
  .rodata.flagBitshiftOffset.0
-                0x0800b0e4        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x0800b0ec        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  *(.init)
  *(.fini)
-                0x0800b0ec                        . = ALIGN (0x4)
+                0x0800b0f4                        . = ALIGN (0x4)
 
-.glue_7         0x0800b0ec        0x0
- .glue_7        0x0800b0ec        0x0 linker stubs
+.glue_7         0x0800b0f4        0x0
+ .glue_7        0x0800b0f4        0x0 linker stubs
 
-.glue_7t        0x0800b0ec        0x0
- .glue_7t       0x0800b0ec        0x0 linker stubs
+.glue_7t        0x0800b0f4        0x0
+ .glue_7t       0x0800b0f4        0x0 linker stubs
 
-.vfp11_veneer   0x0800b0ec        0x0
- .vfp11_veneer  0x0800b0ec        0x0 linker stubs
+.vfp11_veneer   0x0800b0f4        0x0
+ .vfp11_veneer  0x0800b0f4        0x0 linker stubs
 
-.v4_bx          0x0800b0ec        0x0
- .v4_bx         0x0800b0ec        0x0 linker stubs
+.v4_bx          0x0800b0f4        0x0
+ .v4_bx         0x0800b0f4        0x0 linker stubs
 
-.iplt           0x0800b0ec        0x0
- .iplt          0x0800b0ec        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
+.iplt           0x0800b0f4        0x0
+ .iplt          0x0800b0f4        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
 
 .ARM.extab
  *(.ARM.extab*)
 
-.ARM.exidx      0x0800b0ec        0x8
-                0x0800b0ec                        __exidx_start = .
+.ARM.exidx      0x0800b0f4        0x8
+                0x0800b0f4                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0800b0ec        0x8 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
- .ARM.exidx     0x0800b0f4        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0800b0f4        0x8 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+ .ARM.exidx     0x0800b0fc        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
-                0x0800b0f4                        __exidx_end = .
+                0x0800b0fc                        __exidx_end = .
 
-.rel.dyn        0x0800b0f4        0x0
- .rel.iplt      0x0800b0f4        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
+.rel.dyn        0x0800b0fc        0x0
+ .rel.iplt      0x0800b0fc        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
 
-.preinit_array  0x0800b0f4        0x0
-                0x0800b0f4                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800b0fc        0x0
+                0x0800b0fc                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800b0f4                        PROVIDE (__preinit_array_end = .)
+                0x0800b0fc                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0800b0f4        0x0
-                0x0800b0f4                        PROVIDE (__init_array_start = .)
+.init_array     0x0800b0fc        0x0
+                0x0800b0fc                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x0800b0f4                        PROVIDE (__init_array_end = .)
+                0x0800b0fc                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x0800b0f4        0x0
+.fini_array     0x0800b0fc        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0800b0f4                        _sidata = LOADADDR (.data)
+                0x0800b0fc                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x10 load address 0x0800b0f4
+.data           0x20000000       0x10 load address 0x0800b0fc
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data*)
@@ -5195,10 +5194,10 @@ END GROUP
                 0x20000010                        . = ALIGN (0x4)
                 0x20000010                        _edata = .
 
-.igot.plt       0x20000010        0x0 load address 0x0800b104
+.igot.plt       0x20000010        0x0 load address 0x0800b10c
  .igot.plt      0x20000010        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
 
-.bss            0x20000010     0x1400 load address 0x0800b104
+.bss            0x20000010     0x1408 load address 0x0800b10c
                 0x20000010                        . = ALIGN (0x4)
                 0x20000010                        _sbss = .
  *(.bss*)
@@ -5269,88 +5268,89 @@ END GROUP
  .bss.rx_tail   0x200006a0        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .bss.rx_head   0x200006a4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .bss.rx_ring   0x200006a8      0x200 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.btui      0x200008a8       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.btui      0x200008a8       0x18 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .bss.user_port
-                0x200008bc        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.hp_was    0x200008bd        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- *fill*         0x200008be        0x2 
+                0x200008c0        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.hp_was    0x200008c1        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ *fill*         0x200008c2        0x2 
  .bss.recovered_at
-                0x200008c0        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.recover_at
                 0x200008c4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.recover_at
+                0x200008c8        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .bss.recover_pending
-                0x200008c8        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- *fill*         0x200008c9        0x3 
+                0x200008cc        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ *fill*         0x200008cd        0x3 
  .bss.vbus_seen_at
-                0x200008cc        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.ui_events_seen
                 0x200008d0        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.show_until
+ .bss.ui_events_seen
                 0x200008d4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.logged_faults
+ .bss.show_until
                 0x200008d8        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.recover_count
+ .bss.logged_faults
                 0x200008dc        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.pwr       0x200008e0        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.battery   0x200008ec       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.recover_count
+                0x200008e0        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.pwr       0x200008e4        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.battery   0x200008f0       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .bss.sv_charge_diag
-                0x20000900       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
-                0x20000900                sv_charge_diag
+                0x20000904       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x20000904                sv_charge_diag
  .bss.charge_out
-                0x20000940        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.charge    0x20000944        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x20000944        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.charge    0x20000948        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .bss.charge_gate_tick
-                0x2000094c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.milliseconds
                 0x20000950        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .bss.journal   0x20000954        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+ .bss.milliseconds
+                0x20000954        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .bss.journal   0x20000958        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
  .bss.sv_audio_clock_snapshot
-                0x20000960       0x54 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x20000960                sv_audio_clock_snapshot
+                0x20000964       0x54 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x20000964                sv_audio_clock_snapshot
  .bss.sv_dma_telemetry
-                0x200009b4       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x200009b4                sv_dma_telemetry
+                0x200009b8       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x200009b8                sv_dma_telemetry
+ *fill*         0x200009d4        0x4 
  .bss.sv_audio_telemetry
-                0x200009d0       0x50 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
-                0x200009d0                sv_audio_telemetry
+                0x200009d8       0x50 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x200009d8                sv_audio_telemetry
  .bss.codec_qualified
-                0x20000a20        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.running   0x20000a21        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- *fill*         0x20000a22        0x2 
+                0x20000a28        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.running   0x20000a29        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ *fill*         0x20000a2a        0x2 
  .bss.codec_pair_base
-                0x20000a24        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x20000a2c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .bss.rendered_pair
-                0x20000a28        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.tx_sent   0x20000a30        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.last_tx   0x20000a34        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.last_rx   0x20000a38        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.phase     0x20000a3c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.pairs     0x20000a40        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.consumed  0x20000a44       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.errors    0x20000a64        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x20000a30        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.tx_sent   0x20000a38        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.last_tx   0x20000a3c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.last_rx   0x20000a40        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.phase     0x20000a44        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.pairs     0x20000a48        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.consumed  0x20000a4c       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.errors    0x20000a6c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .bss.completed
-                0x20000a68       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.dma       0x20000a88      0x1e0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.sai       0x20000c68      0x260 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .bss.paired    0x20000ec8      0x400 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x20000a70       0x20 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.dma       0x20000a90      0x1e0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.sai       0x20000c70      0x260 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .bss.paired    0x20000ed0      0x400 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .bss.sv_pot_registers
-                0x200012c8       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
-                0x200012c8                sv_pot_registers
- .bss.error     0x200012f0        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .bss.done      0x200012f4        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .bss.dma       0x200012f8       0x78 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .bss.adc       0x20001370       0x64 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x200012d0       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x200012d0                sv_pot_registers
+ .bss.error     0x200012f8        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .bss.done      0x200012fc        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .bss.dma       0x20001300       0x78 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .bss.adc       0x20001378       0x64 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
  .bss.initialized
-                0x200013d4        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
- *fill*         0x200013d5        0x3 
+                0x200013dc        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+ *fill*         0x200013dd        0x3 
  .bss.sv_input_safety
-                0x200013d8       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
-                0x200013d8                sv_input_safety
- .bss.pFlash    0x200013f4       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
-                0x200013f4                pFlash
+                0x200013e0       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x200013e0                sv_input_safety
+ .bss.pFlash    0x200013fc       0x1c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x200013fc                pFlash
  *(COMMON)
-                0x20001410                        . = ALIGN (0x4)
-                0x20001410                        _ebss = .
+                0x20001418                        . = ALIGN (0x4)
+                0x20001418                        _ebss = .
 
 .dma            0x30000000     0x1020
                 0x30000000                        . = ALIGN (0x20)
@@ -5360,11 +5360,11 @@ END GROUP
                 0x30001020                        . = ALIGN (0x20)
  *fill*         0x3000100c       0x14 
 
-.stack_reserve  0x20001410     0x2000
-                0x20001410                        . = ALIGN (0x8)
-                0x20001410                        _end = .
-                0x20003410                        . = (. + 0x2000)
- *fill*         0x20001410     0x2000 
+.stack_reserve  0x20001418     0x2000
+                0x20001418                        . = ALIGN (0x8)
+                0x20001418                        _end = .
+                0x20003418                        . = (. + 0x2000)
+ *fill*         0x20001418     0x2000 
 
 /DISCARD/
  *(.note*)
@@ -5458,7 +5458,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000787       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
-.debug_info     0x00000000    0x259b2
+.debug_info     0x00000000    0x259d5
  .debug_info    0x00000000     0x163a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_info    0x0000163a     0x14d4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_telemetry.o
  .debug_info    0x00002b0e      0xdf4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
@@ -5467,39 +5467,39 @@ LOAD linker stubs
  .debug_info    0x000043b6      0x93c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
  .debug_info    0x00004cf2      0x317 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_audio_meter.o
  .debug_info    0x00005009      0x5b2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_input_guard.o
- .debug_info    0x000055bb      0xae3 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
- .debug_info    0x0000609e      0x2a8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
- .debug_info    0x00006346      0x1cb /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
- .debug_info    0x00006511     0x64cf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .debug_info    0x0000c9e0      0x84f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
- .debug_info    0x0000d22f      0xdb3 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
- .debug_info    0x0000dfe2     0x321a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .debug_info    0x000111fc      0x505 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
- .debug_info    0x00011701       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
- .debug_info    0x00011731     0x1a4f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .debug_info    0x00013180      0xec9 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
- .debug_info    0x00014049      0xd13 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
- .debug_info    0x00014d5c     0x165a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
- .debug_info    0x000163b6     0x11a7 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
- .debug_info    0x0001755d     0x1918 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
- .debug_info    0x00018e75      0xc8c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
- .debug_info    0x00019b01      0xe73 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
- .debug_info    0x0001a974     0x1a63 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
- .debug_info    0x0001c3d7     0x1321 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
- .debug_info    0x0001d6f8     0x1156 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
- .debug_info    0x0001e84e      0xa59 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
- .debug_info    0x0001f2a7      0x221 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
- .debug_info    0x0001f4c8     0x2b44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
- .debug_info    0x0002200c     0x2d46 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
- .debug_info    0x00024d52      0x10b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
- .debug_info    0x00024e5d      0x135 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
- .debug_info    0x00024f92      0x148 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
- .debug_info    0x000250da       0x33 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
- .debug_info    0x0002510d      0x12b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
- .debug_info    0x00025238       0x25 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
- .debug_info    0x0002525d       0x24 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_info    0x00025281      0x6f5 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_info    0x00025976       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x000055bb      0xaf5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+ .debug_info    0x000060b0      0x2a8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
+ .debug_info    0x00006358      0x1cb /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
+ .debug_info    0x00006523     0x64e0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .debug_info    0x0000ca03      0x84f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+ .debug_info    0x0000d252      0xdb3 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+ .debug_info    0x0000e005     0x321a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .debug_info    0x0001121f      0x505 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
+ .debug_info    0x00011724       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
+ .debug_info    0x00011754     0x1a4f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .debug_info    0x000131a3      0xec9 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+ .debug_info    0x0001406c      0xd13 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+ .debug_info    0x00014d7f     0x165a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
+ .debug_info    0x000163d9     0x11a7 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+ .debug_info    0x00017580     0x1918 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+ .debug_info    0x00018e98      0xc8c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
+ .debug_info    0x00019b24      0xe73 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+ .debug_info    0x0001a997     0x1a63 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+ .debug_info    0x0001c3fa     0x1321 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+ .debug_info    0x0001d71b     0x1156 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
+ .debug_info    0x0001e871      0xa59 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+ .debug_info    0x0001f2ca      0x221 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
+ .debug_info    0x0001f4eb     0x2b44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+ .debug_info    0x0002202f     0x2d46 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+ .debug_info    0x00024d75      0x10b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+ .debug_info    0x00024e80      0x135 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+ .debug_info    0x00024fb5      0x148 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+ .debug_info    0x000250fd       0x33 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+ .debug_info    0x00025130      0x12b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+ .debug_info    0x0002525b       0x25 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
+ .debug_info    0x00025280       0x24 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x000252a4      0x6f5 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_info    0x00025999       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_abbrev   0x00000000     0x5e28
  .debug_abbrev  0x00000000      0x343 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
@@ -5545,7 +5545,7 @@ LOAD linker stubs
  .debug_abbrev  0x00005e02       0x26 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_loclists
-                0x00000000     0xca89
+                0x00000000     0xcada
  .debug_loclists
                 0x00000000      0xb39 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_loclists
@@ -5563,61 +5563,61 @@ LOAD linker stubs
  .debug_loclists
                 0x00002711      0x26f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_input_guard.o
  .debug_loclists
-                0x00002980      0x712 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+                0x00002980      0x76c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
  .debug_loclists
-                0x00003092      0x238 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
+                0x000030ec      0x238 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
  .debug_loclists
-                0x000032ca       0x8f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
+                0x00003324       0x8f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
  .debug_loclists
-                0x00003359     0x1280 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x000033b3     0x1277 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .debug_loclists
-                0x000045d9      0x324 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x0000462a      0x324 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
  .debug_loclists
-                0x000048fd      0x53f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x0000494e      0x53f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .debug_loclists
-                0x00004e3c      0x657 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x00004e8d      0x657 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .debug_loclists
-                0x00005493      0x139 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
+                0x000054e4      0x139 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
  .debug_loclists
-                0x000055cc       0xe7 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x0000561d       0xe7 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
  .debug_loclists
-                0x000056b3      0x16b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x00005704      0x16b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
  .debug_loclists
-                0x0000581e      0x13f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+                0x0000586f      0x13f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
  .debug_loclists
-                0x0000595d      0x2c0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
+                0x000059ae      0x2c0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
  .debug_loclists
-                0x00005c1d      0x531 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x00005c6e      0x531 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
  .debug_loclists
-                0x0000614e      0xd16 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x0000619f      0xd16 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
  .debug_loclists
-                0x00006e64      0x25b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
+                0x00006eb5      0x25b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
  .debug_loclists
-                0x000070bf      0x827 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x00007110      0x827 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .debug_loclists
-                0x000078e6     0x102b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x00007937     0x102b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .debug_loclists
-                0x00008911      0x4cf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x00008962      0x4cf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
  .debug_loclists
-                0x00008de0      0x2d5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
+                0x00008e31      0x2d5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
  .debug_loclists
-                0x000090b5      0x508 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x00009106      0x508 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
  .debug_loclists
-                0x000095bd       0x66 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
+                0x0000960e       0x66 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
  .debug_loclists
-                0x00009623     0x109c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x00009674     0x109c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
  .debug_loclists
-                0x0000a6bf     0x14b6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0000a710     0x14b6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
  .debug_loclists
-                0x0000bb75       0x65 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+                0x0000bbc6       0x65 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
  .debug_loclists
-                0x0000bbda      0x1c2 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+                0x0000bc2b      0x1c2 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
  .debug_loclists
-                0x0000bd9c      0x233 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+                0x0000bded      0x233 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
  .debug_loclists
-                0x0000bfcf       0xd6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+                0x0000c020       0xd6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
  .debug_loclists
-                0x0000c0a5      0x9e4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000c0f6      0x9e4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
 
 .debug_aranges  0x00000000     0x1348
  .debug_aranges
@@ -5704,7 +5704,7 @@ LOAD linker stubs
                 0x00001328       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_rnglists
-                0x00000000     0x19c1
+                0x00000000     0x19b3
  .debug_rnglists
                 0x00000000      0x15f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_rnglists
@@ -5728,49 +5728,49 @@ LOAD linker stubs
  .debug_rnglists
                 0x00000598       0x13 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
  .debug_rnglists
-                0x000005ab      0x3ae /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+                0x000005ab      0x3a0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
  .debug_rnglists
-                0x00000959       0xab /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+                0x0000094b       0xab /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
  .debug_rnglists
-                0x00000a04       0x67 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x000009f6       0x67 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .debug_rnglists
-                0x00000a6b      0x15c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+                0x00000a5d      0x15c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
  .debug_rnglists
-                0x00000bc7       0x55 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
+                0x00000bb9       0x55 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
  .debug_rnglists
-                0x00000c1c       0x19 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
+                0x00000c0e       0x19 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
  .debug_rnglists
-                0x00000c35       0x81 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x00000c27       0x81 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
  .debug_rnglists
-                0x00000cb6       0x8b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+                0x00000ca8       0x8b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
  .debug_rnglists
-                0x00000d41       0x1b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+                0x00000d33       0x1b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
  .debug_rnglists
-                0x00000d5c      0x12e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
+                0x00000d4e      0x12e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
  .debug_rnglists
-                0x00000e8a       0xa3 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+                0x00000e7c       0xa3 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
  .debug_rnglists
-                0x00000f2d       0xdc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+                0x00000f1f       0xdc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
  .debug_rnglists
-                0x00001009       0x5c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
+                0x00000ffb       0x5c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
  .debug_rnglists
-                0x00001065       0x90 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x00001057       0x90 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .debug_rnglists
-                0x000010f5      0x185 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+                0x000010e7      0x185 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
  .debug_rnglists
-                0x0000127a       0xe5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+                0x0000126c       0xe5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
  .debug_rnglists
-                0x0000135f      0x13c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
+                0x00001351      0x13c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
  .debug_rnglists
-                0x0000149b       0x66 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+                0x0000148d       0x66 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
  .debug_rnglists
-                0x00001501       0x19 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
+                0x000014f3       0x19 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
  .debug_rnglists
-                0x0000151a      0x21f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+                0x0000150c      0x21f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
  .debug_rnglists
-                0x00001739      0x204 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+                0x0000172b      0x204 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
  .debug_rnglists
-                0x0000193d       0x84 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000192f       0x84 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
 
 .debug_macro    0x00000000    0x38ad1
  .debug_macro   0x00000000      0x106 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
@@ -5893,7 +5893,7 @@ LOAD linker stubs
  .debug_macro   0x000385ef      0x27d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
  .debug_macro   0x0003886c      0x265 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
 
-.debug_line     0x00000000    0x2283e
+.debug_line     0x00000000    0x22850
  .debug_line    0x00000000     0x139d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_line    0x0000139d      0xd1a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_telemetry.o
  .debug_line    0x000020b7      0xef1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
@@ -5902,39 +5902,39 @@ LOAD linker stubs
  .debug_line    0x00003ef0      0xe2e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
  .debug_line    0x00004d1e      0x3ca /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_audio_meter.o
  .debug_line    0x000050e8      0x66b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_input_guard.o
- .debug_line    0x00005753      0xa5e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
- .debug_line    0x000061b1      0x5a1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
- .debug_line    0x00006752      0x4c1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
- .debug_line    0x00006c13     0x3f97 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
- .debug_line    0x0000abaa      0xeaf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
- .debug_line    0x0000ba59      0xcf2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
- .debug_line    0x0000c74b     0x1763 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .debug_line    0x0000deae      0x3b7 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
- .debug_line    0x0000e265       0x7d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
- .debug_line    0x0000e2e2      0xc91 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
- .debug_line    0x0000ef73      0xb9e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
- .debug_line    0x0000fb11      0x8bf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
- .debug_line    0x000103d0      0xe43 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
- .debug_line    0x00011213     0x1839 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
- .debug_line    0x00012a4c     0x1ef4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
- .debug_line    0x00014940      0xc38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
- .debug_line    0x00015578     0x21e6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
- .debug_line    0x0001775e     0x22bd /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
- .debug_line    0x00019a1b      0xd68 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
- .debug_line    0x0001a783     0x102d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
- .debug_line    0x0001b7b0      0xf9f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
- .debug_line    0x0001c74f      0x7d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
- .debug_line    0x0001cf1f     0x2701 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
- .debug_line    0x0001f620     0x24ae /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
- .debug_line    0x00021ace      0x11e /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
- .debug_line    0x00021bec      0x1b6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
- .debug_line    0x00021da2      0x1f1 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
- .debug_line    0x00021f93       0xb9 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
- .debug_line    0x0002204c      0x17a /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
- .debug_line    0x000221c6       0x6c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
- .debug_line    0x00022232       0x4e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x00022280      0x574 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_line    0x000227f4       0x4a /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x00005753      0xa7b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product.o
+ .debug_line    0x000061ce      0x5a1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_f32.o
+ .debug_line    0x0000676f      0x4c1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/arm_biquad_cascade_df1_init_f32.o
+ .debug_line    0x00006c30     0x3f8c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main.o
+ .debug_line    0x0000abbc      0xeaf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/fault_store.o
+ .debug_line    0x0000ba6b      0xcf2 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+ .debug_line    0x0000c75d     0x1763 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .debug_line    0x0000dec0      0x3b7 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/syscalls.o
+ .debug_line    0x0000e277       0x7d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
+ .debug_line    0x0000e2f4      0xc91 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+ .debug_line    0x0000ef85      0xb9e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/safety_inputs.o
+ .debug_line    0x0000fb23      0x8bf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+ .debug_line    0x000103e2      0xe43 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal.o
+ .debug_line    0x00011225     0x1839 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc.o
+ .debug_line    0x00012a5e     0x1ef4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_rcc_ex.o
+ .debug_line    0x00014952      0xc38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_gpio.o
+ .debug_line    0x0001558a     0x21e6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+ .debug_line    0x00017770     0x22bd /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_sai.o
+ .debug_line    0x00019a2d      0xd68 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_cortex.o
+ .debug_line    0x0001a795     0x102d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_pwr_ex.o
+ .debug_line    0x0001b7c2      0xf9f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_flash.o
+ .debug_line    0x0001c761      0x7d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
+ .debug_line    0x0001cf31     0x2701 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
+ .debug_line    0x0001f632     0x24ae /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
+ .debug_line    0x00021ae0      0x11e /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+ .debug_line    0x00021bfe      0x1b6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+ .debug_line    0x00021db4      0x1f1 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+ .debug_line    0x00021fa5       0xb9 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+ .debug_line    0x0002205e      0x17a /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+ .debug_line    0x000221d8       0x6c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
+ .debug_line    0x00022244       0x4e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x00022292      0x574 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00022806       0x4a /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_str      0x00000000   0x164f87
  .debug_str     0x00000000   0x164f87 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o

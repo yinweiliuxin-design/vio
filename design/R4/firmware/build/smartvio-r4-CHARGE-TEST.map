@@ -4265,7 +4265,7 @@ END GROUP
  .isr_vector    0x08000000      0x298 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/startup_stm32h743xx.o
                 0x08000000                g_pfnVectors
 
-.text           0x08000298     0xae54
+.text           0x08000298     0xae60
  *(.text*)
  .text.discard  0x08000298       0x12 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .text.sv_crc16
@@ -5015,163 +5015,164 @@ END GROUP
                 0x08008bf0                NMI_Handler
  *fill*         0x08008bf6        0x2 
  .text.startup.main
-                0x08008bf8     0x1814 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x08008bf8     0x1800 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
                 0x08008bf8                main
  .text.sv_route_outputs
-                0x0800a40c       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a40c                sv_route_outputs
+                0x0800a3f8       0x34 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a3f8                sv_route_outputs
  .text.sv_battery_init
-                0x0800a440        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a440                sv_battery_init
+                0x0800a42c        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a42c                sv_battery_init
  .text.sv_battery_mv
-                0x0800a448        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a448                sv_battery_mv
+                0x0800a434        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a434                sv_battery_mv
  .text.sv_battery_update
-                0x0800a450       0x86 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a450                sv_battery_update
+                0x0800a43c       0x86 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a43c                sv_battery_update
  .text.sv_charge_decide
-                0x0800a4d6       0x74 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a4d6                sv_charge_decide
+                0x0800a4c2       0x74 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a4c2                sv_charge_decide
  .text.sv_recover_delay
-                0x0800a54a       0x22 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a54a                sv_recover_delay
+                0x0800a536       0x22 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a536                sv_recover_delay
  .text.sv_hp_auto_route
-                0x0800a56c       0x16 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a56c                sv_hp_auto_route
+                0x0800a558       0x16 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a558                sv_hp_auto_route
  .text.sv_bt_learn_peer
-                0x0800a582       0x36 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a582                sv_bt_learn_peer
+                0x0800a56e       0x36 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a56e                sv_bt_learn_peer
  .text.sv_bt_key
-                0x0800a5b8       0x3e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a5b8                sv_bt_key
+                0x0800a5a4       0x5c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a5a4                sv_bt_key
  .text.sv_bt_led_state
-                0x0800a5f6       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a5f6                sv_bt_led_state
+                0x0800a600       0x2c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a600                sv_bt_led_state
  .text.sv_led_pattern
-                0x0800a622       0xd4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a622                sv_led_pattern
+                0x0800a62c       0xd4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a62c                sv_led_pattern
  .text.sv_power_kill
-                0x0800a6f6       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a6f6                sv_power_kill
+                0x0800a700       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a700                sv_power_kill
  .text.sv_power_standby_wake
-                0x0800a71e        0xe /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a71e                sv_power_standby_wake
+                0x0800a728        0xe /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a728                sv_power_standby_wake
  .text.sv_power_pb_wake
-                0x0800a72c       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
-                0x0800a72c                sv_power_pb_wake
- .text          0x0800a764       0x50 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
-                0x0800a764                __libc_init_array
- .text          0x0800a7b4       0xa4 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
-                0x0800a7b4                memset
- .text          0x0800a858      0x100 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
-                0x0800a858                memmove
- .text          0x0800a958      0x134 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
-                0x0800a958                memcpy
- .text          0x0800aa8c       0x5c /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
-                0x0800aa8c                memcmp
- .text          0x0800aae8       0xa0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
-                0x0800aae8                __aeabi_ldivmod
- .text          0x0800ab88       0x30 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
-                0x0800ab88                __aeabi_uldivmod
- .text          0x0800abb8      0x2bc /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
-                0x0800abb8                __udivmoddi4
- .text          0x0800ae74        0x4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
-                0x0800ae74                __aeabi_ldiv0
-                0x0800ae74                __aeabi_idiv0
+                0x0800a736       0x38 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0800a736                sv_power_pb_wake
+ *fill*         0x0800a76e        0x2 
+ .text          0x0800a770       0x50 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+                0x0800a770                __libc_init_array
+ .text          0x0800a7c0       0xa4 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+                0x0800a7c0                memset
+ .text          0x0800a864      0x100 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+                0x0800a864                memmove
+ .text          0x0800a964      0x134 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+                0x0800a964                memcpy
+ .text          0x0800aa98       0x5c /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+                0x0800aa98                memcmp
+ .text          0x0800aaf4       0xa0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
+                0x0800aaf4                __aeabi_ldivmod
+ .text          0x0800ab94       0x30 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+                0x0800ab94                __aeabi_uldivmod
+ .text          0x0800abc4      0x2bc /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x0800abc4                __udivmoddi4
+ .text          0x0800ae80        0x4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+                0x0800ae80                __aeabi_ldiv0
+                0x0800ae80                __aeabi_idiv0
  *(.rodata*)
  .rodata.sine.0
-                0x0800ae78       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
+                0x0800ae84       0x60 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
  .rodata.grants.1
-                0x0800aed8        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
+                0x0800aee4        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
  .rodata.ports.2
-                0x0800aedd        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
+                0x0800aee9        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
  .rodata.sv_pcm_tick.str1.1
-                0x0800aee2       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+                0x0800aeee       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
                                   0x6 (size before relaxing)
  .rodata.value.3
-                0x0800aef2        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+                0x0800aefe        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
  .rodata.mask.4
-                0x0800aef7        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
- .rodata.r.5    0x0800aefc        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
- .rodata.cfg    0x0800af01       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
- *fill*         0x0800af31        0x3 
- .rodata.coeff  0x0800af34       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_speaker.o
+                0x0800af03        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+ .rodata.r.5    0x0800af08        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+ .rodata.cfg    0x0800af0d       0x30 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_pcm1864.o
+ *fill*         0x0800af3d        0x3 
+ .rodata.coeff  0x0800af40       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_speaker.o
  .rodata.coeff.0
-                0x0800af48       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
+                0x0800af54       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
  .rodata.periods.1
-                0x0800af5c        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
- .rodata        0x0800af68       0x18 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
+                0x0800af68        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_ui.o
+ .rodata        0x0800af74       0x18 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/i2c_probe.o
  .rodata.modes.0
-                0x0800af80        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .rodata        0x0800af84        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
- .rodata        0x0800af90       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
+                0x0800af8c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .rodata        0x0800af90        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/audio_hw.o
+ .rodata        0x0800af9c       0x28 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/pot_adc.o
  .rodata.D1CorePrescTable
-                0x0800afb8       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
-                0x0800afb8                D1CorePrescTable
+                0x0800afc4       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/system_stm32h7xx.o
+                0x0800afc4                D1CorePrescTable
  .rodata.flagBitshiftOffset.0
-                0x0800afc8        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
+                0x0800afd4        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_dma.o
  .rodata.main.str1.1
-                0x0800afd0        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x0800afdc        0xa /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .rodata.values.0
-                0x0800afd0        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x0800afdc        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .rodata.masks.1
-                0x0800afd5        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x0800afe1        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .rodata.regs.2
-                0x0800afda        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- *fill*         0x0800afdf        0x1 
- .rodata        0x0800afe0      0x10c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x0800afe6        0x5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ *fill*         0x0800afeb        0x1 
+ .rodata        0x0800afec      0x10c /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  *(.init)
  *(.fini)
-                0x0800b0ec                        . = ALIGN (0x4)
+                0x0800b0f8                        . = ALIGN (0x4)
 
-.glue_7         0x0800b0ec        0x0
- .glue_7        0x0800b0ec        0x0 linker stubs
+.glue_7         0x0800b0f8        0x0
+ .glue_7        0x0800b0f8        0x0 linker stubs
 
-.glue_7t        0x0800b0ec        0x0
- .glue_7t       0x0800b0ec        0x0 linker stubs
+.glue_7t        0x0800b0f8        0x0
+ .glue_7t       0x0800b0f8        0x0 linker stubs
 
-.vfp11_veneer   0x0800b0ec        0x0
- .vfp11_veneer  0x0800b0ec        0x0 linker stubs
+.vfp11_veneer   0x0800b0f8        0x0
+ .vfp11_veneer  0x0800b0f8        0x0 linker stubs
 
-.v4_bx          0x0800b0ec        0x0
- .v4_bx         0x0800b0ec        0x0 linker stubs
+.v4_bx          0x0800b0f8        0x0
+ .v4_bx         0x0800b0f8        0x0 linker stubs
 
-.iplt           0x0800b0ec        0x0
- .iplt          0x0800b0ec        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
+.iplt           0x0800b0f8        0x0
+ .iplt          0x0800b0f8        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
 
 .ARM.extab
  *(.ARM.extab*)
 
-.ARM.exidx      0x0800b0ec        0x8
-                0x0800b0ec                        __exidx_start = .
+.ARM.exidx      0x0800b0f8        0x8
+                0x0800b0f8                        __exidx_start = .
  *(.ARM.exidx*)
- .ARM.exidx     0x0800b0ec        0x8 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
- .ARM.exidx     0x0800b0f4        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .ARM.exidx     0x0800b0f8        0x8 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+ .ARM.exidx     0x0800b100        0x0 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
                                   0x8 (size before relaxing)
-                0x0800b0f4                        __exidx_end = .
+                0x0800b100                        __exidx_end = .
 
-.rel.dyn        0x0800b0f4        0x0
- .rel.iplt      0x0800b0f4        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
+.rel.dyn        0x0800b100        0x0
+ .rel.iplt      0x0800b100        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
 
-.preinit_array  0x0800b0f4        0x0
-                0x0800b0f4                        PROVIDE (__preinit_array_start = .)
+.preinit_array  0x0800b100        0x0
+                0x0800b100                        PROVIDE (__preinit_array_start = .)
  *(.preinit_array*)
-                0x0800b0f4                        PROVIDE (__preinit_array_end = .)
+                0x0800b100                        PROVIDE (__preinit_array_end = .)
 
-.init_array     0x0800b0f4        0x0
-                0x0800b0f4                        PROVIDE (__init_array_start = .)
+.init_array     0x0800b100        0x0
+                0x0800b100                        PROVIDE (__init_array_start = .)
  *(SORT_BY_NAME(.init_array.*))
  *(.init_array)
-                0x0800b0f4                        PROVIDE (__init_array_end = .)
+                0x0800b100                        PROVIDE (__init_array_end = .)
 
-.fini_array     0x0800b0f4        0x0
+.fini_array     0x0800b100        0x0
                 [!provide]                        PROVIDE (__fini_array_start = .)
  *(SORT_BY_NAME(.fini_array.*))
  *(.fini_array)
                 [!provide]                        PROVIDE (__fini_array_end = .)
-                0x0800b0f4                        _sidata = LOADADDR (.data)
+                0x0800b100                        _sidata = LOADADDR (.data)
 
-.data           0x20000000       0x10 load address 0x0800b0f4
+.data           0x20000000       0x10 load address 0x0800b100
                 0x20000000                        . = ALIGN (0x4)
                 0x20000000                        _sdata = .
  *(.data*)
@@ -5191,10 +5192,10 @@ END GROUP
                 0x20000010                        . = ALIGN (0x4)
                 0x20000010                        _edata = .
 
-.igot.plt       0x20000010        0x0 load address 0x0800b104
+.igot.plt       0x20000010        0x0 load address 0x0800b110
  .igot.plt      0x20000010        0x0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
 
-.bss            0x20000010     0x1404 load address 0x0800b104
+.bss            0x20000010     0x1408 load address 0x0800b110
                 0x20000010                        . = ALIGN (0x4)
                 0x20000010                        _sbss = .
  *(.bss*)
@@ -5311,43 +5312,43 @@ END GROUP
  .bss.rx_tail   0x20001160        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .bss.rx_head   0x20001164        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .bss.rx_ring   0x20001168      0x200 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.btui      0x20001368       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.btui      0x20001368       0x18 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .bss.user_port
-                0x2000137c        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.hp_was    0x2000137d        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- *fill*         0x2000137e        0x2 
+                0x20001380        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.hp_was    0x20001381        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ *fill*         0x20001382        0x2 
  .bss.recovered_at
-                0x20001380        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.recover_at
                 0x20001384        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.recover_at
+                0x20001388        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .bss.recover_pending
-                0x20001388        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- *fill*         0x20001389        0x3 
+                0x2000138c        0x1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ *fill*         0x2000138d        0x3 
  .bss.vbus_seen_at
-                0x2000138c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.ui_events_seen
                 0x20001390        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.show_until
+ .bss.ui_events_seen
                 0x20001394        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.logged_faults
+ .bss.show_until
                 0x20001398        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.recover_count
+ .bss.logged_faults
                 0x2000139c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.pwr       0x200013a0        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.battery   0x200013ac       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.recover_count
+                0x200013a0        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.pwr       0x200013a4        0xc /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.battery   0x200013b0       0x14 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .bss.sv_charge_diag
-                0x200013c0       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
-                0x200013c0                sv_charge_diag
+                0x200013c4       0x40 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x200013c4                sv_charge_diag
  .bss.charge_out
-                0x20001400        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.charge    0x20001404        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x20001404        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.charge    0x20001408        0x8 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .bss.charge_gate_tick
-                0x2000140c        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .bss.milliseconds
                 0x20001410        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .bss.milliseconds
+                0x20001414        0x4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  *(COMMON)
-                0x20001414                        . = ALIGN (0x4)
-                0x20001414                        _ebss = .
+                0x20001418                        . = ALIGN (0x4)
+                0x20001418                        _ebss = .
 
 .dma            0x30000000     0x1020
                 0x30000000                        . = ALIGN (0x20)
@@ -5357,9 +5358,8 @@ END GROUP
                 0x30001020                        . = ALIGN (0x20)
  *fill*         0x3000100c       0x14 
 
-.stack_reserve  0x20001414     0x2004
+.stack_reserve  0x20001418     0x2000
                 0x20001418                        . = ALIGN (0x8)
- *fill*         0x20001414        0x4 
                 0x20001418                        _end = .
                 0x20003418                        . = (. + 0x2000)
  *fill*         0x20001418     0x2000 
@@ -5456,7 +5456,7 @@ LOAD linker stubs
  .ARM.attributes
                 0x00000787       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
-.debug_info     0x00000000    0x259b2
+.debug_info     0x00000000    0x259d5
  .debug_info    0x00000000     0x163a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_info    0x0000163a     0x14d4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_telemetry.o
  .debug_info    0x00002b0e      0xdf4 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
@@ -5487,17 +5487,17 @@ LOAD linker stubs
  .debug_info    0x000182f5      0x221 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
  .debug_info    0x00018516     0x2b44 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
  .debug_info    0x0001b05a     0x2d46 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
- .debug_info    0x0001dda0     0x64cf /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .debug_info    0x0002426f      0xae3 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
- .debug_info    0x00024d52      0x10b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
- .debug_info    0x00024e5d      0x135 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
- .debug_info    0x00024f92      0x148 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
- .debug_info    0x000250da       0x33 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
- .debug_info    0x0002510d      0x12b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
- .debug_info    0x00025238       0x25 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
- .debug_info    0x0002525d       0x24 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_info    0x00025281      0x6f5 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_info    0x00025976       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_info    0x0001dda0     0x64e0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .debug_info    0x00024280      0xaf5 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+ .debug_info    0x00024d75      0x10b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+ .debug_info    0x00024e80      0x135 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+ .debug_info    0x00024fb5      0x148 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+ .debug_info    0x000250fd       0x33 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+ .debug_info    0x00025130      0x12b /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+ .debug_info    0x0002525b       0x25 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
+ .debug_info    0x00025280       0x24 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_info    0x000252a4      0x6f5 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_info    0x00025999       0x3c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_abbrev   0x00000000     0x5e28
  .debug_abbrev  0x00000000      0x343 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
@@ -5543,7 +5543,7 @@ LOAD linker stubs
  .debug_abbrev  0x00005e02       0x26 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_loclists
-                0x00000000     0xca9c
+                0x00000000     0xcaed
  .debug_loclists
                 0x00000000      0xb39 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_loclists
@@ -5603,19 +5603,19 @@ LOAD linker stubs
  .debug_loclists
                 0x00008d2d     0x14b6 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
  .debug_loclists
-                0x0000a1e3     0x1280 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x0000a1e3     0x1277 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .debug_loclists
-                0x0000b463      0x725 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0000b45a      0x77f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
  .debug_loclists
-                0x0000bb88       0x65 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+                0x0000bbd9       0x65 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
  .debug_loclists
-                0x0000bbed      0x1c2 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+                0x0000bc3e      0x1c2 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
  .debug_loclists
-                0x0000bdaf      0x233 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+                0x0000be00      0x233 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
  .debug_loclists
-                0x0000bfe2       0xd6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+                0x0000c033       0xd6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
  .debug_loclists
-                0x0000c0b8      0x9e4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000c109      0x9e4 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
 
 .debug_aranges  0x00000000     0x1348
  .debug_aranges
@@ -5702,7 +5702,7 @@ LOAD linker stubs
                 0x00001328       0x20 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_rnglists
-                0x00000000     0x19c1
+                0x00000000     0x19b3
  .debug_rnglists
                 0x00000000      0x15f /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_rnglists
@@ -5764,11 +5764,11 @@ LOAD linker stubs
  .debug_rnglists
                 0x000012da      0x204 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
  .debug_rnglists
-                0x000014de      0x3ae /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+                0x000014de      0x3a0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .debug_rnglists
-                0x0000188c       0xb1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+                0x0000187e       0xb1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
  .debug_rnglists
-                0x0000193d       0x84 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+                0x0000192f       0x84 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
 
 .debug_macro    0x00000000    0x395be
  .debug_macro   0x00000000      0x106 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
@@ -5891,7 +5891,7 @@ LOAD linker stubs
  .debug_macro   0x00039498       0x10 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
  .debug_macro   0x000394a8      0x116 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
 
-.debug_line     0x00000000    0x2283b
+.debug_line     0x00000000    0x2284d
  .debug_line    0x00000000     0x139d /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o
  .debug_line    0x0000139d      0xd1a /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_telemetry.o
  .debug_line    0x000020b7      0xef1 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_factory.o
@@ -5922,17 +5922,17 @@ LOAD linker stubs
  .debug_line    0x00017d5a      0x7d0 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_iwdg.o
  .debug_line    0x0001852a     0x2701 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc.o
  .debug_line    0x0001ac2b     0x24ae /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/stm32h7xx_hal_adc_ex.o
- .debug_line    0x0001d0d9     0x3f94 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
- .debug_line    0x0002106d      0xa5e /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
- .debug_line    0x00021acb      0x11e /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
- .debug_line    0x00021be9      0x1b6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
- .debug_line    0x00021d9f      0x1f1 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
- .debug_line    0x00021f90       0xb9 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
- .debug_line    0x00022049      0x17a /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
- .debug_line    0x000221c3       0x6c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
- .debug_line    0x0002222f       0x4e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
- .debug_line    0x0002227d      0x574 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
- .debug_line    0x000227f1       0x4a /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
+ .debug_line    0x0001d0d9     0x3f89 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/main-charge.o
+ .debug_line    0x00021062      0xa7b /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_product-charge.o
+ .debug_line    0x00021add      0x11e /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-init.o)
+ .debug_line    0x00021bfb      0x1b6 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memset.o)
+ .debug_line    0x00021db1      0x1f1 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memmove.o)
+ .debug_line    0x00021fa2       0xb9 /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcpy.o)
+ .debug_line    0x0002205b      0x17a /usr/lib/gcc/arm-none-eabi/13.2.1/../../../arm-none-eabi/lib/thumb/v7e-m+dp/hard/libc_nano.a(libc_a-memcmp.o)
+ .debug_line    0x000221d5       0x6c /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_ldivmod.o)
+ .debug_line    0x00022241       0x4e /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_aeabi_uldivmod.o)
+ .debug_line    0x0002228f      0x574 /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_udivmoddi4.o)
+ .debug_line    0x00022803       0x4a /usr/lib/gcc/arm-none-eabi/13.2.1/thumb/v7e-m+dp/hard/libgcc.a(_dvmd_tls.o)
 
 .debug_str      0x00000000   0x164f87
  .debug_str     0x00000000   0x164f87 /tmp/claude-0/-home-user-vio/3feb98dd-4d20-5b5c-81b5-59ee6194072c/scratchpad/work/firmware_r4/build-linux/obj/sv_control.o

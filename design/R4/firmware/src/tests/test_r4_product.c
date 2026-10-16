@@ -167,18 +167,19 @@ int main(void){
      for(unsigned n=0;n<100;n++)any|=sv_factory_buttons(&b,8,t++);for(unsigned n=0;n<100;n++)any|=sv_factory_buttons(&b,0,t++);
      C(!any);} /* bench (non-product) keeps the R3 rule */
     {sv_bt_ui b={0};const uint8_t zero[6]={0},ff[6]={255,255,255,255,255,255},peer[6]={0x11,0x22,0x33,0x44,0x55,0x66};
-     C(sv_bt_key(&b,2,SV_SPK,0)==SV_SPK && !b.pending);            /* long press without a known peer: no change */
-     C(sv_bt_key(&b,1,SV_HP,0)==SV_BT && b.prev_port==SV_HP && !b.pending); /* BT on, nothing to (re)connect */
+     C(sv_bt_key(&b,2,SV_SPK,0)==SV_BT && b.pending && !memcmp(b.req,ff,6)); /* long press: search for a new headset */
+     b.pending=false;C(sv_bt_key(&b,1,SV_BT,1)==SV_SPK);
+     C(sv_bt_key(&b,1,SV_HP,0)==SV_BT && b.prev_port==SV_HP && b.pending && !memcmp(b.req,zero,6)); /* BT on, no peer: ESP stored/search */
      C(sv_bt_key(&b,1,SV_BT,5)==SV_HP);                              /* BT off: previous route back */
      sv_bt_learn_peer(&b,zero);sv_bt_learn_peer(&b,ff);C(!b.have_peer);
      sv_bt_learn_peer(&b,peer);C(b.have_peer && !memcmp(b.peer,peer,6));
-     C(sv_bt_key(&b,2,SV_LINE,100)==SV_BT && b.pending && b.pending_at==100 && b.prev_port==SV_LINE);
+     C(sv_bt_key(&b,2,SV_LINE,100)==SV_BT && b.pending && b.pending_at==100 && b.prev_port==SV_LINE && !memcmp(b.req,ff,6));
      C(sv_bt_led_state(&b,true,false,200)==SV_BT_LED_BLINK);C(sv_bt_led_state(&b,true,true,200)==SV_BT_LED_ON);
      C(sv_bt_led_state(&b,false,true,200)==SV_BT_LED_OFF);
      b.pending=false;b.window=true;b.window_at=300;C(sv_bt_led_state(&b,true,false,300+SV_BT_WINDOW_MS-1)==SV_BT_LED_BLINK);
      C(sv_bt_led_state(&b,true,false,300+SV_BT_WINDOW_MS)==SV_BT_LED_OFF);
      C(sv_bt_key(&b,1,SV_BT,400)==SV_LINE && !b.pending && !b.window);
-     C(sv_bt_key(&b,1,0,500)==SV_BT && b.pending);C(sv_bt_key(&b,1,SV_BT,600)==SV_SPK); /* from "off": back to SPK */
+     C(sv_bt_key(&b,1,0,500)==SV_BT && b.pending && !memcmp(b.req,peer,6));C(sv_bt_key(&b,1,SV_BT,600)==SV_SPK); /* from "off": back to SPK */
      sv_led_in l={.pack_mv=4000,.bt=SV_BT_LED_ON};C(sv_led_pattern(&l,10000)==2);
      l.bt=SV_BT_LED_BLINK;C(sv_led_pattern(&l,10000)==0 && sv_led_pattern(&l,10500)==2);
      l.show_until=20000;C(sv_led_pattern(&l,10000)==5 && sv_led_pattern(&l,10500)==7);}

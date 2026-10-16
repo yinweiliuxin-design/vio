@@ -463,10 +463,11 @@ int main(void){
             if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
 #if SV_PRODUCT_MODE
             if(bt_action && factory.product){
-                /* R4 product BT key: short = BT route on/off, long (>=2 s) = pairing window for the known peer. */
+                /* R4 product BT key: short = BT route on/off (reconnect), long (>=2 s) = pair a new headset (0x36 6xFF). */
                 uint8_t port=sv_bt_key(&btui,bt_action,factory.port,now);
                 if(port==SV_SPK && sv_safety_hp_inserted())port=SV_HP;
-                factory.port=port;sv_ui_diag.bt_result=(bt_action==2 && !btui.have_peer)?SV_NOT_READY:SV_OK;
+                factory.port=port;sv_ui_diag.bt_result=SV_OK;
+                if(btui.pending)selected_peer=false; /* a new 0x36 request supersedes the accepted peer (pair while connected) */
             }else
 #endif
             if(bt_action){
@@ -555,7 +556,7 @@ int main(void){
                 if(factory.port!=SV_BT || selected_peer || now-btui.pending_at>=SV_BT_SEND_TIMEOUT_MS)btui.pending=false;
                 else if(uart_on && sv_rf_handshake_ready(&rf,now) && !tx_count && !sv_rf_reply_diag.pending){
                     sv_frame f={.type=0x36,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id,.length=6};
-                    memcpy(f.payload,btui.peer,6);
+                    memcpy(f.payload,btui.req,6);
                     if(command(&f,now)==SV_OK){btui.window=true;btui.window_at=now;}
                 }
             }

@@ -430,3 +430,166 @@ PACK 由 ADS1115 AIN1 测量（MON_BAT：R1705/R1706 分压 → U1702 TMUX → U
 
 - 主机测试：`test_r4_product`（默认，断言 allow 恒为 0）与 `test_r4_product_charge_release`（`-DSV_R4_CHARGE_RELEASE=1`，断言逻辑正确）都通过；全部主机测试和 R3 板配置变体照常通过。
 - 量产镜像在 CHARGE 阶段通过后再把默认改为 1。
+
+## ESP32 R4（2026-10-16）
+
+**硬件实测：0 项。** 本节结论来自 ESP-IDF v5.4.3 交叉编译、二进制比对和主机测试。本节取代上文第 3 节“ESP32 镜像”一行，以及 FW-REPRO-STALE 中“sdkconfig 未补齐”的说明。
+
+| 路径 | 内容 |
+|---|---|
+| `esp32/` | 完整 ESP-IDF 工程：`CMakeLists.txt`、`main/`（改动：`smartvio_rf.c`；新增：`sv_pair.h`；`r2shared/` 与 R4 工作副本一致，含解析器白名单修复）、`sdkconfig.defaults`（逐项注释）、`tests/test_pair.c`、`build_esp32_r4.sh` |
+| `build/esp32/` | `bootloader.bin`、`partition-table.bin`、`smartvio_rf_diag.bin`、`smartvio_rf_diag.elf.xz` / `.map.xz`（压缩后共 4.2 MB）、`flash_args`、`sdkconfig`（解析后的完整配置）、`size.txt`、`SHA256SUMS`、`esp-build.log` |
+
+分区表沿用 IDF 自带的 `partitions_singleapp_large.csv`，不需要自定义 csv。
+
+### E1. sdkconfig 重建（docs-esp-sdkconfig-missing）
+
+`sdkconfig.defaults` 只写与 IDF 默认值不同的项，其余全部取 v5.4.3 默认值。每一项都有代码或 R3 产物作为依据：
+
+| 选项 | 依据 |
+|---|---|
+| `IDF_TARGET="esp32"` | ESP32-MINI-1U（ESP32-U4WDH）；R3 构建日志写明从 sdkconfig 推断出 esp32 |
+| `ESPTOOLPY_FLASHSIZE_4MB` | 模组内置 4 MB flash；R3 `flash_args` 为 dio / 40m / 4MB，其中 dio 和 40m 是默认值 |
+| `PARTITION_TABLE_SINGLE_APP_LARGE` | R3 日志中的分区表为 nvs 0x9000 24K、phy 0xf000 4K、factory 0x10000 1500K；生成的 `partition-table.bin` 与 R3 **逐字节相同** |
+| `BT_ENABLED`、`BT_BLUEDROID_ENABLED`、`BTDM_CTRL_MODE_BTDM` | 代码调用 `esp_bt_controller_enable(ESP_BT_MODE_BTDM)`：Classic 和 BLE 双模 |
+| `BT_CLASSIC_ENABLED`、`BT_A2DP_ENABLE` | `esp_a2d_source_*`，以及 `esp_bt_gap_*`（SSP、R4 的 inquiry） |
+| `BT_BLE_ENABLED`、`BT_GATTS_ENABLE` | BLE 广播、SMP 和 GATT 状态服务 |
+| `BT_GATTC_ENABLE=n` | 代码不用 GATT 客户端；R3 map 里也没有 `bta_gattc_*` / `gatt_cl` 目标文件 |
+| `FREERTOS_UNICORE` | R3 ELF 中没有 `esp_ipc*` 目标文件，说明是单核构建。单核配置在 U4WDH 的单核和双核两种版本上都能运行 |
+| `FREERTOS_HZ=1000` | `ticks_ms(5)` 的本意是 5 ms 主循环（100 Hz 时会变成 10 ms）。`osi_mutex_lock`、`osi_sem_take`、`esp_log_timestamp` 等函数的大小只有在 1000 Hz 时才与 R3 一致 |
+| `APP_REPRODUCIBLE_BUILD`（仅 R4） | 去掉镜像描述里的日期和时间，并使调试信息与路径无关。同样的源码加同样的配置，在任何机器上得到同一个哈希 |
+
+另有几项保持默认，只在注释中说明：
+- 协议 UART：UART2，TX = GPIO33，RX = GPIO32，115200 8N1，在运行时由代码配置。console 仍在 UART0。
+- I2S0 从模式：BCLK 26、WS 25、DIN 22。
+- 日志级别：INFO（应用和 bootloader）。
+- 任务看门狗：5 s（`esp_task_wdt_add` 依赖它）。
+- 编译优化：-Og。
+
+### E2. R3 复现（原包副本，未改动）
+
+命令：`./build_esp32_r4.sh --r3 <R3 esp32> <R3 artifacts/esp32>`。只用前 10 项配置（不含 R4 专用项）。工具链与 R3 相同：v5.4.3，xtensa esp-14.2.0_20250730。
+
+| 文件 | R3 产物 | 本机重建 | 结论 |
+|---|---|---|---|
+| partition-table.bin | 3072 B，sha256 `5295e8c4…` | 3072 B，`5295e8c4…` | **逐字节相同** |
+| bootloader.bin | 25632 B，`cfe110cb…` | 25632 B | 47 字节不同 |
+| smartvio_rf_diag.bin | 951168 B（0xe8380），`33af1ec0…` | 951168 B | 79 字节不同 |
+
+- bootloader 的不同字节全部在描述字段里：IDF 版本串（R3 为 `v5.4.3-dirty`，即对方的 IDF 目录有本地改动或换行符差异；本机为 `v5.4.3`）和编译日期时间。另外还有镜像校验字节和末尾的 SHA-256。
+- 应用镜像的不同字节同样只在这几处：app 描述中的编译时间、日期、IDF 版本串、内嵌的 ELF SHA-256，以及校验字节和末尾的 SHA-256。
+- 把这些元数据屏蔽后，三个文件的代码和数据**完全相同**。所有可加载段的大小、全部符号的大小也与 R3 ELF 一致。
+- 不同的只有调试段（`.debug_line` / `.debug_str`），原因是 Windows 与 Linux 的路径长度不同。
+
+**结论：重建出的 sdkconfig 在功能上等同于 R3 当时使用的配置，R3 ESP32 构建可以复现。** 哈希不同的原因只有时间戳、`-dirty` 和路径，不涉及代码。
+
+### E3. R4 构建
+
+先把 R4 工作副本原样编译（只含解析器白名单修复）：0 个错误，0 个警告，应用 0xe8400。然后加入下文 E4 的改动，用 `build_esp32_r4.sh` 构建，结果仍然是 0 个错误、0 个警告。
+
+```
+   text    data     bss     dec     hex filename
+ 775880  177968   55689 1009537   f6781 smartvio_rf_diag.elf
+bootloader.bin       25584 B (0x63f0, 11% free)     sha256 9fe22a0b…
+partition-table.bin   3072 B (与 R3 相同)            sha256 5295e8c4…
+smartvio_rf_diag.bin 953968 B (0xe8e70, 1500K 分区余 38%) sha256 d45ae234…
+```
+
+- 构建了两次，`SHA256SUMS` 完全相同，可复现性已经验证。
+- 应用比 R3 大 2.8 KB。
+
+烧录：在 `build/esp32/` 目录下执行 `python -m esptool --chip esp32 -b 460800 write_flash @flash_args`。`flash_args` 的内容：
+
+| 偏移 | 文件 |
+|---|---|
+| 0x1000 | bootloader.bin |
+| 0x8000 | partition-table.bin |
+| 0x10000 | smartvio_rf_diag.bin |
+
+参数为 dio、40m、4MB。
+
+注意：首次使用请先整片擦除，或者至少擦除 NVS（0x9000，24K）。
+
+### E4. 改动（`esp32/main/smartvio_rf.c`，新增 `esp32/main/sv_pair.h`）
+
+**首次配对新耳机（CHANGES 第 3 节的待办）。** 沿用现有的 0x36 → 0x40，不增加帧类型，MCU 协议不变。0x40 的地址字段决定行为：
+
+| 0x40 地址 | 行为 |
+|---|---|
+| 6×00，或长度为 0 | 自动：先连 NVS 里存的耳机（2 次），不成功再 inquiry |
+| 6×FF | 配新耳机：跳过已存的耳机，立即 inquiry |
+| 其他地址 | 与 R3 相同 |
+
+R3 中全 0 和全 FF 会返回 SV_RANGE。
+
+流程（全部在 0x40 开始的**同一个 60 s 窗口**内完成）：
+1. 有已存的耳机时，先按原来的 `sv_retry` 寻呼它（每次 5 s）。2 次都失败后转入 inquiry。
+2. General inquiry 每次 10.24 s。在 GAP 回调里直接按 CoD 过滤 A2DP sink：
+   - 主类必须是 Audio/Video；
+   - 次类为头戴式耳机、免提、音箱、耳机、便携音频、车载或 HiFi 之一；或者次类未分类，但带 Rendering/Audio 服务位。
+   - 只保留 RSSI 最强的一个；RSSI 相同时保留先发现的；没有 RSSI 的结果只在一个候选都没有时才采用。
+   - 过滤在回调里加锁完成，不经过事件队列，所以周围设备再多也不会溢出队列（溢出会锁存 faults）。
+3. inquiry 结束（STOPPED 事件；13 s 内没收到就按超时处理）后：
+   - 有候选：打开窗口并连接。`opened_at` 仍然取 0x40 的时刻，保证总时长 60 s。
+   - 没有候选：剩余时间 ≥20 s 就再做一次 inquiry，否则结束。
+   - 已选候选连续 2 次失败，并且时间还够：重新 inquiry。
+4. 窗口到期、0x21、UART 错误、MCU 2 s 无报文：都走 `quiesce()`，同时取消 inquiry。0x42 也会取消配对和 inquiry。
+5. 配对方式：SSP Just Works，与原来相同，只在窗口内并且只对选中的对端确认。新增：老式 PIN 耳机（BT 2.1 之前）在窗口内对选中的对端自动回 `0000`；要求 16 位 PIN 的仍然拒绝。
+6. 只要 A2DP 已连接并且认证成功（AUTH_CMPL 成功，表示已绑定），就把对端地址写入 NVS：命名空间 `sv_rf`，键 `peer`，6 字节。
+   - 只在地址变化时写，避免磨损 flash。
+   - 链路密钥仍由 Bluedroid 自己保存在 NVS 中。
+   - 开机时 init 任务读出这个地址。之后 BT 短按（MCU 发全 0 的 0x40）就会直接重连。
+7. 状态字节**没有改**，也不能改：MCU 的 `sv_rf_reply_accept` 要求 payload[1]==1，payload[2..8] 必须是 0 或 1，否则整帧拒收。所以不把配对状态编进状态字节。配对过程的指示由 MCU 现有的 60 s 慢闪完成；连上后 status[3]（connected）和 status[5]（encrypted）点亮常亮。
+
+**ESP 首次启动可能超过 MCU 1.5 s 回复超时（已处理）。**
+- R3 在第一个 0x40 里同步执行 `radio_stack_init()`，包括 NVS、控制器和 Bluedroid 初始化，之后才回复。
+- R4 在 UART 初始化完成后，立即用单独的任务 `sv_bt_init` 启动协议栈和 I2S。启动后仍然不可连接、不可发现，在得到授权前不广播。主循环照常处理 UART。
+- 初始化期间收到的 0x40 先暂存（只暂存 1 帧）。初始化完成后立刻处理并回复；1.2 s 内没有完成就回 SV_NOT_READY，MCU 的 8 s 重发逻辑会再发。这样回复时间一定小于 1.5 s。
+- 第二帧 0x40 直接回 NOT_READY。
+- ESP 只在 BT 路由打开时上电（PC5），所以开机就启动协议栈不会额外耗电。
+
+**R3 的流媒体 60 s 截断（新发现，已修复）。**
+- R3 主循环在 `sv_radio_window` 到期（0x40 后 60 s）时一律 `quiesce()`，A2DP 会被断开。R4 MCU 只发 0x41 保活，不会重新打开窗口，所以 BT 音频每次只能播 60 s。
+- R4 的处理：链路处于“已连接 + 已认证 + 已加密”，并且 MCU 会话有效（0x41 每 1 s 一次，2 s 超时）时，窗口顺延。60 s 窗口只限制配对和连接阶段，不限制已建立的播放。
+- 链路断开后，原有的 `sv_retry` 仍可在剩下的窗口时间内重连，最多 4 次。
+- MCU 只要停发保活或关掉 PC5，2 s 内就会断开。
+
+### E5. 主机测试
+
+- `esp32/tests/test_pair.c`（新增）：用 gcc `-Wall -Wextra -Werror` 编译，同时用 ASan/UBSan 跑了一遍，共 **16 777 603 个断言，全部通过**。测试内容：
+  - 地址类型判定；
+  - CoD 过滤：2²⁴ 个值全部与独立实现的参考解码对照，另加真实耳机和手机的 CoD；
+  - RSSI 择优；
+  - 过时 STOPPED 事件被忽略；
+  - 13 s inquiry 超时保护；
+  - 与真实 `sv_retry.h`、`sv_radio_core.c` 联合的时序仿真（寻呼 5.12 s 超时、inquiry 10.24 s），场景包括：已存耳机直接连上并持续 180 s 以上；已存耳机不在、新耳机被发现，用 3 次寻呼在约 22 s 内连上并更新 NVS；什么都没有时做 4 次 inquiry 后结束；FF 强制配新耳机；候选拒绝连接时 60 s 收尾；窗口从 0x40 开始计时；
+  - 以上全部在 32 位时间回绕下重跑一遍。
+- 做了 3 处变异检查（改尝试次数、CoD 次类、STOPPED 门控），测试都能发现。
+- 把 `test_pair.c` 放进 R4 工作副本的 `tests/` 后跑 `build_r4_linux.sh`，全部通过（rc=0）。包括 test_radio_core 16822819、test_retry、test_rf_reply、test_esp_pcm 14360，以及 r2shared 的语法检查。
+- `smartvio_rf.c` 本身依赖 Bluedroid，只做了目标机编译（0 个警告），**没有运行**。上面的仿真复刻的是 `pair_action()` / `process()` 的胶水逻辑，并不是该文件本身。
+
+### E6. MCU 侧配合（2026-10-16 已补，协议不变）
+
+已在 `sv_product.c:sv_bt_key()` 和 `stm32/main.c` 落实：
+- 短按打开蓝牙：有已知耳机就发它的地址；没有就发 0x36(6×00)，由 ESP 重连 NVS 里存的耳机，连不上再搜索。
+- 长按 2 s：发 0x36(6×FF)，搜索并配对新耳机；已经连着耳机时也能换新的（按键时清掉 `selected_peer`）。
+- `test_r4_product` 相应断言已改，三个镜像重建，全部主机测试通过。
+
+以下为原分析，保留备查：
+
+- 现在的 `sv_product.c:sv_bt_key()` 在没有已知对端时，长按不动作，短按也不发 0x36；`sv_bt_learn_peer()` 会拒绝全 0 和全 FF 地址。所以**按键路径目前触发不了首次配对**，只能通过台架或 App 下发 payload 为 6×00 或 6×FF 的 0x36。
+- 建议的修改，约 5 行，复用现有帧：
+  - 产品模式下，BT 短按打开时如果没有已知对端，发 0x36(6×00)，由 ESP 重连已存耳机或做发现；
+  - 长按 2 s 发 0x36(6×FF)，配新耳机；
+  - `btui.pending` 发送时用这两种地址代替 `btui.peer`。
+- 修改后要同步 test_r4_product 中“无对端时长按不动作”和“全 0/FF 被拒”两条断言。
+
+### E7. 需要实机（真耳机 / 手机）验证
+
+1. 冷启动：从 PC5 上电到 `sv_bt_init` 完成的时间。第一个 0x40 的回复不超过 1.5 s，SWD 读 `sv_rf_reply_diag.timeouts` 不增长。
+2. 首次配对：分别用 2–3 款耳机（至少一款 SSP，一款老式 PIN）进入配对模式，发 0x36(6×00)。要求 25 s 内连上，LED2 常亮；断电重启后短按能直接重连已存的耳机（日志 `stored peer`）。
+3. 周围有多台可发现设备（手机、音箱、电视）时，确认选中的是耳机（CoD 过滤），并且选中的是最近的一台（RSSI 最强）。
+4. 播放超过 10 min 不断流（验证 60 s 截断修复）；耳机走出范围再回来，能在窗口时间内重连。
+5. 0x42 和 BT 关闭能取消 inquiry；60 s 到期后 ESP 回到不可连接状态，可用手机扫描确认。
+6. NVS 写入只在更换耳机时发生，用日志确认；同时观察播放中写 flash 是否造成爆音。
+7. 未验证项：Bluedroid 对 inquiry 期间发起寻呼的处理（代码已先取消 inquiry 并依赖重试）、各品牌耳机的 CoD 实际取值、U4WDH 单核或双核的硅片版本。
