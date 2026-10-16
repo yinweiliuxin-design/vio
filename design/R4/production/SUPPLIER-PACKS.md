@@ -8,6 +8,7 @@
 | 文件 | 用途 |
 |---|---|
 | `design/R4/production/BOM-R4.xlsx`（及 `.csv`） | 料号、位号、DNP、订购数量、未确认项 |
+| `design/R4/kicad/R4-schematic.pdf` | R4 原理图（25 页，含 A34 板间端点），网表 `R4-netlist.xml` |
 | `design/R4/DECISIONS.md` | 产品定案（Q1–Q7、2026-10-15 补充） |
 | `design/R4/eco/ECO-R4-pcb-fpc.md`、`ECO-R4-schematic.md` | 改动依据，供应商问到“为什么”时查 |
 
