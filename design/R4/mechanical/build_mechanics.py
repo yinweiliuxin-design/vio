@@ -20,7 +20,7 @@ PAR={
  "version":"R4 prototype engineering candidate","units":"mm","manufacturing_release":False,
  "datum":"A instrument mounting surface Z0; STEP Y=-logical drawing Y",
  "upper_outline":[148,49],"upper_corner_radius":2.0,"upper_roof_top":3.8,"upper_roof_thickness":1.3,"upper_side_wall":1.0,
- "cup_outline":[77.0,45.0],"cup_origin":[35.5,2.0],"cup_bottom":-20.9,"cup_floor_top":-20.3,"cup_wall":0.8,"cup_corner_radius":1.2,"cup_inner_corner_radius":1.2,
+ "cup_outline":[77.0,45.0],"cup_origin":[35.5,2.0],"cup_bottom":-20.8,"cup_floor_top":-20.25,"cup_floor_thickness":0.55,"cup_floor_note":"R4.1b: floor top -20.30 -> -20.25 (battery bottom insulator 0.10 -> 0.05 PET; battery bottom stays -20.20) and floor 0.60 -> 0.55: cup bottom -20.90 -> -20.80 closes worst-case total height (tolerance-stack chain 1)","cup_wall":0.8,"cup_corner_radius":1.2,"cup_inner_corner_radius":1.2,
  "main_origin":[36.7,3.2],"main_bottom":-12.55,"main_thickness":0.8,"main_xy":[74.6,42.6],"main_B_max_assembled_under_battery":1.05,
  "main_ledge_overlap":1.0,"main_xy_locating_gap":0.05,"main_latch_z_gap":0.0,
  "audio_origin":[37.3,30],"audio_pcb_top":-9.65,"audio_pcb_thickness":1.0,"jack_mouth_top":3.85,"jack_seat_to_mouth_nominal":13.5,
@@ -29,7 +29,7 @@ PAR={
  "cover_pcb_top":.5,"cover_pcb_thickness":.4,
  "pack_box":[40,7.25,-20.2,92,41.75,-14.8],"battery_swell_Z_design_allowance":1.0,"battery_guide_gap":0.25,
  "battery_top_foam":"1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
- "pack_bottom_insulation":.1,"pack_top_insulation":.1,"screw_xy":[[5.3,5.3],[142.7,5.3],[5.3,43.7],[142.7,43.7]],
+ "pack_bottom_insulation":.05,"pack_top_insulation":.1,"screw_xy":[[5.3,5.3],[142.7,5.3],[5.3,43.7],[142.7,43.7]],
  "screw_through":2.5,"screw_counterbore":4.5,"screw_seat_z":1.7,"screw_passing_boss_dia":5.2,"screw_boss_dia_above_cover_pcb":6.5,
  "instrument_screw":"ST2.2x6.5 A2 stainless pan-head wood screw (non-magnetic), pilot 1.6x5 in wood, 0.15 N.m; threaded insert in wood preferred",
  "internal_screw":"M1.6 thread-forming screw for plastics (PT/WN1452 type) into POM pilot 1.3; production PC/ABS: M1.6 heat-set brass insert",
@@ -47,7 +47,7 @@ PAR={
  "pickup_entry_hole_dia":3.0,
  "pickup_entry_slot":[10.0,3.0],"pickup_entry_slot_axis_deg":0.0,
  "pickup_entry_slot_note":"first-sample default: 10 x 3 slot along X (instrument length) centred on pickup_entry_xy; accepts the original hole anywhere within +/-3.5 mm along X; across (Y) the 3.0 width only accepts the cable (<= dia 2.6). Must stay in the north cable strip Y 3.1..6.3 (cup wall 2.8 / battery guide 6.5) so the cable reaches the main-board notch x58.8-62.4 and J101",
- "usb_face_pocket":[13.0,7.4],"usb_face_pocket_note":"R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
+ "usb_face_pocket":[13.0,7.4],"usb_face_pocket_floor_Z":2.85,"usb_opening_collar":{"wall":0.6,"z":[1.8,2.5],"why":"R4.1b: pocket depth 0.80 -> 0.95 closes worst-case USB-C depth with GCT +/-0.25 (chain 7d); collar restores the lateral bearing wall of the opening (0.35 roof + 0.7 collar)"},"usb_face_pocket_note":"R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
  "audio_frame_web_variants":[0.40,0.50,0.60],"audio_frame_selective_fit":"jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
  "upper_and_cup_join":"4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
  "nominal_total_height":24.75,"total_height_limit":25.0,"nonwheel_outward_limit":5,
@@ -123,8 +123,11 @@ for x,y in ports:
  up=up.fuse(pad)
  up=up.cut(cyl(x,y,.8,3.3,3.2)).cut(cyl(x,y,3.0,6.0,1.0))
 # USB-C: opening tightened to official max body +0.1 for lateral load into roof; face pocket kept.
-up=up.cut(rr(93.305,7.195,2.3,9.39,3.61,1.8,1.6))
-UFP=PAR["usb_face_pocket"];up=up.cut(rr(98-UFP[0]/2,9-UFP[1]/2,3.0,UFP[0],UFP[1],1.0,1.5))
+# R4.1b: bearing collar under the roof around the USB-C opening (the deeper face pocket leaves only 0.35 of roof).
+UCO=PAR["usb_opening_collar"]
+up=up.fuse(rr(93.305-UCO["wall"],7.195-UCO["wall"],UCO["z"][0],9.39+2*UCO["wall"],3.61+2*UCO["wall"],UCO["z"][1]-UCO["z"][0]+.05,1.6+UCO["wall"]))
+up=up.cut(rr(93.305,7.195,UCO["z"][0]-.1,9.39,3.61,4.1-UCO["z"][0]+.1,1.6))
+UFP=PAR["usb_face_pocket"];UPZ=PAR["usb_face_pocket_floor_Z"];up=up.cut(rr(98-UFP[0]/2,9-UFP[1]/2,UPZ,UFP[0],UFP[1],4.0-UPZ,1.5))
 # M1/M5: four roof posts through cover-PCB ECO holes clamp USB board between post ends and the carrier.
 USBPOST=[(88,8),(108.3,8),(88,22),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
 for x,y in USBPOST:
@@ -269,7 +272,7 @@ for t in [.05,.10,.20]:
  for x,w,y,h in LEDGES:
   b=box(x,y+.4,PAR["main_bottom"],w,h-.4,t);sh=b if sh is None else sh.fuse(b)
  parts[f"main_shim_{str(t).replace('.','p')}mm"]=sh.clean()
-parts["battery_bottom_insulator"]=box(40,7.25,-20.3,52,34.5,.1)
+parts["battery_bottom_insulator"]=box(40,7.25,PAR["cup_floor_top"],52,34.5,PAR["pack_bottom_insulation"])
 parts["main_audio_dielectric_separator"]=box(37.3,30,-11.75,73.4,14,.1).cut(box(64.45,42.3,-11.85,5.0,1.7,.3))
 parts["key_backer_insulator"]=box(7.0,21.5,0,28.0,7.0,.1)
 parts["speaker_backer_insulator"]=box(124.5,15.0,0,15.0,20.0,.1)
@@ -445,7 +448,7 @@ status={"schema":"SmartVio.R4.mechanical.assembly-status","status":"MODELED_CAD_
 "parameters":PAR,"real_parts_exported":len(parts),"source_vendor_model":str(src.relative_to(ENG)),"shipping_packaging_removed":"Only vendor third0.1mm Kapton shipping tape solid removed from installed reference.","vendor_sha256":hashlib.sha256(src.read_bytes()).hexdigest(),
 "step_roundtrip":checks,"reference_components":reference_ledger,"collision_pair_count":pair_count,"exact_intersection_count":exact_count,"file_manifest":file_manifest,"intersections":collisions,
 "envelope":envelope,"legend_clearance":legend_check,
-"nominal_Z_chain":[["cup bottom",PAR["cup_bottom"]],["floor top",-20.3],["bottom insulation top / battery bottom",-20.2],["battery max top",-14.8],["foam (swell allowance) top",-13.8],["top separator top",-13.7],["main B max bottom",-13.6],["main board bottom",-12.55],["main board top / latch tooth bottom",-11.75],["audio frame bottom / blade lip top",PAR["audio_frame_bottom"]],["audio PCB top",-9.65],["jack shoulder / roof pad",1.45],["jack mouth nominal",3.85],["key top",PAR["button_top_Z"]]],
+"nominal_Z_chain":[["cup bottom",PAR["cup_bottom"]],["floor top",PAR["cup_floor_top"]],["bottom insulation top / battery bottom",-20.2],["battery max top",-14.8],["foam (swell allowance) top",-13.8],["top separator top",-13.7],["main B max bottom",-13.6],["main board bottom",-12.55],["main board top / latch tooth bottom",-11.75],["audio frame bottom / blade lip top",PAR["audio_frame_bottom"]],["audio PCB top",-9.65],["jack shoulder / roof pad",1.45],["jack mouth nominal",3.85],["key top",PAR["button_top_Z"]]],
 "nominal_limits":{"total":round(3.85-PAR["cup_bottom"],3),"nonwheel":3.85,"raw_cavity_depth":22},
 "tolerance_limit_status":"Worst case dimensions and final board height-map not yet closed; assembly is not released merely by nominal dimensions.",
 "physical_tests":0,"manufacturing_process":PAR["process"],

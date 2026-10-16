@@ -19,8 +19,10 @@
     35.5,
     2.0
   ],
-  "cup_bottom": -20.9,
-  "cup_floor_top": -20.3,
+  "cup_bottom": -20.8,
+  "cup_floor_top": -20.25,
+  "cup_floor_thickness": 0.55,
+  "cup_floor_note": "R4.1b: floor top -20.30 -> -20.25 (battery bottom insulator 0.10 -> 0.05 PET; battery bottom stays -20.20) and floor 0.60 -> 0.55: cup bottom -20.90 -> -20.80 closes worst-case total height (tolerance-stack chain 1)",
   "cup_wall": 0.8,
   "cup_corner_radius": 1.2,
   "cup_inner_corner_radius": 1.2,
@@ -71,7 +73,7 @@
   "battery_swell_Z_design_allowance": 1.0,
   "battery_guide_gap": 0.25,
   "battery_top_foam": "1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
-  "pack_bottom_insulation": 0.1,
+  "pack_bottom_insulation": 0.05,
   "pack_top_insulation": 0.1,
   "screw_xy": [
     [
@@ -156,6 +158,15 @@
     13.0,
     7.4
   ],
+  "usb_face_pocket_floor_Z": 2.85,
+  "usb_opening_collar": {
+    "wall": 0.6,
+    "z": [
+      1.8,
+      2.5
+    ],
+    "why": "R4.1b: pocket depth 0.80 -> 0.95 closes worst-case USB-C depth with GCT +/-0.25 (chain 7d); collar restores the lateral bearing wall of the opening (0.35 roof + 0.7 collar)"
+  },
   "usb_face_pocket_note": "R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
   "audio_frame_web_variants": [
     0.4,

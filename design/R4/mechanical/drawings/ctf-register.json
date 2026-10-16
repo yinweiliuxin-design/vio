@@ -1,5 +1,5 @@
 {
- "revision": "R4.1",
+ "revision": "R4.1b",
  "date": "2026-10-16",
  "items": [
   {
@@ -75,10 +75,20 @@
   {
    "id": "U8",
    "part": "upper_cover",
-   "feature": "USB 开口 / 面槽",
-   "nominal": "9.39×3.61 / 13.0×7.4",
-   "tol": "+0.05/0 ; +0.1/0",
-   "method": "塞规/影像",
+   "feature": "USB 开口 / 面槽 / 槽底 Z",
+   "nominal": "9.39×3.61 / 13.0×7.4 / Z2.85",
+   "tol": "+0.05/0 ; +0.1/0 ; ±0.03",
+   "method": "塞规/影像/深度尺",
+   "chain": "7",
+   "qty_per_part": 1
+  },
+  {
+   "id": "U20",
+   "part": "upper_cover",
+   "feature": "USB 开口承力凸缘（R4.1b）",
+   "nominal": "壁0.60，Z1.80–2.50",
+   "tol": "±0.05",
+   "method": "影像/深度尺",
    "chain": "7",
    "qty_per_part": 1
   },
@@ -206,7 +216,7 @@
    "id": "L2",
    "part": "lower_cup",
    "feature": "卡钩下面至杯外底",
-   "nominal": "18.60",
+   "nominal": "18.50",
    "tol": "±0.05",
    "method": "高度规/CMM",
    "chain": "1",
@@ -246,7 +256,7 @@
    "id": "L6",
    "part": "lower_cup",
    "feature": "主板托台面至杯外底",
-   "nominal": "8.35",
+   "nominal": "8.25",
    "tol": "±0.03",
    "method": "CMM",
    "chain": "8",
@@ -265,11 +275,11 @@
   {
    "id": "L8",
    "part": "lower_cup",
-   "feature": "底厚 / 壁厚",
-   "nominal": "0.60 / 0.80",
+   "feature": "底厚（R4.1b）/ 壁厚",
+   "nominal": "0.55 / 0.80",
    "tol": "±0.05",
    "method": "千分尺/超声",
-   "chain": "",
+   "chain": "1,3Z",
    "qty_per_part": 1
   },
   {
@@ -525,11 +535,11 @@
   {
    "id": "I1",
    "part": "films",
-   "feature": "绝缘片总厚（含胶）",
+   "feature": "绝缘片总厚（含胶；电池底片 0.050±0.005）",
    "nominal": "0.100",
    "tol": "±0.010",
    "method": "千分尺",
-   "chain": "4,8",
+   "chain": "1,4,8",
    "qty_per_part": 1
   },
   {

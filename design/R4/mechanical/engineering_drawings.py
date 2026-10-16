@@ -17,7 +17,9 @@ from drawlib import Page, View, section, crop, CTF_COLOR, INK
 CAD = BASE / "cad"; REF = BASE / "reference/components"; OUT = BASE / "drawings"; OUT.mkdir(exist_ok=True)
 PAR = json.loads((BASE / "parameters.json").read_text("utf8"))
 SRC = (CAD / "build_mechanics.py").read_text("utf8")
-DATE = "2026-10-16"; REV = "R4.1"
+DATE = "2026-10-16"; REV = "R4.1b"
+REV_B_SHEETS = {"M-R4-00", "M-R4-01", "M-R4-02", "M-R4-08"}   # sheets changed in R4.1b
+CB = PAR["cup_bottom"]; CFT = PAR["cup_floor_top"]; UPZ = PAR["usb_face_pocket_floor_Z"]; UPD = 3.8 - UPZ
 
 
 def const(name):
@@ -93,7 +95,8 @@ def frame(pg, no, title, partname, material, finish, qty, scale, sheet, extra=()
     # title block
     tx, ty = 228, 243
     pg.rect(tx, ty, 180, 42, 0.4)
-    rows = [("名称", partname), ("图号", f"{no}   版本 {REV}   第 {sheet} 页"), ("材料", material), ("表面/颜色", finish),
+    rev = REV if no in REV_B_SHEETS else "R4.1"
+    rows = [("名称", partname), ("图号", f"{no}   版本 {rev}   第 {sheet} 页"), ("材料", material), ("表面/颜色", finish),
             ("数量", qty), ("比例 / 单位", f"{scale}   ·   mm   ·   第一角画法"), ("一般公差", "ISO 2768-m（CTF 按图）"),
             ("日期 / 编制", f"{DATE}   ·   CAD 生成稿，需工程师审签      审核：______  批准：______")]
     for i, (k, v) in enumerate(rows):
@@ -270,12 +273,12 @@ def sheet_assembly(allp):
     z = lambda zz: sv.pt(40, 37, zz)
     xl = sv.box[0] - 4
     pg.dim_v(sv.pt(40, 37, 0), sv.pt(40, 37, 3.855), xl, "3.855（插口名义）")
-    pg.dim_v(sv.pt(40, 37, 0), sv.pt(40, 37, -20.9), xl - 9, "20.90")
+    pg.dim_v(sv.pt(40, 37, 0), sv.pt(40, 37, CB), xl - 9, f"{-CB:.2f}")
     xr = sv.box[2] + 6
-    pg.dim_v(sv.pt(112, 37, 3.855), sv.pt(112, 37, -20.9), xr, "24.755 名义 / 25 MAX（见 tolerance-stack 链 1）", ctf="L2")
+    pg.dim_v(sv.pt(112, 37, 3.855), sv.pt(112, 37, CB), xr, f"{3.855-CB:.3f} 名义 / 25 MAX（最坏 24.935，链 1）", ctf="L2")
     pg.leader(sv.pt(46.5, 37, 1.455), sv.box[0] + 60, sv.box[1] - 5, "插座肩面顶住屋顶压台 Z1.455（插座 Z 基准）", ctf="U6")
     pg.leader(sv.pt(64, 37, -11.15), sv.box[0] + 70, sv.box[3] + 6, "音频框落在刀片唇 Z−11.15，选配腹板 0.40/0.50/0.60", ctf="F1")
-    pg.text(sv.box[0], sv.box[3] + 13, "基准 A（Z0）= 上盖裙边底面 = 琴面；杯底离原腔底 1.10（名义，腔深待实测）", 2.1)
+    pg.text(sv.box[0], sv.box[3] + 13, f"基准 A（Z0）= 上盖裙边底面 = 琴面；杯底离原腔底 {22+CB:.2f}（名义，腔深待实测）", 2.1)
     # parts list
     rows = [["1", "upper_cover", "上盖", "M-R4-01", "POM-C 黑", "1"], ["2", "lower_cup", "下杯", "M-R4-02", "POM-C 黑", "1"],
             ["3", "key_backer_bracket", "按键背撑架", "M-R4-03", "POM-C 黑", "1"], ["4", "usb_bracket", "USB 托架", "M-R4-04", "POM-C 黑", "1"],
@@ -311,7 +314,8 @@ def cover_ctfs():
     ctf("U5", P, "按键孔 / 沉槽", "Ø5.20 / Ø6.50", "+0.05/0", "塞规", "4", 5)
     ctf("U6", P, "插座压台面 Z", "1.455", "±0.03", "CMM", "1,6", 4)
     ctf("U7", P, "压台面至刀片唇顶面", "12.605", "±0.05", "CMM", "6", 4)
-    ctf("U8", P, "USB 开口 / 面槽", "9.39×3.61 / 13.0×7.4", "+0.05/0 ; +0.1/0", "塞规/影像", "7")
+    ctf("U8", P, "USB 开口 / 面槽 / 槽底 Z", "9.39×3.61 / 13.0×7.4 / Z2.85", "+0.05/0 ; +0.1/0 ; ±0.03", "塞规/影像/深度尺", "7")
+    ctf("U20", P, "USB 开口承力凸缘（R4.1b）", "壁0.60，Z1.80–2.50", "±0.05", "影像/深度尺", "7", 1)
     ctf("U9", P, "USB 柱端面 Z", "−3.30", "±0.03", "CMM", "7", 4)
     ctf("U10", P, "卡扣窗下沿 Z / 窗高", "−2.32 / 0.84", "±0.03 / +0.03/0", "CMM", "1,5", 4)
     ctf("U11", P, "南北刀片外侧面间距", "43.00", "±0.05", "CMM", "5", 2)
@@ -375,7 +379,7 @@ def sheet_cover_outside(allp):
     for i, (x, y) in enumerate(PORTS):
         ex.append([f"J{i+1}", f"插座孔 {JACK_NAMES[i]}", f"{x:.2f}, {y:.2f}", "Ø6.60 / 面窝Ø12", "窝深0.80；压台Z1.455", "U6"])
     ufp = PAR["usb_face_pocket"]
-    ex.append(["U1", "USB-C 开口+面槽", "98.00, 9.00", f"9.39×3.61 R1.6 / {ufp[0]}×{ufp[1]} R1.5", "面槽深 0.80", "U8"])
+    ex.append(["U1", "USB-C 开口+面槽", "98.00, 9.00", f"9.39×3.61 R1.6 / {ufp[0]}×{ufp[1]} R1.5", f"面槽深 {UPD:.2f}（底 Z{UPZ:.2f}）；下有承力凸缘", "U8"])
     ex.append(["G1", "扬声器出声槽 8×", "X126.4–137.6", "11.2×0.8 R0.35 节距2", "腔顶 Z3.30", "U14"])
     yy = hole_chart(pg, 268, 80, ex, "外观面开孔表（坐标=基准 B/C，即 X0 琴头端 / Y0 北边）", widths=(8, 29, 26, 41, 31))
     # legends table
@@ -431,7 +435,7 @@ def sheet_cover_inside(allp):
           ["Z−3.30", "USB 压柱端面", "U9"], ["Z−5.20", "刀片底（北）", ""], ["Z−11.15", "南刀片唇顶（音频框落座）", "U7"], ["Z−11.65", "南刀片底", ""]]
     pg.text(30, 142, "Z 向层位（至基准 A）", 2.4, bold=True)
     pg.table(30, 144, [("Z", 22), ("面", 50), ("CTF", 12)], zl, size=1.85, rowh=3.2, ctf_col=2)
-    ctf_table(pg, 130, 144, ["U3", "U4", "U6", "U7", "U9", "U10", "U11", "U14", "U15", "U16"], widths=(8, 40, 30, 27, 22))
+    ctf_table(pg, 130, 144, ["U3", "U4", "U6", "U7", "U9", "U10", "U11", "U14", "U15", "U16", "U20"], widths=(8, 40, 30, 27, 22))
     save(pg, "M-R4-01-2_上盖_内侧", allp)
 
 
@@ -494,8 +498,10 @@ def sheet_cover_sections(allp):
     dv.title("D（4:1）Y=9 USB-C 开口中心，向北看")
     pg.dim_h(dv.pt(98 - 4.695, 9, 2.6), dv.pt(98 + 4.695, 9, 2.6), dv.box[3] + 5, "9.39 +0.05/0", ctf="U8")
     ufp = PAR["usb_face_pocket"]
-    pg.dim_h(dv.pt(98 - ufp[0] / 2, 9, 3.8), dv.pt(98 + ufp[0] / 2, 9, 3.8), dv.box[1] - 3, f"{ufp[0]:.1f} +0.1/0（面槽，深0.80）", ctf="U8")
+    pg.dim_h(dv.pt(98 - ufp[0] / 2, 9, 3.8), dv.pt(98 + ufp[0] / 2, 9, 3.8), dv.box[1] - 3, f"{ufp[0]:.1f} +0.1/0（面槽，深{UPD:.2f}）", ctf="U8")
     pg.dim_v(dv.pt(88, 9, -3.3), dv.pt(88, 9, 0), dv.box[0] - 4, "3.30±0.03 压柱端面", ctf="U9")
+    pg.dim_v(dv.pt(104, 9, UPZ), dv.pt(104, 9, 3.8), dv.box[2] + 5, f"{UPD:.2f}±0.03 面槽深", ctf="U8")
+    pg.leader(dv.pt(98 - 4.695 - 0.3, 9, 2.1), dv.box[0] + 40, dv.box[3] + 10, "承力凸缘 壁0.60 Z1.80–2.50（R4.1b）", ctf="U20")
     # E screw counterbore at (5.3,5.3)
     c, polys = section(cq, cover, "Y", -5.3, +1, crop=(-0.2, -5.3, -0.2, 11.5, 0.2, 4.2))
     ev = View(pg, c, "front", 6.0, (300, 150), w=0.22)
@@ -512,13 +518,13 @@ def sheet_cover_sections(allp):
 def cup_ctfs():
     P = "lower_cup"
     ctf("L1", P, "外形长×宽（原腔 78×47）", "77.00×45.00", "±0.05", "卡尺/CMM", "3")
-    ctf("L2", P, "卡钩下面至杯外底", "18.60", "±0.05", "高度规/CMM", "1", 4)
+    ctf("L2", P, "卡钩下面至杯外底", f"{-2.3-CB:.2f}", "±0.05", "高度规/CMM", "1", 4)
     ctf("L3", P, "卡钩高 / 凸出内壁", "0.80 / 0.55", "0/−0.03 ; ±0.03", "CMM/影像", "5", 4)
     ctf("L4", P, "卡扣处内宽（Y）", "43.40", "±0.05", "CMM", "5", 2)
     ctf("L5", P, "Y 定位筋高（4×，R4.1 新增）", "0.15", "±0.02", "CMM/影像", "5", 4)
-    ctf("L6", P, "主板托台面至杯外底", "8.35", "±0.03", "CMM", "8", 6)
+    ctf("L6", P, "主板托台面至杯外底", f"{-12.55-CB:.2f}", "±0.03", "CMM", "8", 6)
     ctf("L7", P, "侧向定位台内面间距", "74.70×42.70", "±0.03", "CMM", "8")
-    ctf("L8", P, "底厚 / 壁厚", "0.60 / 0.80", "±0.05", "千分尺/超声", "", 1)
+    ctf("L8", P, "底厚（R4.1b）/ 壁厚", f"{CFT-CB:.2f} / 0.80", "±0.05", "千分尺/超声", "1,3Z", 1)
     ctf("L9", P, "拾音入口槽 10×3 中心（TODO 实测后定位）", "局部 25.10, 2.60", "±0.10；槽宽 +0.1/0", "CMM", "", 1)
     ctf("L10", P, "主板卡齿下面至托台面 / 搭接", "0.80 / 0.45", "±0.03 ; ±0.05", "CMM", "8", 4)
     ctf("L11", P, "电池仓（导向内面）", "52.25×35.00", "+0.10/0", "卡尺", "", 1)
@@ -528,7 +534,7 @@ def cup_ctfs():
 def sheet_cup(allp):
     pg = Page()
     frame(pg, "M-R4-02", "下杯（俯视/主视、特征表）", "下杯 lower_cup", MAT_POM, "机加本色黑；内腔不要求外观", "1 / 套", "2:1", "1/2",
-          ["6. 局部坐标原点 = 外形西北角 (全局 X35.5, Y2.0)，Z 自杯外底向上（全局 Z = 局部 Z − 20.90）。",
+          ["6. 局部坐标原点 = 外形西北角 (全局 X35.5, Y2.0)，Z 自杯外底向上（全局 Z = 局部 Z − {:.2f}）。底厚 0.55（R4.1b）。".format(-CB),
            "7. 拾音入口：DECISIONS 补充 2026-10-15，拾音线走琴上原穿线孔，琴上不钻孔。首样按 10×3 长槽加工（沿 X 容差 ±3.5）；实测原孔后改为 Ø3.0 圆孔或移槽。",
            "8. 卡钩为矩形双向止挡（不倒角）；4 处 Y 定位筋 0.15（R4.1）在悬臂根部，离刀片面 0.05。"])
     cup = part("lower_cup"); s = 2.0
@@ -540,8 +546,8 @@ def sheet_cup(allp):
     head_tail(pg, tv.box[0], tv.box[2], 26.5)
     pg.dim_h(tv.pt(35.5, 2), tv.pt(112.5, 2), tv.box[1] - 3, "77.00±0.05", ctf="L1")
     pg.dim_v(tv.pt(112.5, 2), tv.pt(112.5, 47), tv.box[2] + 6, "45.00±0.05", ctf="L1")
-    pg.dim_v(fv.pt(112.5, 47, 0), fv.pt(112.5, 47, -20.9), fv.box[2] + 6, "20.90±0.05")
-    pg.dim_v(fv.pt(35.5, 47, -2.3), fv.pt(35.5, 47, -20.9), fv.box[0] - 5, "18.60±0.05（钩下面→外底）", ctf="L2")
+    pg.dim_v(fv.pt(112.5, 47, 0), fv.pt(112.5, 47, CB), fv.box[2] + 6, f"{-CB:.2f}±0.05")
+    pg.dim_v(fv.pt(35.5, 47, -2.3), fv.pt(35.5, 47, CB), fv.box[0] - 5, f"{-2.3-CB:.2f}±0.05（钩下面→外底）", ctf="L2")
     ex = PAR["pickup_entry_extent_xy"]
     pg.leader(tv.pt(ex[0], (ex[1] + ex[3]) / 2), tv.box[0] + 60, tv.box[3] + 8,
               f"拾音入口槽 {PAR['pickup_entry_slot'][0]:.0f}×{PAR['pickup_entry_slot'][1]:.0f} 通，中心局部 ({PAR['pickup_entry_xy'][0]-ox:.2f}, {PAR['pickup_entry_xy'][1]-oy:.2f})，TODO 对齐原穿线孔", ctf="L9")
@@ -551,16 +557,16 @@ def sheet_cup(allp):
             yy = 2.0 if k == 0 else 46.2
             p = tv.pt(x + 2.8, 3.35 if k == 0 else 45.65)
             idmark(pg, p, f"H{2*j+k+1}", 0, -3.6 if k == 0 else 3.6)
-            rows.append([f"H{2*j+k+1}", f"上下壳卡扣（{side}）", f"钩 {x+2.2-ox:.2f}–{x+3.4-ox:.2f}", "钩1.2×0.80 凸0.55；筋0.15", "钩下面 局部Z18.60", "L2"])
+            rows.append([f"H{2*j+k+1}", f"上下壳卡扣（{side}）", f"钩 {x+2.2-ox:.2f}–{x+3.4-ox:.2f}", "钩1.2×0.80 凸0.55；筋0.15", f"钩下面 局部Z{-2.3-CB:.2f}", "L2"])
     for j, x in enumerate([38.0, 95.0]):
         for k, side in enumerate(["北", "南"]):
             idmark(pg, tv.pt(x + 10.75, 3.4 if k == 0 else 45.6), f"T{2*j+k+1}", 0, -3.6 if k == 0 else 3.6)
-            rows.append([f"T{2*j+k+1}", f"主板卡齿（{side}）", f"齿 {x+10-ox:.2f}–{x+11.5-ox:.2f}", "齿宽1.5 搭接0.45", "齿下面 局部Z9.15", "L10"])
+            rows.append([f"T{2*j+k+1}", f"主板卡齿（{side}）", f"齿 {x+10-ox:.2f}–{x+11.5-ox:.2f}", "齿宽1.5 搭接0.45", f"齿下面 局部Z{-11.75-CB:.2f}", "L10"])
     for i, (x, w, y, h) in enumerate(LEDGES):
-        rows.append([f"LG{i+1}", "主板托台", f"{x-ox:.2f}–{x+w-ox:.2f}, {y-oy:.2f}–{min(y+h,46.2)-oy:.2f}", f"{w:.1f}×{min(h,46.2-y):.1f}", "台面 局部Z8.35", "L6"])
-    rows.append(["LP", "侧向定位台 8×", "内面 X1.15/75.85, Y1.15/43.85", "离主板边 0.05", "局部Z8.35–9.15", "L7"])
-    rows.append(["BG", "电池导向 4 边", "内面 X4.25/56.50, Y5.00/40.00", "高 3.2；东侧贴 NTC", "局部Z0.60–3.80", "L11"])
-    rows.append(["NT", "NTC 侧仓（RT1921）", "X56.5–61.3, Y9.3–14.0", "仓 4.3×3.7", "底 局部Z0.90", ""])
+        rows.append([f"LG{i+1}", "主板托台", f"{x-ox:.2f}–{x+w-ox:.2f}, {y-oy:.2f}–{min(y+h,46.2)-oy:.2f}", f"{w:.1f}×{min(h,46.2-y):.1f}", f"台面 局部Z{-12.55-CB:.2f}", "L6"])
+    rows.append(["LP", "侧向定位台 8×", "内面 X1.15/75.85, Y1.15/43.85", "离主板边 0.05", f"局部Z{-12.55-CB:.2f}–{-11.75-CB:.2f}", "L7"])
+    rows.append(["BG", "电池导向 4 边", "内面 X4.25/56.50, Y5.00/40.00", "高 3.2；东侧贴 NTC", f"局部Z{CFT-CB:.2f}–{-17.1-CB:.2f}", "L11"])
+    rows.append(["NT", "NTC 侧仓（RT1921）", "X56.5–61.3, Y9.3–14.0", "仓 4.3×3.7", f"底 局部Z{-20.0-CB:.2f}", ""])
     for i, (x, w, y, h) in enumerate(LEDGES[:1]):
         idmark(pg, tv.pt(x + w / 2, y + h / 2), "LG1", 0, 3.5)
     idmark(pg, tv.pt(66, 24.5), "BG", 0, 0)
@@ -596,16 +602,16 @@ def sheet_cup(allp):
     lv.hatch(polys)
     lv.title("G4（6:1）X=48.75 主板卡齿/托台（北）")
     pg.dim_v(lv.pt(48, 3.65, -12.55), lv.pt(48, 3.65, -11.75), lv.box[2] + 4, "0.80±0.03", ctf="L10")
-    pg.dim_v(lv.pt(48, 2.0, -20.9), lv.pt(48, 2.0, -12.55), lv.box[0] - 4, "8.35±0.03", ctf="L6")
+    pg.dim_v(lv.pt(48, 2.0, CB), lv.pt(48, 2.0, -12.55), lv.box[0] - 4, f"{-12.55-CB:.2f}±0.03", ctf="L6")
     # longitudinal section at Y=4.6 through the pickup slot
-    c, polys = section(cq, cup, "Y", -4.6, +1, crop=(35, -4.6, -21, 113, 0.5, 0.2))
+    c, polys = section(cq, cup, "Y", -4.6, +1, crop=(35, -4.6, CB - 0.1, 113, 0.5, 0.2))
     pv = View(pg, c, "front", 2.0, (30, 150), w=0.22)
     pv.hatch(polys)
     pv.title("H（2:1）Y=4.6 纵剖（拾音入口槽、北侧卡扣、托台）")
     ex = PAR["pickup_entry_extent_xy"]
-    pg.dim_h(pv.pt(ex[0], 4.6, -20.9), pv.pt(ex[2], 4.6, -20.9), pv.box[3] + 6, f"{ex[2]-ex[0]:.1f}（槽长，沿X ±3.5 容差）", ctf="L9")
-    pg.dim_h(pv.pt(35.5, 4.6, -20.9), pv.pt(PAR["pickup_entry_xy"][0], 4.6, -20.9), pv.box[3] + 13, f"{PAR['pickup_entry_xy'][0]-35.5:.2f}（TODO 按实测原孔）", ctf="L9")
-    pg.dim_v(pv.pt(112.5, 4.6, -20.9), pv.pt(112.5, 4.6, -20.3), pv.box[2] + 4, "0.60±0.05 底厚", ctf="L8")
+    pg.dim_h(pv.pt(ex[0], 4.6, CB), pv.pt(ex[2], 4.6, CB), pv.box[3] + 6, f"{ex[2]-ex[0]:.1f}（槽长，沿X ±3.5 容差）", ctf="L9")
+    pg.dim_h(pv.pt(35.5, 4.6, CB), pv.pt(PAR["pickup_entry_xy"][0], 4.6, CB), pv.box[3] + 13, f"{PAR['pickup_entry_xy'][0]-35.5:.2f}（TODO 按实测原孔）", ctf="L9")
+    pg.dim_v(pv.pt(112.5, 4.6, CB), pv.pt(112.5, 4.6, CFT), pv.box[2] + 4, f"{CFT-CB:.2f}±0.05 底厚", ctf="L8")
     pg.text(30, 215, "原穿线孔实测换算：X = 258 − u（u = 原孔距琴尾金属基准），Y = 24.5 + v（v = 距模块中线，向北为负）。入口须落在北侧走线带 Y 3.1–6.3（局部 1.1–4.3），", 2.1)
     pg.text(30, 219, "否则线缆无法绕过电池到达 J101（主板北缘缺口 X58.8–62.4），需改结构。build_mechanics.py 中有断言检查。", 2.1)
     save(pg, "M-R4-02-2_下杯_剖面", allp)
@@ -759,14 +765,14 @@ def sheet_lightpipe(allp):
 
 
 def sheet_films(allp):
-    ctf("I1", "films", "绝缘片总厚（含胶）", "0.100", "±0.010", "千分尺", "4,8", 1)
+    ctf("I1", "films", "绝缘片总厚（含胶；电池底片 0.050±0.005）", "0.100", "±0.010", "千分尺", "1,4,8", 1)
     ctf("I2", "films", "外形（模切）", "按表", "±0.15", "卡尺/影像", "", 1)
     ctf("I3", "main_shim", "垫片厚度 0.05/0.10/0.20", "按名", "±0.005/±0.01/±0.01", "千分尺", "8", 1)
     pg = Page()
     frame(pg, "M-R4-08", "绝缘片与主板调整垫片（平面展开）", "绝缘片 6 种 + 主板垫片 3 种", "PET（聚酯）/ PI（聚酰亚胺），见表", "无印刷；去毛刺；装箱分层隔纸",
           "见表", "2:1 / 4:1", "1/1", ["6. 总厚指含胶厚度。背撑垫片（key/speaker_backer_insulator）单面压敏胶；其余无胶。",
                                        "7. 主板垫片只在实测主板卡齿间隙 >0 时单层选用，不得叠装；按托台形状 4 段为一套。"])
-    items = [("battery_bottom_insulator", "电池底绝缘片", "PET 0.10 无胶", "1", 1.5, (30, 40)),
+    items = [("battery_bottom_insulator", "电池底绝缘片", "PET 0.05 无胶（R4.1b）", "1", 1.5, (30, 40)),
              ("battery_top_separator", "电池顶隔片", "PET 0.10 无胶", "1", 1.5, (130, 40)),
              ("main_audio_dielectric_separator", "主板/音频板绝缘片", "PET 0.10 无胶（缺口让 POTS3）", "1", 1.5, (230, 40)),
              ("key_backer_insulator", "按键 1–2 背垫（贴控制板底面）", "PET 0.10 含单面胶；选配 0.075/0.125", "1（+选配各1）", 2.0, (30, 125)),

@@ -20,7 +20,7 @@
 <text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">绝缘片 6 种 + 主板垫片 3 种</text>
 <path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
 <text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
-<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-08   版本 R4.1   第 1/1 页</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-08   版本 R4.1b   第 1/1 页</text>
 <path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
 <text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
 <text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">PET（聚酯）/ PI（聚酰亚胺），见表</text>
@@ -198,8 +198,8 @@
 <path d="M236.000,155.300 L406.000,155.300 L406.000,158.600 L236.000,158.600 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
 <text x="236.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">battery_bottom_insulator</text>
 <text x="288.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">电池底绝缘片</text>
-<text x="332.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">52.00×34.50×0.10</text>
-<text x="362.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">PET 0.10 无胶</text>
+<text x="332.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">52.00×34.50×0.05</text>
+<text x="362.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">PET 0.05 无胶（R4.1b）</text>
 <path d="M236.000,158.600 L406.000,158.600 L406.000,161.900 L236.000,161.900 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
 <text x="236.800" y="160.900" font-size="1.7" text-anchor="start" fill="#111111">battery_top_separator</text>
 <text x="288.800" y="160.900" font-size="1.7" text-anchor="start" fill="#111111">电池顶隔片</text>
@@ -242,7 +242,7 @@
 <text x="358.700" y="192.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">检具</text>
 <path d="M236.000,193.300 L388.000,193.300 L388.000,196.600 L236.000,196.600 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
 <text x="236.700" y="195.650" font-size="1.85" text-anchor="start" fill="#b3001b">I1</text>
-<text x="244.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">绝缘片总厚（含胶）</text>
+<text x="244.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">绝缘片总厚（含胶；电池底片 0.050±0.005）</text>
 <text x="296.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">0.100</text>
 <text x="328.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">±0.010</text>
 <text x="358.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">千分尺</text>
