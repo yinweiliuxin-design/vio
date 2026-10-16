@@ -38,7 +38,15 @@ typedef struct {
     bool vbus,frame_valid,port_fault,efuse_fault,system_fault,service_image;
     uint16_t pack_mv;int16_t board_deci_c;
 } sv_charge_in;
-typedef struct {bool allow,en1,en2;} sv_charge_out;
+/* Normal-charging release gate (work item P23 / test stage CHARGE). 0 = default for the
+ * first sample: CHARGE_ALLOW stays low whatever the conditions; the decision still runs
+ * and `qualified` reports what it would do. Build the -CHARGE-TEST image
+ * (SV_R4_CHARGE_RELEASE=1) only after the VARTA pack NTC curve and stages B00-B12 are
+ * signed off; the product image flips the default only after stage CHARGE passes. */
+#ifndef SV_R4_CHARGE_RELEASE
+#define SV_R4_CHARGE_RELEASE 0
+#endif
+typedef struct {bool allow,en1,en2,qualified;} sv_charge_out;
 typedef struct {bool qualifying;uint32_t since;} sv_charge;
 enum {SV_CHG_QUALIFY_MS=2000,SV_CHG_PACK_MIN_MV=2500,SV_CHG_PACK_MAX_MV=4250,
       SV_CHG_TEMP_MIN_DECI_C=0,SV_CHG_TEMP_MAX_DECI_C=450};

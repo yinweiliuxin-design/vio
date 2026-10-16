@@ -36,7 +36,7 @@ void sv_battery_update(sv_battery *b,uint16_t mv,uint32_t generation,bool usb,ui
     else if(now-b->low_since>=SV_BAT_OFF_HOLD_MS)b->shutdown=true; /* latched until reboot */
 }
 sv_charge_out sv_charge_decide(sv_charge *c,const sv_charge_in *i,uint32_t now){
-    sv_charge_out o={false,false,false};
+    sv_charge_out o={false,false,false,false};
     bool usb_fault=i->port_fault || i->efuse_fault;
     /* EN2=0/EN1=1: BQ24074 USB500 input limit; any USB fault falls back to USB100. */
     o.en1=!usb_fault && !i->service_image;o.en2=false;
@@ -45,7 +45,8 @@ sv_charge_out sv_charge_decide(sv_charge *c,const sv_charge_in *i,uint32_t now){
         i->board_deci_c>=SV_CHG_TEMP_MIN_DECI_C && i->board_deci_c<=SV_CHG_TEMP_MAX_DECI_C;
     if(!ok){c->qualifying=false;return o;}
     if(!c->qualifying){c->qualifying=true;c->since=now;}
-    o.allow=now-c->since>=SV_CHG_QUALIFY_MS;
+    o.qualified=now-c->since>=SV_CHG_QUALIFY_MS;
+    o.allow=SV_R4_CHARGE_RELEASE && o.qualified;
     return o;
 }
 uint32_t sv_recover_delay(uint32_t attempts){

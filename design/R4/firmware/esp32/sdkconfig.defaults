@@ -1,0 +1,59 @@
+# SmartVio R4 ESP32 (ESP32-MINI-1U) - minimal sdkconfig.defaults for ESP-IDF v5.4.3.
+# Reconstructed 2026-10-15 (finding docs-esp-sdkconfig-missing). Everything not listed
+# is the ESP-IDF v5.4.3 default. Proof: with the first 10 options below (R3 set) the
+# pristine R3 sources rebuild to an app/bootloader/partition table whose code and data
+# are byte-identical to SCRATCH/pkg/R3/engineering/firmware/artifacts/esp32; only the
+# build date/time, the IDF version string ("v5.4.3-dirty" vs "v5.4.3"), the embedded
+# ELF SHA-256 and the image checksum/hash differ. See CHANGES.md "ESP32 R4".
+
+# --- Target ---------------------------------------------------------------------
+# ESP32-MINI-1U = ESP32 (U4WDH die). R3 build log: "guessed 'esp32' from sdkconfig".
+CONFIG_IDF_TARGET="esp32"
+
+# --- Flash / partitions -----------------------------------------------------------
+# 4 MB in-package flash on ESP32-MINI-1U. R3 flash_args: --flash_mode dio
+# --flash_freq 40m --flash_size 4MB (dio/40m are the IDF defaults).
+CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
+# "Single factory app (large), no OTA": nvs 0x9000 24K, phy_init 0xf000 4K,
+# factory 0x10000 1500K - exactly the table printed in the R3 build log; the
+# generated partition-table.bin is byte-identical to the R3 artifact. Default
+# 1 MB factory would leave only ~9 % headroom for the ~0.93 MB app.
+# NVS holds the Bluedroid bond keys and (R4) the stored headset address.
+CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y
+
+# --- Bluetooth ----------------------------------------------------------------------
+# Code: esp_bt_controller_enable(ESP_BT_MODE_BTDM) -> controller must be dual mode
+# (Classic A2DP source to the headset + BLE GATT status service).
+CONFIG_BT_ENABLED=y
+CONFIG_BT_BLUEDROID_ENABLED=y
+CONFIG_BTDM_CTRL_MODE_BTDM=y
+# Classic: esp_a2d_source_*, esp_bt_gap_* (SSP security params, inquiry in R4).
+CONFIG_BT_CLASSIC_ENABLED=y
+CONFIG_BT_A2DP_ENABLE=y
+# BLE: esp_ble_gap_* advertising + SMP, esp_ble_gatts_* (one 128-bit service).
+CONFIG_BT_BLE_ENABLED=y
+CONFIG_BT_GATTS_ENABLE=y
+# No GATT client is used. R3 map has no bta_gattc_*/gatt_cl objects -> it was off.
+CONFIG_BT_GATTC_ENABLE=n
+
+# --- FreeRTOS -----------------------------------------------------------------------
+# R3 ELF has no esp_ipc*/esp_ipc_isr* objects -> single-core build. Also safe on
+# either ESP32-U4WDH revision (early single-core or later dual-core silicon).
+CONFIG_FREERTOS_UNICORE=y
+# 1 kHz tick: smartvio_rf.c ticks_ms(5) is meant as a 5 ms loop (at 100 Hz it is
+# 10 ms). R3 osi_mutex_lock/osi_sem_take/esp_log_timestamp sizes match only at 1000 Hz.
+CONFIG_FREERTOS_HZ=1000
+
+# --- R4 only ------------------------------------------------------------------------
+# No __DATE__/__TIME__ in the app/bootloader descriptors and path-independent debug
+# info, so the same sources + this file give the same image hash on any machine.
+CONFIG_APP_REPRODUCIBLE_BUILD=y
+
+# --- Kept at IDF defaults on purpose (documented, not set) ---------------------------
+# UART: protocol link is UART2 on GPIO33 (TX) / GPIO32 (RX), 115200 8N1, set at run
+#   time by uart_param_config/uart_set_pin; console stays on UART0 (GPIO1/3, 115200).
+# I2S0 slave RX on BCLK 26 / WS 25 / DIN 22, set at run time (driver/i2s_std.h).
+# Log level: app INFO (CONFIG_LOG_DEFAULT_LEVEL_INFO), bootloader INFO.
+# Task WDT: enabled at boot, 5 s (esp_task_wdt_add(NULL) in app_main needs it).
+# Compiler: -Og (CONFIG_COMPILER_OPTIMIZATION_DEBUG), assertions enabled.
+# Classic ACL links: 2 (CONFIG_BTDM_CTRL_BR_EDR_MAX_ACL_CONN); bonds: 15.

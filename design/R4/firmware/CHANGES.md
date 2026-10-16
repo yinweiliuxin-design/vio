@@ -413,3 +413,20 @@ PACK 由 ADS1115 AIN1 测量（MON_BAT：R1705/R1706 分压 → U1702 TMUX → U
    - 短按开关 BT，LED2 跟随；
    - 先用台架 0x36 给出耳机地址，再长按 2 s，LED2 慢闪，连上后常亮；
    - 检查 ESP 首次 `radio_stack_init` 是否超出 MCU 的 1.5 s 回复超时（现有问题）。
+
+## 充电放行开关（2026-10-16 复核后补）
+
+复核发现：R4 产品镜像按 VBUS、电池电压、板温自行拉高 CHARGE_ALLOW（PE14），绕过了 R3 的“正常充电 HOLD”门槛。VARTA 电池包 NTC 曲线（C13）和充电测试（P23 / CHARGE 阶段）都还没做，首样上电不能用这样的镜像。
+
+修改：
+- `sv_product.h` 新增 `SV_R4_CHARGE_RELEASE`，**默认 0**。默认镜像里 CHARGE_ALLOW 始终为低；判断逻辑照常运行，结果写在 `sv_charge_out.qualified`，并经 `sv_charge_diag.qualified / release`（version 4）可由 SWD 读出。EN1/EN2 仍按 USB500 默认输出。
+- 构建脚本生成三个镜像（`build/`）：
+
+| 镜像 | 用途 | 充电 |
+|---|---|---|
+| `smartvio-r4.bin` | 首样上电与 B00–B12 各阶段 | 锁定，永不充电 |
+| `smartvio-r4-SERVICE.bin` | 维修清故障 | 锁定 |
+| `smartvio-r4-CHARGE-TEST.bin` | 只在 CHARGE 阶段、电池 NTC 曲线与 B00–B12 签字后使用 | 条件满足时允许 |
+
+- 主机测试：`test_r4_product`（默认，断言 allow 恒为 0）与 `test_r4_product_charge_release`（`-DSV_R4_CHARGE_RELEASE=1`，断言逻辑正确）都通过；全部主机测试和 R3 板配置变体照常通过。
+- 量产镜像在 CHARGE 阶段通过后再把默认改为 1。

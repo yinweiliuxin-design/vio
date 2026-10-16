@@ -98,6 +98,8 @@ if [ -f "$BASE/sv_product.c" ]; then
   host test_safety_inputs_active_low "${H[@]}" -DHP_DETECT_ACTIVE_HIGH=0 -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" \
        "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
   # R4 firmware built for an R3 board (SV_HW_REV_R4=0): routes/wake/detect still correct.
+  # Charge-release logic with the gate opened (the default image keeps CHARGE_ALLOW low).
+  host test_r4_product_charge_release "${COMMON[@]}" -DSV_R4_CHARGE_RELEASE=1 "${CORE[@]}" "$FW/tests/test_r4_product.c"
   host test_r4_product_r3board "${COMMON[@]}" -DSV_HW_REV_R4=0 "${CORE[@]}" "$FW/tests/test_r4_product.c"
   host test_safety_inputs_r3board "${H[@]}" -DSV_HW_REV_R4=0 -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" \
        "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
@@ -145,6 +147,17 @@ for s in "$FW/stm32/main.c" "$FW/stm32/fault_store.c"; do
   run "$ARMCC" "${FLAGS[@]}" -DSV_DIAGNOSTIC_SERVICE_CLEAR=1 -c "$s" -o "$o"; SOBJS+=("$o")
 done
 link "$OUT/$IMAGE-SERVICE.elf" "${SOBJS[@]}"
+# CHARGE-TEST variant (SV_R4_CHARGE_RELEASE=1): only for test stage CHARGE after the pack
+# NTC curve and B00-B12 are signed off. The default image never drives CHARGE_ALLOW high.
+if [ -f "$BASE/sv_product.c" ]; then
+  COBJS=()
+  for o in "${OBJS[@]}"; do case "$(basename "$o")" in main.o|sv_product.o) ;; *) COBJS+=("$o");; esac; done
+  for s in "$FW/stm32/main.c" "$BASE/sv_product.c"; do
+    b="$(basename "$s" .c)"; o="$OUT/obj/$b-charge.o"
+    run "$ARMCC" "${FLAGS[@]}" -DSV_R4_CHARGE_RELEASE=1 -c "$s" -o "$o"; COBJS+=("$o")
+  done
+  link "$OUT/$IMAGE-CHARGE-TEST.elf" "${COBJS[@]}"
+fi
 # Compile check of the board-revision dependent target sources for an R3 board
 # (SV_HW_REV_R4=0) and for the SV_PRODUCT_MODE=0 bench flow (objects discarded).
 if [ -f "$BASE/sv_hw_rev.h" ]; then

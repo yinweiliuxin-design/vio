@@ -104,16 +104,16 @@ int main(void){
     /* FW-NO-CHARGE-PATH: USB500 default, charge only with VBUS/no fault/plausible pack/board temp. */
     groups++;
     {sv_charge c={0};sv_charge_in i={.vbus=true,.frame_valid=true,.pack_mv=3800,.board_deci_c=250};
-     sv_charge_out o=sv_charge_decide(&c,&i,0);C(o.en1 && !o.en2 && !o.allow);
-     o=sv_charge_decide(&c,&i,1999);C(!o.allow);o=sv_charge_decide(&c,&i,2000);C(o.allow && o.en1 && !o.en2);
-     sv_charge_in j=i;j.port_fault=true;o=sv_charge_decide(&c,&j,2001);C(!o.allow && !o.en1 && !o.en2);
-     o=sv_charge_decide(&c,&i,2002);C(!o.allow); /* re-qualify 2 s after any veto */
-     o=sv_charge_decide(&c,&i,4002);C(o.allow);
+     sv_charge_out o=sv_charge_decide(&c,&i,0);C(o.allow==(SV_R4_CHARGE_RELEASE && o.qualified));C(o.en1 && !o.en2 && !o.qualified);
+     o=sv_charge_decide(&c,&i,1999);C(!o.qualified);o=sv_charge_decide(&c,&i,2000);C(o.qualified && o.en1 && !o.en2);
+     sv_charge_in j=i;j.port_fault=true;o=sv_charge_decide(&c,&j,2001);C(!o.qualified && !o.en1 && !o.en2);
+     o=sv_charge_decide(&c,&i,2002);C(!o.qualified); /* re-qualify 2 s after any veto */
+     o=sv_charge_decide(&c,&i,4002);C(o.qualified);C(o.allow==(SV_R4_CHARGE_RELEASE!=0)); /* locked unless released */
      for(unsigned k=0;k<8;k++){sv_charge cc={0};sv_charge_in x=i;
         switch(k){case 0:x.vbus=false;break;case 1:x.frame_valid=false;break;case 2:x.efuse_fault=true;break;case 3:x.system_fault=true;break;
                   case 4:x.pack_mv=4250;break;case 5:x.pack_mv=2400;break;case 6:x.board_deci_c=451;break;case 7:x.board_deci_c=-1;break;}
-        for(uint32_t t=0;t<5000;t+=10)C(!sv_charge_decide(&cc,&x,t).allow);}
-     sv_charge cc={0};sv_charge_in s=i;s.service_image=true;o=sv_charge_decide(&cc,&s,9000);C(!o.allow && !o.en1 && !o.en2);}
+        for(uint32_t t=0;t<5000;t+=10)C(!sv_charge_decide(&cc,&x,t).qualified);}
+     sv_charge cc={0};sv_charge_in s=i;s.service_image=true;o=sv_charge_decide(&cc,&s,9000);C(!o.qualified && !o.allow && !o.en1 && !o.en2);}
 
     /* FW-USB-SHUTDOWN-LATCH: KILL 1.5 s, then (still alive => USB) standby with KILL released; wake. */
     groups++;
@@ -188,6 +188,6 @@ int main(void){
 #if SV_PCM_PICKUP_PGA_DB==12
     C(SV_PCM_PICKUP_PGA_REG==0x18);
 #endif
-    printf("{\"suite\":\"r4_product\",\"groups\":%u,\"assertions\":%u,\"hw_rev_r4\":%d,\"hardware_tests\":0}\n",groups,checks,SV_HW_REV_R4);
+    printf("{\"suite\":\"r4_product\",\"groups\":%u,\"assertions\":%u,\"hw_rev_r4\":%d,\"charge_release\":%d,\"hardware_tests\":0}\n",groups,checks,SV_HW_REV_R4,SV_R4_CHARGE_RELEASE);
     return 0;
 }

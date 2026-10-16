@@ -22,7 +22,7 @@
 static volatile uint32_t milliseconds;
 static volatile uint32_t charge_gate_tick;
 static sv_charge charge;static sv_charge_out charge_out;
-volatile struct {uint32_t version,vbus,usb_mv,pack_mv,board_deci_c,allow,en1,en2,port_fault,efuse_fault,chg_status_n,pgood_n,iset_estimate_ma,iset_estimate_valid;} sv_charge_diag;
+volatile struct {uint32_t version,vbus,usb_mv,pack_mv,board_deci_c,allow,en1,en2,port_fault,efuse_fault,chg_status_n,pgood_n,iset_estimate_ma,iset_estimate_valid,qualified,release;} sv_charge_diag;
 static sv_battery battery;static sv_power pwr;
 static uint32_t recover_count,logged_faults,show_until,ui_events_seen,vbus_seen_at;static bool recover_pending;
 #if SV_PRODUCT_MODE
@@ -285,7 +285,7 @@ static void charge_apply(uint32_t now,bool vbus){
     level(GPIOE,14,charge_out.allow);
     charge_gate_tick=milliseconds;
     uint16_t current_ma=0;bool current_valid=frame && sv_mon_charge_current(&f,charge_out.allow,&current_ma);
-    sv_charge_diag.version=3;sv_charge_diag.vbus=i.vbus;sv_charge_diag.usb_mv=f.mv[SV_MON_USB];sv_charge_diag.pack_mv=i.pack_mv;
+    sv_charge_diag.version=4;sv_charge_diag.qualified=charge_out.qualified;sv_charge_diag.release=SV_R4_CHARGE_RELEASE;sv_charge_diag.vbus=i.vbus;sv_charge_diag.usb_mv=f.mv[SV_MON_USB];sv_charge_diag.pack_mv=i.pack_mv;
     sv_charge_diag.board_deci_c=(uint32_t)(int32_t)i.board_deci_c;sv_charge_diag.allow=charge_out.allow;
     sv_charge_diag.en1=charge_out.en1;sv_charge_diag.en2=charge_out.en2;sv_charge_diag.port_fault=i.port_fault;
     sv_charge_diag.efuse_fault=i.efuse_fault;sv_charge_diag.chg_status_n=(GPIOD->IDR>>10)&1u;sv_charge_diag.pgood_n=(GPIOB->IDR>>11)&1u;
