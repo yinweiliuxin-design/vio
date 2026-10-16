@@ -1,6 +1,6 @@
 diff -ruN pa/mechanical/cad/assembly_sequence.py pb/mechanical/cad/assembly_sequence.py
---- a/mechanical/cad/assembly_sequence.py	1970-01-01 00:00:00.000000000 +0000
-+++ b/mechanical/cad/assembly_sequence.py	2026-10-15 07:20:07.291721251 +0000
+--- pa/mechanical/cad/assembly_sequence.py	1970-01-01 00:00:00.000000000 +0000
++++ pb/mechanical/cad/assembly_sequence.py	2026-10-16 08:29:46.238983425 +0000
 @@ -0,0 +1,134 @@
 +"""R4 assembly order and swept-insertion interference check (review M1 fix 4).
 +
@@ -127,7 +127,7 @@ diff -ruN pa/mechanical/cad/assembly_sequence.py pb/mechanical/cad/assembly_sequ
 +  steps.append(sweep_check(st,installed));installed+=st[2]
 + cup_side=list(installed)
 + steps.append(sweep_check(("F1","closed cup subassembly pushed into cover subassembly (4 zero-play snaps); FPCs pre-soldered and folded, coax mated",cup_side,UP,30,
-+  {"upper_cover":(1,.3,"cup hooks 0.25 over blades, cup wall flexes")}),cover_side))
++  {"upper_cover":(1,.4,"cup hooks 0.35 over blades (R4.1), cup wall flexes")}),cover_side))
 + module=cover_side+cup_side
 + steps.append(sweep_check(("F2","module lowered into instrument cavity, 4 ST2.2 wood screws",["lower_cup"],DN,25,{}),["instrument_mount_land_INFERRED_REFERENCE"]))
 + order=[{"step":s["step"],"description":s["description"]} for s in steps]
@@ -137,9 +137,9 @@ diff -ruN pa/mechanical/cad/assembly_sequence.py pb/mechanical/cad/assembly_sequ
 + (BASE/"assembly-sequence-check.json").write_text(json.dumps(out,ensure_ascii=False,indent=2),encoding="utf8")
 + return out
 diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics.py
---- a/mechanical/cad/build_mechanics.py	2026-10-15 07:20:07.079076365 +0000
-+++ b/mechanical/cad/build_mechanics.py	2026-10-15 07:20:07.080929943 +0000
-@@ -1,359 +1,420 @@
+--- pa/mechanical/cad/build_mechanics.py	2026-10-16 08:29:45.726654819 +0000
++++ pb/mechanical/cad/build_mechanics.py	2026-10-16 08:29:46.236991289 +0000
+@@ -1,359 +1,461 @@
 -"""SmartVio R2 real prototype mechanics. Units mm.
 -Logical drawing Y is PCB Y (down). STEP world coordinates are X, -Y, Z.
 -Datum A=instrument mounting plane. No alteration to original instrument cavity.
@@ -539,12 +539,22 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 + "button_fit_basis":"SKQGABE010 h1.5 +0.15/-0, travel0.25, 1.57N (native-components.json). Nub designed to max switch top2.15+0.05; trim stock blank to measured switch top+0.05",
 + "wheel_window_dia":15.2,"wheel_thumb_notch":"north-edge notch 12 wide, floor Z1.5: knurled rim stands 1.5 above local floor (wheel top Z3.0 fixed by board stack)",
 + "legend_depth":0.15,"legend_font":Path(FONT).name,
-+ "snap_stations_x":[67,102],"snap_beam":[8,.8,4],"snap_hook_overlap":.25,"snap_window_z_play":0.04,
++ "snap_stations_x":[67,102],"snap_beam":[8,.8,4],"snap_hook_overlap":.35,"snap_window_z_play":0.04,
++ "snap_blade_leadin":0.55,"snap_locating_rib":{"on":"lower_cup inner wall at each snap flap root (4x)","height":0.15,"clearance_to_blade_face":0.05,"x_from_station":[-3.8,-2.8],"z":[-4.6,-1.2],"top_leadin":0.3,
++  "why":"R4.1 tolerance stack: without ribs the cup floats +/-0.2 in Y between the blades and one-side hook engagement falls to 0.05 nominal / <0 worst case. Ribs on the cover blades were rejected: they would need wider cover-PCB snap slots (C4 sweep hit)"},
++ "pickup_entry_xy":[60.6,4.6],
++ "pickup_entry_xy_status":"PLACEHOLDER. TODO(measure): original pickup-wire hole of the violin (DECISIONS addendum 2026-10-15: no new hole is drilled in the violin). Convert: X = 258 - u (u = distance from tail metal datum, mm), Y = 24.5 + v (v = offset from module centre line toward the Y=0 / wheel-notch edge negative). Then set this value and rebuild.",
++ "pickup_entry_mode":"slot",
++ "pickup_entry_hole_dia":3.0,
++ "pickup_entry_slot":[10.0,3.0],"pickup_entry_slot_axis_deg":0.0,
++ "pickup_entry_slot_note":"first-sample default: 10 x 3 slot along X (instrument length) centred on pickup_entry_xy; accepts the original hole anywhere within +/-3.5 mm along X; across (Y) the 3.0 width only accepts the cable (<= dia 2.6). Must stay in the north cable strip Y 3.1..6.3 (cup wall 2.8 / battery guide 6.5) so the cable reaches the main-board notch x58.8-62.4 and J101",
++ "usb_face_pocket":[13.0,7.4],"usb_face_pocket_note":"R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
++ "audio_frame_web_variants":[0.40,0.50,0.60],"audio_frame_selective_fit":"jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
 + "upper_and_cup_join":"4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
 + "nominal_total_height":24.75,"total_height_limit":25.0,"nonwheel_outward_limit":5,
 + "process":"CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
 + "factory_tuning":"Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
-+ "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
++ "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement"
 +}
 +(BASE/"parameters.json").write_text(json.dumps(PAR,ensure_ascii=False,indent=2),encoding="utf8")
 +def box(x,y,z,w,h,d):return cq.Workplane("XY").box(w,h,d,centered=(False,False,False)).translate((x,-y-h,z)).val()
@@ -615,7 +625,7 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 + up=up.cut(cyl(x,y,.8,3.3,3.2)).cut(cyl(x,y,3.0,6.0,1.0))
 +# USB-C: opening tightened to official max body +0.1 for lateral load into roof; face pocket kept.
 +up=up.cut(rr(93.305,7.195,2.3,9.39,3.61,1.8,1.6))
-+up=up.cut(rr(92.0,5.3,3.0,12,7.4,1.0,1.5))
++UFP=PAR["usb_face_pocket"];up=up.cut(rr(98-UFP[0]/2,9-UFP[1]/2,3.0,UFP[0],UFP[1],1.0,1.5))
 +# M1/M5: four roof posts through cover-PCB ECO holes clamp USB board between post ends and the carrier.
 +USBPOST=[(88,8),(108.3,8),(88,22),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
 +for x,y in USBPOST:
@@ -639,8 +649,9 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +   tab=tab.fuse(box(x0,yy,-11.65,x1-x0,.7,6.5))
 +   tab=tab.fuse(yzprism([(44.85,-11.15),(45.3,-11.15),(45.3,-11.65),(44.85,-11.3)],x0,x1-x0))
 +   tab=tab.cut(yzprism([(46.0,-11.66),(45.6,-11.66),(46.01,-11.25)],x0-.01,x1-x0+.02))
-+  face=3.0 if north else 46.0;s=.4 if north else -.4;c0=x-4 if north else x1
-+  tab=tab.cut(yzprism([(face,-5.21),(face+s,-5.21),(face,-4.8)],c0-.01,x+4-c0+.02))
++  LI=PAR["snap_blade_leadin"];face=3.0 if north else 46.0;s=LI if north else -LI;c0=x-4 if north else x1
++  tab=tab.cut(yzprism([(face,-5.21),(face+s,-5.21),(face,-5.2+LI)],c0-.01,x+4-c0+.02))
++
 +  tab=tab.cut(box(x+2.0,yy-.1,-2.32,2.2,.9,.84))
 +  up=up.fuse(tab)
 +cover_noleg=up.clean()
@@ -662,9 +673,16 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +  cup=cup.cut(box(x-4,yy-.1,-5.5,8.4,1.0,.5))
 +  cup=cup.cut(box(x-4,yy-.1,-1.0,8.4,1.0,.5))
 +  cup=cup.cut(box(x+3.6,yy-.1,-5.5,.5,1.0,5.0))
-+  yz=[(2.7,-2.3),(3.25,-2.3),(3.25,-1.5),(2.7,-1.5)]
++  yz=[(2.7,-2.3),(3.0+PAR["snap_hook_overlap"],-2.3),(3.0+PAR["snap_hook_overlap"],-1.5),(2.7,-1.5)]
 +  if side:yz=[(49-y,z) for y,z in yz]
 +  cup=cup.fuse(yzprism(yz,x+2.2,1.2))
++  # R4.1 Y locating rib (0.15 high, 0.05 to the blade face) on the flap root, top lead-in 0.3.
++  RB=PAR["snap_locating_rib"];rh=RB["height"];rx0,rx1=RB["x_from_station"];rz0,rz1=RB["z"]
++  wall=2.8 if side==0 else 46.2;fr=wall+rh if side==0 else wall-rh
++  rib=box(x+rx0,(wall-.05) if side==0 else fr,rz0,rx1-rx0,rh+.05,rz1-rz0)
++  fo=fr+.01 if side==0 else fr-.01
++  rib=rib.cut(yzprism([(fo,rz1+.01),(wall,rz1+.01),(fo,rz1-RB["top_leadin"])],x+rx0-.01,rx1-rx0+.02))
++  cup=cup.fuse(rib)
 +# M3: main ledges overlap the board edge by 1.0 (were 0.2); north-west segment stops before the pickup notch;
 +# 0.5 overlap at x78.3-88 where B-side C811/C903 (h1.9/1.55) sit 0.56/0.73 from the edge.
 +LEDGES=[(36.7,21.6,2.8,1.4),(75,3.3,2.8,1.4),(78.3,9.7,2.8,.9),(88,23.3,2.8,1.4),(36.7,25,44.8,1.5),(93,18.3,44.8,1.5)]
@@ -680,8 +698,24 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +cup=cup.cut(box(91.9,11.3,-20.0,.7,4.7,4.0))
 +ntcwall=box(92.0,11.3,-20.3,4.8,4.7,4.2).cut(box(91.9,11.8,-20.0,4.3,3.7,4.2))
 +cup=cup.fuse(ntcwall)
-+# M7: pickup cable entry Ø3.0 in the floor under the main-board edge notch (x58.8-62.4); route to J101.
-+cup=cup.cut(cyl(60.6,4.6,PAR["cup_bottom"]-.1,1.5,1.0))
++# M7 / DECISIONS addendum 2026-10-15: the pickup wire comes up through the violin's ORIGINAL wire hole (no new hole is
++# drilled in the instrument). The cup-floor entry is aligned to that hole: position = PAR["pickup_entry_xy"]
++# (TODO: measured value; placeholder under the main-board edge notch x58.8-62.4, route to J101).
++# Mode "hole": dia 3.0 at the measured position. Mode "slot" (first-sample default): 10 x 3 slot along X so the
++# module can be built before the measurement (+/-3.5 along X).
++PEX,PEY=PAR["pickup_entry_xy"]
++if PAR["pickup_entry_mode"]=="hole":
++ pe_tool=cyl(PEX,PEY,PAR["cup_bottom"]-.1,PAR["pickup_entry_hole_dia"]/2,1.0);pe_ext=(PEX-1.5,PEY-1.5,PEX+1.5,PEY+1.5)
++else:
++ SL,SW=PAR["pickup_entry_slot"];ang=PAR["pickup_entry_slot_axis_deg"]
++ pe_tool=cq.Workplane("XY").slot2D(SL,SW,ang).extrude(1.0).translate((PEX,-PEY,PAR["cup_bottom"]-.1)).val()
++ ca,sa=abs(math.cos(math.radians(ang))),abs(math.sin(math.radians(ang)))
++ hx=(SL-SW)/2*ca+SW/2;hy=(SL-SW)/2*sa+SW/2;pe_ext=(PEX-hx,PEY-hy,PEX+hx,PEY+hy)
++assert 37.0<=pe_ext[0] and pe_ext[2]<=91.5 and 3.1-1e-6<=pe_ext[1] and pe_ext[3]<=6.3+1e-6, \
++ f"pickup entry {pe_ext} outside the north cable strip (X37-91.5, Y3.1-6.3): the cable could not reach J101 past the battery; re-layout needed"
++PAR["pickup_entry_extent_xy"]=[round(v,3) for v in pe_ext]
++(BASE/"parameters.json").write_text(json.dumps(PAR,ensure_ascii=False,indent=2),encoding="utf8")
++cup=cup.cut(pe_tool)
 +# R4: the R3 end shelves are removed (they lay inside the main-board footprint, so the board could not be
 +# inserted past them); the audio frame now hangs from the cover side only (blade lips, key backer, USB bracket).
 +# Main-board latches: 0.5 slots, tooth bottom at board top (zero Z gap, M3).
@@ -696,22 +730,27 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +  cup=cup.fuse(yzprism(yz,x+10.0,1.5))
 +parts["lower_cup"]=cup.clean()
 +# ---------------- AUDIO FRAME (separate, snaps onto south blade lips) ----------------
++def build_audio_frame(ft):
++ fb=PAR["audio_frame_bottom"]
++ carrier=box(36.5,29.2,fb,75,16.0,ft).cut(box(37.3,30,fb-.1,73.4,14,ft+.2))
++ for x in [37.3,110.2]:
++  for y in [30.0,42.8]:
++   carrier=carrier.fuse(box(x,y,fb,.5,1.2,ft))
++ # Transverse ribs under the board between jacks (no jack body / THT pin tail there).
++ for x in [55.0,73.5,91.7]:
++  carrier=carrier.fuse(box(x,30,fb,1.0,14,ft))
++ # North stiffening web beside the board edge, up to Z-4.0; two hanger zones: over the key-backer ledge
++ # (x40-62, hook Z-1.6..-1.2) and over the USB-bracket south rail (x88-108, tab Z-4.3..-3.9).
++ carrier=carrier.fuse(box(36.6,29.2,fb+ft,74.8,.8,-4.0-(fb+ft)))
++ carrier=carrier.fuse(box(40,29.2,-4.0,22,.8,2.8)).fuse(box(40,28.8,-1.6,22,.4,.4))
++ carrier=carrier.fuse(box(88,27.25,-4.3,20,1.95,.4))
++ carrier=carrier.cut(box(97.8,29.15,fb-.1,6.1,.95,1.5))
++ carrier=carrier.cut(box(75.8,44.95,fb-.1,2.4,.4,ft+.2))   # POTS3 lower bend passes under/behind the bar
++ return carrier.clean()
++parts["audio_load_frame"]=build_audio_frame(PAR["audio_frame_thickness"])
 +fb=PAR["audio_frame_bottom"];ft=PAR["audio_frame_thickness"]
-+carrier=box(36.5,29.2,fb,75,16.0,ft).cut(box(37.3,30,fb-.1,73.4,14,ft+.2))
-+for x in [37.3,110.2]:
-+ for y in [30.0,42.8]:
-+  carrier=carrier.fuse(box(x,y,fb,.5,1.2,ft))
-+# Transverse ribs under the board between jacks (no jack body / THT pin tail there).
-+for x in [55.0,73.5,91.7]:
-+ carrier=carrier.fuse(box(x,30,fb,1.0,14,ft))
-+# North stiffening web beside the board edge, up to Z-4.0; two hanger zones: over the key-backer ledge
-+# (x40-62, hook Z-1.6..-1.2) and over the USB-bracket south rail (x88-108, tab Z-4.3..-3.9).
-+carrier=carrier.fuse(box(36.6,29.2,fb+ft,74.8,.8,-4.0-(fb+ft)))
-+carrier=carrier.fuse(box(40,29.2,-4.0,22,.8,2.8)).fuse(box(40,28.8,-1.6,22,.4,.4))
-+carrier=carrier.fuse(box(88,27.25,-4.3,20,1.95,.4))
-+carrier=carrier.cut(box(97.8,29.15,fb-.1,6.1,.95,1.5))
-+carrier=carrier.cut(box(75.8,44.95,fb-.1,2.4,.4,ft+.2))   # POTS3 lower bend passes under/behind the bar
-+parts["audio_load_frame"]=carrier.clean()
++# R4.1 selective-fit variants (not in the assembly or collision set; exported to cad/variants/)
++frame_variants={f"audio_load_frame_web{str(t).replace('.','p')}":build_audio_frame(t) for t in PAR["audio_frame_web_variants"] if abs(t-PAR["audio_frame_thickness"])>1e-9}
 +# ---------------- KEY BACKER (keys 3-5) ----------------
 +kb=box(36.6,21.3,-1.1,30.0,7.4,1.2).fuse(box(40,28.0,-2.0,22,.7,.9)).fuse(box(40,28.7,-2.0,22,.4,.4))
 +for x in [42.5,55.5]:
@@ -743,7 +782,7 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +for i,(x,y) in enumerate(ports):refs[f"Kycon_vendor_{i+1}"]=vendor.translate((x,-y,3.85))
 +refs["battery_max_reference"]=box(40,7.25,-20.2,52,34.5,5.4)
 +refs["instrument_mount_land_INFERRED_REFERENCE"]=box(0,0,-22,148,49,22).cut(box(35,1,-22.1,78,47,22.2))
-+(BASE/"reference/instrument-fit-basis.json").write_text(json.dumps({"cavityMm":[78,47,22],"inferredCavityOriginXY":[35,1],"datumZ":0,"basis":"inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument","physicalMeasurement":False,"mountHoles":"new reserved pattern, factory fits actual instrument as authorized","pickupEntry":"drill cavity floor under cup hole (60.6,4.6) after measuring the instrument"},ensure_ascii=False,indent=2),encoding="utf8")
++(BASE/"reference/instrument-fit-basis.json").write_text(json.dumps({"cavityMm":[78,47,22],"inferredCavityOriginXY":[35,1],"datumZ":0,"basis":"inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument","physicalMeasurement":False,"mountHoles":"new reserved pattern, factory fits actual instrument as authorized","pickupEntry":"NO new hole in the instrument (DECISIONS addendum 2026-10-15). The pickup wire uses the violin's ORIGINAL wire hole; the cup-floor entry (parameters.json pickup_entry_xy, mode %s, extent %s) must be aligned to the measured hole. TODO measure: original hole position in the cavity (distance from tail metal datum u, offset from centre line v); X=258-u."%(PAR["pickup_entry_mode"],PAR["pickup_entry_extent_xy"]),"centralBeam":"TODO measure: central solid beam width >= 49 mm over 110-258 mm from the tail datum (cover X 148..0)","longitudinal":"cover X = 258 - u (u = distance from tail metal datum); cavity u 145..223 = X 113..35; wheel end (X=0) toward the head"},ensure_ascii=False,indent=2),encoding="utf8")
 +geo=json.loads((BASE/"reference/current-native-geometry.json").read_text("utf8"))
 +for bd in geo["boards"].values():
 + bd["native_body_STEP"]=bd["native_body_STEP"].replace("\\","/")       # M17 POSIX paths
@@ -853,6 +892,8 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +STOCK=OUT/"stock";STOCK.mkdir(exist_ok=True)
 +stock=parts["button_1"].fuse(cyl(10,25,1.75,.8,.5))
 +cq.exporters.export(stock,str(STOCK/"button_blank_TRIM_TIP_TO_MEASURED_SWITCH.step"))
++VAR=OUT/"variants";VAR.mkdir(exist_ok=True)
++for vn,vs in frame_variants.items():cq.exporters.export(vs,str(VAR/(vn+".step")))
 +checks=[];file_manifest=[]
 +for name,sh in parts.items():
 + fn=OUT/(name+".step");cq.exporters.export(sh,str(fn))
@@ -910,7 +951,7 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +"tolerance_limit_status":"Worst case dimensions and final board height-map not yet closed; assembly is not released merely by nominal dimensions.",
 +"physical_tests":0,"manufacturing_process":PAR["process"],
 +"modeled_board_interconnections":modeled_connections,"required_board_interconnections":37,"complete_harness_closed":False,
-+"remaining":["Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun","Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team","confirm actual pickup cable and drill instrument cavity floor at the cup entry hole","FPC custom thin stack and microdrill require supplier DFM confirmation","measure actual violin cavity and mounting surface","freeze actual material and qualified tolerance/process","speaker back volume not provided (acoustic test)"]}
++"remaining":["Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun","Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team","measure the violin's ORIGINAL pickup-wire hole and set pickup_entry_xy (slot 10x3 used until then); no new hole in the instrument","FPC custom thin stack and microdrill require supplier DFM confirmation","measure actual violin cavity and mounting surface","freeze actual material and qualified tolerance/process","speaker back volume not provided (acoustic test)"]}
 +from assembly_sequence import run as run_sequence
 +seq=run_sequence(cq,parts,refs,BASE,light={"upper_cover":cover_noleg})
 +status["assembly_sequence"]={"file":"assembly-sequence-check.json","pass":seq["pass"],"steps":len(seq["steps"])}
@@ -919,9 +960,1412 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +cq.exporters.export(cq.Compound.makeCompound([parts["upper_cover"],parts["lower_cup"]]),str(BASE/"drawings/assembly-isometric.svg"),opt={"width":1000,"height":700,"projectionDir":(1,-1,0.7),"showAxes":False,"showHidden":False,"strokeWidth":.6})
 +(BASE/"requirements.txt").write_text("cadquery==2.8.0\n",encoding="ascii")
 +print(json.dumps({"parts":len(parts),"all_valid":all(x["valid"] and (x["part"].startswith("main_shim") or x["solids"]==1) and x["volume_mm3"]>0 for x in checks),"intersections":collisions,"envelope":envelope,"legends_ok":all(l["ok"] for l in legend_check),"sequence_pass":seq["pass"]},ensure_ascii=False))
+diff -ruN pa/mechanical/cad/drawlib.py pb/mechanical/cad/drawlib.py
+--- pa/mechanical/cad/drawlib.py	1970-01-01 00:00:00.000000000 +0000
++++ pb/mechanical/cad/drawlib.py	2026-10-16 08:29:46.244749984 +0000
+@@ -0,0 +1,446 @@
++"""Small 2-D drafting engine for the SmartVio R4 manufacturing drawings (M18).
++
++One list of primitives per sheet is written to both SVG and PDF (reportlab), so the two outputs are identical.
++Page units are millimetres, origin top-left, y down (A3 landscape 420 x 297).
++Model views come from OCC exact hidden-line removal (HLRBRep_Algo) with an explicit projection frame, so every
++model point can be mapped to the page and dimensions are placed on real geometry, not on guessed offsets.
++"""
++import math, html
++from OCP.HLRBRep import HLRBRep_Algo, HLRBRep_HLRToShape
++from OCP.HLRAlgo import HLRAlgo_Projector
++from OCP.gp import gp_Ax2, gp_Pnt, gp_Dir
++from OCP.BRepLib import BRepLib
++from OCP.BRepAdaptor import BRepAdaptor_Curve
++from OCP.GCPnts import GCPnts_QuasiUniformDeflection
++from OCP.TopExp import TopExp_Explorer
++from OCP.TopAbs import TopAbs_EDGE, TopAbs_REVERSED
++from OCP.TopoDS import TopoDS
++from OCP.BRepTools import BRepTools_WireExplorer
++
++FONT_FAMILY = "'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei','SimHei',sans-serif"
++CTF_COLOR = "#b3001b"
++INK = "#111111"
++
++# Projection frames: (N toward the viewer, X = page right) in WORLD coordinates (STEP: X, -logicalY, Z).
++VIEWS = {
++    "top": ((0, 0, 1), (1, 0, 0)),       # from +Z, logical Y down the page
++    "bottom": ((0, 0, -1), (1, 0, 0)),   # from -Z, flipped about X (logical Y up the page)
++    "front": ((0, -1, 0), (1, 0, 0)),    # viewer at south (large logical Y) looking north; page right = +X
++    "back": ((0, 1, 0), (-1, 0, 0)),
++    "left": ((-1, 0, 0), (0, -1, 0)),    # viewer at the head end (X<0); page right = south (+logical Y)
++    "right": ((1, 0, 0), (0, 1, 0)),     # viewer at the tail end; page right = north (-logical Y)
++}
++
++
++def _cross(a, b):
++    return (a[1] * b[2] - a[2] * b[1], a[2] * b[0] - a[0] * b[2], a[0] * b[1] - a[1] * b[0])
++
++
++def _discretize(edge, defl=0.01):
++    c = BRepAdaptor_Curve(edge)
++    d = GCPnts_QuasiUniformDeflection(c, defl, c.FirstParameter(), c.LastParameter())
++    if not d.IsDone():
++        return []
++    return [d.Value(i) for i in range(1, d.NbPoints() + 1)]
++
++
++def hlr_polylines(shape, kind, hidden=False, defl=0.01):
++    N, X = VIEWS[kind]
++    algo = HLRBRep_Algo()
++    algo.Add(shape.wrapped)
++    algo.Projector(HLRAlgo_Projector(gp_Ax2(gp_Pnt(0, 0, 0), gp_Dir(*N), gp_Dir(*X))))
++    algo.Update()
++    algo.Hide()
++    h = HLRBRep_HLRToShape(algo)
++
++    def grab(comp):
++        if comp.IsNull():
++            return []
++        BRepLib.BuildCurves3d_s(comp, 1e-6)
++        out = []
++        exp = TopExp_Explorer(comp, TopAbs_EDGE)
++        while exp.More():
++            pts = _discretize(TopoDS.Edge_s(exp.Current()), defl)
++            if len(pts) > 1:
++                out.append([(p.X(), p.Y()) for p in pts])
++            exp.Next()
++        return out
++
++    vis = grab(h.VCompound()) + grab(h.OutLineVCompound())
++    smooth = grab(h.Rg1LineVCompound())
++    hid = (grab(h.HCompound()) + grab(h.OutLineHCompound())) if hidden else []
++    return vis, smooth, hid
++
++
++def wire_polys(face, defl=0.01):
++    """Ordered closed polygons (3-D world points) of a face's wires."""
++    polys = []
++    for w in [face.outerWire()] + face.innerWires():
++        pts = []
++        ex = BRepTools_WireExplorer(w.wrapped, face.wrapped)
++        while ex.More():
++            e = ex.Current()
++            seg = _discretize(e, defl)
++            if e.Orientation() == TopAbs_REVERSED:
++                seg = seg[::-1]
++            seg = [(p.X(), p.Y(), p.Z()) for p in seg]
++            if pts and seg and math.dist(pts[-1], seg[0]) < 1e-6:
++                seg = seg[1:]
++            pts += seg
++            ex.Next()
++        if len(pts) > 2:
++            polys.append(pts)
++    return polys
++
++
++def text_width(t, size):
++    w = 0
++    for ch in str(t):
++        w += size * (1.0 if ord(ch) > 0x2E80 else 0.56)
++    return w
++
++
++class Page:
++    def __init__(self, w=420, h=297):
++        self.w, self.h = w, h
++        self.items = []
++        self._clip = 0
++
++    # primitives -------------------------------------------------------------
++    def line(self, x1, y1, x2, y2, w=0.25, c=INK, dash=None):
++        self.items.append(("poly", [(x1, y1), (x2, y2)], w, c, dash, False, None))
++
++    def poly(self, pts, w=0.25, c=INK, dash=None, closed=False, fill=None):
++        if len(pts) > 1:
++            self.items.append(("poly", list(pts), w, c, dash, closed, fill))
++
++    def rect(self, x, y, w_, h_, w=0.25, c=INK, fill=None, dash=None):
++        self.poly([(x, y), (x + w_, y), (x + w_, y + h_), (x, y + h_)], w, c, dash, True, fill)
++
++    def circle(self, x, y, r, w=0.25, c=INK, fill=None, dash=None):
++        self.items.append(("circle", x, y, r, w, c, fill, dash))
++
++    def text(self, x, y, t, size=2.5, anchor="start", rot=0, c=INK, bold=False):
++        self.items.append(("text", x, y, str(t), size, anchor, rot, c, bold))
++
++    def arrow(self, x, y, ang_deg, size=2.2, c=INK):
++        """Filled arrow head with its tip at (x,y) pointing along ang_deg (page coords, 0 = +x, 90 = +y)."""
++        a = math.radians(ang_deg)
++        bx, by = x - size * math.cos(a), y - size * math.sin(a)
++        nx, ny = -math.sin(a) * size * 0.18, math.cos(a) * size * 0.18
++        self.poly([(x, y), (bx + nx, by + ny), (bx - nx, by - ny)], 0.1, c, None, True, c)
++
++    def hatch(self, polys, spacing=0.9, angle=45, w=0.12, c=INK, fill="#e9e9e9"):
++        """Even-odd hatch of closed page polygons."""
++        polys = [p for p in polys if len(p) > 2]
++        if not polys:
++            return
++        xs = [x for p in polys for x, _ in p]
++        ys = [y for p in polys for _, y in p]
++        x0, x1, y0, y1 = min(xs), max(xs), min(ys), max(ys)
++        a = math.radians(angle)
++        d = math.hypot(x1 - x0, y1 - y0)
++        cx, cy = (x0 + x1) / 2, (y0 + y1) / 2
++        lines = []
++        n = int(d / spacing) + 2
++        for i in range(-n, n + 1):
++            off = i * spacing
++            px, py = cx - math.sin(a) * off, cy + math.cos(a) * off
++            lines.append((px - math.cos(a) * d, py - math.sin(a) * d, px + math.cos(a) * d, py + math.sin(a) * d))
++        self._clip += 1
++        self.items.append(("hatch", polys, lines, w, c, fill, self._clip))
++
++    # composite helpers ----------------------------------------------------
++    def ctf_tag(self, x, y, tag, size=2.0):
++        """Critical-to-function flag: tag inside a flattened hexagon (red)."""
++        tw = text_width(tag, size) + 1.6
++        h = size * 1.25
++        pts = [(x, y), (x + 0.8, y - h / 2), (x + tw - 0.8, y - h / 2), (x + tw, y), (x + tw - 0.8, y + h / 2), (x + 0.8, y + h / 2)]
++        self.poly(pts, 0.25, CTF_COLOR, None, True, "#ffffff")
++        self.text(x + tw / 2, y + size * 0.36, tag, size, "middle", 0, CTF_COLOR, True)
++        return tw
++
++    def label(self, x, y, t, size=2.2, c=INK, ctf=None, anchor="start", rot=0):
++        if ctf and rot == 0:
++            tw = text_width(t, size)
++            x0 = x - (tw / 2 if anchor == "middle" else tw if anchor == "end" else 0)
++            self.text(x0, y, t, size, "start", 0, CTF_COLOR)
++            self.ctf_tag(x0 + tw + 0.8, y - size * 0.35, ctf, size * 0.85)
++        else:
++            self.text(x, y, t, size, anchor, rot, CTF_COLOR if ctf else c)
++            if ctf and rot:
++                tw = text_width(t, size)
++                self.ctf_tag(x - size * 0.95, y - tw / 2 - 4.2 if anchor == "middle" else y - tw - 4.2, ctf, size * 0.85)
++
++    def dim_h(self, p1, p2, yline, t, ctf=None, size=2.2, ext=1.2):
++        (x1, y1), (x2, y2) = p1, p2
++        c = CTF_COLOR if ctf else INK
++        for x, y in ((x1, y1), (x2, y2)):
++            s = 1 if yline > y else -1
++            self.line(x, y + s * 0.6, x, yline + s * ext, 0.13, c)
++        lo, hi = min(x1, x2), max(x1, x2)
++        tw = text_width(t, size) + (6 if ctf else 0)
++        if hi - lo > 7:
++            self.line(lo, yline, hi, yline, 0.18, c)
++            self.arrow(lo, yline, 180, 2.0, c)
++            self.arrow(hi, yline, 0, 2.0, c)
++            tx = (lo + hi) / 2
++        else:
++            self.line(lo - 4, yline, hi + 4 + (tw if hi - lo < tw else 0), yline, 0.18, c)
++            self.arrow(lo, yline, 0, 2.0, c)
++            self.arrow(hi, yline, 180, 2.0, c)
++            tx = hi + 4 + tw / 2 if hi - lo < tw else (lo + hi) / 2
++        self.label(tx, yline - 0.7, t, size, ctf=ctf, anchor="middle")
++
++    def dim_v(self, p1, p2, xline, t, ctf=None, size=2.2, ext=1.2):
++        (x1, y1), (x2, y2) = p1, p2
++        c = CTF_COLOR if ctf else INK
++        for x, y in ((x1, y1), (x2, y2)):
++            s = 1 if xline > x else -1
++            self.line(x + s * 0.6, y, xline + s * ext, y, 0.13, c)
++        lo, hi = min(y1, y2), max(y1, y2)
++        if hi - lo > 7:
++            self.line(xline, lo, xline, hi, 0.18, c)
++            self.arrow(xline, lo, 270, 2.0, c)
++            self.arrow(xline, hi, 90, 2.0, c)
++            ty = (lo + hi) / 2
++            self.text(xline - 0.8, ty, t, size, "middle", -90, c)
++            if ctf:
++                self.ctf_tag(xline - 0.8 - size * 1.1, ty + text_width(t, size) / 2 + 1.2, ctf, size * 0.85)
++        else:
++            self.line(xline, lo - 4, xline, hi + 4, 0.18, c)
++            self.arrow(xline, lo, 90, 2.0, c)
++            self.arrow(xline, hi, 270, 2.0, c)
++            self.label(xline + 1.5, hi + 6.5, t, size, ctf=ctf)
++
++    def leader(self, p, tx, ty, t, ctf=None, size=2.2, dot=False):
++        c = CTF_COLOR if ctf else INK
++        x, y = p
++        ang = math.degrees(math.atan2(y - ty, x - tx))
++        self.line(tx, ty, x, y, 0.15, c)
++        if dot:
++            self.circle(x, y, 0.4, 0.1, c, c)
++        else:
++            self.arrow(x, y, ang, 1.8, c)
++        right = tx >= x
++        tw = text_width(t, size) + (6 if ctf else 0)
++        x2 = tx + (tw + 1 if right else -(tw + 1))
++        self.line(tx, ty, x2, ty, 0.15, c)
++        self.label(tx + 0.5 if right else x2 + 0.5, ty - 0.6, t, size, ctf=ctf)
++
++    def table(self, x, y, cols, rows, size=2.0, rowh=3.6, header_fill="#eeeeee", ctf_col=None):
++        """cols = [(title, width)], rows = list of lists. Returns bottom y."""
++        tot = sum(w for _, w in cols)
++        self.rect(x, y, tot, rowh, 0.2, INK, header_fill)
++        cx = x
++        for t, w in cols:
++            self.text(cx + 0.8, y + rowh - 1.0, t, size, "start", 0, INK, True)
++            cx += w
++        yy = y + rowh
++        for r in rows:
++            ctf = ctf_col is not None and r[ctf_col]
++            self.rect(x, yy, tot, rowh, 0.12, "#777777")
++            cx = x
++            for (t, w), v in zip(cols, r):
++                col = CTF_COLOR if (ctf and v) else INK
++                self.text(cx + 0.8, yy + rowh - 1.0, v, size, "start", 0, col)
++                cx += w
++            yy += rowh
++        cx = x
++        for _, w in cols[:-1]:
++            cx += w
++            self.line(cx, y, cx, yy, 0.12, "#777777")
++        return yy
++
++    # output -----------------------------------------------------------------
++    def svg(self):
++        o = [f'<svg xmlns="http://www.w3.org/2000/svg" width="{self.w}mm" height="{self.h}mm" viewBox="0 0 {self.w} {self.h}">',
++             f'<rect width="{self.w}" height="{self.h}" fill="#ffffff"/>',
++             f'<g font-family="{FONT_FAMILY}" stroke-linecap="round" stroke-linejoin="round">']
++        for it in self.items:
++            k = it[0]
++            if k == "poly":
++                _, pts, w, c, dash, closed, fill = it
++                d = "M" + " L".join(f"{x:.3f},{y:.3f}" for x, y in pts) + (" Z" if closed else "")
++                da = f' stroke-dasharray="{dash}"' if dash else ""
++                o.append(f'<path d="{d}" fill="{fill or "none"}" stroke="{c}" stroke-width="{w}"{da}/>')
++            elif k == "circle":
++                _, x, y, r, w, c, fill, dash = it
++                da = f' stroke-dasharray="{dash}"' if dash else ""
++                o.append(f'<circle cx="{x:.3f}" cy="{y:.3f}" r="{r:.3f}" fill="{fill or "none"}" stroke="{c}" stroke-width="{w}"{da}/>')
++            elif k == "text":
++                _, x, y, t, size, anchor, rot, c, bold = it
++                tr = f' transform="rotate({rot} {x:.3f} {y:.3f})"' if rot else ""
++                fw = ' font-weight="bold"' if bold else ""
++                o.append(f'<text x="{x:.3f}" y="{y:.3f}" font-size="{size}" text-anchor="{anchor}" fill="{c}"{fw}{tr}>{html.escape(t)}</text>')
++            elif k == "hatch":
++                _, polys, lines, w, c, fill, cid = it
++                d = " ".join("M" + " L".join(f"{x:.3f},{y:.3f}" for x, y in p) + " Z" for p in polys)
++                o.append(f'<clipPath id="h{cid}"><path d="{d}" clip-rule="evenodd"/></clipPath>')
++                o.append(f'<path d="{d}" fill="{fill}" fill-rule="evenodd" stroke="none"/>')
++                ls = "".join(f'<line x1="{a:.2f}" y1="{b:.2f}" x2="{e:.2f}" y2="{f:.2f}"/>' for a, b, e, f in lines)
++                o.append(f'<g clip-path="url(#h{cid})" stroke="{c}" stroke-width="{w}">{ls}</g>')
++        o.append("</g></svg>")
++        return "\n".join(o)
++
++    def pdf(self, cv):
++        from reportlab.lib.units import mm
++        from reportlab.pdfgen.canvas import FILL_EVEN_ODD
++        from reportlab.lib.colors import HexColor
++        H = self.h
++        P = lambda x, y: (x * mm, (H - y) * mm)
++        cv.setPageSize((self.w * mm, self.h * mm))
++        cv.setFillColor(HexColor("#ffffff"))
++        cv.rect(0, 0, self.w * mm, self.h * mm, stroke=0, fill=1)
++        cv.setLineCap(1)
++        cv.setLineJoin(1)
++
++        def path(pts, closed):
++            p = cv.beginPath()
++            x, y = P(*pts[0])
++            p.moveTo(x, y)
++            for q in pts[1:]:
++                p.lineTo(*P(*q))
++            if closed:
++                p.close()
++            return p
++        for it in self.items:
++            k = it[0]
++            if k == "poly":
++                _, pts, w, c, dash, closed, fill = it
++                cv.setStrokeColor(HexColor(c))
++                cv.setLineWidth(w * mm)
++                cv.setDash([float(v) * mm for v in str(dash).replace(",", " ").split()] if dash else [])
++                if fill:
++                    cv.setFillColor(HexColor(fill))
++                cv.drawPath(path(pts, closed), stroke=1, fill=1 if fill else 0)
++                cv.setDash([])
++            elif k == "circle":
++                _, x, y, r, w, c, fill, dash = it
++                cv.setStrokeColor(HexColor(c))
++                cv.setLineWidth(w * mm)
++                cv.setDash([float(v) * mm for v in str(dash).replace(",", " ").split()] if dash else [])
++                if fill:
++                    cv.setFillColor(HexColor(fill))
++                cv.circle(*P(x, y), r * mm, stroke=1, fill=1 if fill else 0)
++                cv.setDash([])
++            elif k == "text":
++                _, x, y, t, size, anchor, rot, c, bold = it
++                cv.saveState()
++                cv.setFillColor(HexColor(c))
++                cv.setFont("WQY", size * mm * (1.0 if not bold else 1.0))
++                cv.translate(*P(x, y))
++                if rot:
++                    cv.rotate(-rot)
++                if bold:
++                    cv.setStrokeColor(HexColor(c))
++                    cv.setLineWidth(0.05 * mm)
++                    tobj = cv.beginText()
++                    tobj.setTextRenderMode(2)
++                    w = cv.stringWidth(t, "WQY", size * mm)
++                    tobj.setTextOrigin(-w / 2 if anchor == "middle" else -w if anchor == "end" else 0, 0)
++                    tobj.textLine(t)
++                    cv.drawText(tobj)
++                elif anchor == "middle":
++                    cv.drawCentredString(0, 0, t)
++                elif anchor == "end":
++                    cv.drawRightString(0, 0, t)
++                else:
++                    cv.drawString(0, 0, t)
++                cv.restoreState()
++            elif k == "hatch":
++                _, polys, lines, w, c, fill, cid = it
++                cv.saveState()
++                p = cv.beginPath()
++                for poly in polys:
++                    p.moveTo(*P(*poly[0]))
++                    for q in poly[1:]:
++                        p.lineTo(*P(*q))
++                    p.close()
++                cv.setFillColor(HexColor(fill))
++                cv.clipPath(p, stroke=0, fill=1, fillMode=FILL_EVEN_ODD)
++                cv.setStrokeColor(HexColor(c))
++                cv.setLineWidth(w * mm)
++                for a, b, e, f in lines:
++                    cv.line(*P(a, b), *P(e, f))
++                cv.restoreState()
++        cv.showPage()
++
++
++class View:
++    """A model view placed on a page. pt(x, y_logical, z) -> page point."""
++
++    def __init__(self, page, shape, kind, scale, at, hidden=False, w=0.3, smooth=True, defl=0.01, uvbox=None, draw=True):
++        self.page, self.kind, self.s = page, kind, scale
++        N, X = VIEWS[kind]
++        self.N, self.X, self.Y = N, X, _cross(N, X)
++        vis, sm, hid = hlr_polylines(shape, kind, hidden, defl) if shape is not None else ([], [], [])
++        pts = [q for pl in vis + sm + hid for q in pl]
++        if uvbox is None:
++            umin, umax = min(u for u, _ in pts), max(u for u, _ in pts)
++            vmin, vmax = min(v for _, v in pts), max(v for _, v in pts)
++        else:
++            umin, vmin, umax, vmax = uvbox
++        self.umin, self.umax, self.vmin, self.vmax = umin, umax, vmin, vmax
++        self.ox = at[0] - scale * umin
++        self.oy = at[1] + scale * vmax
++        self.box = (at[0], at[1], at[0] + scale * (umax - umin), at[1] + scale * (vmax - vmin))
++        if draw:
++            for pl in hid:
++                page.poly([self.uv(u, v) for u, v in pl], 0.13, "#666666", "0.9 0.6")
++            for pl in sm:
++                page.poly([self.uv(u, v) for u, v in pl], 0.13 if smooth else 0.0, "#555555")
++            for pl in vis:
++                page.poly([self.uv(u, v) for u, v in pl], w, INK)
++
++    def uv(self, u, v):
++        return (self.ox + self.s * u, self.oy - self.s * v)
++
++    def pt(self, x, y, z=0.0):
++        W = (x, -y, z)
++        u = sum(a * b for a, b in zip(W, self.X))
++        v = sum(a * b for a, b in zip(W, self.Y))
++        return self.uv(u, v)
++
++    def wpt(self, p):  # world point
++        u = sum(a * b for a, b in zip(p, self.X))
++        v = sum(a * b for a, b in zip(p, self.Y))
++        return self.uv(u, v)
++
++    def hatch(self, polys3d, **kw):
++        self.page.hatch([[self.wpt(p) for p in poly] for poly in polys3d], **kw)
++
++    def title(self, t, sub=None, size=3.0, off=8.5):
++        x0, y0, x1, y1 = self.box
++        self.page.text(x0, y0 - off, t, size, "start", 0, INK, True)
++        if sub:
++            self.page.text(x0 + text_width(t, size) + 3, y0 - off, sub, 2.2, "start", 0, "#444444")
++
++
++def section(cq, shape, axis, pos, keep, crop=None):
++    """Cut shape by the world plane axis=pos, keep side keep(+1/-1), optional world crop box.
++    Returns (cut solid, list of 3-D polygons of the cut faces on the plane)."""
++    big = 1e4
++    lo = list(crop[:3]) if crop else [-big] * 3
++    hi = list(crop[3:]) if crop else [big] * 3
++    i = "XYZ".index(axis)
++    if keep > 0:
++        lo[i] = pos
++    else:
++        hi[i] = pos
++    tool = cq.Solid.makeBox(hi[0] - lo[0], hi[1] - lo[1], hi[2] - lo[2], cq.Vector(*lo))
++    cut = shape.intersect(tool)
++    polys = []
++    for f in cut.Faces():
++        if f.geomType() != "PLANE":
++            continue
++        n = f.normalAt()
++        c = f.Center()
++        if abs(abs((n.x, n.y, n.z)[i]) - 1) < 1e-6 and abs((c.x, c.y, c.z)[i] - pos) < 1e-5:
++            polys += wire_polys(f)
++    return cut, polys
++
++
++def crop(cq, shape, box):
++    x0, y0, z0, x1, y1, z1 = box
++    return shape.intersect(cq.Solid.makeBox(x1 - x0, y1 - y0, z1 - z0, cq.Vector(x0, y0, z0)))
+diff -ruN pa/mechanical/cad/engineering_drawings.py pb/mechanical/cad/engineering_drawings.py
+--- pa/mechanical/cad/engineering_drawings.py	2026-10-16 08:29:45.970207124 +0000
++++ pb/mechanical/cad/engineering_drawings.py	2026-10-16 08:29:46.242594574 +0000
+@@ -1,108 +1,841 @@
+-from pathlib import Path
+-import sys,json,xml.etree.ElementTree as ET
+-BASE=Path(__file__).resolve().parents[1]
+-sys.path.insert(0,str(BASE/"tools/cadquery_pkgs"))
+-import cadquery as cq
+-ns={"__file__":str(BASE/"cad/build_mechanics.py")}
+-exec((BASE/"cad/build_mechanics.py").read_text("utf-8-sig").split("checks=[];file_manifest=[]")[0],ns)
+-parts,refs=ns["parts"],ns["refs"]
+-OUT=BASE/"drawings";OUT.mkdir(exist_ok=True)
+-def cad(sh,x,y,w,dir):
+- st=cq.exporters.svg.getSVG(sh,{"width":w,"height":None,"marginLeft":0,"marginTop":0,"projectionDir":dir,"showAxes":False,"showHidden":False,"strokeWidth":.12})
+- root=ET.fromstring(st);h=float(root.attrib["height"])
+- inner="".join(ET.tostring(el,encoding="unicode") for el in root)
+- return f'<svg x="{x}" y="{y}" width="{w}" height="{h}" viewBox="0 0 {w} {h}">{inner}</svg>'
+-def text(x,y,t,size=3.2,color="#233832",bold=False):
+- return f'<text x="{x}" y="{y}" font-size="{size}" fill="{color}" font-weight="{"bold" if bold else "normal"}">{t}</text>'
+-def line(x1,y1,x2,y2,color="#607a70",dash=""):
+- return f'<line x1="{x1}" y1="{y1}" x2="{x2}" y2="{y2}" stroke="{color}" stroke-width=".2" stroke-dasharray="{dash}"/>'
+-def dimx(x1,x2,y,t):
+- return line(x1,y-3,x1,y+3)+line(x2,y-3,x2,y+3)+f'<path d="M{x1},{y} H{x2}" stroke="#233832" stroke-width=".18" marker-start="url(#a)" marker-end="url(#a)"/>'+text((x1+x2)/2-8,y-1.6,t,3)
+-def dimy(x,y1,y2,t):
+- return line(x-3,y1,x+3,y1)+line(x-3,y2,x+3,y2)+f'<path d="M{x},{y1} V{y2}" stroke="#233832" stroke-width=".18" marker-start="url(#a)" marker-end="url(#a)"/>'+f'<text x="{x-2}" y="{(y1+y2)/2}" font-size="3" transform="rotate(-90 {x-2} {(y1+y2)/2})">{t}</text>'
+-def base(no,title):
+- return [f'<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297"><defs><marker id="a" markerWidth="4" markerHeight="4" refX="2" refY="2" orient="auto-start-reverse"><path d="M4,0 L0,2 L4,4" fill="none" stroke="#233832" stroke-width=".6"/></marker></defs><rect width="420" height="297" fill="white"/><g font-family="Microsoft YaHei,SimHei,sans-serif" fill="#233832"><rect x="10" y="10" width="400" height="277" fill="none" stroke="#233832" stroke-width=".35"/>',
+- text(17,21,"SmartVio  R2｜首样机械设计",5,bold=True),text(17,30,title,3.8),text(303,20,"状态：工程首样选配 / 非量产公差放行",3.0,"#995326"),
+- line(10,264,410,264),text(17,272,f"图号 {no}  /  修订 R2.6",3.0),text(107,272,"单位 mm｜第一角法方向以图注为准",3.0),text(260,272,"日期 2026-10-12｜比例 1.8:1（标注优先）",3.0),
+- text(17,280,"来源：可编辑 CadQuery 实体；原厂 Kycon STEP + 原生 PCB + 参数化尺寸。未标公差：非配合±0.10，关键座面±0.025。",2.8),
+- text(17,285,"四孔为新设计预留孔，由工厂按实际琴体配钻；不得认为是已测既有孔位。全部文件需随最终 PCB SHA 同步。",2.8)]
+-# One: true top and underside projections.
+-a=base("M-R2-01","上盖、控制与接口｜真实实体投影视图")
+-topitems=[parts[n] for n in parts if n.startswith(("button_","lightpipe_"))]+[parts["upper_cover"],parts["speaker_grille"]]+[s for n,s in refs.items() if n.startswith("wheel_")]
+-a+=[text(25,40,"从模块外部向下看（Z+）｜上视图",3.2,bold=True),cad(cq.Compound.makeCompound(topitems),25,46,266.4,(0,0,1)),dimx(25,291.4,140,"148.00"),dimy(17,46,134.2,"49.00")]
+-a+=[text(25,154,"拆下下杯后，从底部向上看（Z−）｜上盖内部结构",3.2,bold=True),cad(parts["upper_cover"],25,161,266.4,(0,0,-1))]
+-notes=[
+-"上盖外轮廓148×49，外角R2。",
+-"琴面安装基准A：Z=0。",
+-"下杯77×45，伸入21.05。",
+-"整体名义24.90，验收25 MAX。",
+-"非轮外突名义3.85，限值5。",
+-"四孔Ø2.5通，Ø4.5沉台。",
+-"沉台底Z1.70；螺钉头≤3.50。",
+-"四螺丝仅将上盖固定到琴体。",
+-"上下壳四卡扣连接，无下壳螺丝。",
+-"",
+-"三轮：X15/35/55，Y10。",
+-"五键：X10/23/36/49/62，Y25。",
+-"三灯：X15/35/55，Y21。",
+-"音频：X46.5/64.8/83.1/101.4；Y37。",
+-"USB-C中心：X98，Y9。",
+-"图内Y为板图向下，STEP Y取负。",
+-"",
+-"按钮帽Ø6；孔Ø5.2；法兰Ø6。",
+-"帽底3.65，止挡台3.30：动程0.35。",
+-"Ø1.6触头按实装开关顶+0.05修整。",
+-"不应有预压；逐键测动作与复位。",
+-"接触先于硬止挡；余行程目标0.05。",
+-"开关官方名义行程0.25 / 力1.57 N。",
+-"",
+-"上盖包含USB托、传感器托及音频肩。",
+-"托与上盖连接穿过已设计PCB开口。",
+-"格栅0.2不锈钢，周缘胶固，勿压膜。",
+-"导光柱周壁少量透明胶，不涂LED。",
+-"按钮端头、卡扣和导光柱不得涂厚漆。"]
+-for i,t in enumerate(notes):
+- a.append(text(301,43+i*6.1,t,2.8))
+-a+=['</g></svg>'];(OUT/"M-R2-01_上盖与外观_实际CAD.svg").write_text("".join(a),encoding="utf8")
+-# Two: cup and actual cut section at logical Y37.
+-a=base("M-R2-02","下杯承载、音频接口与电池Z链｜加工及装配控制")
+-a+=[text(25,40,"下杯内部上视｜卡扣、主板托台、按键背撑、NTC侧仓",3.2,bold=True),cad(parts["lower_cup"],25,47,138.6,(0,0,1)),dimx(25,163.6,135,"77.00"),dimy(17,47,128,"45.00")]
+-rows=[("A 安装基准","0.00"),("上盖屋顶 / 插座口","3.80 / 3.85"),("控制板 顶 / 底","0.50 / 0.10"),("音频板 顶 / 底","−9.65 / −10.65"),("Kycon名义最低端","−11.0501"),("主板 顶 / 底（0.8）","−11.75 / −12.55"),("B面1.05占用最低","−13.60"),("电池顶绝缘片 顶 / 底","−13.70 / −13.80"),("1.0膨胀预留 顶 / 底","−13.80 / −14.80"),("电池5.4最大 顶 / 底","−14.80 / −20.20"),("底绝缘 / 杯底内面","0.10 / −20.30"),("下杯外底 / 底厚","−21.05 / 0.75")]
+-a+=[text(182,40,"连续Z链（下正负号为工程坐标，不是厚度）",3.2,bold=True)]
+-for i,(k,v) in enumerate(rows):
+- y=47+i*6.8;a+=[text(183,y,k,2.9),text(323,y,v,2.9),line(181,y+2,402,y+2,"#d5dfda")]
+-# Actual Y37 slice; schematic intervals are not a substitute for these solids.
+-choose=[s for n,s in parts.items() if "shim_" not in n]+[s for n,s in refs.items() if n in ["main_reference","audio_native_reference","battery_max_reference","battery_swell_allowance_reference","cover_native_reference"] or n.startswith(("Kycon","FPC_","RF_"))]
+-slab=ns["box"](0,36.95,-22,148,.1,27)
+-pieces=[s.intersect(slab) for s in choose]
+-pieces=[s for s in pieces if s.Volume()>1e-8]
+-section=cq.Compound.makeCompound(pieces)
+-a+=[text(25,155,"A-A实切：Y=37，朝后看｜音频尾端、主板、电池、杯底",3.2,bold=True),cad(section.rotate((0,0,0),(1,0,0),-90),25,164,266.4,(0,0,1)),dimy(304,164,208.82,"24.90 NOM / 25 MAX")]
+-a+=[text(25,224,"首样工艺与尺寸验收",3.3,bold=True)]
+-left=[
+-"1  推荐CNC POM-C。细槽/卡扣用侧向装夹；另可PA12成形后精铣座面，尺寸均按成品。",
+-"2  原腔78×47×22按矩形契约；名义XY余量0.5/1.0，深度余量0.95。实际角R与琴面须配试。",
+-"3  主板托台Z−12.55。0.05/0.10/0.20可选垫片仅单层选配；每升高t，音频间隙减t。",
+-"4  首件实测：电池膨胀预留外再净隙≥0.10；音频端子至主板净隙≥0.35，含0.10绝缘片。",
+-"5  若两项不能同时达到，换合格长度插座/电池，或重新审批结构；不得压电池、磨原厂插座。",
+-]
+-for i,t in enumerate(left):a.append(text(25,231+i*5.9,t,2.75))
+-a+=[text(317,155,"装配顺序 / 受力路径",3.2,bold=True)]
+-for i,t in enumerate([
+-"电池与NTC → 主板 → 音频载框。",
+-"装配上盖控制板/光柱/按钮/格栅。",
+-"音频接头除运输Kapton后就位。",
+-"合四卡扣，核四个硬定位止口。",
+-"按键3–5由杯内7高梁背撑。",
+-"按键1–2由原腔外琴面背撑。",
+-"0.1 PET垫隔离；未配平不得空压。",
+-"USB/传感器托采用可返修边胶。",
+-"压入卡扣时不拉线、不压电池。",
+-"四个主板卡扣有12长弹性梁。",
+-"不得把卡扣验证等同疲劳寿命。",
+-"现阶段为首件量测选配工艺。",
+-"全部极限公差叠加尚非量产放行。"]):
+- a.append(text(317,162+i*5.5,t,2.75))
+-a+=['</g></svg>'];(OUT/"M-R2-02_下杯与装配剖面_实际CAD.svg").write_text("".join(a),encoding="utf8")
+-print("2 A3 engineering drawings generated")
+-
++"""SmartVio R4 manufacturing drawings (review item M18), generated from the delivered STEP parts.
++
++Run after build_mechanics.py:   python3 cad/engineering_drawings.py
++Output: drawings/M-R4-*.svg, drawings/M-R4-*.pdf, drawings/M-R4-drawings-all.pdf, drawings/ctf-register.json
++Views are exact OCC hidden-line projections of cad/*.step; dimensions are placed on projected model points.
++Coordinates: X toward the tail (X0 = wheel/head end), logical Y toward the south (jack side), Z outward;
++datum A = instrument mounting face Z0 (upper-cover skirt bottom).  STEP world Y = -logical Y.
++"""
++from pathlib import Path
++import sys, os, json, ast, math
++BASE = Path(__file__).resolve().parents[1]
++sys.path.insert(0, str(Path(__file__).resolve().parent))
++import cadquery as cq
++import drawlib as D
++from drawlib import Page, View, section, crop, CTF_COLOR, INK
++
++CAD = BASE / "cad"; REF = BASE / "reference/components"; OUT = BASE / "drawings"; OUT.mkdir(exist_ok=True)
++PAR = json.loads((BASE / "parameters.json").read_text("utf8"))
++SRC = (CAD / "build_mechanics.py").read_text("utf8")
++DATE = "2026-10-16"; REV = "R4.1"
++
++
++def const(name):
++    for node in ast.parse(SRC).body:
++        if isinstance(node, ast.Assign) and any(isinstance(t, ast.Name) and t.id == name for t in node.targets):
++            return ast.literal_eval(node.value)
++    raise KeyError(name)
++
++
++KEYS = const("KEYS"); LP = const("LP"); PORTS = const("ports"); USBPOST = const("USBPOST"); USBSCREW = const("USBSCREW")
++LEDGES = const("LEDGES"); JACK_NAMES = const("JACK_NAMES")
++SNAPX = PAR["snap_stations_x"]; SCREWS = PAR["screw_xy"]
++LEG = [("VOL", 15, 18.9), ("TONE", 35, 18.9), ("FX", 55, 18.9)] + [(t, x, 29.7) for t, x in zip(["FX", "MODE", "MIX", "PWR", "BT"], KEYS)] \
++    + [(t, x, 45.4) for t, (x, y) in zip(JACK_NAMES, PORTS)] + [("USB", 98, 15.6)]
++
++_cache = {}
++
++
++def part(n):
++    if n not in _cache:
++        p = CAD / f"{n}.step"
++        if not p.exists():
++            p = CAD / "variants" / f"{n}.step"
++        if not p.exists():
++            p = CAD / "stock" / f"{n}.step"
++        if not p.exists():
++            p = REF / f"{n}.step"
++        _cache[n] = cq.importers.importStep(str(p)).val()
++    return _cache[n]
++
++
++def f2(v):
++    return f"{v:.2f}"
++
++
++def fz(v):
++    s = f"{v:.3f}".rstrip("0").rstrip(".")
++    return s if s != "-0" else "0"
++
++
++CTF = []   # register for FAI / RFQ
++
++
++def ctf(tag, part_name, feature, nominal, tol, method, chain="", qty=1):
++    CTF.append(dict(id=tag, part=part_name, feature=feature, nominal=nominal, tol=tol, method=method, chain=chain, qty_per_part=qty))
++    return tag
++
++
++MAT_POM = "POM-C 共聚甲醛，黑色（整料 CNC，非染色后处理）"
++FIN_POM = "外观面哑光：机加 Ra≤1.6，可选细喷砂（喷砂在雕字前）；雕字不填色"
++GENERAL = [
++    "1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K。在 23±2 °C 下检验（POM 线胀系数约 1.1×10⁻⁴/K）。",
++    "2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md；量产前另定抽样。",
++    "3. 单位 mm；第一角画法；X 向琴尾（X0=滚轮端=琴头端），Y 向南（插座侧），Z 向外。基准 A=琴面安装面 Z0。",
++    "4. 锐边倒钝 0.1–0.2（配合面、卡扣/卡钩根部与窗口棱边除外）；无毛刺、残料；深腔内角按 STEP（R≥1.2）。",
++    "5. 形状以同名 STEP（step/*.step，R4.1）为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。",
++]
++
++
++def frame(pg, no, title, partname, material, finish, qty, scale, sheet, extra=()):
++    pg.rect(10, 10, 400, 277, 0.5)
++    pg.text(14, 17, "SmartVio R4  首样结构件制造图", 3.6, bold=True)
++    pg.text(110, 17, title, 3.6, bold=True)
++    pg.text(406, 17, "状态：首样工程图 / 非量产放行（未经实物验证）", 2.6, "end", 0, "#a14a00")
++    pg.line(10, 20, 410, 20, 0.3)
++    # technical requirements
++    x0, y0 = 12, 243
++    pg.rect(x0, y0, 214, 42, 0.3)
++    pg.text(x0 + 1.5, y0 + 4, "技术要求", 2.6, bold=True)
++    lines = GENERAL + list(extra)
++    for i, t in enumerate(lines[:9]):
++        pg.text(x0 + 1.5, y0 + 8.4 + i * 4.0, t, 2.0)
++    # title block
++    tx, ty = 228, 243
++    pg.rect(tx, ty, 180, 42, 0.4)
++    rows = [("名称", partname), ("图号", f"{no}   版本 {REV}   第 {sheet} 页"), ("材料", material), ("表面/颜色", finish),
++            ("数量", qty), ("比例 / 单位", f"{scale}   ·   mm   ·   第一角画法"), ("一般公差", "ISO 2768-m（CTF 按图）"),
++            ("日期 / 编制", f"{DATE}   ·   CAD 生成稿，需工程师审签      审核：______  批准：______")]
++    for i, (k, v) in enumerate(rows):
++        y = ty + i * 5.25
++        if i:
++            pg.line(tx, y, tx + 180, y, 0.15)
++        pg.text(tx + 1.5, y + 3.8, k, 2.2, bold=True)
++        pg.text(tx + 21, y + 3.8, v, 2.1 if len(v) < 70 else 1.8)
++    pg.line(tx + 19.5, ty, tx + 19.5, ty + 42, 0.15)
++    # first-angle symbol
++    sx, sy = 392, 266.5
++    pg.poly([(sx - 13, sy - 1.6), (sx - 7, sy - 3), (sx - 7, sy + 3), (sx - 13, sy + 1.6)], 0.2, closed=True)
++    pg.circle(sx - 1.5, sy, 3, 0.2); pg.circle(sx - 1.5, sy, 1.6, 0.2)
++
++
++def head_tail(pg, x0, x1, y, note="滚轮端 X=0 朝琴头"):
++    pg.line(x0 + 2, y, x1 - 2, y, 0.35)
++    pg.arrow(x0, y, 180, 3); pg.arrow(x1, y, 0, 3)
++    pg.text(x0 + 4, y - 1.4, "琴头 HEAD", 2.6, bold=True)
++    pg.text(x1 - 4, y - 1.4, "琴尾 TAIL", 2.6, "end", 0, INK, True)
++    pg.text((x0 + x1) / 2, y - 1.4, note, 2.2, "middle")
++
++
++def cut_line(pg, view, y_log, x0, x1, letter, up=True):
++    """Section line at logical Y on a top view, with view arrows (GB/T 4458.6 style)."""
++    a, b = view.pt(x0 - 4, y_log), view.pt(x1 + 4, y_log)
++    pg.line(a[0], a[1], b[0], b[1], 0.18, "#333333", "6 1 1 1")
++    for (px, py) in (a, b):
++        pg.line(px - 3 if px < b[0] else px, py, px + 3 if px < b[0] else px, py, 0.6)
++        tip = py - 6 if up else py + 6
++        xx = px - 1.5 if px < b[0] else px + 1.5
++        pg.line(xx, py, xx, tip + (1.6 if up else -1.6), 0.3)
++        pg.arrow(xx, tip, 270 if up else 90, 2.4)
++        pg.text(xx + (-2.5 if px < b[0] else 2.5), tip + (0.5 if up else 2.5), letter, 3.2, "middle", 0, INK, True)
++
++
++def cut_line_v(pg, view, x_log, y0, y1, letter, right=True):
++    """Section line at logical X on a top view; arrows point toward +X page direction if right."""
++    a, b = view.pt(x_log, y0 - 3), view.pt(x_log, y1 + 3)
++    pg.line(a[0], a[1], b[0], b[1], 0.18, "#333333", "6 1 1 1")
++    for (px, py) in (a, b):
++        pg.line(px, py - 2.5 if py < b[1] else py, px, py + 2.5 if py < b[1] else py, 0.6)
++        yy = py - 1.2 if py < b[1] else py + 1.2
++        tip = px + 6 if right else px - 6
++        pg.line(px, yy, tip - (1.6 if right else -1.6), yy, 0.3)
++        pg.arrow(tip, yy, 0 if right else 180, 2.4)
++        pg.text(tip + (2.4 if right else -2.4), yy + 1.1, letter, 3.2, "middle", 0, INK, True)
++
++
++def save(pg, name, allpages):
++    (OUT / f"{name}.svg").write_text(pg.svg(), encoding="utf8")
++    from reportlab.pdfgen import canvas
++    cv = canvas.Canvas(str(OUT / f"{name}.pdf"))
++    pg.pdf(cv); cv.save()
++    allpages.append(pg)
++    print("sheet", name, flush=True)
++
++
++def hole_chart(pg, x, y, rows, title, size=1.85, rowh=3.3, widths=(9, 30, 37, 34, 32)):
++    pg.text(x, y - 1.2, title, 2.4, bold=True)
++    cols = list(zip(["标号", "特征", "位置 X, Y", "尺寸", "Z / 深度"], widths))
++    rr = [[r[0], r[1], r[2], r[3], r[4]] for r in rows]
++    # colour CTF rows: last element flag
++    yy = y
++    tot = sum(widths)
++    pg.rect(x, yy, tot, rowh, 0.2, INK, "#eeeeee")
++    cx = x
++    for t, w in cols:
++        pg.text(cx + 0.7, yy + rowh - 0.95, t, size, bold=True); cx += w
++    yy += rowh
++    for r in rows:
++        col = CTF_COLOR if len(r) > 5 and r[5] else INK
++        pg.rect(x, yy, tot, rowh, 0.1, "#888888")
++        cx = x
++        for v, w in zip(r[:5], widths):
++            pg.text(cx + 0.7, yy + rowh - 0.95, v, size, "start", 0, col); cx += w
++        yy += rowh
++    cx = x
++    for w in widths[:-1]:
++        cx += w; pg.line(cx, y, cx, yy, 0.1, "#888888")
++    return yy
++
++
++def ctf_table(pg, x, y, ids, size=1.85, rowh=3.3, widths=(9, 52, 30, 26, 27), maxrows=40):
++    rows = [c for c in CTF if c["id"] in ids][:maxrows]
++    pg.text(x, y - 1.2, "关键功能尺寸（CTF）", 2.4, bold=True, c=CTF_COLOR)
++    hdr = ["Kn", "特征", "名义", "公差", "检具"]
++    tot = sum(widths)
++    pg.rect(x, y, tot, rowh, 0.2, INK, "#f6e3e6")
++    cx = x
++    for t, w in zip(hdr, widths):
++        pg.text(cx + 0.7, y + rowh - 0.95, t, size, bold=True); cx += w
++    yy = y + rowh
++    for c in rows:
++        pg.rect(x, yy, tot, rowh, 0.1, "#888888")
++        cx = x
++        for v, w in zip([c["id"], c["feature"], c["nominal"], c["tol"], c["method"]], widths):
++            s = str(v)
++            while D.text_width(s, size) > w - 1.2 and len(s) > 3:
++                s = s[:-2] + "…"
++            pg.text(cx + 0.7, yy + rowh - 0.95, s, size, "start", 0, CTF_COLOR if cx == x else INK); cx += w
++        yy += rowh
++    cx = x
++    for w in widths[:-1]:
++        cx += w; pg.line(cx, y, cx, yy, 0.1, "#888888")
++    return yy
++
++
++def tag_at(pg, p, tag, dx=1.5, dy=-1.5):
++    pg.ctf_tag(p[0] + dx, p[1] + dy, tag, 1.7) if tag.startswith("U") or tag[0] in "LBSFKPIQ" and tag[1:].isdigit() else None
++
++
++def idmark(pg, p, t, dx=0.0, dy=0.0, c="#1a4f8a"):
++    x, y = p[0] + dx, p[1] + dy
++    w = D.text_width(t, 1.8) + 1.2
++    pg.rect(x - w / 2, y - 1.3, w, 2.6, 0.15, c, "#ffffff")
++    pg.text(x, y + 0.65, t, 1.8, "middle", 0, c, True)
++
++
++# =====================================================================================================
++def sheet_assembly(allp):
++    pg = Page()
++    frame(pg, "M-R4-00", "总装与安装方向（零件表）", "SmartVio R4 结构总成 / mechanical assembly", "见零件表", "见各零件图",
++          "1 套", "1.5:1（俯视）  2:1（A-A）", "1/1",
++          ["6. 本图只定方向、基准和装配关系；零件尺寸见 M-R4-01…09。装配顺序与检查见 ASSEMBLY-SOP-R4.md。",
++           "7. 琴体数据（原腔 78×47×22、腔位 145–223、中央梁宽、原穿线孔位置）均为继承名义值或待测，首样前必须实测。"])
++    cover, cup = part("upper_cover"), part("lower_cup")
++    s = 1.5
++    v = View(pg, cover, "top", s, (34, 50), w=0.28)
++    v.title("俯视（Z+，琴背外侧向下看）", "安装状态，上盖可见；虚线=下杯，点划线=原琴腔（名义）")
++    # cup outline dashed, cavity phantom
++    def rect_log(x0, y0, x1, y1, **kw):
++        pts = [v.pt(x0, y0), v.pt(x1, y0), v.pt(x1, y1), v.pt(x0, y1)]
++        pg.poly(pts, closed=True, **kw)
++    rect_log(35.5, 2.0, 112.5, 47.0, w=0.25, c="#333333", dash="1.6 0.8")
++    rect_log(35.0, 1.0, 113.0, 48.0, w=0.25, c="#1a4f8a", dash="5 1 1 1")
++    ex = PAR["pickup_entry_extent_xy"]
++    rect_log(ex[0], ex[1], ex[2], ex[3], w=0.35, c=CTF_COLOR, dash="1 0.6")
++    pg.leader(v.pt((ex[0] + ex[2]) / 2, ex[1]), v.pt(72, -6)[0], v.pt(72, -6)[1],
++              "拾音线入口 10×3 长槽：对齐琴上原穿线孔（不在琴上新钻孔）— TODO 实测原孔位置", ctf="L9")
++    head_tail(pg, v.box[0], v.box[2], 30.5)
++    # longitudinal stations
++    yb = v.box[3] + 8
++    pg.line(v.box[0], yb, v.box[2], yb, 0.2)
++    for X, u in [(0, 258), (35, 223), (113, 145), (148, 110)]:
++        px = v.pt(X, 0)[0]
++        pg.line(px, yb - 1.5, px, yb + 1.5, 0.3)
++        pg.text(px, yb + 4.4, f"u={u}", 2.2, "middle", 0, "#1a4f8a")
++        pg.text(px, yb - 2.2, f"X={X}", 1.9, "middle", 0, "#555555")
++    pg.text(v.box[0], yb + 8.6, "u = 距琴尾金属基准的距离（继承 V21 需求记录，待实测）；X = 258 − u。原腔 u 145–223；上盖覆盖 u 110–258。", 2.1)
++    pg.dim_v(v.pt(148, 0), v.pt(148, 49), v.box[2] + 6, "49 0/−0.20", ctf="U1")
++    cut_line(pg, v, 37, 0, 148, "A", up=True)
++    pg.text(v.box[0], yb + 13, "A-A：Y=37（插座中心）剖切，视向箭头指向北边 Y0（滚轮拇指缺口一侧）。", 2.1)
++    # Section A-A of the assembly
++    names = ["upper_cover", "lower_cup", "audio_load_frame", "main_audio_dielectric_separator", "battery_top_separator", "battery_top_foam",
++             "battery_bottom_insulator", "main_reference", "audio_native_reference", "battery_max_reference", "cover_native_reference"] + [f"Kycon_vendor_{i}" for i in range(1, 5)]
++    pieces, faces = [], []
++    cropbox = (34.0, -37.0 + 0.0, -22.0, 114.0, -33.5, 4.5)
++    for i, n in enumerate(names):
++        try:
++            c, polys = section(cq, part(n), "Y", -37.0, +1, crop=cropbox)
++        except Exception as e:
++            print("section skip", n, e); continue
++        if c.Volume() > 1e-6:
++            pieces.append(c); faces.append((n, polys))
++    sv = View(pg, cq.Compound.makeCompound(pieces), "front", 2.0, (40, 165), w=0.22)
++    style = {"upper_cover": (45, "#e4e4e4"), "lower_cup": (45, "#e4e4e4"), "audio_load_frame": (135, "#e4e4e4"),
++             "main_reference": (0, "#d9ecd9"), "audio_native_reference": (0, "#d9ecd9"), "cover_native_reference": (0, "#d9ecd9"),
++             "battery_max_reference": (90, "#f3e6c8")}
++    for n, polys in faces:
++        ang, fill = style.get(n, (135, "#ffffff"))
++        sv.hatch(polys, angle=ang, spacing=0.8 if ang != 0 else 0.6, fill=fill)
++    sv.title("A-A（2:1，总装剖面，含参考板/电池/插座）", "绿=PCB，黄=电池最大包络，灰=结构件")
++    z = lambda zz: sv.pt(40, 37, zz)
++    xl = sv.box[0] - 4
++    pg.dim_v(sv.pt(40, 37, 0), sv.pt(40, 37, 3.855), xl, "3.855（插口名义）")
++    pg.dim_v(sv.pt(40, 37, 0), sv.pt(40, 37, -20.9), xl - 9, "20.90")
++    xr = sv.box[2] + 6
++    pg.dim_v(sv.pt(112, 37, 3.855), sv.pt(112, 37, -20.9), xr, "24.755 名义 / 25 MAX（见 tolerance-stack 链 1）", ctf="L2")
++    pg.leader(sv.pt(46.5, 37, 1.455), sv.box[0] + 60, sv.box[1] - 5, "插座肩面顶住屋顶压台 Z1.455（插座 Z 基准）", ctf="U6")
++    pg.leader(sv.pt(64, 37, -11.15), sv.box[0] + 70, sv.box[3] + 6, "音频框落在刀片唇 Z−11.15，选配腹板 0.40/0.50/0.60", ctf="F1")
++    pg.text(sv.box[0], sv.box[3] + 13, "基准 A（Z0）= 上盖裙边底面 = 琴面；杯底离原腔底 1.10（名义，腔深待实测）", 2.1)
++    # parts list
++    rows = [["1", "upper_cover", "上盖", "M-R4-01", "POM-C 黑", "1"], ["2", "lower_cup", "下杯", "M-R4-02", "POM-C 黑", "1"],
++            ["3", "key_backer_bracket", "按键背撑架", "M-R4-03", "POM-C 黑", "1"], ["4", "usb_bracket", "USB 托架", "M-R4-04", "POM-C 黑", "1"],
++            ["5", "audio_load_frame(_web0p4/0p6)", "音频承载框", "M-R4-05", "POM-C 黑", "1(+2 选配)"],
++            ["6", "button_1…5", "按键（毛坯修触头）", "M-R4-06", "POM-C 黑", "5"], ["7", "lightpipe_1…3", "导光柱", "M-R4-07", "PC 透明", "3"],
++            ["8", "*_insulator / separator", "绝缘片 6 种", "M-R4-08", "PET / PI 0.1", "各 1"],
++            ["9", "main_shim_0p05/0p1/0p2mm", "主板调整垫片", "M-R4-08", "PET", "各 1 套（选配）"],
++            ["10", "battery_top_foam", "电池顶部泡棉", "M-R4-09", "PORON 1.0", "1"],
++            ["11", "M1.6 塑料自攻钉", "背撑架 2 + USB 托架 3", "外购", "A2 不锈钢", "5"],
++            ["12", "ST2.2×6.5 盘头木螺钉", "固定到琴体", "外购", "A2 不锈钢", "4"]]
++    x0 = 268
++    yy = pg.table(x0, 52, [("件", 6), ("STEP 名", 46), ("名称", 30), ("图号", 17), ("材料", 20), ("数量/套", 21)], rows, size=1.85, rowh=3.4)
++    pg.text(x0, 48.5, "零件表（每套）", 2.6, bold=True)
++    notes = ["首样订货：3 套 + 1 套备件（RFQ-mechanical.md）。",
++             "螺钉：M1.6 PT 型塑料自攻 0.08 N·m；ST2.2 木螺钉 0.15 N·m。",
++             "上下壳只靠 4 个零间隙卡扣，下杯不加螺钉。",
++             "琴上 4 个螺钉导孔 Ø1.6×5 由工厂按实物配钻（预留孔，非既有孔）。",
++             "拾音线：走琴上原有穿线孔，不在琴腔新钻孔。",
++             "滚轮不计外突；非滚轮外突 ≤5（名义 3.855）。",
++             "中央实心梁宽须 ≥49（u 110–258，待实测），上盖宽 49 0/−0.20。"]
++    for i, t in enumerate(notes):
++        pg.text(x0, yy + 6 + i * 4.2, f"• {t}", 2.05)
++    save(pg, "M-R4-00_总装与安装方向", allp)
++
++
++# =====================================================================================================
++def cover_ctfs():
++    P = "upper_cover"
++    ctf("U1", P, "外形宽（中央梁 ≥49）", "49.00", "0/−0.20", "卡尺", "3")
++    ctf("U2", P, "屋顶顶面 Z（至基准 A）", "3.80", "±0.05", "高度规/CMM", "1,2")
++    ctf("U3", P, "按键沉槽顶面至承托面", "2.60", "±0.03", "CMM", "4", 5)
++    ctf("U4", P, "承托面/销台/背撑凸台面 Z", "0.50", "±0.03，共面0.03", "CMM", "4", 9)
++    ctf("U5", P, "按键孔 / 沉槽", "Ø5.20 / Ø6.50", "+0.05/0", "塞规", "4", 5)
++    ctf("U6", P, "插座压台面 Z", "1.455", "±0.03", "CMM", "1,6", 4)
++    ctf("U7", P, "压台面至刀片唇顶面", "12.605", "±0.05", "CMM", "6", 4)
++    ctf("U8", P, "USB 开口 / 面槽", "9.39×3.61 / 13.0×7.4", "+0.05/0 ; +0.1/0", "塞规/影像", "7")
++    ctf("U9", P, "USB 柱端面 Z", "−3.30", "±0.03", "CMM", "7", 4)
++    ctf("U10", P, "卡扣窗下沿 Z / 窗高", "−2.32 / 0.84", "±0.03 / +0.03/0", "CMM", "1,5", 4)
++    ctf("U11", P, "南北刀片外侧面间距", "43.00", "±0.05", "CMM", "5", 2)
++    ctf("U12", P, "螺钉孔/沉孔/沉孔底 Z", "Ø2.5 / Ø4.5 / Z1.70", "+0.1/0 ; ±0.05", "塞规/深度尺", "2", 4)
++    ctf("U13", P, "滚轮窗 / 拇指缺口底 Z", "Ø15.20 / Z1.50", "±0.05", "塞规/深度尺", "", 3)
++    ctf("U14", P, "扬声器腔顶 Z", "3.30", "±0.05", "深度尺", "", 1)
++    ctf("U15", P, "定位销 Ø×长 / 位置", "Ø1.40×0.45", "0/−0.03 ; 位置±0.03", "千分尺/CMM", "", 2)
++    ctf("U16", P, "M1.6 自攻底孔", "Ø1.30", "+0.05/0", "塞规", "", 5)
++    ctf("U17", P, "雕刻字符深度", "0.15", "±0.05", "深度尺/显微", "", 13)
++    ctf("U18", P, "导光柱孔", "Ø1.50", "+0.05/0", "塞规", "", 3)
++    ctf("U19", P, "插座孔 Ø / 位置", "Ø6.60", "±0.05", "塞规/CMM", "", 4)
++
++
++def sheet_cover_outside(allp):
++    pg = Page()
++    frame(pg, "M-R4-01", "上盖  外观面（俯视/主视/左视、开孔表、雕刻字符）", "上盖 upper_cover", MAT_POM, FIN_POM, "1 / 套",
++          "1.5:1", "1/3", ["6. 雕刻字符 13 处：DejaVu Sans Bold，字号 1.8（字高≈1.35），深 0.15±0.05，与外形同一次装夹雕刻，不填色、不印刷。",
++                          "7. 外观面（屋顶顶面、裙边外侧）不得有夹痕、顶针/压板印；屋顶平面度 0.10。"])
++    cover = part("upper_cover"); s = 1.5
++    fv = View(pg, cover, "front", s, (30, 36), w=0.25)
++    fv.title("主视（从南侧/插座侧看）")
++    tv = View(pg, cover, "top", s, (30, 79), w=0.25)
++    tv.title("俯视（外观面）")
++    lv = View(pg, cover, "left", s, (268, 36), w=0.25)
++    lv.title("左视（从琴头端看）")
++    head_tail(pg, tv.box[0], tv.box[2], tv.box[3] + 12)
++    # overall dims
++    pg.dim_h(tv.pt(0, 49), tv.pt(148, 49), tv.box[3] + 5, "148 ±0.5")
++    pg.dim_v(tv.pt(0, 0), tv.pt(0, 49), tv.box[0] - 6, "49 0/−0.20", ctf="U1")
++    pg.dim_v(fv.pt(148, 49, 0), fv.pt(148, 49, 3.8), fv.box[2] + 5, "3.80±0.05", ctf="U2")
++    pg.dim_v(fv.pt(0, 49, 0), fv.pt(0, 49, -11.65), fv.box[0] - 5, "11.65")
++    pg.text(fv.pt(0, 49, 0)[0] - 13, fv.pt(0, 49, 0)[1] + 0.8, "A", 3.0, "middle", 0, INK, True)
++    pg.line(fv.pt(0, 0, 0)[0] - 10, fv.pt(0, 0, 0)[1], fv.pt(0, 0, 0)[0] - 1, fv.pt(0, 0, 0)[1], 0.3)
++    pg.leader(tv.pt(2, 47), tv.box[0] + 2, tv.box[3] + 18.5, "外角 R2（4×）", size=2.0)
++    # tags on the top view
++    for i, (x, y) in enumerate(SCREWS):
++        idmark(pg, tv.pt(x, y), f"S{i+1}", 0, -4.2 if y < 20 else 4.2)
++    for i, x in enumerate([15, 35, 55]):
++        idmark(pg, tv.pt(x + 5.5, 4.2), f"W{i+1}")
++    for i, x in enumerate(KEYS):
++        idmark(pg, tv.pt(x, 25), f"K{i+1}", 5.5, -3.2)
++    for i, (x, y) in enumerate(LP):
++        idmark(pg, tv.pt(x, y), f"P{i+1}", 3.8, 0)
++    for i, (x, y) in enumerate(PORTS):
++        idmark(pg, tv.pt(x, y), f"J{i+1}", 8.5, -5.5)
++    idmark(pg, tv.pt(98, 9), "U1", 0, 7.5)
++    idmark(pg, tv.pt(132, 25), "G1", 0, 0)
++    cut_line(pg, tv, 37, 38, 110, "A")
++    cut_line(pg, tv, 25, 0, 68, "B")
++    cut_line_v(pg, tv, 15, 0, 18, "F", right=True)
++    # chart
++    ex = []
++    for i, (x, y) in enumerate(SCREWS):
++        ex.append([f"S{i+1}", "木螺钉孔+沉孔", f"{x:.2f}, {y:.2f}", "Ø2.50 通 / 沉孔Ø4.50", "沉孔底 Z1.70", "U12"])
++    for i, x in enumerate([15, 35, 55]):
++        ex.append([f"W{i+1}", "滚轮窗+拇指缺口", f"{x:.2f}, 10.00", "Ø15.20 / 缺口宽12", "缺口底 Z1.50", "U13"])
++    for i, x in enumerate(KEYS):
++        ex.append([f"K{i+1}", "按键孔（内侧沉槽）", f"{x:.2f}, 25.00", "Ø5.20 / 沉槽Ø6.50", "槽顶 Z3.10", "U3"])
++    for i, (x, y) in enumerate(LP):
++        ex.append([f"P{i+1}", "导光柱孔", f"{x:.2f}, {y:.2f}", "Ø1.50 通", "—", "U18"])
++    for i, (x, y) in enumerate(PORTS):
++        ex.append([f"J{i+1}", f"插座孔 {JACK_NAMES[i]}", f"{x:.2f}, {y:.2f}", "Ø6.60 / 面窝Ø12", "窝深0.80；压台Z1.455", "U6"])
++    ufp = PAR["usb_face_pocket"]
++    ex.append(["U1", "USB-C 开口+面槽", "98.00, 9.00", f"9.39×3.61 R1.6 / {ufp[0]}×{ufp[1]} R1.5", "面槽深 0.80", "U8"])
++    ex.append(["G1", "扬声器出声槽 8×", "X126.4–137.6", "11.2×0.8 R0.35 节距2", "腔顶 Z3.30", "U14"])
++    yy = hole_chart(pg, 268, 80, ex, "外观面开孔表（坐标=基准 B/C，即 X0 琴头端 / Y0 北边）", widths=(8, 29, 26, 41, 31))
++    # legends table
++    lr = [[t, f"{x:.1f}, {y:.1f}"] for t, x, y in LEG]
++    pg.text(30, 191, "雕刻字符（中心坐标，居中对齐）", 2.4, bold=True)
++    half = (len(lr) + 1) // 2
++    pg.table(30, 193, [("字符", 22), ("X, Y", 22)], lr[:half], size=1.85, rowh=3.2)
++    pg.table(78, 193, [("字符", 22), ("X, Y", 22)], lr[half:], size=1.85, rowh=3.2)
++    pg.leader(tv.pt(35, 18.9), 140, 196, "雕刻 0.15 深（13 处），字框外 0.3 内须为实体", ctf="U17")
++    pg.text(130, 204, "剖面 A-A、B-B、F 见第 3 页；内侧结构见第 2 页。", 2.1)
++    ctf_table(pg, 268, yy + 7, ["U1", "U2", "U5", "U8", "U12", "U13", "U17", "U18", "U19"], widths=(8, 42, 31, 27, 27))
++    save(pg, "M-R4-01-1_上盖_外观面", allp)
++
++
++def sheet_cover_inside(allp):
++    pg = Page()
++    frame(pg, "M-R4-01", "上盖  内侧（仰视、内部特征表）", "上盖 upper_cover", MAT_POM, FIN_POM, "1 / 套", "1.5:1", "2/3",
++          ["6. 8 个承托面（Z0.50）、2 个定位销台、2 个背撑凸台须同一装夹精铣，共面 0.03：控制板顶面靠在这些面上（按键链）。",
++           "7. 4 个刀片卡扣窗口、刀片唇（南侧）和插座压台的 Z 尺寸同一装夹加工；卡扣窗棱边保持锐边（≤0.05 倒钝）。"])
++    cover = part("upper_cover"); s = 1.5
++    bv = View(pg, cover, "bottom", s, (30, 40), w=0.22)
++    bv.title("仰视（从内侧看，绕 X 轴翻转：北边 Y0 在下）")
++    head_tail(pg, bv.box[0], bv.box[2], bv.box[3] + 10)
++    rows = []
++    for i, (x, y) in enumerate([(3.5, 24.5), (144.5, 24.5)]):
++        idmark(pg, bv.pt(x, y), f"PN{i+1}", 0, -4.5)
++        rows.append([f"PN{i+1}", "定位销（圆孔/长孔侧）", f"{x:.2f}, {y:.2f}", "销Ø1.40×0.45 / 台Ø3.0", "台面 Z0.50", "U15"])
++    for i, (x, y, r) in enumerate([(25, 10, 1.2), (45, 10, 1.2), (70, 20, 1.5), (108, 28, 1.5), (140, 10, 1.5)]):
++        idmark(pg, bv.pt(x, y), f"T{i+1}", 0, 3.6)
++        rows.append([f"T{i+1}", "控制板承托柱", f"{x:.2f}, {y:.2f}", f"Ø{2*r:.1f}", "端面 Z0.50", "U4"])
++    for i, x in enumerate([42.5, 55.5]):
++        idmark(pg, bv.pt(x, 25), f"KB{i+1}", 0, -4.2)
++        rows.append([f"KB{i+1}", "背撑架螺钉凸台", f"{x:.2f}, 25.00", "Ø4.0 / 底孔Ø1.30", "面Z0.50 深2.80", "U4"])
++    for i, (x, y) in enumerate(USBPOST):
++        idmark(pg, bv.pt(x, y), f"UP{i+1}", 0, 4.4 if y > 15 else -4.4)
++        rows.append([f"UP{i+1}", "USB 板压柱" + ("（只压不锁）" if (x, y) not in [tuple(p) for p in USBSCREW] else ""), f"{x:.2f}, {y:.2f}",
++                     "Ø4.0（上段Ø5.0）" + (" 底孔Ø1.30" if (x, y) in [tuple(p) for p in USBSCREW] else ""), "端面 Z−3.30", "U9"])
++    for j, x in enumerate(SNAPX):
++        for k, yy in enumerate([3.0, 45.3]):
++            idmark(pg, bv.pt(x, yy + 0.35), f"BL{2*j+k+1}", 0, 4.5 if k == 0 else -4.5)
++            rows.append([f"BL{2*j+k+1}", "卡扣刀片" + ("（北）" if k == 0 else "（南，带唇）"), f"{x-4:.1f}–{x+4:.1f}, {yy:.1f}–{yy+0.7:.1f}",
++                         f"厚0.70 窗{x+2:.1f}–{x+4.2:.1f}", "窗 Z−2.32/−1.48" + ("" if k == 0 else " 唇顶−11.15"), "U10"])
++    for i, (x, y) in enumerate(PORTS):
++        idmark(pg, bv.pt(x, y), f"J{i+1}", 0, 7.2)
++    rows.append(["J1–4", "插座压台（Kycon 肩形让位）", "同外观面 J", "10.8×11.7 / 孔Ø6.60", "压台面 Z1.455", "U6"])
++    rows.append(["SP", "扬声器腔", "125.23–138.78, 15.73–34.28", "13.55×18.55 R1.2", "腔顶 Z3.30", "U14"])
++    rows.append(["CR", "同轴线卡筋 4×", "104–106,3.45/5.0; 111.45/113,31", "2×0.55 / 0.55×2", "Z1.0–2.5", ""])
++    yy = hole_chart(pg, 268, 44, rows, "内侧特征表", widths=(9, 33, 37, 33, 28))
++    # Z level summary on the left bottom
++    zl = [["Z3.80", "屋顶顶面（外观面）", "U2"], ["Z3.30", "扬声器腔顶", "U14"], ["Z3.10", "按键沉槽顶（法兰止挡）", "U3"],
++          ["Z2.50", "屋顶内表面", ""], ["Z1.70", "螺钉沉孔底", "U12"], ["Z1.50", "滚轮拇指缺口底", "U13"], ["Z1.455", "插座压台面", "U6"],
++          ["Z0.50", "承托面/销台/背撑凸台", "U4"], ["Z0", "裙边底面 = 基准 A", ""], ["Z−2.32/−1.48", "卡扣窗下沿/上沿", "U10"],
++          ["Z−3.30", "USB 压柱端面", "U9"], ["Z−5.20", "刀片底（北）", ""], ["Z−11.15", "南刀片唇顶（音频框落座）", "U7"], ["Z−11.65", "南刀片底", ""]]
++    pg.text(30, 142, "Z 向层位（至基准 A）", 2.4, bold=True)
++    pg.table(30, 144, [("Z", 22), ("面", 50), ("CTF", 12)], zl, size=1.85, rowh=3.2, ctf_col=2)
++    ctf_table(pg, 130, 144, ["U3", "U4", "U6", "U7", "U9", "U10", "U11", "U14", "U15", "U16"], widths=(8, 40, 30, 27, 22))
++    save(pg, "M-R4-01-2_上盖_内侧", allp)
++
++
++def sheet_cover_sections(allp):
++    pg = Page()
++    frame(pg, "M-R4-01", "上盖  剖面与局部（A-A 插座、B-B 按键、C 卡扣、D USB、E 螺钉沉孔、F 滚轮缺口）", "上盖 upper_cover",
++          MAT_POM, FIN_POM, "1 / 套", "见各视图", "3/3",
++          ["6. 插座压台按 Kycon 原厂 STEP 肩面做零间隙：压台面 Z1.455 是插座 Z 基准；压台侧面让位按 STEP，不得改为平面。",
++           "7. 卡扣窗 0.84 高 = 钩高 0.80 + 0.04；刀片底外侧导入 0.55×45°。"])
++    cover = part("upper_cover")
++    # A-A through the jacks (crop)
++    c, polys = section(cq, cover, "Y", -37.0, +1, crop=(38, -37, -0.3, 110, -30, 4.5))
++    av = View(pg, c, "front", 3.0, (34, 46), w=0.22)
++    av.hatch(polys)
++    av.title("A-A（3:1）Y=37，插座中心，向北看（局部：屋顶与压台）", off=15)
++    xl = av.box[0] - 4
++    for zz, t, tg in [(3.8, "3.80", None), (1.455, "1.455±0.03", "U6")]:
++        pass
++    pg.dim_v(av.pt(38, 37, 0), av.pt(38, 37, 3.8), xl, "3.80")
++    pg.dim_v(av.pt(38, 37, 0), av.pt(38, 37, 1.455), xl - 8, "1.455±0.03", ctf="U6")
++    x63 = 63.5
++    pg.dim_h(av.pt(46.5 - 3.3, 37, 0.8), av.pt(46.5 + 3.3, 37, 0.8), av.box[1] - 3, "Ø6.60", ctf="U19")
++    pg.dim_h(av.pt(64.8 - 6, 37, 3.0), av.pt(64.8 + 6, 37, 3.0), av.box[1] - 3, "Ø12 深0.80")
++    pg.dim_h(av.pt(46.5, 37, 3.8), av.pt(64.8, 37, 3.8), av.box[1] - 10, "18.30（插座节距，3×）")
++    # B-B keys 1..3
++    c, polys = section(cq, cover, "Y", -25.0, +1, crop=(3, -25, -0.5, 41, -18, 4.5))
++    bv = View(pg, c, "front", 4.0, (30, 98), w=0.22)
++    bv.hatch(polys)
++    bv.title("B-B（4:1）Y=25，按键 K1–K3 中心，向北看")
++    pg.dim_h(bv.pt(10 - 2.6, 25, 3.8), bv.pt(10 + 2.6, 25, 3.8), bv.box[1] - 3, "Ø5.20 +0.05/0", ctf="U5")
++    pg.dim_h(bv.pt(23 - 3.25, 25, 2.3), bv.pt(23 + 3.25, 25, 2.3), bv.box[3] + 5, "Ø6.50 +0.05/0", ctf="U5")
++    pg.dim_v(bv.pt(36, 25, 0.5), bv.pt(36, 25, 3.1), bv.box[2] + 5, "2.60±0.03（槽顶→承托面Z0.50）", ctf="U3")
++    pg.dim_v(bv.pt(3, 25, 3.1), bv.pt(3, 25, 3.8), bv.box[0] - 4, "0.70")
++    # F wheel notch (plane X=15, from +X)
++    c, polys = section(cq, cover, "X", 15.0, -1, crop=(8, -20, -0.2, 15, 0.2, 4.5))
++    fv = View(pg, c, "right", 4.0, (215, 98), w=0.22)
++    fv.hatch(polys)
++    fv.title("F（4:1）X=15 滚轮 W1 中心，从琴尾向琴头看")
++    pg.dim_v(fv.pt(15, 1, 0), fv.pt(15, 1, 1.5), fv.box[2] + 5, "1.50±0.05 缺口底", ctf="U13")
++    pg.dim_h(fv.pt(15, 10 - 7.6, 3.8), fv.pt(15, 10 + 7.6, 3.8), fv.box[1] - 3, "Ø15.20±0.05", ctf="U13")
++    # C snap blades (plane X = station+3.1 through the window), north and south
++    st = SNAPX[0]
++    c, polys = section(cq, cover, "X", st + 3.1, -1, crop=(st - 1, -5.5, -6, st + 3.1, 0.2, 2.6))
++    cv = View(pg, c, "right", 6.0, (30, 150), w=0.22)
++    cv.hatch(polys)
++    cv.title(f"C1（6:1）北刀片 X={st+3.1}", "（窗口中心）")
++    pg.dim_v(cv.pt(st, 3.0, 0), cv.pt(st, 3.0, -2.32), cv.box[0] - 4, "2.32±0.03", ctf="U10")
++    pg.dim_v(cv.pt(st, 3.7, -2.32), cv.pt(st, 3.7, -1.48), cv.box[2] + 5, "0.84 +0.03/0", ctf="U10")
++    pg.leader(cv.pt(st, 3.2, -5.0), cv.box[2] + 3, cv.box[3] + 4, "导入 0.55×45°", size=2.0)
++    c, polys = section(cq, cover, "X", 68.5, -1, crop=(st - 1, -46.3, -12, 68.5, -30.5, 2.6))
++    cv2 = View(pg, c, "right", 3.0, (98, 150), w=0.22)
++    cv2.hatch(polys)
++    cv2.title("C2（3:1）X=68.5 南刀片唇 + 插座压台 J2")
++    pg.dim_v(cv2.pt(st, 44.85, 1.455), cv2.pt(st, 44.85, -11.15), cv2.box[0] - 4, "12.605±0.05（压台面→唇顶）", ctf="U7")
++    pg.leader(cv2.pt(st, 45.0, -11.15), cv2.box[2] + 2, cv2.box[3] + 4, "唇宽 0.45，承音频框南边", size=2.0)
++    # D USB opening, plane Y=9 (front view), crop
++    c, polys = section(cq, cover, "Y", -9.0, +1, crop=(84, -9, -3.6, 112, -3, 4.2))
++    dv = View(pg, c, "front", 4.0, (160, 150), w=0.22)
++    dv.hatch(polys)
++    dv.title("D（4:1）Y=9 USB-C 开口中心，向北看")
++    pg.dim_h(dv.pt(98 - 4.695, 9, 2.6), dv.pt(98 + 4.695, 9, 2.6), dv.box[3] + 5, "9.39 +0.05/0", ctf="U8")
++    ufp = PAR["usb_face_pocket"]
++    pg.dim_h(dv.pt(98 - ufp[0] / 2, 9, 3.8), dv.pt(98 + ufp[0] / 2, 9, 3.8), dv.box[1] - 3, f"{ufp[0]:.1f} +0.1/0（面槽，深0.80）", ctf="U8")
++    pg.dim_v(dv.pt(88, 9, -3.3), dv.pt(88, 9, 0), dv.box[0] - 4, "3.30±0.03 压柱端面", ctf="U9")
++    # E screw counterbore at (5.3,5.3)
++    c, polys = section(cq, cover, "Y", -5.3, +1, crop=(-0.2, -5.3, -0.2, 11.5, 0.2, 4.2))
++    ev = View(pg, c, "front", 6.0, (300, 150), w=0.22)
++    ev.hatch(polys)
++    ev.title("E（6:1）Y=5.3 螺钉孔 S1")
++    pg.dim_h(ev.pt(5.3 - 2.25, 5.3, 3.8), ev.pt(5.3 + 2.25, 5.3, 3.8), ev.box[1] - 3, "Ø4.50 +0.1/0", ctf="U12")
++    pg.dim_h(ev.pt(5.3 - 1.25, 5.3, 0), ev.pt(5.3 + 1.25, 5.3, 0), ev.box[3] + 5, "Ø2.50 +0.1/0")
++    pg.dim_v(ev.pt(11, 5.3, 0), ev.pt(11, 5.3, 1.7), ev.box[2] + 4, "1.70±0.05", ctf="U12")
++    pg.text(300, ev.box[3] + 13, "ST2.2 盘头头高 ≤1.6 → 头顶 ≤Z3.35", 2.0)
++    save(pg, "M-R4-01-3_上盖_剖面与局部", allp)
++
++
++# =====================================================================================================
++def cup_ctfs():
++    P = "lower_cup"
++    ctf("L1", P, "外形长×宽（原腔 78×47）", "77.00×45.00", "±0.05", "卡尺/CMM", "3")
++    ctf("L2", P, "卡钩下面至杯外底", "18.60", "±0.05", "高度规/CMM", "1", 4)
++    ctf("L3", P, "卡钩高 / 凸出内壁", "0.80 / 0.55", "0/−0.03 ; ±0.03", "CMM/影像", "5", 4)
++    ctf("L4", P, "卡扣处内宽（Y）", "43.40", "±0.05", "CMM", "5", 2)
++    ctf("L5", P, "Y 定位筋高（4×，R4.1 新增）", "0.15", "±0.02", "CMM/影像", "5", 4)
++    ctf("L6", P, "主板托台面至杯外底", "8.35", "±0.03", "CMM", "8", 6)
++    ctf("L7", P, "侧向定位台内面间距", "74.70×42.70", "±0.03", "CMM", "8")
++    ctf("L8", P, "底厚 / 壁厚", "0.60 / 0.80", "±0.05", "千分尺/超声", "", 1)
++    ctf("L9", P, "拾音入口槽 10×3 中心（TODO 实测后定位）", "局部 25.10, 2.60", "±0.10；槽宽 +0.1/0", "CMM", "", 1)
++    ctf("L10", P, "主板卡齿下面至托台面 / 搭接", "0.80 / 0.45", "±0.03 ; ±0.05", "CMM", "8", 4)
++    ctf("L11", P, "电池仓（导向内面）", "52.25×35.00", "+0.10/0", "卡尺", "", 1)
++    ctf("L12", P, "外竖角半径（原腔角 R≤3.0 才不干涉）", "R1.2", "±0.2", "R 规", "3", 4)
++
++
++def sheet_cup(allp):
++    pg = Page()
++    frame(pg, "M-R4-02", "下杯（俯视/主视、特征表）", "下杯 lower_cup", MAT_POM, "机加本色黑；内腔不要求外观", "1 / 套", "2:1", "1/2",
++          ["6. 局部坐标原点 = 外形西北角 (全局 X35.5, Y2.0)，Z 自杯外底向上（全局 Z = 局部 Z − 20.90）。",
++           "7. 拾音入口：DECISIONS 补充 2026-10-15，拾音线走琴上原穿线孔，琴上不钻孔。首样按 10×3 长槽加工（沿 X 容差 ±3.5）；实测原孔后改为 Ø3.0 圆孔或移槽。",
++           "8. 卡钩为矩形双向止挡（不倒角）；4 处 Y 定位筋 0.15（R4.1）在悬臂根部，离刀片面 0.05。"])
++    cup = part("lower_cup"); s = 2.0
++    ox, oy = 35.5, 2.0
++    tv = View(pg, cup, "top", s, (30, 40), w=0.22)
++    tv.title("俯视（开口朝上）")
++    fv = View(pg, cup, "front", s, (30, 147), w=0.22)
++    fv.title("主视（从南侧看）")
++    head_tail(pg, tv.box[0], tv.box[2], 26.5)
++    pg.dim_h(tv.pt(35.5, 2), tv.pt(112.5, 2), tv.box[1] - 3, "77.00±0.05", ctf="L1")
++    pg.dim_v(tv.pt(112.5, 2), tv.pt(112.5, 47), tv.box[2] + 6, "45.00±0.05", ctf="L1")
++    pg.dim_v(fv.pt(112.5, 47, 0), fv.pt(112.5, 47, -20.9), fv.box[2] + 6, "20.90±0.05")
++    pg.dim_v(fv.pt(35.5, 47, -2.3), fv.pt(35.5, 47, -20.9), fv.box[0] - 5, "18.60±0.05（钩下面→外底）", ctf="L2")
++    ex = PAR["pickup_entry_extent_xy"]
++    pg.leader(tv.pt(ex[0], (ex[1] + ex[3]) / 2), tv.box[0] + 60, tv.box[3] + 8,
++              f"拾音入口槽 {PAR['pickup_entry_slot'][0]:.0f}×{PAR['pickup_entry_slot'][1]:.0f} 通，中心局部 ({PAR['pickup_entry_xy'][0]-ox:.2f}, {PAR['pickup_entry_xy'][1]-oy:.2f})，TODO 对齐原穿线孔", ctf="L9")
++    rows = []
++    for j, x in enumerate(SNAPX):
++        for k, side in enumerate(["北", "南"]):
++            yy = 2.0 if k == 0 else 46.2
++            p = tv.pt(x + 2.8, 3.35 if k == 0 else 45.65)
++            idmark(pg, p, f"H{2*j+k+1}", 0, -3.6 if k == 0 else 3.6)
++            rows.append([f"H{2*j+k+1}", f"上下壳卡扣（{side}）", f"钩 {x+2.2-ox:.2f}–{x+3.4-ox:.2f}", "钩1.2×0.80 凸0.55；筋0.15", "钩下面 局部Z18.60", "L2"])
++    for j, x in enumerate([38.0, 95.0]):
++        for k, side in enumerate(["北", "南"]):
++            idmark(pg, tv.pt(x + 10.75, 3.4 if k == 0 else 45.6), f"T{2*j+k+1}", 0, -3.6 if k == 0 else 3.6)
++            rows.append([f"T{2*j+k+1}", f"主板卡齿（{side}）", f"齿 {x+10-ox:.2f}–{x+11.5-ox:.2f}", "齿宽1.5 搭接0.45", "齿下面 局部Z9.15", "L10"])
++    for i, (x, w, y, h) in enumerate(LEDGES):
++        rows.append([f"LG{i+1}", "主板托台", f"{x-ox:.2f}–{x+w-ox:.2f}, {y-oy:.2f}–{min(y+h,46.2)-oy:.2f}", f"{w:.1f}×{min(h,46.2-y):.1f}", "台面 局部Z8.35", "L6"])
++    rows.append(["LP", "侧向定位台 8×", "内面 X1.15/75.85, Y1.15/43.85", "离主板边 0.05", "局部Z8.35–9.15", "L7"])
++    rows.append(["BG", "电池导向 4 边", "内面 X4.25/56.50, Y5.00/40.00", "高 3.2；东侧贴 NTC", "局部Z0.60–3.80", "L11"])
++    rows.append(["NT", "NTC 侧仓（RT1921）", "X56.5–61.3, Y9.3–14.0", "仓 4.3×3.7", "底 局部Z0.90", ""])
++    for i, (x, w, y, h) in enumerate(LEDGES[:1]):
++        idmark(pg, tv.pt(x + w / 2, y + h / 2), "LG1", 0, 3.5)
++    idmark(pg, tv.pt(66, 24.5), "BG", 0, 0)
++    yy = hole_chart(pg, 236, 44, rows, "下杯特征表（局部坐标）", widths=(8, 30, 42, 41, 31))
++    ctf_table(pg, 236, yy + 8, ["L1", "L2", "L3", "L4", "L5", "L6", "L7", "L8", "L9", "L10", "L11", "L12"], widths=(8, 52, 32, 30, 30))
++    save(pg, "M-R4-02-1_下杯", allp)
++
++    pg = Page()
++    frame(pg, "M-R4-02", "下杯  剖面（卡扣、定位筋、主板托台与卡齿、拾音入口）", "下杯 lower_cup", MAT_POM, "机加本色黑", "1 / 套", "见各视图", "2/2",
++          ["6. 卡扣/卡齿悬臂由 0.5 宽 U 形槽形成，槽须贯穿杯壁，根部 R≥0.2；悬臂表面不得有刀痕缺口（疲劳）。",
++           "7. 定位筋与卡钩不在同一 X 段：筋 X(站位−3.8…−2.8)，钩 X(站位+2.2…+3.4)。"])
++    st = SNAPX[0]
++    # snap hook section at X=st+2.8 (through hook), north and south
++    for i, (yy0, yy1, lab) in enumerate([(-6.5, 0.2, "北"), (-49.2, -42.5, "南")]):
++        c, polys = section(cq, cup, "X", st + 2.8, -1, crop=(st - 1, yy0, -7, st + 2.8, yy1, 0.2))
++        v = View(pg, c, "right", 7.0, (30 + i * 75, 40), w=0.22)
++        v.hatch(polys)
++        v.title(f"G{i+1}（7:1）X={st+2.8} 卡钩剖面（{lab}）")
++        if i == 0:
++            pg.dim_v(v.pt(st, 3.35, -2.3), v.pt(st, 3.35, -1.5), v.box[2] + 4, "0.80 0/−0.03", ctf="L3")
++            pg.dim_h(v.pt(st, 2.8, -1.5), v.pt(st, 3.35, -1.5), v.box[1] - 3, "0.55±0.03", ctf="L3")
++            pg.dim_h(v.pt(st, 2.0, -6.5), v.pt(st, 2.8, -6.5), v.box[3] + 5, "0.80 壁厚")
++    # rib section X=st-3.3
++    c, polys = section(cq, cup, "X", st - 3.3, -1, crop=(st - 5, -6.5, -7, st - 3.3, 0.2, 0.2))
++    rv = View(pg, c, "right", 7.0, (190, 40), w=0.22)
++    rv.hatch(polys)
++    rv.title(f"G3（7:1）X={st-3.3} 定位筋剖面")
++    pg.dim_h(rv.pt(st, 2.8, -1.2), rv.pt(st, 2.95, -1.2), rv.box[1] - 3, "0.15±0.02", ctf="L5")
++    pg.dim_v(rv.pt(st, 2.95, -4.6), rv.pt(st, 2.95, -1.2), rv.box[2] + 4, "3.40（顶部导入 0.3）")
++    # main ledge + latch tooth section at X=48.75
++    c, polys = section(cq, cup, "X", 48.75, -1, crop=(44, -8, -21.0, 48.75, 0.2, -9.5))
++    lv = View(pg, c, "right", 6.0, (270, 40), w=0.22)
++    lv.hatch(polys)
++    lv.title("G4（6:1）X=48.75 主板卡齿/托台（北）")
++    pg.dim_v(lv.pt(48, 3.65, -12.55), lv.pt(48, 3.65, -11.75), lv.box[2] + 4, "0.80±0.03", ctf="L10")
++    pg.dim_v(lv.pt(48, 2.0, -20.9), lv.pt(48, 2.0, -12.55), lv.box[0] - 4, "8.35±0.03", ctf="L6")
++    # longitudinal section at Y=4.6 through the pickup slot
++    c, polys = section(cq, cup, "Y", -4.6, +1, crop=(35, -4.6, -21, 113, 0.5, 0.2))
++    pv = View(pg, c, "front", 2.0, (30, 150), w=0.22)
++    pv.hatch(polys)
++    pv.title("H（2:1）Y=4.6 纵剖（拾音入口槽、北侧卡扣、托台）")
++    ex = PAR["pickup_entry_extent_xy"]
++    pg.dim_h(pv.pt(ex[0], 4.6, -20.9), pv.pt(ex[2], 4.6, -20.9), pv.box[3] + 6, f"{ex[2]-ex[0]:.1f}（槽长，沿X ±3.5 容差）", ctf="L9")
++    pg.dim_h(pv.pt(35.5, 4.6, -20.9), pv.pt(PAR["pickup_entry_xy"][0], 4.6, -20.9), pv.box[3] + 13, f"{PAR['pickup_entry_xy'][0]-35.5:.2f}（TODO 按实测原孔）", ctf="L9")
++    pg.dim_v(pv.pt(112.5, 4.6, -20.9), pv.pt(112.5, 4.6, -20.3), pv.box[2] + 4, "0.60±0.05 底厚", ctf="L8")
++    pg.text(30, 215, "原穿线孔实测换算：X = 258 − u（u = 原孔距琴尾金属基准），Y = 24.5 + v（v = 距模块中线，向北为负）。入口须落在北侧走线带 Y 3.1–6.3（局部 1.1–4.3），", 2.1)
++    pg.text(30, 219, "否则线缆无法绕过电池到达 J101（主板北缘缺口 X58.8–62.4），需改结构。build_mechanics.py 中有断言检查。", 2.1)
++    save(pg, "M-R4-02-2_下杯_剖面", allp)
++
++
++# =====================================================================================================
++def small_part_sheet(allp, no, title, name, material, finish, qty, scale, views, dims, ctfs, extra=(), tables=None, sheet="1/1"):
++    pg = Page()
++    frame(pg, no, title, name, material, finish, qty, scale, sheet, extra)
++    vs = {}
++    for key, shape, kind, sc, at, hid in views:
++        vs[key] = View(pg, shape, kind, sc, at, hidden=hid, w=0.25)
++    for fn in dims:
++        fn(pg, vs)
++    if tables:
++        for fn in tables:
++            fn(pg, vs)
++    ctf_table(pg, 236, 165, ctfs, widths=(8, 52, 32, 30, 30))
++    save(pg, f"{no}_{title.split('（')[0].strip()}", allp)
++    return vs
++
++
++def sheet_key_backer(allp):
++    P = "key_backer_bracket"
++    ctf("B1", P, "上表面平面度（托控制板）", "—", "0.03", "平台+塞尺", "4")
++    ctf("B2", P, "螺钉孔 Ø / 孔距", "Ø1.80 / 13.00", "+0.10/0 ; ±0.05", "塞规/CMM", "", 2)
++    ctf("B3", P, "托边上面至板顶面", "1.70", "±0.05", "高度规", "6")
++    ctf("B4", P, "板厚", "1.20", "±0.05", "千分尺", "4")
++    sh = part(P); ox, oy, ztop = 36.6, 21.3, 0.1
++    def d(pg, v):
++        t, f, l = v["t"], v["f"], v["l"]
++        t.title("俯视（装配方向：顶面贴控制板底面）"); f.title("主视（从南侧看）"); l.title("左视")
++        head_tail(pg, t.box[0], t.box[2], t.box[1] - 16)
++        pg.dim_h(t.pt(36.6, 21.3), t.pt(66.6, 21.3), t.box[1] - 3, "30.00")
++        pg.dim_v(t.pt(66.6, 21.3), t.pt(66.6, 28.7), t.box[2] + 6, "7.40")
++        pg.dim_h(t.pt(42.5, 25), t.pt(55.5, 25), t.box[3] + 8, "13.00±0.05", ctf="B2")
++        pg.dim_h(t.pt(36.6, 25), t.pt(42.5, 25), t.box[3] + 15, "5.90")
++        pg.leader(t.pt(55.5 + 0.64, 25 - 0.64), t.box[2] + 4, t.box[1] + 2, "2× Ø1.80 +0.10/0 通", ctf="B2")
++        pg.dim_v(f.pt(66.6, 0, 0.1), f.pt(66.6, 0, -1.1), f.box[2] + 6, "1.20±0.05", ctf="B4")
++        pg.dim_v(f.pt(36.6, 0, 0.1), f.pt(36.6, 0, -1.6), f.box[0] - 5, "1.70±0.05（托边上面）", ctf="B3")
++        pg.dim_h(f.pt(40, 0, -2.0), f.pt(62, 0, -2.0), f.box[3] + 6, "22.00（托边，X 局部 3.40 起）")
++        pg.dim_v(l.pt(0, 28.0, -2.0), l.pt(0, 29.1, -2.0), l.box[2] + 5, "")
++        pg.leader(l.pt(0, 29.1, -1.6), l.box[2] + 4, l.box[3] + 8, "托边 0.40×0.40（音频框北挂钩落在其上面）", size=2.0)
++        pg.text(30, 160, "功能：键 3–5 按压力 → 控制板 → 本件 → 2 颗 M1.6 自攻钉 → 屋顶凸台 KB1/KB2（M4）。顶面整面贴控制板，平面度 0.03（B1）。", 2.1)
++        pg.text(30, 164.5, "局部坐标原点 = 西北角顶面（全局 X36.6, Y21.3, Z0.10）。螺钉：M1.6×4 PT 型塑料自攻钉，A2，扭矩 0.08 N·m。", 2.1)
++    small_part_sheet(allp, "M-R4-03", "按键背撑架（键 3–5）", "按键背撑架 key_backer_bracket", MAT_POM, "机加本色黑", "1 / 套", "5:1",
++                     [("t", sh, "top", 5.0, (40, 45), True), ("f", sh, "front", 5.0, (40, 110), True), ("l", sh, "left", 5.0, (215, 110), True)],
++                     [d], ["B1", "B2", "B3", "B4"])
++
++
++def sheet_usb_bracket(allp):
++    P = "usb_bracket"
++    ctf("S1", P, "板厚（西轨下 USB16 FPC 净空）", "0.60", "±0.03", "千分尺", "7")
++    ctf("S2", P, "螺钉孔 Ø / 位置", "Ø1.80", "+0.10/0 ; ±0.05", "塞规/CMM", "7", 3)
++    ctf("S3", P, "窗口（ZIF 包络净空 0.2）", "19.60×20.20", "+0.10/0", "影像", "", 1)
++    ctf("S4", P, "平面度", "—", "0.05", "平台+塞尺", "7")
++    sh = part(P)
++    def d(pg, v):
++        t, f = v["t"], v["f"]
++        t.title("俯视（装配方向：从 USB 板 B 面一侧装入）"); f.title("主视（从南侧看）")
++        head_tail(pg, t.box[0], t.box[2], t.box[1] - 16)
++        pg.dim_h(t.pt(85.4, 4.4), t.pt(110.6, 4.4), t.box[1] - 3, "25.20")
++        pg.dim_v(t.pt(110.6, 4.4), t.pt(110.6, 27.6), t.box[2] + 6, "23.20")
++        pg.dim_h(t.pt(86.6, 26.2), t.pt(106.2, 26.2), t.box[3] + 6, "19.60 +0.10/0（窗）", ctf="S3")
++        pg.dim_v(t.pt(86.6, 6.0), t.pt(86.6, 26.2), t.box[0] - 5, "20.20 +0.10/0", ctf="S3")
++        pg.dim_h(t.pt(88, 8), t.pt(108.3, 8), t.box[3] + 14, "20.30±0.05", ctf="S2")
++        pg.dim_v(t.pt(108.3, 8), t.pt(108.3, 22), t.box[2] + 14, "14.00±0.05", ctf="S2")
++        pg.leader(t.pt(108.3 + 0.64, 22 + 0.64), t.box[2] + 4, t.box[3] + 10, "3× Ø1.80 +0.10/0 通", ctf="S2")
++        pg.dim_v(f.pt(110.6, 0, -4.3), f.pt(110.6, 0, -4.9), f.box[2] + 6, "0.60±0.03", ctf="S1")
++        pg.text(30, 150, "局部坐标原点 = 西北角（全局 X85.4, Y4.4）；孔中心局部 (2.60, 3.60) (22.90, 3.60) (22.90, 17.60)。外角 R1.0。", 2.1)
++        pg.text(30, 154.5, "西轨（宽 1.2）下方走 USB16 FPC：本件底面 Z−4.9，FPC ≤Z−5.3；南轨上面承音频框 USB 挂舌（搭接 0.35）。", 2.1)
++        pg.text(30, 159, "DFM 注意：(88,8) 螺钉耳与西轨的连接弦宽约 1.55，加工/装配勿撬；首样如断裂，改为与北轨连成整片。", 2.1, c="#a14a00")
++    small_part_sheet(allp, "M-R4-04", "USB托架", "USB 托架 usb_bracket", MAT_POM, "机加本色黑", "1 / 套", "4:1",
++                     [("t", sh, "top", 4.0, (40, 45), True), ("f", sh, "front", 4.0, (40, 125), True)], [d], ["S1", "S2", "S3", "S4"])
++
++
++def sheet_audio_frame(allp):
++    P = "audio_load_frame"
++    ctf("F1", P, "底网厚（选配 0.40/0.50/0.60）", "0.50", "±0.02", "千分尺", "6")
++    ctf("F2", P, "底面平面度", "—", "0.05", "平台+塞尺", "6")
++    ctf("F3", P, "北挂钩下面至底面", "9.55", "±0.05", "高度规", "6")
++    ctf("F4", P, "USB 挂舌下面至底面", "6.85", "±0.05", "高度规", "6")
++    ctf("F5", P, "外形（南边与刀片唇搭接 0.35）", "75.00×16.00", "±0.05", "卡尺", "6")
++    sh = part(P)
++    def d(pg, v):
++        t, f, l = v["t"], v["f"], v["l"]
++        t.title("俯视（底网朝下）"); f.title("主视（从南侧看）"); l.title("左视（从琴头端看）")
++        head_tail(pg, t.box[0], t.box[2], t.box[1] - 15)
++        pg.dim_h(t.pt(36.5, 45.2), t.pt(111.5, 45.2), t.box[3] + 6, "75.00±0.05", ctf="F5")
++        pg.dim_v(t.pt(111.5, 29.2), t.pt(111.5, 45.2), t.box[2] + 6, "16.00±0.05", ctf="F5")
++        pg.dim_h(t.pt(37.3, 44), t.pt(110.7, 44), t.box[3] + 13, "73.40（开口，同音频板外形）")
++        pg.dim_v(f.pt(111.4, 0, -11.15), f.pt(111.4, 0, -10.65), f.box[2] + 6, "0.50±0.02 底网", ctf="F1")
++        pg.dim_v(f.pt(40, 0, -11.15), f.pt(40, 0, -1.6), f.box[0] - 5, "9.55±0.05", ctf="F3")
++        pg.dim_v(f.pt(88, 0, -11.15), f.pt(88, 0, -4.3), f.box[0] + 40, "6.85±0.05", ctf="F4")
++        rows = [["audio_load_frame", "0.50", "名义；STEP 主件", "1"], ["audio_load_frame_web0p4", "0.40", "选配：实测间隙 G<0.50", "1"],
++                ["audio_load_frame_web0p6", "0.60", "选配：实测 G≥0.60", "1"]]
++        pg.text(30, 182, "选配件（底网厚度不同，其余同 STEP；底面 Z 固定在刀片唇上，只改顶面）", 2.3, bold=True)
++        pg.table(30, 184, [("STEP", 50), ("底网", 14), ("用途", 46), ("数/套", 12)], rows, size=1.9, rowh=3.4)
++        pg.text(30, 202, "选配方法（插座环链，tolerance-stack 链 6）：G = 实测(上盖压台面→唇顶) − 实测(插座肩面→音频板底面，4 个取最大)；", 2.1)
++        pg.text(30, 206, "选腹板 t ≤ G 中最厚者，余量 (G − t) 用 0.05 PET 垫片补到 ≤0.05。G<0.40 时停：换插座/板或报工程。", 2.1)
++    small_part_sheet(allp, "M-R4-05", "音频承载框（含选配腹板）", "音频承载框 audio_load_frame", MAT_POM, "机加本色黑", "1 / 套 + 选配 2",
++                     "2.5:1", [("t", sh, "top", 2.5, (40, 46), False), ("f", sh, "front", 2.5, (40, 106), False), ("l", sh, "left", 2.5, (250, 106), False)],
++                     [d], ["F1", "F2", "F3", "F4", "F5"])
++
++
++def sheet_button(allp):
++    P = "button_1"
++    ctf("K1", "button", "键杆 Ø（配 Ø5.20 孔）", "Ø5.00", "0/−0.05", "千分尺", "4", 1)
++    ctf("K2", "button", "法兰 Ø（止退搭接 0.50）", "Ø6.20", "±0.03", "千分尺", "", 1)
++    ctf("K3", "button", "法兰顶面至触头端（按实测修整）", "0.90", "±0.03（修整后 ±0.02）", "高度规", "4", 1)
++    ctf("K4", "button", "键杆高（凸出屋顶 0.05）", "0.75", "±0.02", "高度规", "2", 1)
++    sh = part(P); bl = part("button_blank_TRIM_TIP_TO_MEASURED_SWITCH")
++    def d(pg, v):
++        f, t, b = v["f"], v["t"], v["b"]
++        f.title("成品（按最高开关设计）主视"); t.title("俯视"); b.title("毛坯 stock：触头加长 0.45，按实测修整")
++        x = 10
++        pg.dim_h(f.pt(x - 2.5, 25, 3.85), f.pt(x + 2.5, 25, 3.85), f.box[1] - 4, "Ø5.00 0/−0.05", ctf="K1")
++        pg.dim_h(f.pt(x - 3.1, 25, 2.6), f.pt(x + 3.1, 25, 2.6), f.box[3] + 8, "Ø6.20±0.03", ctf="K2")
++        pg.dim_h(f.pt(x - 0.8, 25, 2.2), f.pt(x + 0.8, 25, 2.2), f.box[3] + 18, "Ø1.60 触头")
++        pg.dim_v(f.pt(x + 2.5, 25, 3.1), f.pt(x + 2.5, 25, 3.85), f.box[2] + 6, "0.75±0.02", ctf="K4")
++        pg.dim_v(f.pt(x + 3.1, 25, 2.6), f.pt(x + 3.1, 25, 3.1), f.box[2] + 22, "0.50")
++        pg.dim_v(f.pt(x - 3.1, 25, 3.1), f.pt(x - 3.1, 25, 2.2), f.box[0] - 6, "0.90±0.03", ctf="K3")
++        pg.dim_v(b.pt(x - 0.8, 25, 3.1), b.pt(x - 0.8, 25, 1.75), b.box[0] - 6, "1.35（毛坯）")
++        pg.text(30, 170, "修整：干装 C4–C6（不装键），从屋顶顶面经键孔量到开关顶面深度 Dm（深度千分尺，±0.01）；量上盖屋顶顶面到沉槽顶 Rc（名义 0.70）；", 2.1)
++        pg.text(30, 174.5, "把毛坯触头修到 L = Dm − Rc − 0.05（目标间隙 0.05），记录每键 Dm/L。键 1–2 在平台上垫同一片 0.1 PET 测量（见 SOP C1）。", 2.1)
++        pg.text(30, 179, "开关：Alps SKQGABE010，高 1.5 +0.15/−0，行程 0.25，1.57 N（native-components.json）。每套 5 件，外加毛坯 5 件。", 2.1)
++    small_part_sheet(allp, "M-R4-06", "按键（5 件同形）与修触头毛坯", "按键 button_1…5（同形）", MAT_POM, "机加本色黑；顶面哑光，外缘倒钝 0.1", "5 / 套（+毛坯 5）",
++                     "10:1", [("f", sh, "front", 10.0, (60, 50), True), ("t", sh, "top", 10.0, (60, 105), False), ("b", bl, "front", 10.0, (200, 50), True)],
++                     [d], ["K1", "K2", "K3", "K4"])
++
++
++def sheet_lightpipe(allp):
++    ctf("P1", "lightpipe", "柱体 Ø（配 Ø1.50 孔）", "Ø1.40", "0/−0.03", "千分尺", "", 1)
++    ctf("P2", "lightpipe", "法兰顶面至出光面（与屋顶平）", "1.30", "±0.03", "高度规", "", 1)
++    ctf("P3", "lightpipe", "总长（入光面离 LED 0.1）", "2.35", "±0.05", "高度规", "", 1)
++    ctf("P4", "lightpipe", "入/出光面", "光学抛光；出光面可细雾化", "无划伤", "目视 10×", "", 1)
++    sh = part("lightpipe_1")
++    def d(pg, v):
++        f, t = v["f"], v["t"]
++        f.title("主视"); t.title("俯视")
++        x, y = 15, 21
++        pg.dim_h(f.pt(x - 0.7, y, 3.8), f.pt(x + 0.7, y, 3.8), f.box[1] - 4, "Ø1.40 0/−0.03", ctf="P1")
++        pg.dim_h(f.pt(x - 1.0, y, 2.1), f.pt(x + 1.0, y, 2.1), f.box[3] + 8, "Ø2.00 法兰")
++        pg.dim_v(f.pt(x + 1.0, y, 2.5), f.pt(x + 1.0, y, 3.8), f.box[2] + 6, "1.30±0.03", ctf="P2")
++        pg.dim_v(f.pt(x - 0.7, y, 1.45), f.pt(x - 0.7, y, 3.8), f.box[0] - 6, "2.35±0.05", ctf="P3")
++        pg.dim_v(f.pt(x + 1.0, y, 2.1), f.pt(x + 1.0, y, 2.5), f.box[2] + 22, "0.40")
++        pg.text(30, 160, "装配：C2 从内侧装入，法兰顶住屋顶内表面；周边少量透明 UV 胶，胶不得进入出光面或 LED。LP2 位于 (34.7, 20.7)（M11 偏移）。", 2.1)
++    small_part_sheet(allp, "M-R4-07", "导光柱（3 件同形）", "导光柱 lightpipe_1…3（同形）", "PC 透明（光学级，如 Makrolon LED/2407 类，候选）",
++                     "两端面抛光，侧面原色", "3 / 套", "15:1", [("f", sh, "front", 15.0, (70, 50), False), ("t", sh, "top", 15.0, (180, 50), False)],
++                     [d], ["P1", "P2", "P3", "P4"])
++
++
++def sheet_films(allp):
++    ctf("I1", "films", "绝缘片总厚（含胶）", "0.100", "±0.010", "千分尺", "4,8", 1)
++    ctf("I2", "films", "外形（模切）", "按表", "±0.15", "卡尺/影像", "", 1)
++    ctf("I3", "main_shim", "垫片厚度 0.05/0.10/0.20", "按名", "±0.005/±0.01/±0.01", "千分尺", "8", 1)
++    pg = Page()
++    frame(pg, "M-R4-08", "绝缘片与主板调整垫片（平面展开）", "绝缘片 6 种 + 主板垫片 3 种", "PET（聚酯）/ PI（聚酰亚胺），见表", "无印刷；去毛刺；装箱分层隔纸",
++          "见表", "2:1 / 4:1", "1/1", ["6. 总厚指含胶厚度。背撑垫片（key/speaker_backer_insulator）单面压敏胶；其余无胶。",
++                                       "7. 主板垫片只在实测主板卡齿间隙 >0 时单层选用，不得叠装；按托台形状 4 段为一套。"])
++    items = [("battery_bottom_insulator", "电池底绝缘片", "PET 0.10 无胶", "1", 1.5, (30, 40)),
++             ("battery_top_separator", "电池顶隔片", "PET 0.10 无胶", "1", 1.5, (130, 40)),
++             ("main_audio_dielectric_separator", "主板/音频板绝缘片", "PET 0.10 无胶（缺口让 POTS3）", "1", 1.5, (230, 40)),
++             ("key_backer_insulator", "按键 1–2 背垫（贴控制板底面）", "PET 0.10 含单面胶；选配 0.075/0.125", "1（+选配各1）", 2.0, (30, 125)),
++             ("speaker_backer_insulator", "扬声器背垫", "PET 0.10 含单面胶", "1", 2.0, (110, 125)),
++             ("ntc_electrical_separator", "NTC 电绝缘片", "PI 0.10 无胶", "1", 6.0, (170, 125)),
++             ("main_shim_0p1mm", "主板调整垫片（0.05/0.10/0.20 同形）", "PET，按名厚", "各 1 套（4 段）", 1.0, (40, 192))]
++    rows = []
++    for n, cn, mat, q, sc, at in items:
++        shp = part(n)
++        kind = "left" if n.startswith("ntc") else "top"
++        v = View(pg, shp, kind, sc, at, w=0.25)
++        bb = shp.BoundingBox()
++        dims = sorted([bb.xlen, bb.ylen, bb.zlen], reverse=True)
++        v.title(f"{cn}", f"{n}")
++        x0, y0, x1, y1 = v.box
++        pg.dim_h((x0, y1), (x1, y1), y1 + 5, f"{dims[0]:.2f}")
++        pg.dim_v((x1, y0), (x1, y1), x1 + 5, f"{dims[1]:.2f}")
++        rows.append([n, cn, f"{dims[0]:.2f}×{dims[1]:.2f}×{dims[2]:.2f}", mat, q])
++    pg.text(236, 150, "清单", 2.4, bold=True)
++    pg.table(236, 152, [("STEP", 52), ("名称", 44), ("外形 L×W×T", 30), ("材料", 44)], [r[:4] for r in rows], size=1.7, rowh=3.3)
++    ctf_table(pg, 236, 190, ["I1", "I2", "I3"], widths=(8, 52, 32, 30, 30))
++    save(pg, "M-R4-08_绝缘片与调整垫片", allp)
++
++
++def sheet_foam(allp):
++    ctf("Q1", "battery_top_foam", "自由厚度", "1.00", "±0.10", "测厚规（低压）", "", 1)
++    ctf("Q2", "battery_top_foam", "外形与 2 个窗口", "48.0×30.8；窗 44.0×6.4", "±0.20", "卡尺", "", 1)
++    sh = part("battery_top_foam")
++    def d(pg, v):
++        t = v["t"]
++        t.title("俯视（平面展开）")
++        pg.dim_h(t.pt(42, 39.8), t.pt(90, 39.8), t.box[3] + 6, "48.00±0.20", ctf="Q2")
++        pg.dim_v(t.pt(90, 9.0), t.pt(90, 39.8), t.box[2] + 6, "30.80±0.20", ctf="Q2")
++        pg.dim_h(t.pt(44, 15.0), t.pt(88, 15.0), t.box[1] - 4, "44.00（窗）")
++        pg.dim_v(t.pt(44, 15.0), t.pt(44, 21.4), t.box[0] - 5, "6.40")
++        pg.dim_v(t.pt(44, 27.4), t.pt(44, 33.8), t.box[0] - 5, "6.40")
++        pg.dim_v(t.pt(42, 9.0), t.pt(42, 15.0), t.box[0] - 14, "6.00")
++        pg.text(30, 150, "材料：Rogers PORON 4701-30（极软级）1.0 mm 或等效微孔聚氨酯（候选，需供应商资料），无胶；压缩约 50% 时仍应可回弹。", 2.1)
++        pg.text(30, 154.5, "作用：填满电池 1.0 膨胀余量并轻预压（M12）；两窗口避开电池中央。装配 L3：先泡棉后顶隔片，不得拉伸变形。", 2.1)
++    small_part_sheet(allp, "M-R4-09", "电池顶部泡棉", "电池顶部泡棉 battery_top_foam", "PORON 4701-30 1.0（候选）", "模切，无胶", "1 / 套", "2.5:1",
++                     [("t", sh, "top", 2.5, (40, 45), False)], [d], ["Q1", "Q2"])
++
++
++def main():
++    cover_ctfs(); cup_ctfs()
++    allp = []
++    sheet_assembly(allp)
++    sheet_cover_outside(allp)
++    sheet_cover_inside(allp)
++    sheet_cover_sections(allp)
++    sheet_cup(allp)
++    sheet_key_backer(allp)
++    sheet_usb_bracket(allp)
++    sheet_audio_frame(allp)
++    sheet_button(allp)
++    sheet_lightpipe(allp)
++    sheet_films(allp)
++    sheet_foam(allp)
++    from reportlab.pdfgen import canvas
++    cv = canvas.Canvas(str(OUT / "M-R4-drawings-all.pdf"))
++    for pg in allp:
++        pg.pdf(cv)
++    cv.save()
++    (OUT / "ctf-register.json").write_text(json.dumps({"revision": REV, "date": DATE, "items": CTF}, ensure_ascii=False, indent=1), encoding="utf8")
++    print(len(allp), "sheets;", len(CTF), "CTF items")
++
++
++if __name__ == "__main__":
++    from reportlab.pdfbase.ttfonts import TTFont
++    from reportlab.pdfbase import pdfmetrics
++    pdfmetrics.registerFont(TTFont("WQY", os.environ.get("SMARTVIO_CJK_FONT", "/usr/share/fonts/truetype/wqy/wqy-zenhei.ttc"), subfontIndex=0))
++    main()
 diff -ruN pa/mechanical/cad/flex_reference.py pb/mechanical/cad/flex_reference.py
---- a/mechanical/cad/flex_reference.py	2026-10-15 07:20:07.286061911 +0000
-+++ b/mechanical/cad/flex_reference.py	2026-10-15 07:20:07.290010888 +0000
+--- pa/mechanical/cad/flex_reference.py	2026-10-16 08:29:45.850207117 +0000
++++ pb/mechanical/cad/flex_reference.py	2026-10-16 08:29:46.240717466 +0000
 @@ -11,9 +11,10 @@
   def fp(board,name):return next(v for v in geo['boards'][board]['components'] if v['ref']==name)
   assert fp('main','H_COVER_3_M')['side']=='F','Thin POTS3 source needs the explicit F-side ECO'
@@ -963,10 +2407,115 @@ diff -ruN pa/mechanical/cad/flex_reference.py pb/mechanical/cad/flex_reference.p
    'nativeECORemaining':[],
    'stack':[{'material':'copper','thicknessUm':12},{'material':'PI','thicknessUm':25},{'material':'copper','thicknessUm':12},
             {'material':'coverlay+adhesive each face','thicknessUm':25,'faces':2}],
+diff -ruN pa/mechanical/cad/tolerance_stack.py pb/mechanical/cad/tolerance_stack.py
+--- pa/mechanical/cad/tolerance_stack.py	1970-01-01 00:00:00.000000000 +0000
++++ pb/mechanical/cad/tolerance_stack.py	2026-10-16 08:29:46.246919259 +0000
+@@ -0,0 +1,101 @@
++"""SmartVio R4.1 worst-case + RSS tolerance stacks (review M13). Prints JSON; tolerance-stack.md quotes it.
++Each contributor: (name, nominal contribution with sign, +tol, -tol, source). Symmetric bilateral unless noted.
++RSS uses each contributor's half-range (shifted to its mean) - i.e. treats tolerances as +/-3 sigma."""
++import json, math
++def chain(name, contrib, limit_lo=None, limit_hi=None, unit="mm"):
++    nom = sum(c[1] for c in contrib)
++    mean = sum(c[1] + (c[2] - c[3]) / 2 for c in contrib)          # c[2]=+tol, c[3]=|-tol|
++    half = [(c[2] + c[3]) / 2 for c in contrib]
++    wc_lo, wc_hi = mean - sum(half), mean + sum(half)
++    r = math.sqrt(sum(h * h for h in half)); rs_lo, rs_hi = mean - r, mean + r
++    ok = lambda lo, hi: (limit_lo is None or lo >= limit_lo - 1e-9) and (limit_hi is None or hi <= limit_hi + 1e-9)
++    return dict(chain=name, nominal=round(nom, 4), mean=round(mean, 4), wc=[round(wc_lo, 4), round(wc_hi, 4)], rss=[round(rs_lo, 4), round(rs_hi, 4)],
++                limit=[limit_lo, limit_hi], wc_pass=ok(wc_lo, wc_hi), rss_pass=ok(rs_lo, rs_hi),
++                contributors=[dict(name=c[0], nominal=c[1], plus=c[2], minus=c[3], source=c[4]) for c in contrib])
++KY = 0.15   # Kycon title-block tolerance: NOT in the package (catalog page has none) -> assumption
++GCT = 0.25  # GCT USB4120 title-block tolerance as used by R3 occupancy basis (6.50 + 0.25)
++R = []
++# 1 total height (jack mouth is the highest non-wheel point; cup hangs on the window bottom)
++R.append(chain("1 总高（插口顶→杯底）≤25", [
++ ("Kycon 肩面→插口 2.40", 2.40, KY, KY, "Kycon 目录图 2.40；公差假设 ±0.15（未取得图框公差）"),
++ ("上盖 压台面 Z1.455（至基准 A）", 1.455, .03, .03, "U6"),
++ ("上盖 卡扣窗下沿 −Z2.32", 2.32, .03, .03, "U10"),
++ ("下杯 钩下面→外底 18.60", 18.60, .05, .05, "L2"),
++], None, 25.0))
++# 1b with Kycon tolerance that just closes WC
++# 2 non-wheel protrusion
++R.append(chain("2 非滚轮外突（插口顶，至琴面）≤5", [
++ ("压台面 Z1.455", 1.455, .03, .03, "U6"), ("Kycon 肩面→插口 2.40", 2.40, KY, KY, "假设 ±0.15"),
++ ("PCB+PET 叠厚顶起上盖（键1–2区）", 0.0, .05, 0.0, "0.4±0.04 + 0.1±0.01 − 0.50 承托面"),
++], None, 5.0))
++R.append(chain("2b 按键顶外突", [("沉槽顶 Z3.10（=3.80−0.70）", 3.10, .03, .03, "U2/U3"), ("键 法兰顶→键顶 0.75", .75, .02, .02, "K4"),
++ ("PCB+PET 顶起", 0, .05, 0, "同上")], None, 5.0))
++# 3 cup vs cavity, per side
++R.append(chain("3X 下杯↔原腔 X 单边间隙 ≥0", [
++ ("原腔长 78 半差", 0.5, .10, .10, "腔 78±0.2（假设，须实测）; 杯 77 名义"),
++ ("下杯长 77 半公差", 0, .025, .025, "L1 ±0.05"),
++ ("下杯在上盖内 X 浮动", 0, .20, .20, "音频框端面↔杯内壁 0.2（CAD）"),
++ ("上盖相对原腔定位（配钻导孔）", 0, .15, .15, "配钻样板 ±0.15（假设）"),
++], 0.0, None))
++R.append(chain("3Y 下杯↔原腔 Y 单边间隙 ≥0", [
++ ("原腔宽 47 半差", 1.0, .10, .10, "47±0.2（假设）"), ("下杯宽 45 半公差", 0, .025, .025, "L1"),
++ ("下杯 Y 浮动（R4.1 定位筋）", 0, .05, .05, "筋→刀片 0.05"), ("上盖相对原腔定位", 0, .15, .15, "假设"),
++], 0.0, None))
++R.append(chain("3Z 杯底↔原腔底 间隙 ≥0", [
++ ("原腔深 22", 22.0, .2, .2, "假设，须实测"), ("−窗下沿 Z2.32", -2.32, .03, .03, "U10"), ("−钩→外底 18.60", -18.60, .05, .05, "L2"),
++ ("琴面平面度（螺钉区）", 0, 0, .05, "假设"),
++], 0.0, None))
++# 4 key travel chain keys 3-5
++R.append(chain("4a 按键空行程（键3–5，不修整）0…0.10", [
++ ("上盖 沉槽顶→承托面 2.60", 2.60, .03, .03, "U3"), ("−按键 法兰顶→触头 0.90", -0.90, .03, .03, "K3"),
++ ("−开关高 1.50 +0.15/−0", -1.50, 0.0, .15, "SKQGABE010（native-components.json）"),
++ ("背撑架平面度/PCB 局部厚差", 0, .03, .03, "B1 0.03 + PCB 局部 ±0.01"),
++], 0.0, 0.10))
++R.append(chain("4b 按键空行程（键3–5，按实测修整，目标 0.05）", [
++ ("目标间隙", 0.05, 0, 0, "L = Dm − Rc − 0.05"), ("Dm 深度千分尺", 0, .01, .01, "实测"), ("Rc 测量", 0, .01, .01, "实测"),
++ ("修整精度", 0, .02, .02, "K3 修整后"), ("背撑架/PCB（干装已含，剩余）", 0, .01, .01, "重装复位"),
++], 0.0, 0.10))
++R.append(chain("4c 按键空行程（键1–2，按实测修整，平台代替琴面）", [
++ ("目标间隙", 0.05, 0, 0, ""), ("测量+修整", 0, .04, .04, "同 4b"), ("琴面平面度（键1–2区）", 0, .03, .03, "要求 ≤0.03（须实测）"),
++ ("PET 背垫换片厚差", 0, .01, .01, "I1"),
++], 0.0, 0.10))
++# 5 snap engagement (far side, cup pushed fully the other way)
++R.append(chain("5a 卡扣搭接（R4 原设计，无定位筋）≥0.10", [
++ ("刀片外侧面间距 43.00", 43.00, .05, .05, "U11"), ("−杯内宽 43.40", -43.40, .05, .05, "L4"), ("钩凸出 0.45（R4）", 0.45, .03, .03, "原 CAD"),
++], 0.10, None))
++R.append(chain("5b 卡扣搭接（R4.1：筋 0.15 + 钩 0.55）≥0.10", [
++ ("刀片外侧面间距 43.00", 43.00, .05, .05, "U11"), ("+定位筋高 0.15", 0.15, .02, .02, "L5"), ("−杯内宽 43.40", -43.40, .05, .05, "L4"),
++ ("钩凸出 0.55", 0.55, .03, .03, "L3"),
++], 0.10, None))
++R.append(chain("5c 卡扣入位最大挠曲（近侧搭接 = 钩凸出 − 筋高）≤ 刀片导入 0.55", [
++ ("钩凸出 0.55", 0.55, .03, .03, "L3"), ("−定位筋高 0.15（近侧筋贴刀片）", -0.15, .02, .02, "L5"),
++], None, 0.55))
++# 6 jack shoulder vs roof pad loop
++R.append(chain("6 插座肩面↔屋顶压台 间隙（0…0.05）", [
++ ("上盖 压台面→唇顶 12.605", 12.605, .05, .05, "U7"), ("−Kycon 肩面→座面 11.10", -11.10, KY, KY, "假设 ±0.15"),
++ ("−音频板厚 1.00 ±10%", -1.00, .10, .10, "PCB ±10%"), ("−音频框底网 0.50", -0.50, .02, .02, "F1"), ("插座焊接座落（浮高）", 0, 0, .03, "THT 座面"),
++], 0.0, 0.05))
++R.append(chain("6b 插座环链（选配后：腹板 0.40/0.50/0.60 + 0.05 PET）", [
++ ("残余间隙（选配目标）", 0.025, .025, .025, "选配后 0…0.05"), ("测量误差", 0, .01, .01, "高度规"),
++], -0.02, 0.06))
++# 7 USB-C
++R.append(chain("7a USB-C 本体↔开口 单边间隙（居中）≥0", [
++ ("开口 9.39 半值", 4.695, .025, 0, "U8 +0.05/0"), ("−本体 8.94 半值", -4.47, .125, .125, "GCT 图框 ±0.25（R3 依据）"),
++], 0.0, None))
++R.append(chain("7b USB-C 位置失配 ≤ 浮动+最小间隙 0.20", [
++ ("J401 相对 USB 板孔", 0, .10, .10, "贴装+定位脚 ±0.10"), ("USB 板孔位", 0, .05, .05, "PCB 钻孔"), ("屋顶底孔位", 0, .03, .03, "U16"), ("开口位置", 0, .03, .03, "U8"),
++], None, 0.20))
++R.append(chain("7c 插头包胶↔面槽 单边间隙 ≥0（R4.1 面槽 13.0）", [
++ ("面槽 13.0 半值", 6.5, .05, 0, "U8 +0.1/0"), ("−包胶 12.35 半值", -6.175, 0, 0, "USB-C 规范参考最大（需核对原文）"),
++ ("插座在开口内偏位", 0, .10, .10, "7a 间隙"), ("包胶对壳体偏心", 0, .05, .05, "线缆厂，假设"),
++], 0.0, None))
++R.append(chain("7d 插座面低于屋顶顶面 ≤ 面槽深 0.80", [
++ ("屋顶顶面 3.80 − 压柱端面 −3.30", 7.10, .04, .04, "U2/U9"), ("−GCT 高 6.50", -6.50, GCT, GCT, "GCT 图框 ±0.25"),
++], None, 0.80))
++# 8 main board latch (extra)
++R.append(chain("8 主板卡齿间隙（附加）0…0.05", [
++ ("卡齿下面→托台面 0.80", 0.80, .03, .03, "L10"), ("−主板厚 0.80 ±10%", -0.80, .08, .08, "PCB"),
++], 0.0, 0.05))
++for c in R:
++    print(json.dumps(c, ensure_ascii=False))
++open(__file__.replace("tolerance_stack.py", "tolerance_stack_result.json"), "w").write(json.dumps(R, ensure_ascii=False, indent=1))
 diff -ruN pa/mechanical/parameters.json pb/mechanical/parameters.json
---- a/mechanical/parameters.json	2026-10-15 07:20:07.294463454 +0000
-+++ b/mechanical/parameters.json	2026-10-15 07:20:07.296161474 +0000
-@@ -1,119 +1,133 @@
+--- pa/mechanical/parameters.json	2026-10-16 08:29:46.230207139 +0000
++++ pb/mechanical/parameters.json	2026-10-16 08:29:46.249119500 +0000
+@@ -1,119 +1,179 @@
 -{
 -  "version": "R2 prototype engineering candidate",
 -  "units": "mm",
@@ -1208,14 +2757,60 @@ diff -ruN pa/mechanical/parameters.json pb/mechanical/parameters.json
 +    0.8,
 +    4
 +  ],
-+  "snap_hook_overlap": 0.25,
++  "snap_hook_overlap": 0.35,
 +  "snap_window_z_play": 0.04,
++  "snap_blade_leadin": 0.55,
++  "snap_locating_rib": {
++    "on": "lower_cup inner wall at each snap flap root (4x)",
++    "height": 0.15,
++    "clearance_to_blade_face": 0.05,
++    "x_from_station": [
++      -3.8,
++      -2.8
++    ],
++    "z": [
++      -4.6,
++      -1.2
++    ],
++    "top_leadin": 0.3,
++    "why": "R4.1 tolerance stack: without ribs the cup floats +/-0.2 in Y between the blades and one-side hook engagement falls to 0.05 nominal / <0 worst case. Ribs on the cover blades were rejected: they would need wider cover-PCB snap slots (C4 sweep hit)"
++  },
++  "pickup_entry_xy": [
++    60.6,
++    4.6
++  ],
++  "pickup_entry_xy_status": "PLACEHOLDER. TODO(measure): original pickup-wire hole of the violin (DECISIONS addendum 2026-10-15: no new hole is drilled in the violin). Convert: X = 258 - u (u = distance from tail metal datum, mm), Y = 24.5 + v (v = offset from module centre line toward the Y=0 / wheel-notch edge negative). Then set this value and rebuild.",
++  "pickup_entry_mode": "slot",
++  "pickup_entry_hole_dia": 3.0,
++  "pickup_entry_slot": [
++    10.0,
++    3.0
++  ],
++  "pickup_entry_slot_axis_deg": 0.0,
++  "pickup_entry_slot_note": "first-sample default: 10 x 3 slot along X (instrument length) centred on pickup_entry_xy; accepts the original hole anywhere within +/-3.5 mm along X; across (Y) the 3.0 width only accepts the cable (<= dia 2.6). Must stay in the north cable strip Y 3.1..6.3 (cup wall 2.8 / battery guide 6.5) so the cable reaches the main-board notch x58.8-62.4 and J101",
++  "usb_face_pocket": [
++    13.0,
++    7.4
++  ],
++  "usb_face_pocket_note": "R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
++  "audio_frame_web_variants": [
++    0.4,
++    0.5,
++    0.6
++  ],
++  "audio_frame_selective_fit": "jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
 +  "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
 +  "nominal_total_height": 24.75,
 +  "total_height_limit": 25.0,
 +  "nonwheel_outward_limit": 5,
 +  "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
 +  "factory_tuning": "Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
-+  "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
++  "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement",
++  "pickup_entry_extent_xy": [
++    55.6,
++    3.1,
++    65.6,
++    6.1
++  ]
  }
 \ No newline at end of file

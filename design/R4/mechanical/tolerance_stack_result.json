@@ -1,0 +1,856 @@
+[
+ {
+  "chain": "1 总高（插口顶→杯底）≤25",
+  "nominal": 24.775,
+  "mean": 24.775,
+  "wc": [
+   24.515,
+   25.035
+  ],
+  "rss": [
+   24.6113,
+   24.9387
+  ],
+  "limit": [
+   null,
+   25.0
+  ],
+  "wc_pass": false,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "Kycon 肩面→插口 2.40",
+    "nominal": 2.4,
+    "plus": 0.15,
+    "minus": 0.15,
+    "source": "Kycon 目录图 2.40；公差假设 ±0.15（未取得图框公差）"
+   },
+   {
+    "name": "上盖 压台面 Z1.455（至基准 A）",
+    "nominal": 1.455,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U6"
+   },
+   {
+    "name": "上盖 卡扣窗下沿 −Z2.32",
+    "nominal": 2.32,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U10"
+   },
+   {
+    "name": "下杯 钩下面→外底 18.60",
+    "nominal": 18.6,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "L2"
+   }
+  ]
+ },
+ {
+  "chain": "2 非滚轮外突（插口顶，至琴面）≤5",
+  "nominal": 3.855,
+  "mean": 3.88,
+  "wc": [
+   3.675,
+   4.085
+  ],
+  "rss": [
+   3.725,
+   4.035
+  ],
+  "limit": [
+   null,
+   5.0
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "压台面 Z1.455",
+    "nominal": 1.455,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U6"
+   },
+   {
+    "name": "Kycon 肩面→插口 2.40",
+    "nominal": 2.4,
+    "plus": 0.15,
+    "minus": 0.15,
+    "source": "假设 ±0.15"
+   },
+   {
+    "name": "PCB+PET 叠厚顶起上盖（键1–2区）",
+    "nominal": 0.0,
+    "plus": 0.05,
+    "minus": 0.0,
+    "source": "0.4±0.04 + 0.1±0.01 − 0.50 承托面"
+   }
+  ]
+ },
+ {
+  "chain": "2b 按键顶外突",
+  "nominal": 3.85,
+  "mean": 3.875,
+  "wc": [
+   3.8,
+   3.95
+  ],
+  "rss": [
+   3.8311,
+   3.9189
+  ],
+  "limit": [
+   null,
+   5.0
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "沉槽顶 Z3.10（=3.80−0.70）",
+    "nominal": 3.1,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U2/U3"
+   },
+   {
+    "name": "键 法兰顶→键顶 0.75",
+    "nominal": 0.75,
+    "plus": 0.02,
+    "minus": 0.02,
+    "source": "K4"
+   },
+   {
+    "name": "PCB+PET 顶起",
+    "nominal": 0,
+    "plus": 0.05,
+    "minus": 0,
+    "source": "同上"
+   }
+  ]
+ },
+ {
+  "chain": "3X 下杯↔原腔 X 单边间隙 ≥0",
+  "nominal": 0.5,
+  "mean": 0.5,
+  "wc": [
+   0.025,
+   0.975
+  ],
+  "rss": [
+   0.2296,
+   0.7704
+  ],
+  "limit": [
+   0.0,
+   null
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "原腔长 78 半差",
+    "nominal": 0.5,
+    "plus": 0.1,
+    "minus": 0.1,
+    "source": "腔 78±0.2（假设，须实测）; 杯 77 名义"
+   },
+   {
+    "name": "下杯长 77 半公差",
+    "nominal": 0,
+    "plus": 0.025,
+    "minus": 0.025,
+    "source": "L1 ±0.05"
+   },
+   {
+    "name": "下杯在上盖内 X 浮动",
+    "nominal": 0,
+    "plus": 0.2,
+    "minus": 0.2,
+    "source": "音频框端面↔杯内壁 0.2（CAD）"
+   },
+   {
+    "name": "上盖相对原腔定位（配钻导孔）",
+    "nominal": 0,
+    "plus": 0.15,
+    "minus": 0.15,
+    "source": "配钻样板 ±0.15（假设）"
+   }
+  ]
+ },
+ {
+  "chain": "3Y 下杯↔原腔 Y 单边间隙 ≥0",
+  "nominal": 1.0,
+  "mean": 1.0,
+  "wc": [
+   0.675,
+   1.325
+  ],
+  "rss": [
+   0.8113,
+   1.1887
+  ],
+  "limit": [
+   0.0,
+   null
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "原腔宽 47 半差",
+    "nominal": 1.0,
+    "plus": 0.1,
+    "minus": 0.1,
+    "source": "47±0.2（假设）"
+   },
+   {
+    "name": "下杯宽 45 半公差",
+    "nominal": 0,
+    "plus": 0.025,
+    "minus": 0.025,
+    "source": "L1"
+   },
+   {
+    "name": "下杯 Y 浮动（R4.1 定位筋）",
+    "nominal": 0,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "筋→刀片 0.05"
+   },
+   {
+    "name": "上盖相对原腔定位",
+    "nominal": 0,
+    "plus": 0.15,
+    "minus": 0.15,
+    "source": "假设"
+   }
+  ]
+ },
+ {
+  "chain": "3Z 杯底↔原腔底 间隙 ≥0",
+  "nominal": 1.08,
+  "mean": 1.055,
+  "wc": [
+   0.75,
+   1.36
+  ],
+  "rss": [
+   0.8452,
+   1.2648
+  ],
+  "limit": [
+   0.0,
+   null
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "原腔深 22",
+    "nominal": 22.0,
+    "plus": 0.2,
+    "minus": 0.2,
+    "source": "假设，须实测"
+   },
+   {
+    "name": "−窗下沿 Z2.32",
+    "nominal": -2.32,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U10"
+   },
+   {
+    "name": "−钩→外底 18.60",
+    "nominal": -18.6,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "L2"
+   },
+   {
+    "name": "琴面平面度（螺钉区）",
+    "nominal": 0,
+    "plus": 0,
+    "minus": 0.05,
+    "source": "假设"
+   }
+  ]
+ },
+ {
+  "chain": "4a 按键空行程（键3–5，不修整）0…0.10",
+  "nominal": 0.2,
+  "mean": 0.125,
+  "wc": [
+   -0.04,
+   0.29
+  ],
+  "rss": [
+   0.0338,
+   0.2162
+  ],
+  "limit": [
+   0.0,
+   0.1
+  ],
+  "wc_pass": false,
+  "rss_pass": false,
+  "contributors": [
+   {
+    "name": "上盖 沉槽顶→承托面 2.60",
+    "nominal": 2.6,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U3"
+   },
+   {
+    "name": "−按键 法兰顶→触头 0.90",
+    "nominal": -0.9,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "K3"
+   },
+   {
+    "name": "−开关高 1.50 +0.15/−0",
+    "nominal": -1.5,
+    "plus": 0.0,
+    "minus": 0.15,
+    "source": "SKQGABE010（native-components.json）"
+   },
+   {
+    "name": "背撑架平面度/PCB 局部厚差",
+    "nominal": 0,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "B1 0.03 + PCB 局部 ±0.01"
+   }
+  ]
+ },
+ {
+  "chain": "4b 按键空行程（键3–5，按实测修整，目标 0.05）",
+  "nominal": 0.05,
+  "mean": 0.05,
+  "wc": [
+   0.0,
+   0.1
+  ],
+  "rss": [
+   0.0235,
+   0.0765
+  ],
+  "limit": [
+   0.0,
+   0.1
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "目标间隙",
+    "nominal": 0.05,
+    "plus": 0,
+    "minus": 0,
+    "source": "L = Dm − Rc − 0.05"
+   },
+   {
+    "name": "Dm 深度千分尺",
+    "nominal": 0,
+    "plus": 0.01,
+    "minus": 0.01,
+    "source": "实测"
+   },
+   {
+    "name": "Rc 测量",
+    "nominal": 0,
+    "plus": 0.01,
+    "minus": 0.01,
+    "source": "实测"
+   },
+   {
+    "name": "修整精度",
+    "nominal": 0,
+    "plus": 0.02,
+    "minus": 0.02,
+    "source": "K3 修整后"
+   },
+   {
+    "name": "背撑架/PCB（干装已含，剩余）",
+    "nominal": 0,
+    "plus": 0.01,
+    "minus": 0.01,
+    "source": "重装复位"
+   }
+  ]
+ },
+ {
+  "chain": "4c 按键空行程（键1–2，按实测修整，平台代替琴面）",
+  "nominal": 0.05,
+  "mean": 0.05,
+  "wc": [
+   -0.03,
+   0.13
+  ],
+  "rss": [
+   -0.001,
+   0.101
+  ],
+  "limit": [
+   0.0,
+   0.1
+  ],
+  "wc_pass": false,
+  "rss_pass": false,
+  "contributors": [
+   {
+    "name": "目标间隙",
+    "nominal": 0.05,
+    "plus": 0,
+    "minus": 0,
+    "source": ""
+   },
+   {
+    "name": "测量+修整",
+    "nominal": 0,
+    "plus": 0.04,
+    "minus": 0.04,
+    "source": "同 4b"
+   },
+   {
+    "name": "琴面平面度（键1–2区）",
+    "nominal": 0,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "要求 ≤0.03（须实测）"
+   },
+   {
+    "name": "PET 背垫换片厚差",
+    "nominal": 0,
+    "plus": 0.01,
+    "minus": 0.01,
+    "source": "I1"
+   }
+  ]
+ },
+ {
+  "chain": "5a 卡扣搭接（R4 原设计，无定位筋）≥0.10",
+  "nominal": 0.05,
+  "mean": 0.05,
+  "wc": [
+   -0.08,
+   0.18
+  ],
+  "rss": [
+   -0.0268,
+   0.1268
+  ],
+  "limit": [
+   0.1,
+   null
+  ],
+  "wc_pass": false,
+  "rss_pass": false,
+  "contributors": [
+   {
+    "name": "刀片外侧面间距 43.00",
+    "nominal": 43.0,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "U11"
+   },
+   {
+    "name": "−杯内宽 43.40",
+    "nominal": -43.4,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "L4"
+   },
+   {
+    "name": "钩凸出 0.45（R4）",
+    "nominal": 0.45,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "原 CAD"
+   }
+  ]
+ },
+ {
+  "chain": "5b 卡扣搭接（R4.1：筋 0.15 + 钩 0.55）≥0.10",
+  "nominal": 0.3,
+  "mean": 0.3,
+  "wc": [
+   0.15,
+   0.45
+  ],
+  "rss": [
+   0.2206,
+   0.3794
+  ],
+  "limit": [
+   0.1,
+   null
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "刀片外侧面间距 43.00",
+    "nominal": 43.0,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "U11"
+   },
+   {
+    "name": "+定位筋高 0.15",
+    "nominal": 0.15,
+    "plus": 0.02,
+    "minus": 0.02,
+    "source": "L5"
+   },
+   {
+    "name": "−杯内宽 43.40",
+    "nominal": -43.4,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "L4"
+   },
+   {
+    "name": "钩凸出 0.55",
+    "nominal": 0.55,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "L3"
+   }
+  ]
+ },
+ {
+  "chain": "5c 卡扣入位最大挠曲（近侧搭接 = 钩凸出 − 筋高）≤ 刀片导入 0.55",
+  "nominal": 0.4,
+  "mean": 0.4,
+  "wc": [
+   0.35,
+   0.45
+  ],
+  "rss": [
+   0.3639,
+   0.4361
+  ],
+  "limit": [
+   null,
+   0.55
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "钩凸出 0.55",
+    "nominal": 0.55,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "L3"
+   },
+   {
+    "name": "−定位筋高 0.15（近侧筋贴刀片）",
+    "nominal": -0.15,
+    "plus": 0.02,
+    "minus": 0.02,
+    "source": "L5"
+   }
+  ]
+ },
+ {
+  "chain": "6 插座肩面↔屋顶压台 间隙（0…0.05）",
+  "nominal": 0.005,
+  "mean": -0.01,
+  "wc": [
+   -0.345,
+   0.325
+  ],
+  "rss": [
+   -0.1987,
+   0.1787
+  ],
+  "limit": [
+   0.0,
+   0.05
+  ],
+  "wc_pass": false,
+  "rss_pass": false,
+  "contributors": [
+   {
+    "name": "上盖 压台面→唇顶 12.605",
+    "nominal": 12.605,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "U7"
+   },
+   {
+    "name": "−Kycon 肩面→座面 11.10",
+    "nominal": -11.1,
+    "plus": 0.15,
+    "minus": 0.15,
+    "source": "假设 ±0.15"
+   },
+   {
+    "name": "−音频板厚 1.00 ±10%",
+    "nominal": -1.0,
+    "plus": 0.1,
+    "minus": 0.1,
+    "source": "PCB ±10%"
+   },
+   {
+    "name": "−音频框底网 0.50",
+    "nominal": -0.5,
+    "plus": 0.02,
+    "minus": 0.02,
+    "source": "F1"
+   },
+   {
+    "name": "插座焊接座落（浮高）",
+    "nominal": 0,
+    "plus": 0,
+    "minus": 0.03,
+    "source": "THT 座面"
+   }
+  ]
+ },
+ {
+  "chain": "6b 插座环链（选配后：腹板 0.40/0.50/0.60 + 0.05 PET）",
+  "nominal": 0.025,
+  "mean": 0.025,
+  "wc": [
+   -0.01,
+   0.06
+  ],
+  "rss": [
+   -0.0019,
+   0.0519
+  ],
+  "limit": [
+   -0.02,
+   0.06
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "残余间隙（选配目标）",
+    "nominal": 0.025,
+    "plus": 0.025,
+    "minus": 0.025,
+    "source": "选配后 0…0.05"
+   },
+   {
+    "name": "测量误差",
+    "nominal": 0,
+    "plus": 0.01,
+    "minus": 0.01,
+    "source": "高度规"
+   }
+  ]
+ },
+ {
+  "chain": "7a USB-C 本体↔开口 单边间隙（居中）≥0",
+  "nominal": 0.225,
+  "mean": 0.2375,
+  "wc": [
+   0.1,
+   0.375
+  ],
+  "rss": [
+   0.1119,
+   0.3631
+  ],
+  "limit": [
+   0.0,
+   null
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "开口 9.39 半值",
+    "nominal": 4.695,
+    "plus": 0.025,
+    "minus": 0,
+    "source": "U8 +0.05/0"
+   },
+   {
+    "name": "−本体 8.94 半值",
+    "nominal": -4.47,
+    "plus": 0.125,
+    "minus": 0.125,
+    "source": "GCT 图框 ±0.25（R3 依据）"
+   }
+  ]
+ },
+ {
+  "chain": "7b USB-C 位置失配 ≤ 浮动+最小间隙 0.20",
+  "nominal": 0,
+  "mean": 0.0,
+  "wc": [
+   -0.21,
+   0.21
+  ],
+  "rss": [
+   -0.1196,
+   0.1196
+  ],
+  "limit": [
+   null,
+   0.2
+  ],
+  "wc_pass": false,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "J401 相对 USB 板孔",
+    "nominal": 0,
+    "plus": 0.1,
+    "minus": 0.1,
+    "source": "贴装+定位脚 ±0.10"
+   },
+   {
+    "name": "USB 板孔位",
+    "nominal": 0,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "PCB 钻孔"
+   },
+   {
+    "name": "屋顶底孔位",
+    "nominal": 0,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U16"
+   },
+   {
+    "name": "开口位置",
+    "nominal": 0,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "U8"
+   }
+  ]
+ },
+ {
+  "chain": "7c 插头包胶↔面槽 单边间隙 ≥0（R4.1 面槽 13.0）",
+  "nominal": 0.325,
+  "mean": 0.35,
+  "wc": [
+   0.175,
+   0.525
+  ],
+  "rss": [
+   0.2354,
+   0.4646
+  ],
+  "limit": [
+   0.0,
+   null
+  ],
+  "wc_pass": true,
+  "rss_pass": true,
+  "contributors": [
+   {
+    "name": "面槽 13.0 半值",
+    "nominal": 6.5,
+    "plus": 0.05,
+    "minus": 0,
+    "source": "U8 +0.1/0"
+   },
+   {
+    "name": "−包胶 12.35 半值",
+    "nominal": -6.175,
+    "plus": 0,
+    "minus": 0,
+    "source": "USB-C 规范参考最大（需核对原文）"
+   },
+   {
+    "name": "插座在开口内偏位",
+    "nominal": 0,
+    "plus": 0.1,
+    "minus": 0.1,
+    "source": "7a 间隙"
+   },
+   {
+    "name": "包胶对壳体偏心",
+    "nominal": 0,
+    "plus": 0.05,
+    "minus": 0.05,
+    "source": "线缆厂，假设"
+   }
+  ]
+ },
+ {
+  "chain": "7d 插座面低于屋顶顶面 ≤ 面槽深 0.80",
+  "nominal": 0.6,
+  "mean": 0.6,
+  "wc": [
+   0.31,
+   0.89
+  ],
+  "rss": [
+   0.3468,
+   0.8532
+  ],
+  "limit": [
+   null,
+   0.8
+  ],
+  "wc_pass": false,
+  "rss_pass": false,
+  "contributors": [
+   {
+    "name": "屋顶顶面 3.80 − 压柱端面 −3.30",
+    "nominal": 7.1,
+    "plus": 0.04,
+    "minus": 0.04,
+    "source": "U2/U9"
+   },
+   {
+    "name": "−GCT 高 6.50",
+    "nominal": -6.5,
+    "plus": 0.25,
+    "minus": 0.25,
+    "source": "GCT 图框 ±0.25"
+   }
+  ]
+ },
+ {
+  "chain": "8 主板卡齿间隙（附加）0…0.05",
+  "nominal": 0.0,
+  "mean": 0.0,
+  "wc": [
+   -0.11,
+   0.11
+  ],
+  "rss": [
+   -0.0854,
+   0.0854
+  ],
+  "limit": [
+   0.0,
+   0.05
+  ],
+  "wc_pass": false,
+  "rss_pass": false,
+  "contributors": [
+   {
+    "name": "卡齿下面→托台面 0.80",
+    "nominal": 0.8,
+    "plus": 0.03,
+    "minus": 0.03,
+    "source": "L10"
+   },
+   {
+    "name": "−主板厚 0.80 ±10%",
+    "nominal": -0.8,
+    "plus": 0.08,
+    "minus": 0.08,
+    "source": "PCB"
+   }
+  ]
+ }
+]

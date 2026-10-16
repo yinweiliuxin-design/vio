@@ -1,0 +1,130 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<g font-family="'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei','SimHei',sans-serif" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.000,10.000 L410.000,10.000 L410.000,287.000 L10.000,287.000 Z" fill="none" stroke="#111111" stroke-width="0.5"/>
+<text x="14.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">SmartVio R4  首样结构件制造图</text>
+<text x="110.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">导光柱（3 件同形）</text>
+<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：首样工程图 / 非量产放行（未经实物验证）</text>
+<path d="M10.000,20.000 L410.000,20.000" fill="none" stroke="#111111" stroke-width="0.3"/>
+<path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
+<text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
+<text x="13.500" y="251.400" font-size="2.0" text-anchor="start" fill="#111111">1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K。在 23±2 °C 下检验（POM 线胀系数约 1.1×10⁻⁴/K）。</text>
+<text x="13.500" y="255.400" font-size="2.0" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md；量产前另定抽样。</text>
+<text x="13.500" y="259.400" font-size="2.0" text-anchor="start" fill="#111111">3. 单位 mm；第一角画法；X 向琴尾（X0=滚轮端=琴头端），Y 向南（插座侧），Z 向外。基准 A=琴面安装面 Z0。</text>
+<text x="13.500" y="263.400" font-size="2.0" text-anchor="start" fill="#111111">4. 锐边倒钝 0.1–0.2（配合面、卡扣/卡钩根部与窗口棱边除外）；无毛刺、残料；深腔内角按 STEP（R≥1.2）。</text>
+<text x="13.500" y="267.400" font-size="2.0" text-anchor="start" fill="#111111">5. 形状以同名 STEP（step/*.step，R4.1）为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。</text>
+<path d="M228.000,243.000 L408.000,243.000 L408.000,285.000 L228.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.4"/>
+<text x="229.500" y="246.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">名称</text>
+<text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">导光柱 lightpipe_1…3（同形）</text>
+<path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-07   版本 R4.1   第 1/1 页</text>
+<path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
+<text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">PC 透明（光学级，如 Makrolon LED/2407 类，候选）</text>
+<path d="M228.000,258.750 L408.000,258.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="262.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">表面/颜色</text>
+<text x="249.000" y="262.550" font-size="2.1" text-anchor="start" fill="#111111">两端面抛光，侧面原色</text>
+<path d="M228.000,264.000 L408.000,264.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="267.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">数量</text>
+<text x="249.000" y="267.800" font-size="2.1" text-anchor="start" fill="#111111">3 / 套</text>
+<path d="M228.000,269.250 L408.000,269.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="273.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">比例 / 单位</text>
+<text x="249.000" y="273.050" font-size="2.1" text-anchor="start" fill="#111111">15:1   ·   mm   ·   第一角画法</text>
+<path d="M228.000,274.500 L408.000,274.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="278.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">一般公差</text>
+<text x="249.000" y="278.300" font-size="2.1" text-anchor="start" fill="#111111">ISO 2768-m（CTF 按图）</text>
+<path d="M228.000,279.750 L408.000,279.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="283.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">日期 / 编制</text>
+<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-10-16   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
+<path d="M247.500,243.000 L247.500,285.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<path d="M379.000,264.900 L385.000,263.500 L385.000,269.500 L379.000,268.100 Z" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="3.000" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="1.600" fill="none" stroke="#111111" stroke-width="0.2"/>
+<path d="M95.500,85.250 L95.500,75.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M74.500,85.250 L74.763,85.250 L75.540,85.250 L76.791,85.250 L78.453,85.250 L80.444,85.250 L82.664,85.250 L85.000,85.250 L87.336,85.250 L89.556,85.250 L91.547,85.250 L93.209,85.250 L94.460,85.250 L95.237,85.250 L95.500,85.250" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M70.000,75.500 L70.376,75.500 L71.485,75.500 L73.273,75.500 L75.648,75.500 L78.492,75.500 L81.662,75.500 L85.000,75.500 L88.338,75.500 L91.508,75.500 L94.352,75.500 L96.727,75.500 L98.515,75.500 L99.624,75.500 L100.000,75.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M100.000,75.500 L100.000,69.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M70.000,69.500 L70.376,69.500 L71.485,69.500 L73.273,69.500 L75.648,69.500 L78.492,69.500 L81.662,69.500 L85.000,69.500 L88.338,69.500 L91.508,69.500 L94.352,69.500 L96.727,69.500 L98.515,69.500 L99.624,69.500 L100.000,69.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M95.500,69.500 L95.500,50.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M74.500,50.000 L74.763,50.000 L75.540,50.000 L76.791,50.000 L78.453,50.000 L80.444,50.000 L82.664,50.000 L85.000,50.000 L87.336,50.000 L89.556,50.000 L91.547,50.000 L93.209,50.000 L94.460,50.000 L95.237,50.000 L95.500,50.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M74.500,75.500 L74.500,85.250" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M70.000,69.500 L70.000,75.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M74.500,50.000 L74.500,69.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M209.860,64.965 L209.304,60.918 L207.677,57.171 L205.099,54.002 L201.761,51.647 L197.912,50.279 L193.837,50.000 L189.837,50.831 L186.210,52.710 L183.225,55.499 L181.102,58.989 L180.000,62.923 L180.000,67.008 L181.102,70.941 L183.225,74.431 L186.210,77.220 L189.837,79.099 L193.837,79.930 L197.912,79.651 L201.761,78.283 L205.099,75.928 L207.677,72.759 L209.304,69.012 L209.860,64.965" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M205.360,64.965 L204.791,61.556 L203.146,58.516 L200.603,56.175 L197.438,54.786 L193.993,54.501 L190.642,55.349 L187.749,57.240 L185.626,59.968 L184.503,63.237 L184.503,66.693 L185.626,69.962 L187.749,72.690 L190.642,74.581 L193.993,75.429 L197.438,75.144 L200.603,73.755 L203.146,71.414 L204.791,68.374 L205.360,64.965" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="70.000" y="41.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">主视</text>
+<text x="180.000" y="41.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">俯视</text>
+<path d="M74.500,49.400 L74.500,44.800" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M95.500,49.400 L95.500,44.800" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M74.500,46.000 L95.500,46.000" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M74.500,46.000 L76.500,45.640 L76.500,46.360 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M95.500,46.000 L93.500,46.360 L93.500,45.640 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="76.992" y="45.300" font-size="2.2" text-anchor="start" fill="#b3001b">Ø1.40 0/−0.03</text>
+<path d="M93.808,44.530 L94.608,43.361 L96.702,43.361 L97.502,44.530 L96.702,45.699 L94.608,45.699 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="95.655" y="45.203" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">P1</text>
+<path d="M70.000,76.100 L70.000,94.450" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M100.000,76.100 L100.000,94.450" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M70.000,93.250 L100.000,93.250" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M70.000,93.250 L72.000,92.890 L72.000,93.610 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M100.000,93.250 L98.000,93.610 L98.000,92.890 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="85.000" y="92.550" font-size="2.2" text-anchor="middle" fill="#111111">Ø2.00 法兰</text>
+<path d="M100.600,69.500 L107.200,69.500" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M100.600,50.000 L107.200,50.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M106.000,50.000 L106.000,69.500" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M106.000,50.000 L106.360,52.000 L105.640,52.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M106.000,69.500 L105.640,67.500 L106.360,67.500 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="105.200" y="59.750" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 105.200 59.750)">1.30±0.03</text>
+<path d="M102.780,66.494 L103.580,65.325 L105.674,65.325 L106.474,66.494 L105.674,67.663 L103.580,67.663 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="104.627" y="67.167" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">P2</text>
+<path d="M73.900,85.250 L62.800,85.250" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M73.900,50.000 L62.800,50.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M64.000,50.000 L64.000,85.250" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M64.000,50.000 L64.360,52.000 L63.640,52.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M64.000,85.250 L63.640,83.250 L64.360,83.250 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="63.200" y="67.625" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 63.200 67.625)">2.35±0.05</text>
+<path d="M60.780,74.369 L61.580,73.200 L63.674,73.200 L64.474,74.369 L63.674,75.538 L61.580,75.538 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="62.627" y="75.042" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">P3</text>
+<path d="M100.600,75.500 L123.200,75.500" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M100.600,69.500 L123.200,69.500" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M122.000,65.500 L122.000,79.500" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M122.000,69.500 L121.640,67.500 L122.360,67.500 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M122.000,75.500 L122.360,77.500 L121.640,77.500 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="123.500" y="82.000" font-size="2.2" text-anchor="start" fill="#111111">0.40</text>
+<text x="30.000" y="160.000" font-size="2.1" text-anchor="start" fill="#111111">装配：C2 从内侧装入，法兰顶住屋顶内表面；周边少量透明 UV 胶，胶不得进入出光面或 LED。LP2 位于 (34.7, 20.7)（M11 偏移）。</text>
+<text x="236.000" y="163.800" font-size="2.4" text-anchor="start" fill="#b3001b" font-weight="bold">关键功能尺寸（CTF）</text>
+<path d="M236.000,165.000 L388.000,165.000 L388.000,168.300 L236.000,168.300 Z" fill="#f6e3e6" stroke="#111111" stroke-width="0.2"/>
+<text x="236.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">Kn</text>
+<text x="244.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">特征</text>
+<text x="296.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">名义</text>
+<text x="328.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">公差</text>
+<text x="358.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">检具</text>
+<path d="M236.000,168.300 L388.000,168.300 L388.000,171.600 L236.000,171.600 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="170.650" font-size="1.85" text-anchor="start" fill="#b3001b">P1</text>
+<text x="244.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">柱体 Ø（配 Ø1.50 孔）</text>
+<text x="296.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">Ø1.40</text>
+<text x="328.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">0/−0.03</text>
+<text x="358.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">千分尺</text>
+<path d="M236.000,171.600 L388.000,171.600 L388.000,174.900 L236.000,174.900 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="173.950" font-size="1.85" text-anchor="start" fill="#b3001b">P2</text>
+<text x="244.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">法兰顶面至出光面（与屋顶平）</text>
+<text x="296.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">1.30</text>
+<text x="328.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">±0.03</text>
+<text x="358.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">高度规</text>
+<path d="M236.000,174.900 L388.000,174.900 L388.000,178.200 L236.000,178.200 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="177.250" font-size="1.85" text-anchor="start" fill="#b3001b">P3</text>
+<text x="244.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">总长（入光面离 LED 0.1）</text>
+<text x="296.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">2.35</text>
+<text x="328.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">±0.05</text>
+<text x="358.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">高度规</text>
+<path d="M236.000,178.200 L388.000,178.200 L388.000,181.500 L236.000,181.500 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="180.550" font-size="1.85" text-anchor="start" fill="#b3001b">P4</text>
+<text x="244.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">入/出光面</text>
+<text x="296.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">光学抛光；出光面可细雾化</text>
+<text x="328.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">无划伤</text>
+<text x="358.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">目视 10×</text>
+<path d="M244.000,165.000 L244.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M296.000,165.000 L296.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M328.000,165.000 L328.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M358.000,165.000 L358.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+</g></svg>

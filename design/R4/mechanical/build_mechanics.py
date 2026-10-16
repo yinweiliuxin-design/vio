@@ -38,12 +38,22 @@ PAR={
  "button_fit_basis":"SKQGABE010 h1.5 +0.15/-0, travel0.25, 1.57N (native-components.json). Nub designed to max switch top2.15+0.05; trim stock blank to measured switch top+0.05",
  "wheel_window_dia":15.2,"wheel_thumb_notch":"north-edge notch 12 wide, floor Z1.5: knurled rim stands 1.5 above local floor (wheel top Z3.0 fixed by board stack)",
  "legend_depth":0.15,"legend_font":Path(FONT).name,
- "snap_stations_x":[67,102],"snap_beam":[8,.8,4],"snap_hook_overlap":.25,"snap_window_z_play":0.04,
+ "snap_stations_x":[67,102],"snap_beam":[8,.8,4],"snap_hook_overlap":.35,"snap_window_z_play":0.04,
+ "snap_blade_leadin":0.55,"snap_locating_rib":{"on":"lower_cup inner wall at each snap flap root (4x)","height":0.15,"clearance_to_blade_face":0.05,"x_from_station":[-3.8,-2.8],"z":[-4.6,-1.2],"top_leadin":0.3,
+  "why":"R4.1 tolerance stack: without ribs the cup floats +/-0.2 in Y between the blades and one-side hook engagement falls to 0.05 nominal / <0 worst case. Ribs on the cover blades were rejected: they would need wider cover-PCB snap slots (C4 sweep hit)"},
+ "pickup_entry_xy":[60.6,4.6],
+ "pickup_entry_xy_status":"PLACEHOLDER. TODO(measure): original pickup-wire hole of the violin (DECISIONS addendum 2026-10-15: no new hole is drilled in the violin). Convert: X = 258 - u (u = distance from tail metal datum, mm), Y = 24.5 + v (v = offset from module centre line toward the Y=0 / wheel-notch edge negative). Then set this value and rebuild.",
+ "pickup_entry_mode":"slot",
+ "pickup_entry_hole_dia":3.0,
+ "pickup_entry_slot":[10.0,3.0],"pickup_entry_slot_axis_deg":0.0,
+ "pickup_entry_slot_note":"first-sample default: 10 x 3 slot along X (instrument length) centred on pickup_entry_xy; accepts the original hole anywhere within +/-3.5 mm along X; across (Y) the 3.0 width only accepts the cable (<= dia 2.6). Must stay in the north cable strip Y 3.1..6.3 (cup wall 2.8 / battery guide 6.5) so the cable reaches the main-board notch x58.8-62.4 and J101",
+ "usb_face_pocket":[13.0,7.4],"usb_face_pocket_note":"R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
+ "audio_frame_web_variants":[0.40,0.50,0.60],"audio_frame_selective_fit":"jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
  "upper_and_cup_join":"4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
  "nominal_total_height":24.75,"total_height_limit":25.0,"nonwheel_outward_limit":5,
  "process":"CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
  "factory_tuning":"Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
- "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
+ "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement"
 }
 (BASE/"parameters.json").write_text(json.dumps(PAR,ensure_ascii=False,indent=2),encoding="utf8")
 def box(x,y,z,w,h,d):return cq.Workplane("XY").box(w,h,d,centered=(False,False,False)).translate((x,-y-h,z)).val()
@@ -114,7 +124,7 @@ for x,y in ports:
  up=up.cut(cyl(x,y,.8,3.3,3.2)).cut(cyl(x,y,3.0,6.0,1.0))
 # USB-C: opening tightened to official max body +0.1 for lateral load into roof; face pocket kept.
 up=up.cut(rr(93.305,7.195,2.3,9.39,3.61,1.8,1.6))
-up=up.cut(rr(92.0,5.3,3.0,12,7.4,1.0,1.5))
+UFP=PAR["usb_face_pocket"];up=up.cut(rr(98-UFP[0]/2,9-UFP[1]/2,3.0,UFP[0],UFP[1],1.0,1.5))
 # M1/M5: four roof posts through cover-PCB ECO holes clamp USB board between post ends and the carrier.
 USBPOST=[(88,8),(108.3,8),(88,22),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
 for x,y in USBPOST:
@@ -138,8 +148,9 @@ for x in PAR["snap_stations_x"]:
    tab=tab.fuse(box(x0,yy,-11.65,x1-x0,.7,6.5))
    tab=tab.fuse(yzprism([(44.85,-11.15),(45.3,-11.15),(45.3,-11.65),(44.85,-11.3)],x0,x1-x0))
    tab=tab.cut(yzprism([(46.0,-11.66),(45.6,-11.66),(46.01,-11.25)],x0-.01,x1-x0+.02))
-  face=3.0 if north else 46.0;s=.4 if north else -.4;c0=x-4 if north else x1
-  tab=tab.cut(yzprism([(face,-5.21),(face+s,-5.21),(face,-4.8)],c0-.01,x+4-c0+.02))
+  LI=PAR["snap_blade_leadin"];face=3.0 if north else 46.0;s=LI if north else -LI;c0=x-4 if north else x1
+  tab=tab.cut(yzprism([(face,-5.21),(face+s,-5.21),(face,-5.2+LI)],c0-.01,x+4-c0+.02))
+
   tab=tab.cut(box(x+2.0,yy-.1,-2.32,2.2,.9,.84))
   up=up.fuse(tab)
 cover_noleg=up.clean()
@@ -161,9 +172,16 @@ for x in PAR["snap_stations_x"]:
   cup=cup.cut(box(x-4,yy-.1,-5.5,8.4,1.0,.5))
   cup=cup.cut(box(x-4,yy-.1,-1.0,8.4,1.0,.5))
   cup=cup.cut(box(x+3.6,yy-.1,-5.5,.5,1.0,5.0))
-  yz=[(2.7,-2.3),(3.25,-2.3),(3.25,-1.5),(2.7,-1.5)]
+  yz=[(2.7,-2.3),(3.0+PAR["snap_hook_overlap"],-2.3),(3.0+PAR["snap_hook_overlap"],-1.5),(2.7,-1.5)]
   if side:yz=[(49-y,z) for y,z in yz]
   cup=cup.fuse(yzprism(yz,x+2.2,1.2))
+  # R4.1 Y locating rib (0.15 high, 0.05 to the blade face) on the flap root, top lead-in 0.3.
+  RB=PAR["snap_locating_rib"];rh=RB["height"];rx0,rx1=RB["x_from_station"];rz0,rz1=RB["z"]
+  wall=2.8 if side==0 else 46.2;fr=wall+rh if side==0 else wall-rh
+  rib=box(x+rx0,(wall-.05) if side==0 else fr,rz0,rx1-rx0,rh+.05,rz1-rz0)
+  fo=fr+.01 if side==0 else fr-.01
+  rib=rib.cut(yzprism([(fo,rz1+.01),(wall,rz1+.01),(fo,rz1-RB["top_leadin"])],x+rx0-.01,rx1-rx0+.02))
+  cup=cup.fuse(rib)
 # M3: main ledges overlap the board edge by 1.0 (were 0.2); north-west segment stops before the pickup notch;
 # 0.5 overlap at x78.3-88 where B-side C811/C903 (h1.9/1.55) sit 0.56/0.73 from the edge.
 LEDGES=[(36.7,21.6,2.8,1.4),(75,3.3,2.8,1.4),(78.3,9.7,2.8,.9),(88,23.3,2.8,1.4),(36.7,25,44.8,1.5),(93,18.3,44.8,1.5)]
@@ -179,8 +197,24 @@ cup=cup.cut(box(91.9,16,-18,1,5,1.5))
 cup=cup.cut(box(91.9,11.3,-20.0,.7,4.7,4.0))
 ntcwall=box(92.0,11.3,-20.3,4.8,4.7,4.2).cut(box(91.9,11.8,-20.0,4.3,3.7,4.2))
 cup=cup.fuse(ntcwall)
-# M7: pickup cable entry Ø3.0 in the floor under the main-board edge notch (x58.8-62.4); route to J101.
-cup=cup.cut(cyl(60.6,4.6,PAR["cup_bottom"]-.1,1.5,1.0))
+# M7 / DECISIONS addendum 2026-10-15: the pickup wire comes up through the violin's ORIGINAL wire hole (no new hole is
+# drilled in the instrument). The cup-floor entry is aligned to that hole: position = PAR["pickup_entry_xy"]
+# (TODO: measured value; placeholder under the main-board edge notch x58.8-62.4, route to J101).
+# Mode "hole": dia 3.0 at the measured position. Mode "slot" (first-sample default): 10 x 3 slot along X so the
+# module can be built before the measurement (+/-3.5 along X).
+PEX,PEY=PAR["pickup_entry_xy"]
+if PAR["pickup_entry_mode"]=="hole":
+ pe_tool=cyl(PEX,PEY,PAR["cup_bottom"]-.1,PAR["pickup_entry_hole_dia"]/2,1.0);pe_ext=(PEX-1.5,PEY-1.5,PEX+1.5,PEY+1.5)
+else:
+ SL,SW=PAR["pickup_entry_slot"];ang=PAR["pickup_entry_slot_axis_deg"]
+ pe_tool=cq.Workplane("XY").slot2D(SL,SW,ang).extrude(1.0).translate((PEX,-PEY,PAR["cup_bottom"]-.1)).val()
+ ca,sa=abs(math.cos(math.radians(ang))),abs(math.sin(math.radians(ang)))
+ hx=(SL-SW)/2*ca+SW/2;hy=(SL-SW)/2*sa+SW/2;pe_ext=(PEX-hx,PEY-hy,PEX+hx,PEY+hy)
+assert 37.0<=pe_ext[0] and pe_ext[2]<=91.5 and 3.1-1e-6<=pe_ext[1] and pe_ext[3]<=6.3+1e-6, \
+ f"pickup entry {pe_ext} outside the north cable strip (X37-91.5, Y3.1-6.3): the cable could not reach J101 past the battery; re-layout needed"
+PAR["pickup_entry_extent_xy"]=[round(v,3) for v in pe_ext]
+(BASE/"parameters.json").write_text(json.dumps(PAR,ensure_ascii=False,indent=2),encoding="utf8")
+cup=cup.cut(pe_tool)
 # R4: the R3 end shelves are removed (they lay inside the main-board footprint, so the board could not be
 # inserted past them); the audio frame now hangs from the cover side only (blade lips, key backer, USB bracket).
 # Main-board latches: 0.5 slots, tooth bottom at board top (zero Z gap, M3).
@@ -195,22 +229,27 @@ for x in [38.0,95.0]:
   cup=cup.fuse(yzprism(yz,x+10.0,1.5))
 parts["lower_cup"]=cup.clean()
 # ---------------- AUDIO FRAME (separate, snaps onto south blade lips) ----------------
+def build_audio_frame(ft):
+ fb=PAR["audio_frame_bottom"]
+ carrier=box(36.5,29.2,fb,75,16.0,ft).cut(box(37.3,30,fb-.1,73.4,14,ft+.2))
+ for x in [37.3,110.2]:
+  for y in [30.0,42.8]:
+   carrier=carrier.fuse(box(x,y,fb,.5,1.2,ft))
+ # Transverse ribs under the board between jacks (no jack body / THT pin tail there).
+ for x in [55.0,73.5,91.7]:
+  carrier=carrier.fuse(box(x,30,fb,1.0,14,ft))
+ # North stiffening web beside the board edge, up to Z-4.0; two hanger zones: over the key-backer ledge
+ # (x40-62, hook Z-1.6..-1.2) and over the USB-bracket south rail (x88-108, tab Z-4.3..-3.9).
+ carrier=carrier.fuse(box(36.6,29.2,fb+ft,74.8,.8,-4.0-(fb+ft)))
+ carrier=carrier.fuse(box(40,29.2,-4.0,22,.8,2.8)).fuse(box(40,28.8,-1.6,22,.4,.4))
+ carrier=carrier.fuse(box(88,27.25,-4.3,20,1.95,.4))
+ carrier=carrier.cut(box(97.8,29.15,fb-.1,6.1,.95,1.5))
+ carrier=carrier.cut(box(75.8,44.95,fb-.1,2.4,.4,ft+.2))   # POTS3 lower bend passes under/behind the bar
+ return carrier.clean()
+parts["audio_load_frame"]=build_audio_frame(PAR["audio_frame_thickness"])
 fb=PAR["audio_frame_bottom"];ft=PAR["audio_frame_thickness"]
-carrier=box(36.5,29.2,fb,75,16.0,ft).cut(box(37.3,30,fb-.1,73.4,14,ft+.2))
-for x in [37.3,110.2]:
- for y in [30.0,42.8]:
-  carrier=carrier.fuse(box(x,y,fb,.5,1.2,ft))
-# Transverse ribs under the board between jacks (no jack body / THT pin tail there).
-for x in [55.0,73.5,91.7]:
- carrier=carrier.fuse(box(x,30,fb,1.0,14,ft))
-# North stiffening web beside the board edge, up to Z-4.0; two hanger zones: over the key-backer ledge
-# (x40-62, hook Z-1.6..-1.2) and over the USB-bracket south rail (x88-108, tab Z-4.3..-3.9).
-carrier=carrier.fuse(box(36.6,29.2,fb+ft,74.8,.8,-4.0-(fb+ft)))
-carrier=carrier.fuse(box(40,29.2,-4.0,22,.8,2.8)).fuse(box(40,28.8,-1.6,22,.4,.4))
-carrier=carrier.fuse(box(88,27.25,-4.3,20,1.95,.4))
-carrier=carrier.cut(box(97.8,29.15,fb-.1,6.1,.95,1.5))
-carrier=carrier.cut(box(75.8,44.95,fb-.1,2.4,.4,ft+.2))   # POTS3 lower bend passes under/behind the bar
-parts["audio_load_frame"]=carrier.clean()
+# R4.1 selective-fit variants (not in the assembly or collision set; exported to cad/variants/)
+frame_variants={f"audio_load_frame_web{str(t).replace('.','p')}":build_audio_frame(t) for t in PAR["audio_frame_web_variants"] if abs(t-PAR["audio_frame_thickness"])>1e-9}
 # ---------------- KEY BACKER (keys 3-5) ----------------
 kb=box(36.6,21.3,-1.1,30.0,7.4,1.2).fuse(box(40,28.0,-2.0,22,.7,.9)).fuse(box(40,28.7,-2.0,22,.4,.4))
 for x in [42.5,55.5]:
@@ -242,7 +281,7 @@ refs={}
 for i,(x,y) in enumerate(ports):refs[f"Kycon_vendor_{i+1}"]=vendor.translate((x,-y,3.85))
 refs["battery_max_reference"]=box(40,7.25,-20.2,52,34.5,5.4)
 refs["instrument_mount_land_INFERRED_REFERENCE"]=box(0,0,-22,148,49,22).cut(box(35,1,-22.1,78,47,22.2))
-(BASE/"reference/instrument-fit-basis.json").write_text(json.dumps({"cavityMm":[78,47,22],"inferredCavityOriginXY":[35,1],"datumZ":0,"basis":"inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument","physicalMeasurement":False,"mountHoles":"new reserved pattern, factory fits actual instrument as authorized","pickupEntry":"drill cavity floor under cup hole (60.6,4.6) after measuring the instrument"},ensure_ascii=False,indent=2),encoding="utf8")
+(BASE/"reference/instrument-fit-basis.json").write_text(json.dumps({"cavityMm":[78,47,22],"inferredCavityOriginXY":[35,1],"datumZ":0,"basis":"inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument","physicalMeasurement":False,"mountHoles":"new reserved pattern, factory fits actual instrument as authorized","pickupEntry":"NO new hole in the instrument (DECISIONS addendum 2026-10-15). The pickup wire uses the violin's ORIGINAL wire hole; the cup-floor entry (parameters.json pickup_entry_xy, mode %s, extent %s) must be aligned to the measured hole. TODO measure: original hole position in the cavity (distance from tail metal datum u, offset from centre line v); X=258-u."%(PAR["pickup_entry_mode"],PAR["pickup_entry_extent_xy"]),"centralBeam":"TODO measure: central solid beam width >= 49 mm over 110-258 mm from the tail datum (cover X 148..0)","longitudinal":"cover X = 258 - u (u = distance from tail metal datum); cavity u 145..223 = X 113..35; wheel end (X=0) toward the head"},ensure_ascii=False,indent=2),encoding="utf8")
 geo=json.loads((BASE/"reference/current-native-geometry.json").read_text("utf8"))
 for bd in geo["boards"].values():
  bd["native_body_STEP"]=bd["native_body_STEP"].replace("\\","/")       # M17 POSIX paths
@@ -352,6 +391,8 @@ refs.update(screws)
 STOCK=OUT/"stock";STOCK.mkdir(exist_ok=True)
 stock=parts["button_1"].fuse(cyl(10,25,1.75,.8,.5))
 cq.exporters.export(stock,str(STOCK/"button_blank_TRIM_TIP_TO_MEASURED_SWITCH.step"))
+VAR=OUT/"variants";VAR.mkdir(exist_ok=True)
+for vn,vs in frame_variants.items():cq.exporters.export(vs,str(VAR/(vn+".step")))
 checks=[];file_manifest=[]
 for name,sh in parts.items():
  fn=OUT/(name+".step");cq.exporters.export(sh,str(fn))
@@ -409,7 +450,7 @@ status={"schema":"SmartVio.R4.mechanical.assembly-status","status":"MODELED_CAD_
 "tolerance_limit_status":"Worst case dimensions and final board height-map not yet closed; assembly is not released merely by nominal dimensions.",
 "physical_tests":0,"manufacturing_process":PAR["process"],
 "modeled_board_interconnections":modeled_connections,"required_board_interconnections":37,"complete_harness_closed":False,
-"remaining":["Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun","Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team","confirm actual pickup cable and drill instrument cavity floor at the cup entry hole","FPC custom thin stack and microdrill require supplier DFM confirmation","measure actual violin cavity and mounting surface","freeze actual material and qualified tolerance/process","speaker back volume not provided (acoustic test)"]}
+"remaining":["Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun","Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team","measure the violin's ORIGINAL pickup-wire hole and set pickup_entry_xy (slot 10x3 used until then); no new hole in the instrument","FPC custom thin stack and microdrill require supplier DFM confirmation","measure actual violin cavity and mounting surface","freeze actual material and qualified tolerance/process","speaker back volume not provided (acoustic test)"]}
 from assembly_sequence import run as run_sequence
 seq=run_sequence(cq,parts,refs,BASE,light={"upper_cover":cover_noleg})
 status["assembly_sequence"]={"file":"assembly-sequence-check.json","pass":seq["pass"],"steps":len(seq["steps"])}

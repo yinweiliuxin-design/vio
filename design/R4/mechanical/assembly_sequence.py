@@ -123,7 +123,7 @@ def run(cq,parts,refs,BASE,light=None):
   steps.append(sweep_check(st,installed));installed+=st[2]
  cup_side=list(installed)
  steps.append(sweep_check(("F1","closed cup subassembly pushed into cover subassembly (4 zero-play snaps); FPCs pre-soldered and folded, coax mated",cup_side,UP,30,
-  {"upper_cover":(1,.3,"cup hooks 0.25 over blades, cup wall flexes")}),cover_side))
+  {"upper_cover":(1,.4,"cup hooks 0.35 over blades (R4.1), cup wall flexes")}),cover_side))
  module=cover_side+cup_side
  steps.append(sweep_check(("F2","module lowered into instrument cavity, 4 ST2.2 wood screws",["lower_cup"],DN,25,{}),["instrument_mount_land_INFERRED_REFERENCE"]))
  order=[{"step":s["step"],"description":s["description"]} for s in steps]

@@ -125,15 +125,61 @@
       0.8,
       4
     ],
-    "snap_hook_overlap": 0.25,
+    "snap_hook_overlap": 0.35,
     "snap_window_z_play": 0.04,
+    "snap_blade_leadin": 0.55,
+    "snap_locating_rib": {
+      "on": "lower_cup inner wall at each snap flap root (4x)",
+      "height": 0.15,
+      "clearance_to_blade_face": 0.05,
+      "x_from_station": [
+        -3.8,
+        -2.8
+      ],
+      "z": [
+        -4.6,
+        -1.2
+      ],
+      "top_leadin": 0.3,
+      "why": "R4.1 tolerance stack: without ribs the cup floats +/-0.2 in Y between the blades and one-side hook engagement falls to 0.05 nominal / <0 worst case. Ribs on the cover blades were rejected: they would need wider cover-PCB snap slots (C4 sweep hit)"
+    },
+    "pickup_entry_xy": [
+      60.6,
+      4.6
+    ],
+    "pickup_entry_xy_status": "PLACEHOLDER. TODO(measure): original pickup-wire hole of the violin (DECISIONS addendum 2026-10-15: no new hole is drilled in the violin). Convert: X = 258 - u (u = distance from tail metal datum, mm), Y = 24.5 + v (v = offset from module centre line toward the Y=0 / wheel-notch edge negative). Then set this value and rebuild.",
+    "pickup_entry_mode": "slot",
+    "pickup_entry_hole_dia": 3.0,
+    "pickup_entry_slot": [
+      10.0,
+      3.0
+    ],
+    "pickup_entry_slot_axis_deg": 0.0,
+    "pickup_entry_slot_note": "first-sample default: 10 x 3 slot along X (instrument length) centred on pickup_entry_xy; accepts the original hole anywhere within +/-3.5 mm along X; across (Y) the 3.0 width only accepts the cable (<= dia 2.6). Must stay in the north cable strip Y 3.1..6.3 (cup wall 2.8 / battery guide 6.5) so the cable reaches the main-board notch x58.8-62.4 and J101",
+    "usb_face_pocket": [
+      13.0,
+      7.4
+    ],
+    "usb_face_pocket_note": "R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
+    "audio_frame_web_variants": [
+      0.4,
+      0.5,
+      0.6
+    ],
+    "audio_frame_selective_fit": "jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
     "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
     "nominal_total_height": 24.75,
     "total_height_limit": 25.0,
     "nonwheel_outward_limit": 5,
     "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
     "factory_tuning": "Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
-    "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; formal worst-case stack remains HOLD"
+    "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement",
+    "pickup_entry_extent_xy": [
+      55.6,
+      3.1,
+      65.6,
+      6.1
+    ]
   },
   "real_parts_exported": 23,
   "source_vendor_model": "verification/references/STX-353K7A-6N-KTTR_rA1.STEP",
@@ -256,7 +302,7 @@
       "part": "upper_cover",
       "valid": true,
       "solids": 1,
-      "volume_mm3": 9818.488623,
+      "volume_mm3": 9811.192427,
       "bbox": [
         -1e-07,
         -49.0000001,
@@ -270,7 +316,7 @@
       "part": "lower_cup",
       "valid": true,
       "solids": 1,
-      "volume_mm3": 6336.928845,
+      "volume_mm3": 6326.671555,
       "bbox": [
         35.5,
         -47.0,
@@ -467,7 +513,7 @@
     {
       "name": "Kycon_vendor_1",
       "file": "reference/components/Kycon_vendor_1.step",
-      "sha256": "8b3abe6179d7a62ca726e50dbffafc4323e22efde4b1039023b53be1a8c5bc3a",
+      "sha256": "5584a7dce727ebf07ae4e8d3b503c3aaabeb1228d07f1b2366b59d9eb8cd7e61",
       "valid": true,
       "solids": 2,
       "volume_mm3": 663.0279244167184,
@@ -484,7 +530,7 @@
     {
       "name": "Kycon_vendor_2",
       "file": "reference/components/Kycon_vendor_2.step",
-      "sha256": "00dfbd609bd8246706a65f6af10dfe8956a63f974ed99c776f7bd3e2b07e6ebc",
+      "sha256": "36e859b2dbcd32a911b03988a8dfa1b840673e3ffa99828c14efea9a02d2e29d",
       "valid": true,
       "solids": 2,
       "volume_mm3": 663.0279244167191,
@@ -501,7 +547,7 @@
     {
       "name": "Kycon_vendor_3",
       "file": "reference/components/Kycon_vendor_3.step",
-      "sha256": "56c81c8e7b5109783e7c2c290547b9d5009f1d4ea6f55cad56eeb367c81a47bb",
+      "sha256": "db7fadd83a16dc8b7e0a13b2b77bb53feaf055ccb356c93b9f74cc197fbd51f5",
       "valid": true,
       "solids": 2,
       "volume_mm3": 663.0279244167189,
@@ -518,7 +564,7 @@
     {
       "name": "Kycon_vendor_4",
       "file": "reference/components/Kycon_vendor_4.step",
-      "sha256": "5e17829a582e6409a6f157bb0170bc03382408df3ed6ca1445e0672e4a1471d0",
+      "sha256": "29bc6c371409421af4a99f26eaf990389fd93591eee47c017723643d1cdd5388",
       "valid": true,
       "solids": 2,
       "volume_mm3": 663.0279244167187,
@@ -535,7 +581,7 @@
     {
       "name": "battery_max_reference",
       "file": "reference/components/battery_max_reference.step",
-      "sha256": "79f0279870c67398644e39b66abbcba8f5321f214a1354dfca71f5053cbfe756",
+      "sha256": "8092402a02557bf15f967829fa97ff013d4a2b0dc29217407b469570dd7e2d82",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9687.6,
@@ -552,7 +598,7 @@
     {
       "name": "instrument_mount_land_INFERRED_REFERENCE",
       "file": "reference/components/instrument_mount_land_INFERRED_REFERENCE.step",
-      "sha256": "5c629f7508e8d07283ea38b92909c1c98384813994dfc35e9846627a0acc3603",
+      "sha256": "b27252bdf0ad63a30763e5d9594be2eb707756b121fb5fedb14e92456b902f65",
       "valid": true,
       "solids": 1,
       "volume_mm3": 78892.00000000003,
@@ -569,7 +615,7 @@
     {
       "name": "main_reference",
       "file": "reference/components/main_reference.step",
-      "sha256": "79a0dddbe0ee656a953f4bd53b253e0280e39278473a9a78a13f5fb9eb02213f",
+      "sha256": "6ecfad66482c37132d03a8e4848531d65ed11e0a9f0d61b24948e301cbd346cc",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2509.155682384613,
@@ -586,7 +632,7 @@
     {
       "name": "usb_reference",
       "file": "reference/components/usb_reference.step",
-      "sha256": "d900071feb764394aafe2c57ee67f157ce1151c0ffe0d1fa726006989cb16c95",
+      "sha256": "c2a742cfb0e647777f447473d97b8c5993fbe03db11764ed287f17a51c8c538c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 518.0966483932967,
@@ -603,7 +649,7 @@
     {
       "name": "RT1921_body_reference",
       "file": "reference/components/RT1921_body_reference.step",
-      "sha256": "6f96c3d8ad79a3fd29d7020cac72ce6a3285acbe7a95e7d57f6999e66157f71d",
+      "sha256": "4e33165746c7273caefb806e3b39c56263dd37d07b974617a911b6307e417ac3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 35.51999999999998,
@@ -620,7 +666,7 @@
     {
       "name": "speaker_working_nominal_reference",
       "file": "reference/components/speaker_working_nominal_reference.step",
-      "sha256": "d653bfab9da116315fe971ec02d0a301f3ef9a3414c6cd488248fc3bed768e66",
+      "sha256": "8a4d57abb9d5cd78cab5cc716cef56ecab952287c45fd8648296ba5520241e75",
       "valid": true,
       "solids": 1,
       "volume_mm3": 665.8794594300509,
@@ -637,7 +683,7 @@
     {
       "name": "wheel_1_max_reference",
       "file": "reference/components/wheel_1_max_reference.step",
-      "sha256": "df25040f694cfd81da3c5fe0f21451da6ff0c66ca72405f563fbc28b78425513",
+      "sha256": "eb5b6446a5a1173449290ca73e56366e27c8a0771af834489808c9783f5f4628",
       "valid": true,
       "solids": 1,
       "volume_mm3": 320.60768566746134,
@@ -654,7 +700,7 @@
     {
       "name": "wheel_2_max_reference",
       "file": "reference/components/wheel_2_max_reference.step",
-      "sha256": "5879dc48235abfeb345b5243c507cf03b15d80f6c28b3c52df05a9d9fea4d6ec",
+      "sha256": "5a18e59ad918b12ae24fe1c05b2b4fa812c4a410c4a829d0b1bc6e9be335db64",
       "valid": true,
       "solids": 1,
       "volume_mm3": 320.60768566746134,
@@ -671,7 +717,7 @@
     {
       "name": "wheel_3_max_reference",
       "file": "reference/components/wheel_3_max_reference.step",
-      "sha256": "cd209d69b0a8b0d4ca186da1944dc0a640843245cae8a7a3881bbe7649d27b26",
+      "sha256": "ce607c2c1323b0cff012328be3a4a0936e1f067c88342ccf7c6296346501b6f6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 320.6076856674613,
@@ -688,7 +734,7 @@
     {
       "name": "switch_1_max_reference",
       "file": "reference/components/switch_1_max_reference.step",
-      "sha256": "6807f17138e3247065d3974deb5abec2dd4776c2f40d3f810f6f36e7a63b7154",
+      "sha256": "d73f2430ce6e58f3564158af72cb83d6a4353d7e4d8b05aa6d10c2267352dbce",
       "valid": true,
       "solids": 1,
       "volume_mm3": 44.616,
@@ -705,7 +751,7 @@
     {
       "name": "switch_2_max_reference",
       "file": "reference/components/switch_2_max_reference.step",
-      "sha256": "023e05f0a1f2bc5a3b964c2ae28a42586304eedbc850060c7e972adbb8c6c2e1",
+      "sha256": "eff72a3a39d54a90af31a66e7dde9e43544abd768a2d4cbf856ef9a9e4e60da9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 44.615999999999985,
@@ -722,7 +768,7 @@
     {
       "name": "switch_3_max_reference",
       "file": "reference/components/switch_3_max_reference.step",
-      "sha256": "1f526573bac2d3f53e3d95477e34a297ea946ad1c4bf2244f43ed7218b8b0679",
+      "sha256": "60978dc95ccfada085bf2f88386fd66714c6b98e6d6c491023720735b0bd2391",
       "valid": true,
       "solids": 1,
       "volume_mm3": 44.61600000000001,
@@ -739,7 +785,7 @@
     {
       "name": "switch_4_max_reference",
       "file": "reference/components/switch_4_max_reference.step",
-      "sha256": "43915168d5ee147e96adff6c5da49382bd86a8e4b9194e89a97d4a249215b618",
+      "sha256": "9eba1a838535239cc6bfb83f034d97c7ed15d5216189c9ac45e3863c9589a3b0",
       "valid": true,
       "solids": 1,
       "volume_mm3": 44.61600000000001,
@@ -756,7 +802,7 @@
     {
       "name": "switch_5_max_reference",
       "file": "reference/components/switch_5_max_reference.step",
-      "sha256": "2042c44d9635b99e71a48cd266fe8a28e9c6ecd9757b981ade041bcff69f6088",
+      "sha256": "55ae2bf068e641ac58a53c77dbf5992978b6c9c79845a2942b0b750dac82521e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 44.61599999999997,
@@ -773,7 +819,7 @@
     {
       "name": "audio_native_reference",
       "file": "reference/components/audio_native_reference.step",
-      "sha256": "3a269d4281e4b834918863a2c69bcb75d8077463da4b34cdb3c7356d611c1c2b",
+      "sha256": "383cf2e991e495d8c402bf725cc2406201fd1ae313412c5321844d4c91bf2f19",
       "valid": true,
       "solids": 1,
       "volume_mm3": 806.4671314869262,
@@ -790,7 +836,7 @@
     {
       "name": "cover_native_reference",
       "file": "reference/components/cover_native_reference.step",
-      "sha256": "4572839c378a906d1c75a48210273689bcaf6bb905591feea8c5a06b1cccbebf",
+      "sha256": "d2920a6335c006cd3fe024912e43ceb57d423e009a839cc576086c25682b4a33",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2252.702323519624,
@@ -807,7 +853,7 @@
     {
       "name": "OCC_main_U501",
       "file": "reference/components/OCC_main_U501.step",
-      "sha256": "504c7bf2aa0f83d2d49d7711b6a956128685139ed0f00712b81a13788b32a493",
+      "sha256": "ef61446e17cef4d6cb1118c46e0b454e171f061ba7de82f01ff8df2a0f0ce14e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 16.645309999999945,
@@ -824,7 +870,7 @@
     {
       "name": "OCC_main_Q1201",
       "file": "reference/components/OCC_main_Q1201.step",
-      "sha256": "d9b2c74b919de296c73ab332252fd797218c20adc1b22fdd6de0888f6ca6333f",
+      "sha256": "1ea245dee36322873ee669ccd8df18f296afdb7cf98c6d60a3e58eb123de7af6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 12.293840000000047,
@@ -841,7 +887,7 @@
     {
       "name": "OCC_main_C503",
       "file": "reference/components/OCC_main_C503.step",
-      "sha256": "e5d3ec33b4a0e9e40e9f51a24d0aef8fd24a9d7c30ec93245378b497381a3a91",
+      "sha256": "e977cea9c2f90a283dc8fd181be98c20a784f62775295a114fb238240b2df806",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.7017299999999835,
@@ -858,7 +904,7 @@
     {
       "name": "OCC_main_C1105",
       "file": "reference/components/OCC_main_C1105.step",
-      "sha256": "db7e8f48ad59861174f8a081ed6113b1f4f286636eb6a7917fc01002c38e0dc0",
+      "sha256": "52d633b54f54a870b1f7caab56cf716f483de6ee5738fdac23696b1ab60efd07",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999987,
@@ -875,7 +921,7 @@
     {
       "name": "OCC_main_C104",
       "file": "reference/components/OCC_main_C104.step",
-      "sha256": "62ebad75bd0c28e4df5c20d24b0b70a548b3f5c9003ec360ded51fc0e417298b",
+      "sha256": "f55d58d141de0fe12c9b9c7916fa40434416c11988834ce842cf76a1ddbc7868",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999975,
@@ -892,7 +938,7 @@
     {
       "name": "OCC_main_C1101",
       "file": "reference/components/OCC_main_C1101.step",
-      "sha256": "f80428e1518265e28833f9de4f813e6939fdc01c119a40fd08ceafa3b7f2481d",
+      "sha256": "16e7229d63116573e5bd3645176c5a86d09a5c4cf78fcb2b15842d089ba8e079",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000105,
@@ -909,7 +955,7 @@
     {
       "name": "OCC_main_U101",
       "file": "reference/components/OCC_main_U101.step",
-      "sha256": "f2aeb41e061ec293643ffd817714f60db7b0a2152e0c4dbb3357208c29326351",
+      "sha256": "fcb0b9352d2dedc24004c1bd62b8ff7445b6ee1eef4c24c2109f071af1913f8f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 55.59722999999998,
@@ -926,7 +972,7 @@
     {
       "name": "OCC_main_U1301",
       "file": "reference/components/OCC_main_U1301.step",
-      "sha256": "0f9d68a925f2c42add29d8ba8258776f056486f627f5b85271a3721753658db2",
+      "sha256": "15532aa3e8e2da7c1b8dda56e349d633037e098de1aad67b0529122b4b0996e5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 16.880630000000018,
@@ -943,7 +989,7 @@
     {
       "name": "OCC_main_C1001",
       "file": "reference/components/OCC_main_C1001.step",
-      "sha256": "74f26a4d1db02009e4bd6fa72ed9edab35040d0c5851e1833a6e21e4e9a12f81",
+      "sha256": "70caf87eab2bd1f0461fb0ed5e2e294f4d9a5fdaf20118538f7b3c135a06cd76",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.393711999999995,
@@ -960,7 +1006,7 @@
     {
       "name": "OCC_main_C1108",
       "file": "reference/components/OCC_main_C1108.step",
-      "sha256": "45b6007d32cca36719fd3d507be784386db2f102bf1d4e94d9d16d83115a69a8",
+      "sha256": "79bef5d13a56c7135651d09e1406e05289ba56e873176fff416e7749560478eb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000004,
@@ -977,7 +1023,7 @@
     {
       "name": "OCC_main_C605",
       "file": "reference/components/OCC_main_C605.step",
-      "sha256": "8cce012e464d52a6122b28f664a3e67e3e0155642e1f0ba8f9243bf36ba1458a",
+      "sha256": "d868f3a38288f9ca7c1c9a8d0c4e2130e8849553308424bdaac06c717c3b87fd",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701729999999995,
@@ -994,7 +1040,7 @@
     {
       "name": "OCC_main_Y801",
       "file": "reference/components/OCC_main_Y801.step",
-      "sha256": "eb956ffa639640fc448d2cbdca82416cb4239b82a52eba2dd71ae8ba676f97a4",
+      "sha256": "0fef40197ff8a0953a621ef2a94ae2c93d1b9e6338660a66740e7c6f26839910",
       "valid": true,
       "solids": 1,
       "volume_mm3": 12.11049000000001,
@@ -1011,7 +1057,7 @@
     {
       "name": "OCC_main_C306",
       "file": "reference/components/OCC_main_C306.step",
-      "sha256": "4964498538816e5a4674c401b8560e7a9072f576c3784f8ea9fd2f1861b64b69",
+      "sha256": "14840a39097b89893fbdd23d8732d9e4dacf3108cc826a91427f24cedd14f7b5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893030000000028,
@@ -1028,7 +1074,7 @@
     {
       "name": "OCC_main_L1101",
       "file": "reference/components/OCC_main_L1101.step",
-      "sha256": "ea16a05cc54002e2096938fe87e18e447d7809f78975b56542bd7ddb75843ee9",
+      "sha256": "33ba3cec8d40dbd9ec7f76b4875a792c7efbf87f3febdc1a4f31624b0d049bdb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 50.793159999999915,
@@ -1045,7 +1091,7 @@
     {
       "name": "OCC_main_C1003",
       "file": "reference/components/OCC_main_C1003.step",
-      "sha256": "2471172f8246f5eea9f173d128c644bf52126dbac12a6c5e03b33a3c27529125",
+      "sha256": "185528a9bf24d65ece0b77a08b6cc5bdd0eb59113919bf79684e10fc0ef29251",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87809999999999,
@@ -1062,7 +1108,7 @@
     {
       "name": "OCC_main_R810",
       "file": "reference/components/OCC_main_R810.step",
-      "sha256": "3ede422f33b49ffeb5652b42cb6a9c30483b17c8a53012818e992b68f319bc08",
+      "sha256": "826c5adcb0588320aa5022cec3aadf6d516420f59c761fbbfdefbea3794be95b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.78037499999999,
@@ -1079,7 +1125,7 @@
     {
       "name": "OCC_main_H_AUDIO_2_M",
       "file": "reference/components/OCC_main_H_AUDIO_2_M.step",
-      "sha256": "c04ef45610f4a494417b4adacac52d957a4925b8ec8ccffdc8125932ccf83b9f",
+      "sha256": "f40a7e963beb08fcaa51763a57c3a2a7729f52b29f9339e49996ad5997653165",
       "valid": true,
       "solids": 1,
       "volume_mm3": 10.035150000000034,
@@ -1096,7 +1142,7 @@
     {
       "name": "OCC_main_C820",
       "file": "reference/components/OCC_main_C820.step",
-      "sha256": "774e6d7c3db274654be806ffb03d336785e4d22815ea36a93d6ce1841f5cca73",
+      "sha256": "711c7f52af2e8f524ec353aefa33e1c88d695ce25132d3f4b3cd348a6b7fa352",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.393711999999944,
@@ -1113,7 +1159,7 @@
     {
       "name": "OCC_main_C832",
       "file": "reference/components/OCC_main_C832.step",
-      "sha256": "39c397acc25b6a42c25772e77922a32654437ca5ae38a25ab582e7dbb96318a3",
+      "sha256": "ebc5dc21dd1daa25515c1445193ce80e82ed36e6090933100a559631b156dff3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 20.18864000000007,
@@ -1130,7 +1176,7 @@
     {
       "name": "OCC_main_C101",
       "file": "reference/components/OCC_main_C101.step",
-      "sha256": "a7784afc044ee7816f92491ea1b1fb9f939713e90f989a590d6a43f3585de589",
+      "sha256": "2f757a292dacae23e7408188f86368d380a0b3a206885a3d112c13b3cad674c9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 20.188640000000014,
@@ -1147,7 +1193,7 @@
     {
       "name": "OCC_main_C502",
       "file": "reference/components/OCC_main_C502.step",
-      "sha256": "d278bf539760ecaaa012dbdf6a7cbc68c5103b34e70cbae3bc887b8fe82ba938",
+      "sha256": "f5f523b93ade940f0244a0e1892944fae2a82daec8f466c261cab1bab70bb263",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701730000000012,
@@ -1164,7 +1210,7 @@
     {
       "name": "OCC_main_C1303",
       "file": "reference/components/OCC_main_C1303.step",
-      "sha256": "af92ab090878d37388ec88735f69bcd9cd117a3b31e1e79f773b902e0c7be09a",
+      "sha256": "1f6fa89d2eddd18552fc308f89ea4b47c9d22e0273476f0dbd30c478d2f41494",
       "valid": true,
       "solids": 1,
       "volume_mm3": 83.72929499999991,
@@ -1181,7 +1227,7 @@
     {
       "name": "OCC_main_U601",
       "file": "reference/components/OCC_main_U601.step",
-      "sha256": "992b30ad53fb8724f34dc5e3d796a2c2d8b3b09d20569a667b0e187897a2714b",
+      "sha256": "cc3ea2960576dfd760158348da2afb19370b93ec409e87f4948b4cd3b37a149e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 83.95282999999992,
@@ -1198,7 +1244,7 @@
     {
       "name": "OCC_main_C302",
       "file": "reference/components/OCC_main_C302.step",
-      "sha256": "9325dbcc35a34facbb5cb4a8e2999ea1a9263749d0486af31c9f401b1e7adf09",
+      "sha256": "22b7d58b490b299e235fa34484c65d134b5bec3605512cc92d0df42392202d12",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999989,
@@ -1215,7 +1261,7 @@
     {
       "name": "OCC_main_R1001",
       "file": "reference/components/OCC_main_R1001.step",
-      "sha256": "fbfc91beea9aa0cbee1baf87ce2db40eb556dc2c976e9cb109a2966152b9467c",
+      "sha256": "f1a3fb46eea2aa89320a71bf4fab9b82944d30cba4d6555f141aab43ba995f33",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -1232,7 +1278,7 @@
     {
       "name": "OCC_main_C1002",
       "file": "reference/components/OCC_main_C1002.step",
-      "sha256": "25d71000168ee52ca0130c7abe16e358450c4f2c4484e91bb133e699265e8112",
+      "sha256": "67365b777af0aa954d453f41ce443aed36f9c274d59057b5f38e86970eacfea6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87809999999999,
@@ -1249,7 +1295,7 @@
     {
       "name": "OCC_main_C303",
       "file": "reference/components/OCC_main_C303.step",
-      "sha256": "b9cb3e20a04bb29a26605cf19ac4f722b1200fe0454261269c601747d4be91ba",
+      "sha256": "1579aedc0730f33e2da94222e8c95eb7a3041e4f6e13cedaea50e58e94d74c24",
       "valid": true,
       "solids": 1,
       "volume_mm3": 10.246275000000017,
@@ -1266,7 +1312,7 @@
     {
       "name": "OCC_main_R1301",
       "file": "reference/components/OCC_main_R1301.step",
-      "sha256": "3ed9f5cd206d897d1b962148b2bf173e488e1917efca09762dccdaae20b1d553",
+      "sha256": "a387a480991bc56d250402f6224e1248081ac4d49a83a7b589e8c8ad4ab332f2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -1283,7 +1329,7 @@
     {
       "name": "OCC_main_C603",
       "file": "reference/components/OCC_main_C603.step",
-      "sha256": "ac6d8398c4051c1404a7ea5a9ddf6643b5e9b3b8fbffcae51902efb124fd8799",
+      "sha256": "eb08108359ead6ef1ff5e55482978ed5ab0b091b3e1f37bad6532c1f76355631",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701729999999991,
@@ -1300,7 +1346,7 @@
     {
       "name": "OCC_main_C202",
       "file": "reference/components/OCC_main_C202.step",
-      "sha256": "8bd8418f4131810da6cad3e175e0a6fd6cf02720f43ab28223b46737e0a4814d",
+      "sha256": "057fc9962dc4b876d458a38ff16bf64039ebc8807ffc3f7c6a8c55343cd3f0a8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999975,
@@ -1317,7 +1363,7 @@
     {
       "name": "OCC_main_C222",
       "file": "reference/components/OCC_main_C222.step",
-      "sha256": "4be495cad8148459b0182166d5a60f0e9f2af877c05c2bad1ca14fe3bf1ab17f",
+      "sha256": "b2427802c308bdec6ec3fadaf56e7dab961a9ac0fa4433478ea4331f7beb1a81",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999989,
@@ -1334,7 +1380,7 @@
     {
       "name": "OCC_main_Q1601",
       "file": "reference/components/OCC_main_Q1601.step",
-      "sha256": "a88affdebd787ef5d9b95fb80a053c97305b3215a6d10a347840a1dbe41bb24e",
+      "sha256": "a6091dbf5323c8f4a5e724fcbdbdca50e05e235d9ac1b86da7168a26f60e6cef",
       "valid": true,
       "solids": 1,
       "volume_mm3": 12.293839999999978,
@@ -1351,7 +1397,7 @@
     {
       "name": "OCC_main_J901",
       "file": "reference/components/OCC_main_J901.step",
-      "sha256": "9a93e6374b5d23019d0a6d5284e2985628e7f6d5a78017bf1eba3a82f56c071d",
+      "sha256": "47d1cbe8cf8a99f21257f6a2563514aa23a3808ad6f686e6260cccda9a1fcb5d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.682649999999958,
@@ -1368,7 +1414,7 @@
     {
       "name": "OCC_main_C305",
       "file": "reference/components/OCC_main_C305.step",
-      "sha256": "28cd49ea88987cd73e6a4eedf6022c2c20f34b526bcda37bc6e8a73112fc638e",
+      "sha256": "7fdbf9a62aee9decb692ff979d83983518e31f74cda0c6622225b2d98cd77bc1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893030000000028,
@@ -1385,7 +1431,7 @@
     {
       "name": "OCC_main_U1001",
       "file": "reference/components/OCC_main_U1001.step",
-      "sha256": "5172385b59cd36a6ad6dc4218f970b288b51c06d42e09dd41946ca0f4cb6e669",
+      "sha256": "1d3c5462ca840276db54350c92dfab1e0bea8d1b9a14b71e7fd960a2a0853634",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.187310000000004,
@@ -1402,7 +1448,7 @@
     {
       "name": "OCC_main_C607",
       "file": "reference/components/OCC_main_C607.step",
-      "sha256": "5a3d6848bc8382f20af43ed5543fd4a3fcc0c9bf3ab3f992d8d26e3d05b3d720",
+      "sha256": "43892ef0a6b9d33d47b6946850d21d12539b78c3c89cc84e5648a2f8ebc2fdbb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701729999999991,
@@ -1419,7 +1465,7 @@
     {
       "name": "OCC_main_C1302",
       "file": "reference/components/OCC_main_C1302.step",
-      "sha256": "24727d10649bf135d28888c21d069b3586af568380d78e851a10f709e7dc4d55",
+      "sha256": "d6e5296509f8476ea9a3b362511f3a7586bbe61f01928030e1f911a16ec8d16e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 20.188639999999996,
@@ -1436,7 +1482,7 @@
     {
       "name": "OCC_main_C812",
       "file": "reference/components/OCC_main_C812.step",
-      "sha256": "bac659f615c91e1c936212d85f2bb1b0eb940ffa618e1c25aed2e8b2280db763",
+      "sha256": "be4af2b6f4d06f81d6f13f50ccbd9d644c528ca971569c22e26e73d4460ed3b1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.3937120000000265,
@@ -1453,7 +1499,7 @@
     {
       "name": "OCC_main_U1702",
       "file": "reference/components/OCC_main_U1702.step",
-      "sha256": "f34e2d23e8a987292c97a9554b74f893d9ff74a8965955aa814cdd8bf06feaeb",
+      "sha256": "fc6f26aeb319578af0a081c420accedc4f22668a097659147d0339391be53f8f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 52.33552999999995,
@@ -1470,7 +1516,7 @@
     {
       "name": "OCC_main_K1201",
       "file": "reference/components/OCC_main_K1201.step",
-      "sha256": "e96f2032b82e6a4cc53011fa101037e5cd8582037b4a39e083c38cb7035b04c1",
+      "sha256": "21cbd9b51398a2eddf8013c80b9cc88a2d588ecc412c4796866f3dfd0032bb58",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.413749999999986,
@@ -1487,7 +1533,7 @@
     {
       "name": "OCC_main_K1207",
       "file": "reference/components/OCC_main_K1207.step",
-      "sha256": "a23af4950fbaa295b6e36a2754aa0318a215ea5ec4e36668aa0784a46125423e",
+      "sha256": "2fac2eb99460cdbd91d2c1b56c591e5dbd6733684188176e0e9aeb62d735bc87",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.413749999999986,
@@ -1504,7 +1550,7 @@
     {
       "name": "OCC_main_C830",
       "file": "reference/components/OCC_main_C830.step",
-      "sha256": "c54e6d64855951577290cae0a3c88e4466b780f629d151908f0ff5ce06b83656",
+      "sha256": "d36a8f7c42038b09253a9ae717d99a7e0221924a01e11a5c31fa09f380067920",
       "valid": true,
       "solids": 1,
       "volume_mm3": 20.18864000000007,
@@ -1521,7 +1567,7 @@
     {
       "name": "OCC_main_C501",
       "file": "reference/components/OCC_main_C501.step",
-      "sha256": "a7383228ff3afbee0022bc029a7ae0e587e66f37fe2a9825966db88d1e89e10d",
+      "sha256": "1f0487613539af60e4a2efd825a5e27e9f2a12323e1461609734a839c526993d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893030000000019,
@@ -1538,7 +1584,7 @@
     {
       "name": "OCC_main_C604",
       "file": "reference/components/OCC_main_C604.step",
-      "sha256": "e6cfb3308e5d4dbff0ebfc2b981d36fb91786949609542934ccebcb19a03a425",
+      "sha256": "c1b4e047bf7aefffcbc698f01bc4a53e8977f7991905791c4b13c44e37571245",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -1555,7 +1601,7 @@
     {
       "name": "OCC_main_C1107",
       "file": "reference/components/OCC_main_C1107.step",
-      "sha256": "7e3bb679f63f5b702c2bb56098eb80c718a9c4085e7977fa1810420aebd4a7ce",
+      "sha256": "14807530ac0dab8d422117a4ea8edc3af277eb9fb998aabb156be7a1f43c1247",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000105,
@@ -1572,7 +1618,7 @@
     {
       "name": "OCC_main_C806",
       "file": "reference/components/OCC_main_C806.step",
-      "sha256": "631c7581419f8759663d96fe6a36389ff8ab38d57087909ef219ce51f1dd0476",
+      "sha256": "5bda8021fb1991ef6c02215dd91c9c3cae8fa12e798503b30c6fe41eedd9703e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893030000000019,
@@ -1589,7 +1635,7 @@
     {
       "name": "OCC_main_C1103",
       "file": "reference/components/OCC_main_C1103.step",
-      "sha256": "26e5169029b3927dc33d52df9cb8d9155b33b89bc886ef69a14893420f5a62d1",
+      "sha256": "a7cd43e7f49df57207638480ee7de0e839892877915a535a9f50490dc9395a96",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87809999999999,
@@ -1606,7 +1652,7 @@
     {
       "name": "OCC_main_C1703",
       "file": "reference/components/OCC_main_C1703.step",
-      "sha256": "7177cb29033f3472763b378c60cb6de3488d5bb8f21ce80ee675e19ce7d80480",
+      "sha256": "ca44211b01510db782bcd01412ccebc89a9d9d2310fa62552f6b0ac078302bca",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529599999999989,
@@ -1623,7 +1669,7 @@
     {
       "name": "OCC_main_U1701",
       "file": "reference/components/OCC_main_U1701.step",
-      "sha256": "632173ac8f36fd4d2b13da97a5c51d375736359bee47885ea9a5b189449958a5",
+      "sha256": "34d18783b29a249e38f5c5bba01b4ae3ce99088dcf39f821f04defee752150e2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 25.837630000000004,
@@ -1640,7 +1686,7 @@
     {
       "name": "OCC_main_C713",
       "file": "reference/components/OCC_main_C713.step",
-      "sha256": "1203dca5020703c2fa356064ce5615237ea2d9d3cde75e247267be6a24a08744",
+      "sha256": "63d6d991ec9dda46c21018a4b028dbef6feea87dce57d0734341c79044b9175d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701729999999991,
@@ -1657,7 +1703,7 @@
     {
       "name": "OCC_main_K1204",
       "file": "reference/components/OCC_main_K1204.step",
-      "sha256": "ca4a7e4fbfefdf63cb57801ea1e33be8fd12550cb3c4c9007d6ee956a68b1477",
+      "sha256": "38ff150766f157ff0cf2947e950615a5a098e9abe1a0d93dbbb56d4aff5853a6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.413749999999986,
@@ -1674,7 +1720,7 @@
     {
       "name": "OCC_main_U902",
       "file": "reference/components/OCC_main_U902.step",
-      "sha256": "aa730d56e3e6374b83deaa0f97eb7fc4b4f0ace6a82827f50bbd0c6f8a9317d7",
+      "sha256": "6ad54850ebefec02fd667b2dbc44dfdc5fad8a9ef540d2c636606221672d192f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 15.425639999999955,
@@ -1691,7 +1737,7 @@
     {
       "name": "OCC_main_K1205",
       "file": "reference/components/OCC_main_K1205.step",
-      "sha256": "972fa7e84ed57eb3d64121164a55aa455ee8d9e77e806a4daf5da8f03ed7667b",
+      "sha256": "b1a591957acb575535553ad7d23c7bb8fb667f1e5ec229ed47c98f47e04f1bd9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.413749999999986,
@@ -1708,7 +1754,7 @@
     {
       "name": "OCC_main_C1301",
       "file": "reference/components/OCC_main_C1301.step",
-      "sha256": "ca19bae462aff55790e85eb6330b362fbd7a363d4c91567c24499087cb7d8366",
+      "sha256": "2ba83a23387dba78f89b9ba16fc3c273cb4afd9f55dc0c1323a3a185967bfb08",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87809999999999,
@@ -1725,7 +1771,7 @@
     {
       "name": "OCC_main_C1701",
       "file": "reference/components/OCC_main_C1701.step",
-      "sha256": "eeb0112830e7bb9e0ab29983368522a7af58df2c9a1388228ebc1e21d3f2cc5a",
+      "sha256": "576de9ff9d0e35ad2b2dfd60eeaa98d2296c94ff4b7ccdf0668efc53c4ed7edf",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529599999999989,
@@ -1742,7 +1788,7 @@
     {
       "name": "OCC_main_U701",
       "file": "reference/components/OCC_main_U701.step",
-      "sha256": "4ff972cbc27a9c7c50bc1ed551a2328a6524db17ffdbb63fb83e9b66def5c56e",
+      "sha256": "78bca3eb3bfbb37420b37dc398713c168ae54d7c6d60ee8ee83c29d35ec4fa10",
       "valid": true,
       "solids": 1,
       "volume_mm3": 70.78772999999995,
@@ -1759,7 +1805,7 @@
     {
       "name": "OCC_main_C1102",
       "file": "reference/components/OCC_main_C1102.step",
-      "sha256": "ee7ecff3ce10aa94f20fb06431621deedb6894ab17d5871e5b0e9a1c4fc64988",
+      "sha256": "a510b32c22ebf3d4c546fe49db55e14fbc298a81ef5c21c9a3c14853dd61e257",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.941025000000012,
@@ -1776,7 +1822,7 @@
     {
       "name": "OCC_main_R905",
       "file": "reference/components/OCC_main_R905.step",
-      "sha256": "b24212625b80dc00a2038c54f4b9b280214592aaa93bdd2f727762106d5bf01c",
+      "sha256": "64839b719e83b092d7d4a1c3e2554c0fc192bda630977b383de44356be408457",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -1793,7 +1839,7 @@
     {
       "name": "OCC_main_C813",
       "file": "reference/components/OCC_main_C813.step",
-      "sha256": "6997a92ad410938291f8b8d2a545938b640be7d8f95eac2658b798ff2dc74e48",
+      "sha256": "96390455846f1bc236787f94547aeb274109b21dc3282b1d05d3f3503a9b5de8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.393712000000006,
@@ -1810,7 +1856,7 @@
     {
       "name": "OCC_main_C232",
       "file": "reference/components/OCC_main_C232.step",
-      "sha256": "54d8b2a0bbad22d65cfa6a24dabe024c451ce33371eaf0ac7289b1e5ff05773e",
+      "sha256": "0ed8dae72b987a24c45715f8e7dc51bcc383af620f9be5f10c36c44626a3d618",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999989,
@@ -1827,7 +1873,7 @@
     {
       "name": "OCC_main_U201",
       "file": "reference/components/OCC_main_U201.step",
-      "sha256": "8c76b19748627d0419e48d6f90fa47aeaed8a6b808f6afba34adb3dce9989b4f",
+      "sha256": "034aa1242c11daafff1f61066972280ccecbd8de0f896712cd8bec05688c6c90",
       "valid": true,
       "solids": 1,
       "volume_mm3": 55.59722999999998,
@@ -1844,7 +1890,7 @@
     {
       "name": "OCC_main_C822",
       "file": "reference/components/OCC_main_C822.step",
-      "sha256": "83f80f3eea8767ee160b1ead5b557bd2ce244e05480332ede92bea2bf170c8b4",
+      "sha256": "0db7f726863979da55226a6c03c2b82520a158fe607fa269b4733fe89cf9320e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529599999999942,
@@ -1861,7 +1907,7 @@
     {
       "name": "OCC_main_R817",
       "file": "reference/components/OCC_main_R817.step",
-      "sha256": "3655a0688420f424e5245038e492d674f32907d0e6aeb9ac6cf4f8dbbded0047",
+      "sha256": "c0ff17675a819821a93e1975e4291fd2b7ae8364482890ebd7996b3cb0f7c111",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -1878,7 +1924,7 @@
     {
       "name": "OCC_main_R851",
       "file": "reference/components/OCC_main_R851.step",
-      "sha256": "491c446b9026be83b456a01318f89e2ce80b57106ca49ed962bd5cfc71c7deb1",
+      "sha256": "086014c5db87e345cab73d02b4d5300f344201dd569380117bba3c7f0efee352",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999989,
@@ -1895,7 +1941,7 @@
     {
       "name": "OCC_main_U801",
       "file": "reference/components/OCC_main_U801.step",
-      "sha256": "81a86c589e15a20819b0b85357e832fc0b829b18bfa33b476ee65299a5eb9d43",
+      "sha256": "02675b59f1e527b703229d634a2c818e9061e30ecb9b068747d54a40cc49948a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 371.37997000000007,
@@ -1912,7 +1958,7 @@
     {
       "name": "OCC_main_C201",
       "file": "reference/components/OCC_main_C201.step",
-      "sha256": "e45fc51a983b6a9fc5e884d1ce9b2426265cd4e193368d75dc8f0f5cebaddd67",
+      "sha256": "3d99bdb54d845697ecca3d8ea3d6a6b8c71350a9c05d9369185fb754f98f65cc",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999989,
@@ -1929,7 +1975,7 @@
     {
       "name": "OCC_main_K1206",
       "file": "reference/components/OCC_main_K1206.step",
-      "sha256": "ab7099865b0dda5f325609c59555e127acd944b60ebbde0b8ef7ea680557fdda",
+      "sha256": "fcbc26bf2000afabd6cd22157de285e1043457cba911f4c9dd917f607dc99552",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.41374999999991,
@@ -1946,7 +1992,7 @@
     {
       "name": "OCC_main_U301",
       "file": "reference/components/OCC_main_U301.step",
-      "sha256": "851b41fc37552f8127449b17425914e94c6048a479c38af76227b796b72257ef",
+      "sha256": "a5f3ab9d484eb9cb43c5b50a64b8160b36cd13f19124c4ed46417bdc104bcafe",
       "valid": true,
       "solids": 1,
       "volume_mm3": 13.618890000000006,
@@ -1963,7 +2009,7 @@
     {
       "name": "OCC_main_C304",
       "file": "reference/components/OCC_main_C304.step",
-      "sha256": "620cb3598637ec1cce14b922ab5602b79fbee009776898673c66d01d2e64a8d4",
+      "sha256": "0933fd802b10121929243b811c2b5e77899c08c38da5f3f5713e9b1dc78e8c40",
       "valid": true,
       "solids": 1,
       "volume_mm3": 10.246275,
@@ -1980,7 +2026,7 @@
     {
       "name": "OCC_main_R820",
       "file": "reference/components/OCC_main_R820.step",
-      "sha256": "c6c181e7a79dd176cfbf50e2c8253e05112bb62007faba2b808730d0660f136b",
+      "sha256": "1326b224fc8ae3b89ce5cd5b4965873655b70bcf80397063dad792bb80fb0927",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.78037499999999,
@@ -1997,7 +2043,7 @@
     {
       "name": "OCC_main_C1104",
       "file": "reference/components/OCC_main_C1104.step",
-      "sha256": "ec9fae30cd890a97ababb8bbf23f1415a5155f0436e0f9639501fedb47b3169c",
+      "sha256": "f21ed06b0fa65bb8f09b4a7ba4a37aaf4458fbcdf0cf8da11275152af461077a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999989,
@@ -2014,7 +2060,7 @@
     {
       "name": "OCC_main_R1002",
       "file": "reference/components/OCC_main_R1002.step",
-      "sha256": "2d0b7357be79893c29cceba108b37b81d545c2554eb0230b64107e8cc906c401",
+      "sha256": "91df943cf46852f47054f390da1f461c1fbddce19940b0aef4055a74ca51e0c0",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -2031,7 +2077,7 @@
     {
       "name": "OCC_main_R501",
       "file": "reference/components/OCC_main_R501.step",
-      "sha256": "023540781fcce0f4598203b7cc26a688f45097d1355ed878d3111a8120705b2c",
+      "sha256": "d17212aa5884911f2f5ab86d8358bc0bbe9f6caa1e83103cc3eb866432effc1b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.78037499999999,
@@ -2048,7 +2094,7 @@
     {
       "name": "OCC_main_R1003",
       "file": "reference/components/OCC_main_R1003.step",
-      "sha256": "76c81b424cd2b97bd7da0bea283971a78b061270bdc036d724b4233572325736",
+      "sha256": "3928986512eccf11d91a9f3fd7f2dbe054abf05cef9802c4237cff2a642d6486",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000005,
@@ -2065,7 +2111,7 @@
     {
       "name": "OCC_main_U1101",
       "file": "reference/components/OCC_main_U1101.step",
-      "sha256": "19f7a5949805182d64155c2ad652bcd1d8a050c2ce6bd5740f0403206c104f63",
+      "sha256": "99bb8f907237251773c2b4c632ea2f87de1745f6f96e17a8f3f8e01fbc6eee11",
       "valid": true,
       "solids": 1,
       "volume_mm3": 15.361609999999956,
@@ -2082,7 +2128,7 @@
     {
       "name": "OCC_main_R211",
       "file": "reference/components/OCC_main_R211.step",
-      "sha256": "a8346dcff5438bfc10681aa675d178098897c99076a48df2ce5f0fafae849f9a",
+      "sha256": "61ece575a9fde1536e39a98546965ad46ccf5b91bf9dad1d031be3e70209b0ef",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999816,
@@ -2099,7 +2145,7 @@
     {
       "name": "OCC_main_R1922",
       "file": "reference/components/OCC_main_R1922.step",
-      "sha256": "a122cf54e99fc7659967deaf7f0befb8b51932a1629b7197cdbebff39324db27",
+      "sha256": "97a35d3422edfa574539dd30efa214243c869b711e0c865a1274ca895c52e06a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277499999999971,
@@ -2116,7 +2162,7 @@
     {
       "name": "OCC_main_R831",
       "file": "reference/components/OCC_main_R831.step",
-      "sha256": "c4ca88dcd16700a74491d7b39163221632ab5fbbfd65c8c72c22da424cef80ae",
+      "sha256": "df57d418c895dd2c9d80b6f3bda7dde03441d6e8fde3046a9f888c06a08e2c73",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2133,7 +2179,7 @@
     {
       "name": "OCC_main_R212",
       "file": "reference/components/OCC_main_R212.step",
-      "sha256": "27ca8f47d0d1618df954a2091d2d13a39ecbbf2da722892d02c5e78f587ded7f",
+      "sha256": "12794399e6ef8877dd0d533d6878e2b8a035cfec2008458704a7eab3d5c1284b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2150,7 +2196,7 @@
     {
       "name": "OCC_main_C1904",
       "file": "reference/components/OCC_main_C1904.step",
-      "sha256": "4cfe65248c3884173016b816f55e83613fde13bea7748e0a957aca1a892f6e9c",
+      "sha256": "33194b8d245870ed4a2d3561e2f23af616758f9edd8a004c010e9c47413281ab",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -2167,7 +2213,7 @@
     {
       "name": "OCC_main_R602",
       "file": "reference/components/OCC_main_R602.step",
-      "sha256": "934d2ea68c6bbf2141a790fba82ce1ac7c993eeb1e34597a589ea31b2d795a9d",
+      "sha256": "4a67cfc113580792d5fc32ba55a99ba9877a2db189c1191686602e03e24aa57a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2184,7 +2230,7 @@
     {
       "name": "OCC_main_R1802",
       "file": "reference/components/OCC_main_R1802.step",
-      "sha256": "93ca5f70bf48f424452e71d9131600a499f1d92b945fc3ff8c2e85d9aa3f80d4",
+      "sha256": "225ede11426279861a45e560ed9df9735f7882bd65d506d8cbfb597e3cdc6234",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2201,7 +2247,7 @@
     {
       "name": "OCC_main_R302",
       "file": "reference/components/OCC_main_R302.step",
-      "sha256": "edab582aec16fbc8fec66af525b1b9a0619bb9a41a2d61f7a56ad1b59b448de5",
+      "sha256": "21683b2ed5638d352e75d53a89a56092a79d6be03979260e6aa05177813a4958",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2218,7 +2264,7 @@
     {
       "name": "OCC_main_D1203",
       "file": "reference/components/OCC_main_D1203.step",
-      "sha256": "5ec02330a0933fe024472ffc1caa6dfdabcce39329d84b3315f63a0c17bdddc8",
+      "sha256": "60a4f43e75bff0f4e7ee4c8f8c862b92254615714033858d3cb2a6d93569ea81",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281050000000021,
@@ -2235,7 +2281,7 @@
     {
       "name": "OCC_main_R222",
       "file": "reference/components/OCC_main_R222.step",
-      "sha256": "d2346b7c8fa69ba5322bd68c888cd8b52c12594f270a300ced4d3b165ed2077c",
+      "sha256": "5997f39ba02b194279acd55432f9fea9d62f028334d25fcb6ebd20e62b4fbb4f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -2252,7 +2298,7 @@
     {
       "name": "OCC_main_R1701",
       "file": "reference/components/OCC_main_R1701.step",
-      "sha256": "592bde53f7d6eafbb56b6cf126b84a65867d9da848e58915601d08243e7b2415",
+      "sha256": "e35a9b3dc3dafc1f8be6cee557d4a194e4f560ccf4089b24db2a96f6b3ea1b8b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -2269,7 +2315,7 @@
     {
       "name": "OCC_main_R504",
       "file": "reference/components/OCC_main_R504.step",
-      "sha256": "7a243b3ee8cde1210c276c104b9b7024ac2fe86002cf243daca2c2c32f037bbf",
+      "sha256": "a976e4ccf3ea1a9afa2b34917799985819be2354b31ede80dc858430d2e46e63",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999914,
@@ -2286,7 +2332,7 @@
     {
       "name": "OCC_main_R1602",
       "file": "reference/components/OCC_main_R1602.step",
-      "sha256": "cf945a31dacc6a7677c65035642fada9e907d0d35229ecc5ba99eb7efd45d128",
+      "sha256": "51c511001221119c5430c4cd6261eeac3eff91c8c177263b1300cb83d1d6eaf1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000034,
@@ -2303,7 +2349,7 @@
     {
       "name": "OCC_main_U1901",
       "file": "reference/components/OCC_main_U1901.step",
-      "sha256": "fcf9e3ae812c0f795ea90cb9030e0c67faafe54d66aa6f321c755f9d51dac5d7",
+      "sha256": "fd024a20854ac09130e9d9b207b027829a23d40ff0b33816203357f4b131b4c7",
       "valid": true,
       "solids": 1,
       "volume_mm3": 22.990530000000007,
@@ -2320,7 +2366,7 @@
     {
       "name": "OCC_main_C802",
       "file": "reference/components/OCC_main_C802.step",
-      "sha256": "1d862dea42d8b2183cfa1c5ea3795f1d959f625af578755f01adf5bfd78edfe3",
+      "sha256": "22bc21986c1a1cba73e86e089aeafeea0a95229a16993362667d4a6353f86c1e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000097,
@@ -2337,7 +2383,7 @@
     {
       "name": "OCC_main_C1706",
       "file": "reference/components/OCC_main_C1706.step",
-      "sha256": "e3944af14da78737e215c6525ef52d62cae75f1bc4f7cc485a1f2f5e1bdc6c07",
+      "sha256": "663e3756ec6db677dfd81dab8151aaa326eeeaa583664d446e9527e121278006",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000015,
@@ -2354,7 +2400,7 @@
     {
       "name": "OCC_main_R104",
       "file": "reference/components/OCC_main_R104.step",
-      "sha256": "d75dad82143534a5400689b0a7c22cb1e852a13bee5573ef25e844af8a5843fb",
+      "sha256": "26cc3bd4a4cf96edf88824b4641c270e84e240fb507b52385f50430f1059a798",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -2371,7 +2417,7 @@
     {
       "name": "OCC_main_R816",
       "file": "reference/components/OCC_main_R816.step",
-      "sha256": "0d932a3951684f77b2f66e90b238eb70672f3c2a05e8c14284f94d21041d37a1",
+      "sha256": "032bbf2a5b0167b0ebb06d870c8307780e0e43aa4222b8b3c008cbab62e7c8b2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2388,7 +2434,7 @@
     {
       "name": "OCC_main_J902",
       "file": "reference/components/OCC_main_J902.step",
-      "sha256": "3fe444e85138e4edeefc43220822517c3d4ac202da3c2555fd13e9eb11031c21",
+      "sha256": "b620c60ea38a5bb320b9bc1b31f93053ef1b93d50dc3fd55654ecf808e0f30e8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 0.6697550000000049,
@@ -2405,7 +2451,7 @@
     {
       "name": "OCC_main_D1301",
       "file": "reference/components/OCC_main_D1301.step",
-      "sha256": "ed606964da80a0f21ece007debb985a557bceb9a2a3f861d89cab1b0856a393b",
+      "sha256": "b035210b0843988582194bc85e50eada507e755e21f81bb583652ae8f4043363",
       "valid": true,
       "solids": 1,
       "volume_mm3": 11.34815999999998,
@@ -2422,7 +2468,7 @@
     {
       "name": "OCC_main_C825",
       "file": "reference/components/OCC_main_C825.step",
-      "sha256": "1475c62bf8a6b112ae7e284b622f6a8a1dcaa9667df44e0dcc42853f03c9ef31",
+      "sha256": "b58cd7086097c49d23ed6ae2f75f7afbac24fba988f07c5da0682a7a6e722516",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529599999999989,
@@ -2439,7 +2485,7 @@
     {
       "name": "OCC_main_C1711",
       "file": "reference/components/OCC_main_C1711.step",
-      "sha256": "5b4d269de0cee722a47bfdc1c15faf06b644693b0205aa30418112477373604e",
+      "sha256": "5bc26e4f8dc2fb43a70a3c0936048fbe7d291787cda59188f7ada0f48f7dc6c9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000001,
@@ -2456,7 +2502,7 @@
     {
       "name": "OCC_main_C902",
       "file": "reference/components/OCC_main_C902.step",
-      "sha256": "8f19ae92ad2cb1e7ea5bb08c1e7ae7a63d12fa8283d265a9a21f426c9638aada",
+      "sha256": "e1bbc2a1e289107000daa086e3ad34b4d9bc01a9af085224a30695af457842bb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87809999999999,
@@ -2473,7 +2519,7 @@
     {
       "name": "OCC_main_R102",
       "file": "reference/components/OCC_main_R102.step",
-      "sha256": "23bdc6424a077da98339a07f21b6d23cc78cd378ebf4b28b946bbe92124c2210",
+      "sha256": "98faf30ade9b4f21a2a9c2a8c0b218ec2bfe67713b12b440c71bfca66ad8a6a6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -2490,7 +2536,7 @@
     {
       "name": "OCC_main_R813",
       "file": "reference/components/OCC_main_R813.step",
-      "sha256": "a6ec181a77ba3319610f131a69045c11a19ed2577a8e9e6e7d7b9d97b3b886bd",
+      "sha256": "029e47d2bcaf7e92226c6b7d68184c9fd2a56103d174a9db5da5ee7cd58410e8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999865,
@@ -2507,7 +2553,7 @@
     {
       "name": "OCC_main_C712",
       "file": "reference/components/OCC_main_C712.step",
-      "sha256": "4c2fced9151a84b81e841f9b60fa282cdcc21d8f82bdd5711893a51a7e320e10",
+      "sha256": "a619c64f42b66796cc9006de2fce7e5e7cbe9bfa67115003236a13d2a0236377",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -2524,7 +2570,7 @@
     {
       "name": "OCC_main_C804",
       "file": "reference/components/OCC_main_C804.step",
-      "sha256": "cf449947d0049800300823560aebd6133b4fb8a0f97df6f43a8153172af87d10",
+      "sha256": "dd59fff9c533a852f0500af6061784f5cb65fab02331a0ba7ab90d6ab88ebe01",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000097,
@@ -2541,7 +2587,7 @@
     {
       "name": "OCC_main_C803",
       "file": "reference/components/OCC_main_C803.step",
-      "sha256": "db6c0805204ab512f1140355002ba63331ea9513a069937474c07275beffd5e7",
+      "sha256": "68f84cb1adcb6c5a691bf3448fc4ce9d834881edb163113eecc2e4dc6f529be9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000001,
@@ -2558,7 +2604,7 @@
     {
       "name": "OCC_main_R1210",
       "file": "reference/components/OCC_main_R1210.step",
-      "sha256": "d56f534e530abfb259fe9b2bd251f8898bb465935f04acbd6c9f1ae02438ff53",
+      "sha256": "cad7c5a81b4184521632a11319e93766eef51a25c39cdcb53ed110a8c625cc2d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -2575,7 +2621,7 @@
     {
       "name": "OCC_main_C111",
       "file": "reference/components/OCC_main_C111.step",
-      "sha256": "3d185c250cb498fccc6ebf0f8ee8ac7fc04a4572f6f54791f615a9fa65663f81",
+      "sha256": "b852988ad232bb8c1c22864e5a3fc6912afbe1ef81638b49e882e5a9d8e9eb4a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999975,
@@ -2592,7 +2638,7 @@
     {
       "name": "OCC_main_R1912",
       "file": "reference/components/OCC_main_R1912.step",
-      "sha256": "16d69453dfd9902e0ce370240972ad4c4ce0feff40d87a7a756700a1dcde7021",
+      "sha256": "710609fbf10f2452ec7e7a55272a768a3ce8faec4ff90dd46869b1fe32af48eb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277500000000034,
@@ -2609,7 +2655,7 @@
     {
       "name": "OCC_main_C606",
       "file": "reference/components/OCC_main_C606.step",
-      "sha256": "ecaa651170d41b7d0699282b00da31622dcfe534f1564b1483df21b1734953da",
+      "sha256": "c64dcbb03f7bdf6e93c17c59364b4cb9edab49d5393799f97d9bd009c2427b43",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -2626,7 +2672,7 @@
     {
       "name": "OCC_main_R801",
       "file": "reference/components/OCC_main_R801.step",
-      "sha256": "501fb363b8f6e9f9743e2a7433404d9579bee2af0dc84361bf7e6933644b903d",
+      "sha256": "0ced9258662660c718bf298d0e9118b1c151cba4526de064e422a8eafecab102",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -2643,7 +2689,7 @@
     {
       "name": "OCC_main_C1922",
       "file": "reference/components/OCC_main_C1922.step",
-      "sha256": "a6a9769e08b32b1c9d9d9d99dc2c512500699f8764d46efc308d0d75410e2df9",
+      "sha256": "be22a31ee4b4e7c10cd0850956d4a0925d0249d88117478c97efa342d0490be9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000001,
@@ -2660,7 +2706,7 @@
     {
       "name": "OCC_main_D1205",
       "file": "reference/components/OCC_main_D1205.step",
-      "sha256": "5f990e524bedbe7cd5b5805a95b70cf8eaaeebbaafa17cc6d6a6b24b78f8104a",
+      "sha256": "0ec0e96c02265b18a83991227041813ff2730cd7877dd1803cc8e01942e1f96e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281050000000021,
@@ -2677,7 +2723,7 @@
     {
       "name": "OCC_main_R1303",
       "file": "reference/components/OCC_main_R1303.step",
-      "sha256": "d644bdde523f6867ffe6a127400a51d5ee460afb958aba08480f42ca40409eac",
+      "sha256": "a9d6e96956140c725d63a376b3fc4de022d6643dc9c16f23fe171fcb6b28e05e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.2774999999999705,
@@ -2694,7 +2740,7 @@
     {
       "name": "OCC_main_C211",
       "file": "reference/components/OCC_main_C211.step",
-      "sha256": "72db04892454ac55025b7610eee41543dd90dce949f90da9b304e34ad06c6864",
+      "sha256": "be546a3f75c203b01c41584129b50f96de08f357c1b121c9dc182ca27a8ce488",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701730000000004,
@@ -2711,7 +2757,7 @@
     {
       "name": "OCC_main_R1103",
       "file": "reference/components/OCC_main_R1103.step",
-      "sha256": "a1723ef2a721f861b8fe9edffcb9c34165bdfcb67db56669e6604221e5665933",
+      "sha256": "0a9b8d43119d92346a6bace7904db305b2c2089578bec5c4d6d22688cf831759",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2728,7 +2774,7 @@
     {
       "name": "OCC_main_R803",
       "file": "reference/components/OCC_main_R803.step",
-      "sha256": "e560644b79ffc46c73c951f4199bbd5603440e953c2e7f8c61e1594fb883ca0d",
+      "sha256": "f717e9e10d751634704e200aed387aa58bd8616a06b09fd363ff981522b803ba",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2745,7 +2791,7 @@
     {
       "name": "OCC_main_R322",
       "file": "reference/components/OCC_main_R322.step",
-      "sha256": "1b8401a60fdb61f90eed9591d7b72332805d321b0ae959ad39ce87268d4e370e",
+      "sha256": "c7302c929a2b0314d5507a71f0f5d2d931e22a4ec0f2bd03019fc69e110f33fd",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2762,7 +2808,7 @@
     {
       "name": "OCC_main_C1710",
       "file": "reference/components/OCC_main_C1710.step",
-      "sha256": "14e0b776b9edcaaa9eb47f07e83262afc3844be45e9045576a3e67c4052c3b5e",
+      "sha256": "ba115be8bfc0f28c1e69f09a29f0e9c54d2f482b2138140a37004cdf04930825",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -2779,7 +2825,7 @@
     {
       "name": "OCC_main_R852",
       "file": "reference/components/OCC_main_R852.step",
-      "sha256": "1a13cd5a0fb0f6ef540b8e472e315341d261c4777fc9dab96be871fa99fa5f7e",
+      "sha256": "a02336f8b38390393718dfe9ab9a969fd7dc2a97cc390891e7b55678c4e4df7a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2796,7 +2842,7 @@
     {
       "name": "OCC_main_R815",
       "file": "reference/components/OCC_main_R815.step",
-      "sha256": "a3dfc619691aaa9728663fd0c21110ac6c874793d5e06cafcd7c5ced67d17e87",
+      "sha256": "a66aaa9f463341c6fe52467fdb0f737a4227db87578264d2c814fbbd477f170d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2813,7 +2859,7 @@
     {
       "name": "OCC_main_C1702",
       "file": "reference/components/OCC_main_C1702.step",
-      "sha256": "27e494135141fb179b13c497d3f318c3c77dc219a53f693e97d075b1b87248ed",
+      "sha256": "ea3875e258f60cc2ffa097fef40d7d092b7d78cb8b51345fadc210288f6fd689",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000005,
@@ -2830,7 +2876,7 @@
     {
       "name": "OCC_main_R1006",
       "file": "reference/components/OCC_main_R1006.step",
-      "sha256": "d52e096b280df5d0afd9f5034ac83fce4f2affb731e391e6a25901c54be52dfb",
+      "sha256": "db8b5028e2740bb2a8bfdd5a856fc36b61b91b3586b017056810630266f261ed",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -2847,7 +2893,7 @@
     {
       "name": "OCC_main_R823",
       "file": "reference/components/OCC_main_R823.step",
-      "sha256": "7362533ec0bddfc455c4e3fba3bf003d0e229ef483d055b997f5a6a49c6847d8",
+      "sha256": "af9b23349b15c6077efe73bd84182a822f7f95dad6782680cf08ec5192a3003e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999905,
@@ -2864,7 +2910,7 @@
     {
       "name": "OCC_main_D1206",
       "file": "reference/components/OCC_main_D1206.step",
-      "sha256": "73376d2d67e74306d2514852bd563f60294227d60adfb25ab185958cf7561f90",
+      "sha256": "0bca4f15969c072bb09a23822e26ed4d117722da030d1b7f2855ab82e2cdca89",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281050000000021,
@@ -2881,7 +2927,7 @@
     {
       "name": "OCC_main_R1705",
       "file": "reference/components/OCC_main_R1705.step",
-      "sha256": "32bc7238fb3b693dee562f623a8e5e748ef7b7f2abc22c958d89565fba9e5323",
+      "sha256": "d7b1dee5d104d8ef870694f169e85d08f20bcccecc2d3399c65bf35469670349",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -2898,7 +2944,7 @@
     {
       "name": "OCC_main_R111",
       "file": "reference/components/OCC_main_R111.step",
-      "sha256": "b8ebd97a71efb95315b3f19e8a74e72357940aeae16ee66360a73511bac03c44",
+      "sha256": "53c058ddd8470f54cf7e60d74b0a14c425bc6797a7630065002ef9ecb2511dc3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000154,
@@ -2915,7 +2961,7 @@
     {
       "name": "OCC_main_C705",
       "file": "reference/components/OCC_main_C705.step",
-      "sha256": "5124a84236b6fd939cf78c2d60016df93b5c5e563cf89fa4b1c7ca02a8a8dcd8",
+      "sha256": "0e0312dc0f2c7d89b1e834844c0fe9193af9e4efa2f5f2e4927a1903840f6b47",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.393712000000006,
@@ -2932,7 +2978,7 @@
     {
       "name": "OCC_main_R1913",
       "file": "reference/components/OCC_main_R1913.step",
-      "sha256": "a0b239279ec05b516041382d846f8b5e5f3b67ded451fc71055baaaa98c1ca3c",
+      "sha256": "92bb2a581bdb876c3313536acb1e0cefb9e88983b10a6d06259b757c4ec18f34",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.2774999999999705,
@@ -2949,7 +2995,7 @@
     {
       "name": "OCC_main_U1921",
       "file": "reference/components/OCC_main_U1921.step",
-      "sha256": "3a5cdf0784961aacd85b3d9f775b398d8483c0aaa1f8159f3a2f98a339d43f91",
+      "sha256": "8d0d58a3186d630990aef5420eebd3428b9cdc92b12c7781e0a3f6acfebe9841",
       "valid": true,
       "solids": 1,
       "volume_mm3": 18.223919999999985,
@@ -2966,7 +3012,7 @@
     {
       "name": "OCC_main_C710",
       "file": "reference/components/OCC_main_C710.step",
-      "sha256": "3e9ad89924c923cc8acaa9d895fe82471f6ebc44bc19f502c547e06b6b0e8e8e",
+      "sha256": "7b370e3f1d4800d942235144527b5f05fc667041b98610a731cec0e7f3faca49",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -2983,7 +3029,7 @@
     {
       "name": "OCC_main_R121",
       "file": "reference/components/OCC_main_R121.step",
-      "sha256": "c454cc33ce5c72d58acf7ba2b38abb8de082f7f3846757176d0980aa455420b8",
+      "sha256": "6963a255ee3c1144d02093b498e898ee11227ebfc33f6dfc990fb4facbc7651d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999865,
@@ -3000,7 +3046,7 @@
     {
       "name": "OCC_main_C241",
       "file": "reference/components/OCC_main_C241.step",
-      "sha256": "6452cf6fc6509ac96288b57199c4981b81a1d19c42c3caec3d332e4849f63fa3",
+      "sha256": "c2192d9cfc99e6b34397d1a95af194f23c27ad9221a2bd29c52ef89a9093d278",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999975,
@@ -3017,7 +3063,7 @@
     {
       "name": "OCC_main_R814",
       "file": "reference/components/OCC_main_R814.step",
-      "sha256": "cd4e417761c14922ac4d2b32327c836cefb5d5ed0ea7dabe40ec8a4ea32e094a",
+      "sha256": "22f118893a25d4eb0d52f56624de4eb5427a251a1eb05dcfd62628a3e9e0acfc",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3034,7 +3080,7 @@
     {
       "name": "OCC_main_U1902",
       "file": "reference/components/OCC_main_U1902.step",
-      "sha256": "35e733961fec7562bbe991ffcedc0dd8187f91254774389d2ca010c55bb7a1ef",
+      "sha256": "7a327e0707b0c04618469264801fbc75e8bb387b39b80e5d82e9fc9baceca876",
       "valid": true,
       "solids": 1,
       "volume_mm3": 52.335530000000006,
@@ -3051,7 +3097,7 @@
     {
       "name": "OCC_main_R1716",
       "file": "reference/components/OCC_main_R1716.step",
-      "sha256": "7f7cce511cdbc6439876cb9772f85fba0cf876bc3152863bdfd6b78c42e87919",
+      "sha256": "24c408e39d9cc1e48190bc331dea68714a9cccf807c10310e1aa769224acf8a7",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3068,7 +3114,7 @@
     {
       "name": "OCC_main_D1201",
       "file": "reference/components/OCC_main_D1201.step",
-      "sha256": "c358ea786d5c0478ce3e00c3426332b9208b1010a695cb9c5d832a131ad757e0",
+      "sha256": "227bf352e7f07b0a156eb7d5f896d010b6da1cdbee1fb6a7f2f45871f9c2ef57",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281049999999921,
@@ -3085,7 +3131,7 @@
     {
       "name": "OCC_main_C811",
       "file": "reference/components/OCC_main_C811.step",
-      "sha256": "bcd252be52017fd56e52cd5747e1fc70dad5969da49bc753ed08f8ec1e415099",
+      "sha256": "c6b2d34c232cf580b775eb172537e47adf88498beebcbaaaea2390043e9f324e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 20.18864000000007,
@@ -3102,7 +3148,7 @@
     {
       "name": "OCC_main_R822",
       "file": "reference/components/OCC_main_R822.step",
-      "sha256": "7b8485c469bfdb6ddf48637f4136a97f4c53121a55b361c6d2e4b224f623ce15",
+      "sha256": "7e70c7141c6cc60c50e09aafa1b612c516cdb55939a5d7fccadcd73333923f85",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3119,7 +3165,7 @@
     {
       "name": "OCC_main_R1706",
       "file": "reference/components/OCC_main_R1706.step",
-      "sha256": "3556cda78618aa952ad28bfb417b0f368bd4d9ca2fd49a6b905c3e467f595b52",
+      "sha256": "bd9d99bde9f7c4327f5089a021479e55b59816ad8657bfc9f22b8d24c8e3ba6e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -3136,7 +3182,7 @@
     {
       "name": "OCC_main_J501",
       "file": "reference/components/OCC_main_J501.step",
-      "sha256": "f185abb777b3f11f7ccbe7d5f690fa1b7a087592070185f02c0173a2a48b67d1",
+      "sha256": "eecc404bc9fefec07687de8234ecde085e09939eaa0063c4b63abb484ecd5a2c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 744.9117600000001,
@@ -3153,7 +3199,7 @@
     {
       "name": "OCC_main_C231",
       "file": "reference/components/OCC_main_C231.step",
-      "sha256": "cecebf1a63c5c984eaecbfd92af047fc24765b527cbb3ce59a036486d20896a8",
+      "sha256": "9249f3b651a18f16dce6d3053dc797dc3db95150722eb654303ea23827b1b93b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999989,
@@ -3170,7 +3216,7 @@
     {
       "name": "OCC_main_C240",
       "file": "reference/components/OCC_main_C240.step",
-      "sha256": "161111fc5964dd6c5df184445bd7759be411ebdcfbce2011c3c2284474f7f060",
+      "sha256": "f818f6b30fe1db9051f44f3fc523949c1e76e119346b5f183aedd746f7b66c54",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -3187,7 +3233,7 @@
     {
       "name": "OCC_main_R1921",
       "file": "reference/components/OCC_main_R1921.step",
-      "sha256": "68fb5ff587a0c6a9a999b73dd319151648d0dda9a8640021e7de537e8fde8e83",
+      "sha256": "15f10f3a9b7dcd6e1254274bf4f52979fccc526d3f817dc6a220abd076fe564d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277499999999971,
@@ -3204,7 +3250,7 @@
     {
       "name": "OCC_main_C307",
       "file": "reference/components/OCC_main_C307.step",
-      "sha256": "e0540350b1cca0a15e4b1d820997369c47c266c4cd79661889a72105aaf5763a",
+      "sha256": "1b11ee86a461a756236de2e209d0e7c003bffee3aa75f4af0cf49db3ad65109c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000003,
@@ -3221,7 +3267,7 @@
     {
       "name": "OCC_main_R505",
       "file": "reference/components/OCC_main_R505.step",
-      "sha256": "7d67b310cd46feca48f9f1bf9f16339c2e2da24c92904a0d816df564e143ba68",
+      "sha256": "1b965c440153e2853734ec083fdea3ff4b17d55124ed24261fd7a2d9d65aa766",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999914,
@@ -3238,7 +3284,7 @@
     {
       "name": "OCC_main_C1921",
       "file": "reference/components/OCC_main_C1921.step",
-      "sha256": "37a2dded5a95cc4dac977d25d7a44e5d9d654c2279eb03c95caa4dfa347e085d",
+      "sha256": "1ccafa7073fc573d8faf72fef025253ac07a9839a5fb6299584a38f7ce04032d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000097,
@@ -3255,7 +3301,7 @@
     {
       "name": "OCC_main_R320",
       "file": "reference/components/OCC_main_R320.step",
-      "sha256": "50fc413f400cc91e5caf7b60a8796ca29be0b9be494579de43af41ba5de6d478",
+      "sha256": "28c42a633572934ea163a7dc95a96ba0158a1ddf872dbc3e0e2bdf4edbf09880",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999816,
@@ -3272,7 +3318,7 @@
     {
       "name": "OCC_main_R502",
       "file": "reference/components/OCC_main_R502.step",
-      "sha256": "c799497ccb58ab03b7d9c5b37ca22655c4773483e2a5d11545a70a6cf7bf856f",
+      "sha256": "f6e580aa658c26e1fd3a1e5950a9a42781be59f311694d14b95e5190a572f9a9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -3289,7 +3335,7 @@
     {
       "name": "OCC_main_R812",
       "file": "reference/components/OCC_main_R812.step",
-      "sha256": "d8422a85e675c95c28d3a248b79c83463b7de7f14454dda03a9d629526fff2af",
+      "sha256": "840cdc3d95edb1a09536de2f2ee040b93c81d2e29c03382faa7bfcb0879bd3cd",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3306,7 +3352,7 @@
     {
       "name": "OCC_main_R702",
       "file": "reference/components/OCC_main_R702.step",
-      "sha256": "2bce3524287220a10ad87ec8244663f40d93b69c3d313251009709d68383d210",
+      "sha256": "d8e0ae7fca721cfd6414aa8ffe4f1ae9dbbbaaa5462d44426a7653648d5e8880",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -3323,7 +3369,7 @@
     {
       "name": "OCC_main_R1709",
       "file": "reference/components/OCC_main_R1709.step",
-      "sha256": "3bcb2d9a8aa4b2d557f1bdd23e7fbee7a63c2c7de4e516a304cb3e2cf8e6fcf0",
+      "sha256": "ab75a3cda571d785a62d059001c09a3075ddd125f2f4e34e508d6e15a97e86ca",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -3340,7 +3386,7 @@
     {
       "name": "OCC_main_R1101",
       "file": "reference/components/OCC_main_R1101.step",
-      "sha256": "c5f22e31efc0db09aa83743284eacd6880ebfacbca630277d41badc42aef760a",
+      "sha256": "99d2d55aacbeb2aaf7f12e15690aac0dd8978ba226b7d6079f038406e31a1627",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000036,
@@ -3357,7 +3403,7 @@
     {
       "name": "OCC_main_R1902",
       "file": "reference/components/OCC_main_R1902.step",
-      "sha256": "677d784b78b0186dc69523f3968aba3b8ecae935db33734ccbc613090d2c9ad0",
+      "sha256": "df22e5dcd9c3036249e9b4c5971f5f55dee309502f0b09cf8b5c1f97aa1a78a6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000154,
@@ -3374,7 +3420,7 @@
     {
       "name": "OCC_main_R1102",
       "file": "reference/components/OCC_main_R1102.step",
-      "sha256": "2811fa7c75ad54d4d89f7cbd20f496238414767b5ca5d9b04715a1c6aa356350",
+      "sha256": "d93939d91592dd341dae4a03df44a77e4d22193efd3c0ca4d93faa5c048dbffa",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000154,
@@ -3391,7 +3437,7 @@
     {
       "name": "OCC_main_C212",
       "file": "reference/components/OCC_main_C212.step",
-      "sha256": "7f3751841f0222b32946551d5e2f6fe9aead1a2047d066426f2e0bcd3654bd49",
+      "sha256": "8b0129c8ee38a5fe5ddabe6474606700f4f24f417414f6c2e34e29046e00c396",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701729999999992,
@@ -3408,7 +3454,7 @@
     {
       "name": "OCC_main_C703",
       "file": "reference/components/OCC_main_C703.step",
-      "sha256": "239bbe4ed3339d85d585e29806a985da0a64d3d4c207966f85bd9f5707e77d30",
+      "sha256": "95230175a794f8cecacbd6b1dad8f472a3561e4d609599e77cb400ab39577198",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000003,
@@ -3425,7 +3471,7 @@
     {
       "name": "OCC_main_R832",
       "file": "reference/components/OCC_main_R832.step",
-      "sha256": "ac5e12559d76753502070bcd0cd4b09eed892eadd0139286f0c97d2814f6102f",
+      "sha256": "618a6ad81cf1bbd4e4b0728e98b8ffa17e84f597b8be10f277e271e23dba0976",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -3442,7 +3488,7 @@
     {
       "name": "OCC_main_R590",
       "file": "reference/components/OCC_main_R590.step",
-      "sha256": "729c7c1e23f984eb3b21c82cc2606ba07e16e66766373360e9cd256902431f65",
+      "sha256": "07d6fea255584f9aca7a7964cd2b9903c2ed75f403bd3a685a2884808391673d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -3459,7 +3505,7 @@
     {
       "name": "OCC_main_C808",
       "file": "reference/components/OCC_main_C808.step",
-      "sha256": "1e018a7976335c5a556f8d4ec767caeee95d43767e38a9feccdc3f34a5b08a02",
+      "sha256": "489bbd2d86cd7e36144129d344e7e4ef2ab5d9defb4b70efdb6867e9d04c7814",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.27750000000005,
@@ -3476,7 +3522,7 @@
     {
       "name": "OCC_main_R301",
       "file": "reference/components/OCC_main_R301.step",
-      "sha256": "e0aa7e802ee6bc8e06391246b5731cae2c748295d5d768c2e4716e3df22f1c22",
+      "sha256": "fea977ba4a59f6328ae7fcdbd79579e4a8ffcc29b40b909840353a57f8584461",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -3493,7 +3539,7 @@
     {
       "name": "OCC_main_C901",
       "file": "reference/components/OCC_main_C901.step",
-      "sha256": "6e42c1d8226f5b0e579c12db02923d34aadcdea83be85d873d465c9cd5b57f27",
+      "sha256": "f506c2fcdc0c6634725b2fcc5337242dec0776b3b765e49ba9bdc36e3bb2a415",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000001,
@@ -3510,7 +3556,7 @@
     {
       "name": "OCC_main_R2352",
       "file": "reference/components/OCC_main_R2352.step",
-      "sha256": "cf45b03e9ec4267cc832ae037ee78b99eebc9ed301ac6bc7bc3900fdfd183523",
+      "sha256": "bede98f2737a4c14a6fad56f8bc715307dfb1d4755f0ce1520abead6c8793750",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999978,
@@ -3527,7 +3573,7 @@
     {
       "name": "OCC_main_R312",
       "file": "reference/components/OCC_main_R312.step",
-      "sha256": "8e2fe0040801c6b5739408597c66f6e0949d5c4b1be1c3d46fea432bf9ee3525",
+      "sha256": "f26adc18e57b034dba5d51aea059999821883338c77ffc5614b74d71ed70470b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -3544,7 +3590,7 @@
     {
       "name": "OCC_main_C809",
       "file": "reference/components/OCC_main_C809.step",
-      "sha256": "81f04cf565af36c67b9acd324a85fc2db6a628d07174540053caba5b8f646ba7",
+      "sha256": "f61901450b4ae1c82e8ddbac4eadb00516284439b0f9279febae9d45e4762a9c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000097,
@@ -3561,7 +3607,7 @@
     {
       "name": "OCC_main_C801",
       "file": "reference/components/OCC_main_C801.step",
-      "sha256": "8535f46b480e9a97b4215a0d116fcdb8070ebb4fd861ba24590f03d55c437ad8",
+      "sha256": "410319f7e00c3bac0f42f882e654ee1a9d546e9a621162043b7ac47118e39b8b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000001,
@@ -3578,7 +3624,7 @@
     {
       "name": "OCC_main_C1709",
       "file": "reference/components/OCC_main_C1709.step",
-      "sha256": "dbacb1abcddc7ea7b50d09f5112e8acbb7cb43cbf16ff3edd635b33ab2447f61",
+      "sha256": "3d2039b60fb730b40b95258b07ef17d2e2edbff6f8613d175a22a759e111945e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -3595,7 +3641,7 @@
     {
       "name": "OCC_main_U1922",
       "file": "reference/components/OCC_main_U1922.step",
-      "sha256": "b9e82d6714533823b25852ca476ef5f1d192988af31867bd48cc64103d30b184",
+      "sha256": "75a7a1fc1a85e5a138012ce6dd27a3f86a04e2caed94414ce95af5389e25d207",
       "valid": true,
       "solids": 1,
       "volume_mm3": 14.65804,
@@ -3612,7 +3658,7 @@
     {
       "name": "OCC_main_D1207",
       "file": "reference/components/OCC_main_D1207.step",
-      "sha256": "377e7a3bbdd5075ddb6c28aa7644c42df5859d4d9f93ee68d3b2ba3a75d22621",
+      "sha256": "8d391593cd21e363ed461df00b54c8427575f2787b88f2eb6ab0f645de1e24f5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281050000000021,
@@ -3629,7 +3675,7 @@
     {
       "name": "OCC_main_C102",
       "file": "reference/components/OCC_main_C102.step",
-      "sha256": "dd1cbb85fa62cda3ad73c0d454836351b7bb2002b4df0c4b82a2f29ad94484e9",
+      "sha256": "0da3151d029f4d919c9464fbe3ece75facc42355396044173ef08194807ebeb2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.7017299999999915,
@@ -3646,7 +3692,7 @@
     {
       "name": "OCC_main_C904",
       "file": "reference/components/OCC_main_C904.step",
-      "sha256": "cd842815f73bbabd69968a59f7a8aaf80a4867cc5d045ab947e79a2c76efe27d",
+      "sha256": "cabc8861bfb7a5eeadddf9d4a6547974664bf0a7869fba63d71e965879b11ac3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87809999999999,
@@ -3663,7 +3709,7 @@
     {
       "name": "OCC_main_R1203",
       "file": "reference/components/OCC_main_R1203.step",
-      "sha256": "5675ba90b6fab29fd51d66d7c79f2683359d052e5ab06131148f90de313efc2e",
+      "sha256": "fd730454fd9596c2582f6c3316f6305d722ee10aa8638687e61db1d71ced3080",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -3680,7 +3726,7 @@
     {
       "name": "OCC_main_R506",
       "file": "reference/components/OCC_main_R506.step",
-      "sha256": "c69a6648fd223948cc23d028ce060590fcc767b03789667db73b9a9042caaee2",
+      "sha256": "cefa5e59bdbb373d1c7c382f75b1f917616224157429fbaad9a656dbc5a4e533",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -3697,7 +3743,7 @@
     {
       "name": "OCC_main_R1708",
       "file": "reference/components/OCC_main_R1708.step",
-      "sha256": "bbc48a6f11e42e09be0bc41c34ea1cc21e647ffe561e0c8b4bad36ee9635bdab",
+      "sha256": "45eef0c9b42de534424f1f7af34956c004b99df402f0593db74f9e2eeb9e2ad8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -3714,7 +3760,7 @@
     {
       "name": "OCC_main_R101",
       "file": "reference/components/OCC_main_R101.step",
-      "sha256": "bc3295eba4235e4577e73083c1022e89e9a40001bf40de01fc9c57d708ddfc5c",
+      "sha256": "75cb03acaad8d3719a5875d6c2052f748e5804e962e4e6901d5352d018405f8e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999985,
@@ -3731,7 +3777,7 @@
     {
       "name": "OCC_main_R1302",
       "file": "reference/components/OCC_main_R1302.step",
-      "sha256": "55404318fa766440c47082b49c0ae64369d83484b083bce2c54fcda7dca471c5",
+      "sha256": "7dd599e66da66622652e7d4e2a72d26e3ba9889e2791b996013fa3d55da4586e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000083,
@@ -3748,7 +3794,7 @@
     {
       "name": "OCC_main_R603",
       "file": "reference/components/OCC_main_R603.step",
-      "sha256": "c5b4d9971e702e0478b2e6b202f45bc385b3c84cba7a0afff424ea584e433c84",
+      "sha256": "9d752def876dcaa0e0c8ae6212bc894874a490bfb6366d2d6508d519bb40fa53",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3765,7 +3811,7 @@
     {
       "name": "OCC_main_C810",
       "file": "reference/components/OCC_main_C810.step",
-      "sha256": "cfdb163d91af28e5f34e941b82541d617df11acdfda031cafd7143ae4276a44e",
+      "sha256": "d5a67ddc4fd357456f7dae5607b64536858f89ba385adbfe52fb368c01b1c183",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.87810000000001,
@@ -3782,7 +3828,7 @@
     {
       "name": "OCC_main_R1604",
       "file": "reference/components/OCC_main_R1604.step",
-      "sha256": "a43eae879458fdebf3edc148b87662a28375e4b1132ce7aa781ab97c7d0595f4",
+      "sha256": "f81e96e026516f9e27fcc16aecb0762f2b0a1dfaccedba82bc19b3268fede917",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000018,
@@ -3799,7 +3845,7 @@
     {
       "name": "OCC_main_J801",
       "file": "reference/components/OCC_main_J801.step",
-      "sha256": "7abdda1027d5106769f72a50ec4f56144e338b2afa64728d24945bd94a019c20",
+      "sha256": "807810adc120cbddd15884e71d23cd064d649d76e225950a13ef3de280a78f76",
       "valid": true,
       "solids": 1,
       "volume_mm3": 0.558005000000004,
@@ -3816,7 +3862,7 @@
     {
       "name": "OCC_main_R1704",
       "file": "reference/components/OCC_main_R1704.step",
-      "sha256": "1f2695faef57ecb759911abb712af904dc7e6cd481827ab35595cba81f67b49d",
+      "sha256": "be4a3f568144ceaf676e32792bfe62e009357aaf2fc8718d38382da478fff6bd",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -3833,7 +3879,7 @@
     {
       "name": "OCC_main_R290",
       "file": "reference/components/OCC_main_R290.step",
-      "sha256": "23c125b992d470c447661902ee0311e875cb71cf1619890307993175f7b1fc6a",
+      "sha256": "26e9e5bcf4825cd1179c7fc720a481c76dd8b37963d9471b1fa81e25117d4a00",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999816,
@@ -3850,7 +3896,7 @@
     {
       "name": "OCC_main_C715",
       "file": "reference/components/OCC_main_C715.step",
-      "sha256": "59c1849e7734cbabddd5e07c9528950e92c058f62ecf19fc468fe39322641cfe",
+      "sha256": "f87bb08e053f2bf2033c6ba8d92191bb1307a55ca107207e13825b0916e6451b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701730000000004,
@@ -3867,7 +3913,7 @@
     {
       "name": "OCC_main_R904",
       "file": "reference/components/OCC_main_R904.step",
-      "sha256": "7dadb0557625e8696bf16c65eaf016706974f8fea7feba3df6512ea333f384a5",
+      "sha256": "9b143f7a4ff342000b2e099a2f02768a5da947120eb82e343cae09c858c668d5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3884,7 +3930,7 @@
     {
       "name": "OCC_main_C1901",
       "file": "reference/components/OCC_main_C1901.step",
-      "sha256": "73c99a25c91040b16c2caa4da9333f4fb604598baf6fd580073c22a81a0e8bca",
+      "sha256": "a59358f916b5dac1bf01c8f9d05817da56ba505a773298c34aa349bff81d92a4",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000005,
@@ -3901,7 +3947,7 @@
     {
       "name": "OCC_main_K1203",
       "file": "reference/components/OCC_main_K1203.step",
-      "sha256": "b494f00ac6685a94ce3fcd026719e0ab9feef3004fb8af1b2215e3aa3573bcc9",
+      "sha256": "0833a3910dd61935793e24720fa984f4988cd638c375e60308f93d3adc4c2a58",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.413750000000064,
@@ -3918,7 +3964,7 @@
     {
       "name": "OCC_main_C701",
       "file": "reference/components/OCC_main_C701.step",
-      "sha256": "35528ca206691390729edf1c85d0ceb614be74b093b2a3e9026aec4cc3e7ef63",
+      "sha256": "50ad5b2321feb9299c32f93ac38506af5745b7f19810b55dd43bdc3edae58142",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277499999999992,
@@ -3935,7 +3981,7 @@
     {
       "name": "OCC_main_C320",
       "file": "reference/components/OCC_main_C320.step",
-      "sha256": "f14d9ab557116ed7eb9bbadaa63ea8a774d757d12cfac09f0ac1ef460c422764",
+      "sha256": "dab1d5435a373d85d753a0b35baa94ccf6052cb336f975d8dc45f967daf883d3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000005,
@@ -3952,7 +3998,7 @@
     {
       "name": "OCC_main_R103",
       "file": "reference/components/OCC_main_R103.step",
-      "sha256": "f8bd2297a02f0537a65c336c431f06146c379169edb13aff79adae05cad8a86a",
+      "sha256": "74bd300b9bd0d6d232e3f214a8de4c6a7d68aadc1382a19d684520c1e209be6b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -3969,7 +4015,7 @@
     {
       "name": "OCC_main_R1202",
       "file": "reference/components/OCC_main_R1202.step",
-      "sha256": "3dccce7f45c792090162dca40ad07c6d2063124abc4de40dc62b3eb203579de6",
+      "sha256": "ffc6c5c9cabbac33aac3b3a5217e97e34ad17d734469056d0056ddd1ab69758d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -3986,7 +4032,7 @@
     {
       "name": "OCC_main_R1901",
       "file": "reference/components/OCC_main_R1901.step",
-      "sha256": "6627d4bb954c7d265f0129d2432bc51cfd71e8f2c3431d9bc396b3d7d2d7aed5",
+      "sha256": "e8584dfaaf5003fdd9bf77112d7b6dcf4e78d4f4ae9e979d59003710c187f665",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000185,
@@ -4003,7 +4049,7 @@
     {
       "name": "OCC_main_C1903",
       "file": "reference/components/OCC_main_C1903.step",
-      "sha256": "bf852d4a6037df366b8389ba8a194ed21259213b5bbc005a5b156ac67dc825eb",
+      "sha256": "20450205111319f43fac4da17ff0d102c86c641520ff9f28bad8ecbc6a45320b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000097,
@@ -4020,7 +4066,7 @@
     {
       "name": "OCC_main_C903",
       "file": "reference/components/OCC_main_C903.step",
-      "sha256": "b710140425e68aaeb438c7c1e8bcaf47585efc8003440234e92d5984520792e8",
+      "sha256": "d263630a7ee5a1d88469df0dbdc98d7a59ae93e80320e4ff325b8f507be88592",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999975,
@@ -4037,7 +4083,7 @@
     {
       "name": "OCC_main_R1717",
       "file": "reference/components/OCC_main_R1717.step",
-      "sha256": "a681c0e64388553db5d10b55498b05499b5bc68d599134ecfa03e9175412eb6a",
+      "sha256": "2b796d6f427b2b908bf14a15b2ade22c655b7e8b47f8a3075432a38c8ac48293",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -4054,7 +4100,7 @@
     {
       "name": "OCC_main_C704",
       "file": "reference/components/OCC_main_C704.step",
-      "sha256": "d695776d8273925c04e3942bfee274e468a9b58ca2909051e57020c188434602",
+      "sha256": "e03f4fa658829e27393280ef0eb0824970fa4e9ac16a5f041adbf5484261abd9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.393712000000006,
@@ -4071,7 +4117,7 @@
     {
       "name": "OCC_main_R830",
       "file": "reference/components/OCC_main_R830.step",
-      "sha256": "de65edb01ac6cdf828d0b56223d219d4b053c91ce1a7f21fd887a3f6d5be22dc",
+      "sha256": "8498d06307c12e21067dea1eb731faed8b0e29b6c23e267f900780c4065b5213",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4088,7 +4134,7 @@
     {
       "name": "OCC_main_R701",
       "file": "reference/components/OCC_main_R701.step",
-      "sha256": "354baf5752506f2a35a8d4699802e8e187615131d8d105e70de4a5d41fd52da1",
+      "sha256": "1388c24209675be76ff3951d906bcfa862543db6027604e0b5f0b0b4f32fa192",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -4105,7 +4151,7 @@
     {
       "name": "OCC_main_C821",
       "file": "reference/components/OCC_main_C821.step",
-      "sha256": "f01e62d1be523085d04946a30e6912b3dbdbbd69e5eb63dbeb0e42f71798cd5d",
+      "sha256": "54a78c5fe9b50861aba45a8221609fe88009e1c753681c433c1260b6cd7d1d8e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529599999999986,
@@ -4122,7 +4168,7 @@
     {
       "name": "OCC_main_R1903",
       "file": "reference/components/OCC_main_R1903.step",
-      "sha256": "8177e06b8b95dc42fc45e33b14cf5160a3deb6b4a6c61acaddcbf78c351b7e9f",
+      "sha256": "59bc7441a039d867d7cfe7ea6f3e100f8f41447a86f4911b62055d19f6e876f6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000327,
@@ -4139,7 +4185,7 @@
     {
       "name": "OCC_main_C608",
       "file": "reference/components/OCC_main_C608.step",
-      "sha256": "d2bc536ec4c026bd7fa278252f37225e7d1a70d6403ac375b4f06a3403a66a0c",
+      "sha256": "b8b0651dd5e94e283f87ea34c850e4b771954cc5a5041469734ec818aaaad592",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -4156,7 +4202,7 @@
     {
       "name": "OCC_main_C103",
       "file": "reference/components/OCC_main_C103.step",
-      "sha256": "b6c13b6d2a921992c78d4da039989b1bd88b16fff9a61f7b6a59ece9fa9bb14b",
+      "sha256": "7ced17147ab09a963e46397db5d15ea9136a30c204cb5fb4ce872b5fc1931ffe",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000003,
@@ -4173,7 +4219,7 @@
     {
       "name": "OCC_main_R901",
       "file": "reference/components/OCC_main_R901.step",
-      "sha256": "230580d76b8358b08298fa316e753cbb07e5c5d9c78792eabc8593340df31d1f",
+      "sha256": "61fe947d0510b35a03e7c51f3387b2ad6ba968e2147f4dc5d83e2466cd843198",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -4190,7 +4236,7 @@
     {
       "name": "OCC_main_R907",
       "file": "reference/components/OCC_main_R907.step",
-      "sha256": "df690777b5b41a806e2608419149ec574733a80d9178ed1cb51ca4648915665f",
+      "sha256": "ee423841da67f77d918523bf139e5534424f9e90c649ed1d06e48f4c572777f4",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000225,
@@ -4207,7 +4253,7 @@
     {
       "name": "OCC_main_C602",
       "file": "reference/components/OCC_main_C602.step",
-      "sha256": "d3b5fc86b0365a279d85c229ba5e00b6bcea1fa17efc3505e1f0f3d3053b70af",
+      "sha256": "e903b225c6a72a4d4f08a3c5de4eda45c2c4c1e1a08a2b0845fb772e285a3a34",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.878099999999997,
@@ -4224,7 +4270,7 @@
     {
       "name": "OCC_main_R826",
       "file": "reference/components/OCC_main_R826.step",
-      "sha256": "c5fec105690ef595f8c9b01ec6d1df75f7d9153cbe5354f721315c925f74ad34",
+      "sha256": "9b7baefd5258b00379d690c992e5acc19dc868dc8de7a6cb2036c82373e5634b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999981,
@@ -4241,7 +4287,7 @@
     {
       "name": "OCC_main_C1704",
       "file": "reference/components/OCC_main_C1704.step",
-      "sha256": "3c7cdc282531ebd525f2ab9703457380f1999416dd2c9b3238beae5f7d756bd6",
+      "sha256": "0a4d6c4d1c3b45242a9c8a09468c73052287499c64294140f8d0dcc5bd57bc50",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000005,
@@ -4258,7 +4304,7 @@
     {
       "name": "OCC_main_R1711",
       "file": "reference/components/OCC_main_R1711.step",
-      "sha256": "08aa2b32d1bd2605172e57073b812cb5749237f30f5eb7d456368527b0bda1bc",
+      "sha256": "7c5f3b20dc4bf524d9a5dd87d10889d8b86170fc8a4d2273c35129dac1ea953d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -4275,7 +4321,7 @@
     {
       "name": "OCC_main_R1004",
       "file": "reference/components/OCC_main_R1004.step",
-      "sha256": "a80478ec98ae80563530ad5ccdfc961decf40d37c7924c12c34a3cb6d1eeaabf",
+      "sha256": "abe8374874dbd0807d66ce30fcf132afb1952e76b34dc76abf621f60fa40c4b3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4292,7 +4338,7 @@
     {
       "name": "OCC_main_R1715",
       "file": "reference/components/OCC_main_R1715.step",
-      "sha256": "32a85351eedb07cea40748dba6d9ca8e23ba6b2198821204ae6a08ba1200382d",
+      "sha256": "73e5936884e6a00c17b5ff9a589a5d59e29c6539800678c390255524e6f3d671",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4309,7 +4355,7 @@
     {
       "name": "OCC_main_R122",
       "file": "reference/components/OCC_main_R122.step",
-      "sha256": "244f93a3f1586d639fcb3b84e7b524f1a49fbace97e67c56ff31707a62538b70",
+      "sha256": "790b9bc556ca9d8e4ccdf1d0d9131f8c79d91c0b1519a395af1a16b71e1f3a45",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -4326,7 +4372,7 @@
     {
       "name": "OCC_main_R231",
       "file": "reference/components/OCC_main_R231.step",
-      "sha256": "1b45d30681be0e3f01e2dd0f8ae2b3c2c87ff0ce6620c9f4d4f81a1b9c6e4bc2",
+      "sha256": "5c0a2b86121e434f0881ca4655ba18b64348d781b5373fcfbc901bcebf3e228e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -4343,7 +4389,7 @@
     {
       "name": "OCC_main_R850",
       "file": "reference/components/OCC_main_R850.step",
-      "sha256": "c2992b68e8b682c494d5c191e4b28b6ef42504a34a8c8414e7080e06c7371f4b",
+      "sha256": "4c93578e6c60a876bb14d8b3dc426d4d6b14f890f8ab0aeb71af54a2e0f9d7e7",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4360,7 +4406,7 @@
     {
       "name": "OCC_main_C301",
       "file": "reference/components/OCC_main_C301.step",
-      "sha256": "eb2d13b330d0fa934dcf6c6bab014c5d031d188efe632eecc49620f4fbf073fc",
+      "sha256": "02b197d71388f64010f1ba01860514db16314f49be8f599656ee70e47385918f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999968,
@@ -4377,7 +4423,7 @@
     {
       "name": "OCC_main_R242",
       "file": "reference/components/OCC_main_R242.step",
-      "sha256": "ae32437fdee97dd4ebb03e1c3549c36a11307f9be889fa64b97c0faff902efc8",
+      "sha256": "576b85cb060c9024b8528f7089a82b1e367bc73f8cfd31aa0c651552b1c0fc33",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -4394,7 +4440,7 @@
     {
       "name": "OCC_main_R903",
       "file": "reference/components/OCC_main_R903.step",
-      "sha256": "08566b3442a8d0273d06578d42a11d6c7d46bcb537ba5a121b8d0dd383975a9d",
+      "sha256": "0724ddec1b2e74483ef6006d98e2bad00f85d46e8dc15722a9ce9f5c83dda2d1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -4411,7 +4457,7 @@
     {
       "name": "OCC_main_R1005",
       "file": "reference/components/OCC_main_R1005.step",
-      "sha256": "32918503ec97ca5c8fa301eb0e365f75de126a59160f6b5688ebf061380108ed",
+      "sha256": "3786510447cb8dfaf922f8b859c2fc97e4770c02f97284491cea20755d982ed9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999905,
@@ -4428,7 +4474,7 @@
     {
       "name": "OCC_main_R291",
       "file": "reference/components/OCC_main_R291.step",
-      "sha256": "ceabfce14e7b019d6a94a4cb2dd2730f04d01cb7b06c2a0d88316922f9f0a07a",
+      "sha256": "d5e6a5c9d78453a74b0a4428ead9bac53c7072d5140c4a0c974dcb9cceecb0a8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4445,7 +4491,7 @@
     {
       "name": "OCC_main_R1601",
       "file": "reference/components/OCC_main_R1601.step",
-      "sha256": "f19f401c1cebca3396b6e2bb99b29815ae0a55d65b72337aeab152e948373332",
+      "sha256": "214102bd8b4e7aa355ea49d0ba620d54396f4cb0104490ee05be99756ff4d26c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000005,
@@ -4462,7 +4508,7 @@
     {
       "name": "OCC_main_R2351",
       "file": "reference/components/OCC_main_R2351.step",
-      "sha256": "e0621ebfd2595bbbf7e1c4a9ef6780a31c69174de5368a6f0ff1f1297ede8237",
+      "sha256": "ce58ecdb64cdb5ddc574f91ef125152d133f2770e36c734b60ff56c96780365d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4479,7 +4525,7 @@
     {
       "name": "OCC_main_C601",
       "file": "reference/components/OCC_main_C601.step",
-      "sha256": "24237244d1583adb46ff72c5715bcc57aca32dda337d93c14c47d92b051d6fd6",
+      "sha256": "1a1fb72bb5d779921be48dee631179cf0d068faeb596e489c47fbaddc6bc17f1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -4496,7 +4542,7 @@
     {
       "name": "OCC_main_R1104",
       "file": "reference/components/OCC_main_R1104.step",
-      "sha256": "3a2475dee8c64acdbd523b3d29e57bc4fb6060128cfed1fbd717e0fabfd528d0",
+      "sha256": "1cf96454ee8a888c26050d48cf427090842267c1ebc4dda73c7298ea0e48b4cc",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000322,
@@ -4513,7 +4559,7 @@
     {
       "name": "OCC_main_C121",
       "file": "reference/components/OCC_main_C121.step",
-      "sha256": "4ab0102441425d352daa438b261a3ee743996c777aef379b2212fe30866e1122",
+      "sha256": "43f6c01ba6170f55c63cd03b9e9391be377fbb9c36711966c78b6ddf3a317513",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.7017299999999915,
@@ -4530,7 +4576,7 @@
     {
       "name": "OCC_main_R1923",
       "file": "reference/components/OCC_main_R1923.step",
-      "sha256": "886216ea8103abf27138e73b4f413582e42b436cd14ccae6413ff9ca1167e9e4",
+      "sha256": "2b4c7f8f45e9bbef4994c6455831933eb00f8af64b6099576c42f8c5ce548501",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277499999999971,
@@ -4547,7 +4593,7 @@
     {
       "name": "OCC_main_R1911",
       "file": "reference/components/OCC_main_R1911.step",
-      "sha256": "ca007785aea5995c237e554c8eaf7463014e779adac2e5bf44542d9908749b3c",
+      "sha256": "a74210e9b0e910a45c77ea8d0e02f94298b6c9de655454e87dce56358d1d864e",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277500000000044,
@@ -4564,7 +4610,7 @@
     {
       "name": "OCC_main_FB1101",
       "file": "reference/components/OCC_main_FB1101.step",
-      "sha256": "ad0040f07741b6b8ca74a4c209b1ea01fc6c564972add1e0baa230636e0d0483",
+      "sha256": "cd2385ca55432cac447162db9a9cc31d8709b1a19118911959e583f8cf9961e7",
       "valid": true,
       "solids": 1,
       "volume_mm3": 5.0645100000000305,
@@ -4581,7 +4627,7 @@
     {
       "name": "OCC_main_R703",
       "file": "reference/components/OCC_main_R703.step",
-      "sha256": "84fe7f91954114b15579e700f81b0e4b18e050485300c0c3e86a9132d23906c0",
+      "sha256": "8fc61805821f4d75cf262aba2a1a55a6964b0e474227bdf582728ec63ba6a76b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4598,7 +4644,7 @@
     {
       "name": "OCC_main_R311",
       "file": "reference/components/OCC_main_R311.step",
-      "sha256": "120a7ef4ee31067d02bfe252e1943c9b46727441815ff086054e8161e0122e19",
+      "sha256": "f86e48e02301356fa2af5ea55307b9e7ecf1814afde59c5ec3cc740ba84a2a62",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4615,7 +4661,7 @@
     {
       "name": "OCC_main_R811",
       "file": "reference/components/OCC_main_R811.step",
-      "sha256": "921cd226d8c167def43184d8ee20412bf6e8dd062a5e3b0913ad1f4e362ca2ac",
+      "sha256": "f7ea03ed3975edafe3ee082575444d7969bf25fbd063ab7b351fc6bf17ee0118",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4632,7 +4678,7 @@
     {
       "name": "OCC_main_R221",
       "file": "reference/components/OCC_main_R221.step",
-      "sha256": "cc25f666a3a667e5c64b45e590281e5468ddb637093726808615d2511567955f",
+      "sha256": "6fa3ead772d064fdc3301c78ec2026f113970d5a68cbeeae0b5810a0cd97c736",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -4649,7 +4695,7 @@
     {
       "name": "OCC_main_C702",
       "file": "reference/components/OCC_main_C702.step",
-      "sha256": "161432f7b671d6e498a7ae32fe87d9178c1b2ef55956ef0e19486a6342c4f3f6",
+      "sha256": "893edd90f26ff16cc4841c21e88266061236ac9622c846eba99dfcc0dc0a0e99",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277499999999992,
@@ -4666,7 +4712,7 @@
     {
       "name": "OCC_main_R1206",
       "file": "reference/components/OCC_main_R1206.step",
-      "sha256": "d30145813da52e813a7df4ffc310cb906692e076cd5367db6fd92e28e228a6b9",
+      "sha256": "0aef11aa89aa389424dfadcaf18deb7b27c896efa912647c39e6f8402e58f75b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -4683,7 +4729,7 @@
     {
       "name": "OCC_main_C1708",
       "file": "reference/components/OCC_main_C1708.step",
-      "sha256": "0f95b88a610a2f7e5311525b8f91fc25e707a764693f40f9ed7bc3d9449ad5d0",
+      "sha256": "c7a24ffcaa5ef01a92b365b9a4c87f5664d87db6e96a94aced0ad01b59fccf88",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000015,
@@ -4700,7 +4746,7 @@
     {
       "name": "OCC_main_R601",
       "file": "reference/components/OCC_main_R601.step",
-      "sha256": "f6ed6efb43660734d9e67c1cb546c632b7f06271c8f5232edc1ca99b8bb68bb6",
+      "sha256": "adcb656e2d54a509e6db6fd8eea0457464a99b8d46ebd6c1bd34b4ca8c138cc9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -4717,7 +4763,7 @@
     {
       "name": "OCC_main_C711",
       "file": "reference/components/OCC_main_C711.step",
-      "sha256": "bbed14ef6a9453c262c89574136d866320c39e14a2c3018f9b253c0e0811f0fd",
+      "sha256": "8a8a97217e3e59baf5970fded86b4fcecd3d059256f2bf440f7d239ad653ffe0",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701730000000004,
@@ -4734,7 +4780,7 @@
     {
       "name": "OCC_main_C905",
       "file": "reference/components/OCC_main_C905.step",
-      "sha256": "950e41bea3d366dce16f89f9fe947db8af586ec52379e1187260cd51172547c9",
+      "sha256": "f97dd128646143c84341a56d16632ecb8046eac78d12045eb9a1196ac62187be",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.701730000000007,
@@ -4751,7 +4797,7 @@
     {
       "name": "OCC_main_R1201",
       "file": "reference/components/OCC_main_R1201.step",
-      "sha256": "4ce14094ddddadf6578242c3a185cfa8c067d5c91869ac239963b67be24398f7",
+      "sha256": "d4e2923aa7c98e2e82d6be86ce2af50402e5b735f3e4bea7923bcff9e14836d5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4768,7 +4814,7 @@
     {
       "name": "OCC_main_D1202",
       "file": "reference/components/OCC_main_D1202.step",
-      "sha256": "5df7e281395919e19527b2a1286d253237e8db78cc562fd0232bf038a47c88a1",
+      "sha256": "cdb070199a0b870f55a1eafa936173d5a9b9f21736bdaeb16861b271ac0906ec",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281050000000021,
@@ -4785,7 +4831,7 @@
     {
       "name": "OCC_main_C1705",
       "file": "reference/components/OCC_main_C1705.step",
-      "sha256": "5de20534f2f97ffbc6b9730e2c2f0cdc06d015a2789309b3ba50de5e87bb639c",
+      "sha256": "4a02da6a946ba4eed61af3535df6131e9a122855e1adf247497fcaf421a10755",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000005,
@@ -4802,7 +4848,7 @@
     {
       "name": "OCC_main_R1205",
       "file": "reference/components/OCC_main_R1205.step",
-      "sha256": "8609bb7fdf0a2f4e92a206e0c44309b0f2014e19db0f29fba6fbaecdca71444e",
+      "sha256": "3c054256c929ea2f7b8989f7cb48a8b34744b8caafeed0e7cf7cbe2587bd84ca",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -4819,7 +4865,7 @@
     {
       "name": "OCC_main_C221",
       "file": "reference/components/OCC_main_C221.step",
-      "sha256": "7a4c35d6ec2d850e9a3520a13c0c01ee3cc5f8efc3e76015c17ddcd8e975d76a",
+      "sha256": "ea8cae8119ce430ad72aa331a81c303897f4fd96377beeb8587450423ce6ca90",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999975,
@@ -4836,7 +4882,7 @@
     {
       "name": "OCC_main_R821",
       "file": "reference/components/OCC_main_R821.step",
-      "sha256": "2958d3bc57e30f9fef2490a73affe4b8e1ed14d1b2cd72d9db205d2dcd4cb369",
+      "sha256": "74f545ae4909418d0827c35773bddbb8280ed90a4af4b506a46ddb5310eecfe0",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999896,
@@ -4853,7 +4899,7 @@
     {
       "name": "OCC_main_R1211",
       "file": "reference/components/OCC_main_R1211.step",
-      "sha256": "edc1920bf38925fb99050f9c19c78e872fd42446b87484b9d87a87a0f2d42c37",
+      "sha256": "047fe992b836fc5eb5e872f367ae91f22912a40861774059a3f554f299ffb280",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -4870,7 +4916,7 @@
     {
       "name": "OCC_main_R503",
       "file": "reference/components/OCC_main_R503.step",
-      "sha256": "0b1f329bfd3287b48a3e059a82ac88f68af02b240ae50e0e446ba114179e4a32",
+      "sha256": "61cf5bd317e81ffade70846715f53144485cbbee295f64dd700707357ebb3c73",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000322,
@@ -4887,7 +4933,7 @@
     {
       "name": "OCC_main_R1603",
       "file": "reference/components/OCC_main_R1603.step",
-      "sha256": "72a744616dee13ce3f87a777a460f0156cbaed490c20e9d1dfec3b3e495c3452",
+      "sha256": "a0a5d94ffc0ab811660c7d142af4eac05fe06140c5e51e563d7b47bb8e6b80ca",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000185,
@@ -4904,7 +4950,7 @@
     {
       "name": "OCC_main_C824",
       "file": "reference/components/OCC_main_C824.step",
-      "sha256": "3390586c03c95057515142187276495db45fbe7182ccac85496f905db2432943",
+      "sha256": "ad7567b2abddfc1c38275d2b0a9ebbc48a65ab5e0a2064882056f35a44e62fe8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000015,
@@ -4921,7 +4967,7 @@
     {
       "name": "OCC_main_C1902",
       "file": "reference/components/OCC_main_C1902.step",
-      "sha256": "d073aab6d61b171b4f046d3b3764cf1171f86ecc9a73da711cb5c3ce2c5fcfd8",
+      "sha256": "819312df3b25cf7eb9cd654a907123163a5a09257dbd4af5ab48d3d2debb94d6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.157099999999984,
@@ -4938,7 +4984,7 @@
     {
       "name": "OCC_main_D1302",
       "file": "reference/components/OCC_main_D1302.step",
-      "sha256": "03d2537200a03f71e294fa6f5a8261ba304a4078005fb5834ef98c35b3f3ed2d",
+      "sha256": "be5d6c7a1ef42262e54793217f7d95029fb8ae9a35062d11edc68d141e8e0786",
       "valid": true,
       "solids": 1,
       "volume_mm3": 11.34815999999997,
@@ -4955,7 +5001,7 @@
     {
       "name": "OCC_main_R1707",
       "file": "reference/components/OCC_main_R1707.step",
-      "sha256": "7c1f8ddae66a98f7e147415b207a572a409d5a0ccb0cdc45e56aad135e8ef82e",
+      "sha256": "71318303e6ff0e271dd142d43befd898bb2951331ff52456c4138366f89a4601",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -4972,7 +5018,7 @@
     {
       "name": "OCC_main_C805",
       "file": "reference/components/OCC_main_C805.step",
-      "sha256": "a68f6fa9719cc712ef2575fc465758549ef2639728d71b9c857e1f0542b2bf16",
+      "sha256": "db64e96bd1e8da5af782051cd4db198d5a2064494ed09c7d65c4470fe9bd0c20",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781000000000097,
@@ -4989,7 +5035,7 @@
     {
       "name": "OCC_main_R202",
       "file": "reference/components/OCC_main_R202.step",
-      "sha256": "8bb5c34dc923fc9d75b402a702678c19df6526a645b59ae649849b8dc28a6ebf",
+      "sha256": "eed3ba6455337f6e6efe94eebc8a3166f387bcf98697db1f3935f24c3059d3ea",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -5006,7 +5052,7 @@
     {
       "name": "OCC_main_K1202",
       "file": "reference/components/OCC_main_K1202.step",
-      "sha256": "1ae328056aee0875c59eda550611b31be6d89f4cf89831e51af5b0cb3be27f6d",
+      "sha256": "b49b677dff1fd5b9d3c88a64b3f4370fc85a953041f2303307134edff4074bcb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.413750000000064,
@@ -5023,7 +5069,7 @@
     {
       "name": "OCC_main_C714",
       "file": "reference/components/OCC_main_C714.step",
-      "sha256": "9455555c59f55d9a20c4830e58ec2e8087f69fa654abc36e56e821f10fc7289a",
+      "sha256": "ca87ed18b902bc3025a28b9d8a81e201a7b65422f08deb0f5d0183df11bfffcf",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8781,
@@ -5040,7 +5086,7 @@
     {
       "name": "OCC_main_C1707",
       "file": "reference/components/OCC_main_C1707.step",
-      "sha256": "d3f11cbb9ca454c142e9e3448dea68277d925fd3e03dc55961221ac59bb4b500",
+      "sha256": "62f9de9063fb7bbabfef362c4efe486377d716165a94ec984d6e42f6f3eb435f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000005,
@@ -5057,7 +5103,7 @@
     {
       "name": "OCC_main_R1710",
       "file": "reference/components/OCC_main_R1710.step",
-      "sha256": "36e80483650fadd49baa1d694930c34360222a305a30e4216bd8f1a805604ba0",
+      "sha256": "1e2e3da8d88713d475f487f13e2dde4d5088a21c714a4f6b2fdeedafeb98c906",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -5074,7 +5120,7 @@
     {
       "name": "OCC_main_D1204",
       "file": "reference/components/OCC_main_D1204.step",
-      "sha256": "d7511e41bfe79afdfeeaa2ac92a519bdcabe6a3b83f0f002fc809bdfd9315c4e",
+      "sha256": "d8d4297690bfd7cc6fc9251a0552c087bdeb16976a1716569c007f8d71714f78",
       "valid": true,
       "solids": 1,
       "volume_mm3": 1.1281050000000021,
@@ -5091,7 +5137,7 @@
     {
       "name": "OCC_main_R906",
       "file": "reference/components/OCC_main_R906.step",
-      "sha256": "699f08879bb601af9e601c9b231e7789cdd7ee3ed2cb278028a63cbe693b52be",
+      "sha256": "fb54037a3958af7090f2cc316182de694e74efaf523941b9b54ac016d44e4bf1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -5108,7 +5154,7 @@
     {
       "name": "OCC_main_U1703",
       "file": "reference/components/OCC_main_U1703.step",
-      "sha256": "b04c33921b9011956d878426374358fff8c5f47badfeaec5beadfe6bb26980d9",
+      "sha256": "49e0d0f4c620aa6e7007e25feaaaef1acb60718f9cb90f47ff3cdab140e9888d",
       "valid": true,
       "solids": 1,
       "volume_mm3": 52.33552999999986,
@@ -5125,7 +5171,7 @@
     {
       "name": "OCC_main_R802",
       "file": "reference/components/OCC_main_R802.step",
-      "sha256": "fde47e85080fc220b9802a32b94d54f46309aa826032e7cdf678b3137237439e",
+      "sha256": "cc4da265d97bdd56a1401ac423a642a3b7197a7b419b1abe57b1853cca6f8de3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -5142,7 +5188,7 @@
     {
       "name": "OCC_main_C1106",
       "file": "reference/components/OCC_main_C1106.step",
-      "sha256": "09597a408a71a9278a02a010fc86f0fc630a31ba2d48b1bae8eb61d8febb13c4",
+      "sha256": "7134eba08d89433fd0e780bb9d6e22cb4735d0b2892e3da0ff252af080d52bfb",
       "valid": true,
       "solids": 1,
       "volume_mm3": 10.246274999999976,
@@ -5159,7 +5205,7 @@
     {
       "name": "OCC_main_R1207",
       "file": "reference/components/OCC_main_R1207.step",
-      "sha256": "16425451b6c62abb548bfe4ced769e04dd316628bcdcb7f3cc1c13d6289fba57",
+      "sha256": "3c337274f416c83bf361693b7f9ba94f2d2edbd6b0c59742769db0bb386d6a0b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -5176,7 +5222,7 @@
     {
       "name": "OCC_main_R321",
       "file": "reference/components/OCC_main_R321.step",
-      "sha256": "716b3acc357ffe3fcf4d387fd287ddc215e6e29dc4e7cc636fab9419436945ca",
+      "sha256": "79a8a817918bd06e9ca8780b79f67fa42f00eadb761a144ae7af4ab07574a726",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -5193,7 +5239,7 @@
     {
       "name": "OCC_main_R232",
       "file": "reference/components/OCC_main_R232.step",
-      "sha256": "5d281740ddc2cfd39908dddee20af3109b2f7ad7d31f3aa37ba3e93777906b72",
+      "sha256": "6636fd03af4d2b61c570142190399821a6229088f91d2f6949e65a74b9d95f66",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999816,
@@ -5210,7 +5256,7 @@
     {
       "name": "OCC_main_R201",
       "file": "reference/components/OCC_main_R201.step",
-      "sha256": "b9607ba2708de0bfacec27de2305f4216c1cb0c3bdb30381ee0c4ebaf233ebe1",
+      "sha256": "5d9b3ff5c3a59224bc947d5be6b85c990b35119bac8f3f3be4905225796083f2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999816,
@@ -5227,7 +5273,7 @@
     {
       "name": "OCC_main_R1204",
       "file": "reference/components/OCC_main_R1204.step",
-      "sha256": "24f15b80e661c2174f8f882a58a0acc2e77fb7e2de3ab103a58844c47875537b",
+      "sha256": "7a001a8683136bf74dc0c084c5dee1cd492b1a7ec0b2bafaaa46229bd5ceeb93",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -5244,7 +5290,7 @@
     {
       "name": "OCC_main_R1801",
       "file": "reference/components/OCC_main_R1801.step",
-      "sha256": "27f10e8ee1aea285c9676c7a6f68301b8eb13968decafd337ceeeec3e07402e4",
+      "sha256": "81af428047de382d3a6ad2e5c5e6590ab569f5a9614fbee93b28cf9271a740ba",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -5261,7 +5307,7 @@
     {
       "name": "OCC_main_J1921",
       "file": "reference/components/OCC_main_J1921.step",
-      "sha256": "a793d4adf08d9c309f02ee760338be9238edb569c466ced228f2d7c1249f5eb1",
+      "sha256": "4fdf7296f42742828b408aa9d59da9a0d5ce7050c7e3c33923bb62d13b694c80",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.682649999999933,
@@ -5278,7 +5324,7 @@
     {
       "name": "OCC_main_C823",
       "file": "reference/components/OCC_main_C823.step",
-      "sha256": "6f53d1b49f7b61ea5451f9949deae9104aed90bf8a5e8ae8df82ddbf183c5f2d",
+      "sha256": "4797e77f202ca035421bf4372aaf8e3903150beb76e20d7dccc99b0321548f6a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.529600000000015,
@@ -5295,7 +5341,7 @@
     {
       "name": "OCC_main_C831",
       "file": "reference/components/OCC_main_C831.step",
-      "sha256": "c26b7cdd969f39932198417168feb70a9a7230f6e496a5bbef5b95f72f94bd86",
+      "sha256": "6153c46990c463f86df4b784930083bb8b0bd901e836d8fe769667d94d7178f8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 20.188640000000074,
@@ -5312,7 +5358,7 @@
     {
       "name": "OCC_main_R1712",
       "file": "reference/components/OCC_main_R1712.step",
-      "sha256": "afe5f7ef904cbd4fda4b0bb8176210e39a1b186dab85ac5abe24d75ef1f4b6f8",
+      "sha256": "474acfd9dd14ff611c43efb2173af65fcc79a983f7877e2240f87faa91ff9d06",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -5329,7 +5375,7 @@
     {
       "name": "OCC_main_C807",
       "file": "reference/components/OCC_main_C807.step",
-      "sha256": "e8effd98238939e5224e17649680306b3a1f2d8e15949b044d3c09cdc0253b84",
+      "sha256": "8bb61fc6e70db3621034e6ff8742c692e85c62b5a527ccc99c80964512da8741",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277500000000002,
@@ -5346,7 +5392,7 @@
     {
       "name": "OCC_main_R1702",
       "file": "reference/components/OCC_main_R1702.step",
-      "sha256": "5a8fd8fb4d0d28953e02e95d9fea3719b61f2bff7620dfb963129fbf69f36b74",
+      "sha256": "51d11cede40b555f9a7197dbbdba3df1cdde23417fd2062a8d3bfce8437989f8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -5363,7 +5409,7 @@
     {
       "name": "OCC_main_R1304",
       "file": "reference/components/OCC_main_R1304.step",
-      "sha256": "e8d3bda6a141e2d1ba94a4131670ed2ff13d63f1259ec14078f7ead50683d735",
+      "sha256": "b426b7d9c416c04922a2f867455c5473fb3430e39a44084f72f10873afb33f7a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277500000000012,
@@ -5380,7 +5426,7 @@
     {
       "name": "OCC_main_R902",
       "file": "reference/components/OCC_main_R902.step",
-      "sha256": "19ac499142132c23aee9123bac66c224a0fe4b06dec5b0dfff54c11198c536ca",
+      "sha256": "60868bff140855f8b71ee40eacd76383f993911f646bbf7ebf2a281e8c2b1ddc",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -5397,7 +5443,7 @@
     {
       "name": "OCC_main_R1703",
       "file": "reference/components/OCC_main_R1703.step",
-      "sha256": "cbad29ffe7ce2c485a04368cfbc533305d6622682db609d94c9a072de560b957",
+      "sha256": "eeecad04931e26b091db2b2bf6c33119eee75fcb7ad40ae4026f4bf12aa5c2e1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780375000000002,
@@ -5414,7 +5460,7 @@
     {
       "name": "OCC_main_R824",
       "file": "reference/components/OCC_main_R824.step",
-      "sha256": "3c568ca35cff7b78b857b72f63d131f8229b4168357388d5af829d55d24d0c90",
+      "sha256": "bab2849364fc7ac44c11a8951c68c06d7bc4d97c30aa6d9a740d855b7600e4fa",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999887,
@@ -5431,7 +5477,7 @@
     {
       "name": "OCC_main_R241",
       "file": "reference/components/OCC_main_R241.step",
-      "sha256": "78feea245e7b2c02efc04148659293bd8a474160a287cc0400bdd29a08111bc6",
+      "sha256": "9f9a4c5da7929cb711a8efaa57f1c6884d8d5583ef2ac590a5e288b10d0d4ed3",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999883,
@@ -5448,7 +5494,7 @@
     {
       "name": "OCC_main_R691",
       "file": "reference/components/OCC_main_R691.step",
-      "sha256": "292eeb675818c731ed6f72edc14a01a3e228d42288827b027769567c70c67a0e",
+      "sha256": "aabce1c2f0c9457fb3f1c8740153c5fe18bad102a227153c5d41912c43804ba8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803750000000016,
@@ -5465,7 +5511,7 @@
     {
       "name": "OCC_main_R1924",
       "file": "reference/components/OCC_main_R1924.step",
-      "sha256": "3b2c059893bdd685fdd288ed81e4d97e34994f0f12d1a5adc280d8ca7308c220",
+      "sha256": "2120081b0e4decea10562f5878f130036716e14e58b8548fcc5f2245b215b942",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.2774999999999705,
@@ -5482,7 +5528,7 @@
     {
       "name": "OCC_usb_U1501",
       "file": "reference/components/OCC_usb_U1501.step",
-      "sha256": "8f92305a6eac91d495aca6e5bd6f4f97ecdc1cf538e50d4e5bc868a9f1a277bb",
+      "sha256": "d12a0e795cda8f45f4c60bf299bea79d7931775d44edc02a8d7d65559ce8621a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 28.764579999999984,
@@ -5499,7 +5545,7 @@
     {
       "name": "OCC_usb_R1501",
       "file": "reference/components/OCC_usb_R1501.step",
-      "sha256": "43807b834be88274bb7e266e0117a78b85d9f10288bba8c17cb27aa3a1f7b3ca",
+      "sha256": "611392fa5b13cfdc24dade9971b3bba93b96cd075ce29784463a5e893b6df071",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -5516,7 +5562,7 @@
     {
       "name": "OCC_usb_R1401",
       "file": "reference/components/OCC_usb_R1401.step",
-      "sha256": "71c90ecb267f2ad86d8d00ac4645107bf1c605791563280f82edda29a9fc3900",
+      "sha256": "e47e17fc211226a0baf264902e19ff7c9190b73e464f6b9eb0c84a158f9a7207",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.780374999999995,
@@ -5533,7 +5579,7 @@
     {
       "name": "OCC_usb_U401",
       "file": "reference/components/OCC_usb_U401.step",
-      "sha256": "a9095fff79e1c3eca60210b8d81f4c356b7ab5cdc29360023876a029cf90f593",
+      "sha256": "689bbf4d41b1918dfcbacfe83161260f88242a1aae2d029e4b6ecf1d75d131c4",
       "valid": true,
       "solids": 1,
       "volume_mm3": 17.58393000000004,
@@ -5550,7 +5596,7 @@
     {
       "name": "OCC_usb_L1502",
       "file": "reference/components/OCC_usb_L1502.step",
-      "sha256": "877e0790b311158c68d220aa016e34557bdc993df3e4f6eeaf859833e473cea5",
+      "sha256": "bf0e5cabfc3ba3a279bd9593bd05c0fa747780c41ec58be902b015784249caa9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.859068799999965,
@@ -5567,7 +5613,7 @@
     {
       "name": "OCC_usb_C1501",
       "file": "reference/components/OCC_usb_C1501.step",
-      "sha256": "c676451e0e20661e46a34db974d818400aca513e9c2a089ecd44d6bec55d47ed",
+      "sha256": "25aa65b2673531450870bf77051eba0b75208db320bc2dc0661bc8ce1bc89c8b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 9.893029999999966,
@@ -5584,7 +5630,7 @@
     {
       "name": "OCC_usb_R402",
       "file": "reference/components/OCC_usb_R402.step",
-      "sha256": "750c6e31d92fb3fe14fb31b4fbc818636c0e1d75ed4a78b598b3ee038fdec5d3",
+      "sha256": "2dd769d23de55b90eae4072f6c4f59f4a7df82f08da21e436b4d79eac4d45db2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999945,
@@ -5601,7 +5647,7 @@
     {
       "name": "OCC_usb_C1402",
       "file": "reference/components/OCC_usb_C1402.step",
-      "sha256": "e050832eeb920676324bbd4d3489ca95a735268973d24b954105e5d8b9f26b84",
+      "sha256": "2e474ff43f580d75d4bba1a1715210ebfa5f627c4171c3c0fde8b8727e76435b",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.8780999999999906,
@@ -5618,7 +5664,7 @@
     {
       "name": "OCC_usb_U1401",
       "file": "reference/components/OCC_usb_U1401.step",
-      "sha256": "c9c1da8cae90c8135eb40fcad8391324417439c2e4771b57e74f49293d7a7fce",
+      "sha256": "5753058239c6238bcad1117b60377aa7cbe5c18ccaab2f0a4002c8ab3eaa8e8c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.4813124999999943,
@@ -5635,7 +5681,7 @@
     {
       "name": "OCC_usb_L1501",
       "file": "reference/components/OCC_usb_L1501.step",
-      "sha256": "3a08330f141ab0825489e3824f16d368571ea61af4225a0ff7da4da7878084ae",
+      "sha256": "2e213774d32ef77c4537ba07e048473149f839170cb3a86825175ddd30fb638f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.859068799999949,
@@ -5652,7 +5698,7 @@
     {
       "name": "OCC_usb_R403",
       "file": "reference/components/OCC_usb_R403.step",
-      "sha256": "500762687568ecff46cac976a10eb047bcef2ee2d86f0c0a2551a75c4b2d5556",
+      "sha256": "ad05c667c7c4400cee561457edf301fa66707543076672eba4d6c791c10d84f8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999945,
@@ -5669,7 +5715,7 @@
     {
       "name": "OCC_usb_FL1501",
       "file": "reference/components/OCC_usb_FL1501.step",
-      "sha256": "b5117c28737d99c738f7cd1996f229f51f5845f9b5a996e1dbdf6f04f7f96be9",
+      "sha256": "99289f4d55d9971477d2c66bfb3998e4a80308751da49e6632c412fbc763d612",
       "valid": true,
       "solids": 1,
       "volume_mm3": 8.176140000000013,
@@ -5686,7 +5732,7 @@
     {
       "name": "OCC_usb_R1502",
       "file": "reference/components/OCC_usb_R1502.step",
-      "sha256": "74c0042b4677ff650fddf1febc4e755f874ce38dd312b1c059a9fd263f989538",
+      "sha256": "86706a238d4e02cbcade55966b7952ca972a5ca0f7bf9d3b19afa268c3e362a2",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999954,
@@ -5703,7 +5749,7 @@
     {
       "name": "OCC_usb_R1503",
       "file": "reference/components/OCC_usb_R1503.step",
-      "sha256": "19206e3ef292408dd14c99cfbc5eba0b7663799a6901dad24b938baf3bd06f92",
+      "sha256": "9420c066044093b067230e433e19c5b31ce1569750fb1b7eab4680c866219469",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999954,
@@ -5720,7 +5766,7 @@
     {
       "name": "OCC_usb_C1401",
       "file": "reference/components/OCC_usb_C1401.step",
-      "sha256": "82c0b4a04631c1fd8c83cde2d4cdfe143f042c21926fab0c4a5becab74792767",
+      "sha256": "e6a2a481cc9f72beb440bbdfbf4903ee9dc337c59561e69be47c268947a023a5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.878099999999991,
@@ -5737,7 +5783,7 @@
     {
       "name": "OCC_usb_R404",
       "file": "reference/components/OCC_usb_R404.step",
-      "sha256": "5ffbaba557e3ff2a7c1a57fb3f97014e695df1f0314d18f5adb5df9c98f065dc",
+      "sha256": "e8b04d7ecee16ec8c9ae866c44d5c30ade7214d5c9c44120d98f8102b07d463c",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999954,
@@ -5754,7 +5800,7 @@
     {
       "name": "OCC_usb_R401",
       "file": "reference/components/OCC_usb_R401.step",
-      "sha256": "b0b5961ee8be5e1a77033668b458345d613c9665ef366fcc867376c7eb97070e",
+      "sha256": "3ef1cb3e11643bd1c45cad5a8d2d20e0082d8fa87c7a4b4ea4c4186259def8b7",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999954,
@@ -5771,7 +5817,7 @@
     {
       "name": "OCC_usb_C1502",
       "file": "reference/components/OCC_usb_C1502.step",
-      "sha256": "2355e381ad9b7ac03b593a6b83ed322fb414b2f0cb4c201bb8371583cd7a91ce",
+      "sha256": "9750267dbbd453845be6649a137d04aa45880f693594218e1e82048da2947ac9",
       "valid": true,
       "solids": 1,
       "volume_mm3": 4.277499999999992,
@@ -5788,7 +5834,7 @@
     {
       "name": "OCC_usb_R1504",
       "file": "reference/components/OCC_usb_R1504.step",
-      "sha256": "72ef9209086712ac164e82adecfca47f4dba85c64cc0758fbf28812b6031edeb",
+      "sha256": "183e78d9ef30720262e196b4de23b978232ac7dbbf30a5a1fc55333116c05f48",
       "valid": true,
       "solids": 1,
       "volume_mm3": 2.7803749999999954,
@@ -5805,7 +5851,7 @@
     {
       "name": "OCC_usb_C403",
       "file": "reference/components/OCC_usb_C403.step",
-      "sha256": "34806dd30c6e0eca9de30423c6b7b809deb101f18d20167ea2b097c3724607bb",
+      "sha256": "bd33511bf2c7c8146932fbaf2341fa8eaaae663042908d908b9fa5c26cca579a",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.878099999999991,
@@ -5822,7 +5868,7 @@
     {
       "name": "OCC_usb_C401",
       "file": "reference/components/OCC_usb_C401.step",
-      "sha256": "d15f604a7394ade36baf68d1493b0467fe37a38aebbfbaa19aae5901bc9e231c",
+      "sha256": "ca0870033ba6c9226475428d6b2152603c545a935cdf3c236328bd1b6b1616c6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.878099999999991,
@@ -5839,7 +5885,7 @@
     {
       "name": "OCC_audio_H_AUDIO_2_R",
       "file": "reference/components/OCC_audio_H_AUDIO_2_R.step",
-      "sha256": "45a8a553c5417cfd2768437a2d87519285743520ed8352eac4851827ff1c5866",
+      "sha256": "49bb98c3ebad7c2590bfd9a0ad664fa78d480210b491cb7dea06e25c38012193",
       "valid": true,
       "solids": 1,
       "volume_mm3": 10.035149999999955,
@@ -5856,7 +5902,7 @@
     {
       "name": "OCC_cover_D851",
       "file": "reference/components/OCC_cover_D851.step",
-      "sha256": "2adde1bc38179de5221114ac181134fa7255a99d54de0610ab08bcb66ca9e134",
+      "sha256": "13ae4dfef7e01d763cade5ed54a87d06e496594397e909fba6ec7f1b4cb12236",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.234675000000001,
@@ -5873,7 +5919,7 @@
     {
       "name": "OCC_cover_D852",
       "file": "reference/components/OCC_cover_D852.step",
-      "sha256": "a21b73e9d11345c5f276906b7d719690a0f4b82d7cb829524c73a54bbf8b9f54",
+      "sha256": "435ecfa54f6ef9f89e16f40a6b5a8fbd0e5b2c4a3177f3b32838b7b4565075f1",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.234675000000001,
@@ -5890,7 +5936,7 @@
     {
       "name": "OCC_cover_D850",
       "file": "reference/components/OCC_cover_D850.step",
-      "sha256": "9654747419b7a01393f4a35c13d6983eba3229e8d1e5150c6061a39558ae883a",
+      "sha256": "3515fad0962e801d9e5d74593c206c59ae5bfe15fe0d563f921284c96cfeb3cd",
       "valid": true,
       "solids": 1,
       "volume_mm3": 3.2346749999999993,
@@ -5907,7 +5953,7 @@
     {
       "name": "J_USB_U_FH12_16_envelope",
       "file": "reference/components/J_USB_U_FH12_16_envelope.step",
-      "sha256": "75eeb380bb7f0501c5305ef09d6d9f94e780a3b1aa8b3a007f7e6d94718b9d79",
+      "sha256": "ab86d5d49851cfdf034542f69850ba8b4368900cadcbc7f3a15061c2af9557c8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 142.99999999999997,
@@ -5924,7 +5970,7 @@
     {
       "name": "FPC_USB16_route_reservation",
       "file": "reference/components/FPC_USB16_route_reservation.step",
-      "sha256": "2db9d5bfe1433945130e11c747cdf6937b9646c71aeab8b532e50d4510470e61",
+      "sha256": "0119bfaeb96cb5f6a5dedcb3da29cfa1d4974e31d880504d829a55a53627ad43",
       "valid": true,
       "solids": 1,
       "volume_mm3": 80.83499999999992,
@@ -5941,7 +5987,7 @@
     {
       "name": "GCT_USB4120_body_max",
       "file": "reference/components/GCT_USB4120_body_max.step",
-      "sha256": "e77e89668c28099f3f1992312c414a0b30ced8b12bb7f37b860b980a60f9adfd",
+      "sha256": "d721c06bb007513620b028162556b6d853bfe65a8c5fed06f8ef1582d74131a5",
       "valid": true,
       "solids": 1,
       "volume_mm3": 201.43441177345267,
@@ -5958,7 +6004,7 @@
     {
       "name": "U901_module_dimensioned_reference",
       "file": "reference/components/U901_module_dimensioned_reference.step",
-      "sha256": "75a96d0cc2f955d4ff270d4981d7a624c950cb31142afc56eebd9e73ea8819b2",
+      "sha256": "306e34574216991a51e8277c482e8562cbfb30412b92d8b3c5d2f00be98e4639",
       "valid": true,
       "solids": 1,
       "volume_mm3": 407.315125,
@@ -5975,7 +6021,7 @@
     {
       "name": "RF_antenna_and_coax_reference",
       "file": "reference/components/RF_antenna_and_coax_reference.step",
-      "sha256": "c54329176090e5cfdaf57564bf0f85ed4c1bb4d97cc5029a4213efb143136194",
+      "sha256": "2f3f48b8a276c3b80c837fec7772311d5a1a5d13e01d3c9dad973faa59341274",
       "valid": true,
       "solids": 1,
       "volume_mm3": 203.2065402785255,
@@ -5992,7 +6038,7 @@
     {
       "name": "FPC_AUDIO6_installed_reference",
       "file": "reference/components/FPC_AUDIO6_installed_reference.step",
-      "sha256": "0ee1fe10ea6837521da2d935e6b1aa091736824b76c2c764ae1d09c533247440",
+      "sha256": "bf240d64e1d69c6eea1210926d387c111e004d43f214489d984f8e666362f4b8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 21.278855618934237,
@@ -6009,7 +6055,7 @@
     {
       "name": "FPC_COVER6_installed_reference",
       "file": "reference/components/FPC_COVER6_installed_reference.step",
-      "sha256": "e483a6c8295fa45cb6a38a9c9f3c1d55f473a2f75136ed6fe350f043dd0ad579",
+      "sha256": "327aa18a886502369fc928a43b508e39d96206157bad422a6f7c2c7f0d588132",
       "valid": true,
       "solids": 1,
       "volume_mm3": 37.6696667649223,
@@ -6026,7 +6072,7 @@
     {
       "name": "FPC_POTS3_installed_reference",
       "file": "reference/components/FPC_POTS3_installed_reference.step",
-      "sha256": "691145ed3ebdce5751f00bf6761b2433a81993c0ef2d74fcc1daaee5e9f2ea8a",
+      "sha256": "1f56b84741ee4867ae429005fc295ffe741aca85acbeaf4fea4864197dc0f053",
       "valid": true,
       "solids": 1,
       "volume_mm3": 11.706257245148453,
@@ -6043,7 +6089,7 @@
     {
       "name": "FPC_KEYS6_installed_reference",
       "file": "reference/components/FPC_KEYS6_installed_reference.step",
-      "sha256": "85dd3cc28ea70f9567a43e6cf8355ac58050a551a73e70a69d7842f1f8e5da66",
+      "sha256": "e0036aa540d63c599687805cc0c449bc4c520db7f6e9110bab7ffd6567611aa6",
       "valid": true,
       "solids": 1,
       "volume_mm3": 34.28392449029743,
@@ -6060,7 +6106,7 @@
     {
       "name": "SCREW_keybacker_42.5",
       "file": "reference/components/SCREW_keybacker_42.5.step",
-      "sha256": "3636a34754f749e35570f625617eb7d4e35690bbda3ee4ee89cabde80ff60df2",
+      "sha256": "1ce2d4d9810a59a64cbd60787e3f4bfb49af10865338289e1662c9cf85bbaf6f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.361725123519328,
@@ -6077,7 +6123,7 @@
     {
       "name": "SCREW_keybacker_55.5",
       "file": "reference/components/SCREW_keybacker_55.5.step",
-      "sha256": "0762bd0f6b4bb06feca40907599c1e58c29b8de63b87a343d22889de78e8b9af",
+      "sha256": "3410c278678e5d984b9038e4f2c287b5a72e941490a18a4b8fa0be73298a22d8",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.361725123519328,
@@ -6094,7 +6140,7 @@
     {
       "name": "SCREW_usb_88_8",
       "file": "reference/components/SCREW_usb_88_8.step",
-      "sha256": "5150f36418413909543f35f0ece5166f739c56f94f4724ff2dc66b5f28056272",
+      "sha256": "441615f34213ff6ab9aafb6f8c3fd91d2bb6bfbf5bdc12a775a4b0078ab2fc5f",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.361725123519331,
@@ -6111,7 +6157,7 @@
     {
       "name": "SCREW_usb_108.3_8",
       "file": "reference/components/SCREW_usb_108.3_8.step",
-      "sha256": "f7675db44ac656cbba84bf0a53012035659e116592647c0088dfe4f2e1cabb31",
+      "sha256": "0b7945d6b5adae517eba2cbd1ae053983fe4f50ff91f4484dff728179dcbd9fc",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.361725123519331,
@@ -6128,7 +6174,7 @@
     {
       "name": "SCREW_usb_108.3_22",
       "file": "reference/components/SCREW_usb_108.3_22.step",
-      "sha256": "3d7666b2965c67736ed7526c5c8c94894901c1b0c757df6bda95a0a72e38f6a6",
+      "sha256": "90262136b20c28b93545bce6ed3b5d8b383d87662e63534bdd0965d7dda60eba",
       "valid": true,
       "solids": 1,
       "volume_mm3": 6.36172512351933,
@@ -6148,95 +6194,95 @@
   "file_manifest": [
     {
       "file": "cad/button_1.step",
-      "sha256": "f4fba9f413ffd04e37a9036533fe4e28eae2c1d69caa859dfc6f148800167e55"
+      "sha256": "0337f2cc7c4932f72aa6b995a7b71d3a5d87bd97ea6f0b79be75fc1fa8d3224e"
     },
     {
       "file": "cad/button_2.step",
-      "sha256": "cd3066b2e32715b4f9d51279dc1cccc334ea6dd9bf5e4ca09311ce49a92f056f"
+      "sha256": "f26253070c247d0d62d69601e0e2bc49eaf9243a5a183a5c72a4200e9196fc49"
     },
     {
       "file": "cad/button_3.step",
-      "sha256": "bf505a5dcc0625c34f97ca7429258430958375e57e1fed5661e256a7f60792fe"
+      "sha256": "0e903bfd183bfc667096874bc028e40d2f71c0f50e1d5ff2254e52eb92320309"
     },
     {
       "file": "cad/button_4.step",
-      "sha256": "f8d07107094775196b0ee0e860406c315688432c27aad38ceef94d022a78e7d2"
+      "sha256": "f0fc0fe29e384dc1e0489510c83868902b813716f82673d653445b89a1b6e549"
     },
     {
       "file": "cad/button_5.step",
-      "sha256": "92ecb6bdd99339b16ffe3c95de5fb988da8d280fbce5dd3b9c503ff2fde29c20"
+      "sha256": "952231548200a4f6e563aa0e954761894a6f836970a179687f6d49509ca5192c"
     },
     {
       "file": "cad/lightpipe_1.step",
-      "sha256": "725054c638532e48970f201e0593cb6b22974cb1d1ca1e2e64d180033d4fb307"
+      "sha256": "9b5a40989107f903308400f7bf81b2f29ded4bfa39cc990cd0dc6bda7f3e8755"
     },
     {
       "file": "cad/lightpipe_2.step",
-      "sha256": "189d502d6ac01caf55c0b9bfbc80b06d08026c0b925412d966479a7e14003270"
+      "sha256": "4d1e816fee0f5a2f4215bc5916c4a72dc830f4c8dc7883a8b8c257c2374754bb"
     },
     {
       "file": "cad/lightpipe_3.step",
-      "sha256": "027d7ab56023f56b49835cf5d285aa6ede02ced1df12770d74e0c59a7ffaa700"
+      "sha256": "78be2c6a707c752146af5e96d27a0a40ec36d5a128a81e30a31564b02fbaae9e"
     },
     {
       "file": "cad/upper_cover.step",
-      "sha256": "5203912063ddc09f4f1983cef9731fef0df54a78c1c280917f9c09571a7ad281"
+      "sha256": "0e5c20728e113c1d82a5015da40c096d66746a2f72b32e028bcfe2bcf5bb0f1d"
     },
     {
       "file": "cad/lower_cup.step",
-      "sha256": "58668e32446a64d49cd4c12cec3ab4d444c2566698bbc6c2ae9a1af7d166be7e"
+      "sha256": "586b9df7bd3af6097961acbcd59314c2f2479736e8f9edf93ab50020f6f53bb7"
     },
     {
       "file": "cad/audio_load_frame.step",
-      "sha256": "c0cc4c8ba3e8ff4965733c8928e6d4ab725d50f76627d69a3a8248e0703d4ce5"
+      "sha256": "aaea041a244adbcabc306bb4c558524275ff2ca5e6510b25abaa0a99cc2ae3eb"
     },
     {
       "file": "cad/key_backer_bracket.step",
-      "sha256": "9cf03282ace776a21341f90de8392bcbf78935c8f36d0d9d1cb4a09c4d95ff69"
+      "sha256": "4178415b9512240d867a27cfc22f2c9aab1cf7ff6619dc301389d3e798c73085"
     },
     {
       "file": "cad/usb_bracket.step",
-      "sha256": "f8854555e4150e286b46a3a18b902e8374dd181adffa780b7411ffb6bd2249b0"
+      "sha256": "1df0c781e6d92cf1814aed69e5dea48cf2467ffd0599522f77586422723a461b"
     },
     {
       "file": "cad/main_shim_0p05mm.step",
-      "sha256": "57534b0c79ad950dcd0be2c51dbe046f22950e9a0eec1571e4a5291d3ea3a2bb"
+      "sha256": "963e9424fc1e6df3309beb65e1248a15883c3e089031f48bde4b486009196070"
     },
     {
       "file": "cad/main_shim_0p1mm.step",
-      "sha256": "b67b96709776d4bb8545eaf253c31d14fd241ab4f815bb2802db6002fb1aa4ce"
+      "sha256": "e6417ff3210a299e0174cba82f89d3ecb42a0c3f92f48f0890a37700ae82f52a"
     },
     {
       "file": "cad/main_shim_0p2mm.step",
-      "sha256": "f1e8f2e09cf92716780dc26929ddd8c427ffde2cc2e7ae525a59cc71ea2ef4d1"
+      "sha256": "d521dacdf4532639684419201fc48f540319de06be17ad9a2c9d53cd4c3673ea"
     },
     {
       "file": "cad/battery_bottom_insulator.step",
-      "sha256": "5b8875075ddb2b3549982e4ce58fccb131ee8a9fde4697e3be6de3ab87652125"
+      "sha256": "ba972c3b797319ed9ba6c58c09540a2ffad4ec0593c3c70e09c6f8b00a232028"
     },
     {
       "file": "cad/main_audio_dielectric_separator.step",
-      "sha256": "1b5f1530cd3bc11a95ff5009e4baf00e44e51e1dcdeb2ba8529afc9352688cd6"
+      "sha256": "0fae5df844db43d53c5f31a6f2b1bdbf0424f03d0be0044a358678e97499acbc"
     },
     {
       "file": "cad/key_backer_insulator.step",
-      "sha256": "3d1f9ee5d443c0ff46ef25750689aa5bd5254458cb251eaeccf4462c944275c2"
+      "sha256": "e26a1c7626a1a9c8335574b9032f889ab1aeeb5746de24bb0596f1adcf5b480a"
     },
     {
       "file": "cad/speaker_backer_insulator.step",
-      "sha256": "96b621687ca9333943ffd76900999f90d1f7be8595ac0c3eca36fc3fed6de1c9"
+      "sha256": "7855348f9ae5fb09604301b9ba001a96e2e3cefe73fafc974aa6b36045310d65"
     },
     {
       "file": "cad/ntc_electrical_separator.step",
-      "sha256": "7e2cd8ab8e0cba49cdd923634110e59229166392e2a5bf58900fca660652c1ab"
+      "sha256": "25e91b2d83d1aedb25311f445b68dd6b3e86681cb3ef8e161eecf3771c550f90"
     },
     {
       "file": "cad/battery_top_separator.step",
-      "sha256": "0ace5ae882c448f323644eb9ed90db397200692f9fe691374ed1c14dab9ef0bb"
+      "sha256": "4f880265f67459d853d55ea108a58a196dc9c7acfa068bd1383d2c82fdec65d8"
     },
     {
       "file": "cad/battery_top_foam.step",
-      "sha256": "18a9db180d54222e1db1c9e4efdef39585c0373814d6d89e472c2edecb552263"
+      "sha256": "6a47d2a281510056d033891f0c9a2400b0c49fa5572000f493da3cbcd9285c9c"
     }
   ],
   "intersections": [],
@@ -6535,7 +6581,7 @@
   "remaining": [
     "Board ECO holes (pcb-interface-eco-R4.json) must be executed natively, then rerun",
     "Q6: 16 discrete wires become FPCs (USB FPC, sensor FPC or merge, AUDIO6->wider); mechanical slots reserved, FPC geometry by PCB team",
-    "confirm actual pickup cable and drill instrument cavity floor at the cup entry hole",
+    "measure the violin's ORIGINAL pickup-wire hole and set pickup_entry_xy (slot 10x3 used until then); no new hole in the instrument",
     "FPC custom thin stack and microdrill require supplier DFM confirmation",
     "measure actual violin cavity and mounting surface",
     "freeze actual material and qualified tolerance/process",

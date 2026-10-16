@@ -7,15 +7,22 @@
 | `build_mechanics.py` | 修改后的 CadQuery 源（结构与写法沿用 R3） |
 | `assembly_sequence.py` | 新增：装配顺序 + 扫掠插入干涉检查 |
 | `flex_reference.py` | 修改：KEYS6 主板端按 ECO L-09 移 +0.30 mm |
-| `R3-to-R4.patch` | 上面 3 个源文件和 `parameters.json` 相对 R3 的 diff（已验证能干净打到 R3 上） |
+| `R3-to-R4.patch` | R4.1 重新生成：6 个源文件（build_mechanics / assembly_sequence / flex_reference / engineering_drawings / drawlib / tolerance_stack）和 `parameters.json` 相对 R3 的 diff。已用 `patch --dry-run` 验证能干净打到 R3 上 |
 | `parameters.json` | 构建生成的 R4 尺寸参数 |
 | `pcb-interface-eco-R4.json` | 结构对 PCB 提出的开孔/禁布要求（交给 PCB ECO 执行） |
 | `assembly-status.json` | 包内原有检查逻辑的输出：逐件 STEP 回读、全成对碰撞、外形包络、字符避让 |
 | `assembly-sequence-check.json` | 装配顺序和扫掠干涉检查的结果 |
-| `step/` | 新增或改动的制造件 STEP（20 个零件 + 3 种调整垫片 + 零件总装 + 按钮毛坯），共约 13 MB |
+| `step/` | 新增或改动的制造件 STEP（20 个零件 + 3 种调整垫片 + 零件总装 + 按钮毛坯），共约 13 MB。R4.1 增加 `step/variants/`（音频框腹板 0.40 / 0.60 选配件） |
+| `engineering_drawings.py` + `drawlib.py` | R4.1 新增/重写：从 STEP 生成制造图（OCC 精确消隐投影，SVG 和 PDF 同源） |
+| `drawings/` | R4.1：M-R4-00…09 共 13 页制造图（PDF + SVG），合订本 `M-R4-drawings-all.pdf`，`ctf-register.json`（57 项 CTF） |
+| `tolerance_stack.py` / `tolerance_stack_result.json` / `tolerance-stack.md` | R4.1：最坏情况 + RSS 尺寸链（M13） |
+| `ASSEMBLY-SOP-R4.md` | R4.1：装配 SOP（取代 `制造与装配说明.txt`） |
+| `FAI-checklist.md` | R4.1：首件检验清单 |
+| `RFQ-mechanical.md` | R4.1：结构件询价单（CNC / PA12 / 模切） |
+| `instrument-fit-basis.json` | R4.1：琴体契约（原穿线孔、中央梁、纵向坐标换算），构建时生成 |
 
 **重建方法**：把 3 个 .py 放进 R3 包的 `mechanical/cad/`（或直接打 patch），然后运行
-`SMARTVIO_ENG=<包>/engineering python3 cad/build_mechanics.py`。需要 cadquery 2.8.0 和 DejaVu Sans Bold 字体（可用环境变量 `SMARTVIO_FONT` 换成别的字体）。在本环境中一次完整构建约 6 分钟。
+`SMARTVIO_ENG=<包>/engineering python3 cad/build_mechanics.py`，再运行 `python3 cad/engineering_drawings.py`（需要 reportlab 和文泉驿正黑字体，可用 `SMARTVIO_CJK_FONT` 指定）和 `python3 cad/tolerance_stack.py`。需要 cadquery 2.8.0 和 DejaVu Sans Bold 字体（可用环境变量 `SMARTVIO_FONT` 换成别的字体）。在本环境中一次完整构建约 6 分钟。
 
 ## 0. 结论
 
@@ -160,9 +167,59 @@
 |---|---|
 | M6 扬声器背腔 | 没有空间，需要做声学实测 |
 | M8 天线净空 | 主要是 PCB-05 的问题；SE 角螺钉离天线约 2 mm，螺钉位置未改，因为孔位由工厂按琴体配钻 |
-| M13 最坏情况尺寸链、M2 卡钩倒扣的刀具可达性 | 仍维持 R3 的 HOLD；PA12 增材首样路线保留 |
+| M13 最坏情况尺寸链 | **R4.1 已做**（`tolerance-stack.md`）。链 5（卡扣）、链 7c（USB 面槽）已改 CAD；链 4（按键）、链 6（插座环链）靠首样选配闭合；链 1（总高，超 0.035）、链 7d 只在 Kycon / GCT 的假设公差下不过，需要原厂数据 |
+| M2 卡钩倒扣的刀具可达性 | 仍是 HOLD，写进 RFQ 第 4 节，由加工厂评审；PA12 备选路线保留 |
 | M16 NTC 预压 | 需要 VARTA 的贴附资料 |
-| M18 图纸 | `engineering_drawings.py` 未重新生成。图纸上的 R2/R3 标题、注释、A-A 剖切线、琴头方向需要另行更新 |
-| 制造与装配说明.txt | 仍是 R3 文本，以本文件为准 |
+| M18 图纸 | **R4.1 已做**：13 页制造图，见第 8 节 |
+| 制造与装配说明.txt | **R4.1 已取代**：见 `ASSEMBLY-SOP-R4.md` |
 | FPC 平面图（KEYS6 去镜像、USB16、AUDIO4） | 属于 PCB 范围。本 CAD 只预留空间，USB16 只做了上段的保留体 |
 | 物理测试 | 0 项。卡扣疲劳、按键手感、异响、插拔力都需要首样验证 |
+
+## 8. R4.1：首样准备（2026-10-16）
+
+### 8.1 CAD 修改（已重建 STEP 并重跑全部检查）
+
+| 项 | 修改 | 原因 |
+|---|---|---|
+| 拾音入口（DECISIONS 补充 2026-10-15） | ① 杯底入口位置改为参数 `pickup_entry_xy`（占位值 (60.6, 4.6)），**TODO：按实测的琴上原穿线孔填写**，换算 X = 258 − u、Y = 24.5 + v。② 新增 `pickup_entry_mode`：`slot` 为首样默认，10 × 3 长槽沿 X，可接受原孔沿琴身方向 ±3.5 的偏差；`hole` 为 Ø3.0。③ 构建时断言入口在北侧走线带（X 37–91.5、Y 3.1–6.3），否则线缆无法绕过电池到 J101，构建报错。④ `instrument-fit-basis.json` 改为"不在琴上新钻孔，对齐原穿线孔"，并加入中央梁 ≥49 和纵向坐标换算 | 拾音线走原穿线孔，原孔位置未测 |
+| 卡扣（tolerance-stack 链 5） | ① 下杯内壁 4 处卡扣悬臂根部加 **0.15 Y 定位筋**，离刀片 0.05，顶部导入 0.3。② 卡钩凸出 0.45 → 0.55（名义搭接 0.25 → 0.35）。③ 刀片底导入 0.40 → 0.55。④ F1 扫掠的弹性允许量 0.30 → 0.40。注：定位筋最初加在上盖刀片上，C4 扫掠时碰到盖板 PCB 的卡扣槽，所以改到下杯上 | 原设计下杯 Y 向浮动 ±0.2，远侧搭接名义只有 0.05，最坏为负，有脱扣风险 |
+| USB-C 面槽（链 7c） | 12.0 × 7.4 → **13.0 × 7.4**（参数 `usb_face_pocket`） | USB-C 插头包胶参考最大 12.35 |
+| 音频框（链 6） | 改为函数 `build_audio_frame(t)`，额外导出腹板 0.40 / 0.60 两个选配件到 `step/variants/`。主件仍为 0.50，不进总装 | 插座环链过约束，首样按实测选配 |
+
+### 8.2 检查结果（本轮重跑）
+
+- **全部零件**：23 个零件回读有效，每件 1 个实体。
+- **全成对碰撞**：62 481 对，其中 1 274 对做了精确布尔运算，**相交 0 处**。
+- **装配扫掠**：17 步，2 163 次布尔运算，**全部通过**。
+  - F1 卡钩干涉深度 0.35，允许 0.40。
+  - 定位筋到刀片的实测距离 0.050（4 处）。
+  - 卡钩尖在 Y3.35 / Y45.65。
+- **外形包络**：保持不变，148×49；非滚轮外突 3.85；下杯 77×45×20.90；总高 24.75。13 处雕刻字符的避让检查通过。
+- **拾音长槽**：去除体积 16.84 mm³，与 10×3 长槽 × 0.6 底厚的计算值一致。
+
+### 8.3 文件
+
+- **图纸（M18）**：`drawings/` 共 13 页，PDF 和 SVG 同源，另有合订本 `M-R4-drawings-all.pdf`。
+  - **M-R4-00 总装与安装方向**：琴头/琴尾箭头；纵向坐标 u（距琴尾，X = 258 − u）；原腔点划线；中央梁 ≥49；拾音长槽 TODO；A-A 剖切线和视向箭头；总装 A-A 剖面；零件表。
+  - **M-R4-01 上盖**（3 页）、**M-R4-02 下杯**（2 页）、**M-R4-03** 背撑架、**M-R4-04** USB 托架、**M-R4-05** 音频框（含选配）、**M-R4-06** 按键与毛坯、**M-R4-07** 导光柱、**M-R4-08** 绝缘片与垫片、**M-R4-09** 泡棉。
+  - 每页都有：消隐视图、关键尺寸、红色六角 CTF 标签与 CTF 表、材料、表面、数量、ISO 2768-m 标注、第一角画法、技术要求，标题为 R4.1。
+  - 上盖另有开孔表、雕刻字符表和 Z 向层位表。
+- **尺寸链（M13）**：`tolerance-stack.md`，18 条链，每条列出组成环、名义、最坏、RSS、判定和修正。
+- **装配与采购**：
+  - `ASSEMBLY-SOP-R4.md`：C0 干装修触头、C1–C11、L0–L5、F0–F2，每步带检查；FPC 和电池/NTC 规则；紧固件与扭矩；琴体实测；最终检验。
+  - `FAI-checklist.md`：57 项零件 CTF + 装配过程值 + 总装尺寸 + 琴体实测。
+  - `RFQ-mechanical.md`：首样 3 套 + 1 套备件。
+
+### 8.4 仍未完成 / 需要人或供应商
+
+| 项 | 说明 |
+|---|---|
+| 原穿线孔、原腔、中央梁、琴面平面度 | 全部未测。`pickup_entry_xy` 是占位值，实测后要回填并重建 |
+| Kycon STX-353K7A 图框公差 | 目录图上没有。尺寸链按假设值 ±0.15 计算；链 1 总高的最坏情况超 0.035，就是由这个假设公差引起的 |
+| GCT USB4120 高度公差 | 按 R3 的依据取 ±0.25，链 7d 不过。需向 GCT 确认 |
+| 扭矩值 | M1.6 取 0.08 N·m、ST2.2 取 0.15 N·m，都是暂定值。首件做滑牙试验后确定 |
+| 链 6 量产方案 | 音频框加弹性元件、音频板厚指定 1.00±0.05，留到下一轮 CAD |
+| 链 8 主板卡齿 | 主板订货厚度建议 0.80±0.05 |
+| 图纸审签 | 图纸是 CAD 自动生成的。部分标注较密，需要工程师审签 |
+| 物理测试 | 0 项 |
+
