@@ -92,7 +92,7 @@
 | 项 | 状态 | 说明 |
 |---|---|---|
 | STM32 R4 产品镜像：编译通过，主机测试全过 | ✅ | `firmware/build/smartvio-r4.elf`；硬件测试 0 |
-| SERVICE 镜像（充电恒关），用于首次上电各阶段 | ⬜ | 脚本支持，没有随附；构建约 5 分钟 |
+| 首次上电镜像（充电锁定） | ✅ | `firmware/build/smartvio-r4.bin`：`SV_R4_CHARGE_RELEASE=0`，CHARGE_ALLOW 永不拉高；另附 SERVICE 与 CHARGE-TEST 镜像（`firmware/CHANGES.md` 充电放行开关） |
 | HP 检测极性编译变体 | ✅ 就绪 | `-DHP_DETECT_ACTIVE_HIGH=0/1`，等 P26 实测结果 |
 | ESP32 用 ESP-IDF 5.4.3 重编 | ⛔ 缺 sdkconfig | scratchpad 里已有 ESP-IDF 5.4 容器镜像，但还没有重编出的镜像 |
 | USB 数据协议栈 | ⬜ 未实现 | HAR-USB 枚举测试因此阻塞（需另备测试固件，或由琴主接受不测） |
@@ -120,7 +120,7 @@
 
 | 项 | 状态 | 说明 |
 |---|---|---|
-| R4 产品固件**已经能充电**（`sv_charge_decide`：2 s 资格 + 8 类否决） | 规则已定 | CHARGE 门槛通过前，只用 SERVICE 镜像或不接真实电芯（测试计划“说明”页） |
+| 默认镜像充电锁定；充电逻辑（2 s 资格 + 8 类否决）只在 CHARGE-TEST 镜像里放行 | ✅ 已加锁 | CHARGE 门槛通过前只用默认镜像；CHARGE-TEST 镜像仅在 NTC 曲线拿到且 B00–B12 签字后使用 |
 | 包内 NTC 规格（C13） | ⛔ VARTA | 拿不到就不开放充电 |
 | TPS3700 NTC 窗口（A1 已撤回，接法正确）；R4 改由 USB_5V_SAFE 供电 | 原理图 ✅ / 实测 ⬜ | 窗口约 4.8–39.5 °C，需台架验证（CHG.ntc_window） |
 | eFuse 限流 1.34 A、OVLO 5.90 V、VBUS TVS（D401） | 原理图 ✅ / 实测 ⬜ | B13 |
@@ -138,5 +138,5 @@
 2. 电气把 L-17 和 L-06 补进原理图；版图 agent 完成 DRC/一致性检查，导出 `fab/`，并补测试点（P32）。
 3. 结构按实测结果移 Ø3 入口，重出 2D 图，发 CNC RFQ。
 4. 同时发出 PCB、FPC、PCBA、VARTA、EBYTE、Hirose 的询价（`SUPPLIER-PACKS.md`）。
-5. 固件补 sdkconfig 并重编 ESP32；构建 SERVICE 镜像；搭好电池模拟器和 µA 表夹具。
+5. 固件补 sdkconfig 并重编 ESP32；首次上电用默认（充电锁定）镜像；搭好电池模拟器和 µA 表夹具。
 6. 各家 DFM 回签后下单。到货后按 `TEST-PLAN-R4.xlsx` 从 B00 开始测。
