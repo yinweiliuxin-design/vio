@@ -1,6 +1,6 @@
-diff -ruN a/base/stm32/audio_hw.c b/base/stm32/audio_hw.c
---- a/base/stm32/audio_hw.c	2026-10-08 16:17:28.000000000 +0000
-+++ b/base/stm32/audio_hw.c	2026-10-15 06:47:35.557964723 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/stm32/audio_hw.c b/base/stm32/audio_hw.c
+--- a/base/stm32/audio_hw.c	2026-10-17 01:54:23.238185994 +0000
++++ b/base/stm32/audio_hw.c	2026-10-17 01:54:27.110335047 +0000
 @@ -35,7 +35,11 @@
       * target WCET and NDTR/IRQ races still require on-board qualification. */
      return sv_dma_half_free(half,n);
@@ -14,9 +14,9 @@ diff -ruN a/base/stm32/audio_hw.c b/base/stm32/audio_hw.c
  static void pin(GPIO_TypeDef *p,uint16_t bits,uint32_t af){
      GPIO_InitTypeDef g={0};g.Pin=bits;g.Mode=GPIO_MODE_AF_PP;g.Pull=GPIO_NOPULL;
      g.Speed=GPIO_SPEED_FREQ_HIGH;g.Alternate=af;HAL_GPIO_Init(p,&g);
-diff -ruN a/base/stm32/board_pins.h b/base/stm32/board_pins.h
---- a/base/stm32/board_pins.h	2026-10-08 16:17:28.000000000 +0000
-+++ b/base/stm32/board_pins.h	2026-10-15 06:47:35.556757134 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/stm32/board_pins.h b/base/stm32/board_pins.h
+--- a/base/stm32/board_pins.h	2026-10-17 01:54:23.237720979 +0000
++++ b/base/stm32/board_pins.h	2026-10-17 01:54:27.109366198 +0000
 @@ -2,6 +2,7 @@
  #define SV_BOARD_PINS_H
  #include <stdint.h>
@@ -56,9 +56,9 @@ diff -ruN a/base/stm32/board_pins.h b/base/stm32/board_pins.h
  #define SV_UNUSED_E 3u
  static inline uint32_t sv_gpio_mode_mask(uint16_t pins){
      uint32_t mask=0;
-diff -ruN a/base/stm32/safety_inputs.c b/base/stm32/safety_inputs.c
---- a/base/stm32/safety_inputs.c	2026-10-08 16:17:28.000000000 +0000
-+++ b/base/stm32/safety_inputs.c	2026-10-15 06:47:35.557577154 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/stm32/safety_inputs.c b/base/stm32/safety_inputs.c
+--- a/base/stm32/safety_inputs.c	2026-10-17 01:54:23.238887838 +0000
++++ b/base/stm32/safety_inputs.c	2026-10-17 01:54:27.110741456 +0000
 @@ -8,7 +8,8 @@
  extern uint32_t sv_target_millis(void);
  sv_input_guard sv_input_safety;
@@ -93,9 +93,9 @@ diff -ruN a/base/stm32/safety_inputs.c b/base/stm32/safety_inputs.c
 +#endif
      __DMB();__set_PRIMASK(primask);return desired;
  }
-diff -ruN a/base/stm32/safety_inputs.h b/base/stm32/safety_inputs.h
---- a/base/stm32/safety_inputs.h	2026-10-08 16:17:28.000000000 +0000
-+++ b/base/stm32/safety_inputs.h	2026-10-15 01:07:50.757955355 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/stm32/safety_inputs.h b/base/stm32/safety_inputs.h
+--- a/base/stm32/safety_inputs.h	2026-10-17 01:54:23.237510321 +0000
++++ b/base/stm32/safety_inputs.h	2026-10-17 01:54:27.109144094 +0000
 @@ -4,6 +4,8 @@
  void sv_safety_inputs_init(uint32_t boot_at);
  void sv_safety_inputs_tick(uint32_t now);
@@ -105,9 +105,9 @@ diff -ruN a/base/stm32/safety_inputs.h b/base/stm32/safety_inputs.h
  bool sv_safety_speaker_permitted(void);
  bool sv_safety_headphone_permitted(void);
  uint8_t sv_safety_apply_outputs(uint8_t desired);
-diff -ruN a/base/sv_control.c b/base/sv_control.c
---- a/base/sv_control.c	2026-10-09 10:05:00.000000000 +0000
-+++ b/base/sv_control.c	2026-10-15 06:52:35.163007561 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_control.c b/base/sv_control.c
+--- a/base/sv_control.c	2026-10-17 01:54:23.083681655 +0000
++++ b/base/sv_control.c	2026-10-17 01:54:26.822857955 +0000
 @@ -205,6 +205,14 @@
      out[f->length+12]=(uint8_t)crc;out[f->length+13]=(uint8_t)(crc>>8);
      return (size_t)f->length+14;
@@ -132,9 +132,9 @@ diff -ruN a/base/sv_control.c b/base/sv_control.c
          uint16_t total=(uint16_t)(n+14);
          if (p->count<total) return false;
          if (sv_crc16(b+2,(size_t)n+10)!=le16(b+total-2)) {p->errors++;discard(p,1);continue;}
-diff -ruN a/base/sv_control.h b/base/sv_control.h
---- a/base/sv_control.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_control.h	2026-10-15 01:07:29.036855329 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_control.h b/base/sv_control.h
+--- a/base/sv_control.h	2026-10-17 01:54:23.084272254 +0000
++++ b/base/sv_control.h	2026-10-17 01:54:26.824055104 +0000
 @@ -73,6 +73,7 @@
  typedef enum { SV_OK, SV_AUTH, SV_FRAME, SV_LENGTH, SV_RANGE, SV_REPLAY,
                 SV_NOT_READY, SV_PHYSICAL } sv_result;
@@ -143,9 +143,9 @@ diff -ruN a/base/sv_control.h b/base/sv_control.h
  void sv_parser_reset(sv_parser *p);
  void sv_parser_poll(sv_parser *p, uint32_t now);
  bool sv_parser_byte(sv_parser *p, uint8_t byte, uint32_t now, sv_frame *out);
-diff -ruN a/base/sv_factory.c b/base/sv_factory.c
---- a/base/sv_factory.c	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_factory.c	2026-10-15 06:57:58.111587325 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_factory.c b/base/sv_factory.c
+--- a/base/sv_factory.c	2026-10-17 01:54:23.083012672 +0000
++++ b/base/sv_factory.c	2026-10-17 01:54:26.821722984 +0000
 @@ -2,6 +2,12 @@
  #include <string.h>
  void sv_factory_init(sv_factory *d,uint32_t faults){memset(d,0,sizeof(*d));d->faults=faults;}
@@ -191,9 +191,9 @@ diff -ruN a/base/sv_factory.c b/base/sv_factory.c
              if(d->input==0){l=r=pickup;}else if(d->input==1){l=rl;r=rr;}else if(d->input==2){l=r=rl;}else if(d->input==3){l=r=rr;}else {l=pickup/2+rl/2;r=pickup/2+rr/2;}
          }
          l=limit(l,8388607);r=limit(r,8388607);
-diff -ruN a/base/sv_factory.h b/base/sv_factory.h
---- a/base/sv_factory.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_factory.h	2026-10-15 06:57:58.112107085 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_factory.h b/base/sv_factory.h
+--- a/base/sv_factory.h	2026-10-17 01:54:23.085245399 +0000
++++ b/base/sv_factory.h	2026-10-17 01:54:26.825001934 +0000
 @@ -7,7 +7,7 @@
  enum {SV_D_FAULT_POWER=1,SV_D_FAULT_SENSOR=2,SV_D_FAULT_DMA=4,SV_D_FAULT_CODEC=8,SV_D_FAULT_CLOCK=16,SV_D_FAULT_RESET=32,SV_D_FAULT_PROTOCOL=64};
  typedef struct {
@@ -217,9 +217,9 @@ diff -ruN a/base/sv_factory.h b/base/sv_factory.h
  unsigned sv_factory_buttons(sv_factory *,uint8_t pressed,uint32_t now);
  /* Factory mailbox/UART is not a security boundary: requires physical chord,
   * read nonce, explicit bench/load grants. Never grants charging or USB data. */
-diff -ruN a/base/sv_hw_rev.h b/base/sv_hw_rev.h
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_hw_rev.h b/base/sv_hw_rev.h
 --- a/base/sv_hw_rev.h	1970-01-01 00:00:00.000000000 +0000
-+++ b/base/sv_hw_rev.h	2026-10-15 06:47:35.529945893 +0000
++++ b/base/sv_hw_rev.h	2026-10-17 01:54:26.508472948 +0000
 @@ -0,0 +1,31 @@
 +#ifndef SV_HW_REV_H
 +#define SV_HW_REV_H
@@ -252,9 +252,9 @@ diff -ruN a/base/sv_hw_rev.h b/base/sv_hw_rev.h
 +#define SV_HAS_PWR_PB_SENSE 0
 +#endif
 +#endif
-diff -ruN a/base/sv_input_guard.c b/base/sv_input_guard.c
---- a/base/sv_input_guard.c	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_input_guard.c	2026-10-15 06:47:35.557326895 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_input_guard.c b/base/sv_input_guard.c
+--- a/base/sv_input_guard.c	2026-10-17 01:54:23.085190274 +0000
++++ b/base/sv_input_guard.c	2026-10-17 01:54:26.616472955 +0000
 @@ -13,8 +13,12 @@
  }
  void sv_input_observe_hp(sv_input_guard *g,bool hp,uint32_t now){
@@ -291,9 +291,9 @@ diff -ruN a/base/sv_input_guard.c b/base/sv_input_guard.c
 +     * PWR latch so the next PWR/INT event is seen (1 s ignore window again). */
 +    g->shutdown=false;g->armed=false;g->power_tracking=false;g->boot_at=now;
 +}
-diff -ruN a/base/sv_input_guard.h b/base/sv_input_guard.h
---- a/base/sv_input_guard.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_input_guard.h	2026-10-15 06:47:35.557028589 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_input_guard.h b/base/sv_input_guard.h
+--- a/base/sv_input_guard.h	2026-10-17 01:54:23.083440245 +0000
++++ b/base/sv_input_guard.h	2026-10-17 01:54:26.620472955 +0000
 @@ -2,9 +2,23 @@
  #define SV_INPUT_GUARD_H
  #include <stdbool.h>
@@ -325,9 +325,9 @@ diff -ruN a/base/sv_input_guard.h b/base/sv_input_guard.h
  uint8_t sv_input_output_mask(const sv_input_guard *,uint8_t desired,bool hp_raw_inserted);
 +void sv_input_guard_rearm(sv_input_guard *,uint32_t now);
  #endif
-diff -ruN a/base/sv_pcm1864.c b/base/sv_pcm1864.c
---- a/base/sv_pcm1864.c	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_pcm1864.c	2026-10-15 06:41:15.377812023 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_pcm1864.c b/base/sv_pcm1864.c
+--- a/base/sv_pcm1864.c	2026-10-17 01:54:23.082838612 +0000
++++ b/base/sv_pcm1864.c	2026-10-17 01:54:26.622670368 +0000
 @@ -3,7 +3,7 @@
  /* TI SLAS831D: masked page0 configuration; page1 indirect 4.20 coefficients.
   * No coefficient access without running audio clocks. All outputs stay muted. */
@@ -352,9 +352,9 @@ diff -ruN a/base/sv_pcm1864.c b/base/sv_pcm1864.c
      if(p->phase==1){
          const uint8_t *c=cfg[p->index];
          if(p->sub==0){
-diff -ruN a/base/sv_pcm1864.h b/base/sv_pcm1864.h
---- a/base/sv_pcm1864.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_pcm1864.h	2026-10-15 06:41:15.378332307 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_pcm1864.h b/base/sv_pcm1864.h
+--- a/base/sv_pcm1864.h	2026-10-17 01:54:23.084811022 +0000
++++ b/base/sv_pcm1864.h	2026-10-17 01:54:26.824526264 +0000
 @@ -7,7 +7,15 @@
      bool (*read)(void *,uint8_t,uint8_t *);
      bool (*write)(void *,uint8_t,uint8_t);
@@ -372,10 +372,10 @@ diff -ruN a/base/sv_pcm1864.h b/base/sv_pcm1864.h
  enum {SV_PCM_BUS=1,SV_PCM_READBACK=2,SV_PCM_TIMEOUT=4,SV_PCM_RESERVED=8};
  void sv_pcm_start(sv_pcm1864 *,sv_codec_bus,uint32_t now);
  /* One bounded register operation per tick; clocks running, outputs muted. */
-diff -ruN a/base/sv_product.c b/base/sv_product.c
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_product.c b/base/sv_product.c
 --- a/base/sv_product.c	1970-01-01 00:00:00.000000000 +0000
-+++ b/base/sv_product.c	2026-10-15 06:58:13.381907904 +0000
-@@ -0,0 +1,115 @@
++++ b/base/sv_product.c	2026-10-17 01:54:26.621736358 +0000
+@@ -0,0 +1,119 @@
 +#include "sv_product.h"
 +#include "sv_control.h"
 +#include <string.h>
@@ -414,7 +414,7 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +    else if(now-b->low_since>=SV_BAT_OFF_HOLD_MS)b->shutdown=true; /* latched until reboot */
 +}
 +sv_charge_out sv_charge_decide(sv_charge *c,const sv_charge_in *i,uint32_t now){
-+    sv_charge_out o={false,false,false};
++    sv_charge_out o={false,false,false,false};
 +    bool usb_fault=i->port_fault || i->efuse_fault;
 +    /* EN2=0/EN1=1: BQ24074 USB500 input limit; any USB fault falls back to USB100. */
 +    o.en1=!usb_fault && !i->service_image;o.en2=false;
@@ -423,7 +423,8 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +        i->board_deci_c>=SV_CHG_TEMP_MIN_DECI_C && i->board_deci_c<=SV_CHG_TEMP_MAX_DECI_C;
 +    if(!ok){c->qualifying=false;return o;}
 +    if(!c->qualifying){c->qualifying=true;c->since=now;}
-+    o.allow=now-c->since>=SV_CHG_QUALIFY_MS;
++    o.qualified=now-c->since>=SV_CHG_QUALIFY_MS;
++    o.allow=SV_R4_CHARGE_RELEASE && o.qualified;
 +    return o;
 +}
 +uint32_t sv_recover_delay(uint32_t attempts){
@@ -444,9 +445,12 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +uint8_t sv_bt_key(sv_bt_ui *b,unsigned action,uint8_t port,uint32_t now){
 +    if(action==1 && port==SV_BT){b->pending=false;b->window=false;return b->prev_port?b->prev_port:SV_SPK;}
 +    if(action!=1 && action!=2)return port;
-+    if(action==2 && !b->have_peer)return port; /* nothing to pair with */
 +    if(port!=SV_BT)b->prev_port=port;
-+    if(b->have_peer){b->pending=true;b->pending_at=now;}
++    /* long: 6xFF = search for a new headset; short: known peer, else 6x00 = ESP's stored one or search */
++    if(action==2)memset(b->req,0xFF,6);
++    else if(b->have_peer)memcpy(b->req,b->peer,6);
++    else memset(b->req,0,6);
++    b->pending=true;b->pending_at=now;
 +    return SV_BT;
 +}
 +uint8_t sv_bt_led_state(const sv_bt_ui *b,bool route,bool connected,uint32_t now){
@@ -491,10 +495,10 @@ diff -ruN a/base/sv_product.c b/base/sv_product.c
 +    if(!p->pb_tracking){p->pb_tracking=true;p->pb_since=now;}
 +    return now-p->pb_since>=SV_PB_WAKE_MS;
 +}
-diff -ruN a/base/sv_product.h b/base/sv_product.h
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_product.h b/base/sv_product.h
 --- a/base/sv_product.h	1970-01-01 00:00:00.000000000 +0000
-+++ b/base/sv_product.h	2026-10-15 06:58:44.446358086 +0000
-@@ -0,0 +1,86 @@
++++ b/base/sv_product.h	2026-10-17 01:54:26.621945158 +0000
+@@ -0,0 +1,96 @@
 +#ifndef SV_PRODUCT_H
 +#define SV_PRODUCT_H
 +/* R4 product behaviour helpers (portable, host-tested). Pure functions/state
@@ -535,7 +539,15 @@ diff -ruN a/base/sv_product.h b/base/sv_product.h
 +    bool vbus,frame_valid,port_fault,efuse_fault,system_fault,service_image;
 +    uint16_t pack_mv;int16_t board_deci_c;
 +} sv_charge_in;
-+typedef struct {bool allow,en1,en2;} sv_charge_out;
++/* Normal-charging release gate (work item P23 / test stage CHARGE). 0 = default for the
++ * first sample: CHARGE_ALLOW stays low whatever the conditions; the decision still runs
++ * and `qualified` reports what it would do. Build the -CHARGE-TEST image
++ * (SV_R4_CHARGE_RELEASE=1) only after the VARTA pack NTC curve and stages B00-B12 are
++ * signed off; the product image flips the default only after stage CHARGE passes. */
++#ifndef SV_R4_CHARGE_RELEASE
++#define SV_R4_CHARGE_RELEASE 0
++#endif
++typedef struct {bool allow,en1,en2,qualified;} sv_charge_out;
 +typedef struct {bool qualifying;uint32_t since;} sv_charge;
 +enum {SV_CHG_QUALIFY_MS=2000,SV_CHG_PACK_MIN_MV=2500,SV_CHG_PACK_MAX_MV=4250,
 +      SV_CHG_TEMP_MIN_DECI_C=0,SV_CHG_TEMP_MAX_DECI_C=450};
@@ -554,9 +566,11 @@ diff -ruN a/base/sv_product.h b/base/sv_product.h
 + * sending the normal 0x36 -> 0x40 frame. The ESP firmware has no inquiry/discovery,
 + * so the peer BDADDR must come from a 0x36 (bench/app) earlier in this power session. */
 +enum {SV_BT_WINDOW_MS=60000,SV_BT_SEND_TIMEOUT_MS=8000};
-+typedef struct {uint8_t prev_port,peer[6];bool have_peer,pending,window;uint32_t pending_at,window_at;} sv_bt_ui;
++/* req = address sent with the pending 0x36: the known peer, 6x00 (ESP reconnects its
++ * NVS-stored headset or searches) or 6xFF (search for a new headset). */
++typedef struct {uint8_t prev_port,peer[6],req[6];bool have_peer,pending,window;uint32_t pending_at,window_at;} sv_bt_ui;
 +void sv_bt_learn_peer(sv_bt_ui *,const uint8_t peer[6]);
-+/* action 1=short, 2=long. Returns the new port (SV_BT on, previous route off). */
++/* action 1=short (BT on: reconnect; BT off), 2=long (pair a new headset). Returns the new port. */
 +uint8_t sv_bt_key(sv_bt_ui *,unsigned action,uint8_t port,uint32_t now);
 +/* LED2 while the BT route is on: connected solid, pairing window slow blink, else off. */
 +enum {SV_BT_LED_OFF,SV_BT_LED_BLINK,SV_BT_LED_ON};
@@ -581,9 +595,9 @@ diff -ruN a/base/sv_product.h b/base/sv_product.h
 +enum {SV_PB_WAKE_MS=50};
 +bool sv_power_pb_wake(sv_power *,bool pb_low,uint32_t now);
 +#endif
-diff -ruN a/base/sv_telemetry.c b/base/sv_telemetry.c
---- a/base/sv_telemetry.c	2026-10-09 10:05:00.000000000 +0000
-+++ b/base/sv_telemetry.c	2026-10-15 06:52:35.194202545 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_telemetry.c b/base/sv_telemetry.c
+--- a/base/sv_telemetry.c	2026-10-17 01:54:23.084212916 +0000
++++ b/base/sv_telemetry.c	2026-10-17 01:54:26.823954132 +0000
 @@ -1,9 +1,13 @@
  #include "sv_telemetry.h"
  #include "sv27_power_profile.h"
@@ -612,9 +626,9 @@ diff -ruN a/base/sv_telemetry.c b/base/sv_telemetry.c
              int64_t mv=(uv+500)/1000+m->cal.offset_mv[m->channel];
              if(mv < -10 || mv > 6500){fail(m,SV_MON_RANGE);return;}
              m->pending_mv[m->channel]=(uint16_t)(mv<0?0:mv);
-diff -ruN a/base/sv_telemetry.h b/base/sv_telemetry.h
---- a/base/sv_telemetry.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_telemetry.h	2026-10-15 06:49:20.212573954 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_telemetry.h b/base/sv_telemetry.h
+--- a/base/sv_telemetry.h	2026-10-17 01:54:23.083241204 +0000
++++ b/base/sv_telemetry.h	2026-10-17 01:54:26.822236628 +0000
 @@ -32,6 +32,8 @@
  void sv_mon_init(sv_monitor *, uint32_t, sv_mon_bus, const sv_mon_cal *);
  void sv_mon_tick(sv_monitor *, uint32_t, bool rail_and_switch_settled);
@@ -624,9 +638,9 @@ diff -ruN a/base/sv_telemetry.h b/base/sv_telemetry.h
  /* ISET estimate only during qualified active charging; mirror is +/-10%. */
  bool sv_mon_charge_current(const sv_mon_frame *, bool actively_charging, uint16_t *ma);
  
-diff -ruN a/base/sv_ui.c b/base/sv_ui.c
---- a/base/sv_ui.c	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_ui.c	2026-10-15 06:57:58.110655537 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_ui.c b/base/sv_ui.c
+--- a/base/sv_ui.c	2026-10-17 01:54:23.083955094 +0000
++++ b/base/sv_ui.c	2026-10-17 01:54:26.823404385 +0000
 @@ -12,7 +12,8 @@
      for(unsigned i=0;i<3;i++)if(raw[i]>4095){u->fresh=false;u->picked_up=false;return false;}
      for(unsigned i=0;i<3;i++)u->pots[i]=(uint16_t)raw[i];
@@ -647,9 +661,9 @@ diff -ruN a/base/sv_ui.c b/base/sv_ui.c
          }
      }
      if(u->chord_lock){events&=~0x303u;if(!(pressed&3u) && !u->buttons[0].down && !u->buttons[1].down)u->chord_lock=false;}
-diff -ruN a/base/sv_ui.h b/base/sv_ui.h
---- a/base/sv_ui.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/base/sv_ui.h	2026-10-15 01:09:21.725841669 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/sv_ui.h b/base/sv_ui.h
+--- a/base/sv_ui.h	2026-10-17 01:54:23.082898891 +0000
++++ b/base/sv_ui.h	2026-10-17 01:54:26.820472967 +0000
 @@ -8,7 +8,7 @@
  typedef struct {
      sv_button buttons[4];
@@ -659,9 +673,9 @@ diff -ruN a/base/sv_ui.h b/base/sv_ui.h
      uint8_t rate;
      float gain,tone,depth,filter[2][4]; uint32_t phase;
  } sv_ui;
-diff -ruN a/base/tests/safety_hal_model.h b/base/tests/safety_hal_model.h
---- a/base/tests/safety_hal_model.h	2026-10-08 16:17:30.000000000 +0000
-+++ b/base/tests/safety_hal_model.h	2026-10-15 06:47:35.558223690 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/tests/safety_hal_model.h b/base/tests/safety_hal_model.h
+--- a/base/tests/safety_hal_model.h	2026-10-17 01:54:23.239548412 +0000
++++ b/base/tests/safety_hal_model.h	2026-10-17 01:54:27.331891621 +0000
 @@ -3,7 +3,8 @@
  /* GPIO layout comes from pinned ST CMSIS. The HAL/NVIC API below is a host
   * semantic shim, NOT electrical EXTI, NVIC scheduling, or timing simulation. */
@@ -672,9 +686,9 @@ diff -ruN a/base/tests/safety_hal_model.h b/base/tests/safety_hal_model.h
  #define GPIOA (&sv_fake_gpioa)
  #define GPIOC (&sv_fake_gpioc)
  #define GPIOE (&sv_fake_gpioe)
-diff -ruN a/base/tests/test_audio_contract.c b/base/tests/test_audio_contract.c
---- a/base/tests/test_audio_contract.c	2026-10-08 16:17:30.000000000 +0000
-+++ b/base/tests/test_audio_contract.c	2026-10-15 06:42:57.838741987 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/tests/test_audio_contract.c b/base/tests/test_audio_contract.c
+--- a/base/tests/test_audio_contract.c	2026-10-17 01:54:23.239297374 +0000
++++ b/base/tests/test_audio_contract.c	2026-10-17 01:54:27.110866649 +0000
 @@ -64,13 +64,14 @@
          if(mode<2)C(abs(sv_sample24(out[254]))<16);
      }
@@ -692,9 +706,9 @@ diff -ruN a/base/tests/test_audio_contract.c b/base/tests/test_audio_contract.c
      d.port=SV_SPK;sv_factory_render(&d,a,b,out,spk,128,&phase);
      for(unsigned j=0;j<128;j++){C(!out[2*j]&&!out[2*j+1]);C(!spk[2*j+1]);C(abs(sv_sample24(spk[2*j]))<=cap);}
      printf("{\"groups\":%u,\"assertions\":%u,\"hardware_tests\":0,\"suite\":\"audio_contract\",\"HPF850Gain\":%.6f,\"lowOctaveRatio\":%.6f,\"speakerCap24\":%d}\n",groups,checks,at850,at200/at100,cap);
-diff -ruN a/base/tests/test_diagnostics.c b/base/tests/test_diagnostics.c
---- a/base/tests/test_diagnostics.c	2026-10-08 16:17:30.000000000 +0000
-+++ b/base/tests/test_diagnostics.c	2026-10-15 06:41:31.635616807 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/tests/test_diagnostics.c b/base/tests/test_diagnostics.c
+--- a/base/tests/test_diagnostics.c	2026-10-17 01:54:23.239777445 +0000
++++ b/base/tests/test_diagnostics.c	2026-10-17 01:54:27.332160913 +0000
 @@ -6,11 +6,13 @@
  #include <string.h>
  static unsigned checks,groups;
@@ -720,9 +734,9 @@ diff -ruN a/base/tests/test_diagnostics.c b/base/tests/test_diagnostics.c
      for(unsigned i=0;i<24;i++){C(c.coeff[i][0]==((i==0||i==7||i==14||i==21)?16:0));C(!c.coeff[i][1]&&!c.coeff[i][2]);}
      unsigned operations=c.ops;groups++;
      for(unsigned fail=1;fail<=operations;fail++){reset(&c);c.fail=fail;run(&p,&c);C(!p.ready && (p.fault&SV_PCM_BUS));unsigned before=c.ops;sv_pcm_tick(&p,10002);C(c.ops==before);}
-diff -ruN a/base/tests/test_safety_inputs.c b/base/tests/test_safety_inputs.c
---- a/base/tests/test_safety_inputs.c	2026-10-08 16:17:30.000000000 +0000
-+++ b/base/tests/test_safety_inputs.c	2026-10-15 06:47:59.964424525 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/base/tests/test_safety_inputs.c b/base/tests/test_safety_inputs.c
+--- a/base/tests/test_safety_inputs.c	2026-10-17 01:54:23.239179121 +0000
++++ b/base/tests/test_safety_inputs.c	2026-10-17 01:54:27.328472997 +0000
 @@ -4,25 +4,28 @@
  #include <stdlib.h>
  #include <string.h>
@@ -826,10 +840,10 @@ diff -ruN a/base/tests/test_safety_inputs.c b/base/tests/test_safety_inputs.c
 +    tick(6000,false,false);power_edge(6001);C(sv_safety_shutdown_requested());
 +    printf("{\"groups\":%u,\"assertions\":%u,\"suite\":\"target_safety_inputs\",\"legacy26msNegativeReproduced\":true,\"hp_active_high\":%d,\"hp_debounce_ms\":%d,\"hardware_tests\":0}\n",groups,checks,HP_DETECT_ACTIVE_HIGH,(int)D);return 0;
  }
-diff -ruN a/build_r4_linux.sh b/build_r4_linux.sh
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/build_r4_linux.sh b/build_r4_linux.sh
 --- a/build_r4_linux.sh	1970-01-01 00:00:00.000000000 +0000
-+++ b/build_r4_linux.sh	2026-10-15 06:49:32.724610688 +0000
-@@ -0,0 +1,159 @@
++++ b/build_r4_linux.sh	2026-10-17 01:54:25.609503540 +0000
+@@ -0,0 +1,172 @@
 +#!/usr/bin/env bash
 +# SmartVio STM32H743 firmware: Linux rebuild of build.py (which was Windows-only:
 +# tcc for host tests, arm-none-eabi-gcc 14.2 for target, absolute E:/ paths).
@@ -930,6 +944,8 @@ diff -ruN a/build_r4_linux.sh b/build_r4_linux.sh
 +  host test_safety_inputs_active_low "${H[@]}" -DHP_DETECT_ACTIVE_HIGH=0 -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" \
 +       "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
 +  # R4 firmware built for an R3 board (SV_HW_REV_R4=0): routes/wake/detect still correct.
++  # Charge-release logic with the gate opened (the default image keeps CHARGE_ALLOW low).
++  host test_r4_product_charge_release "${COMMON[@]}" -DSV_R4_CHARGE_RELEASE=1 "${CORE[@]}" "$FW/tests/test_r4_product.c"
 +  host test_r4_product_r3board "${COMMON[@]}" -DSV_HW_REV_R4=0 "${CORE[@]}" "$FW/tests/test_r4_product.c"
 +  host test_safety_inputs_r3board "${H[@]}" -DSV_HW_REV_R4=0 -DSV_SAFETY_REGISTER_MODEL "-I$BASE/tests" \
 +       "$BASE/sv_input_guard.c" "$BASE/stm32/safety_inputs.c" "$BASE/tests/test_safety_inputs.c"
@@ -977,6 +993,17 @@ diff -ruN a/build_r4_linux.sh b/build_r4_linux.sh
 +  run "$ARMCC" "${FLAGS[@]}" -DSV_DIAGNOSTIC_SERVICE_CLEAR=1 -c "$s" -o "$o"; SOBJS+=("$o")
 +done
 +link "$OUT/$IMAGE-SERVICE.elf" "${SOBJS[@]}"
++# CHARGE-TEST variant (SV_R4_CHARGE_RELEASE=1): only for test stage CHARGE after the pack
++# NTC curve and B00-B12 are signed off. The default image never drives CHARGE_ALLOW high.
++if [ -f "$BASE/sv_product.c" ]; then
++  COBJS=()
++  for o in "${OBJS[@]}"; do case "$(basename "$o")" in main.o|sv_product.o) ;; *) COBJS+=("$o");; esac; done
++  for s in "$FW/stm32/main.c" "$BASE/sv_product.c"; do
++    b="$(basename "$s" .c)"; o="$OUT/obj/$b-charge.o"
++    run "$ARMCC" "${FLAGS[@]}" -DSV_R4_CHARGE_RELEASE=1 -c "$s" -o "$o"; COBJS+=("$o")
++  done
++  link "$OUT/$IMAGE-CHARGE-TEST.elf" "${COBJS[@]}"
++fi
 +# Compile check of the board-revision dependent target sources for an R3 board
 +# (SV_HW_REV_R4=0) and for the SV_PRODUCT_MODE=0 bench flow (objects discarded).
 +if [ -f "$BASE/sv_hw_rev.h" ]; then
@@ -989,9 +1016,9 @@ diff -ruN a/build_r4_linux.sh b/build_r4_linux.sh
 +  rm -f "$OUT/obj/variant.o"
 +fi
 +echo "== DONE: host tests + target ELF in $OUT (hardware tests: 0)"
-diff -ruN a/esp32/main/r2shared/sv_control.c b/esp32/main/r2shared/sv_control.c
---- a/esp32/main/r2shared/sv_control.c	2026-10-09 10:05:00.000000000 +0000
-+++ b/esp32/main/r2shared/sv_control.c	2026-10-15 06:52:35.221218298 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/esp32/main/r2shared/sv_control.c b/esp32/main/r2shared/sv_control.c
+--- a/esp32/main/r2shared/sv_control.c	2026-10-17 01:54:23.079980787 +0000
++++ b/esp32/main/r2shared/sv_control.c	2026-10-17 01:54:25.904472913 +0000
 @@ -205,6 +205,14 @@
      out[f->length+12]=(uint8_t)crc;out[f->length+13]=(uint8_t)(crc>>8);
      return (size_t)f->length+14;
@@ -1016,9 +1043,9 @@ diff -ruN a/esp32/main/r2shared/sv_control.c b/esp32/main/r2shared/sv_control.c
          uint16_t total=(uint16_t)(n+14);
          if (p->count<total) return false;
          if (sv_crc16(b+2,(size_t)n+10)!=le16(b+total-2)) {p->errors++;discard(p,1);continue;}
-diff -ruN a/esp32/main/r2shared/sv_control.h b/esp32/main/r2shared/sv_control.h
---- a/esp32/main/r2shared/sv_control.h	2026-10-09 10:11:56.000000000 +0000
-+++ b/esp32/main/r2shared/sv_control.h	2026-10-15 01:07:29.048127948 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/esp32/main/r2shared/sv_control.h b/esp32/main/r2shared/sv_control.h
+--- a/esp32/main/r2shared/sv_control.h	2026-10-17 01:54:23.080184589 +0000
++++ b/esp32/main/r2shared/sv_control.h	2026-10-17 01:54:25.984472917 +0000
 @@ -73,6 +73,7 @@
  typedef enum { SV_OK, SV_AUTH, SV_FRAME, SV_LENGTH, SV_RANGE, SV_REPLAY,
                 SV_NOT_READY, SV_PHYSICAL } sv_result;
@@ -1027,37 +1054,788 @@ diff -ruN a/esp32/main/r2shared/sv_control.h b/esp32/main/r2shared/sv_control.h
  void sv_parser_reset(sv_parser *p);
  void sv_parser_poll(sv_parser *p, uint32_t now);
  bool sv_parser_byte(sv_parser *p, uint8_t byte, uint32_t now, sv_frame *out);
-diff -ruN a/stm32/main.c b/stm32/main.c
---- a/stm32/main.c	2026-10-09 14:05:04.000000000 +0000
-+++ b/stm32/main.c	2026-10-15 06:58:44.469450483 +0000
-@@ -1,4 +1,7 @@
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/esp32/main/smartvio_rf.c b/esp32/main/smartvio_rf.c
+--- a/esp32/main/smartvio_rf.c	2026-10-17 01:54:22.808988661 +0000
++++ b/esp32/main/smartvio_rf.c	2026-10-17 01:54:25.670653528 +0000
+@@ -1,4 +1,8 @@
+-/* Isolated V27 native diagnostics. Execution on hardware has not been tested. */
++/* Isolated V27 native diagnostics. Execution on hardware has not been tested.
++ * R4: first-time headset pairing (inquiry for A2DP sinks on a 0x40 with an
++ * all-zero/absent or all-FF peer), bonded peer kept in NVS, Bluetooth stack
++ * started at boot with a bounded deferred 0x40 reply, streaming window kept
++ * open while the link is up and the MCU session is alive. Not hardware-tested. */
+ #include <string.h>
+ #include "sdkconfig.h"
+ #include "freertos/FreeRTOS.h"
+@@ -15,12 +19,14 @@
+ #include "esp_gatts_api.h"
+ #include "esp_a2dp_api.h"
+ #include "nvs_flash.h"
++#include "nvs.h"
+ #include "pcm_rx.h"
+ #include "sv_radio_core.h"
+ #include "sv_retry.h"
++#include "sv_pair.h"
+ 
+ enum {EV_LOCAL,EV_PROFILE,EV_A2DP,EV_AUTH,EV_ENCRYPT,EV_CONFIRM,EV_PIN,
+-      EV_GATT_TABLE,EV_BLE_CONNECT,EV_BLE_DISCONNECT,EV_READ,EV_WRITE,EV_ADV,EV_MEDIA,EV_BLE_AUTH};
++      EV_GATT_TABLE,EV_BLE_CONNECT,EV_BLE_DISCONNECT,EV_READ,EV_WRITE,EV_ADV,EV_MEDIA,EV_BLE_AUTH,EV_DISC};
+ typedef struct {
+     uint8_t type,peer[6],value;bool ok,need_response,prepared;
+     uint16_t connection,handle,offset,interface;uint32_t transaction,issued_at;
+@@ -38,6 +44,16 @@
+ static esp_gatt_if_t gatt_interface;
+ static uint32_t queue_overflows;
+ static uint8_t tx[270];static size_t tx_length,tx_at;static uint32_t tx_started;
++/* R4 pairing state. found is written by the Bluedroid GAP callback (BTC task)
++ * under found_lock while collecting; everything else is app_main-only. */
++static sv_pair pair;
++static sv_pair_cand found;static bool collecting;
++static portMUX_TYPE found_lock=portMUX_INITIALIZER_UNLOCKED;
++static uint8_t stored_peer[6];static bool have_stored,saved;
++/* R4 early start: init_task publishes init_state once (release); app_main reads (acquire). */
++enum {SV_INIT_STACK=1,SV_INIT_PCM=2,SV_INIT_DONE=0x80,SV_INIT_REPLY_MS=1200 /* < MCU 1500 ms reply timeout */};
++static uint8_t init_state;static bool init_seen;
++static sv_frame deferred;static bool deferred_valid;static uint32_t deferred_at;
+ static uint32_t now_ms(void){return (uint32_t)(esp_timer_get_time()/1000);}
+ static TickType_t ticks_ms(unsigned ms){return (TickType_t)(((uint64_t)ms*configTICK_RATE_HZ+999)/1000);}
+ static void post(event *e){if(!events || xQueueSend(events,e,0)!=pdTRUE)__atomic_fetch_add(&queue_overflows,1,__ATOMIC_RELAXED);}
+@@ -51,13 +67,19 @@
+     out[0]=1;out[1]=stack_ready;out[2]=radio.profile_ready;out[3]=radio.connected;
+     out[4]=radio.classic_authenticated;out[5]=radio.encrypted;out[6]=pcm_ready;out[7]=radio.faults?1:0;
+ }
++static void collect(bool on){
++    portENTER_CRITICAL(&found_lock);if(on)memset(&found,0,sizeof(found));collecting=on;portEXIT_CRITICAL(&found_lock);
++}
+ static void quiesce(void){
+     uint8_t peer[6];memcpy(peer,radio.peer,6);bool had_peer=radio.local_window;
++    bool inquiring=pair.phase==SV_PAIR_INQUIRY;memset(&pair,0,sizeof(pair));collect(false);
++    saved=false;deferred_valid=false;
+     sv_radio_quiesce(&radio);sv_parser_reset(&parser);
+     sv_retry_stop(&retry,now_ms());
+     media_check_requested=false;ble_authenticated=false;sv_esp_pcm_gate(false);sv_session_end(&mcu_session);
+     if(!stack_ready)return;
+     esp_bt_gap_set_scan_mode(ESP_BT_NON_CONNECTABLE,ESP_BT_NON_DISCOVERABLE);
++    if(inquiring)esp_bt_gap_cancel_discovery();
+     if(advertising){esp_ble_gap_stop_advertising();advertising=false;}
+     if(had_peer && radio.profile_ready){esp_a2d_media_ctrl(ESP_A2D_MEDIA_CTRL_SUSPEND);esp_a2d_source_disconnect(peer);}
+     if(ble_connected)esp_ble_gatts_close(gatt_interface,ble_connection);
+@@ -79,7 +101,22 @@
+     if(kind==ESP_BT_GAP_AUTH_CMPL_EVT){e.type=EV_AUTH;e.ok=p->auth_cmpl.stat==ESP_BT_STATUS_SUCCESS;memcpy(e.peer,p->auth_cmpl.bda,6);}
+     else if(kind==ESP_BT_GAP_ENC_CHG_EVT){e.type=EV_ENCRYPT;e.ok=p->enc_chg.enc_mode!=0;memcpy(e.peer,p->enc_chg.bda,6);}
+     else if(kind==ESP_BT_GAP_CFM_REQ_EVT){e.type=EV_CONFIRM;memcpy(e.peer,p->cfm_req.bda,6);}
+-    else if(kind==ESP_BT_GAP_PIN_REQ_EVT){e.type=EV_PIN;memcpy(e.peer,p->pin_req.bda,6);}
++    else if(kind==ESP_BT_GAP_PIN_REQ_EVT){e.type=EV_PIN;e.value=p->pin_req.min_16_digit;memcpy(e.peer,p->pin_req.bda,6);}
++    else if(kind==ESP_BT_GAP_DISC_RES_EVT){
++        /* Filter in the callback: only A2DP-sink CoDs touch the shared best
++         * candidate, so a crowded inquiry cannot overflow the event queue. */
++        uint32_t cod=0;bool has_cod=false,has_rssi=false;int8_t rssi=0;
++        for(int i=0;i<p->disc_res.num_prop;i++){
++            const esp_bt_gap_dev_prop_t *q=&p->disc_res.prop[i];
++            if(q->type==ESP_BT_GAP_DEV_PROP_COD && q->val && q->len>=4){memcpy(&cod,q->val,4);has_cod=true;}
++            else if(q->type==ESP_BT_GAP_DEV_PROP_RSSI && q->val && q->len>=1){rssi=*(const int8_t*)q->val;has_rssi=true;}
++        }
++        if(has_cod && sv_pair_is_sink(cod)){
++            portENTER_CRITICAL(&found_lock);if(collecting)sv_pair_offer(&found,p->disc_res.bda,has_rssi,rssi);portEXIT_CRITICAL(&found_lock);
++        }
++        return;
++    }
++    else if(kind==ESP_BT_GAP_DISC_STATE_CHANGED_EVT){e.type=EV_DISC;e.ok=p->disc_st_chg.state==ESP_BT_GAP_DISCOVERY_STARTED;}
+     else return;
+     post(&e);
+ }
+@@ -137,6 +174,50 @@
+     uint8_t adv[30]={2,1,6,17,7};memcpy(adv+5,uuid,16);adv[21]=8;adv[22]=8;memcpy(adv+23,"SV-DIAG",7);
+     return esp_ble_gap_config_adv_data_raw(adv,sizeof(adv))==ESP_OK;
+ }
++/* Bonded headset address (Bluedroid keeps the link key itself in its own NVS
++ * namespace). Written only when it changes, after an authenticated connect. */
++static void load_peer(void){
++    nvs_handle_t h;uint8_t p[6];size_t n=sizeof(p);
++    if(nvs_open("sv_rf",NVS_READONLY,&h)!=ESP_OK)return;
++    if(nvs_get_blob(h,"peer",p,&n)==ESP_OK && n==6 && sv_pair_valid_addr(p)){memcpy(stored_peer,p,6);have_stored=true;}
++    nvs_close(h);
++}
++static void store_peer(const uint8_t p[6]){
++    nvs_handle_t h;
++    if(nvs_open("sv_rf",NVS_READWRITE,&h)!=ESP_OK)return;
++    if(nvs_set_blob(h,"peer",p,6)==ESP_OK && nvs_commit(h)==ESP_OK){memcpy(stored_peer,p,6);have_stored=true;
++        ESP_LOGI("SV_RF","stored peer %02x:%02x:%02x:%02x:%02x:%02x",p[0],p[1],p[2],p[3],p[4],p[5]);}
++    nvs_close(h);
++}
++static void pair_cancel(void){
++    if(pair.phase==SV_PAIR_INQUIRY && stack_ready)esp_bt_gap_cancel_discovery();
++    collect(false);if(pair.phase)pair.phase=SV_PAIR_DONE;
++}
++static void pair_action(unsigned a,uint32_t now){
++    if(a==SV_PAIR_DO_STOP){ESP_LOGI("SV_RF","pairing window over");quiesce();return;}
++    if(a==SV_PAIR_DO_INQUIRY){
++        /* Nothing is in flight here (fresh start, or SV_PAIR_ATTEMPTS pages over):
++         * close the page window, keep the MCU session and the 60 s deadline. */
++        sv_radio_quiesce(&radio);sv_retry_stop(&retry,now);
++        media_check_requested=false;sv_esp_pcm_gate(false);collect(true);
++        esp_err_t r=esp_bt_gap_start_discovery(ESP_BT_INQ_MODE_GENERAL_INQUIRY,SV_PAIR_INQ_UNITS,0);
++        ESP_LOGI("SV_RF","inquiry %u start %d",pair.inquiries,(int)r); /* on error the inquiry guard moves on */
++    }else if(a==SV_PAIR_DO_CONNECT){
++        bool from_inquiry=pair.phase==SV_PAIR_NEW;
++        collect(false);if(from_inquiry && !pair.inq_done)esp_bt_gap_cancel_discovery();
++        if(!sv_radio_open_local(&radio,pair.target,true,true,now) || !sv_retry_open(&retry,pair.target,now)){quiesce();return;}
++        radio.opened_at=pair.started; /* one 60 s window, counted from the MCU's 0x40 */
++        saved=false;
++        ESP_LOGI("SV_RF","%s peer %02x:%02x:%02x:%02x:%02x:%02x",from_inquiry?"found":"stored",
++            pair.target[0],pair.target[1],pair.target[2],pair.target[3],pair.target[4],pair.target[5]);
++    }
++}
++static void init_task(void *unused){
++    (void)unused;uint8_t s=0;
++    if(radio_stack_init()){s|=SV_INIT_STACK;load_peer();if(sv_esp_pcm_start())s|=SV_INIT_PCM;}
++    __atomic_store_n(&init_state,(uint8_t)(s|SV_INIT_DONE),__ATOMIC_RELEASE);
++    vTaskDelete(NULL);
++}
+ static void process(event *e,uint32_t now){
+     bool grant=sv_radio_window(&radio,now);
+     switch(e->type){
+@@ -174,7 +255,11 @@
+         }
+         break;
+     case EV_CONFIRM:esp_bt_gap_ssp_confirm_reply(e->peer,grant && sv_radio_peer(&radio,e->peer));break;
+-    case EV_PIN:{esp_bt_pin_code_t pin={0};esp_bt_gap_pin_reply(e->peer,false,0,pin);break;}
++    case EV_PIN:{
++        /* R4: pre-2.1 (legacy PIN) headsets: fixed "0000", only for the windowed peer. */
++        esp_bt_pin_code_t pin={'0','0','0','0'};bool ok=grant && !e->value && sv_radio_peer(&radio,e->peer);
++        esp_bt_gap_pin_reply(e->peer,ok,ok?4:0,pin);break;}
++    case EV_DISC:sv_pair_disc_event(&pair,e->ok);break;
+     case EV_GATT_TABLE:value_handle=e->handle;esp_ble_gatts_start_service(e->connection);break;
+     case EV_ADV:adv_ready=e->ok;break;
+     case EV_MEDIA:
+@@ -200,6 +285,19 @@
+         if(e->need_response)esp_ble_gatts_send_response(e->interface,e->connection,e->transaction,result,e->type==EV_READ?&response:NULL);
+         break;}
+     }
++    if(pair.phase){
++        sv_pair_cand snapshot;portENTER_CRITICAL(&found_lock);snapshot=found;portEXIT_CRITICAL(&found_lock);
++        bool failed=retry.attempts>=SV_PAIR_ATTEMPTS && !retry.inflight && !retry.connected && !retry.draining && !radio.connected;
++        pair_action(sv_pair_poll(&pair,now,failed,radio.connected,&snapshot),now);
++    }
++    if(!saved && radio.local_window && radio.connected && radio.classic_authenticated){
++        saved=true;if(!have_stored || memcmp(stored_peer,radio.peer,6))store_peer(radio.peer);
++    }
++    /* R4: the 60 s window bounds pairing/connecting only. While the link is fully
++     * up and the MCU keeps its session alive (0x41 every 1 s, 2 s timeout) the
++     * window slides, so A2DP streaming is not cut 60 s after the 0x40. */
++    if(radio.connected && radio.classic_authenticated && radio.encrypted && mcu_session.authorized && sv_radio_window(&radio,now))
++        radio.opened_at=now;
+     grant=sv_radio_window(&radio,now);
+     unsigned retry_action=sv_retry_poll(&retry,grant,radio.profile_ready,now);
+     if(retry_action==SV_RETRY_CONNECT){
+@@ -232,6 +330,16 @@
+     }
+     tx_length=sv_frame_encode(&f,tx,sizeof(tx));tx_at=0;tx_started=now_ms();
+ }
++/* 0x40: explicit peer = R3 path; zero/absent/FF peer = R4 pairing. */
++static sv_result open_request(const sv_frame *f){
++    quiesce();
++    if(!stack_ready || !pcm_ready){radio.faults|=4;return SV_NOT_READY;}
++    uint32_t now=now_ms();unsigned kind=sv_pair_kind(f->payload,f->length);
++    if(kind==SV_PAIR_KIND_EXPLICIT){event local={.type=EV_LOCAL,.ok=true,.issued_at=now};memcpy(local.peer,f->payload,6);process(&local,now);}
++    else pair_action(sv_pair_begin(&pair,now,have_stored?stored_peer:NULL,kind==SV_PAIR_KIND_NEW),now);
++    sv_session_begin_trusted(&mcu_session,f->session_id);mcu_session.have_seq=true;mcu_session.last_seq=f->seq;mcu_at=now_ms();
++    return radio.local_window || pair.phase==SV_PAIR_INQUIRY?SV_OK:SV_RANGE;
++}
+ void app_main(void){
+     sv_radio_init(&radio);sv_parser_reset(&parser);
+     events=xQueueCreate(16,sizeof(event));if(!events)return;
+@@ -239,12 +347,21 @@
+         .stop_bits=UART_STOP_BITS_1,.flow_ctrl=UART_HW_FLOWCTRL_DISABLE,.source_clk=UART_SCLK_APB};
+     if(uart_param_config(UART_NUM_2,&config)!=ESP_OK || uart_set_pin(UART_NUM_2,33,32,UART_PIN_NO_CHANGE,UART_PIN_NO_CHANGE)!=ESP_OK ||
+        uart_driver_install(UART_NUM_2,512,0,16,&uart_events,0)!=ESP_OK)return;
++    /* R4: start the Bluetooth stack now (still non-connectable, non-discoverable,
++     * no advertising until a grant) instead of inside the first 0x40, whose
++     * reply could otherwise miss the MCU's 1.5 s timeout. */
++    if(xTaskCreate(init_task,"sv_bt_init",4096,NULL,2,NULL)!=pdPASS)__atomic_store_n(&init_state,(uint8_t)SV_INIT_DONE,__ATOMIC_RELEASE);
+     /* Additional delay after ROM/app startup; MCU owns physical30ms LOW/5ms HIGH. */
+     vTaskDelay(ticks_ms(5));
+     if(esp_task_wdt_add(NULL)!=ESP_OK){radio.faults|=32;return;}
+     ESP_LOGI("SV_RF","DIAG: radio disabled until bounded MCU factory grant; hardware untested");
+     for(;;){
+         uint32_t now=now_ms();
++        if(!init_seen){uint8_t s=__atomic_load_n(&init_state,__ATOMIC_ACQUIRE);
++            if(s&SV_INIT_DONE){init_seen=true;stack_ready=(s&SV_INIT_STACK)!=0;pcm_ready=(s&SV_INIT_PCM)!=0;}}
++        if(deferred_valid && (init_seen || now-deferred_at>=SV_INIT_REPLY_MS)){
++            sv_frame d=deferred;deferred_valid=false;uart_reply(&d,init_seen?open_request(&d):SV_NOT_READY);
++        }
+         if(__atomic_exchange_n(&queue_overflows,0,__ATOMIC_RELAXED)){radio.faults|=8;quiesce();}
+         if(radio.local_window && !sv_radio_window(&radio,now))quiesce();
+         if(mcu_session.authorized && now-mcu_at>=2000)quiesce();
+@@ -261,14 +378,12 @@
+                 sv_result result;
+                 if(f.type==0x22){result=f.length?SV_LENGTH:SV_OK;}
+                 else if(f.type==0x40 && !sv_retry_idle(&retry)){result=SV_NOT_READY;}
+-                else if(f.type==0x40 && f.length==6 && f.session_id && !radio.faults){
++                else if(f.type==0x40 && sv_pair_kind(f.payload,f.length)!=SV_PAIR_KIND_BAD && f.session_id && !radio.faults){
+                     /* Internal trusted-MCU link only; external UART access can
+                      * bypass this diagnostic assumption, so never release. */
+-                    quiesce();
+-                    if(!stack_ready){stack_ready=radio_stack_init();pcm_ready=stack_ready && sv_esp_pcm_start();}
+-                    if(!stack_ready || !pcm_ready){radio.faults|=4;result=SV_NOT_READY;}
+-                    else {event local={.type=EV_LOCAL,.ok=true,.issued_at=now_ms()};memcpy(local.peer,f.payload,6);process(&local,now_ms());
+-                        sv_session_begin_trusted(&mcu_session,f.session_id);mcu_session.have_seq=true;mcu_session.last_seq=f.seq;mcu_at=now_ms();result=radio.local_window?SV_OK:SV_RANGE;}
++                    if(init_seen)result=open_request(&f);
++                    else if(deferred_valid)result=SV_NOT_READY;
++                    else {deferred=f;deferred_valid=true;deferred_at=now;continue;} /* reply when init ends, <=1.2 s */
+                 }else if(f.type==0x41 || f.type==0x42 || f.type==0x43){
+                     uint16_t delta=(uint16_t)(f.seq-mcu_session.last_seq);
+                     if(f.length)result=SV_LENGTH;
+@@ -276,6 +391,7 @@
+                     else if(!delta || delta>=32768)result=SV_REPLAY;
+                     else {mcu_session.last_seq=f.seq;mcu_at=now;result=SV_OK;
+                         if(f.type==0x42){
++                            pair_cancel();
+                             bool active=sv_retry_stop(&retry,now);sv_esp_pcm_gate(false);
+                             radio.connected=false;radio.classic_authenticated=false;radio.encrypted=false;media_check_requested=false;
+                             if(active)esp_a2d_source_disconnect(retry.peer);
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/esp32/main/sv_pair.h b/esp32/main/sv_pair.h
+--- a/esp32/main/sv_pair.h	1970-01-01 00:00:00.000000000 +0000
++++ b/esp32/main/sv_pair.h	2026-10-17 01:54:25.670023123 +0000
+@@ -0,0 +1,102 @@
++#ifndef SV_PAIR_H
++#define SV_PAIR_H
++/* R4 first-time headset pairing. Pure state machine (no ESP-IDF calls) so it
++ * is host-testable like sv_retry.h; smartvio_rf.c performs the Bluedroid calls.
++ *
++ * Trigger: the existing MCU 0x36 -> ESP 0x40 request (no new frame types).
++ *   payload 6 x 00 or length 0 : AUTO - page the peer stored in NVS first
++ *                                 (2 attempts), then inquire for a new sink.
++ *   payload 6 x FF             : NEW  - skip the stored peer, inquire at once.
++ *   any other 6-byte address   : EXPLICIT - R3 behaviour, unchanged.
++ * Everything happens inside ONE 60 s window that starts at the 0x40. */
++#include <stdbool.h>
++#include <stdint.h>
++#include <string.h>
++enum {SV_PAIR_KIND_EXPLICIT,SV_PAIR_KIND_AUTO,SV_PAIR_KIND_NEW,SV_PAIR_KIND_BAD};
++enum {SV_PAIR_OFF,SV_PAIR_STORED,SV_PAIR_INQUIRY,SV_PAIR_NEW,SV_PAIR_DONE};
++enum {SV_PAIR_NONE,SV_PAIR_DO_CONNECT,SV_PAIR_DO_INQUIRY,SV_PAIR_DO_STOP};
++enum {
++    SV_PAIR_WINDOW_MS=60000,     /* same 60 s as sv_radio_window() */
++    SV_PAIR_INQ_UNITS=8,         /* x 1.28 s = 10.24 s general inquiry */
++    SV_PAIR_INQ_GUARD_MS=13000,  /* inquiry never reported STOPPED: give up on it */
++    SV_PAIR_INQ_MIN_LEFT_MS=20000, /* start an inquiry only if inquiry + a connect still fit */
++    SV_PAIR_ATTEMPTS=2           /* page attempts per target before (re)inquiring */
++};
++typedef struct {uint8_t addr[6];int8_t rssi;bool valid,has_rssi;} sv_pair_cand;
++typedef struct {
++    uint8_t phase,inquiries;
++    uint8_t target[6];
++    uint32_t started,inq_at;
++    bool inq_seen,inq_done;
++} sv_pair;
++
++static inline bool sv_pair_valid_addr(const uint8_t a[6]){
++    unsigned any=0,all=1;for(unsigned i=0;i<6;i++){any|=a[i];all&=a[i]==255;}
++    return any && !all;
++}
++static inline unsigned sv_pair_kind(const uint8_t *p,uint16_t length){
++    if(length==0)return SV_PAIR_KIND_AUTO;
++    if(length!=6 || !p)return SV_PAIR_KIND_BAD;
++    unsigned any=0,all=1;for(unsigned i=0;i<6;i++){any|=p[i];all&=p[i]==255;}
++    return !any?SV_PAIR_KIND_AUTO:all?SV_PAIR_KIND_NEW:SV_PAIR_KIND_EXPLICIT;
++}
++/* Class of Device filter for A2DP sinks: format type 0, major class
++ * Audio/Video (4), minor = wearable headset 1, hands-free 2, loudspeaker 5,
++ * headphones 6, portable audio 7, car audio 8, HiFi 10; or an uncategorised
++ * A/V minor (0) that advertises the Rendering (bit 18) or Audio (bit 21) service. */
++static inline bool sv_pair_is_sink(uint32_t cod){
++    if(cod&3u)return false;
++    if(((cod>>8)&0x1fu)!=4u)return false;
++    unsigned minor=(cod>>2)&0x3fu;
++    if(minor==1||minor==2||minor==5||minor==6||minor==7||minor==8||minor==10)return true;
++    return minor==0 && (cod&((1u<<18)|(1u<<21)));
++}
++/* Keep the strongest RSSI; a result without RSSI only wins over nothing; ties keep the first. */
++static inline bool sv_pair_offer(sv_pair_cand *c,const uint8_t a[6],bool has_rssi,int8_t rssi){
++    if(!c || !a || !sv_pair_valid_addr(a))return false;
++    if(c->valid && !memcmp(c->addr,a,6)){ /* same device again: keep its best reading */
++        if(has_rssi && (!c->has_rssi || rssi>c->rssi)){c->rssi=rssi;c->has_rssi=true;}
++        return false;
++    }
++    if(c->valid && (!has_rssi || (c->has_rssi && rssi<=c->rssi)))return false;
++    memcpy(c->addr,a,6);c->rssi=has_rssi?rssi:-128;c->has_rssi=has_rssi;c->valid=true;return true;
++}
++static inline unsigned sv_pair_start_inquiry(sv_pair *p,uint32_t now){
++    p->phase=SV_PAIR_INQUIRY;p->inq_at=now;p->inq_seen=false;p->inq_done=false;p->inquiries++;
++    return SV_PAIR_DO_INQUIRY;
++}
++static inline unsigned sv_pair_begin(sv_pair *p,uint32_t now,const uint8_t *stored,bool force_new){
++    memset(p,0,sizeof(*p));p->started=now;
++    if(stored && !force_new && sv_pair_valid_addr(stored)){
++        p->phase=SV_PAIR_STORED;memcpy(p->target,stored,6);return SV_PAIR_DO_CONNECT;
++    }
++    return sv_pair_start_inquiry(p,now);
++}
++/* Bluedroid DISC_STATE_CHANGED. A STOPPED counts only after this inquiry's
++ * STARTED, so a late STOPPED from a cancelled earlier inquiry is ignored. */
++static inline void sv_pair_disc_event(sv_pair *p,bool started){
++    if(p->phase!=SV_PAIR_INQUIRY)return;
++    if(started)p->inq_seen=true;else if(p->inq_seen)p->inq_done=true;
++}
++static inline bool sv_pair_left(const sv_pair *p,uint32_t now){
++    return now-p->started<=SV_PAIR_WINDOW_MS-SV_PAIR_INQ_MIN_LEFT_MS;
++}
++/* link_failed: SV_PAIR_ATTEMPTS pages to target are over and nothing is in flight.
++ * found: snapshot of the best sink seen by the current inquiry. */
++static inline unsigned sv_pair_poll(sv_pair *p,uint32_t now,bool link_failed,bool connected,const sv_pair_cand *found){
++    /* DONE: pairing logic finished; the radio window / MCU session govern from here. */
++    if(p->phase==SV_PAIR_OFF || p->phase==SV_PAIR_DONE)return SV_PAIR_NONE;
++    if(now-p->started>=SV_PAIR_WINDOW_MS){p->phase=SV_PAIR_OFF;return SV_PAIR_DO_STOP;}
++    if(p->phase==SV_PAIR_STORED || p->phase==SV_PAIR_NEW){
++        if(connected){p->phase=SV_PAIR_DONE;return SV_PAIR_NONE;}
++        if(!link_failed)return SV_PAIR_NONE;
++        if(sv_pair_left(p,now))return sv_pair_start_inquiry(p,now);
++        p->phase=SV_PAIR_DONE;return SV_PAIR_NONE; /* sv_retry keeps its remaining attempts */
++    }
++    /* SV_PAIR_INQUIRY */
++    if(!p->inq_done && now-p->inq_at<SV_PAIR_INQ_GUARD_MS)return SV_PAIR_NONE;
++    if(found && found->valid){p->phase=SV_PAIR_NEW;memcpy(p->target,found->addr,6);return SV_PAIR_DO_CONNECT;}
++    if(sv_pair_left(p,now))return sv_pair_start_inquiry(p,now);
++    p->phase=SV_PAIR_OFF;return SV_PAIR_DO_STOP; /* nothing found and no time for another inquiry */
++}
++#endif
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/esp32/sdkconfig.defaults b/esp32/sdkconfig.defaults
+--- a/esp32/sdkconfig.defaults	1970-01-01 00:00:00.000000000 +0000
++++ b/esp32/sdkconfig.defaults	2026-10-17 01:54:25.668472899 +0000
+@@ -0,0 +1,59 @@
++# SmartVio R4 ESP32 (ESP32-MINI-1U) - minimal sdkconfig.defaults for ESP-IDF v5.4.3.
++# Reconstructed 2026-10-15 (finding docs-esp-sdkconfig-missing). Everything not listed
++# is the ESP-IDF v5.4.3 default. Proof: with the first 10 options below (R3 set) the
++# pristine R3 sources rebuild to an app/bootloader/partition table whose code and data
++# are byte-identical to SCRATCH/pkg/R3/engineering/firmware/artifacts/esp32; only the
++# build date/time, the IDF version string ("v5.4.3-dirty" vs "v5.4.3"), the embedded
++# ELF SHA-256 and the image checksum/hash differ. See CHANGES.md "ESP32 R4".
++
++# --- Target ---------------------------------------------------------------------
++# ESP32-MINI-1U = ESP32 (U4WDH die). R3 build log: "guessed 'esp32' from sdkconfig".
++CONFIG_IDF_TARGET="esp32"
++
++# --- Flash / partitions -----------------------------------------------------------
++# 4 MB in-package flash on ESP32-MINI-1U. R3 flash_args: --flash_mode dio
++# --flash_freq 40m --flash_size 4MB (dio/40m are the IDF defaults).
++CONFIG_ESPTOOLPY_FLASHSIZE_4MB=y
++# "Single factory app (large), no OTA": nvs 0x9000 24K, phy_init 0xf000 4K,
++# factory 0x10000 1500K - exactly the table printed in the R3 build log; the
++# generated partition-table.bin is byte-identical to the R3 artifact. Default
++# 1 MB factory would leave only ~9 % headroom for the ~0.93 MB app.
++# NVS holds the Bluedroid bond keys and (R4) the stored headset address.
++CONFIG_PARTITION_TABLE_SINGLE_APP_LARGE=y
++
++# --- Bluetooth ----------------------------------------------------------------------
++# Code: esp_bt_controller_enable(ESP_BT_MODE_BTDM) -> controller must be dual mode
++# (Classic A2DP source to the headset + BLE GATT status service).
++CONFIG_BT_ENABLED=y
++CONFIG_BT_BLUEDROID_ENABLED=y
++CONFIG_BTDM_CTRL_MODE_BTDM=y
++# Classic: esp_a2d_source_*, esp_bt_gap_* (SSP security params, inquiry in R4).
++CONFIG_BT_CLASSIC_ENABLED=y
++CONFIG_BT_A2DP_ENABLE=y
++# BLE: esp_ble_gap_* advertising + SMP, esp_ble_gatts_* (one 128-bit service).
++CONFIG_BT_BLE_ENABLED=y
++CONFIG_BT_GATTS_ENABLE=y
++# No GATT client is used. R3 map has no bta_gattc_*/gatt_cl objects -> it was off.
++CONFIG_BT_GATTC_ENABLE=n
++
++# --- FreeRTOS -----------------------------------------------------------------------
++# R3 ELF has no esp_ipc*/esp_ipc_isr* objects -> single-core build. Also safe on
++# either ESP32-U4WDH revision (early single-core or later dual-core silicon).
++CONFIG_FREERTOS_UNICORE=y
++# 1 kHz tick: smartvio_rf.c ticks_ms(5) is meant as a 5 ms loop (at 100 Hz it is
++# 10 ms). R3 osi_mutex_lock/osi_sem_take/esp_log_timestamp sizes match only at 1000 Hz.
++CONFIG_FREERTOS_HZ=1000
++
++# --- R4 only ------------------------------------------------------------------------
++# No __DATE__/__TIME__ in the app/bootloader descriptors and path-independent debug
++# info, so the same sources + this file give the same image hash on any machine.
++CONFIG_APP_REPRODUCIBLE_BUILD=y
++
++# --- Kept at IDF defaults on purpose (documented, not set) ---------------------------
++# UART: protocol link is UART2 on GPIO33 (TX) / GPIO32 (RX), 115200 8N1, set at run
++#   time by uart_param_config/uart_set_pin; console stays on UART0 (GPIO1/3, 115200).
++# I2S0 slave RX on BCLK 26 / WS 25 / DIN 22, set at run time (driver/i2s_std.h).
++# Log level: app INFO (CONFIG_LOG_DEFAULT_LEVEL_INFO), bootloader INFO.
++# Task WDT: enabled at boot, 5 s (esp_task_wdt_add(NULL) in app_main needs it).
++# Compiler: -Og (CONFIG_COMPILER_OPTIMIZATION_DEBUG), assertions enabled.
++# Classic ACL links: 2 (CONFIG_BTDM_CTRL_BR_EDR_MAX_ACL_CONN); bonds: 15.
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/stm32/main.c b/stm32/main.c
+--- a/stm32/main.c	2026-10-17 01:54:23.081527916 +0000
++++ b/stm32/main.c	2026-10-17 01:54:26.124472926 +0000
+@@ -1,344 +1,637 @@
 -/* Isolated V27 diagnostic image. Real peripherals, never hardware-qualified. */
+-#include "stm32h7xx_hal.h"
+-#include "sv_telemetry.h"
+-#include "sv_factory.h"
+-#include "board_pins.h"
+-#include "i2c_probe.h"
+-#include "audio_hw.h"
+-#include "fault_store.h"
+-#include "pot_adc.h"
+-#include "safety_inputs.h"
+-#include "sv_rf_reply.h"
+-#include "sv_service_clear.h"
+-#include "sv27_charge_gate.h"
+-_Static_assert(!SV27_NORMAL_CHARGE_RELEASED,"R2 images must remain noncharging");
+-#include <string.h>
+-static volatile uint32_t milliseconds;
+-static volatile uint32_t charge_gate_tick;
+-static sv27_charge_session charge_session;
+-volatile struct {uint32_t version,profile,release,journal,session_locked,session_started,
+-    active_since,source_grant_ma,gate_result,iset_estimate_ma,iset_estimate_valid;} sv_charge_diag;
+-static sv_monitor monitor;
+-static sv_pcm1864 codec;
+-static sv_factory factory;
+-static sv_pot_scan pot_scan;
+-static uint32_t pot_generation;
+-static bool pot_initialized,selected_peer;
+-static sv_rf_guard rf;
+-static IWDG_HandleTypeDef watchdog;
+-static sv_parser parser;
+-static uint8_t tx[270];static size_t tx_count,tx_at;
+-static uint32_t tx_started,rail_at,discharged_at,recorded;
+-static unsigned power_state;
+-static bool uart_on,codec_gate;
+-static uint8_t previous_port;
+-static uint32_t port_changed,status_at;static unsigned status_index;
+-/* SWD mailbox: write fields then increment request last; poll completed/result.
+- * Bench interface only, not remotely writable production control. */
+-volatile struct {
+-    uint32_t request,completed,nonce,faults,state,pairs,monitor_generation,selftest;
+-    int32_t temperature_deci_c;uint32_t mv[4];
+-    uint32_t type,length,session,seq,payload[64],result;
+-} sv_diag;
+-volatile struct {
+-    uint32_t version,raw[3],generation,sampled,adc_fault,ui_enabled,picked_up,muted,fx,rate,input,port,events,session_seq,bt_result,program_remaining_ms;
+-} sv_ui_diag;
+-volatile uint32_t sv_rf_pcm_diag[8];
+-/* Observe ESP acknowledgements independently of queued MCU command results. */
+-sv_rf_reply sv_rf_reply_diag;
+-static sv_service_clear service_clear;
+-/* Separate SWD-only mailbox. No UART opcode maps to this service. */
+-volatile struct {
+-    uint32_t version,enabled,request,completed,action,token,state,challenge,faults,result;
+-} sv_service_diag;
+-uint32_t HAL_GetTick(void){return milliseconds;}
+-uint32_t sv_target_millis(void){return milliseconds;}
+-void SysTick_Handler(void){
+-    milliseconds++;sv_safety_inputs_tick(milliseconds);
+-    /* Independent veto for stalled foreground. Target release remains zero. */
+-    if(!SV27_NORMAL_CHARGE_RELEASED || (uint32_t)(milliseconds-charge_gate_tick)>SV27_INPUT_MAX_AGE_MS)
+-        GPIOE->BSRR=1u<<(14+16);
+-}
+-static void mode(GPIO_TypeDef *p,unsigned n,unsigned m){p->MODER=(p->MODER&~(3u<<(2*n)))|(m<<(2*n));}
+-static void level(GPIO_TypeDef *p,unsigned n,bool hi){p->BSRR=1u<<(n+(hi?0:16));}
+-/* Executed before C initialization. Only official CMSIS register definitions. */
+-void sv_early_safe_gpio(void){
+-    RCC->AHB4ENR|=RCC_AHB4ENR_GPIOAEN|RCC_AHB4ENR_GPIOBEN|RCC_AHB4ENR_GPIOCEN|RCC_AHB4ENR_GPIOEEN;
+-    (void)RCC->AHB4ENR;GPIOC->BSRR=SV_C_RF_OFF_BSRR;GPIOE->BSRR=SV_E_BOOT_BSRR;
+-    GPIOC->OTYPER&=~(SV_PC_RF|SV_PC_AUDIO_BUS);
+-    GPIOC->MODER=(GPIOC->MODER&~((3u<<10)|(3u<<26)))|(1u<<10)|(1u<<26);
+-    GPIOE->OTYPER&=~(SV_PE_AUDIO_POWER|SV_PE_BOOT|SV_PE_USB_DISABLE|SV_PE_EN1|SV_PE_EN2|SV_PE_CHARGE);
+-    GPIOE->MODER=(GPIOE->MODER&~SV_E_SAFE_MODE_MASK)|SV_E_SAFE_MODE_BITS;
+-    GPIOA->BSRR=0x0fu<<16;GPIOA->MODER=(GPIOA->MODER&~0xffu)|0x55u;
+-    GPIOB->BSRR=1u<<(10+16);GPIOB->MODER=(GPIOB->MODER&~(3u<<20))|(1u<<20);
+-    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_8;__DSB();
+-}
+-static void unused(GPIO_TypeDef *p,uint16_t pins){uint32_t mask=0;for(unsigned n=0;n<16;n++)if(pins&(1u<<n))mask|=3u<<(2*n);p->PUPDR&=~mask;p->MODER|=mask;}
+-static void safe_gpio(void){
+-    RCC->AHB4ENR|=RCC_AHB4ENR_GPIODEN;(void)RCC->AHB4ENR;
+-    GPIOC->OSPEEDR&=~((3u<<10)|(3u<<26));
+-    unused(GPIOA,SV_UNUSED_A);unused(GPIOB,SV_UNUSED_B);unused(GPIOC,SV_UNUSED_C);unused(GPIOD,SV_UNUSED_D);unused(GPIOE,SV_UNUSED_E);
+-    for(unsigned n=4;n<8;n++)mode(GPIOA,n,0);
+-    mode(GPIOC,0,0);mode(GPIOC,4,0);mode(GPIOE,8,0);mode(GPIOE,9,0);mode(GPIOE,15,0);
+-    unused(GPIOE,(15u<<3)|(1u<<11));unused(GPIOD,(3u<<8)|(7u<<11));unused(GPIOC,1u<<9);
+-}
+-static void cpu(bool fast){
+-    if(pot_initialized){sv_pot_adc_stop();pot_initialized=false;}
+-    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|(fast?RCC_CR_HSIDIV_1:RCC_CR_HSIDIV_8);
+-    SystemCoreClockUpdate();SysTick_Config(SystemCoreClock/1000u);
+-}
+-static void pots_start(uint32_t now){
+-    pot_initialized=sv_pot_adc_init();pot_generation=0;factory.ui.fresh=false;factory.ui.picked_up=false;
+-    sv_pot_init(&pot_scan,sv_pot_adc_bus(),now);
+-    if(!pot_initialized){pot_scan.fault=true;sv_factory_fault(&factory,SV_D_FAULT_SENSOR);}
+-}
+-static void uart_stop(void){sv_rf_reply_cancel(&sv_rf_reply_diag);USART3->CR1=0;uart_on=false;tx_count=0;sv_parser_reset(&parser);unused(GPIOD,3u<<8);}
+-static void uart_start(void){
+-    RCC->D2CCIP2R=(RCC->D2CCIP2R&~RCC_D2CCIP2R_USART28SEL)|(3u<<RCC_D2CCIP2R_USART28SEL_Pos);
+-    RCC->APB1LENR|=RCC_APB1LENR_USART3EN;(void)RCC->APB1LENR;
+-    USART3->CR1=0;USART3->CR2=0;USART3->CR3=0;USART3->PRESC=0;USART3->BRR=(64000000u+57600u)/115200u;
+-    GPIOD->AFR[1]=(GPIOD->AFR[1]&~0xffu)|0x77u;mode(GPIOD,8,2);mode(GPIOD,9,2);
+-    USART3->CR1=USART_CR1_RE|USART_CR1_TE|USART_CR1_UE;uart_on=true;
+-}
+-static void power_off(uint32_t now){
+-    sv_audio_emergency_mute();level(GPIOC,13,false);sv_rf_request(&rf,false,false,now);
+-    uart_stop();sv_audio_hw_stop();level(GPIOE,2,false);power_state=4;discharged_at=now;
+-    cpu(false);pots_start(now);selected_peer=false;if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-}
+-static void latch_shutdown(void){
+-    if(sv_safety_shutdown_requested()){
+-        factory.shutdown=true;factory.armed=false;factory.programming=false;
+-        factory.port=0;factory.window=false;sv_ui_enable(&factory.ui,false);sv_session_end(&factory.session);
+-    }
+-}
+-static bool evidence(uint32_t now){
+-    sv_mon_frame f;if(!sv_mon_snapshot(&monitor,now,&f))return false;
+-    /* TMP117 is board temperature, not the cell NTC. Diagnostic window only. */
+-    return f.mv[SV_MON_SYS]>=2900 && f.mv[SV_MON_SYS]<=4600 && f.temperature_deci_c>=100 && f.temperature_deci_c<=400 &&
+-        (GPIOE->IDR&((1u<<8)|(1u<<9)))==((1u<<8)|(1u<<9));
+-}
+-static void charge_gate_apply(uint32_t now){
+-    /* All unsupported real-world qualifiers stay false. VBUS voltage is not
+-     * USB current authorization; TMP117 is not the cell NTC. No SWD override. */
+-    sv27_gate_inputs i={0};sv_mon_frame f;
+-    i.sampled_at=now;i.fault=factory.faults!=0 || factory.shutdown;
+-    uint16_t current_ma=0;bool frame=sv_mon_snapshot(&monitor,now,&f);
+-    bool current_valid=frame && sv_mon_charge_current(&f,monitor.cal.electrical_calibration_approved,&current_ma);
+-    /* A qualified source/pack adapter does not exist on the present hardware.
+-     * Do not populate grant_verified, pack_present, or cell temperature from
+-     * synthetic defaults. This explicitly vetoes every release request. */
+-    bool permit=sv27_final_charge_gate(&charge_session,&i,now,sv_charge_store_commit_active,0);
+-    level(GPIOE,14,permit);
+-    charge_gate_tick=milliseconds;
+-    if(charge_session.started && charge_session.locked){
+-        level(GPIOE,14,false);(void)sv_charge_store_close();
+-    }
+-    sv_charge_diag.version=2;sv_charge_diag.profile=SV27_PROFILE_ID;
+-    sv_charge_diag.release=SV27_NORMAL_CHARGE_RELEASED;
+-    sv_charge_diag.journal=sv_charge_store_state();sv_charge_diag.session_locked=charge_session.locked;
+-    sv_charge_diag.session_started=charge_session.started;sv_charge_diag.active_since=charge_session.first_enabled_at;
+-    sv_charge_diag.source_grant_ma=i.source_grant_ma;sv_charge_diag.gate_result=permit;
+-    sv_charge_diag.iset_estimate_ma=current_ma;sv_charge_diag.iset_estimate_valid=current_valid;
+-}
+-static void service_clear_tick(uint8_t keys,uint32_t now){
+-    sv_mon_frame f;
+-    bool safe=power_state==0 && !factory.armed && !factory.programming && !factory.shutdown &&
+-        !sv_safety_shutdown_requested() && !uart_on && !pot_scan.fault && evidence(now) &&
+-        sv_mon_snapshot(&monitor,now,&f) && f.mv[SV_MON_USB]>=4750 && f.mv[SV_MON_USB]<=5250 &&
+-        !(GPIOA->ODR&15u) && !(GPIOC->ODR&(SV_PC_RF|SV_PC_AUDIO_BUS)) &&
+-        !(GPIOE->ODR&(SV_PE_AUDIO_POWER|SV_PE_CHARGE|SV_PE_EN1|SV_PE_EN2)) &&
+-        (GPIOE->ODR&SV_PE_USB_DISABLE) && recorded==factory.faults &&
+-        sv_fault_store_service_ready(factory.faults);
+-    sv_service_poll(&service_clear,keys,factory.faults,safe,now);
+-    if(sv_service_diag.request!=sv_service_diag.completed){
+-        uint32_t request=sv_service_diag.request,token=sv_service_diag.token;
+-        sv_service_diag.result=SV_SERVICE_DENIED;
+-        if(sv_service_diag.action==1 && sv_service_prepare(&service_clear,factory.faults,safe,now))
+-            sv_service_diag.result=SV_SERVICE_PENDING;
+-        else if(sv_service_diag.action==2 && sv_service_consume(&service_clear,token,keys,factory.faults,safe,now)){
+-            if(sv_fault_store_service_clear(factory.faults,token))sv_service_diag.result=SV_SERVICE_REBOOT_REQUIRED;
+-            else sv_service_diag.result=SV_SERVICE_FLASH_ERROR;
+-        }else if(sv_service_diag.action!=1 && sv_service_diag.action!=2)sv_service_cancel(&service_clear);
+-        __DMB();sv_service_diag.completed=request;
+-    }
+-    sv_service_diag.version=1;sv_service_diag.enabled=SV_DIAGNOSTIC_SERVICE_CLEAR;
+-    sv_service_diag.state=service_clear.state;sv_service_diag.challenge=service_clear.challenge;
+-    sv_service_diag.faults=factory.faults;
+-    if(sv_service_diag.result==SV_SERVICE_REBOOT_REQUIRED){
+-        /* Keep the RAM latch and outputs off. Do not append it over the clear
+-         * marker. Only a deliberate NRST/power reset can start a new test. */
+-        for(;;){level(GPIOE,14,false);sv_safety_apply_outputs(0);HAL_IWDG_Refresh(&watchdog);}
+-    }
+-}
+-static sv_result command(const sv_frame *f,uint32_t now){
+-    latch_shutdown();
+-    if((f->type==0x31 || f->type==0x3b) && (!evidence(now) || pot_scan.fault))return SV_NOT_READY;
+-    if(f->type==0x3b && power_state!=0)return SV_NOT_READY;
+-    if(f->type==0x35){if(f->length)return SV_LENGTH;factory.shutdown=true;factory.armed=false;factory.programming=false;return SV_OK;}
+-    if((f->type>=0x36 && f->type<=0x39) || f->type==0x3c){
+-        if(f->length!=(f->type==0x36?6:0))return SV_LENGTH;
+-        if(!uart_on || !sv_rf_handshake_ready(&rf,now) || !factory.armed || factory.port!=SV_BT || !evidence(now))return SV_NOT_READY;
+-        if(tx_count || sv_rf_reply_diag.pending)return SV_NOT_READY;
+-        sv_frame check=*f;check.type=0x34;check.length=0;
+-        sv_result r=sv_factory_command(&factory,&check,now);if(r!=SV_OK)return r;
+-        sv_frame out=*f;out.type=f->type==0x36?0x40:f->type==0x37?0x41:f->type==0x38?0x42:f->type==0x39?0x43:0x22;
+-        tx_count=sv_frame_encode(&out,tx,sizeof(tx));tx_at=0;tx_started=now;
+-        sv_rf_reply_begin(&sv_rf_reply_diag,out.type,out.seq,out.session_id,now);
+-        if(f->type==0x36)selected_peer=false;
+-        return SV_OK;
+-    }
+-    return sv_factory_command(&factory,f,now);
+-}
+-static bool startup_core(void){
+-    if(sv_crc16((const uint8_t*)"123456789",9)!=0x29b1)return false;
+-    sv_parser p;sv_parser_reset(&p);
+-    sv_frame in={.type=0x30,.seq=0x1234,.session_id=0x53562601,.length=3,.payload={0,0x53,0x56}},out;
+-    uint8_t bytes[270];size_t n=sv_frame_encode(&in,bytes,sizeof(bytes));unsigned received=0;
+-    if(n!=17)return false;
+-    for(size_t i=0;i<n;i++)received+=sv_parser_byte(&p,bytes[i],0,&out);
+-    if(received!=1 || out.type!=in.type || out.seq!=in.seq || out.session_id!=in.session_id || out.length!=3 || memcmp(out.payload,in.payload,3))return false;
+-    bytes[n-1]^=1;sv_parser_reset(&p);received=0;
+-    for(size_t i=0;i<n;i++)received+=sv_parser_byte(&p,bytes[i],0,&out);
+-    return !received;
+-}
+-static void uart_service(uint32_t now){
+-    if(!uart_on)return;
+-    sv_rf_reply_poll(&sv_rf_reply_diag,now);
+-    if(USART3->ISR&(USART_ISR_ORE|USART_ISR_FE|USART_ISR_NE|USART_ISR_PE)){
+-        USART3->ICR=USART_ICR_ORECF|USART_ICR_FECF|USART_ICR_NECF|USART_ICR_PECF;
+-        USART3->RQR=USART_RQR_RXFRQ;sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);return;
+-    }
+-    for(unsigned n=0;n<128 && (USART3->ISR&USART_ISR_RXNE_RXFNE);n++){
+-        sv_frame f;if(sv_parser_byte(&parser,(uint8_t)USART3->RDR,now,&f)){
+-            if(f.type==0xa0 || f.type==0xa1){
+-                if(sv_rf_reply_accept(&sv_rf_reply_diag,&f,now)){
+-                    if(f.type==0xa1)memcpy((void*)sv_rf_pcm_diag,f.payload,32);
+-                    if(sv_rf_reply_diag.command==0x40)selected_peer=sv_rf_reply_diag.result==SV_OK;
+-                }
+-                continue;
+-            }
+-            if(f.type==0x80)continue;
+-            sv_result result=command(&f,now);
+-            if(!tx_count){sv_frame reply={.type=0xb0,.seq=f.seq,.session_id=f.session_id,.length=9};reply.payload[0]=result;
+-                memcpy(reply.payload+1,&factory.nonce,4);memcpy(reply.payload+5,&factory.faults,4);
+-                tx_count=sv_frame_encode(&reply,tx,sizeof(tx));tx_at=0;tx_started=now;}
+-        }
+-    }
+-    sv_parser_poll(&parser,now);
+-    if(tx_count && (USART3->ISR&USART_ISR_TXE_TXFNF)){USART3->TDR=tx[tx_at++];if(tx_at==tx_count)tx_count=0;}
+-    if(tx_count && now-tx_started>=250){tx_count=0;sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);}
+-}
+-void HardFault_Handler(void){sv_audio_emergency_mute();GPIOC->BSRR=SV_PC_AUDIO_BUS<<16;GPIOE->BSRR=SV_PE_AUDIO_POWER<<16;__disable_irq();for(;;)__NOP();}
+-void NMI_Handler(void){HardFault_Handler();}
+-int main(void){
+-    safe_gpio();cpu(false);HAL_NVIC_SetPriority(SysTick_IRQn,0,0);sv_safety_inputs_init(0);
+-    watchdog.Instance=IWDG1;watchdog.Init.Prescaler=IWDG_PRESCALER_256;watchdog.Init.Reload=249;watchdog.Init.Window=IWDG_WINDOW_DISABLE;
+-    if(HAL_IWDG_Init(&watchdog)!=HAL_OK)HardFault_Handler();
+-    uint32_t retained=sv_fault_store_load(),faults=retained;if(RCC->RSR&RCC_RSR_IWDG1RSTF)faults|=SV_D_FAULT_RESET;
+-    RCC->RSR|=RCC_RSR_RMVF;sv_factory_init(&factory,faults);recorded=retained;
+-    sv27_session_init(&charge_session,sv_charge_store_state());
+-    bool core_ok=startup_core();if(!core_ok)sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);
+-    if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-    sv_mon_init(&monitor,milliseconds,sv_stm32_monitor_bus(),NULL);level(GPIOB,10,true);
+-    sv_parser_reset(&parser);sv_rf_request(&rf,false,false,milliseconds);pots_start(milliseconds);
+-    uint32_t last=milliseconds,last_codec=milliseconds;
+-    for(;;){
+-        uint32_t now=milliseconds;
+-        latch_shutdown();
+-        if(now-last>=1){
+-            if(now-last>100)sv_factory_fault(&factory,SV_D_FAULT_RESET);
+-            last=now;sv_mon_tick(&monitor,now,now>=20);
+-            if(pot_initialized)sv_pot_tick(&pot_scan,now);
+-            if(pot_scan.valid && pot_scan.generation!=pot_generation){
+-                pot_generation=pot_scan.generation;
+-                if(!sv_ui_pots(&factory.ui,pot_scan.raw,pot_scan.sampled))sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-            }
+-            if(pot_scan.fault)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-            bool healthy=evidence(now);bool chord=(GPIOA->IDR&((1u<<5)|(1u<<6)))==0;
+-            sv_factory_tick(&factory,chord,healthy,healthy,now);
+-            uint8_t keys=(uint8_t)((~GPIOA->IDR>>5)&7u);if(!(GPIOC->IDR&1u))keys|=8;
+-            unsigned bt_action=sv_factory_buttons(&factory,keys,now);
+-            if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-            if(bt_action){
+-                sv_frame f={.type=bt_action==1?0x38:0x39,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id};
+-                sv_ui_diag.bt_result=selected_peer?command(&f,now):SV_NOT_READY;
+-            }
+-            if(monitor.fault)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-            if(sv_diag.request!=sv_diag.completed){
+-                sv_frame f={.type=(uint8_t)sv_diag.type,.length=(uint16_t)sv_diag.length,.session_id=sv_diag.session,.seq=(uint16_t)sv_diag.seq};
+-                if(sv_diag.length>256)sv_diag.result=SV_LENGTH;
+-                else {for(unsigned n=0;n<64;n++)memcpy(f.payload+n*4,(const void*)&sv_diag.payload[n],4);sv_diag.result=command(&f,now);}
+-                __DMB();sv_diag.completed=sv_diag.request;
+-            }
+-            latch_shutdown();
+-            if((!factory.armed || factory.faults || factory.shutdown) && power_state && power_state!=4)power_off(now);
+-            if(power_state==4 && now-discharged_at>=1000){power_state=0;level(GPIOC,5,false);mode(GPIOC,5,1);}
+-            if(factory.armed && healthy && !factory.shutdown && !sv_safety_shutdown_requested() && !power_state){
+-                cpu(!factory.programming);pots_start(now);if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
+-                latch_shutdown();
+-                if(factory.armed && !factory.faults && !factory.shutdown){
+-                    if(factory.programming){uart_stop();unused(GPIOC,1u<<5);level(GPIOC,13,false);}
+-                    level(GPIOE,2,true);rail_at=now;power_state=1;
+-                }
+-            }
+-            if(power_state==1 && now-rail_at>=50){
+-                if(factory.programming)power_state=5;
+-                else {
+-                    level(GPIOC,13,true);
+-                    if(!sv_audio_hw_start())sv_factory_fault(&factory,SV_D_FAULT_CLOCK);
+-                    else {sv_pcm_start(&codec,sv_stm32_codec_bus(),now);codec_gate=false;power_state=2;}
+-                }
+-            }
+-            if(power_state==2 && now-last_codec>=1){last_codec=now;sv_pcm_tick(&codec,now);
+-                if(codec.fault)sv_factory_fault(&factory,SV_D_FAULT_CODEC);
+-                else if(codec.ready){
+-                    if(!codec_gate){sv_audio_hw_codec_ready(now);codec_gate=true;}
+-                    if(sv_audio_hw_ready(now)){power_state=3;status_at=now;status_index=0;}
+-                }
+-            }
+-            if(power_state==3 && now-status_at>=20){
+-                static const uint8_t regs[]={0x72,0x73,0x74,0x75,0x78},masks[]={15,7,127,255,7},values[]={15,3,0x34,0,7};
+-                uint8_t v;status_at=now;
+-                if(!codec.bus.read(codec.bus.ctx,regs[status_index],&v) || (v&masks[status_index])!=values[status_index])sv_factory_fault(&factory,SV_D_FAULT_CODEC);
+-                status_index=(status_index+1)%5;
+-            }
+-            latch_shutdown();
+-            if(factory.shutdown && power_state && power_state!=4)power_off(now);
+-            bool rf_on=sv_rf_request(&rf,power_state==3 && factory.port==SV_BT,factory.armed && healthy && !factory.faults && !factory.shutdown,now);
+-            level(GPIOC,5,rf_on);if(sv_rf_handshake_ready(&rf,now) && !uart_on)uart_start();
+-            if(!rf_on && uart_on)uart_stop();
+-            if(!rf_on)selected_peer=false;
+-            if(factory.port!=previous_port){previous_port=factory.port;port_changed=now;}
+-            uint8_t desired=0;
+-            if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50){
+-                if(factory.port==SV_LINE)desired=(1u<<0)|(1u<<3);
+-                if(factory.port==SV_HP && sv_safety_headphone_permitted())desired=(1u<<0)|(1u<<1);
+-                if(factory.port==SV_SPK && sv_safety_speaker_permitted())desired=1u<<2;
+-            }
+-            sv_safety_apply_outputs(desired);
+-            /* Real final output path: Profile C/session/journal plus explicit
+-             * absent hardware qualification. Normal charge remains HOLD. */
+-            charge_gate_apply(now);
+-            if(factory.shutdown && (power_state==0 || power_state==4))level(GPIOE,7,false);
+-            if(factory.faults!=recorded && (power_state==0 || power_state==4)){
+-                if(sv_fault_store_append(factory.faults))recorded=factory.faults;
+-                else {factory.faults|=SV_D_FAULT_RESET;recorded=factory.faults;}
+-            }
+-            service_clear_tick(keys,now);
+-            HAL_IWDG_Refresh(&watchdog);
+-            sv_diag.nonce=factory.nonce;sv_diag.faults=factory.faults;sv_diag.state=power_state;
+-            sv_diag.pairs=sv_audio_hw_pairs();sv_diag.monitor_generation=monitor.frame.generation;
+-            sv_diag.selftest=(core_ok?1u:0u)|(healthy?2u:0u)|(codec.ready?4u:0u)|(power_state==3 && sv_audio_hw_ready(now)?8u:0u);
+-            sv_diag.temperature_deci_c=monitor.frame.temperature_deci_c;
+-            for(unsigned n=0;n<4;n++)sv_diag.mv[n]=monitor.frame.mv[n];
+-            sv_ui_diag.version=1;for(unsigned n=0;n<3;n++)sv_ui_diag.raw[n]=pot_scan.raw[n];
+-            sv_ui_diag.generation=pot_scan.generation;sv_ui_diag.sampled=pot_scan.sampled;sv_ui_diag.adc_fault=pot_scan.fault;
+-            sv_ui_diag.ui_enabled=factory.ui.enabled;sv_ui_diag.picked_up=factory.ui.picked_up;sv_ui_diag.muted=factory.ui.muted;
+-            sv_ui_diag.fx=factory.ui.fx;sv_ui_diag.rate=factory.ui.rate;sv_ui_diag.input=factory.input;sv_ui_diag.port=factory.port;
+-            sv_ui_diag.events=factory.ui.events;sv_ui_diag.session_seq=factory.session.last_seq;
+-            sv_ui_diag.program_remaining_ms=factory.programming?300000-(now-factory.armed_at):0;
+-        }
+-        if(power_state==2 || power_state==3){uint32_t e=sv_audio_hw_service(&factory,now);if(e)sv_factory_fault(&factory,e);}
+-        uart_service(now);
+-    }
+-}
 +/* SmartVio R4 image (was: isolated V27 diagnostic image). Real peripherals,
 + * never hardware-qualified (hardware tests: 0). SV_PRODUCT_MODE=1 (sv_product.h):
 + * powers up playable, transient faults auto-recover, auto HP/SPK route, UVLO,
 + * simple USB500 charging. SV_PRODUCT_MODE=0 keeps the R3 bench arm flow. */
- #include "stm32h7xx_hal.h"
- #include "sv_telemetry.h"
- #include "sv_factory.h"
-@@ -10,14 +13,27 @@
- #include "safety_inputs.h"
- #include "sv_rf_reply.h"
- #include "sv_service_clear.h"
--#include "sv27_charge_gate.h"
--_Static_assert(!SV27_NORMAL_CHARGE_RELEASED,"R2 images must remain noncharging");
++#include "stm32h7xx_hal.h"
++#include "sv_telemetry.h"
++#include "sv_factory.h"
++#include "board_pins.h"
++#include "i2c_probe.h"
++#include "audio_hw.h"
++#include "fault_store.h"
++#include "pot_adc.h"
++#include "safety_inputs.h"
++#include "sv_rf_reply.h"
++#include "sv_service_clear.h"
 +#include "sv27_power_profile.h"
 +#include "sv_product.h"
 +/* R4 FW-NO-CHARGE-PATH: the V27 one-shot session/journal gate (always vetoed)
 + * is replaced by the simple gate in sv_product.c; TPS3700 + BQ24074 TS still
 + * veto CE in hardware. */
- #include <string.h>
- static volatile uint32_t milliseconds;
- static volatile uint32_t charge_gate_tick;
--static sv27_charge_session charge_session;
--volatile struct {uint32_t version,profile,release,journal,session_locked,session_started,
--    active_since,source_grant_ma,gate_result,iset_estimate_ma,iset_estimate_valid;} sv_charge_diag;
++#include <string.h>
++static volatile uint32_t milliseconds;
++static volatile uint32_t charge_gate_tick;
 +static sv_charge charge;static sv_charge_out charge_out;
-+volatile struct {uint32_t version,vbus,usb_mv,pack_mv,board_deci_c,allow,en1,en2,port_fault,efuse_fault,chg_status_n,pgood_n,iset_estimate_ma,iset_estimate_valid;} sv_charge_diag;
++volatile struct {uint32_t version,vbus,usb_mv,pack_mv,board_deci_c,allow,en1,en2,port_fault,efuse_fault,chg_status_n,pgood_n,iset_estimate_ma,iset_estimate_valid,qualified,release;} sv_charge_diag;
 +static sv_battery battery;static sv_power pwr;
 +static uint32_t recover_count,logged_faults,show_until,ui_events_seen,vbus_seen_at;static bool recover_pending;
 +#if SV_PRODUCT_MODE
@@ -1069,24 +1847,69 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +static uint32_t rf_ka_session,rf_ka_at;static uint16_t rf_ka_seq;
 +volatile struct {uint32_t version,product,hw_rev_r4,hp_active_high,pll1,cpu_hz,battery_mv,battery_warn,battery_off,
 +    power,recoveries,retained_faults,rx_errors,rx_drops,tx_timeouts,keepalives,hp_inserted,leds;} sv_r4_diag;
- static sv_monitor monitor;
- static sv_pcm1864 codec;
- static sv_factory factory;
-@@ -55,8 +71,8 @@
- uint32_t sv_target_millis(void){return milliseconds;}
- void SysTick_Handler(void){
-     milliseconds++;sv_safety_inputs_tick(milliseconds);
--    /* Independent veto for stalled foreground. Target release remains zero. */
--    if(!SV27_NORMAL_CHARGE_RELEASED || (uint32_t)(milliseconds-charge_gate_tick)>SV27_INPUT_MAX_AGE_MS)
++static sv_monitor monitor;
++static sv_pcm1864 codec;
++static sv_factory factory;
++static sv_pot_scan pot_scan;
++static uint32_t pot_generation;
++static bool pot_initialized,selected_peer;
++static sv_rf_guard rf;
++static IWDG_HandleTypeDef watchdog;
++static sv_parser parser;
++static uint8_t tx[270];static size_t tx_count,tx_at;
++static uint32_t tx_started,rail_at,discharged_at,recorded;
++static unsigned power_state;
++static bool uart_on,codec_gate;
++static uint8_t previous_port;
++static uint32_t port_changed,status_at;static unsigned status_index;
++/* SWD mailbox: write fields then increment request last; poll completed/result.
++ * Bench interface only, not remotely writable production control. */
++volatile struct {
++    uint32_t request,completed,nonce,faults,state,pairs,monitor_generation,selftest;
++    int32_t temperature_deci_c;uint32_t mv[4];
++    uint32_t type,length,session,seq,payload[64],result;
++} sv_diag;
++volatile struct {
++    uint32_t version,raw[3],generation,sampled,adc_fault,ui_enabled,picked_up,muted,fx,rate,input,port,events,session_seq,bt_result,program_remaining_ms;
++} sv_ui_diag;
++volatile uint32_t sv_rf_pcm_diag[8];
++/* Observe ESP acknowledgements independently of queued MCU command results. */
++sv_rf_reply sv_rf_reply_diag;
++static sv_service_clear service_clear;
++/* Separate SWD-only mailbox. No UART opcode maps to this service. */
++volatile struct {
++    uint32_t version,enabled,request,completed,action,token,state,challenge,faults,result;
++} sv_service_diag;
++uint32_t HAL_GetTick(void){return milliseconds;}
++uint32_t sv_target_millis(void){return milliseconds;}
++void SysTick_Handler(void){
++    milliseconds++;sv_safety_inputs_tick(milliseconds);
 +    /* Independent veto: a stalled foreground drops CHARGE_ALLOW within 100 ms. */
 +    if((uint32_t)(milliseconds-charge_gate_tick)>SV27_INPUT_MAX_AGE_MS)
-         GPIOE->BSRR=1u<<(14+16);
- }
- static void mode(GPIO_TypeDef *p,unsigned n,unsigned m){p->MODER=(p->MODER&~(3u<<(2*n)))|(m<<(2*n));}
-@@ -81,65 +97,208 @@
-     for(unsigned n=4;n<8;n++)mode(GPIOA,n,0);
-     mode(GPIOC,0,0);mode(GPIOC,4,0);mode(GPIOE,8,0);mode(GPIOE,9,0);mode(GPIOE,15,0);
-     unused(GPIOE,(15u<<3)|(1u<<11));unused(GPIOD,(3u<<8)|(7u<<11));unused(GPIOC,1u<<9);
++        GPIOE->BSRR=1u<<(14+16);
++}
++static void mode(GPIO_TypeDef *p,unsigned n,unsigned m){p->MODER=(p->MODER&~(3u<<(2*n)))|(m<<(2*n));}
++static void level(GPIO_TypeDef *p,unsigned n,bool hi){p->BSRR=1u<<(n+(hi?0:16));}
++/* Executed before C initialization. Only official CMSIS register definitions. */
++void sv_early_safe_gpio(void){
++    RCC->AHB4ENR|=RCC_AHB4ENR_GPIOAEN|RCC_AHB4ENR_GPIOBEN|RCC_AHB4ENR_GPIOCEN|RCC_AHB4ENR_GPIOEEN;
++    (void)RCC->AHB4ENR;GPIOC->BSRR=SV_C_RF_OFF_BSRR;GPIOE->BSRR=SV_E_BOOT_BSRR;
++    GPIOC->OTYPER&=~(SV_PC_RF|SV_PC_AUDIO_BUS);
++    GPIOC->MODER=(GPIOC->MODER&~((3u<<10)|(3u<<26)))|(1u<<10)|(1u<<26);
++    GPIOE->OTYPER&=~(SV_PE_AUDIO_POWER|SV_PE_BOOT|SV_PE_USB_DISABLE|SV_PE_EN1|SV_PE_EN2|SV_PE_CHARGE);
++    GPIOE->MODER=(GPIOE->MODER&~SV_E_SAFE_MODE_MASK)|SV_E_SAFE_MODE_BITS;
++    GPIOA->BSRR=0x0fu<<16;GPIOA->MODER=(GPIOA->MODER&~0xffu)|0x55u;
++    GPIOB->BSRR=1u<<(10+16);GPIOB->MODER=(GPIOB->MODER&~(3u<<20))|(1u<<20);
++    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_8;__DSB();
++}
++static void unused(GPIO_TypeDef *p,uint16_t pins){uint32_t mask=0;for(unsigned n=0;n<16;n++)if(pins&(1u<<n))mask|=3u<<(2*n);p->PUPDR&=~mask;p->MODER|=mask;}
++static void safe_gpio(void){
++    RCC->AHB4ENR|=RCC_AHB4ENR_GPIODEN;(void)RCC->AHB4ENR;
++    GPIOC->OSPEEDR&=~((3u<<10)|(3u<<26));
++    unused(GPIOA,SV_UNUSED_A);unused(GPIOB,SV_UNUSED_B);unused(GPIOC,SV_UNUSED_C);unused(GPIOD,SV_UNUSED_D);unused(GPIOE,SV_UNUSED_E);
++    for(unsigned n=4;n<8;n++)mode(GPIOA,n,0);
++    mode(GPIOC,0,0);mode(GPIOC,4,0);mode(GPIOE,8,0);mode(GPIOE,9,0);mode(GPIOE,15,0);
++    unused(GPIOE,(15u<<3)|(1u<<11));unused(GPIOD,(3u<<8)|(7u<<11));unused(GPIOC,1u<<9);
 +    /* R4 FW-UNUSED-STATUS-IO: PA9 VBUS_SENSE, PB11 CHG_PGOOD_N, PD10 CHG_STATUS_N
 +     * inputs (external pull-ups R816/R817, R505, R506); LED_ZONE_1..3 PC6..PC8 outputs. */
 +    mode(GPIOA,9,0);mode(GPIOB,11,0);mode(GPIOD,10,0);
@@ -1185,33 +2008,28 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +        if(!(RCC->CR&(RCC_CR_PLL1ON|RCC_CR_PLL2ON|RCC_CR_PLL3ON)))RCC->CR&=~(RCC_CR_HSEON|RCC_CR_CSION);
 +    }
 +    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_8;
- }
- static void cpu(bool fast){
-     if(pot_initialized){sv_pot_adc_stop();pot_initialized=false;}
--    RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|(fast?RCC_CR_HSIDIV_1:RCC_CR_HSIDIV_8);
--    SystemCoreClockUpdate();SysTick_Config(SystemCoreClock/1000u);
++}
++static void cpu(bool fast){
++    if(pot_initialized){sv_pot_adc_stop();pot_initialized=false;}
 +    if(fast){
 +        RCC->CR=(RCC->CR&~RCC_CR_HSIDIV)|RCC_CR_HSIDIV_1;systick_start();
 +        sv_r4_diag.pll1=__HAL_RCC_GET_SYSCLK_SOURCE()==RCC_CFGR_SWS_PLL1 || pll1_start();
 +    }else clocks_slow();
 +    systick_start();sv_r4_diag.cpu_hz=SystemCoreClock;
- }
- static void pots_start(uint32_t now){
-     pot_initialized=sv_pot_adc_init();pot_generation=0;factory.ui.fresh=false;factory.ui.picked_up=false;
-     sv_pot_init(&pot_scan,sv_pot_adc_bus(),now);
-     if(!pot_initialized){pot_scan.fault=true;sv_factory_fault(&factory,SV_D_FAULT_SENSOR);}
- }
--static void uart_stop(void){sv_rf_reply_cancel(&sv_rf_reply_diag);USART3->CR1=0;uart_on=false;tx_count=0;sv_parser_reset(&parser);unused(GPIOD,3u<<8);}
++}
++static void pots_start(uint32_t now){
++    pot_initialized=sv_pot_adc_init();pot_generation=0;factory.ui.fresh=false;factory.ui.picked_up=false;
++    sv_pot_init(&pot_scan,sv_pot_adc_bus(),now);
++    if(!pot_initialized){pot_scan.fault=true;sv_factory_fault(&factory,SV_D_FAULT_SENSOR);}
++}
 +static void uart_stop(void){
 +    NVIC_DisableIRQ(USART3_IRQn);sv_rf_reply_cancel(&sv_rf_reply_diag);USART3->CR1=0;uart_on=false;tx_count=0;
 +    rx_head=rx_tail=0;sv_parser_reset(&parser);unused(GPIOD,3u<<8);
 +}
- static void uart_start(void){
-     RCC->D2CCIP2R=(RCC->D2CCIP2R&~RCC_D2CCIP2R_USART28SEL)|(3u<<RCC_D2CCIP2R_USART28SEL_Pos);
-     RCC->APB1LENR|=RCC_APB1LENR_USART3EN;(void)RCC->APB1LENR;
-     USART3->CR1=0;USART3->CR2=0;USART3->CR3=0;USART3->PRESC=0;USART3->BRR=(64000000u+57600u)/115200u;
--    GPIOD->AFR[1]=(GPIOD->AFR[1]&~0xffu)|0x77u;mode(GPIOD,8,2);mode(GPIOD,9,2);
--    USART3->CR1=USART_CR1_RE|USART_CR1_TE|USART_CR1_UE;uart_on=true;
++static void uart_start(void){
++    RCC->D2CCIP2R=(RCC->D2CCIP2R&~RCC_D2CCIP2R_USART28SEL)|(3u<<RCC_D2CCIP2R_USART28SEL_Pos);
++    RCC->APB1LENR|=RCC_APB1LENR_USART3EN;(void)RCC->APB1LENR;
++    USART3->CR1=0;USART3->CR2=0;USART3->CR3=0;USART3->PRESC=0;USART3->BRR=(64000000u+57600u)/115200u;
 +    GPIOD->AFR[1]=(GPIOD->AFR[1]&~0xffu)|0x77u;
 +    /* FW-UART-OVERRUN: PD9 (RF_TX) internal pull-up; the line floats while the ESP boots. */
 +    GPIOD->PUPDR=(GPIOD->PUPDR&~(3u<<18))|(1u<<18);mode(GPIOD,8,2);mode(GPIOD,9,2);
@@ -1230,47 +2048,31 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +        uint8_t b=(uint8_t)USART3->RDR;uint32_t next=(rx_head+1u)%sizeof(rx_ring);
 +        if(next!=rx_tail){rx_ring[rx_head]=b;rx_head=next;}else sv_r4_diag.rx_drops++;
 +    }
- }
- static void power_off(uint32_t now){
-     sv_audio_emergency_mute();level(GPIOC,13,false);sv_rf_request(&rf,false,false,now);
-     uart_stop();sv_audio_hw_stop();level(GPIOE,2,false);power_state=4;discharged_at=now;
-     cpu(false);pots_start(now);selected_peer=false;if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
- }
++}
++static void power_off(uint32_t now){
++    sv_audio_emergency_mute();level(GPIOC,13,false);sv_rf_request(&rf,false,false,now);
++    uart_stop();sv_audio_hw_stop();level(GPIOE,2,false);power_state=4;discharged_at=now;
++    cpu(false);pots_start(now);selected_peer=false;if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++}
 +static void request_off(void){
 +    factory.shutdown=true;factory.armed=false;factory.programming=false;
 +    factory.port=0;factory.window=false;sv_ui_enable(&factory.ui,false);sv_session_end(&factory.session);
 +}
- static void latch_shutdown(void){
--    if(sv_safety_shutdown_requested()){
--        factory.shutdown=true;factory.armed=false;factory.programming=false;
--        factory.port=0;factory.window=false;sv_ui_enable(&factory.ui,false);sv_session_end(&factory.session);
--    }
++static void latch_shutdown(void){
 +    if(sv_safety_shutdown_requested())request_off();
- }
- static bool evidence(uint32_t now){
-     sv_mon_frame f;if(!sv_mon_snapshot(&monitor,now,&f))return false;
++}
++static bool evidence(uint32_t now){
++    sv_mon_frame f;if(!sv_mon_snapshot(&monitor,now,&f))return false;
 +#if SV_PRODUCT_MODE
 +    /* Player window: SYS plausible, TMP117 board -20..60 C. USB port fault lines
 +     * (PE8/PE9) only gate charging, they must not mute a battery-powered player. */
 +    return f.mv[SV_MON_SYS]>=2900 && f.mv[SV_MON_SYS]<=4600 && f.temperature_deci_c>=-200 && f.temperature_deci_c<=600;
 +#else
-     /* TMP117 is board temperature, not the cell NTC. Diagnostic window only. */
-     return f.mv[SV_MON_SYS]>=2900 && f.mv[SV_MON_SYS]<=4600 && f.temperature_deci_c>=100 && f.temperature_deci_c<=400 &&
-         (GPIOE->IDR&((1u<<8)|(1u<<9)))==((1u<<8)|(1u<<9));
++    /* TMP117 is board temperature, not the cell NTC. Diagnostic window only. */
++    return f.mv[SV_MON_SYS]>=2900 && f.mv[SV_MON_SYS]<=4600 && f.temperature_deci_c>=100 && f.temperature_deci_c<=400 &&
++        (GPIOE->IDR&((1u<<8)|(1u<<9)))==((1u<<8)|(1u<<9));
 +#endif
- }
--static void charge_gate_apply(uint32_t now){
--    /* All unsupported real-world qualifiers stay false. VBUS voltage is not
--     * USB current authorization; TMP117 is not the cell NTC. No SWD override. */
--    sv27_gate_inputs i={0};sv_mon_frame f;
--    i.sampled_at=now;i.fault=factory.faults!=0 || factory.shutdown;
--    uint16_t current_ma=0;bool frame=sv_mon_snapshot(&monitor,now,&f);
--    bool current_valid=frame && sv_mon_charge_current(&f,monitor.cal.electrical_calibration_approved,&current_ma);
--    /* A qualified source/pack adapter does not exist on the present hardware.
--     * Do not populate grant_verified, pack_present, or cell temperature from
--     * synthetic defaults. This explicitly vetoes every release request. */
--    bool permit=sv27_final_charge_gate(&charge_session,&i,now,sv_charge_store_commit_active,0);
--    level(GPIOE,14,permit);
++}
 +/* FW-RT-BUDGET: service the audio DMA halves after every blocking monitor I2C
 + * transaction (~0.5 ms at 100 kHz) instead of once per main-loop pass. */
 +static sv_mon_bus mon_hw;
@@ -1294,22 +2096,14 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +    charge_out=sv_charge_decide(&charge,&i,now);
 +    GPIOE->BSRR=sv_input_mode_bsrr(charge_out.en1,charge_out.en2);
 +    level(GPIOE,14,charge_out.allow);
-     charge_gate_tick=milliseconds;
--    if(charge_session.started && charge_session.locked){
--        level(GPIOE,14,false);(void)sv_charge_store_close();
--    }
--    sv_charge_diag.version=2;sv_charge_diag.profile=SV27_PROFILE_ID;
--    sv_charge_diag.release=SV27_NORMAL_CHARGE_RELEASED;
--    sv_charge_diag.journal=sv_charge_store_state();sv_charge_diag.session_locked=charge_session.locked;
--    sv_charge_diag.session_started=charge_session.started;sv_charge_diag.active_since=charge_session.first_enabled_at;
--    sv_charge_diag.source_grant_ma=i.source_grant_ma;sv_charge_diag.gate_result=permit;
++    charge_gate_tick=milliseconds;
 +    uint16_t current_ma=0;bool current_valid=frame && sv_mon_charge_current(&f,charge_out.allow,&current_ma);
-+    sv_charge_diag.version=3;sv_charge_diag.vbus=i.vbus;sv_charge_diag.usb_mv=f.mv[SV_MON_USB];sv_charge_diag.pack_mv=i.pack_mv;
++    sv_charge_diag.version=4;sv_charge_diag.qualified=charge_out.qualified;sv_charge_diag.release=SV_R4_CHARGE_RELEASE;sv_charge_diag.vbus=i.vbus;sv_charge_diag.usb_mv=f.mv[SV_MON_USB];sv_charge_diag.pack_mv=i.pack_mv;
 +    sv_charge_diag.board_deci_c=(uint32_t)(int32_t)i.board_deci_c;sv_charge_diag.allow=charge_out.allow;
 +    sv_charge_diag.en1=charge_out.en1;sv_charge_diag.en2=charge_out.en2;sv_charge_diag.port_fault=i.port_fault;
 +    sv_charge_diag.efuse_fault=i.efuse_fault;sv_charge_diag.chg_status_n=(GPIOD->IDR>>10)&1u;sv_charge_diag.pgood_n=(GPIOB->IDR>>11)&1u;
-     sv_charge_diag.iset_estimate_ma=current_ma;sv_charge_diag.iset_estimate_valid=current_valid;
- }
++    sv_charge_diag.iset_estimate_ma=current_ma;sv_charge_diag.iset_estimate_valid=current_valid;
++}
 +/* "Save state" before KILL / on faults: append new fault bits to the Bank2
 + * journal once per boot (product), never below 3.1 V pack without USB
 + * (FW-FLASH-ECC-BOOTLOOP mitigation); a full/corrupt journal never mutes. */
@@ -1318,44 +2112,93 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +    if(!fresh || !(vbus || sv_battery_mv(&battery)>=3100))return;
 +    (void)sv_fault_store_append(factory.faults);logged_faults|=factory.faults;
 +}
- static void service_clear_tick(uint8_t keys,uint32_t now){
-     sv_mon_frame f;
-     bool safe=power_state==0 && !factory.armed && !factory.programming && !factory.shutdown &&
-@@ -182,9 +341,13 @@
-         sv_frame check=*f;check.type=0x34;check.length=0;
-         sv_result r=sv_factory_command(&factory,&check,now);if(r!=SV_OK)return r;
-         sv_frame out=*f;out.type=f->type==0x36?0x40:f->type==0x37?0x41:f->type==0x38?0x42:f->type==0x39?0x43:0x22;
++static void service_clear_tick(uint8_t keys,uint32_t now){
++    sv_mon_frame f;
++    bool safe=power_state==0 && !factory.armed && !factory.programming && !factory.shutdown &&
++        !sv_safety_shutdown_requested() && !uart_on && !pot_scan.fault && evidence(now) &&
++        sv_mon_snapshot(&monitor,now,&f) && f.mv[SV_MON_USB]>=4750 && f.mv[SV_MON_USB]<=5250 &&
++        !(GPIOA->ODR&15u) && !(GPIOC->ODR&(SV_PC_RF|SV_PC_AUDIO_BUS)) &&
++        !(GPIOE->ODR&(SV_PE_AUDIO_POWER|SV_PE_CHARGE|SV_PE_EN1|SV_PE_EN2)) &&
++        (GPIOE->ODR&SV_PE_USB_DISABLE) && recorded==factory.faults &&
++        sv_fault_store_service_ready(factory.faults);
++    sv_service_poll(&service_clear,keys,factory.faults,safe,now);
++    if(sv_service_diag.request!=sv_service_diag.completed){
++        uint32_t request=sv_service_diag.request,token=sv_service_diag.token;
++        sv_service_diag.result=SV_SERVICE_DENIED;
++        if(sv_service_diag.action==1 && sv_service_prepare(&service_clear,factory.faults,safe,now))
++            sv_service_diag.result=SV_SERVICE_PENDING;
++        else if(sv_service_diag.action==2 && sv_service_consume(&service_clear,token,keys,factory.faults,safe,now)){
++            if(sv_fault_store_service_clear(factory.faults,token))sv_service_diag.result=SV_SERVICE_REBOOT_REQUIRED;
++            else sv_service_diag.result=SV_SERVICE_FLASH_ERROR;
++        }else if(sv_service_diag.action!=1 && sv_service_diag.action!=2)sv_service_cancel(&service_clear);
++        __DMB();sv_service_diag.completed=request;
++    }
++    sv_service_diag.version=1;sv_service_diag.enabled=SV_DIAGNOSTIC_SERVICE_CLEAR;
++    sv_service_diag.state=service_clear.state;sv_service_diag.challenge=service_clear.challenge;
++    sv_service_diag.faults=factory.faults;
++    if(sv_service_diag.result==SV_SERVICE_REBOOT_REQUIRED){
++        /* Keep the RAM latch and outputs off. Do not append it over the clear
++         * marker. Only a deliberate NRST/power reset can start a new test. */
++        for(;;){level(GPIOE,14,false);sv_safety_apply_outputs(0);HAL_IWDG_Refresh(&watchdog);}
++    }
++}
++static sv_result command(const sv_frame *f,uint32_t now){
++    latch_shutdown();
++    if((f->type==0x31 || f->type==0x3b) && (!evidence(now) || pot_scan.fault))return SV_NOT_READY;
++    if(f->type==0x3b && power_state!=0)return SV_NOT_READY;
++    if(f->type==0x35){if(f->length)return SV_LENGTH;factory.shutdown=true;factory.armed=false;factory.programming=false;return SV_OK;}
++    if((f->type>=0x36 && f->type<=0x39) || f->type==0x3c){
++        if(f->length!=(f->type==0x36?6:0))return SV_LENGTH;
++        if(!uart_on || !sv_rf_handshake_ready(&rf,now) || !factory.armed || factory.port!=SV_BT || !evidence(now))return SV_NOT_READY;
++        if(tx_count || sv_rf_reply_diag.pending)return SV_NOT_READY;
++        sv_frame check=*f;check.type=0x34;check.length=0;
++        sv_result r=sv_factory_command(&factory,&check,now);if(r!=SV_OK)return r;
++        sv_frame out=*f;out.type=f->type==0x36?0x40:f->type==0x37?0x41:f->type==0x38?0x42:f->type==0x39?0x43:0x22;
 +        if(out.type>=0x40){rf_ka_session=out.session_id;rf_ka_seq=out.seq;rf_ka_at=now;}
-         tx_count=sv_frame_encode(&out,tx,sizeof(tx));tx_at=0;tx_started=now;
-         sv_rf_reply_begin(&sv_rf_reply_diag,out.type,out.seq,out.session_id,now);
-         if(f->type==0x36)selected_peer=false;
++        tx_count=sv_frame_encode(&out,tx,sizeof(tx));tx_at=0;tx_started=now;
++        sv_rf_reply_begin(&sv_rf_reply_diag,out.type,out.seq,out.session_id,now);
++        if(f->type==0x36)selected_peer=false;
 +#if SV_PRODUCT_MODE
 +        if(f->type==0x36)sv_bt_learn_peer(&btui,f->payload); /* remembered for the BT key (RAM, this power session) */
 +#endif
-         return SV_OK;
-     }
-     return sv_factory_command(&factory,f,now);
-@@ -204,12 +367,9 @@
- static void uart_service(uint32_t now){
-     if(!uart_on)return;
-     sv_rf_reply_poll(&sv_rf_reply_diag,now);
--    if(USART3->ISR&(USART_ISR_ORE|USART_ISR_FE|USART_ISR_NE|USART_ISR_PE)){
--        USART3->ICR=USART_ICR_ORECF|USART_ICR_FECF|USART_ICR_NECF|USART_ICR_PECF;
--        USART3->RQR=USART_RQR_RXFRQ;sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);return;
--    }
--    for(unsigned n=0;n<128 && (USART3->ISR&USART_ISR_RXNE_RXFNE);n++){
--        sv_frame f;if(sv_parser_byte(&parser,(uint8_t)USART3->RDR,now,&f)){
++        return SV_OK;
++    }
++    return sv_factory_command(&factory,f,now);
++}
++static bool startup_core(void){
++    if(sv_crc16((const uint8_t*)"123456789",9)!=0x29b1)return false;
++    sv_parser p;sv_parser_reset(&p);
++    sv_frame in={.type=0x30,.seq=0x1234,.session_id=0x53562601,.length=3,.payload={0,0x53,0x56}},out;
++    uint8_t bytes[270];size_t n=sv_frame_encode(&in,bytes,sizeof(bytes));unsigned received=0;
++    if(n!=17)return false;
++    for(size_t i=0;i<n;i++)received+=sv_parser_byte(&p,bytes[i],0,&out);
++    if(received!=1 || out.type!=in.type || out.seq!=in.seq || out.session_id!=in.session_id || out.length!=3 || memcmp(out.payload,in.payload,3))return false;
++    bytes[n-1]^=1;sv_parser_reset(&p);received=0;
++    for(size_t i=0;i<n;i++)received+=sv_parser_byte(&p,bytes[i],0,&out);
++    return !received;
++}
++static void uart_service(uint32_t now){
++    if(!uart_on)return;
++    sv_rf_reply_poll(&sv_rf_reply_diag,now);
 +    for(unsigned n=0;n<128 && rx_tail!=rx_head;n++){
 +        uint8_t b=rx_ring[rx_tail];rx_tail=(rx_tail+1u)%sizeof(rx_ring);
 +        sv_frame f;if(sv_parser_byte(&parser,b,now,&f)){
-             if(f.type==0xa0 || f.type==0xa1){
-                 if(sv_rf_reply_accept(&sv_rf_reply_diag,&f,now)){
-                     if(f.type==0xa1)memcpy((void*)sv_rf_pcm_diag,f.payload,32);
-@@ -226,39 +386,89 @@
-     }
-     sv_parser_poll(&parser,now);
-     if(tx_count && (USART3->ISR&USART_ISR_TXE_TXFNF)){USART3->TDR=tx[tx_at++];if(tx_at==tx_count)tx_count=0;}
--    if(tx_count && now-tx_started>=250){tx_count=0;sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);}
++            if(f.type==0xa0 || f.type==0xa1){
++                if(sv_rf_reply_accept(&sv_rf_reply_diag,&f,now)){
++                    if(f.type==0xa1)memcpy((void*)sv_rf_pcm_diag,f.payload,32);
++                    if(sv_rf_reply_diag.command==0x40)selected_peer=sv_rf_reply_diag.result==SV_OK;
++                }
++                continue;
++            }
++            if(f.type==0x80)continue;
++            sv_result result=command(&f,now);
++            if(!tx_count){sv_frame reply={.type=0xb0,.seq=f.seq,.session_id=f.session_id,.length=9};reply.payload[0]=result;
++                memcpy(reply.payload+1,&factory.nonce,4);memcpy(reply.payload+5,&factory.faults,4);
++                tx_count=sv_frame_encode(&reply,tx,sizeof(tx));tx_at=0;tx_started=now;}
++        }
++    }
++    sv_parser_poll(&parser,now);
++    if(tx_count && (USART3->ISR&USART_ISR_TXE_TXFNF)){USART3->TDR=tx[tx_at++];if(tx_at==tx_count)tx_count=0;}
 +    /* FW-UART-OVERRUN: a stuck TX is dropped and counted, not a latched fault. */
 +    if(tx_count && now-tx_started>=250){tx_count=0;sv_r4_diag.tx_timeouts++;}
 +    /* FW-BT-SECURITY-STREAM (part): ESP quiesces after 2 s without MCU traffic;
@@ -1373,18 +2216,13 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +    sv_audio_emergency_mute();RCC->CR&=~RCC_CR_PLL2ON;
 +    GPIOC->MODER|=3u<<18;GPIOE->MODER|=(0xffu<<6)|(3u<<22);GPIOD->MODER|=(0x3fu<<22)|(3u<<16);
 +    GPIOC->BSRR=SV_PC_AUDIO_BUS<<16;GPIOE->BSRR=SV_PE_AUDIO_POWER<<16;__disable_irq();for(;;)__NOP();
- }
--void HardFault_Handler(void){sv_audio_emergency_mute();GPIOC->BSRR=SV_PC_AUDIO_BUS<<16;GPIOE->BSRR=SV_PE_AUDIO_POWER<<16;__disable_irq();for(;;)__NOP();}
- void NMI_Handler(void){HardFault_Handler();}
- int main(void){
--    safe_gpio();cpu(false);HAL_NVIC_SetPriority(SysTick_IRQn,0,0);sv_safety_inputs_init(0);
++}
++void NMI_Handler(void){HardFault_Handler();}
++int main(void){
 +    caches_on(); /* FW-RT-BUDGET: I/D-cache, DMA + journal regions non-cacheable */
 +    safe_gpio();cpu(false);sv_safety_inputs_init(0);
-     watchdog.Instance=IWDG1;watchdog.Init.Prescaler=IWDG_PRESCALER_256;watchdog.Init.Reload=249;watchdog.Init.Window=IWDG_WINDOW_DISABLE;
-     if(HAL_IWDG_Init(&watchdog)!=HAL_OK)HardFault_Handler();
--    uint32_t retained=sv_fault_store_load(),faults=retained;if(RCC->RSR&RCC_RSR_IWDG1RSTF)faults|=SV_D_FAULT_RESET;
--    RCC->RSR|=RCC_RSR_RMVF;sv_factory_init(&factory,faults);recorded=retained;
--    sv27_session_init(&charge_session,sv_charge_store_state());
++    watchdog.Instance=IWDG1;watchdog.Init.Prescaler=IWDG_PRESCALER_256;watchdog.Init.Reload=249;watchdog.Init.Window=IWDG_WINDOW_DISABLE;
++    if(HAL_IWDG_Init(&watchdog)!=HAL_OK)HardFault_Handler();
 +    uint32_t reset_flags=RCC->RSR;
 +    uint32_t retained=sv_fault_store_load(),faults=retained;if(reset_flags&RCC_RSR_IWDG1RSTF)faults|=SV_D_FAULT_RESET;
 +    RCC->RSR|=RCC_RSR_RMVF;recorded=retained;
@@ -1395,28 +2233,26 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +#else
 +    sv_factory_init(&factory,faults);
 +#endif
-     bool core_ok=startup_core();if(!core_ok)sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);
-     if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
--    sv_mon_init(&monitor,milliseconds,sv_stm32_monitor_bus(),NULL);level(GPIOB,10,true);
++    bool core_ok=startup_core();if(!core_ok)sv_factory_fault(&factory,SV_D_FAULT_PROTOCOL);
++    if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
 +    sv_mon_init(&monitor,milliseconds,monitor_bus(),NULL);level(GPIOB,10,true);
-     sv_parser_reset(&parser);sv_rf_request(&rf,false,false,milliseconds);pots_start(milliseconds);
++    sv_parser_reset(&parser);sv_rf_request(&rf,false,false,milliseconds);pots_start(milliseconds);
 +    sv_battery_init(&battery);
 +    bool boot_decided=!SV_PRODUCT_MODE;
 +    show_until=milliseconds+5000u;
-     uint32_t last=milliseconds,last_codec=milliseconds;
-     for(;;){
-         uint32_t now=milliseconds;
-         latch_shutdown();
-         if(now-last>=1){
-             if(now-last>100)sv_factory_fault(&factory,SV_D_FAULT_RESET);
--            last=now;sv_mon_tick(&monitor,now,now>=20);
++    uint32_t last=milliseconds,last_codec=milliseconds;
++    for(;;){
++        uint32_t now=milliseconds;
++        latch_shutdown();
++        if(now-last>=1){
++            if(now-last>100)sv_factory_fault(&factory,SV_D_FAULT_RESET);
 +            last=now;sv_mon_tick(&monitor,now,now>=SV_MON_SETTLE_MS);
-             if(pot_initialized)sv_pot_tick(&pot_scan,now);
-             if(pot_scan.valid && pot_scan.generation!=pot_generation){
-                 pot_generation=pot_scan.generation;
-                 if(!sv_ui_pots(&factory.ui,pot_scan.raw,pot_scan.sampled))sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
-             }
-             if(pot_scan.fault)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++            if(pot_initialized)sv_pot_tick(&pot_scan,now);
++            if(pot_scan.valid && pot_scan.generation!=pot_generation){
++                pot_generation=pot_scan.generation;
++                if(!sv_ui_pots(&factory.ui,pot_scan.raw,pot_scan.sampled))sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++            }
++            if(pot_scan.fault)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
 +            /* VBUS: PA9 (USB_5V_SAFE/2, near VIH at 4.75 V) or the ADS1115 USB channel. */
 +            sv_mon_frame mf;bool mframe=sv_mon_snapshot(&monitor,now,&mf);
 +            bool vbus=vbus_present() || (mframe && mf.mv[SV_MON_USB]>=4000);if(vbus)vbus_seen_at=now;
@@ -1432,27 +2268,33 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +            /* FW-NO-UVLO: filtered PACK < 3.30 V for 3 s on battery => orderly off. */
 +            if(battery.shutdown && pwr.state==SV_PWR_RUN && !factory.shutdown)request_off();
 +#endif
-             bool healthy=evidence(now);bool chord=(GPIOA->IDR&((1u<<5)|(1u<<6)))==0;
-             sv_factory_tick(&factory,chord,healthy,healthy,now);
-             uint8_t keys=(uint8_t)((~GPIOA->IDR>>5)&7u);if(!(GPIOC->IDR&1u))keys|=8;
-             unsigned bt_action=sv_factory_buttons(&factory,keys,now);
++            bool healthy=evidence(now);bool chord=(GPIOA->IDR&((1u<<5)|(1u<<6)))==0;
++            sv_factory_tick(&factory,chord,healthy,healthy,now);
++            uint8_t keys=(uint8_t)((~GPIOA->IDR>>5)&7u);if(!(GPIOC->IDR&1u))keys|=8;
++            unsigned bt_action=sv_factory_buttons(&factory,keys,now);
 +            if(factory.ui.events!=ui_events_seen){ui_events_seen=factory.ui.events;show_until=now+5000u;}
-             if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++            if(factory.ui.enabled && !factory.ui.fresh)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
 +#if SV_PRODUCT_MODE
 +            if(bt_action && factory.product){
-+                /* R4 product BT key: short = BT route on/off, long (>=2 s) = pairing window for the known peer. */
++                /* R4 product BT key: short = BT route on/off (reconnect), long (>=2 s) = pair a new headset (0x36 6xFF). */
 +                uint8_t port=sv_bt_key(&btui,bt_action,factory.port,now);
 +                if(port==SV_SPK && sv_safety_hp_inserted())port=SV_HP;
-+                factory.port=port;sv_ui_diag.bt_result=(bt_action==2 && !btui.have_peer)?SV_NOT_READY:SV_OK;
++                factory.port=port;sv_ui_diag.bt_result=SV_OK;
++                if(btui.pending)selected_peer=false; /* a new 0x36 request supersedes the accepted peer (pair while connected) */
 +            }else
 +#endif
-             if(bt_action){
-                 sv_frame f={.type=bt_action==1?0x38:0x39,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id};
-                 sv_ui_diag.bt_result=selected_peer?command(&f,now):SV_NOT_READY;
-@@ -271,6 +481,28 @@
-                 __DMB();sv_diag.completed=sv_diag.request;
-             }
-             latch_shutdown();
++            if(bt_action){
++                sv_frame f={.type=bt_action==1?0x38:0x39,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id};
++                sv_ui_diag.bt_result=selected_peer?command(&f,now):SV_NOT_READY;
++            }
++            if(monitor.fault)sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++            if(sv_diag.request!=sv_diag.completed){
++                sv_frame f={.type=(uint8_t)sv_diag.type,.length=(uint16_t)sv_diag.length,.session_id=sv_diag.session,.seq=(uint16_t)sv_diag.seq};
++                if(sv_diag.length>256)sv_diag.result=SV_LENGTH;
++                else {for(unsigned n=0;n<64;n++)memcpy(f.payload+n*4,(const void*)&sv_diag.payload[n],4);sv_diag.result=command(&f,now);}
++                __DMB();sv_diag.completed=sv_diag.request;
++            }
++            latch_shutdown();
 +#if SV_PRODUCT_MODE
 +            /* FW-FAULT-LATCH: product state machine. A fault mutes (power_off below),
 +             * waits 1,2,4..30 s, re-initialises the failed block and re-arms. */
@@ -1475,28 +2317,49 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +            }
 +            if(recover_count && power_state==3 && now-recovered_at>=SV_RECOVER_STABLE_MS)recover_count=0;
 +#endif
-             if((!factory.armed || factory.faults || factory.shutdown) && power_state && power_state!=4)power_off(now);
-             if(power_state==4 && now-discharged_at>=1000){power_state=0;level(GPIOC,5,false);mode(GPIOC,5,1);}
-             if(factory.armed && healthy && !factory.shutdown && !sv_safety_shutdown_requested() && !power_state){
-@@ -300,30 +532,86 @@
-                 static const uint8_t regs[]={0x72,0x73,0x74,0x75,0x78},masks[]={15,7,127,255,7},values[]={15,3,0x34,0,7};
-                 uint8_t v;status_at=now;
-                 if(!codec.bus.read(codec.bus.ctx,regs[status_index],&v) || (v&masks[status_index])!=values[status_index])sv_factory_fault(&factory,SV_D_FAULT_CODEC);
--                status_index=(status_index+1)%5;
++            if((!factory.armed || factory.faults || factory.shutdown) && power_state && power_state!=4)power_off(now);
++            if(power_state==4 && now-discharged_at>=1000){power_state=0;level(GPIOC,5,false);mode(GPIOC,5,1);}
++            if(factory.armed && healthy && !factory.shutdown && !sv_safety_shutdown_requested() && !power_state){
++                cpu(!factory.programming);pots_start(now);if(!sv_stm32_i2c1_init())sv_factory_fault(&factory,SV_D_FAULT_SENSOR);
++                latch_shutdown();
++                if(factory.armed && !factory.faults && !factory.shutdown){
++                    if(factory.programming){uart_stop();unused(GPIOC,1u<<5);level(GPIOC,13,false);}
++                    level(GPIOE,2,true);rail_at=now;power_state=1;
++                }
++            }
++            if(power_state==1 && now-rail_at>=50){
++                if(factory.programming)power_state=5;
++                else {
++                    level(GPIOC,13,true);
++                    if(!sv_audio_hw_start())sv_factory_fault(&factory,SV_D_FAULT_CLOCK);
++                    else {sv_pcm_start(&codec,sv_stm32_codec_bus(),now);codec_gate=false;power_state=2;}
++                }
++            }
++            if(power_state==2 && now-last_codec>=1){last_codec=now;sv_pcm_tick(&codec,now);
++                if(codec.fault)sv_factory_fault(&factory,SV_D_FAULT_CODEC);
++                else if(codec.ready){
++                    if(!codec_gate){sv_audio_hw_codec_ready(now);codec_gate=true;}
++                    if(sv_audio_hw_ready(now)){power_state=3;status_at=now;status_index=0;}
++                }
++            }
++            if(power_state==3 && now-status_at>=20){
++                static const uint8_t regs[]={0x72,0x73,0x74,0x75,0x78},masks[]={15,7,127,255,7},values[]={15,3,0x34,0,7};
++                uint8_t v;status_at=now;
++                if(!codec.bus.read(codec.bus.ctx,regs[status_index],&v) || (v&masks[status_index])!=values[status_index])sv_factory_fault(&factory,SV_D_FAULT_CODEC);
 +                status_index=(status_index+1)%5;audio_poll();
 +            }
 +#if SV_PRODUCT_MODE
 +            /* Product UI (wheels/keys) is enabled only once audio runs and the pots are fresh. */
 +            if(factory.product && factory.armed && power_state==3 && !factory.ui.enabled && factory.ui.fresh){
 +                sv_ui_enable(&factory.ui,true);factory.ui.auto_pickup=true;factory.ui.picked_up=true;
-             }
++            }
 +#endif
-             latch_shutdown();
-             if(factory.shutdown && power_state && power_state!=4)power_off(now);
-             bool rf_on=sv_rf_request(&rf,power_state==3 && factory.port==SV_BT,factory.armed && healthy && !factory.faults && !factory.shutdown,now);
-             level(GPIOC,5,rf_on);if(sv_rf_handshake_ready(&rf,now) && !uart_on)uart_start();
-             if(!rf_on && uart_on)uart_stop();
-             if(!rf_on)selected_peer=false;
++            latch_shutdown();
++            if(factory.shutdown && power_state && power_state!=4)power_off(now);
++            bool rf_on=sv_rf_request(&rf,power_state==3 && factory.port==SV_BT,factory.armed && healthy && !factory.faults && !factory.shutdown,now);
++            level(GPIOC,5,rf_on);if(sv_rf_handshake_ready(&rf,now) && !uart_on)uart_start();
++            if(!rf_on && uart_on)uart_stop();
++            if(!rf_on)selected_peer=false;
 +            bool bt_connected=selected_peer && sv_rf_reply_diag.generation && now-sv_rf_reply_diag.received_at<3000u &&
 +                sv_rf_reply_diag.status[3] && sv_rf_reply_diag.status[5]; /* ESP status: connected && encrypted */
 +#if SV_PRODUCT_MODE
@@ -1506,29 +2369,21 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +                if(factory.port!=SV_BT || selected_peer || now-btui.pending_at>=SV_BT_SEND_TIMEOUT_MS)btui.pending=false;
 +                else if(uart_on && sv_rf_handshake_ready(&rf,now) && !tx_count && !sv_rf_reply_diag.pending){
 +                    sv_frame f={.type=0x36,.seq=(uint16_t)(factory.session.last_seq+1),.session_id=factory.session.session_id,.length=6};
-+                    memcpy(f.payload,btui.peer,6);
++                    memcpy(f.payload,btui.req,6);
 +                    if(command(&f,now)==SV_OK){btui.window=true;btui.window_at=now;}
 +                }
 +            }
 +#endif
-             if(factory.port!=previous_port){previous_port=factory.port;port_changed=now;}
-             uint8_t desired=0;
--            if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50){
--                if(factory.port==SV_LINE)desired=(1u<<0)|(1u<<3);
--                if(factory.port==SV_HP && sv_safety_headphone_permitted())desired=(1u<<0)|(1u<<1);
--                if(factory.port==SV_SPK && sv_safety_speaker_permitted())desired=1u<<2;
++            if(factory.port!=previous_port){previous_port=factory.port;port_changed=now;}
++            uint8_t desired=0;
 +            if(power_state==3 && sv_audio_hw_ready(now) && factory.armed && factory.mode && sv_ui_audible(&factory.ui) && healthy && !factory.faults && now-port_changed>=50 &&
 +               (!factory.product || factory.ui.enabled)){
 +                /* FW-PORT-ENABLE-HP: HP = PA0|PA1|PA3; AUX/RETURN input adds PA3 in every route. */
 +                desired=sv_route_outputs(factory.port,factory.input);
 +                if(factory.port==SV_HP && !sv_safety_headphone_permitted())desired=0;
 +                if(factory.port==SV_SPK && !sv_safety_speaker_permitted())desired=0;
-             }
-             sv_safety_apply_outputs(desired);
--            /* Real final output path: Profile C/session/journal plus explicit
--             * absent hardware qualification. Normal charge remains HOLD. */
--            charge_gate_apply(now);
--            if(factory.shutdown && (power_state==0 || power_state==4))level(GPIOE,7,false);
++            }
++            sv_safety_apply_outputs(desired);
 +            charge_apply(now,vbus);
 +            /* FW-USB-SHUTDOWN-LATCH / FW-NO-UVLO: mute -> save -> KILL low. If still
 +             * alive 1.5 s later USB holds V3D: release KILL, charge-only standby, and
@@ -1551,10 +2406,10 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +                recover_count=0;recover_pending=false;factory.faults=0;show_until=now+5000u;
 +            }
 +#if !SV_PRODUCT_MODE
-             if(factory.faults!=recorded && (power_state==0 || power_state==4)){
-                 if(sv_fault_store_append(factory.faults))recorded=factory.faults;
-                 else {factory.faults|=SV_D_FAULT_RESET;recorded=factory.faults;}
-             }
++            if(factory.faults!=recorded && (power_state==0 || power_state==4)){
++                if(sv_fault_store_append(factory.faults))recorded=factory.faults;
++                else {factory.faults|=SV_D_FAULT_RESET;recorded=factory.faults;}
++            }
 +#else
 +            if(factory.faults && (power_state==0 || power_state==4))journal_save(vbus);
 +#endif
@@ -1571,27 +2426,175 @@ diff -ruN a/stm32/main.c b/stm32/main.c
 +                uint8_t leds=(factory.shutdown && pwr.state!=SV_PWR_STANDBY)?0:sv_led_pattern(&li,now);
 +                GPIOC->BSRR=((uint32_t)(leds&7u)<<6)|((uint32_t)(~leds&7u)<<(6+16));sv_r4_diag.leds=leds;
 +            }
-             service_clear_tick(keys,now);
-             HAL_IWDG_Refresh(&watchdog);
-             sv_diag.nonce=factory.nonce;sv_diag.faults=factory.faults;sv_diag.state=power_state;
-@@ -337,8 +625,12 @@
-             sv_ui_diag.fx=factory.ui.fx;sv_ui_diag.rate=factory.ui.rate;sv_ui_diag.input=factory.input;sv_ui_diag.port=factory.port;
-             sv_ui_diag.events=factory.ui.events;sv_ui_diag.session_seq=factory.session.last_seq;
-             sv_ui_diag.program_remaining_ms=factory.programming?300000-(now-factory.armed_at):0;
++            service_clear_tick(keys,now);
++            HAL_IWDG_Refresh(&watchdog);
++            sv_diag.nonce=factory.nonce;sv_diag.faults=factory.faults;sv_diag.state=power_state;
++            sv_diag.pairs=sv_audio_hw_pairs();sv_diag.monitor_generation=monitor.frame.generation;
++            sv_diag.selftest=(core_ok?1u:0u)|(healthy?2u:0u)|(codec.ready?4u:0u)|(power_state==3 && sv_audio_hw_ready(now)?8u:0u);
++            sv_diag.temperature_deci_c=monitor.frame.temperature_deci_c;
++            for(unsigned n=0;n<4;n++)sv_diag.mv[n]=monitor.frame.mv[n];
++            sv_ui_diag.version=1;for(unsigned n=0;n<3;n++)sv_ui_diag.raw[n]=pot_scan.raw[n];
++            sv_ui_diag.generation=pot_scan.generation;sv_ui_diag.sampled=pot_scan.sampled;sv_ui_diag.adc_fault=pot_scan.fault;
++            sv_ui_diag.ui_enabled=factory.ui.enabled;sv_ui_diag.picked_up=factory.ui.picked_up;sv_ui_diag.muted=factory.ui.muted;
++            sv_ui_diag.fx=factory.ui.fx;sv_ui_diag.rate=factory.ui.rate;sv_ui_diag.input=factory.input;sv_ui_diag.port=factory.port;
++            sv_ui_diag.events=factory.ui.events;sv_ui_diag.session_seq=factory.session.last_seq;
++            sv_ui_diag.program_remaining_ms=factory.programming?300000-(now-factory.armed_at):0;
 +            sv_r4_diag.version=1;sv_r4_diag.product=SV_PRODUCT_MODE;sv_r4_diag.hw_rev_r4=SV_HW_REV_R4;
 +            sv_r4_diag.hp_active_high=HP_DETECT_ACTIVE_HIGH;sv_r4_diag.battery_mv=sv_battery_mv(&battery);
 +            sv_r4_diag.battery_warn=battery.warn;sv_r4_diag.battery_off=battery.shutdown;sv_r4_diag.power=pwr.state;
 +            sv_r4_diag.hp_inserted=sv_safety_hp_inserted();
-         }
--        if(power_state==2 || power_state==3){uint32_t e=sv_audio_hw_service(&factory,now);if(e)sv_factory_fault(&factory,e);}
++        }
 +        audio_poll();
-         uart_service(now);
-     }
- }
-diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
++        uart_service(now);
++    }
++}
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/tests/test_pair.c b/tests/test_pair.c
+--- a/tests/test_pair.c	1970-01-01 00:00:00.000000000 +0000
++++ b/tests/test_pair.c	2026-10-17 01:54:26.248431575 +0000
+@@ -0,0 +1,139 @@
++/* R4 ESP32 first-time pairing: host test of esp32/main/sv_pair.h together with the
++ * real sv_retry.h and r2shared/sv_radio_core.c. The "glue" below mirrors
++ * smartvio_rf.c pair_action()/process() (Bluedroid replaced by a scripted model:
++ * page timeout 5.12 s -> DISCONNECTED, inquiry 10.24 s -> STOPPED). */
++#include "sv_pair.h"
++#include "sv_retry.h"
++#include "sv_radio_core.h"
++#include <stdio.h>
++#include <stdlib.h>
++static unsigned assertions;
++#define CHECK(x) do{assertions++;if(!(x)){fprintf(stderr,"FAIL pair %d\n",__LINE__);exit(1);}}while(0)
++
++/* reference CoD decode written from the Bluetooth Assigned Numbers, independent of sv_pair.h */
++static int ref_sink(uint32_t cod){
++    int format=cod&3,major=(cod>>8)&31,minor=(cod>>2)&63,service=(cod>>13)&0x7ff;
++    if(format||major!=4)return 0;
++    switch(minor){case 1:case 2:case 5:case 6:case 7:case 8:case 10:return 1;
++    case 0:return (service&(0x20|0x100))!=0; default:return 0;}
++}
++/* ---- model of smartvio_rf.c glue ---- */
++typedef struct {
++    sv_radio_core radio;sv_retry retry;sv_pair pair;sv_pair_cand found;
++    bool collecting,inquiry_running,quiesced;uint32_t inq_started,page_started;bool paging;
++    uint8_t stored[6];bool have_stored;
++    const uint8_t *present;     /* device that answers pages (NULL: none) */
++    const uint8_t *discoverable;int8_t rssi; /* device found by inquiry */
++    unsigned inquiries,connects,stops;
++} model;
++static void m_quiesce(model *m){sv_radio_quiesce(&m->radio);memset(&m->pair,0,sizeof(m->pair));m->collecting=false;
++    sv_retry_stop(&m->retry,0);m->retry.draining=false;m->inquiry_running=false;m->quiesced=true;}
++static void m_action(model *m,unsigned a,uint32_t now){
++    if(a==SV_PAIR_DO_STOP){m->stops++;m_quiesce(m);return;}
++    if(a==SV_PAIR_DO_INQUIRY){sv_radio_quiesce(&m->radio);sv_retry_stop(&m->retry,now);
++        memset(&m->found,0,sizeof(m->found));m->collecting=true;m->inquiry_running=true;m->inq_started=now;m->inquiries++;
++        sv_pair_disc_event(&m->pair,true);}
++    else if(a==SV_PAIR_DO_CONNECT){m->collecting=false;m->inquiry_running=false;
++        CHECK(sv_radio_open_local(&m->radio,m->pair.target,true,true,now));
++        CHECK(sv_retry_open(&m->retry,m->pair.target,now));m->radio.opened_at=m->pair.started;}
++}
++static unsigned m_begin(model *m,const uint8_t req[6],uint16_t len,uint32_t now){
++    m_quiesce(m);m->quiesced=false;unsigned k=sv_pair_kind(req,len);
++    if(k==SV_PAIR_KIND_EXPLICIT||k==SV_PAIR_KIND_BAD)return k;
++    m_action(m,sv_pair_begin(&m->pair,now,m->have_stored?m->stored:NULL,k==SV_PAIR_KIND_NEW),now);return k;
++}
++static void m_step(model *m,uint32_t now){
++    /* scripted Bluedroid */
++    if(m->inquiry_running && now-m->inq_started>=10240){
++        if(m->discoverable && m->collecting)sv_pair_offer(&m->found,m->discoverable,true,m->rssi);
++        m->inquiry_running=false;sv_pair_disc_event(&m->pair,false);}
++    if(m->paging){
++        bool ok=m->present && !memcmp(m->present,m->retry.peer,6);
++        if(ok && now-m->page_started>=700){m->paging=false;
++            if(sv_retry_connected(&m->retry,m->retry.peer,sv_radio_window(&m->radio,now),now))m->radio.connected=true;}
++        else if(!ok && now-m->page_started>=5120){m->paging=false;sv_retry_disconnected(&m->retry,m->retry.peer,now);}
++    }
++    if(m->retry.draining && !m->paging)sv_retry_disconnected(&m->retry,m->retry.peer,now);
++    /* process() tail */
++    if(m->pair.phase){bool failed=m->retry.attempts>=SV_PAIR_ATTEMPTS && !m->retry.inflight && !m->retry.connected && !m->retry.draining && !m->radio.connected;
++        m_action(m,sv_pair_poll(&m->pair,now,failed,m->radio.connected,&m->found),now);}
++    if(m->radio.connected && sv_radio_window(&m->radio,now)){m->radio.opened_at=now;
++        if(!m->have_stored||memcmp(m->stored,m->radio.peer,6)){memcpy(m->stored,m->radio.peer,6);m->have_stored=true;}}
++    if(m->radio.local_window && !sv_radio_window(&m->radio,now))m_quiesce(m);
++    unsigned r=sv_retry_poll(&m->retry,sv_radio_window(&m->radio,now),true,now);
++    if(r==SV_RETRY_CONNECT){m->paging=true;m->page_started=now;m->connects++;}
++    else if(r==SV_RETRY_ABORT){CHECK(0);} /* model always reports DISCONNECTED in time */
++}
++static uint32_t run(model *m,uint32_t from,uint32_t to,bool stop_on_connect){
++    for(uint32_t t=from;t!=to;t+=5){m_step(m,t);if(stop_on_connect && m->radio.connected)return t;}
++    return to;
++}
++int main(void){
++    const uint8_t zero[6]={0},ff[6]={255,255,255,255,255,255},hs[6]={0x11,0x22,0x33,0x44,0x55,0x66},
++        old[6]={0xa0,1,2,3,4,5},other[6]={0x11,0x22,0x33,0x44,0x55,0x67};
++    /* kind */
++    CHECK(sv_pair_kind(zero,0)==SV_PAIR_KIND_AUTO);CHECK(sv_pair_kind(NULL,0)==SV_PAIR_KIND_AUTO);
++    CHECK(sv_pair_kind(zero,6)==SV_PAIR_KIND_AUTO);CHECK(sv_pair_kind(ff,6)==SV_PAIR_KIND_NEW);
++    CHECK(sv_pair_kind(hs,6)==SV_PAIR_KIND_EXPLICIT);
++    for(uint16_t n=1;n<300;n++)if(n!=6)CHECK(sv_pair_kind(hs,n)==SV_PAIR_KIND_BAD);
++    CHECK(!sv_pair_valid_addr(zero)&&!sv_pair_valid_addr(ff)&&sv_pair_valid_addr(hs));
++    /* CoD: exhaustive against the reference, plus known real-world values */
++    for(uint32_t cod=0;cod<(1u<<24);cod++)CHECK(sv_pair_is_sink(cod)==ref_sink(cod));
++    CHECK(sv_pair_is_sink(0x240404));CHECK(sv_pair_is_sink(0x240418));CHECK(sv_pair_is_sink(0x200414));
++    CHECK(sv_pair_is_sink(0x04041c)); /* portable audio */
++    CHECK(!sv_pair_is_sink(0x5a020c));/* smartphone */
++    CHECK(!sv_pair_is_sink(0x240410));/* microphone */
++    CHECK(!sv_pair_is_sink(0x000400));CHECK(sv_pair_is_sink(0x040400));
++    CHECK(!sv_pair_is_sink(0x240405));/* format type != 0 */
++    /* candidate selection */
++    sv_pair_cand c={0};
++    CHECK(!sv_pair_offer(&c,zero,true,-20));CHECK(!c.valid);
++    CHECK(sv_pair_offer(&c,old,false,0));CHECK(c.valid&&!c.has_rssi&&c.rssi==-128);
++    CHECK(!sv_pair_offer(&c,hs,false,0));            /* no RSSI does not replace the first */
++    CHECK(sv_pair_offer(&c,hs,true,-80));CHECK(!memcmp(c.addr,hs,6));
++    CHECK(!sv_pair_offer(&c,other,true,-80));        /* tie keeps the first */
++    CHECK(sv_pair_offer(&c,other,true,-60));CHECK(!memcmp(c.addr,other,6));
++    CHECK(!sv_pair_offer(&c,hs,true,-70));CHECK(!sv_pair_offer(&c,other,true,-50));CHECK(c.rssi==-50);
++    CHECK(!sv_pair_offer(&c,hs,true,-50));CHECK(sv_pair_offer(&c,hs,true,-49));
++    /* stale STOPPED from a cancelled inquiry is ignored */
++    sv_pair p;CHECK(sv_pair_begin(&p,0,NULL,false)==SV_PAIR_DO_INQUIRY);
++    sv_pair_disc_event(&p,false);CHECK(!p.inq_done);sv_pair_disc_event(&p,true);sv_pair_disc_event(&p,false);CHECK(p.inq_done);
++    /* inquiry that never reports STOPPED: guard */
++    CHECK(sv_pair_begin(&p,100,NULL,false)==SV_PAIR_DO_INQUIRY);
++    CHECK(sv_pair_poll(&p,100+SV_PAIR_INQ_GUARD_MS-1,false,false,NULL)==SV_PAIR_NONE);
++    CHECK(sv_pair_poll(&p,100+SV_PAIR_INQ_GUARD_MS,false,false,NULL)==SV_PAIR_DO_INQUIRY&&p.inquiries==2);
++    /* explicit / bad requests do not start pairing */
++    CHECK(sv_pair_begin(&p,0,old,true)==SV_PAIR_DO_INQUIRY);   /* NEW ignores the stored peer */
++    CHECK(sv_pair_begin(&p,0,ff,false)==SV_PAIR_DO_INQUIRY);   /* corrupt stored value ignored */
++    CHECK(sv_pair_poll(&(sv_pair){0},5,true,false,NULL)==SV_PAIR_NONE);
++
++    for(unsigned wrap=0;wrap<2;wrap++){
++        uint32_t t0=wrap?UINT32_MAX-30000:1000;model m;
++        /* A: stored headset present -> first page connects, no inquiry, stays up past 60 s */
++        memset(&m,0,sizeof(m));memcpy(m.stored,old,6);m.have_stored=true;m.present=old;
++        CHECK(m_begin(&m,zero,6,t0)==SV_PAIR_KIND_AUTO&&m.pair.phase==SV_PAIR_STORED&&m.radio.local_window);
++        uint32_t tc=run(&m,t0,t0+20000,true);CHECK(m.radio.connected&&tc-t0<1000&&m.inquiries==0&&m.connects==1);
++        run(&m,tc,t0+180000,false);CHECK(m.radio.connected&&m.radio.local_window&&m.pair.phase==SV_PAIR_DONE&&!m.quiesced);
++        /* B: stored headset absent, new one discoverable -> 2 pages, inquiry, connect, NVS updated */
++        memset(&m,0,sizeof(m));memcpy(m.stored,old,6);m.have_stored=true;m.present=hs;m.discoverable=hs;m.rssi=-55;
++        m_begin(&m,zero,6,t0);tc=run(&m,t0,t0+60000,true);
++        CHECK(m.radio.connected&&!memcmp(m.radio.peer,hs,6)&&m.inquiries==1&&m.connects==3);
++        CHECK(tc-t0>2*5120 && tc-t0<2*5120+500+10240+1500);
++        run(&m,tc,tc+5,false);CHECK(m.have_stored&&!memcmp(m.stored,hs,6));
++        /* C: nothing anywhere, no stored peer -> 4 inquiries then stop before the 60 s window */
++        memset(&m,0,sizeof(m));m_begin(&m,NULL,0,t0);run(&m,t0,t0+70000,false);
++        CHECK(m.inquiries==4&&m.stops==1&&m.connects==0&&!m.radio.local_window&&m.pair.phase==SV_PAIR_OFF);
++        /* D: FF = pair new even if the stored headset would answer */
++        memset(&m,0,sizeof(m));memcpy(m.stored,old,6);m.have_stored=true;m.present=hs;m.discoverable=hs;
++        m_begin(&m,ff,6,t0);CHECK(m.pair.phase==SV_PAIR_INQUIRY&&m.inquiries==1);
++        tc=run(&m,t0,t0+60000,true);CHECK(m.radio.connected&&!memcmp(m.radio.peer,hs,6)&&tc-t0<10240+1500);
++        /* E: found device never accepts the page -> pages within the one 60 s window, then off */
++        memset(&m,0,sizeof(m));m.discoverable=hs;m_begin(&m,zero,6,t0);run(&m,t0,t0+61000,false);
++        CHECK(!m.radio.connected&&!m.radio.local_window&&m.quiesced&&m.inquiries>=2&&m.connects>=2&&m.connects<=6);
++        /* F: window measured from the 0x40, not from the inquiry result */
++        memset(&m,0,sizeof(m));m.discoverable=hs;m_begin(&m,zero,6,t0);run(&m,t0,t0+10300,false);
++        CHECK(m.radio.local_window&&m.radio.opened_at==t0&&sv_radio_window(&m.radio,t0+59999)&&!sv_radio_window(&m.radio,t0+60000));
++    }
++    printf("test_pair: %u assertions\n",assertions);
++    return 0;
++}
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/tests/test_r4_product.c b/tests/test_r4_product.c
 --- a/tests/test_r4_product.c	1970-01-01 00:00:00.000000000 +0000
-+++ b/tests/test_r4_product.c	2026-10-15 06:59:21.274316163 +0000
-@@ -0,0 +1,193 @@
++++ b/tests/test_r4_product.c	2026-10-17 01:54:26.244472933 +0000
+@@ -0,0 +1,194 @@
 +/* R4 host tests for the review fixes (portable code only; hardware tests: 0). */
 +#include "sv_control.h"
 +#include "sv_factory.h"
@@ -1698,16 +2701,16 @@ diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
 +    /* FW-NO-CHARGE-PATH: USB500 default, charge only with VBUS/no fault/plausible pack/board temp. */
 +    groups++;
 +    {sv_charge c={0};sv_charge_in i={.vbus=true,.frame_valid=true,.pack_mv=3800,.board_deci_c=250};
-+     sv_charge_out o=sv_charge_decide(&c,&i,0);C(o.en1 && !o.en2 && !o.allow);
-+     o=sv_charge_decide(&c,&i,1999);C(!o.allow);o=sv_charge_decide(&c,&i,2000);C(o.allow && o.en1 && !o.en2);
-+     sv_charge_in j=i;j.port_fault=true;o=sv_charge_decide(&c,&j,2001);C(!o.allow && !o.en1 && !o.en2);
-+     o=sv_charge_decide(&c,&i,2002);C(!o.allow); /* re-qualify 2 s after any veto */
-+     o=sv_charge_decide(&c,&i,4002);C(o.allow);
++     sv_charge_out o=sv_charge_decide(&c,&i,0);C(o.allow==(SV_R4_CHARGE_RELEASE && o.qualified));C(o.en1 && !o.en2 && !o.qualified);
++     o=sv_charge_decide(&c,&i,1999);C(!o.qualified);o=sv_charge_decide(&c,&i,2000);C(o.qualified && o.en1 && !o.en2);
++     sv_charge_in j=i;j.port_fault=true;o=sv_charge_decide(&c,&j,2001);C(!o.qualified && !o.en1 && !o.en2);
++     o=sv_charge_decide(&c,&i,2002);C(!o.qualified); /* re-qualify 2 s after any veto */
++     o=sv_charge_decide(&c,&i,4002);C(o.qualified);C(o.allow==(SV_R4_CHARGE_RELEASE!=0)); /* locked unless released */
 +     for(unsigned k=0;k<8;k++){sv_charge cc={0};sv_charge_in x=i;
 +        switch(k){case 0:x.vbus=false;break;case 1:x.frame_valid=false;break;case 2:x.efuse_fault=true;break;case 3:x.system_fault=true;break;
 +                  case 4:x.pack_mv=4250;break;case 5:x.pack_mv=2400;break;case 6:x.board_deci_c=451;break;case 7:x.board_deci_c=-1;break;}
-+        for(uint32_t t=0;t<5000;t+=10)C(!sv_charge_decide(&cc,&x,t).allow);}
-+     sv_charge cc={0};sv_charge_in s=i;s.service_image=true;o=sv_charge_decide(&cc,&s,9000);C(!o.allow && !o.en1 && !o.en2);}
++        for(uint32_t t=0;t<5000;t+=10)C(!sv_charge_decide(&cc,&x,t).qualified);}
++     sv_charge cc={0};sv_charge_in s=i;s.service_image=true;o=sv_charge_decide(&cc,&s,9000);C(!o.qualified && !o.allow && !o.en1 && !o.en2);}
 +
 +    /* FW-USB-SHUTDOWN-LATCH: KILL 1.5 s, then (still alive => USB) standby with KILL released; wake. */
 +    groups++;
@@ -1761,18 +2764,19 @@ diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
 +     for(unsigned n=0;n<100;n++)any|=sv_factory_buttons(&b,8,t++);for(unsigned n=0;n<100;n++)any|=sv_factory_buttons(&b,0,t++);
 +     C(!any);} /* bench (non-product) keeps the R3 rule */
 +    {sv_bt_ui b={0};const uint8_t zero[6]={0},ff[6]={255,255,255,255,255,255},peer[6]={0x11,0x22,0x33,0x44,0x55,0x66};
-+     C(sv_bt_key(&b,2,SV_SPK,0)==SV_SPK && !b.pending);            /* long press without a known peer: no change */
-+     C(sv_bt_key(&b,1,SV_HP,0)==SV_BT && b.prev_port==SV_HP && !b.pending); /* BT on, nothing to (re)connect */
++     C(sv_bt_key(&b,2,SV_SPK,0)==SV_BT && b.pending && !memcmp(b.req,ff,6)); /* long press: search for a new headset */
++     b.pending=false;C(sv_bt_key(&b,1,SV_BT,1)==SV_SPK);
++     C(sv_bt_key(&b,1,SV_HP,0)==SV_BT && b.prev_port==SV_HP && b.pending && !memcmp(b.req,zero,6)); /* BT on, no peer: ESP stored/search */
 +     C(sv_bt_key(&b,1,SV_BT,5)==SV_HP);                              /* BT off: previous route back */
 +     sv_bt_learn_peer(&b,zero);sv_bt_learn_peer(&b,ff);C(!b.have_peer);
 +     sv_bt_learn_peer(&b,peer);C(b.have_peer && !memcmp(b.peer,peer,6));
-+     C(sv_bt_key(&b,2,SV_LINE,100)==SV_BT && b.pending && b.pending_at==100 && b.prev_port==SV_LINE);
++     C(sv_bt_key(&b,2,SV_LINE,100)==SV_BT && b.pending && b.pending_at==100 && b.prev_port==SV_LINE && !memcmp(b.req,ff,6));
 +     C(sv_bt_led_state(&b,true,false,200)==SV_BT_LED_BLINK);C(sv_bt_led_state(&b,true,true,200)==SV_BT_LED_ON);
 +     C(sv_bt_led_state(&b,false,true,200)==SV_BT_LED_OFF);
 +     b.pending=false;b.window=true;b.window_at=300;C(sv_bt_led_state(&b,true,false,300+SV_BT_WINDOW_MS-1)==SV_BT_LED_BLINK);
 +     C(sv_bt_led_state(&b,true,false,300+SV_BT_WINDOW_MS)==SV_BT_LED_OFF);
 +     C(sv_bt_key(&b,1,SV_BT,400)==SV_LINE && !b.pending && !b.window);
-+     C(sv_bt_key(&b,1,0,500)==SV_BT && b.pending);C(sv_bt_key(&b,1,SV_BT,600)==SV_SPK); /* from "off": back to SPK */
++     C(sv_bt_key(&b,1,0,500)==SV_BT && b.pending && !memcmp(b.req,peer,6));C(sv_bt_key(&b,1,SV_BT,600)==SV_SPK); /* from "off": back to SPK */
 +     sv_led_in l={.pack_mv=4000,.bt=SV_BT_LED_ON};C(sv_led_pattern(&l,10000)==2);
 +     l.bt=SV_BT_LED_BLINK;C(sv_led_pattern(&l,10000)==0 && sv_led_pattern(&l,10500)==2);
 +     l.show_until=20000;C(sv_led_pattern(&l,10000)==5 && sv_led_pattern(&l,10500)==7);}
@@ -1782,12 +2786,12 @@ diff -ruN a/tests/test_r4_product.c b/tests/test_r4_product.c
 +#if SV_PCM_PICKUP_PGA_DB==12
 +    C(SV_PCM_PICKUP_PGA_REG==0x18);
 +#endif
-+    printf("{\"suite\":\"r4_product\",\"groups\":%u,\"assertions\":%u,\"hw_rev_r4\":%d,\"hardware_tests\":0}\n",groups,checks,SV_HW_REV_R4);
++    printf("{\"suite\":\"r4_product\",\"groups\":%u,\"assertions\":%u,\"hw_rev_r4\":%d,\"charge_release\":%d,\"hardware_tests\":0}\n",groups,checks,SV_HW_REV_R4,SV_R4_CHARGE_RELEASE);
 +    return 0;
 +}
-diff -ruN a/tests/test_waveforms.c b/tests/test_waveforms.c
---- a/tests/test_waveforms.c	2026-10-09 09:30:28.000000000 +0000
-+++ b/tests/test_waveforms.c	2026-10-15 06:41:31.636194678 +0000
+diff -ruN '--exclude=build-linux' '--exclude=build' '--exclude=artifacts' '--exclude=vendor-source' '--exclude=*.bak' '--exclude=tmp' '--exclude=__pycache__' '--exclude=sdkconfig' '--exclude=sdkconfig.old' '--exclude=managed_components' '--exclude=*.o' '--exclude=dependencies.lock' a/tests/test_waveforms.c b/tests/test_waveforms.c
+--- a/tests/test_waveforms.c	2026-10-17 01:54:23.081890079 +0000
++++ b/tests/test_waveforms.c	2026-10-17 01:54:26.324472938 +0000
 @@ -15,13 +15,14 @@
      assert(peak==131072 && sum==0 && phase==0);
      for(unsigned i=0;i<128;i++){a[2*i]=(uint32_t)16000*256;a[2*i+1]=(uint32_t)-32000*256;b[2*i]=(uint32_t)48000*256;b[2*i+1]=0;}
