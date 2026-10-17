@@ -1,0 +1,119 @@
+(footprint "NPTH_D4.0_KO5.0"
+	(version 20260206)
+	(generator "pcbnew")
+	(generator_version "10.0")
+	(layer "F.Cu")
+	(property "Reference" "H905"
+		(at 0 0 0)
+		(layer "F.SilkS")
+		(hide yes)
+		(uuid "61873d45-6553-4064-b183-a0844ebfa7df")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Value" "NPTH_D4.0_KO5.0"
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "efedbd6b-0a0d-4c0f-bfd8-cb1e5c4b619f")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Datasheet" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "162f454c-d5c0-4163-9fe3-63d714cd05a0")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(property "Description" ""
+		(at 0 0 0)
+		(layer "F.Fab")
+		(hide yes)
+		(uuid "670d87c8-b732-411a-b0a7-f7202bbbb626")
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+		)
+	)
+	(attr board_only exclude_from_pos_files exclude_from_bom)
+	(duplicate_pad_numbers_are_jumpers no)
+	(fp_circle
+		(center 0 0)
+		(end 2.02 0)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "B.CrtYd")
+		(uuid "41b8e731-7b14-4d8c-9b89-b2c38f73ca84")
+	)
+	(fp_circle
+		(center 0 0)
+		(end 2.02 0)
+		(stroke
+			(width 0.05)
+			(type default)
+		)
+		(fill no)
+		(layer "F.CrtYd")
+		(uuid "f4707605-4430-4e35-a6cf-5521d2a81750")
+	)
+	(pad "" np_thru_hole circle
+		(at 0 0)
+		(size 4 4)
+		(drill 4)
+		(layers "*.Cu" "*.Mask")
+		(uuid "d0482f8c-31d6-4281-b06e-9e98ab5e4ab9")
+	)
+	(zone
+		(layers "F.Cu" "B.Cu")
+		(uuid "ce3a2e9b-6ff9-48de-87e6-b3b20edd2843")
+		(hatch edge 0.5)
+		(connect_pads
+			(clearance 0)
+		)
+		(min_thickness 0.25)
+		(keepout
+			(tracks not_allowed)
+			(vias not_allowed)
+			(pads allowed)
+			(copperpour not_allowed)
+			(footprints allowed)
+		)
+		(placement
+			(enabled no)
+			(sheetname "")
+		)
+		(fill
+			(thermal_gap 0.5)
+			(thermal_bridge_width 0.5)
+			(island_removal_mode 0)
+		)
+		(polygon
+			(pts
+				(xy 2.5 0) (xy 2.462019 0.43412) (xy 2.349231 0.85505) (xy 2.165063 1.249999) (xy 1.915111 1.606969)
+				(xy 1.606969 1.915111) (xy 1.25 2.165063) (xy 0.85505 2.349231) (xy 0.43412 2.462019) (xy 0 2.5)
+				(xy -0.43412 2.462019) (xy -0.85505 2.349231) (xy -1.249999 2.165063) (xy -1.606969 1.915111) (xy -1.915111 1.606969)
+				(xy -2.165063 1.25) (xy -2.349231 0.85505) (xy -2.462019 0.43412) (xy -2.5 0) (xy -2.462019 -0.43412)
+				(xy -2.349231 -0.85505) (xy -2.165063 -1.25) (xy -1.915111 -1.606969) (xy -1.606969 -1.915111) (xy -1.25 -2.165063)
+				(xy -0.85505 -2.349231) (xy -0.43412 -2.462019) (xy 0 -2.5) (xy 0.43412 -2.462019) (xy 0.85505 -2.349231)
+				(xy 1.249999 -2.165063) (xy 1.606969 -1.915111) (xy 1.915111 -1.606969) (xy 2.165063 -1.249999)
+				(xy 2.349231 -0.85505) (xy 2.462019 -0.43412)
+			)
+		)
+	)
+	(embedded_fonts no)
+)

@@ -120,8 +120,8 @@
   "pads": {}
  },
  "H905": {
-  "fp": "SmartVioV26:NPTH_D4.4_KO5.4",
-  "value": "NPTH_D4.4_KO5.4",
+  "fp": "SmartVioV26:NPTH_D4.0_KO5.0",
+  "value": "NPTH_D4.0_KO5.0",
   "layer": "F.Cu",
   "board_only": true,
   "pads": {}
