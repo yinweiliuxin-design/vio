@@ -50,7 +50,7 @@ PAR={
  "usb_face_pocket":[13.0,7.4],"usb_face_pocket_floor_Z":2.85,"usb_opening_collar":{"wall":0.6,"z":[1.8,2.5],"why":"R4.1b: pocket depth 0.80 -> 0.95 closes worst-case USB-C depth with GCT +/-0.25 (chain 7d); collar restores the lateral bearing wall of the opening (0.35 roof + 0.7 collar)"},"usb_face_pocket_note":"R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
  "audio_frame_web_variants":[0.40,0.50,0.60],"audio_frame_selective_fit":"jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
  "upper_and_cup_join":"4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
- "nominal_total_height":24.75,"total_height_limit":25.0,"nonwheel_outward_limit":5,
+ "nominal_total_height":24.65,"total_height_limit":25.0,"nonwheel_outward_limit":5,
  "process":"CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
  "factory_tuning":"Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
  "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement"

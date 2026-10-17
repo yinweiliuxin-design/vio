@@ -1,0 +1,18 @@
+(version 1)
+# R4 ECO L-01: high-current net classes (PWR_IN / PWR_BAT / PWR_SW) - enforced minimum widths
+(rule "PWR_IN outer"  (layer outer) (condition "A.NetClass == 'PWR_IN'")  (constraint track_width (min 0.6mm)))
+(rule "PWR_IN inner"  (layer inner) (condition "A.NetClass == 'PWR_IN'")  (constraint track_width (min 1.0mm)))
+(rule "PWR_BAT outer" (layer outer) (condition "A.NetClass == 'PWR_BAT'") (constraint track_width (min 0.5mm)))
+(rule "PWR_BAT inner" (layer inner) (condition "A.NetClass == 'PWR_BAT'") (constraint track_width (min 0.8mm)))
+(rule "PWR_SW"        (layer outer) (condition "A.NetClass == 'PWR_SW'")  (constraint track_width (min 0.9mm)))
+(rule "PWR_SW no inner" (layer inner) (condition "A.NetClass == 'PWR_SW'") (constraint disallow track))
+# fine-pitch pad necks and small-load branches (later rules take precedence)
+(rule "neck at fine-pitch power IC"
+  (condition "(A.NetClass == 'PWR_IN' || A.NetClass == 'PWR_BAT' || A.NetClass == 'PWR_SW') && (A.intersectsCourtyard('U501') || A.intersectsCourtyard('U1001') || A.intersectsCourtyard('U1101') || A.intersectsCourtyard('U902'))")
+  (constraint track_width (min 0.24mm)))
+(rule "small-load branches"
+  (condition "(A.NetClass == 'PWR_IN' || A.NetClass == 'PWR_BAT') && (A.intersectsCourtyard('R1103') || A.intersectsCourtyard('R1709') || A.intersectsCourtyard('R503') || A.intersectsCourtyard('R826') || A.intersectsCourtyard('R903') || A.intersectsCourtyard('U1301') || A.intersectsCourtyard('U1921') || A.intersectsCourtyard('C1921') || A.intersectsCourtyard('R1705') || A.intersectsCourtyard('R1303') || A.intersectsCourtyard('R1701') || A.intersectsCourtyard('R1923') || A.intersectsCourtyard('R816') || A.intersectsCourtyard('R1001') || A.intersectsCourtyard('R1003'))")
+  (constraint track_width (min 0.2mm)))
+# R4 ECO L-07: ADC_SCK / ADC_SCK_SRC only on layers adjacent to a solid GND plane
+(rule "ADC_SCK not In3" (layer "In3.Cu") (condition "A.NetName == 'ADC_SCK' || A.NetName == 'ADC_SCK_SRC'") (constraint disallow track))
+(rule "ADC_SCK not In4" (layer "In4.Cu") (condition "A.NetName == 'ADC_SCK' || A.NetName == 'ADC_SCK_SRC'") (constraint disallow track))

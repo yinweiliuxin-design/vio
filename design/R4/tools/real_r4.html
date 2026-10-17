@@ -154,7 +154,7 @@ if (view === 'hero') {
   const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.ShadowMaterial({ opacity: 0.22 })); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
   addLights(160, [-0.4, 1.0, 0.5], 2.6);
   camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 3000); camera.position.set(185, 175, 285); camera.lookAt(-4, 6, 0);
-  setCap('SmartVio R4 · 含下杯', '上盖 148×49，下杯 77×45 伸入原腔 20.90，总高 24.75 / 25 MAX', SRC);
+  setCap('SmartVio R4 · 含下杯', '上盖 148×49，下杯 77×45 伸入原腔 20.80，总高 24.65 / 25 MAX', SRC);
 } else if (view === 'internal') {
   scene.background = bgGradient('#f5f4f1', '#dcd9d4');
   addAll((n, g) => (g !== 'cover' && g !== 'controls' && g !== 'cup') || n.startsWith('wheel_'));
@@ -189,7 +189,7 @@ if (view === 'hero') {
   addLights(200, [-0.2, 0.8, 1.0], 2.4);
   camera = new THREE.PerspectiveCamera(20, Wd / Ht, 10, 4000); camera.position.set(-60, 60, 330); camera.lookAt(0, -9, 12);
   const L = (X, Z, t, s, ox, oy, a = 'start') => labels.push({ p: W3(X, 37, Z), text: t, sub: s, ox, oy, anchor: a });
-  L(148, 3.8, '上盖顶', '凸出琴背 3.85（≤5）', 30, -30); L(112.5, -20.9, '下杯底', '总高 24.75 / 25 MAX', 30, 30);
+  L(148, 3.8, '上盖顶', '凸出琴背 3.85（≤5）', 30, -30); L(112.5, -20.8, '下杯底', '总高 24.65 / 25 MAX', 30, 30);
   L(70, -12.1, '主板', '', 140, 60); L(70, -17.5, '电池', '+ PORON 泡棉与膨胀预留', 140, 100);
   L(46.5, -10.5, 'Kycon 插座 → 音频板', '', -160, 40, 'end');
   setCap('R4 A-A 剖切 · Y = 37（插座中心）', '剖面直接由 STEP 实体裁切；可与 M-R3-02 的 Z 链逐层对照', SRC);

@@ -179,7 +179,7 @@
     ],
     "audio_frame_selective_fit": "jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
     "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
-    "nominal_total_height": 24.75,
+    "nominal_total_height": 24.65,
     "total_height_limit": 25.0,
     "nonwheel_outward_limit": 5,
     "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
