@@ -25,7 +25,7 @@ PAR={
  "main_ledge_overlap":1.0,"main_xy_locating_gap":0.05,"main_latch_z_gap":0.0,
  "audio_origin":[37.3,30],"audio_pcb_top":-9.65,"audio_pcb_thickness":1.0,"jack_mouth_top":3.85,"jack_seat_to_mouth_nominal":13.5,
  "jack_shoulder_Z":1.45,"jack_shoulder_gap":0.005,"jack_shoulder_gap_note":"zero-gap design; 0.005 CAD offset only avoids coplanar boolean slivers on the vendor B-spline face","audio_frame_bottom":-11.15,"audio_frame_thickness":0.5,
- "usb_origin":[86,5],"usb_top":-3.3,"usb_thickness":1.0,"sensor_board":"eliminated (ECO L-12, TMP117 on main B side)",
+ "usb_origin":[86,5],"usb_clamp_post":{"xy":[88,21.8],"lower_dia":3.6,"cover_hole_dia":4.0,"why":"R4.1c: (88,22) Ø4.4 left 0.35 to J3408 (COVER6) pads on the cover board; now 0.75 to the pads and 0.68 to the PWR_PB track"},"usb_top":-3.3,"usb_thickness":1.0,"sensor_board":"eliminated (ECO L-12, TMP117 on main B side)",
  "cover_pcb_top":.5,"cover_pcb_thickness":.4,
  "pack_box":[40,7.25,-20.2,92,41.75,-14.8],"battery_swell_Z_design_allowance":1.0,"battery_guide_gap":0.25,
  "battery_top_foam":"1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
@@ -50,7 +50,7 @@ PAR={
  "usb_face_pocket":[13.0,7.4],"usb_face_pocket_floor_Z":2.85,"usb_opening_collar":{"wall":0.6,"z":[1.8,2.5],"why":"R4.1b: pocket depth 0.80 -> 0.95 closes worst-case USB-C depth with GCT +/-0.25 (chain 7d); collar restores the lateral bearing wall of the opening (0.35 roof + 0.7 collar)"},"usb_face_pocket_note":"R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
  "audio_frame_web_variants":[0.40,0.50,0.60],"audio_frame_selective_fit":"jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
  "upper_and_cup_join":"4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
- "nominal_total_height":24.65,"total_height_limit":25.0,"nonwheel_outward_limit":5,
+ "nominal_total_height":24.75,"total_height_limit":25.0,"nonwheel_outward_limit":5,
  "process":"CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
  "factory_tuning":"Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
  "pending":"Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement"
@@ -129,9 +129,12 @@ up=up.fuse(rr(93.305-UCO["wall"],7.195-UCO["wall"],UCO["z"][0],9.39+2*UCO["wall"
 up=up.cut(rr(93.305,7.195,UCO["z"][0]-.1,9.39,3.61,4.1-UCO["z"][0]+.1,1.6))
 UFP=PAR["usb_face_pocket"];UPZ=PAR["usb_face_pocket_floor_Z"];up=up.cut(rr(98-UFP[0]/2,9-UFP[1]/2,UPZ,UFP[0],UFP[1],4.0-UPZ,1.5))
 # M1/M5: four roof posts through cover-PCB ECO holes clamp USB board between post ends and the carrier.
-USBPOST=[(88,8),(108.3,8),(88,22),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
+# R4.1c: clamp-only post moved (88,22)->(88,21.8) and slimmed to Ø3.6 below the cover PCB (cover hole Ø4.0):
+# cover-board copper (J3408/COVER6 pads, PWR_PB track) then stays >=0.5 from the hole edge without rerouting.
+USBPOST=[(88,8),(108.3,8),tuple(PAR["usb_clamp_post"]["xy"]),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
 for x,y in USBPOST:
- up=up.fuse(cyl(x,y,.5,2.5,2.0)).fuse(cyl(x,y,PAR["usb_top"],2.0,.5-PAR["usb_top"]))
+ lo=PAR["usb_clamp_post"]["lower_dia"]/2 if (x,y) not in USBSCREW else 2.0
+ up=up.fuse(cyl(x,y,.5,2.5,2.0)).fuse(cyl(x,y,PAR["usb_top"],lo,.5-PAR["usb_top"]))
  if (x,y) in USBSCREW:up=up.cut(cyl(x,y,PAR["usb_top"]-.1,.65,4.5))
 # M6/M8: speaker pocket ceiling at PCB top+2.8 working height (rim compressed), integral POM slots (no metal grille).
 up=up.cut(rr(125.225,15.725,2.3,13.55,18.55,1.0,1.2))
@@ -303,10 +306,10 @@ def board_body(role,origin,top,thickness):
 ECO_DELETED={"H_USB_1_M","H_USB_2_M","H_USB_1_R","H_USB_2_R","J1801"}   # ECO L-10/L-12
 # R4 mechanical ECO holes in the native boards (to be executed in KiCad; listed in pcb-interface-eco-R4.json).
 ECO_R4={"cover":[{"id":"KEYBACKER_%d"%i,"xy":[x,25],"dia":1.8,"type":"NPTH"} for i,x in enumerate([42.5,55.5])]+
- [{"id":"USBPOST_%d"%i,"xy":list(p),"dia":4.4,"type":"NPTH, keep copper 0.5 away"} for i,p in enumerate(USBPOST)]+
+ [{"id":"USBPOST_%d"%i,"xy":list(p),"dia":4.4 if p in USBSCREW else PAR["usb_clamp_post"]["cover_hole_dia"],"type":"NPTH, keep copper 0.5 away"+("" if p in USBSCREW else "; R4.1c clamp-only post moved from (88,22), hole Ø4.4->Ø4.0")} for i,p in enumerate(USBPOST)]+
  [{"id":"PIN_ROUND","xy":[3.5,24.5],"dia":1.5,"type":"NPTH"},{"id":"PIN_SLOT","xy":[144.5,24.5],"slot":[2.5,1.5],"type":"NPTH slot along X"}]+
  [{"id":"SNAP_SLOT_S_%d"%i,"rect":[x0,44.75,x0+8.8,46.1],"type":"enlarge existing south snap slot from y44.9 to y44.75 (blade lip passage)"} for i,x0 in enumerate([62.6,97.6])],
- "usb":[{"id":"USBSCREW_%d"%i,"xy":[round(p[0]-86,2),p[1]-5],"dia":1.8,"type":"NPTH, keep-out Ø4.4 both sides"} for i,p in enumerate(USBSCREW)]+[{"id":"USBPOST_CLAMP","xy":[2,17],"keepout_top_dia":4.4,"type":"no hole; F-side keep-out for clamp post"}]}
+ "usb":[{"id":"USBSCREW_%d"%i,"xy":[round(p[0]-86,2),p[1]-5],"dia":1.8,"type":"NPTH, keep-out Ø4.4 both sides"} for i,p in enumerate(USBSCREW)]+[{"id":"USBPOST_CLAMP","xy":[round(PAR["usb_clamp_post"]["xy"][0]-86,2),round(PAR["usb_clamp_post"]["xy"][1]-5,2)],"keepout_top_dia":4.4,"type":"no hole; F-side keep-out for clamp post (R4.1c: post Ø3.6 at local (2,16.8) lies inside the existing Ø4.4 keep-out at (2,17); USB board needs no change)"}]}
 refs["main_reference"]=board_body("main",PAR["main_origin"],-11.75,.8)
 usbb=board_body("usb",PAR["usb_origin"],-3.3,1.0)
 for p in USBSCREW:usbb=usbb.cut(cyl(p[0],p[1],-4.5,.9,1.4))
@@ -388,7 +391,7 @@ refs.update(screws)
  "holes":ECO_R4,"recommended":[{"board":"cover","ref":"D851","move_to":[34.7,20.7],"why":"centre under offset light pipe 2 (M11)"},
  {"board":"main","note":"chamfer main-board outline corners >=1.0x45 deg (cup inner corners now R1.2, 0.07 clearance)"},
  {"board":"usb","note":"USB16 FPC (ECO L-10) enters the ZIF from -X under the bracket west rail (rail bottom z-4.9, FPC <= z-5.3); bend radius >=1.5"},
- {"board":"usb","note":"keep F-side copper/parts out of dia4.4 at clamp post (88,22); ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"},
+ {"board":"usb","note":"keep F-side copper/parts out of dia4.4 at clamp post (88,21.8) [local (2,16.8); existing keep-out at local (2,17) still covers the Ø3.6 post]; ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"},
  {"board":"cover","note":"antenna window GND keep-out >=5 mm is PCB-05; mechanical grille is now non-metallic"}]},ensure_ascii=False,indent=2),encoding="utf8")
 
 STOCK=OUT/"stock";STOCK.mkdir(exist_ok=True)

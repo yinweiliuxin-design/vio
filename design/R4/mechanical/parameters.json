@@ -57,6 +57,15 @@
     86,
     5
   ],
+  "usb_clamp_post": {
+    "xy": [
+      88,
+      21.8
+    ],
+    "lower_dia": 3.6,
+    "cover_hole_dia": 4.0,
+    "why": "R4.1c: (88,22) Ø4.4 left 0.35 to J3408 (COVER6) pads on the cover board; now 0.75 to the pads and 0.68 to the PWR_PB track"
+  },
   "usb_top": -3.3,
   "usb_thickness": 1.0,
   "sensor_board": "eliminated (ECO L-12, TMP117 on main B side)",
@@ -175,7 +184,7 @@
   ],
   "audio_frame_selective_fit": "jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
   "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
-  "nominal_total_height": 24.65,
+  "nominal_total_height": 24.75,
   "total_height_limit": 25.0,
   "nonwheel_outward_limit": 5,
   "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",

@@ -18,7 +18,7 @@ CAD = BASE / "cad"; REF = BASE / "reference/components"; OUT = BASE / "drawings"
 PAR = json.loads((BASE / "parameters.json").read_text("utf8"))
 SRC = (CAD / "build_mechanics.py").read_text("utf8")
 DATE = "2026-10-16"; REV = "R4.1b"
-REV_B_SHEETS = {"M-R4-00", "M-R4-01", "M-R4-02", "M-R4-08"}   # sheets changed in R4.1b
+REV_B_SHEETS = {"M-R4-00", "M-R4-01", "M-R4-02", "M-R4-08"}   # R4.1b/c changes (M-R4-01-2: clamp post moved R4.1c)   # sheets changed in R4.1b
 CB = PAR["cup_bottom"]; CFT = PAR["cup_floor_top"]; UPZ = PAR["usb_face_pocket_floor_Z"]; UPD = 3.8 - UPZ
 
 
@@ -29,7 +29,8 @@ def const(name):
     raise KeyError(name)
 
 
-KEYS = const("KEYS"); LP = const("LP"); PORTS = const("ports"); USBPOST = const("USBPOST"); USBSCREW = const("USBSCREW")
+KEYS = const("KEYS"); LP = const("LP"); PORTS = const("ports"); USBSCREW = const("USBSCREW")
+USBPOST = [(88, 8), (108.3, 8), tuple(PAR["usb_clamp_post"]["xy"]), (108.3, 22)]
 LEDGES = const("LEDGES"); JACK_NAMES = const("JACK_NAMES")
 SNAPX = PAR["snap_stations_x"]; SCREWS = PAR["screw_xy"]
 LEG = [("VOL", 15, 18.9), ("TONE", 35, 18.9), ("FX", 55, 18.9)] + [(t, x, 29.7) for t, x in zip(["FX", "MODE", "MIX", "PWR", "BT"], KEYS)] \
@@ -416,7 +417,7 @@ def sheet_cover_inside(allp):
     for i, (x, y) in enumerate(USBPOST):
         idmark(pg, bv.pt(x, y), f"UP{i+1}", 0, 4.4 if y > 15 else -4.4)
         rows.append([f"UP{i+1}", "USB 板压柱" + ("（只压不锁）" if (x, y) not in [tuple(p) for p in USBSCREW] else ""), f"{x:.2f}, {y:.2f}",
-                     "Ø4.0（上段Ø5.0）" + (" 底孔Ø1.30" if (x, y) in [tuple(p) for p in USBSCREW] else ""), "端面 Z−3.30", "U9"])
+                     ("Ø4.0（上段Ø5.0）底孔Ø1.30" if (x, y) in [tuple(p) for p in USBSCREW] else "Ø3.6（上段Ø5.0）R4.1c 移位"), "端面 Z−3.30", "U9"])
     for j, x in enumerate(SNAPX):
         for k, yy in enumerate([3.0, 45.3]):
             idmark(pg, bv.pt(x, yy + 0.35), f"BL{2*j+k+1}", 0, 4.5 if k == 0 else -4.5)

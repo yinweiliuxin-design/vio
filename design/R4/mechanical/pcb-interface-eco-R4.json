@@ -44,10 +44,10 @@
         "id": "USBPOST_2",
         "xy": [
           88,
-          22
+          21.8
         ],
-        "dia": 4.4,
-        "type": "NPTH, keep copper 0.5 away"
+        "dia": 4.0,
+        "type": "NPTH, keep copper 0.5 away; R4.1c clamp-only post moved from (88,22), hole Ø4.4->Ø4.0"
       },
       {
         "id": "USBPOST_3",
@@ -132,10 +132,10 @@
         "id": "USBPOST_CLAMP",
         "xy": [
           2,
-          17
+          16.8
         ],
         "keepout_top_dia": 4.4,
-        "type": "no hole; F-side keep-out for clamp post"
+        "type": "no hole; F-side keep-out for clamp post (R4.1c: post Ø3.6 at local (2,16.8) lies inside the existing Ø4.4 keep-out at (2,17); USB board needs no change)"
       }
     ]
   },
@@ -159,7 +159,7 @@
     },
     {
       "board": "usb",
-      "note": "keep F-side copper/parts out of dia4.4 at clamp post (88,22); ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"
+      "note": "keep F-side copper/parts out of dia4.4 at clamp post (88,21.8) [local (2,16.8); existing keep-out at local (2,17) still covers the Ø3.6 post]; ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"
     },
     {
       "board": "cover",

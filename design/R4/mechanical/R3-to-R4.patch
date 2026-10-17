@@ -138,8 +138,8 @@ diff -ruN pa/mechanical/cad/assembly_sequence.py pb/mechanical/cad/assembly_sequ
 + return out
 diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics.py
 --- pa/mechanical/cad/build_mechanics.py	2026-10-16 08:29:45.726654819 +0000
-+++ pb/mechanical/cad/build_mechanics.py	2026-10-16 08:43:02.194509897 +0000
-@@ -1,359 +1,464 @@
++++ pb/mechanical/cad/build_mechanics.py	2026-10-17 02:15:59.943902445 +0000
+@@ -1,359 +1,467 @@
 -"""SmartVio R2 real prototype mechanics. Units mm.
 -Logical drawing Y is PCB Y (down). STEP world coordinates are X, -Y, Z.
 -Datum A=instrument mounting plane. No alteration to original instrument cavity.
@@ -526,7 +526,7 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 + "main_ledge_overlap":1.0,"main_xy_locating_gap":0.05,"main_latch_z_gap":0.0,
 + "audio_origin":[37.3,30],"audio_pcb_top":-9.65,"audio_pcb_thickness":1.0,"jack_mouth_top":3.85,"jack_seat_to_mouth_nominal":13.5,
 + "jack_shoulder_Z":1.45,"jack_shoulder_gap":0.005,"jack_shoulder_gap_note":"zero-gap design; 0.005 CAD offset only avoids coplanar boolean slivers on the vendor B-spline face","audio_frame_bottom":-11.15,"audio_frame_thickness":0.5,
-+ "usb_origin":[86,5],"usb_top":-3.3,"usb_thickness":1.0,"sensor_board":"eliminated (ECO L-12, TMP117 on main B side)",
++ "usb_origin":[86,5],"usb_clamp_post":{"xy":[88,21.8],"lower_dia":3.6,"cover_hole_dia":4.0,"why":"R4.1c: (88,22) Ø4.4 left 0.35 to J3408 (COVER6) pads on the cover board; now 0.75 to the pads and 0.68 to the PWR_PB track"},"usb_top":-3.3,"usb_thickness":1.0,"sensor_board":"eliminated (ECO L-12, TMP117 on main B side)",
 + "cover_pcb_top":.5,"cover_pcb_thickness":.4,
 + "pack_box":[40,7.25,-20.2,92,41.75,-14.8],"battery_swell_Z_design_allowance":1.0,"battery_guide_gap":0.25,
 + "battery_top_foam":"1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
@@ -630,9 +630,12 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +up=up.cut(rr(93.305,7.195,UCO["z"][0]-.1,9.39,3.61,4.1-UCO["z"][0]+.1,1.6))
 +UFP=PAR["usb_face_pocket"];UPZ=PAR["usb_face_pocket_floor_Z"];up=up.cut(rr(98-UFP[0]/2,9-UFP[1]/2,UPZ,UFP[0],UFP[1],4.0-UPZ,1.5))
 +# M1/M5: four roof posts through cover-PCB ECO holes clamp USB board between post ends and the carrier.
-+USBPOST=[(88,8),(108.3,8),(88,22),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
++# R4.1c: clamp-only post moved (88,22)->(88,21.8) and slimmed to Ø3.6 below the cover PCB (cover hole Ø4.0):
++# cover-board copper (J3408/COVER6 pads, PWR_PB track) then stays >=0.5 from the hole edge without rerouting.
++USBPOST=[(88,8),(108.3,8),tuple(PAR["usb_clamp_post"]["xy"]),(108.3,22)];USBSCREW=[(88,8),(108.3,8),(108.3,22)]
 +for x,y in USBPOST:
-+ up=up.fuse(cyl(x,y,.5,2.5,2.0)).fuse(cyl(x,y,PAR["usb_top"],2.0,.5-PAR["usb_top"]))
++ lo=PAR["usb_clamp_post"]["lower_dia"]/2 if (x,y) not in USBSCREW else 2.0
++ up=up.fuse(cyl(x,y,.5,2.5,2.0)).fuse(cyl(x,y,PAR["usb_top"],lo,.5-PAR["usb_top"]))
 + if (x,y) in USBSCREW:up=up.cut(cyl(x,y,PAR["usb_top"]-.1,.65,4.5))
 +# M6/M8: speaker pocket ceiling at PCB top+2.8 working height (rim compressed), integral POM slots (no metal grille).
 +up=up.cut(rr(125.225,15.725,2.3,13.55,18.55,1.0,1.2))
@@ -804,10 +807,10 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 +ECO_DELETED={"H_USB_1_M","H_USB_2_M","H_USB_1_R","H_USB_2_R","J1801"}   # ECO L-10/L-12
 +# R4 mechanical ECO holes in the native boards (to be executed in KiCad; listed in pcb-interface-eco-R4.json).
 +ECO_R4={"cover":[{"id":"KEYBACKER_%d"%i,"xy":[x,25],"dia":1.8,"type":"NPTH"} for i,x in enumerate([42.5,55.5])]+
-+ [{"id":"USBPOST_%d"%i,"xy":list(p),"dia":4.4,"type":"NPTH, keep copper 0.5 away"} for i,p in enumerate(USBPOST)]+
++ [{"id":"USBPOST_%d"%i,"xy":list(p),"dia":4.4 if p in USBSCREW else PAR["usb_clamp_post"]["cover_hole_dia"],"type":"NPTH, keep copper 0.5 away"+("" if p in USBSCREW else "; R4.1c clamp-only post moved from (88,22), hole Ø4.4->Ø4.0")} for i,p in enumerate(USBPOST)]+
 + [{"id":"PIN_ROUND","xy":[3.5,24.5],"dia":1.5,"type":"NPTH"},{"id":"PIN_SLOT","xy":[144.5,24.5],"slot":[2.5,1.5],"type":"NPTH slot along X"}]+
 + [{"id":"SNAP_SLOT_S_%d"%i,"rect":[x0,44.75,x0+8.8,46.1],"type":"enlarge existing south snap slot from y44.9 to y44.75 (blade lip passage)"} for i,x0 in enumerate([62.6,97.6])],
-+ "usb":[{"id":"USBSCREW_%d"%i,"xy":[round(p[0]-86,2),p[1]-5],"dia":1.8,"type":"NPTH, keep-out Ø4.4 both sides"} for i,p in enumerate(USBSCREW)]+[{"id":"USBPOST_CLAMP","xy":[2,17],"keepout_top_dia":4.4,"type":"no hole; F-side keep-out for clamp post"}]}
++ "usb":[{"id":"USBSCREW_%d"%i,"xy":[round(p[0]-86,2),p[1]-5],"dia":1.8,"type":"NPTH, keep-out Ø4.4 both sides"} for i,p in enumerate(USBSCREW)]+[{"id":"USBPOST_CLAMP","xy":[round(PAR["usb_clamp_post"]["xy"][0]-86,2),round(PAR["usb_clamp_post"]["xy"][1]-5,2)],"keepout_top_dia":4.4,"type":"no hole; F-side keep-out for clamp post (R4.1c: post Ø3.6 at local (2,16.8) lies inside the existing Ø4.4 keep-out at (2,17); USB board needs no change)"}]}
 +refs["main_reference"]=board_body("main",PAR["main_origin"],-11.75,.8)
 +usbb=board_body("usb",PAR["usb_origin"],-3.3,1.0)
 +for p in USBSCREW:usbb=usbb.cut(cyl(p[0],p[1],-4.5,.9,1.4))
@@ -889,7 +892,7 @@ diff -ruN pa/mechanical/cad/build_mechanics.py pb/mechanical/cad/build_mechanics
 + "holes":ECO_R4,"recommended":[{"board":"cover","ref":"D851","move_to":[34.7,20.7],"why":"centre under offset light pipe 2 (M11)"},
 + {"board":"main","note":"chamfer main-board outline corners >=1.0x45 deg (cup inner corners now R1.2, 0.07 clearance)"},
 + {"board":"usb","note":"USB16 FPC (ECO L-10) enters the ZIF from -X under the bracket west rail (rail bottom z-4.9, FPC <= z-5.3); bend radius >=1.5"},
-+ {"board":"usb","note":"keep F-side copper/parts out of dia4.4 at clamp post (88,22); ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"},
++ {"board":"usb","note":"keep F-side copper/parts out of dia4.4 at clamp post (88,21.8) [local (2,16.8); existing keep-out at local (2,17) still covers the Ø3.6 post]; ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"},
 + {"board":"cover","note":"antenna window GND keep-out >=5 mm is PCB-05; mechanical grille is now non-metallic"}]},ensure_ascii=False,indent=2),encoding="utf8")
 +
 +STOCK=OUT/"stock";STOCK.mkdir(exist_ok=True)
@@ -1415,8 +1418,8 @@ diff -ruN pa/mechanical/cad/drawlib.py pb/mechanical/cad/drawlib.py
 +    return shape.intersect(cq.Solid.makeBox(x1 - x0, y1 - y0, z1 - z0, cq.Vector(x0, y0, z0)))
 diff -ruN pa/mechanical/cad/engineering_drawings.py pb/mechanical/cad/engineering_drawings.py
 --- pa/mechanical/cad/engineering_drawings.py	2026-10-16 08:29:45.970207124 +0000
-+++ pb/mechanical/cad/engineering_drawings.py	2026-10-16 08:43:02.199336527 +0000
-@@ -1,108 +1,847 @@
++++ pb/mechanical/cad/engineering_drawings.py	2026-10-17 02:15:59.944106519 +0000
+@@ -1,108 +1,848 @@
 -from pathlib import Path
 -import sys,json,xml.etree.ElementTree as ET
 -BASE=Path(__file__).resolve().parents[1]
@@ -1545,7 +1548,7 @@ diff -ruN pa/mechanical/cad/engineering_drawings.py pb/mechanical/cad/engineerin
 +PAR = json.loads((BASE / "parameters.json").read_text("utf8"))
 +SRC = (CAD / "build_mechanics.py").read_text("utf8")
 +DATE = "2026-10-16"; REV = "R4.1b"
-+REV_B_SHEETS = {"M-R4-00", "M-R4-01", "M-R4-02", "M-R4-08"}   # sheets changed in R4.1b
++REV_B_SHEETS = {"M-R4-00", "M-R4-01", "M-R4-02", "M-R4-08"}   # R4.1b/c changes (M-R4-01-2: clamp post moved R4.1c)   # sheets changed in R4.1b
 +CB = PAR["cup_bottom"]; CFT = PAR["cup_floor_top"]; UPZ = PAR["usb_face_pocket_floor_Z"]; UPD = 3.8 - UPZ
 +
 +
@@ -1556,7 +1559,8 @@ diff -ruN pa/mechanical/cad/engineering_drawings.py pb/mechanical/cad/engineerin
 +    raise KeyError(name)
 +
 +
-+KEYS = const("KEYS"); LP = const("LP"); PORTS = const("ports"); USBPOST = const("USBPOST"); USBSCREW = const("USBSCREW")
++KEYS = const("KEYS"); LP = const("LP"); PORTS = const("ports"); USBSCREW = const("USBSCREW")
++USBPOST = [(88, 8), (108.3, 8), tuple(PAR["usb_clamp_post"]["xy"]), (108.3, 22)]
 +LEDGES = const("LEDGES"); JACK_NAMES = const("JACK_NAMES")
 +SNAPX = PAR["snap_stations_x"]; SCREWS = PAR["screw_xy"]
 +LEG = [("VOL", 15, 18.9), ("TONE", 35, 18.9), ("FX", 55, 18.9)] + [(t, x, 29.7) for t, x in zip(["FX", "MODE", "MIX", "PWR", "BT"], KEYS)] \
@@ -1943,7 +1947,7 @@ diff -ruN pa/mechanical/cad/engineering_drawings.py pb/mechanical/cad/engineerin
 +    for i, (x, y) in enumerate(USBPOST):
 +        idmark(pg, bv.pt(x, y), f"UP{i+1}", 0, 4.4 if y > 15 else -4.4)
 +        rows.append([f"UP{i+1}", "USB 板压柱" + ("（只压不锁）" if (x, y) not in [tuple(p) for p in USBSCREW] else ""), f"{x:.2f}, {y:.2f}",
-+                     "Ø4.0（上段Ø5.0）" + (" 底孔Ø1.30" if (x, y) in [tuple(p) for p in USBSCREW] else ""), "端面 Z−3.30", "U9"])
++                     ("Ø4.0（上段Ø5.0）底孔Ø1.30" if (x, y) in [tuple(p) for p in USBSCREW] else "Ø3.6（上段Ø5.0）R4.1c 移位"), "端面 Z−3.30", "U9"])
 +    for j, x in enumerate(SNAPX):
 +        for k, yy in enumerate([3.0, 45.3]):
 +            idmark(pg, bv.pt(x, yy + 0.35), f"BL{2*j+k+1}", 0, 4.5 if k == 0 else -4.5)
@@ -2523,8 +2527,8 @@ diff -ruN pa/mechanical/cad/tolerance_stack.py pb/mechanical/cad/tolerance_stack
 +open(__file__.replace("tolerance_stack.py", "tolerance_stack_result.json"), "w").write(json.dumps(R, ensure_ascii=False, indent=1))
 diff -ruN pa/mechanical/parameters.json pb/mechanical/parameters.json
 --- pa/mechanical/parameters.json	2026-10-16 08:29:46.230207139 +0000
-+++ pb/mechanical/parameters.json	2026-10-16 08:43:02.204540892 +0000
-@@ -1,119 +1,190 @@
++++ pb/mechanical/parameters.json	2026-10-17 02:15:59.945778664 +0000
+@@ -1,119 +1,199 @@
 -{
 -  "version": "R2 prototype engineering candidate",
 -  "units": "mm",
@@ -2702,6 +2706,15 @@ diff -ruN pa/mechanical/parameters.json pb/mechanical/parameters.json
 +    86,
 +    5
 +  ],
++  "usb_clamp_post": {
++    "xy": [
++      88,
++      21.8
++    ],
++    "lower_dia": 3.6,
++    "cover_hole_dia": 4.0,
++    "why": "R4.1c: (88,22) Ø4.4 left 0.35 to J3408 (COVER6) pads on the cover board; now 0.75 to the pads and 0.68 to the PWR_PB track"
++  },
 +  "usb_top": -3.3,
 +  "usb_thickness": 1.0,
 +  "sensor_board": "eliminated (ECO L-12, TMP117 on main B side)",
