@@ -4720,6 +4720,17 @@
 			)
 		)
 	)
+	(gr_text "R4 ENGINEERING SAMPLE - NOT RELEASED unless DRC/parity 0"
+		(at 74 49 0)
+		(layer "Cmts.User")
+		(uuid "170cc26c-b2b5-4bd5-b4ad-d966242e9a31")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.08)
+			)
+		)
+	)
 	(gr_text "KEYS6 align"
 		(at 67.2 18.2 0)
 		(layer "B.Fab")

@@ -1,0 +1,230 @@
+{
+ "SW812": {
+  "fp": "SmartVio_V26_Selection:Switch_Alps_SKQGABE010",
+  "value": "SKQGABE010",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "KEY_MIX",
+   "2": "KEY_MIX",
+   "3": "GND",
+   "4": "GND"
+  }
+ },
+ "RV811": {
+  "fp": "SmartVio_V26_Selection:Pot_Alps_RK10J11R0A0L",
+  "value": "RK10J11R0A0L",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "V3D",
+   "2": "TONE_RAW",
+   "3": "GND"
+  }
+ },
+ "H901": {
+  "fp": "SmartVioV26:NPTH_D1.8",
+  "value": "NPTH_D1.8",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "LS901": {
+  "fp": "SmartVio_V26_Selection:Speaker_PUI_AS01808AO_SC18_Spring_REFERENCE",
+  "value": "AS01808AO-SC18-WP-R",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "SPK_P",
+   "2": "SPK_N"
+  }
+ },
+ "H902": {
+  "fp": "SmartVioV26:NPTH_D1.8",
+  "value": "NPTH_D1.8",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "H908": {
+  "fp": "SmartVioV26:SLOT_2.5x1.5",
+  "value": "SLOT_2.5x1.5",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "H903": {
+  "fp": "SmartVioV26:NPTH_D4.4_KO5.4",
+  "value": "NPTH_D4.4_KO5.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "SW814": {
+  "fp": "SmartVio_V26_Selection:Switch_Alps_SKQGABE010",
+  "value": "SKQGABE010",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "KEY_BT",
+   "2": "KEY_BT",
+   "3": "GND",
+   "4": "GND"
+  }
+ },
+ "SW810": {
+  "fp": "SmartVio_V26_Selection:Switch_Alps_SKQGABE010",
+  "value": "SKQGABE010",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "KEY_FX",
+   "2": "KEY_FX",
+   "3": "GND",
+   "4": "GND"
+  }
+ },
+ "RV812": {
+  "fp": "SmartVio_V26_Selection:Pot_Alps_RK10J11R0A0L",
+  "value": "RK10J11R0A0L",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "V3D",
+   "2": "FX_RAW",
+   "3": "GND"
+  }
+ },
+ "H906": {
+  "fp": "SmartVioV26:NPTH_D4.4_KO5.4",
+  "value": "NPTH_D4.4_KO5.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "D851": {
+  "fp": "SmartVio_V26_Selection:LED_Kingbright_APT1608VRCXF_A_5MAV",
+  "value": "APT1608VRCXF/A-5MAV",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "LED_ZONE_2_A"
+  }
+ },
+ "H907": {
+  "fp": "SmartVioV26:NPTH_D1.5",
+  "value": "NPTH_D1.5",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "H905": {
+  "fp": "SmartVioV26:NPTH_D4.4_KO5.4",
+  "value": "NPTH_D4.4_KO5.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "H904": {
+  "fp": "SmartVioV26:NPTH_D4.4_KO5.4",
+  "value": "NPTH_D4.4_KO5.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "D852": {
+  "fp": "SmartVio_V26_Selection:LED_Kingbright_APT1608VRCXF_A_5MAV",
+  "value": "APT1608VRCXF/A-5MAV",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "LED_ZONE_3_A"
+  }
+ },
+ "SW813": {
+  "fp": "SmartVio_V26_Selection:Switch_Alps_SKQGABE010",
+  "value": "SKQGABE010",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "PWR_PB",
+   "2": "PWR_PB",
+   "3": "GND",
+   "4": "GND"
+  }
+ },
+ "SW811": {
+  "fp": "SmartVio_V26_Selection:Switch_Alps_SKQGABE010",
+  "value": "SKQGABE010",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "KEY_MODE",
+   "2": "KEY_MODE",
+   "3": "GND",
+   "4": "GND"
+  }
+ },
+ "D850": {
+  "fp": "SmartVio_V26_Selection:LED_Kingbright_APT1608VRCXF_A_5MAV",
+  "value": "APT1608VRCXF/A-5MAV",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "LED_ZONE_1_A"
+  }
+ },
+ "RV810": {
+  "fp": "SmartVio_V26_Selection:Pot_Alps_RK10J11R0A0L",
+  "value": "RK10J11R0A0L",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "V3D",
+   "2": "VOL_RAW",
+   "3": "GND"
+  }
+ },
+ "J3410": {
+  "fp": "SmartVioV25:WirePads_3_P1.5",
+  "value": "POTS3 remote-end FPC landing (H_COVER_3_R)",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "TONE_RAW",
+   "2": "V3D",
+   "3": "VOL_RAW"
+  }
+ },
+ "J3408": {
+  "fp": "SmartVioV25:WirePads_6_P1.5",
+  "value": "COVER6 remote-end FPC landing (H_COVER_2_R)",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "LED_ZONE_1_A",
+   "2": "LED_ZONE_2_A",
+   "3": "LED_ZONE_3_A",
+   "4": "PWR_PB",
+   "5": "SPK_N",
+   "6": "SPK_P"
+  }
+ },
+ "J3406": {
+  "fp": "SmartVioV25:WirePads_6_P1.5",
+  "value": "KEYS6 remote-end FPC landing (H_COVER_1_R)",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "FX_RAW",
+   "2": "GND",
+   "3": "KEY_BT",
+   "4": "KEY_FX",
+   "5": "KEY_MIX",
+   "6": "KEY_MODE"
+  }
+ }
+}

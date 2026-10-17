@@ -366,6 +366,17 @@
 			)
 		)
 	)
+	(gr_text "R4 ENGINEERING SAMPLE - NOT RELEASED unless DRC/parity 0"
+		(at 70 63 0)
+		(layer "Cmts.User")
+		(uuid "b9032274-2fc2-4b51-beb2-7cabcaf90f52")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.08)
+			)
+		)
+	)
 	(segment
 		(start 79.45 49.6)
 		(end 55.6 49.6)

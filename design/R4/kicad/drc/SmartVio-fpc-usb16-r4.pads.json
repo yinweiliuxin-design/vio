@@ -1,0 +1,42 @@
+{
+ "FPC3406": {
+  "fp": "SmartVioV26:FPC_USB16",
+  "value": "FPC-USB16 custom flex (FPC_USB16, DFM pending)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "S1": "USB_DATA_FAULT_N",
+   "S2": "USB_DATA_DISABLE",
+   "S3": "CC_FAULT_N",
+   "S4": "V3D",
+   "S5": "GND",
+   "S6": "USB_DM_MCU",
+   "S7": "USB_DP_MCU",
+   "S8": "GND",
+   "S9": "USB_5V_SAFE",
+   "S10": "GND",
+   "S11": "GND",
+   "S12": "GND",
+   "S13": "VBUS_RAW",
+   "S14": "VBUS_RAW",
+   "S15": "VBUS_RAW",
+   "S16": "VBUS_RAW",
+   "T1": "USB_DATA_FAULT_N",
+   "T2": "USB_DATA_DISABLE",
+   "T3": "CC_FAULT_N",
+   "T4": "V3D",
+   "T5": "GND",
+   "T6": "USB_DM_MCU",
+   "T7": "USB_DP_MCU",
+   "T8": "GND",
+   "T9": "USB_5V_SAFE",
+   "T10": "GND",
+   "T11": "GND",
+   "T12": "GND",
+   "T13": "VBUS_RAW",
+   "T14": "VBUS_RAW",
+   "T15": "VBUS_RAW",
+   "T16": "VBUS_RAW"
+  }
+ }
+}

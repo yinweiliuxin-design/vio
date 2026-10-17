@@ -1,0 +1,321 @@
+{
+ "U1501": {
+  "fp": "SmartVioV25:TI_DGS0010A_Official",
+  "value": "TPD2S703QDGSRQ1",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DM_OVP_IN",
+   "2": "USB_DP_OVP_IN",
+   "3": "GND",
+   "4": "USB_DATA_FAULT_N",
+   "5": "USB_DATA_DISABLE",
+   "6": "USB_OVP_MODE",
+   "7": "USB_5V_SAFE",
+   "8": "USB_VREF",
+   "9": "USB_DP_SYS",
+   "10": "USB_DM_SYS"
+  }
+ },
+ "H403": {
+  "fp": "SmartVioV26:NPTH_D1.8_KO4.4",
+  "value": "NPTH 1.8 KO 4.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "R1501": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "24.9k 1%",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_OVP_MODE",
+   "2": "GND"
+  }
+ },
+ "R1401": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "100k",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "CC_FAULT_N",
+   "2": "V3D"
+  }
+ },
+ "U401": {
+  "fp": "SmartVioV25:ST_USBLC6_2SC6_SOT23_6L_Official",
+  "value": "USBLC6-2SC6",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DP_SYS",
+   "2": "GND",
+   "3": "USB_DM_SYS",
+   "4": "USB_DM_SYS",
+   "5": "USB_5V_SAFE",
+   "6": "USB_DP_SYS"
+  }
+ },
+ "L1502": {
+  "fp": "Passive_V26_ManufacturerLand:0603HP-10NXGRW",
+  "value": "10nH matched candidate",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DM_CMC",
+   "2": "USB_DM_OVP_IN"
+  }
+ },
+ "C1501": {
+  "fp": "Passive_V26_ManufacturerLand:CC0805KKX7R7BB225",
+  "value": "2.2uF 16V X7R; effective 1..10uF",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_5V_SAFE",
+   "2": "GND"
+  }
+ },
+ "R402": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "5.1k",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "CC2_SAFE",
+   "2": "GND"
+  }
+ },
+ "H401": {
+  "fp": "SmartVioV26:NPTH_D1.8_KO4.4",
+  "value": "NPTH 1.8 KO 4.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "C1402": {
+  "fp": "Passive_V26_ManufacturerLand:CC0603KRX7R7BB105",
+  "value": "1uF / 10V",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "V3D",
+   "2": "GND"
+  }
+ },
+ "C1401": {
+  "fp": "Passive_V26_ManufacturerLand:CC0603KRX7R9BB104",
+  "value": "100nF / 50V X7R",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "CC_VBIAS",
+   "2": "GND"
+  }
+ },
+ "KO401": {
+  "fp": "SmartVioV26:KEEPOUT_D4.4_F",
+  "value": "KEEPOUT 4.4 F",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "R401": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "5.1k",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "CC1_SAFE",
+   "2": "GND"
+  }
+ },
+ "J401": {
+  "fp": "SmartVioV25:GCT_USB4120_Official_A6",
+  "value": "USB4120-03-C",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "A1": "GND",
+   "A4": "VBUS_RAW",
+   "A5": "CC1_PORT",
+   "A6": "USB_DP_CONN",
+   "A7": "USB_DM_CONN",
+   "A8": "",
+   "A9": "VBUS_RAW",
+   "A12": "GND",
+   "B1": "GND",
+   "B4": "VBUS_RAW",
+   "B5": "CC2_PORT",
+   "B6": "USB_DP_CONN",
+   "B7": "USB_DM_CONN",
+   "B8": "",
+   "B9": "VBUS_RAW",
+   "B12": "GND",
+   "SH": "GND"
+  }
+ },
+ "U1401": {
+  "fp": "SmartVioV25:TI_YFF0009_Official",
+  "value": "TPD2S300YFFR",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "A1": "CC1_PORT",
+   "A2": "CC_VBIAS",
+   "A3": "CC2_PORT",
+   "B1": "CC1_SAFE",
+   "B2": "GND",
+   "B3": "CC2_SAFE",
+   "C1": "CC_FAULT_N",
+   "C2": "V3D",
+   "C3": "V3D"
+  }
+ },
+ "L1501": {
+  "fp": "Passive_V26_ManufacturerLand:0603HP-10NXGRW",
+  "value": "10nH matched candidate",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DP_CMC",
+   "2": "USB_DP_OVP_IN"
+  }
+ },
+ "H402": {
+  "fp": "SmartVioV26:NPTH_D1.8_KO4.4",
+  "value": "NPTH 1.8 KO 4.4",
+  "layer": "F.Cu",
+  "board_only": true,
+  "pads": {}
+ },
+ "C1502": {
+  "fp": "SmartVioV25:C_0603_1608Metric",
+  "value": "1uF 10V X7R; effective 0.3..3uF",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_VREF",
+   "2": "GND"
+  }
+ },
+ "FL1501": {
+  "fp": "Passive_V26_ManufacturerLand:ACM2012H-900-2P-T06",
+  "value": "90 ohm at 100MHz candidate",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DP_CONN",
+   "2": "USB_DM_CONN",
+   "3": "USB_DM_CMC",
+   "4": "USB_DP_CMC"
+  }
+ },
+ "R1504": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "140k 1%",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_VREF",
+   "2": "USB_OVP_MODE"
+  }
+ },
+ "C403": {
+  "fp": "Passive_V26_ManufacturerLand:CC0603KRX7R7BB104",
+  "value": "100nF / 10V X7R; local U401.5 bypass",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_5V_SAFE",
+   "2": "GND"
+  }
+ },
+ "R1502": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "100k",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DATA_DISABLE",
+   "2": "V3D"
+  }
+ },
+ "R1503": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "100k",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DATA_FAULT_N",
+   "2": "V3D"
+  }
+ },
+ "R404": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "0R / tune at PHY",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DM_SYS",
+   "2": "USB_DM_MCU"
+  }
+ },
+ "D401": {
+  "fp": "Diode_SMD:D_SOD-123F",
+  "value": "SMF12A",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "VBUS_RAW",
+   "2": "GND"
+  }
+ },
+ "R403": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "0R / tune at PHY",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DP_SYS",
+   "2": "USB_DP_MCU"
+  }
+ },
+ "J3412": {
+  "fp": "Connector_FFC-FPC:Hirose_FH12-16S-0.5SH_1x16-1MP_P0.50mm_Horizontal",
+  "value": "FH12-16S-0.5SH(55)",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "USB_DATA_FAULT_N",
+   "2": "USB_DATA_DISABLE",
+   "3": "CC_FAULT_N",
+   "4": "V3D",
+   "5": "GND",
+   "6": "USB_DM_MCU",
+   "7": "USB_DP_MCU",
+   "8": "GND",
+   "9": "USB_5V_SAFE",
+   "10": "GND",
+   "11": "GND",
+   "12": "GND",
+   "13": "VBUS_RAW",
+   "14": "VBUS_RAW",
+   "15": "VBUS_RAW",
+   "16": "VBUS_RAW",
+   "MP": ""
+  }
+ },
+ "C401": {
+  "fp": "Passive_V26_ManufacturerLand:CC0603KRX7R9BB104",
+  "value": "100nF / 50V X7R",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "VBUS_RAW",
+   "2": "GND"
+  }
+ }
+}

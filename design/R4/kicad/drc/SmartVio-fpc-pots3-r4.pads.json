@@ -1,0 +1,16 @@
+{
+ "FPC3405": {
+  "fp": "SmartVioV26:FPC_POTS3",
+  "value": "FPC-POTS3 custom flex (FPC_POTS3, DFM pending)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "S1": "TONE_RAW",
+   "S2": "V3D",
+   "S3": "VOL_RAW",
+   "T1": "TONE_RAW",
+   "T2": "V3D",
+   "T3": "VOL_RAW"
+  }
+ }
+}

@@ -347,6 +347,17 @@
 		(layer "Edge.Cuts")
 		(uuid "4383626f-5449-4257-8aae-67a2047c7ecc")
 	)
+	(gr_text "R4 ENGINEERING SAMPLE - NOT RELEASED unless DRC/parity 0"
+		(at 73 79 0)
+		(layer "Cmts.User")
+		(uuid "fe45393a-c4a2-44cc-b8b6-41e32c2e29b3")
+		(effects
+			(font
+				(size 0.6 0.6)
+				(thickness 0.08)
+			)
+		)
+	)
 	(segment
 		(start 68.45 43.5)
 		(end 77.25 43.5)
