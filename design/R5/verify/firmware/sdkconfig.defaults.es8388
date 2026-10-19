@@ -1,0 +1,2 @@
+# Variant: Everest ES8388 as default codec
+CONFIG_R5_CODEC_ES8388=y

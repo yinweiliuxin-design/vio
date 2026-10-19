@@ -1,0 +1,2 @@
+# Variant: TI TLV320AIC3204 as default codec
+CONFIG_R5_CODEC_AIC3204=y

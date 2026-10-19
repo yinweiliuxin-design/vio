@@ -1,0 +1,187 @@
+menu "SmartVio R5 bench"
+
+    choice R5_CODEC
+        prompt "Default audio codec"
+        default R5_CODEC_ES8388
+        help
+            Codec on the bench board. With R5_CODEC_RUNTIME_SWITCH the other
+            driver is also compiled and `codec use aic|es` (console) can switch
+            at runtime (stored in NVS, takes effect after reboot).
+
+        config R5_CODEC_AIC3204
+            bool "TI TLV320AIC3204 (I2C 0x18)"
+        config R5_CODEC_ES8388
+            bool "Everest ES8388 (I2C 0x10)"
+    endchoice
+
+    config R5_CODEC_RUNTIME_SWITCH
+        bool "Allow runtime codec switch from the console (both drivers are always built)"
+        default y
+
+    config R5_AIC_I2C_ADDR
+        hex "TLV320AIC3204 7-bit I2C address"
+        default 0x18
+
+    config R5_ES_I2C_ADDR
+        hex "ES8388 7-bit I2C address (0x10 with CE low, 0x11 with CE high)"
+        default 0x10
+
+    config R5_AIC_LDO_ENABLE
+        bool "AIC3204: enable internal AVDD LDO (board feeds only LDOIN)"
+        default n
+        help
+            Writes P1/R2 bit0 (Linux AIC32X4_LDOCTLEN). Only enable if the
+            breakout has NO external AVDD regulator. Check the breakout
+            schematic and the TI datasheet first.
+
+    config R5_AIC_LDOIN_18_36
+        bool "AIC3204: LDOIN range 1.8-3.6 V and HP powered from LDOIN"
+        default n
+        help
+            Sets P1/R10 bits 0 and 1 (Linux AIC32X4_LDOIN_18_36 and
+            AIC32X4_LDOIN2HP). Board dependent, check the datasheet.
+
+    menu "Audio"
+        config R5_AUDIO_BLOCK_FRAMES
+            int "Frames per DMA buffer / processing block"
+            range 16 480
+            default 64
+        config R5_AUDIO_DMA_DESC
+            int "DMA buffers per I2S channel"
+            range 2 8
+            default 3
+        choice R5_I2S1_CLK
+            prompt "I2S1 (speaker/BT) clocking"
+            default R5_I2S1_CLK_SHARED_BCLK
+            config R5_I2S1_CLK_SHARED_BCLK
+                bool "I2S1 slave on I2S0 BCLK/WS pads (same clock, 1 pin)"
+            config R5_I2S1_CLK_EXT_MCLK
+                bool "I2S1 master, clock = I2S0 MCLK pad (own BCLK/WS pins)"
+            config R5_I2S1_CLK_SAME_PLL
+                bool "I2S1 master from PLL_F160M like I2S0 (own BCLK/WS pins)"
+        endchoice
+        config R5_I2S1_16BIT
+            bool "I2S1 16-bit slots (only with own BCLK/WS pins)"
+            depends on !R5_I2S1_CLK_SHARED_BCLK
+            default n
+    endmenu
+
+    menu "Speaker limit (MAX98357A)"
+        config R5_SPK_LIMIT_MW
+            int "Max speaker power, mW (sine equivalent)"
+            default 1000
+        config R5_SPK_OHMS
+            int "Speaker impedance, ohm"
+            default 4
+        config R5_SPK_VRMS_FS_MV
+            int "Assumed speaker Vrms at 0 dBFS sine, mV (calibrate with `spk cal`)"
+            default 3000
+    endmenu
+
+    config R5_BLE_ENABLE
+        bool "Enable NimBLE GATT server (SmartVio-R5-bench)"
+        depends on BT_NIMBLE_ENABLED
+        default y
+
+    config R5_BT_UART_BAUD
+        int "BT TX module UART baud"
+        default 115200
+
+    menu "Pins (ESP32-S3-DevKitC-1)"
+        config R5_PIN_I2S0_MCLK
+            int "I2S0 MCLK -> codec MCLK"
+            default 4
+        config R5_PIN_I2S0_BCLK
+            int "I2S0 BCLK -> codec BCLK"
+            default 5
+        config R5_PIN_I2S0_WS
+            int "I2S0 WS/LRCK -> codec WCLK/LRCK"
+            default 6
+        config R5_PIN_I2S0_DOUT
+            int "I2S0 DOUT (S3 -> codec DIN)"
+            default 7
+        config R5_PIN_I2S0_DIN
+            int "I2S0 DIN (codec DOUT -> S3)"
+            default 15
+        config R5_PIN_I2S1_DOUT
+            int "I2S1 DOUT -> MAX98357A DIN + BT module I2S DATA"
+            default 16
+        config R5_PIN_I2S1_BCLK
+            int "I2S1 BCLK (only when not sharing I2S0 BCLK), -1 unused"
+            default -1
+            help
+                All clean DevKitC-1 pins are already used. When I2S1 gets its
+                own BCLK/WS, free two pins first (for example LED_OUT=-1 and
+                SPK_SD=-1, then use 43 and 10). Firmware checks for clashes.
+        config R5_PIN_I2S1_WS
+            int "I2S1 WS (only when not sharing I2S0 WS), -1 unused"
+            default -1
+        config R5_PIN_I2C_SDA
+            int "I2C SDA (codec)"
+            default 8
+        config R5_PIN_I2C_SCL
+            int "I2C SCL (codec)"
+            default 9
+        config R5_PIN_BT_TX
+            int "UART TX -> BT module RX"
+            default 17
+        config R5_PIN_BT_RX
+            int "UART RX <- BT module TX"
+            default 18
+        config R5_PIN_SPK_SD
+            int "MAX98357A SD (open-drain pull-low = shutdown), -1 unused"
+            default 10
+        config R5_PIN_ENC_VOL_A
+            int "Encoder VOL A"
+            default 1
+        config R5_PIN_ENC_VOL_B
+            int "Encoder VOL B"
+            default 2
+        config R5_PIN_ENC_VOL_SW
+            int "Encoder VOL push"
+            default 42
+        config R5_PIN_ENC_TONE_A
+            int "Encoder TONE A"
+            default 41
+        config R5_PIN_ENC_TONE_B
+            int "Encoder TONE B"
+            default 40
+        config R5_PIN_ENC_TONE_SW
+            int "Encoder TONE push"
+            default 39
+        config R5_PIN_ENC_FX_A
+            int "Encoder FX A"
+            default 47
+        config R5_PIN_ENC_FX_B
+            int "Encoder FX B"
+            default 21
+        config R5_PIN_ENC_FX_SW
+            int "Encoder FX push"
+            default 14
+        config R5_PIN_BTN_PWR
+            int "Button PWR"
+            default 11
+        config R5_PIN_BTN_BT
+            int "Button BT"
+            default 12
+        config R5_PIN_BTN_MODE
+            int "Button MODE (GPIO0 = on-board BOOT button)"
+            default 0
+        config R5_PIN_BTN_FX
+            int "Button FX"
+            default 13
+        config R5_PIN_BTN_MIX
+            int "Button MIX (GPIO3 strapping, see WIRING.md)"
+            default 3
+        config R5_PIN_LED_PWR
+            int "LED power (GPIO46 strapping, LED to GND only)"
+            default 46
+        config R5_PIN_LED_BT
+            int "LED BT (GPIO45 strapping, LED to GND only)"
+            default 45
+        config R5_PIN_LED_OUT
+            int "LED output (GPIO43 = U0TXD, see WIRING.md)"
+            default 43
+    endmenu
+
+endmenu
