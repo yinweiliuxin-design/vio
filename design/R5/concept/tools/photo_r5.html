@@ -1,0 +1,130 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+// R5 concept render (procedural, not CAD). Cover coords: X 0..148 from the head end, y 0..49 across (y high = jack edge).
+// Zones: speaker X 0-36, function cabin X 36-112, battery X 112-148.
+// view=top: orthographic top-down at pxmm (screen up = head) for compositing. view=persp: 3/4 hero shot.
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+const q = new URLSearchParams(location.search);
+const VIEW = q.get('view') || 'top';
+const PXMM = +(q.get('pxmm') || 12.72), M = 5;
+const Wd = VIEW === 'top' ? Math.round((49 + 2 * M) * PXMM) : 1800, Ht = VIEW === 'top' ? Math.round((148 + 2 * M) * PXMM) : 1200;
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(Wd, Ht); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture; scene.environmentIntensity = 0.55;
+const std = (o) => new THREE.MeshStandardMaterial(o);
+const MAT = {
+  cover: std({ color: 0x1b1e21, roughness: 0.72 }),
+  key: std({ color: 0x2a2d31, roughness: 0.55 }),
+  knob: std({ color: 0x16181b, roughness: 0.5, metalness: 0.15 }),
+  knobTop: std({ color: 0x3e4246, roughness: 0.45, metalness: 0.7 }),
+  knurl: std({ color: 0x24272a, roughness: 0.45, metalness: 0.2 }),
+  nickel: std({ color: 0xa4a9ad, metalness: 1, roughness: 0.35 }),
+  hole: std({ color: 0x050506, roughness: 1 }),
+  pipeOn: std({ color: 0xffffff, emissive: 0x6fd3ff, emissiveIntensity: 1.2, roughness: 0.3 }),
+  pipeG: std({ color: 0xffffff, emissive: 0x6fff9a, emissiveIntensity: 0.9, roughness: 0.3 }),
+  pipeOff: std({ color: 0xcfd6da, roughness: 0.25 }),
+  steel: std({ color: 0xb8bcc0, metalness: 1, roughness: 0.3 }),
+  line: std({ color: 0xe8ecef, roughness: 0.5 }),
+};
+// Map cover coords to world: x = X-74, z = y-24.5 mirrored so jacks (y high) land on screen-left in the top view.
+const W = (X, y) => [X - 74, -(y - 24.5)];
+const root = new THREE.Group(); scene.add(root);
+const add = (g, m, X, y, h) => { const [x, z] = W(X, y); const o = new THREE.Mesh(g, m); o.position.set(x, h, z); o.castShadow = o.receiveShadow = true; root.add(o); return o; };
+
+// Cover: 148 x 49 rounded box, 5 mm above the violin back, bevelled top edge.
+const sh = new THREE.Shape(); const r = 4, L = 148, B = 49;
+sh.moveTo(-L / 2 + r, -B / 2); sh.lineTo(L / 2 - r, -B / 2); sh.quadraticCurveTo(L / 2, -B / 2, L / 2, -B / 2 + r);
+sh.lineTo(L / 2, B / 2 - r); sh.quadraticCurveTo(L / 2, B / 2, L / 2 - r, B / 2); sh.lineTo(-L / 2 + r, B / 2);
+sh.quadraticCurveTo(-L / 2, B / 2, -L / 2, B / 2 - r); sh.lineTo(-L / 2, -B / 2 + r); sh.quadraticCurveTo(-L / 2, -B / 2, -L / 2 + r, -B / 2);
+const cg = new THREE.ExtrudeGeometry(sh, { depth: 4.2, bevelEnabled: true, bevelThickness: 0.8, bevelSize: 0.8, bevelSegments: 6 });
+cg.rotateX(-Math.PI / 2); cg.translate(0, 0, 0);
+const cover = new THREE.Mesh(cg, MAT.cover); cover.castShadow = cover.receiveShadow = true; root.add(cover);
+const TOP = 5.0;
+
+// Engraving layer: a canvas texture on a plane just above the top face.
+const CPX = 24, cv = document.createElement('canvas'); cv.width = L * CPX; cv.height = B * CPX;
+const c = cv.getContext('2d');
+const P = (X, y) => [X * CPX, (B - y) * CPX]; // canvas: left = head end, top = y high? keep consistent with W()
+c.clearRect(0, 0, cv.width, cv.height);
+c.fillStyle = 'rgba(150,156,162,0.95)'; c.strokeStyle = 'rgba(150,156,162,0.95)'; c.lineWidth = 0.3 * CPX;
+c.textAlign = 'center'; c.textBaseline = 'middle';
+const txt = (s, X, y, size, rot) => { const [px, py] = P(X, y); c.save(); c.translate(px, py); c.rotate(rot ?? -Math.PI / 2); c.font = `600 ${size * CPX}px Arial`; c.fillText(s, 0, 0); c.restore(); };
+// zone hairlines
+c.globalAlpha = 0.45; c.lineWidth = 0.18 * CPX;
+for (const X of [36, 112]) { const [x0, y0] = P(X, 44); const [x1, y1] = P(X, 5); c.beginPath(); c.moveTo(x0, y0); c.lineTo(x1, y1); c.stroke(); }
+c.globalAlpha = 1;
+// knob labels (right side, y ~ 3)
+txt('VOL', 59.6, 11, 1.6); txt('TONE', 79.6, 11, 1.6); txt('FX', 99.6, 11, 1.6);
+// button labels
+const keys = [['PWR', 46], ['BT', 57], ['MODE', 68], ['FX', 79], ['MIX', 90]];
+for (const [s, X] of keys) txt(s, X + 5.1, 26, 1.2);
+// jack labels (left edge)
+const jacks = [['PHONES', 47], ['AUX', 62], ['LINE', 77], ['SEND', 92]];
+for (const [s, X] of jacks) txt(s, X + 7.4, 40.5, 1.25);
+txt('USB-C', 110, 37, 1.2);
+// battery zone: logo + battery gauge icon
+txt('SmartVio', 130, 24.5, 3.6);
+{ const [bx, by] = P(121, 14); c.lineWidth = 0.25 * CPX; c.strokeRect(bx - 2.2 * CPX, by - 4 * CPX, 4.4 * CPX, 8 * CPX); c.fillRect(bx - 0.9 * CPX, by - 4.8 * CPX, 1.8 * CPX, 0.8 * CPX);
+  for (let i = 0; i < 3; i++) c.fillRect(bx - 1.6 * CPX, by + (2.3 - i * 2.4) * CPX, 3.2 * CPX, 1.7 * CPX); }
+// speaker grille: hex array of dark holes inside a 28 mm circle
+c.fillStyle = '#050506';
+for (let gx = -14; gx <= 14; gx += 1.9) for (let gy = -14; gy <= 14; gy += 1.65) {
+  const ox = gx + ((Math.round((gy + 14) / 1.65) % 2) ? 0.95 : 0); if (Math.hypot(ox, gy) > 13) continue;
+  const [px, py] = P(19 + ox, 24.5 + gy); c.beginPath(); c.arc(px, py, 0.5 * CPX, 0, Math.PI * 2); c.fill(); }
+c.strokeStyle = 'rgba(150,156,162,0.6)'; c.lineWidth = 0.2 * CPX; { const [px, py] = P(19, 24.5); c.beginPath(); c.arc(px, py, 14.2 * CPX, 0, Math.PI * 2); c.stroke(); }
+const tex = new THREE.CanvasTexture(cv); tex.colorSpace = THREE.SRGBColorSpace; tex.anisotropy = 8;
+const pg = new THREE.PlaneGeometry(L, B); pg.rotateX(-Math.PI / 2);
+// canvas left (X=0) must map to world x=-74, canvas top (y=49) to world z=-24.5 → flip V as needed
+
+const plate = new THREE.Mesh(pg, std({ map: tex, transparent: true, roughness: 0.9 })); plate.position.y = TOP + 0.02; plate.receiveShadow = true; root.add(plate);
+
+// Knobs: encoders, Ø13, 7 mm tall above the cover, knurled skirt + brushed top + index line.
+for (const X of [50, 70, 90]) {
+  const y = 11; add(new THREE.CylinderGeometry(6.5, 6.7, 7, 96), MAT.knob, X, y, TOP + 3.5);
+  for (let k = 0; k < 60; k++) { const a = k / 60 * Math.PI * 2; const [x, z] = W(X, y); const m = new THREE.Mesh(new THREE.BoxGeometry(0.35, 5.2, 0.5), MAT.knurl); m.position.set(x + Math.cos(a) * 6.62, TOP + 3.2, z + Math.sin(a) * 6.62); m.rotation.y = -a; m.castShadow = true; root.add(m); }
+  add(new THREE.CylinderGeometry(5.4, 5.6, 0.4, 96), MAT.knobTop, X, y, TOP + 7.1);
+  const [x, z] = W(X, y); const ln = new THREE.Mesh(new THREE.BoxGeometry(0.6, 0.1, 3.2), MAT.line); ln.position.set(x, TOP + 7.32, z - 2.6); root.add(ln);
+}
+// Buttons: Ø6 domes 0.8 mm proud
+for (const [, X] of keys) { const b = add(new THREE.SphereGeometry(3, 48, 12, 0, Math.PI * 2, 0, Math.PI / 2), MAT.key, X, 26, TOP); b.scale.set(1, 0.3, 1); }
+// Jacks: nickel nut + dark bore, flush
+for (const [, X] of jacks) { add(new THREE.CylinderGeometry(4.4, 4.4, 0.8, 6), MAT.nickel, X, 40.5, TOP + 0.4); add(new THREE.CylinderGeometry(3.2, 3.2, 0.9, 48), MAT.knob, X, 40.5, TOP + 0.5); add(new THREE.CylinderGeometry(1.8, 1.8, 1.0, 48), MAT.hole, X, 40.5, TOP + 0.55); }
+// USB-C: slot along y at X=106
+{ const s = new THREE.Shape(); const w = 9.2, h = 3.4, rr = 1.7; s.moveTo(-w / 2 + rr, -h / 2); s.lineTo(w / 2 - rr, -h / 2); s.absarc(w / 2 - rr, 0, rr, -Math.PI / 2, Math.PI / 2); s.lineTo(-w / 2 + rr, h / 2); s.absarc(-w / 2 + rr, 0, rr, Math.PI / 2, Math.PI * 1.5);
+  const g = new THREE.ExtrudeGeometry(s, { depth: 0.3, bevelEnabled: false }); g.rotateX(-Math.PI / 2); g.rotateY(Math.PI / 2); add(g, MAT.nickel, 106, 37, TOP);
+  const g2 = new THREE.BoxGeometry(2.2, 0.32, 7.6); add(g2, MAT.hole, 106, 37, TOP + 0.2); }
+// Status LEDs (light pipes): power green, BT blue, third off
+add(new THREE.CylinderGeometry(1, 1, 0.5, 32), MAT.pipeG, 39.5, 20, TOP + 0.25);
+add(new THREE.CylinderGeometry(1, 1, 0.5, 32), MAT.pipeOn, 39.5, 24.5, TOP + 0.25);
+add(new THREE.CylinderGeometry(1, 1, 0.5, 32), MAT.pipeOff, 39.5, 29, TOP + 0.25);
+// Corner screws
+const slot = std({ color: 0x3a3d40, roughness: 0.7 });
+for (const [X, y] of [[5.3, 5.3], [142.7, 5.3], [5.3, 43.7], [142.7, 43.7]]) {
+  const hd = add(new THREE.SphereGeometry(1.95, 48, 16, 0, Math.PI * 2, 0, Math.PI / 2), MAT.steel, X, y, TOP - 0.2); hd.scale.set(1, 0.55, 1);
+  for (const rr of [0, Math.PI / 2]) { const m = add(new THREE.BoxGeometry(2.0, 0.3, 0.4), slot, X, y, TOP + 0.85); m.rotation.y = rr + 0.4; }
+}
+
+const key = new THREE.DirectionalLight(0xffffff, 2.2); key.position.set(70, 500, -40); key.castShadow = true;
+key.shadow.mapSize.set(4096, 4096); const sc = key.shadow.camera; sc.left = -110; sc.right = 110; sc.top = 110; sc.bottom = -110; sc.near = 10; sc.far = 1200; key.shadow.bias = -0.0003; key.shadow.normalBias = 0.02;
+scene.add(key);
+const fill = new THREE.DirectionalLight(0xe8f0ff, 0.6); fill.position.set(-120, 300, 140); scene.add(fill);
+let camera;
+if (VIEW === 'top') {
+  const hw = Wd / PXMM / 2, hh = Ht / PXMM / 2;
+  camera = new THREE.OrthographicCamera(-hw, hw, hh, -hh, 1, 2000); camera.up.set(-1, 0, 0); camera.position.set(0, 500, 0); camera.lookAt(0, 0, 0);
+} else {
+  // ground plane for a soft contact shadow
+  const gp = new THREE.Mesh(new THREE.PlaneGeometry(600, 600), new THREE.ShadowMaterial({ opacity: 0.22 })); gp.rotation.x = -Math.PI / 2; gp.receiveShadow = true; scene.add(gp);
+  camera = new THREE.PerspectiveCamera(24, Wd / Ht, 10, 3000);
+  camera.position.set(230, 210, 150); camera.lookAt(0, 0, 3);
+}
+renderer.render(scene, camera); window.DONE = 'ok';
+</script></body></html>
