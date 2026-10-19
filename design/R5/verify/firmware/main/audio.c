@@ -223,14 +223,14 @@ static inline i2s1_sample_t f2s1(float x)
 static void meter(void)
 {
     float pk[2] = {0, 0};
-    double ss[2] = {0, 0};
+    float ss[2] = {0, 0};          /* float per block (double is soft-float on the S3) */
     uint32_t cl[2] = {0, 0};
     for (int i = 0; i < N; i++) {
         float a = fabsf(s_l[i]), b = fabsf(s_r[i]);
         if (a > pk[0]) pk[0] = a;
         if (b > pk[1]) pk[1] = b;
-        ss[0] += (double)s_l[i] * s_l[i];
-        ss[1] += (double)s_r[i] * s_r[i];
+        ss[0] += s_l[i] * s_l[i];
+        ss[1] += s_r[i] * s_r[i];
         if (a >= 0.999f) cl[0]++;
         if (b >= 0.999f) cl[1]++;
     }
@@ -333,7 +333,9 @@ static void audio_task(void *arg)
 
         size_t w;
         if (i2s_channel_write(s_tx0, s_tx0b, sizeof(s_tx0b), &w, 100) != ESP_OK) s_st.wr0_err++;
-        if (i2s_channel_write(s_tx1, s_tx1b, sizeof(s_tx1b), &w, 5) != ESP_OK) s_st.wr1_err++;
+        /* I2S1 shares the clock, so a buffer frees every block; never stall the
+         * codec loop for it (1 tick max), count a drop instead. */
+        if (i2s_channel_write(s_tx1, s_tx1b, sizeof(s_tx1b), &w, 1) != ESP_OK) s_st.wr1_err++;
     }
 }
 
@@ -396,6 +398,7 @@ esp_err_t audio_lat_measure(int *lag, float *snr, int rec_len)
         if (!s_lat_buf) return ESP_ERR_NO_MEM;
         s_lat_len = rec_len;
     }
+    s_tone_target = 0;                 /* a test tone would hide the click */
     s_lat_waiter = xTaskGetCurrentTaskHandle();
     ulTaskNotifyTake(pdTRUE, 0);
     s_lat_quiet = 0;

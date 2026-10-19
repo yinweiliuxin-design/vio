@@ -38,7 +38,7 @@ static uint8_t s_battery = 87;
 static volatile bool s_synced;
 static volatile int s_conns;
 static uint8_t s_own_addr_type;
-static esp_timer_handle_t s_bat_timer;
+static esp_timer_handle_t s_bat_timer, s_notify_timer;
 
 static void advertise(void);
 
@@ -195,6 +195,15 @@ static void host_task(void *param)
     nimble_port_freertos_deinit();
 }
 
+/* runs in the esp_timer task: no params lock held, so no lock-order issue
+ * between the params mutex and the NimBLE host lock */
+static void notify_tick(void *arg)
+{
+    if (!s_synced) return;
+    ble_gatts_chr_updated(s_out_h);
+    ble_gatts_chr_updated(s_par_h);
+}
+
 static void bat_tick(void *arg)
 {
     s_battery = (s_battery <= 20) ? 100 : (uint8_t)(s_battery - 1);   /* fake */
@@ -223,15 +232,18 @@ esp_err_t ble_start(void)
 
     const esp_timer_create_args_t ta = {.callback = bat_tick, .name = "bat"};
     esp_timer_create(&ta, &s_bat_timer);
+    const esp_timer_create_args_t tn = {.callback = notify_tick, .name = "blentf"};
+    esp_timer_create(&tn, &s_notify_timer);
     esp_timer_start_periodic(s_bat_timer, 60ULL * 1000 * 1000);
     return ESP_OK;
 }
 
 void ble_params_changed(void)
 {
-    if (!s_synced) return;
-    ble_gatts_chr_updated(s_out_h);
-    ble_gatts_chr_updated(s_par_h);
+    /* debounce: one notification 50 ms after the last change */
+    if (!s_synced || !s_notify_timer) return;
+    esp_timer_stop(s_notify_timer);
+    esp_timer_start_once(s_notify_timer, 50 * 1000);
 }
 
 void ble_status_print(void)
