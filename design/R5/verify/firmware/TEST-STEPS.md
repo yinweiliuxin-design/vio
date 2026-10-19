@@ -68,6 +68,14 @@ out all
 ```
 手机 nRF Connect 连接 `SmartVio-R5-bench`，打开 Battery Level、两个 R5 特征的通知（Notify），并每隔几秒写一次参数特征（4 字节，例如 `46 32 3C 32`）。
 
+BLE 特征一览：
+| 服务 / 特征 | UUID | 格式 |
+|---|---|---|
+| Battery Service / Battery Level | 0x180F / 0x2A19 | 1 字节，假数据（87% 起，每分钟减 1） |
+| R5 服务 | 5a0e5000-7e4b-4c1e-9c2a-52355f425231 | |
+| 输出模式（读/写/通知） | 5a0e5001-7e4b-4c1e-9c2a-52355f425231 | 1 字节：0 hp，1 spk，2 bt，3 spk+bt |
+| 参数（读/写/通知） | 5a0e5002-7e4b-4c1e-9c2a-52355f425231 | 4 字节：vol、tone、fx、mix，各 0–100 |
+
 先跑 1 分钟看数：
 ```
 load 60

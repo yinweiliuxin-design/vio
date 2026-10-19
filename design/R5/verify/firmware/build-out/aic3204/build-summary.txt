@@ -1,0 +1,3 @@
+Bootloader binary size 0x5130 bytes. 0x2ed0 bytes (37%) free.
+r5_bench.bin binary size 0x9ec20 bytes. Smallest app partition is 0x177000 bytes. 0xd83e0 bytes (58%) free.
+ESP-IDF v5.4.3, target esp32s3, built 2026-10-19T13:42Z, compiler warnings: 0, errors: 0. Compiled only - not run on hardware.
