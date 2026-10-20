@@ -67,3 +67,8 @@ https://claude.ai/artifact/2EZtohFJh3CxF7Cr1UukHt
 - `verify/BT-TX-INQUIRY.md`：蓝牙发射模块询价和核对表
 - `verify/firmware/`：验证固件、接线表、测试步骤、编解码器核对结果
 - `verify/mockup/`：1:1 面板模型和纸样
+
+## 电子工程师评审稿
+
+- 在线版（可评论）：https://claude.ai/code/artifact/1d24d34c-0243-4182-9718-d5e03d75ba5e
+- PDF 快照：`review/SmartVio-R5-engineer-review.pdf`（2026-10-20 导出）
