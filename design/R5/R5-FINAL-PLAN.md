@@ -68,6 +68,11 @@ https://claude.ai/artifact/2EZtohFJh3CxF7Cr1UukHt
 - `verify/firmware/`：验证固件、接线表、测试步骤、编解码器核对结果
 - `verify/mockup/`：1:1 面板模型和纸样
 
+## 外壳和 App 联调
+
+- `enclosure/`：外壳 V0.1 首样资料（3D、7 张工程图含琴体槽图和主板接口图、询价单、首件检验表、装配说明）
+- `app-integration/`：App 与实体机蓝牙联调的可行性结论和 App 改动补丁
+
 ## 电子工程师评审稿
 
 - 在线版（可评论）：https://claude.ai/code/artifact/1d24d34c-0243-4182-9718-d5e03d75ba5e
