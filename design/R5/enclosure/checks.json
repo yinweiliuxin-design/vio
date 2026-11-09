@@ -85,10 +85,10 @@
   {
    "a": "battery",
    "b": "cover",
-   "min": 0.3,
-   "need": 0.2,
+   "min": 1.05,
+   "need": 1.0,
    "ok": true,
-   "desc": "电池与面盖"
+   "desc": "电池顶与面盖（鼓胀余量）"
   },
   {
    "a": "battery",

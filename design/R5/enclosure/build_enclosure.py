@@ -1,4 +1,4 @@
-"""SmartVio R5 enclosure V0.1: cover, shell, knob, button cap, light pipe, the assembly and the violin pocket.
+"""SmartVio R5 enclosure V0.2: cover, shell, knob, button cap, light pipe, the assembly and the violin pocket.
 
 Run (CadQuery 2.x):   python3 build_enclosure.py [--no-render]
 Writes step/, stl/, preview/ and enclosure_params.json next to this script, and prints the interference report
@@ -63,7 +63,7 @@ SHELL_OUT = LEDGE_IN + SHELL_GAP    # 1.25
 WALL = 1.2
 SHELL_IN = SHELL_OUT + WALL         # 2.45  (inner width 44.1)
 FLOOR = 1.0
-DEPTH = (11.0, 17.0, 14.0)          # pocket depths: speaker / controls / battery zone
+DEPTH = (11.0, 17.0, 15.0)          # pocket depths: speaker / controls / battery zone (battery 14 -> 15, 11-09)
 ZONE_X = (34.0, 104.0)              # shell outer riser faces
 ZONE_GAP = 0.3                      # shell riser -> pocket step (along X)
 FLOOR_GAP = 0.3                     # shell outer bottom -> pocket floor
@@ -97,10 +97,12 @@ SPK_RIB = dict(r_in=14.2, r_out=15.2, half_deg=15.0, angles=(0.0, 120.0, 240.0),
 
 # shell inside
 BATTERY = (106.0, 4.5, 136.0, 44.5)  # 30 x 40 x 10 pack (moved 1 mm toward the head vs mockup outline)
-BATT_Z = (-12.3, -2.3)
+BATT_Z = (-13.2, -3.2)               # 0.5 foam below, ~1.2 swelling room above
 BATT_RIBS = [(104.8, 10.0, 105.8, 39.0), (136.3, 10.0, 137.3, 39.0)]
 BATT_RIB_H = 3.0
 PICKUP_HOLE = (99.0, 24.5, 4.0)      # default pigtail hole in the control-zone floor (X, y, Ø)
+SPK_WALL = (34.0, 35.0, -2.4)        # speaker partition X0, X1, top Z (0.5 PORON strip seals to the cover)
+SPK_WALL_NOTCH = (6.5, 9.5, 2.0)     # speaker-wire notch at the top of the partition: y0, y1, depth
 
 # envelopes (electronics proposal)
 ENC_BODY, ENC_BODY_TOP, BUSH_D, BUSH_TOP, SHAFT_TOP = (12.0, 12.0), -5.5, 7.0, -0.5, 5.0
@@ -259,7 +261,12 @@ def build_shell():
         cut.append(box(X - WIN_W / 2, y_a, X + WIN_W / 2, y_b, WIN_Z[0], WIN_Z[1]))
     X, y, d = PICKUP_HOLE
     cut.append(cyl(X, y, d, OUT_BOT[1] - 1, IN_FLOOR[1] + 1))
-    return shell.cut(*cut).clean()
+    shell = shell.cut(*cut)
+    x0, x1, zt = SPK_WALL
+    wall = box(x0, SHELL_IN - 0.1, x1, W - SHELL_IN + 0.1, IN_FLOOR[0] - 0.1, zt)
+    y0, y1, dn = SPK_WALL_NOTCH
+    wall = wall.cut(box(x0 - 1, y0, x1 + 1, y1, zt - dn, zt + 1))
+    return shell.fuse(wall).clean()
 
 
 def build_knob():
@@ -361,6 +368,8 @@ def build_misc():
         cyl(SPEAKER[0], SPEAKER[1], 24.0, SPK_Z[1] - 1, 1))
     out["speaker_foam"] = cyl(SPEAKER[0], SPEAKER[1], 20.0, IN_FLOOR[0], SPK_Z[0])
     out["battery_foam"] = box(x0 + 2, y0 + 2, x1 - 2, y1 - 2, IN_FLOOR[2], BATT_Z[0])
+    wx0, wx1, zt = SPK_WALL
+    out["speaker_seal_strip"] = box(wx0, SHELL_IN, wx1, W - SHELL_IN, zt, ZC)
     return out
 
 
@@ -463,7 +472,7 @@ CLEARANCE_PAIRS = [
     ("pcba_bottom_envelope", "shell", 0.5, "主板背面包络与壳底"),
     ("pcba_top_parts", "cover", 0.0, "主板元件与面盖（插座/编码器在孔里）"),
     ("battery", "shell", 0.0, "电池与底壳/限位筋"),
-    ("battery", "cover", 0.2, "电池与面盖"),
+    ("battery", "cover", 1.0, "电池顶与面盖（鼓胀余量）"),
     ("battery", "usb_board", 0.5, "电池与 USB 小板"),
     ("speaker", "shell", 0.5, "扬声器与底壳侧壁"),
     ("usb_board", "shell", 0.3, "USB 小板与底壳"),
@@ -559,7 +568,7 @@ def render_previews(P, outdir):
     M.render([(*m("cover", 0.02, 0.25), (0.30, 0.30, 0.32))] + [(*m(n), color_of(n)) for n in P if n.startswith(("knob", "cap", "lightpipe"))]
              + [(*m(n), color_of(n)) for n in P if n.startswith(("screw_ST", "pcba_top", "usb_rec"))],
              os.path.join(pd, "01_top.png"), "top", size=(1900, 780), ssaa=2, margin=40, edge_thr=0.12,
-             caption="R5 外壳 V0.1 · 顶视（琴头在左，G 弦侧在上）  148 × 49，旋钮高出 7 mm")
+             caption="R5 外壳 V0.2 · 顶视（琴头在左，G 弦侧在上）  148 × 49，旋钮高出 7 mm")
     print("  preview: installed 3/4")
     M.render([(*m("violin", 0.05, 0.4), color_of("violin"))] + [(*m(n), color_of(n)) for n in module if n.startswith(("cover", "knob", "cap", "lightpipe", "screw_ST", "pcba_top", "usb_rec"))],
              os.path.join(pd, "02_installed.png"), (-120.0, 35.0), size=(1900, 1100), ssaa=2, margin=40, edge_thr=0.3,
@@ -590,14 +599,14 @@ def render_previews(P, outdir):
         sec.append((Vv, F, color_of(n)))
     M.render(sec, os.path.join(pd, "04_section.png"), (-90.0, 6.0), size=(1900, 900), ssaa=2, margin=40, edge_thr=0.3,
              light=(0.15, -0.9, 0.45),
-             caption="剖切 y = 24.5（插座中心线）：三段槽深 11 / 17 / 14，面盖压在 2 mm 台阶上")
+             caption="剖切 y = 24.5（插座中心线）：三段槽深 11 / 17 / 15，面盖压在 2 mm 台阶上")
     print("  preview: cover underside, shell")
     cv = m("cover", 0.02, 0.25)
     flip = np.array([1, -1, -1])
     M.render([(cv[0] * flip, cv[1], (0.30, 0.30, 0.32))], os.path.join(pd, "05_cover_underside.png"), (-115.0, 40.0),
              size=(1900, 1000), ssaa=2, margin=40, edge_thr=0.25, caption="面盖背面：主板凸台 4、USB 凸台 2、卡扣 8、加强筋 2、扬声器定位筋 3")
     M.render([(*m("shell"), (0.45, 0.45, 0.48))], os.path.join(pd, "06_shell.png"), (-115.0, 40.0),
-             size=(1900, 1000), ssaa=2, margin=40, edge_thr=0.25, caption="底壳：三段台阶、四角让位缺口（让琴上木垫）、卡扣窗 8、电池限位筋")
+             size=(1900, 1000), ssaa=2, margin=40, edge_thr=0.25, caption="底壳：三段台阶、四角让位缺口（让琴上木垫）、卡扣窗 8、电池限位筋、扬声器隔板")
 
 
 # =====================================================================================

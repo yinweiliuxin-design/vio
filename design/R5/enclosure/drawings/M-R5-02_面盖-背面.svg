@@ -4,7 +4,7 @@
 <path d="M10.000,10.000 L410.000,10.000 L410.000,287.000 L10.000,287.000 Z" fill="none" stroke="#111111" stroke-width="0.5"/>
 <text x="14.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">SmartVio R5  外壳首样工程图</text>
 <text x="112.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">面盖 2/2：背面（凸台、卡扣、筋）</text>
-<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：V0.1 首样图 / 主板接口为建议值，待乙方确认</text>
+<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：V0.2 首样图 / 主板接口为建议值，待乙方确认</text>
 <path d="M10.000,20.000 L410.000,20.000" fill="none" stroke="#111111" stroke-width="0.3"/>
 <path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
 <text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
@@ -20,7 +20,7 @@
 <text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">面盖 cover（R5-01_cover.step）</text>
 <path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
 <text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
-<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R5-02   版本 V0.1   第 2/2 页</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R5-02   版本 V0.2   第 2/2 页</text>
 <path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
 <text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
 <text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">POM-C 共聚甲醛 黑色（整料 CNC）</text>
@@ -38,7 +38,7 @@
 <text x="249.000" y="278.300" font-size="2.1" text-anchor="start" fill="#111111">ISO 2768-m（CTF 按图）</text>
 <path d="M228.000,279.750 L408.000,279.750" fill="none" stroke="#111111" stroke-width="0.15"/>
 <text x="229.500" y="283.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">日期 / 编制</text>
-<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-11-03   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
+<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-11-09   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
 <path d="M247.500,243.000 L247.500,285.000" fill="none" stroke="#111111" stroke-width="0.15"/>
 <path d="M379.000,264.900 L385.000,263.500 L385.000,269.500 L379.000,268.100 Z" fill="none" stroke="#111111" stroke-width="0.2"/>
 <circle cx="390.500" cy="266.500" r="3.000" fill="none" stroke="#111111" stroke-width="0.2"/>
