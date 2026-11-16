@@ -9,11 +9,11 @@
 <path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
 <text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
 <text x="13.500" y="251.400" font-size="1.95" text-anchor="start" fill="#111111">1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K；在 23±2 °C 下检验。</text>
-<text x="13.500" y="255.400" font-size="1.95" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md。</text>
+<text x="13.500" y="255.400" font-size="1.95" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入《首件检验表》。</text>
 <text x="13.500" y="259.400" font-size="1.95" text-anchor="start" fill="#111111">3. 单位 mm，第一角画法。坐标：X 向琴尾（X0 = 琴头端）；y 向 E 弦侧（y0 = G 弦侧边）；Z 向外（Z0 = 琴背面 = 面盖顶面）。</text>
 <text x="13.500" y="263.400" font-size="1.95" text-anchor="start" fill="#111111">4. 锐边倒钝 0.1–0.2（卡扣根部、卡扣窗棱边、配合面除外）；无毛刺、无残料；未注内角 R ≤ 0.5。</text>
 <text x="13.500" y="267.400" font-size="1.95" text-anchor="start" fill="#111111">5. 形状以同名 STEP 为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。</text>
-<text x="13.500" y="271.400" font-size="1.95" text-anchor="start" fill="#111111">6. 装配顺序、扭矩和检查见 ASSEMBLY.md；主板、USB 小板、电池、扬声器为包络（乙方确认后更新）。</text>
+<text x="13.500" y="271.400" font-size="1.95" text-anchor="start" fill="#111111">6. 装配顺序、扭矩和检查见《装配说明》；主板、USB 小板、电池、扬声器为包络（乙方确认后更新）。</text>
 <text x="13.500" y="275.400" font-size="1.95" text-anchor="start" fill="#111111">7. 琴槽见 M-R5-05：面盖压在 2.0 深台阶上，与琴背齐平；底壳四周和底部都不碰琴槽。</text>
 <path d="M228.000,243.000 L408.000,243.000 L408.000,285.000 L228.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.4"/>
 <text x="229.500" y="246.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">名称</text>

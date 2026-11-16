@@ -15,7 +15,7 @@
 
 - ✅ 两种 codec 变体都**编译通过**（ESP-IDF v5.4.3，0 错误 0 警告）。
 - ✅ DSP 部分在电脑上做了**单元测试**（`tests/run_host_tests.sh`，全部通过）。
-- ❌ **没有在任何实物上运行过**。codec 寄存器序列是按 Linux / esp-adf 源码重写的，没有对照规格书（官网打不开），见 CODEC-FINDINGS.md。
+- ❌ **没有在任何实物上运行过**。codec 寄存器序列是按 Linux / esp-adf 源码重写的，没有对照规格书，见 CODEC-FINDINGS.md。
 - ❌ 喇叭 1 W 上限里 “0 dBFS 正弦 = 3.0 Vrms” 是假设值，必须按 TEST-STEPS.md 第 7 节校准。
 
 ## 文件

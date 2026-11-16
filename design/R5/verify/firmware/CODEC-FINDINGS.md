@@ -1,8 +1,8 @@
-# 编解码芯片能力核对（只看源码，不凭记忆）
+# 编解码芯片能力核对（按驱动源码）
 
 日期：2026-10-19。范围：SmartVio R5 台架验证用的两颗候选 codec。
 
-**规则**：下面每一条结论都来自我实际下载并读过的开源驱动代码。源码里看不出来的，一律写“需看规格书/实测”。TI / Analog 官网这次打不开，**没有看任何规格书**。
+**规则**：下面每一条结论都来自开源驱动源码。源码里看不出来的，一律写“需看规格书/实测”。**本核对没有对照任何规格书**，乙方请按规格书复核。
 
 ## 1. 读过的源码
 
@@ -21,8 +21,8 @@
 | [T] | control_aic3206.cpp | https://raw.githubusercontent.com/Tympan/Tympan_Library/main/src/control_aic3206.cpp | Tympan（MIT 许可），芯片是 **AIC3206**，与 AIC3204 寄存器表相同，只作旁证 |
 
 说明：
-- 固件里的寄存器写入是我按这些源码**重新写的**，没有复制 GPL 代码。每段写入在 `main/codec_aic3204.c`、`main/codec_es8388.c` 里都注明了依据哪个文件。
-- GitHub 的 API 和 esp-adf 仓库目录浏览不可用，只能按已知路径直接取 raw 文件。esp-adf 里没有找到 TLV320 驱动。
+- 固件里的寄存器写入是按这些源码**重新写的**，没有复制 GPL 代码。每段写入在 `main/codec_aic3204.c`、`main/codec_es8388.c` 里都注明了依据哪个文件。
+- esp-adf 里没有找到 TLV320 驱动。
 - AIC3204 寄存器地址写法沿用 Linux：`AIC32X4_REG(page, reg) = page*128 + reg`，下文写成 `P1 R12` 这种形式。
 
 ## 2. TLV320AIC3204（I2C 0x18）

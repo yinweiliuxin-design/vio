@@ -311,11 +311,7 @@ def build(outroot):
     os.makedirs(d)
     md_file(j(docs, "外壳说明.md"), j(d, "00-外壳说明.pdf"))
     md_file(j(enc, "ASSEMBLY.md"), j(d, "01-装配说明.pdf"), repl=[("`FAI-checklist.md`", "《首件检验表》")])
-    md_file(j(enc, "FAI-checklist.md"), j(d, "02-首件检验表.pdf"), landscape=True, docx=True, repl=[
-        ("# R5 外壳首件检验表（FAI）", "# R5 外壳首件检验表"),
-        ("由 `drawings.py` 根据图上的关键尺寸（CTF）自动生成，和图纸 M-R5-00…06 一致。改图后重新生成，不要手改。",
-         "关键尺寸和图纸 M-R5-00…06 一致。"),
-    ])
+    md_file(j(enc, "FAI-checklist.md"), j(d, "02-首件检验表.pdf"), landscape=True, docx=True)
     md_file(j(docs, "干涉与间隙检查结果.md"), j(d, "03-干涉与间隙检查结果.pdf"))
     md_file(j(enc, "RFQ-外壳首样.md"), j(d, "04-外壳首样询价单.pdf"), repl=[
         ("附件：`step/`、`stl/`、`drawings/M-R5-drawings-all.pdf`、`FAI-checklist.md`",
@@ -343,7 +339,7 @@ def build(outroot):
     d = j(out, "03-结构", "R5-面板1比1样机")
     os.makedirs(d)
     for f in sorted(os.listdir(j(ver, "mockup"))):
-        if f != "README.md":
+        if f != "README.md" and os.path.isfile(j(ver, "mockup", f)):
             cp(j(ver, "mockup", f), j(d, f))
     md_file(j(ver, "mockup", "README.md"), j(d, "00-面板样机说明.pdf"), base=j(ver, "mockup"))
 
@@ -365,6 +361,7 @@ def build(outroot):
         ("# R5 验证采购清单", "# R5 阶段 1 验证采购清单"),
         ("按 `BT-TX-INQUIRY.md`（资料库中为 `BT-TX-INQUIRY-蓝牙发射模块询价表.md`）筛选", "按《蓝牙发射模块询价表》筛选"),
         ("具体接法见 `firmware/WIRING.md`", "具体接法见台架验证固件的 `WIRING.md`"),
+        ("（数值见 `firmware/WIRING.md`）", "（数值见台架验证固件的 `WIRING.md`）"),
         ("详见 `mockup/README.md`（模型文件、打印参数、装配方法）", "详见 `03-结构/R5-面板1比1样机/00-面板样机说明.pdf`（模型文件、打印参数、装配方法）"),
     ])
     md_file(j(ver, "BT-TX-INQUIRY.md"), j(d, "蓝牙发射模块询价表.pdf"), docx=True)
