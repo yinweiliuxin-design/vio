@@ -31,6 +31,9 @@ body { font-family: "Microsoft YaHei", "PingFang SC", "Noto Sans CJK SC", "WenQu
 h1 { font-size: 17pt; margin: 0 0 10pt; padding-bottom: 6pt; border-bottom: 2px solid #333; }
 h2 { font-size: 13pt; margin: 16pt 0 6pt; padding-bottom: 3pt; border-bottom: 1px solid #bbb; }
 h3 { font-size: 11pt; margin: 12pt 0 4pt; }
+h1, h2, h3 { break-after: avoid; page-break-after: avoid; }
+table.files th:first-child { width: 43%%; }
+table.files td:first-child { word-break: break-all; }
 table { border-collapse: collapse; width: 100%%; margin: 6pt 0 10pt; font-size: 9pt; }
 tr { page-break-inside: avoid; }
 th, td { border: 1px solid #999; padding: 3pt 5pt; vertical-align: top; text-align: left; }
@@ -269,6 +272,7 @@ def build_readme(out):
     lines.append(README_TAIL)
     md = "\n".join(lines)
     body = md_to_body(md)
+    body = re.sub(r"<table>(\s*<thead>\s*<tr[^>]*>\s*<th>文件</th>)", r'<table class="files">\1', body)
     html_to_pdf(wrap_html(body, "SmartVio R5 工程交付包 · 目录说明"), os.path.join(out, "00-先读我-目录说明.pdf"))
     return md
 
