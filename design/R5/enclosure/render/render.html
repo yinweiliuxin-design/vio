@@ -1,0 +1,170 @@
+<!doctype html><html><head><meta charset="utf-8">
+<style>html,body{margin:0;background:transparent}canvas{display:block}</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
+</head><body><canvas id="c"></canvas>
+<script type="module">
+// SmartVio R5 enclosure V0.2 — photoreal render from the CAD meshes (export_meshes.py).
+// Model coordinates: X from the head end, Y = -y (y from the G-string edge), Z up, 0 = cover top / violin back.
+// view=top : orthographic, looking down, head at the top of the image, G-string edge on the right (as seen on the
+//            back of the violin); pxmm sets the scale. Transparent background + knob shadows for compositing.
+// view=hero: 3/4 perspective of the module installed flush in a piece of the violin's white centre beam.
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+
+const q = new URLSearchParams(location.search);
+const VIEW = q.get('view') || 'top';
+const PXMM = +(q.get('pxmm') || 24), MARG = 8;
+const LIT = (q.get('lit') || '1').split(',').map(Number);           // which light pipes glow (1..3)
+const data = await (await fetch('meshes.json')).json();
+const Mt = data.meta, Pt = data.parts;
+const L = Mt.L, Wd = Mt.W;
+
+const W = VIEW === 'top' ? Math.round((Wd + 2 * MARG) * PXMM) : +(q.get('w') || 2400);
+const H = VIEW === 'top' ? Math.round((L + 2 * MARG) * PXMM) : +(q.get('h') || 1500);
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, alpha: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(1); renderer.setSize(W, H); renderer.setClearColor(0x000000, 0);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = +(q.get('exp') || 1.0);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.04).texture;
+scene.environmentIntensity = VIEW === 'top' ? 0.55 : 0.75;
+
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0)).buffer;
+function geom(p) {
+  const g = new THREE.BufferGeometry();
+  g.setAttribute('position', new THREE.BufferAttribute(new Float32Array(b64(p.pos)), 3));
+  g.setIndex(new THREE.BufferAttribute(new Uint32Array(b64(p.idx)), 1));
+  g.computeVertexNormals();
+  return g;
+}
+const DS = THREE.DoubleSide;
+const mat = {
+  pom: new THREE.MeshPhysicalMaterial({ color: 0x18181b, roughness: 0.62, metalness: 0, specularIntensity: 0.5, envMapIntensity: 0.6, side: DS }),
+  knob: new THREE.MeshPhysicalMaterial({ color: 0x151518, roughness: 0.5, metalness: 0, specularIntensity: 0.6, envMapIntensity: 0.7, side: DS }),
+  engrave: new THREE.MeshStandardMaterial({ color: 0x3e3f45, roughness: 0.95, metalness: 0, side: DS }),
+  steel: new THREE.MeshStandardMaterial({ color: 0xc4c7ca, roughness: 0.3, metalness: 1, side: DS }),
+  nickel: new THREE.MeshStandardMaterial({ color: 0xb9bbbd, roughness: 0.25, metalness: 1, side: DS }),
+  zinc: new THREE.MeshStandardMaterial({ color: 0x8a8c8f, roughness: 0.4, metalness: 1, side: DS }),
+  jack: new THREE.MeshPhysicalMaterial({ color: 0x0f0f11, roughness: 0.35, metalness: 0, side: DS }),
+  hole: new THREE.MeshBasicMaterial({ color: 0x030303, side: DS }),
+  gap: new THREE.MeshBasicMaterial({ color: 0x151515, side: DS }),
+  mesh: new THREE.MeshStandardMaterial({ color: 0x0a0a0b, roughness: 1, side: DS }),
+  pipe: new THREE.MeshPhysicalMaterial({ color: 0x41464b, roughness: 0.45, metalness: 0, side: DS }),
+  pipeLit: new THREE.MeshStandardMaterial({ color: 0xffffff, emissive: 0xeef6ff, emissiveIntensity: 2.2, roughness: 0.4, side: DS }),
+  tongue: new THREE.MeshStandardMaterial({ color: 0x1a1a1a, roughness: 0.6, side: DS }),
+  beam: new THREE.MeshPhysicalMaterial({ color: 0xf3f3f1, roughness: 0.28, clearcoat: 1, clearcoatRoughness: 0.06, side: DS }),
+};
+const V = (X, y, z = 0) => new THREE.Vector3(X, -y, z);
+function add(g, m, pos, opts = {}) {
+  const o = new THREE.Mesh(g, m);
+  if (pos) o.position.copy(pos);
+  o.castShadow = opts.cast !== false; o.receiveShadow = opts.recv !== false;
+  scene.add(o); return o;
+}
+function rrShape(x0, y0, x1, y1, r) {               // rounded rect in model XY (y given as drawing y)
+  const s = new THREE.Shape();
+  const X0 = x0, X1 = x1, Y0 = -y1, Y1 = -y0;
+  s.moveTo(X0 + r, Y0); s.lineTo(X1 - r, Y0); s.absarc(X1 - r, Y0 + r, r, -Math.PI / 2, 0);
+  s.lineTo(X1, Y1 - r); s.absarc(X1 - r, Y1 - r, r, 0, Math.PI / 2);
+  s.lineTo(X0 + r, Y1); s.absarc(X0 + r, Y1 - r, r, Math.PI / 2, Math.PI);
+  s.lineTo(X0, Y0 + r); s.absarc(X0 + r, Y0 + r, r, Math.PI, 1.5 * Math.PI);
+  return s;
+}
+
+// ---- CAD parts
+add(geom(Pt.cover), mat.pom);
+add(geom(Pt.cover_engrave), mat.engrave, null, { cast: false });
+const gKnob = geom(Pt.knob);
+Mt.KNOBS.forEach(([n, X, y]) => add(gKnob, mat.knob, V(X, y, Mt.KNOB_LIFT)));
+const gCap = geom(Pt.cap);
+Mt.BUTTONS.forEach(([n, X, y]) => add(gCap, mat.pom, V(X, y, 0)));
+const gPipe = geom(Pt.lightpipe);
+Mt.LEDS.forEach(([X, y], i) => add(gPipe, LIT.includes(i + 1) ? mat.pipeLit : mat.pipe, V(X, y, 0), { cast: false }));
+const gScrew = geom(Pt.screw);                       // modelled at screw 1; move to each corner
+const s0 = Mt.SCREWS[0];
+Mt.SCREWS.forEach(([X, y]) => {
+  add(gScrew, mat.steel, V(X - s0[0], y - s0[1], 0));
+  for (const a of [0, Math.PI / 2]) {                // Phillips recess
+    const c = new THREE.Mesh(new THREE.BoxGeometry(1.5, 0.28, 0.05), mat.hole);
+    c.position.copy(V(X, y, -0.33)); c.rotation.z = a + Math.PI / 4; scene.add(c);
+  }
+});
+
+// ---- purchased parts seen through the openings (proposal sizes from M-R5-06)
+Mt.JACKS.forEach(([n, X, y]) => {
+  const top = new THREE.Mesh(new THREE.RingGeometry(1.8, Mt.JACK_NOSE_D / 2, 48), mat.jack);
+  top.position.copy(V(X, y, Mt.JACK_TOP)); top.receiveShadow = true; scene.add(top);
+  const wall = new THREE.Mesh(new THREE.CylinderGeometry(Mt.JACK_NOSE_D / 2, Mt.JACK_NOSE_D / 2, 1.8, 48, 1, true), mat.jack);
+  wall.rotation.x = Math.PI / 2; wall.position.copy(V(X, y, Mt.JACK_TOP - 0.9)); scene.add(wall);
+  const bore = new THREE.Mesh(new THREE.CylinderGeometry(1.8, 1.8, 6, 32, 1, true), mat.hole);
+  bore.rotation.x = Math.PI / 2; bore.position.copy(V(X, y, Mt.JACK_TOP - 3)); scene.add(bore);
+  const ch = new THREE.Mesh(new THREE.RingGeometry(1.8, 2.15, 48), mat.nickel);   // contact ring inside the mouth
+  ch.position.copy(V(X, y, Mt.JACK_TOP - 0.35)); scene.add(ch);
+});
+Mt.KNOBS.forEach(([n, X, y]) => {                     // encoder bushing under the knob
+  const b = new THREE.Mesh(new THREE.CylinderGeometry(3.5, 3.5, 1.6, 40), mat.zinc);
+  b.rotation.x = Math.PI / 2; b.position.copy(V(X, y, -1.3)); scene.add(b);
+});
+{ // USB-C receptacle: stadium shell (8.94 across, 3.26 along), mouth 0.3 below the top, tongue inside
+  const [X, y] = Mt.USBC, a = Mt.REC[1] / 2, b = Mt.REC[0] / 2, t = 0.22;
+  const st = (ha, hb) => { const s = new THREE.Shape(); const r = hb;
+    s.moveTo(-hb, -(ha - r)); s.lineTo(-hb, ha - r); s.absarc(0, ha - r, r, Math.PI, 0, true);
+    s.lineTo(hb, -(ha - r)); s.absarc(0, -(ha - r), r, 0, Math.PI, true); return s; };
+  const outer = st(a, b); outer.holes.push(st(a - t, b - t));
+  const shell = new THREE.Mesh(new THREE.ExtrudeGeometry(outer, { depth: 3.0, bevelEnabled: false, curveSegments: 24 }), mat.nickel);
+  shell.position.copy(V(X, y, Mt.REC[2] - 3.0)); scene.add(shell);
+  const floor = new THREE.Mesh(new THREE.ShapeGeometry(st(a - t, b - t), 24), mat.hole);
+  floor.position.copy(V(X, y, Mt.REC[2] - 2.9)); scene.add(floor);
+  const tongue = new THREE.Mesh(new THREE.BoxGeometry(0.7, 6.6, 1.8), mat.tongue);
+  tongue.position.copy(V(X, y, Mt.REC[2] - 1.9)); scene.add(tongue);
+}
+{ // dust mesh behind the speaker grille, black backing under the whole cover, gap to the rebate wall
+  const m = new THREE.Mesh(new THREE.CircleGeometry(13.6, 64), mat.mesh);
+  m.position.copy(V(Mt.SPEAKER[0], Mt.SPEAKER[1], -2.05)); scene.add(m);
+  const back = new THREE.Mesh(new THREE.ShapeGeometry(rrShape(0.3, 0.3, L - 0.3, Wd - 0.3, Mt.R - 0.3), 16), mat.hole);
+  back.position.z = -2.6; scene.add(back);
+  const g = Mt.POCKET_GAP, ring = rrShape(-g, -g, L + g, Wd + g, Mt.R + g);
+  ring.holes.push(rrShape(0, 0, L, Wd, Mt.R));
+  const rm = new THREE.Mesh(new THREE.ShapeGeometry(ring, 24), mat.gap);
+  rm.position.z = -0.6; scene.add(rm);
+}
+
+// ---- lights and camera
+const cx = L / 2, cy = -Wd / 2;
+const key = new THREE.DirectionalLight(0xffffff, VIEW === 'top' ? 1.6 : 2.2);
+key.castShadow = true; key.shadow.mapSize.set(4096, 4096);
+key.shadow.camera.left = -130; key.shadow.camera.right = 130; key.shadow.camera.top = 130; key.shadow.camera.bottom = -130;
+key.shadow.camera.near = 1; key.shadow.camera.far = 800; key.shadow.bias = -0.0004; key.shadow.normalBias = 0.02;
+key.shadow.radius = VIEW === 'top' ? 6 : 4;
+key.target.position.set(cx, cy, 0); scene.add(key.target);
+let camera;
+if (VIEW === 'top') {
+  // light from the upper left of the photo (toward the head and the E-string side) and in front
+  key.position.set(cx - 90, cy - 70, 260);
+  scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.35); fill.position.set(cx + 60, cy + 40, 200); scene.add(fill);
+  const plane = new THREE.Mesh(new THREE.PlaneGeometry(400, 400), new THREE.ShadowMaterial({ opacity: 0.30 }));
+  plane.position.set(cx, cy, -0.03); plane.receiveShadow = true; plane.material.depthWrite = false; plane.renderOrder = 5;
+  scene.add(plane);
+  const hw = (Wd + 2 * MARG) / 2, hh = (L + 2 * MARG) / 2;
+  camera = new THREE.OrthographicCamera(-hw, hw, hh, -hh, 1, 1000);
+  camera.position.set(cx, cy, 400); camera.up.set(-1, 0, 0); camera.lookAt(cx, cy, 0);
+} else {
+  add(geom(Pt.beam), mat.beam);
+  key.position.set(cx - 160, cy - 120, 300); scene.add(key);
+  const fill = new THREE.DirectionalLight(0xffffff, 0.5); fill.position.set(cx + 200, cy - 200, 120); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 0.6); rim.position.set(cx + 80, cy + 260, 160); scene.add(rim);
+  camera = new THREE.PerspectiveCamera(+(q.get('fov') || 20), W / H, 1, 2000);
+  const az = +(q.get('az') || -103), el = +(q.get('el') || 33), dist = +(q.get('dist') || 430);
+  const A = az * Math.PI / 180, E = el * Math.PI / 180;
+  const tx = cx + +(q.get('tx') || 0), ty = cy, tz = +(q.get('tz') || -3);
+  camera.position.set(tx + dist * Math.cos(E) * Math.cos(A), ty + dist * Math.cos(E) * Math.sin(A), tz + dist * Math.sin(E));
+  camera.up.set(0, 0, 1); camera.lookAt(tx, ty, tz);
+}
+renderer.render(scene, camera);
+window.RESULT = renderer.domElement.toDataURL('image/png');
+window.DONE = true;
+</script></body></html>
