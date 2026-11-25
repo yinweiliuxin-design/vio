@@ -17,12 +17,13 @@ import shutil
 import subprocess
 import sys
 import tempfile
+import base64
 import zipfile
 
 HERE = os.path.dirname(os.path.abspath(__file__))
 R5 = os.path.dirname(HERE)
 PKG_NAME = "SmartVio-R5-工程交付包"
-PKG_DATE = "2026-11-16"
+PKG_DATE = "2026-11-26"
 
 CSS = """
 @page { size: A4 %(orient)s; margin: 16mm 14mm 16mm 14mm; }
@@ -107,7 +108,7 @@ def html_to_docx(html, docx):
     shutil.rmtree(d)
 
 
-def md_file(src, dst_pdf, repl=(), landscape=False, docx=False, base=None):
+def md_file(src, dst_pdf, repl=(), landscape=False, docx=False, base=None, css=""):
     md = open(src, encoding="utf-8").read()
     for a, b in repl:
         if a not in md:
@@ -115,14 +116,27 @@ def md_file(src, dst_pdf, repl=(), landscape=False, docx=False, base=None):
         md = md.replace(a, b)
     title = md.splitlines()[0].lstrip("# ").strip()
     body = md_to_body(md)
-    html_to_pdf(wrap_html(body, title, landscape, base), dst_pdf, landscape)
+    html = wrap_html(body, title, landscape, base)
+    if css:
+        html = html.replace("</style>", css + "</style>")
+    html_to_pdf(html, dst_pdf, landscape)
     if docx:
         html_to_docx(wrap_html(body, title, landscape, for_word=True), dst_pdf[:-4] + ".docx")
 
 
 def export_html_to_docx(src, docx, title):
     body = open(src, encoding="utf-8").read()
-    body = re.sub(r'<span data-atom="mention"[^>]*>[^<]*</span>', "wei", body)
+    body = re.sub(r'<span data-atom="mention"[^>]*>[^<]*</span>', "", body)
+
+    # 在线文档里的图（流程图等）导出 HTML 时只剩标题，换成 exports/figure-<节点>.png
+    def fig(m):
+        png = os.path.join(os.path.dirname(src), "figure-%s.png" % m.group(1))
+        cap = "<p>%s</p>" % m.group(2)
+        if not os.path.exists(png):
+            return cap
+        b64 = base64.b64encode(open(png, "rb").read()).decode()
+        return '<p><img src="data:image/png;base64,%s" width="620"></p>%s' % (b64, cap)
+    body = re.sub(r'<figure data-embed="node/([\w-]+)"><figcaption>(.*?)</figcaption></figure>', fig, body)
     body = body.replace('<input type="checkbox" disabled>', "☐")
     html_to_docx(wrap_html(body, title, for_word=True), docx)
 
@@ -135,6 +149,7 @@ TREE = [
         ("SmartVio-R5-开发合作方案.pdf", "唯一依据：产品技术要求、甲乙方分工、开发阶段与周期、各阶段验证表、放行和签字规则"),
         ("SmartVio-R5-开发合作方案.docx", "同上，Word 版，用来批注和修改"),
         ("附件1-测试方法细则.pdf", "各验证项的测试条件、仪器、判法和样机分配，用来编写阶段 4 测试计划"),
+        ("附件1-测试方法细则.docx", "同上，Word 版，编写测试计划时引用和改写"),
         ("附件2-电子设计审查与修改报告（模板）.docx", "乙方开始前填写交回的审查报告模板"),
         ("附件2-电子设计审查与修改报告（模板）.pdf", "同上，PDF 版，用来阅读"),
         ("附件3-电子设计待定问题清单.pdf", "乙方要关闭的 32 项待定问题（含认证相关 7 项）、7 条布局规则、保护要求、固件约束、接口与管脚预算"),
@@ -153,7 +168,7 @@ TREE = [
         ("图纸/", "7 张工程图 M-R5-00…06（各一个 PDF）和合订本 `M-R5-全部图纸合订本.pdf`。**乙方重点看 M-R5-06 主板结构接口图**"),
         ("3D模型-STEP/", "9 个 STEP：总装、装琴总装、面盖、底壳、旋钮、按键帽、导光柱、琴体槽、电子件预留包络"),
         ("3D打印-STL/", "5 个零件的 STL，3D 打印试装用"),
-        ("效果图/", "6 张：顶视、装琴状态、爆炸图、剖面、面盖背面、底壳"),
+        ("效果图/", "7 张：顶视、装琴状态、爆炸图、剖面、面盖背面、底壳，以及装琴效果图（按 3D 模型渲染后合成到实拍琴身）"),
     ]),
     ("03-结构/R5-面板1比1样机", "阶段 2 面板样机试拉用（甲方执行），乙方了解面板布局", [
         ("00-面板样机说明.pdf", "样机用途、打印和装配方法、贴到琴上的位置、要测什么"),
@@ -199,6 +214,8 @@ README_HEAD = """# SmartVio R5 工程交付包 · 目录说明
 
 SmartVio R5 是一块齐平嵌入电子小提琴琴背的智能模块（含外壳 148 × 49 mm）：主控 ESP32-S3，带编解码器、4 Ω 扬声器、蓝牙发射和约 1300 mAh 电池。本包是 R5 开发合作的全部资料。
 
+**保密**：本包资料是 SmartVio 项目的保密资料，只供乙方评估、报价和开发 R5 使用；未经甲方书面同意，不得提供给第三方、转发或用于其他用途。
+
 ## 一、阅读顺序
 
 | 顺序 | 文件 | 看什么 |
@@ -242,10 +259,11 @@ README_TAIL = """
 
 ## 五、乙方开始前请做
 
-1. 按“阅读顺序”看完资料，填写附件2《电子设计审查与修改报告》交回甲方。
-2. 对标【建议值】的数字和各阶段周期给出意见，并报价。
-3. 对《首样前待解决问题清单》中标“乙方”的项目给出初步意见。
-4. 双方签字确认合作方案后，阶段 1（乙方）和阶段 2（甲方）同时启动。
+1. 收到后按 `文件校验值-SHA256SUMS.txt` 核对全部文件，书面回复甲方签收。
+2. 按“阅读顺序”看完资料，填写附件2《电子设计审查与修改报告》交回甲方。
+3. 对标【建议值】的数字和各阶段周期给出意见，并报价。
+4. 对《首样前待解决问题清单》中标“乙方”的项目给出初步意见。
+5. 双方签字确认合作方案后，阶段 1（乙方）和阶段 2（甲方）同时启动。
 
 ## 六、文件格式
 
@@ -299,6 +317,8 @@ def build(outroot):
     cp(j(ex, "合作方案.pdf"), j(d, "SmartVio-R5-开发合作方案.pdf"))
     export_html_to_docx(j(ex, "合作方案.html"), j(d, "SmartVio-R5-开发合作方案.docx"), "SmartVio R5 开发合作方案")
     cp(j(ex, "附件1-测试方法细则.pdf"), j(d, "附件1-测试方法细则.pdf"))
+    export_html_to_docx(j(ex, "附件1-测试方法细则.html"), j(d, "附件1-测试方法细则.docx"),
+                        "SmartVio R5 测试方法细则（合作方案附件1）")
     cp(j(ex, "附件2-审查报告模板.pdf"), j(d, "附件2-电子设计审查与修改报告（模板）.pdf"))
     export_html_to_docx(j(ex, "附件2-审查报告模板.html"), j(d, "附件2-电子设计审查与修改报告（模板）.docx"),
                         "SmartVio R5 电子设计审查与修改报告（模板）")
@@ -312,7 +332,8 @@ def build(outroot):
     os.makedirs(d)
     md_file(j(docs, "外壳说明.md"), j(d, "00-外壳说明.pdf"))
     md_file(j(enc, "ASSEMBLY.md"), j(d, "01-装配说明.pdf"), repl=[("`FAI-checklist.md`", "《首件检验表》")])
-    md_file(j(enc, "FAI-checklist.md"), j(d, "02-首件检验表.pdf"), landscape=True, docx=True)
+    md_file(j(enc, "FAI-checklist.md"), j(d, "02-首件检验表.pdf"), landscape=True, docx=True,
+            css="body{line-height:1.4} table{font-size:8.5pt;margin:4pt 0 6pt} th,td{padding:2pt 4pt}")
     md_file(j(docs, "干涉与间隙检查结果.md"), j(d, "03-干涉与间隙检查结果.pdf"))
     md_file(j(enc, "RFQ-外壳首样.md"), j(d, "04-外壳首样询价单.pdf"), repl=[
         ("附件：`step/`、`stl/`、`drawings/M-R5-drawings-all.pdf`、`FAI-checklist.md`",
@@ -335,6 +356,7 @@ def build(outroot):
           "05_cover_underside": "5-面盖背面", "06_shell": "6-底壳"}
     for k, v in pv.items():
         cp(j(enc, "preview", k + ".png"), j(d, "效果图", "R5外壳-%s.png" % v))
+    cp(j(enc, "preview", "07_on_violin_showcase.jpg"), j(d, "效果图", "R5外壳-7-装琴效果图.jpg"))
 
     # 03 结构 / 面板样机
     d = j(out, "03-结构", "R5-面板1比1样机")

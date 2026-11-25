@@ -19,7 +19,7 @@ from drawlib import Page, View, section, crop, CTF_COLOR, INK   # noqa: E402
 STEP = HERE / "step"
 OUT = HERE / "drawings"
 OUT.mkdir(exist_ok=True)
-DATE = "2026-11-09"
+DATE = "2026-11-26"
 REV = "V0.2"
 BLUE = "#1a4f8a"
 

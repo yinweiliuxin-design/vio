@@ -1,7 +1,7 @@
 # R5 外壳首样询价 / 打样单（V0.2）
 
 发件方：SmartVio 项目（甲方）
-日期：2026-11-09
+日期：2026-11-26
 附件：`step/`、`stl/`、`drawings/M-R5-drawings-all.pdf`、`FAI-checklist.md`
 
 ## 1. 打样分两步
