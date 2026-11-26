@@ -215,7 +215,7 @@ def sheet_assembly(allp):
     v = View(pg, comp, "top", s, (34, 44), w=0.25)
     v.title("俯视（装琴状态，从琴背外侧看）", "琴头在左，G 弦侧在上")
     head_tail(pg, v.box[0], v.box[2], 30.5)
-    pg.dim_v(v.pt(0, 0), v.pt(0, 49), v.box[0] - 6, "49", size=2.1)
+    pg.dim_v(v.pt(0, 0), v.pt(0, 49), v.box[0] - 14, "49", size=2.1)   # 左移，避开 A 剖切符号
     cut_line(pg, v, 24.5, 0, 148, "A", up=False)
     cut_line_v(pg, v, 51.0, 0, 49, "B", right=True)
     yb = v.box[3] + 13
@@ -237,7 +237,7 @@ def sheet_assembly(allp):
     sv.title("A-A（y = 24.5 插座中心线）", "木色 = 琴体，灰 = 面盖/底壳，绿 = 主板，蓝 = 元件包络，黄 = 电池")
     xl = sv.box[0] - 3
     pg.dim_v(sv.pt(0, 24.5, 0), sv.pt(0, 24.5, -11), xl - 5, "11")
-    pg.dim_v(sv.pt(0, 24.5, 0), sv.pt(0, 24.5, -2), xl, "2.0")
+    pg.dim_v(sv.pt(0, 24.5, 0), sv.pt(0, 24.5, -2), xl, "2.0", lab_y=sv.pt(0, 24.5, 0)[1] - 2.0)   # 字写在琴背上方，不压木纹
     xr = sv.box[2] + 3
     pg.dim_v(sv.pt(148, 24.5, 0), sv.pt(148, 24.5, -E.DEPTH[2]), xr, f"{f(E.DEPTH[2])}")
     p17 = sv.pt(70, 24.5, -17)
@@ -417,12 +417,13 @@ def sheet_cover_bottom(allp):
     c2, polys2 = section(cq, cover, "X", 20.0, +1, crop=cb2)
     sv = View(pg, c2, "left", 8.0, (190, 160), w=0.3)
     sv.hatch(polys2, angle=45, spacing=0.9, fill="#e9e9e9")
-    sv.title("详图 S（8:1）：卡扣舌 S1 截面（X = 20）", None, size=2.6, off=5)
+    sv.title("详图 S（8:1）：卡扣舌 S1 截面（X = 20）", None, size=2.6, off=8)
     yi = E.SHELL_IN
     pg.dim_h(sv.pt(20, yi, E.SNAP_TIP), sv.pt(20, yi + E.SNAP_T, E.SNAP_TIP), sv.box[3] + 4, f"{f(E.SNAP_T)}", size=2.0)
     pg.dim_h(sv.pt(20, 0, -2.0), sv.pt(20, yi, -2.0), sv.box[1] - 2, f"{f(yi)} ±0.05", ctf="K9", size=2.0)
-    pg.dim_v(sv.pt(20, 6.0, 0), sv.pt(20, 6.0, E.HOOK_TOP), sv.box[2] + 5, f"{f(-E.HOOK_TOP)} ±0.05", ctf="K9", size=2.0)
-    pg.dim_v(sv.pt(20, 6.0, 0), sv.pt(20, 6.0, E.SNAP_TIP), sv.box[2] + 17, f"{f(-E.SNAP_TIP)}", size=2.0)
+    # 钩面高度标在钩的一侧，舌尖总长标在右侧；尺寸界线都从零件轮廓引出
+    pg.dim_v(sv.pt(20, 0, 0), sv.pt(20, yi - E.HOOK_D, E.HOOK_TOP), sv.box[0] - 6, f"{f(-E.HOOK_TOP)} ±0.05", ctf="K9", size=2.0)
+    pg.dim_v(sv.pt(20, 6.0, 0), sv.pt(20, yi + E.SNAP_T, E.SNAP_TIP), sv.box[2] + 6, f"{f(-E.SNAP_TIP)}", size=2.0)
     pg.leader(sv.pt(20, yi - E.HOOK_D, E.HOOK_TOP - 0.2), sv.box[0] - 4, sv.box[3] + 10, f"钩深 {f(E.HOOK_D)}，导向斜面 45°", size=2.0)
     save(pg, "M-R5-02_面盖-背面", allp)
 
@@ -483,7 +484,7 @@ def sheet_shell(allp):
                  xl, f"{f(h)} ±0.10", ctf="K12", size=2.0)
     pg.dim_v(av.pt(60, 24.5, E.IN_FLOOR[1]), av.pt(60, 24.5, E.OUT_BOT[1]), av.pt(60, 24.5)[0], "1.0", size=2.0)
     pg.text(av.box[0], av.box[3] + 6, "顶沿 Z−2.0 贴面盖背面（平面度 0.10）", 2.0)
-    pg.ctf_tag(av.box[0] + 52, av.box[3] + 5.3, "K15", 1.7)
+    pg.ctf_tag(av.box[0] + 36.5, av.box[3] + 5.3, "K15", 1.7)
     # B-B at X = 70 (control zone)
     cb2 = (75.0, -60.0, -18.0, 150.0, 12.0, 0.0)
     c2, polys2 = section(cq, sh, "X", 75.0, +1, crop=cb2)
@@ -599,10 +600,10 @@ def sheet_pocket(allp):
     v.title("俯视：槽（琴背外侧看）", "细线 = 各级轮廓；点划线 = 原控制腔（继承名义值，待实测）")
     g = E.POCKET_GAP
     pg.dim_h(v.pt(-g, -g), v.pt(E.L + g, -g), v.box[1] - 4, "148.40 +0.10/0", ctf="K21", size=2.0)
-    pg.dim_v(v.pt(E.L + g, -g), v.pt(E.L + g, E.W + g), v.box[2] + 6, "49.40 +0.10/0", ctf="K21", size=2.0)
+    pg.dim_v(v.pt(E.L + g, -g), v.pt(E.L + g, E.W + g), v.box[2] + 11, "49.40 +0.10/0", ctf="K21", size=2.0)
     e = E.LEDGE_IN
     pg.dim_h(v.pt(e, E.W - e), v.pt(E.L - e, E.W - e), v.box[3] + 5, "146.00 ±0.10", ctf="K23", size=2.0)
-    pg.dim_v(v.pt(E.L - e, e), v.pt(E.L - e, E.W - e), v.box[2] + 16, "47.00 ±0.10", ctf="K23", size=2.0)
+    pg.dim_v(v.pt(E.L - e, e), v.pt(E.L - e, E.W - e), v.box[2] + 20, "47.00 ±0.10", ctf="K23", size=2.0)
     pg.dim_h(v.pt(-g, 30), v.pt(E.POCKET_STEP_X[0], 30), v.pt(0, 30)[1], f"{f(E.POCKET_STEP_X[0] + g)}", size=2.0)
     pg.dim_h(v.pt(E.POCKET_STEP_X[1], 30), v.pt(E.L + g, 30), v.pt(0, 30)[1], f"{f(E.L + g - E.POCKET_STEP_X[1])}", size=2.0)
     old = (35.0, E.W / 2 - 21.0, 113.0, E.W / 2 + 21.0)

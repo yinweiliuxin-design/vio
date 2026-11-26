@@ -247,8 +247,8 @@
 <path d="M122.125,178.050 L122.485,180.050 L121.765,180.050 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
 <text x="123.625" y="184.550" font-size="2.0" text-anchor="start" fill="#111111">1.0</text>
 <text x="34.000" y="184.050" font-size="2.0" text-anchor="start" fill="#111111">顶沿 Z-2.0 贴面盖背面（平面度 0.10）</text>
-<path d="M86.000,183.350 L86.800,182.288 L89.656,182.288 L90.456,183.350 L89.656,184.413 L86.800,184.413 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
-<text x="88.228" y="183.962" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K15</text>
+<path d="M70.500,183.350 L71.300,182.288 L74.156,182.288 L74.956,183.350 L74.156,184.413 L71.300,184.413 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="72.728" y="183.962" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K15</text>
 <path d="M398.250,46.000 L395.250,46.000" fill="none" stroke="#111111" stroke-width="0.25"/>
 <path d="M373.000,46.000 L373.164,46.000 L373.651,46.000 L374.452,46.000 L375.548,46.000 L376.917,46.000 L378.528,46.000 L380.347,46.000 L382.334,46.000 L384.446,46.000 L386.639,46.000 L388.863,46.000 L391.071,46.000 L393.216,46.000 L395.250,46.000" fill="none" stroke="#111111" stroke-width="0.25"/>
 <path d="M373.000,46.000 L307.250,46.000" fill="none" stroke="#111111" stroke-width="0.25"/>

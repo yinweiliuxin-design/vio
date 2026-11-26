@@ -80,14 +80,14 @@
 <text x="146.160" y="41.300" font-size="2.0" text-anchor="start" fill="#b3001b">148.40 +0.10/0</text>
 <path d="M162.640,40.600 L163.440,39.537 L166.296,39.537 L167.096,40.600 L166.296,41.662 L163.440,41.662 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
 <text x="164.868" y="41.212" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K21</text>
-<path d="M265.900,54.700 L281.200,54.700" fill="none" stroke="#b3001b" stroke-width="0.13"/>
-<path d="M265.900,128.800 L281.200,128.800" fill="none" stroke="#b3001b" stroke-width="0.13"/>
-<path d="M280.000,54.700 L280.000,128.800" fill="none" stroke="#b3001b" stroke-width="0.18"/>
-<path d="M280.000,54.700 L280.360,56.700 L279.640,56.700 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
-<path d="M280.000,128.800 L279.640,126.800 L280.360,126.800 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
-<text x="279.200" y="91.750" font-size="2.0" text-anchor="middle" fill="#b3001b" transform="rotate(-90 279.200 91.750)">49.40 +0.10/0</text>
-<path d="M277.000,100.230 L277.800,99.168 L280.656,99.168 L281.456,100.230 L280.656,101.293 L277.800,101.293 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
-<text x="279.228" y="100.842" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K21</text>
+<path d="M265.900,54.700 L286.200,54.700" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M265.900,128.800 L286.200,128.800" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M285.000,54.700 L285.000,128.800" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M285.000,54.700 L285.360,56.700 L284.640,56.700 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M285.000,128.800 L284.640,126.800 L285.360,126.800 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="284.200" y="91.750" font-size="2.0" text-anchor="middle" fill="#b3001b" transform="rotate(-90 284.200 91.750)">49.40 +0.10/0</text>
+<path d="M282.000,100.230 L282.800,99.168 L285.656,99.168 L286.456,100.230 L285.656,101.293 L282.800,101.293 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="284.228" y="100.842" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K21</text>
 <path d="M44.500,127.600 L44.500,143.700" fill="none" stroke="#b3001b" stroke-width="0.13"/>
 <path d="M263.500,127.600 L263.500,143.700" fill="none" stroke="#b3001b" stroke-width="0.13"/>
 <path d="M44.500,142.500 L263.500,142.500" fill="none" stroke="#b3001b" stroke-width="0.18"/>
@@ -96,14 +96,14 @@
 <text x="147.280" y="141.800" font-size="2.0" text-anchor="start" fill="#b3001b">146.00 ±0.10</text>
 <path d="M161.520,141.100 L162.320,140.038 L165.176,140.038 L165.976,141.100 L165.176,142.163 L162.320,142.163 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
 <text x="163.748" y="141.712" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K23</text>
-<path d="M264.100,56.500 L291.200,56.500" fill="none" stroke="#b3001b" stroke-width="0.13"/>
-<path d="M264.100,127.000 L291.200,127.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
-<path d="M290.000,56.500 L290.000,127.000" fill="none" stroke="#b3001b" stroke-width="0.18"/>
-<path d="M290.000,56.500 L290.360,58.500 L289.640,58.500 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
-<path d="M290.000,127.000 L289.640,125.000 L290.360,125.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
-<text x="289.200" y="91.750" font-size="2.0" text-anchor="middle" fill="#b3001b" transform="rotate(-90 289.200 91.750)">47.00 ±0.10</text>
-<path d="M287.000,99.110 L287.800,98.047 L290.656,98.047 L291.456,99.110 L290.656,100.172 L287.800,100.172 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
-<text x="289.228" y="99.722" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K23</text>
+<path d="M264.100,56.500 L295.200,56.500" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M264.100,127.000 L295.200,127.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M294.000,56.500 L294.000,127.000" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M294.000,56.500 L294.360,58.500 L293.640,58.500 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M294.000,127.000 L293.640,125.000 L294.360,125.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="293.200" y="91.750" font-size="2.0" text-anchor="middle" fill="#b3001b" transform="rotate(-90 293.200 91.750)">47.00 ±0.10</text>
+<path d="M291.000,99.110 L291.800,98.047 L294.656,98.047 L295.456,99.110 L294.656,100.172 L291.800,100.172 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="293.228" y="99.722" font-size="1.7" text-anchor="middle" fill="#b3001b" font-weight="bold">K23</text>
 <path d="M42.700,99.400 L42.700,98.800" fill="none" stroke="#111111" stroke-width="0.13"/>
 <path d="M93.550,99.400 L93.550,98.800" fill="none" stroke="#111111" stroke-width="0.13"/>
 <path d="M42.700,100.000 L93.550,100.000" fill="none" stroke="#111111" stroke-width="0.18"/>

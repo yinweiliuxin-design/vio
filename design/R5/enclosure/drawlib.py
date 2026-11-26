@@ -193,7 +193,7 @@ class Page:
             tx = hi + 4 + tw / 2 if hi - lo < tw else (lo + hi) / 2
         self.label(tx, yline - 0.7, t, size, ctf=ctf, anchor="middle")
 
-    def dim_v(self, p1, p2, xline, t, ctf=None, size=2.2, ext=1.2):
+    def dim_v(self, p1, p2, xline, t, ctf=None, size=2.2, ext=1.2, lab_y=None):
         (x1, y1), (x2, y2) = p1, p2
         c = CTF_COLOR if ctf else INK
         for x, y in ((x1, y1), (x2, y2)):
@@ -212,7 +212,7 @@ class Page:
             self.line(xline, lo - 4, xline, hi + 4, 0.18, c)
             self.arrow(xline, lo, 90, 2.0, c)
             self.arrow(xline, hi, 270, 2.0, c)
-            self.label(xline + 1.5, hi + 6.5, t, size, ctf=ctf)
+            self.label(xline + 1.5, hi + 6.5 if lab_y is None else lab_y, t, size, ctf=ctf)
 
     def leader(self, p, tx, ty, t, ctf=None, size=2.2, dot=False):
         c = CTF_COLOR if ctf else INK
