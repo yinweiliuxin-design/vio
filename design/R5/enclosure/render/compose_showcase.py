@@ -5,7 +5,7 @@ Usage: python3 compose_showcase.py <photo.jpg> <top.png> <hero.png> <hero2.png> 
   top   : render.html view=top, pxmm=24 (head up, G-string edge on the right, transparent background)
   hero  : render.html view=hero, 2400 x 1500 (az -100, el 36): 3/4 view
   hero2 : render.html view=hero, 2400 x 1200 (az -62, el 9): low view along the back, shows what stands proud
-Outputs: r5-v02-on-violin-showcase.jpg (2560 x 1600) and r5-v02-on-violin-full.jpg (2000 x 2000).
+Outputs: r5-v03-on-violin-showcase.jpg (2560 x 1600) and r5-v03-on-violin-full.jpg (2000 x 2000).
 """
 import sys
 import numpy as np
@@ -65,7 +65,7 @@ def place(base, scale_px_mm, cx, cy, blur, grain):
 
 clean = paint_out_plate(photo)
 full = place(clean, PPX, CX, CY, 0.45, 1.8)
-full.save(f"{out_dir}/r5-v02-on-violin-full.jpg", quality=93)
+full.save(f"{out_dir}/r5-v03-on-violin-full.jpg", quality=93)
 
 # close-up: the photo region ×3 (soft), the module rendered at the same scale
 UP = 3
@@ -85,7 +85,7 @@ F = lambda s: ImageFont.truetype(FONT, s)
 f_title, f_sub, f_lab, f_small, f_tiny = F(46), F(24), F(27), F(21), F(19)
 
 d.text((40, 26), "SmartVio R5 · 装琴效果图", font=f_title, fill=INK)
-d.text((640, 44), "按外壳 V0.2 首样图（M-R5-00…06）的 3D 模型渲染，合成在实拍琴身上 · 模块齐平嵌入琴背中央梁，距琴尾 110–258 mm",
+d.text((640, 44), "按外壳 V0.3 首样图（M-R5-00…06）的 3D 模型渲染，合成在实拍琴身上 · 模块齐平嵌入琴背中央梁，距琴尾 110–258 mm",
        font=f_sub, fill=MUTED)
 
 PANEL_Y, PANEL_H = 110, 1450
@@ -126,7 +126,7 @@ callouts = [
     ((69.0, 40.0), "5 个按键", ["PWR · BT · MODE · FX · MIX；", "按键帽高出约 0.5 mm，方便盲摸"]),
     ((79.0, 24.5), "4 个 3.5 mm 插孔", ["PHONES 耳机 · AUX 伴奏 ·", "LINE 音箱 · SEND 干声"]),
     ((121.0, 34.0), "电池（面盖下）", ["约 1300 mAh；戴耳机练琴约 7–10 h"]),
-    ((142.0, 24.5), "USB-C", ["充电（约 445 mA）和固件升级"]),
+    ((142.0, 24.5), "USB-C", ["充电（约 445 mA）、固件升级和 USB 诊断"]),
 ]
 ty = PANEL_Y + 20
 for (X, y), title, lines in callouts:
@@ -173,9 +173,9 @@ for t in ["面盖 148 × 49 × 2 mm，哑光黑；首样 CNC POM-C",
     d.text((CX0, yy), t, font=f_small, fill=MUTED); yy += 32
 
 note = ["效果示意：模块按 3D 模型渲染，琴身为实拍照片，按 3.18 px/mm",
-        "等比合成。刻字是否填色、指示灯颜色和面盖材料以定稿为准；",
+        "等比合成。刻字填白；指示灯颜色和面盖量产材料以定稿为准；",
         "主板接口为建议值，待乙方确认。"]
 for i, t in enumerate(note):
     d.text((CX0, PANEL_Y + PANEL_H - 3 * 28 + i * 28), t, font=f_tiny, fill=(120, 126, 132))
-sheet.save(f"{out_dir}/r5-v02-on-violin-showcase.jpg", quality=92)
+sheet.save(f"{out_dir}/r5-v03-on-violin-showcase.jpg", quality=92)
 print("ok", sheet.size, "close-up", close.size, "panel B width", cl.size[0], "callout x", LX)

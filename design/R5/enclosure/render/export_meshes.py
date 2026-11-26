@@ -1,4 +1,4 @@
-"""Export the visible R5 enclosure V0.2 parts as triangle meshes for the photoreal renders.
+"""Export the visible R5 enclosure V0.3 parts as triangle meshes for the photoreal renders.
 
 Usage: python3 export_meshes.py <out.json>
 Geometry comes straight from build_enclosure.py (same parameters as drawings M-R5-00…06).

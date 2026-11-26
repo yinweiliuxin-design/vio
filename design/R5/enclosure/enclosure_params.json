@@ -332,6 +332,14 @@
  "BORE_D": 6.0,
  "BORE_FLAT": 4.5,
  "BORE_DEPTH": 5.0,
+ "KNOB_RIB_ANGLES": [
+  90,
+  180,
+  270
+ ],
+ "KNOB_RIB_W": 0.5,
+ "KNOB_RIB_H": 0.08,
+ "KNOB_RIB_Z0": 0.8,
  "CAP_STEM_D": 5.4,
  "CAP_TOP": 0.5,
  "CAP_FLANGE_D": 6.6,

@@ -80,7 +80,7 @@ https://claude.ai/artifact/2EZtohFJh3CxF7Cr1UukHt
 
 ## 外壳和 App 联调
 
-- `enclosure/`：外壳 V0.2 首样资料（3D、7 张工程图含琴体槽图和主板接口图、询价单、首件检验表、装配说明）
+- `enclosure/`：外壳 V0.3 首样资料（3D、7 张工程图含琴体槽图和主板接口图、询价单、首件检验表、装配说明）
 - `app-integration/`：App 与实体机蓝牙联调的可行性结论和 App 改动补丁
 
 ## 电子工程师评审稿

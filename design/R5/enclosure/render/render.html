@@ -3,7 +3,7 @@
 <script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/"}}</script>
 </head><body><canvas id="c"></canvas>
 <script type="module">
-// SmartVio R5 enclosure V0.2 — photoreal render from the CAD meshes (export_meshes.py).
+// SmartVio R5 enclosure V0.3 — photoreal render from the CAD meshes (export_meshes.py).
 // Model coordinates: X from the head end, Y = -y (y from the G-string edge), Z up, 0 = cover top / violin back.
 // view=top : orthographic, looking down, head at the top of the image, G-string edge on the right (as seen on the
 //            back of the violin); pxmm sets the scale. Transparent background + knob shadows for compositing.
@@ -44,7 +44,7 @@ const DS = THREE.DoubleSide;
 const mat = {
   pom: new THREE.MeshPhysicalMaterial({ color: 0x18181b, roughness: 0.62, metalness: 0, specularIntensity: 0.5, envMapIntensity: 0.6, side: DS }),
   knob: new THREE.MeshPhysicalMaterial({ color: 0x151518, roughness: 0.5, metalness: 0, specularIntensity: 0.6, envMapIntensity: 0.7, side: DS }),
-  engrave: new THREE.MeshStandardMaterial({ color: 0x3e3f45, roughness: 0.95, metalness: 0, side: DS }),
+  engrave: new THREE.MeshStandardMaterial({ color: 0xe9e9e4, roughness: 0.85, metalness: 0, side: DS }),   // V0.3: engraving filled white
   steel: new THREE.MeshStandardMaterial({ color: 0xc4c7ca, roughness: 0.3, metalness: 1, side: DS }),
   nickel: new THREE.MeshStandardMaterial({ color: 0xb9bbbd, roughness: 0.25, metalness: 1, side: DS }),
   zinc: new THREE.MeshStandardMaterial({ color: 0x8a8c8f, roughness: 0.4, metalness: 1, side: DS }),

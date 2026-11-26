@@ -1,4 +1,4 @@
-"""SmartVio R5 enclosure V0.2: cover, shell, knob, button cap, light pipe, the assembly and the violin pocket.
+"""SmartVio R5 enclosure V0.3: cover, shell, knob, button cap, light pipe, the assembly and the violin pocket.
 
 Run (CadQuery 2.x):   python3 build_enclosure.py [--no-render]
 Writes step/, stl/, preview/ and enclosure_params.json next to this script, and prints the interference report
@@ -116,6 +116,9 @@ SPK_Z = (-8.0, -2.5)                 # speaker body; front gasket -2.5..-2.0, re
 # small parts
 KNOB_D, KNOB_H, KNOB_LIFT = 13.0, 6.5, 0.5
 BORE_D, BORE_FLAT, BORE_DEPTH = 6.0, 4.5, 5.0
+# V0.3: 3 crush ribs on the round part of the D bore (90/180/270 deg; the flat is at 0 deg) so the
+# plastic knob keeps its grip on the metal shaft; 0.08 high = 0.16 diametral interference.
+KNOB_RIB_ANGLES, KNOB_RIB_W, KNOB_RIB_H, KNOB_RIB_Z0 = (90, 180, 270), 0.5, 0.08, 0.8
 CAP_STEM_D, CAP_TOP, CAP_FLANGE_D, CAP_FLANGE_T, CAP_PLUNGER_D, CAP_BOTTOM = 5.4, 0.5, 6.6, 0.8, 3.0, -6.9
 LP_D, LP_TOP, LP_FLANGE_D, LP_FLANGE_T, LP_BOTTOM = 3.0, 0.0, 4.0, 0.8, -10.9
 
@@ -284,7 +287,14 @@ def build_knob():
     bore = cq.Workplane("XY").workplane(offset=-0.5).circle(BORE_D / 2).extrude(BORE_DEPTH + 0.5)
     bore = bore.cut(cq.Workplane("XY").workplane(offset=-1).center(flat + BORE_D, 0)
                     .rect(2 * BORE_D, 2 * BORE_D).extrude(BORE_DEPTH + 2))
-    return k.cut(bore).val().clean()               # local: bottom at Z0, top at KNOB_H
+    k = k.cut(bore)
+    r_in = BORE_D / 2 - KNOB_RIB_H
+    for a in KNOB_RIB_ANGLES:                      # ribs run from the lead-in (Z0) to the bore bottom
+        rib = (cq.Workplane("XY").workplane(offset=KNOB_RIB_Z0).center(r_in + 0.15, 0)
+               .rect(0.3, KNOB_RIB_W).extrude(BORE_DEPTH - KNOB_RIB_Z0)
+               .rotate((0, 0, 0), (0, 0, 1), a))
+        k = k.union(rib)
+    return k.val().clean()                         # local: bottom at Z0, top at KNOB_H
 
 
 def build_cap():
@@ -568,7 +578,7 @@ def render_previews(P, outdir):
     M.render([(*m("cover", 0.02, 0.25), (0.30, 0.30, 0.32))] + [(*m(n), color_of(n)) for n in P if n.startswith(("knob", "cap", "lightpipe"))]
              + [(*m(n), color_of(n)) for n in P if n.startswith(("screw_ST", "pcba_top", "usb_rec"))],
              os.path.join(pd, "01_top.png"), "top", size=(1900, 780), ssaa=2, margin=40, edge_thr=0.12,
-             caption="R5 外壳 V0.2 · 顶视（琴头在左，G 弦侧在上）  148 × 49，旋钮高出 7 mm")
+             caption="R5 外壳 V0.3 · 顶视（琴头在左，G 弦侧在上）  148 × 49，旋钮高出 7 mm")
     print("  preview: installed 3/4")
     M.render([(*m("violin", 0.05, 0.4), color_of("violin"))] + [(*m(n), color_of(n)) for n in module if n.startswith(("cover", "knob", "cap", "lightpipe", "screw_ST", "pcba_top", "usb_rec"))],
              os.path.join(pd, "02_installed.png"), (-120.0, 35.0), size=(1900, 1100), ssaa=2, margin=40, edge_thr=0.3,

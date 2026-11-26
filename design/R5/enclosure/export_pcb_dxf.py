@@ -104,7 +104,7 @@ def main_board():
         text(msp, "LED%d" % i, X - 1.6, y - 1.6, 0.6)
     enclosure_ref(msp)
     notes = [
-        "R5 MAIN BOARD OUTLINE - enclosure V0.2 proposal, see drawing M-R5-06",
+        "R5 MAIN BOARD OUTLINE - enclosure V0.3 proposal, see drawing M-R5-06",
         "Units mm. Module coordinates: X from head end, y from G-string edge; DXF Y = -y. View from cover = board TOP side.",
         "Board %.1f x %.1f mm (X %.1f-%.1f, y %.1f-%.1f), thickness 1.0, top face at Z-12.00." % (x1 - x0, y1 - y0, x0, x1, y0, y1),
         "Holes M1-M4: D2.2 through (M2 self-tapping screw from board bottom into cover bosses).",
@@ -136,7 +136,7 @@ def usb_board():
     text(msp, "USB-C vertical, opening centre", X - 7, y + 6.5, 0.8)
     enclosure_ref(msp)
     notes = [
-        "R5 USB-C BOARD OUTLINE - enclosure V0.2 proposal, see drawing M-R5-06",
+        "R5 USB-C BOARD OUTLINE - enclosure V0.3 proposal, see drawing M-R5-06",
         "Units mm. Same coordinates as the main board DXF (DXF Y = -y). View from cover = board TOP side.",
         "Board %.1f x %.1f mm (X %.1f-%.1f, y %.1f-%.1f), thickness 1.0, top face at Z-9.60." % (x1 - x0, y1 - y0, x0, x1, y0, y1),
         "Holes N1-N2: D1.8 through (M1.6 screws into cover bosses). Top keepout D3.9.",

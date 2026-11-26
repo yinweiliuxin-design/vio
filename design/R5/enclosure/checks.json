@@ -1,6 +1,24 @@
 {
  "interference": [
   {
+   "a": "knob_VOL",
+   "b": "pcba_top_parts",
+   "volume": 0.3691,
+   "allowed": true
+  },
+  {
+   "a": "knob_TONE",
+   "b": "pcba_top_parts",
+   "volume": 0.3691,
+   "allowed": true
+  },
+  {
+   "a": "knob_FX",
+   "b": "pcba_top_parts",
+   "volume": 0.3691,
+   "allowed": true
+  },
+  {
    "a": "pcba_bottom_envelope",
    "b": "screw_M2x5_1",
    "volume": 12.5075,
