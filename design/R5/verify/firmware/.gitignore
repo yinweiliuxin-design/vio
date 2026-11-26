@@ -1,0 +1,6 @@
+/build/
+/build-es8388/
+/build-aic3204/
+/sdkconfig
+/sdkconfig.old
+/managed_components/

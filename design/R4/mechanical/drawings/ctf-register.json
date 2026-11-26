@@ -1,0 +1,586 @@
+{
+ "revision": "R4.1b",
+ "date": "2026-10-16",
+ "items": [
+  {
+   "id": "U1",
+   "part": "upper_cover",
+   "feature": "外形宽（中央梁 ≥49）",
+   "nominal": "49.00",
+   "tol": "0/−0.20",
+   "method": "卡尺",
+   "chain": "3",
+   "qty_per_part": 1
+  },
+  {
+   "id": "U2",
+   "part": "upper_cover",
+   "feature": "屋顶顶面 Z（至基准 A）",
+   "nominal": "3.80",
+   "tol": "±0.05",
+   "method": "高度规/CMM",
+   "chain": "1,2",
+   "qty_per_part": 1
+  },
+  {
+   "id": "U3",
+   "part": "upper_cover",
+   "feature": "按键沉槽顶面至承托面",
+   "nominal": "2.60",
+   "tol": "±0.03",
+   "method": "CMM",
+   "chain": "4",
+   "qty_per_part": 5
+  },
+  {
+   "id": "U4",
+   "part": "upper_cover",
+   "feature": "承托面/销台/背撑凸台面 Z",
+   "nominal": "0.50",
+   "tol": "±0.03，共面0.03",
+   "method": "CMM",
+   "chain": "4",
+   "qty_per_part": 9
+  },
+  {
+   "id": "U5",
+   "part": "upper_cover",
+   "feature": "按键孔 / 沉槽",
+   "nominal": "Ø5.20 / Ø6.50",
+   "tol": "+0.05/0",
+   "method": "塞规",
+   "chain": "4",
+   "qty_per_part": 5
+  },
+  {
+   "id": "U6",
+   "part": "upper_cover",
+   "feature": "插座压台面 Z",
+   "nominal": "1.455",
+   "tol": "±0.03",
+   "method": "CMM",
+   "chain": "1,6",
+   "qty_per_part": 4
+  },
+  {
+   "id": "U7",
+   "part": "upper_cover",
+   "feature": "压台面至刀片唇顶面",
+   "nominal": "12.605",
+   "tol": "±0.05",
+   "method": "CMM",
+   "chain": "6",
+   "qty_per_part": 4
+  },
+  {
+   "id": "U8",
+   "part": "upper_cover",
+   "feature": "USB 开口 / 面槽 / 槽底 Z",
+   "nominal": "9.39×3.61 / 13.0×7.4 / Z2.85",
+   "tol": "+0.05/0 ; +0.1/0 ; ±0.03",
+   "method": "塞规/影像/深度尺",
+   "chain": "7",
+   "qty_per_part": 1
+  },
+  {
+   "id": "U20",
+   "part": "upper_cover",
+   "feature": "USB 开口承力凸缘（R4.1b）",
+   "nominal": "壁0.60，Z1.80–2.50",
+   "tol": "±0.05",
+   "method": "影像/深度尺",
+   "chain": "7",
+   "qty_per_part": 1
+  },
+  {
+   "id": "U9",
+   "part": "upper_cover",
+   "feature": "USB 柱端面 Z",
+   "nominal": "−3.30",
+   "tol": "±0.03",
+   "method": "CMM",
+   "chain": "7",
+   "qty_per_part": 4
+  },
+  {
+   "id": "U10",
+   "part": "upper_cover",
+   "feature": "卡扣窗下沿 Z / 窗高",
+   "nominal": "−2.32 / 0.84",
+   "tol": "±0.03 / +0.03/0",
+   "method": "CMM",
+   "chain": "1,5",
+   "qty_per_part": 4
+  },
+  {
+   "id": "U11",
+   "part": "upper_cover",
+   "feature": "南北刀片外侧面间距",
+   "nominal": "43.00",
+   "tol": "±0.05",
+   "method": "CMM",
+   "chain": "5",
+   "qty_per_part": 2
+  },
+  {
+   "id": "U12",
+   "part": "upper_cover",
+   "feature": "螺钉孔/沉孔/沉孔底 Z",
+   "nominal": "Ø2.5 / Ø4.5 / Z1.70",
+   "tol": "+0.1/0 ; ±0.05",
+   "method": "塞规/深度尺",
+   "chain": "2",
+   "qty_per_part": 4
+  },
+  {
+   "id": "U13",
+   "part": "upper_cover",
+   "feature": "滚轮窗 / 拇指缺口底 Z",
+   "nominal": "Ø15.20 / Z1.50",
+   "tol": "±0.05",
+   "method": "塞规/深度尺",
+   "chain": "",
+   "qty_per_part": 3
+  },
+  {
+   "id": "U14",
+   "part": "upper_cover",
+   "feature": "扬声器腔顶 Z",
+   "nominal": "3.30",
+   "tol": "±0.05",
+   "method": "深度尺",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "U15",
+   "part": "upper_cover",
+   "feature": "定位销 Ø×长 / 位置",
+   "nominal": "Ø1.40×0.45",
+   "tol": "0/−0.03 ; 位置±0.03",
+   "method": "千分尺/CMM",
+   "chain": "",
+   "qty_per_part": 2
+  },
+  {
+   "id": "U16",
+   "part": "upper_cover",
+   "feature": "M1.6 自攻底孔",
+   "nominal": "Ø1.30",
+   "tol": "+0.05/0",
+   "method": "塞规",
+   "chain": "",
+   "qty_per_part": 5
+  },
+  {
+   "id": "U17",
+   "part": "upper_cover",
+   "feature": "雕刻字符深度",
+   "nominal": "0.15",
+   "tol": "±0.05",
+   "method": "深度尺/显微",
+   "chain": "",
+   "qty_per_part": 13
+  },
+  {
+   "id": "U18",
+   "part": "upper_cover",
+   "feature": "导光柱孔",
+   "nominal": "Ø1.50",
+   "tol": "+0.05/0",
+   "method": "塞规",
+   "chain": "",
+   "qty_per_part": 3
+  },
+  {
+   "id": "U19",
+   "part": "upper_cover",
+   "feature": "插座孔 Ø / 位置",
+   "nominal": "Ø6.60",
+   "tol": "±0.05",
+   "method": "塞规/CMM",
+   "chain": "",
+   "qty_per_part": 4
+  },
+  {
+   "id": "L1",
+   "part": "lower_cup",
+   "feature": "外形长×宽（原腔 78×47）",
+   "nominal": "77.00×45.00",
+   "tol": "±0.05",
+   "method": "卡尺/CMM",
+   "chain": "3",
+   "qty_per_part": 1
+  },
+  {
+   "id": "L2",
+   "part": "lower_cup",
+   "feature": "卡钩下面至杯外底",
+   "nominal": "18.50",
+   "tol": "±0.05",
+   "method": "高度规/CMM",
+   "chain": "1",
+   "qty_per_part": 4
+  },
+  {
+   "id": "L3",
+   "part": "lower_cup",
+   "feature": "卡钩高 / 凸出内壁",
+   "nominal": "0.80 / 0.55",
+   "tol": "0/−0.03 ; ±0.03",
+   "method": "CMM/影像",
+   "chain": "5",
+   "qty_per_part": 4
+  },
+  {
+   "id": "L4",
+   "part": "lower_cup",
+   "feature": "卡扣处内宽（Y）",
+   "nominal": "43.40",
+   "tol": "±0.05",
+   "method": "CMM",
+   "chain": "5",
+   "qty_per_part": 2
+  },
+  {
+   "id": "L5",
+   "part": "lower_cup",
+   "feature": "Y 定位筋高（4×，R4.1 新增）",
+   "nominal": "0.15",
+   "tol": "±0.02",
+   "method": "CMM/影像",
+   "chain": "5",
+   "qty_per_part": 4
+  },
+  {
+   "id": "L6",
+   "part": "lower_cup",
+   "feature": "主板托台面至杯外底",
+   "nominal": "8.25",
+   "tol": "±0.03",
+   "method": "CMM",
+   "chain": "8",
+   "qty_per_part": 6
+  },
+  {
+   "id": "L7",
+   "part": "lower_cup",
+   "feature": "侧向定位台内面间距",
+   "nominal": "74.70×42.70",
+   "tol": "±0.03",
+   "method": "CMM",
+   "chain": "8",
+   "qty_per_part": 1
+  },
+  {
+   "id": "L8",
+   "part": "lower_cup",
+   "feature": "底厚（R4.1b）/ 壁厚",
+   "nominal": "0.55 / 0.80",
+   "tol": "±0.05",
+   "method": "千分尺/超声",
+   "chain": "1,3Z",
+   "qty_per_part": 1
+  },
+  {
+   "id": "L9",
+   "part": "lower_cup",
+   "feature": "拾音入口槽 10×3 中心（TODO 实测后定位）",
+   "nominal": "局部 25.10, 2.60",
+   "tol": "±0.10；槽宽 +0.1/0",
+   "method": "CMM",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "L10",
+   "part": "lower_cup",
+   "feature": "主板卡齿下面至托台面 / 搭接",
+   "nominal": "0.80 / 0.45",
+   "tol": "±0.03 ; ±0.05",
+   "method": "CMM",
+   "chain": "8",
+   "qty_per_part": 4
+  },
+  {
+   "id": "L11",
+   "part": "lower_cup",
+   "feature": "电池仓（导向内面）",
+   "nominal": "52.25×35.00",
+   "tol": "+0.10/0",
+   "method": "卡尺",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "L12",
+   "part": "lower_cup",
+   "feature": "外竖角半径（原腔角 R≤3.0 才不干涉）",
+   "nominal": "R1.2",
+   "tol": "±0.2",
+   "method": "R 规",
+   "chain": "3",
+   "qty_per_part": 4
+  },
+  {
+   "id": "B1",
+   "part": "key_backer_bracket",
+   "feature": "上表面平面度（托控制板）",
+   "nominal": "—",
+   "tol": "0.03",
+   "method": "平台+塞尺",
+   "chain": "4",
+   "qty_per_part": 1
+  },
+  {
+   "id": "B2",
+   "part": "key_backer_bracket",
+   "feature": "螺钉孔 Ø / 孔距",
+   "nominal": "Ø1.80 / 13.00",
+   "tol": "+0.10/0 ; ±0.05",
+   "method": "塞规/CMM",
+   "chain": "",
+   "qty_per_part": 2
+  },
+  {
+   "id": "B3",
+   "part": "key_backer_bracket",
+   "feature": "托边上面至板顶面",
+   "nominal": "1.70",
+   "tol": "±0.05",
+   "method": "高度规",
+   "chain": "6",
+   "qty_per_part": 1
+  },
+  {
+   "id": "B4",
+   "part": "key_backer_bracket",
+   "feature": "板厚",
+   "nominal": "1.20",
+   "tol": "±0.05",
+   "method": "千分尺",
+   "chain": "4",
+   "qty_per_part": 1
+  },
+  {
+   "id": "S1",
+   "part": "usb_bracket",
+   "feature": "板厚（西轨下 USB16 FPC 净空）",
+   "nominal": "0.60",
+   "tol": "±0.03",
+   "method": "千分尺",
+   "chain": "7",
+   "qty_per_part": 1
+  },
+  {
+   "id": "S2",
+   "part": "usb_bracket",
+   "feature": "螺钉孔 Ø / 位置",
+   "nominal": "Ø1.80",
+   "tol": "+0.10/0 ; ±0.05",
+   "method": "塞规/CMM",
+   "chain": "7",
+   "qty_per_part": 3
+  },
+  {
+   "id": "S3",
+   "part": "usb_bracket",
+   "feature": "窗口（ZIF 包络净空 0.2）",
+   "nominal": "19.60×20.20",
+   "tol": "+0.10/0",
+   "method": "影像",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "S4",
+   "part": "usb_bracket",
+   "feature": "平面度",
+   "nominal": "—",
+   "tol": "0.05",
+   "method": "平台+塞尺",
+   "chain": "7",
+   "qty_per_part": 1
+  },
+  {
+   "id": "F1",
+   "part": "audio_load_frame",
+   "feature": "底网厚（选配 0.40/0.50/0.60）",
+   "nominal": "0.50",
+   "tol": "±0.02",
+   "method": "千分尺",
+   "chain": "6",
+   "qty_per_part": 1
+  },
+  {
+   "id": "F2",
+   "part": "audio_load_frame",
+   "feature": "底面平面度",
+   "nominal": "—",
+   "tol": "0.05",
+   "method": "平台+塞尺",
+   "chain": "6",
+   "qty_per_part": 1
+  },
+  {
+   "id": "F3",
+   "part": "audio_load_frame",
+   "feature": "北挂钩下面至底面",
+   "nominal": "9.55",
+   "tol": "±0.05",
+   "method": "高度规",
+   "chain": "6",
+   "qty_per_part": 1
+  },
+  {
+   "id": "F4",
+   "part": "audio_load_frame",
+   "feature": "USB 挂舌下面至底面",
+   "nominal": "6.85",
+   "tol": "±0.05",
+   "method": "高度规",
+   "chain": "6",
+   "qty_per_part": 1
+  },
+  {
+   "id": "F5",
+   "part": "audio_load_frame",
+   "feature": "外形（南边与刀片唇搭接 0.35）",
+   "nominal": "75.00×16.00",
+   "tol": "±0.05",
+   "method": "卡尺",
+   "chain": "6",
+   "qty_per_part": 1
+  },
+  {
+   "id": "K1",
+   "part": "button",
+   "feature": "键杆 Ø（配 Ø5.20 孔）",
+   "nominal": "Ø5.00",
+   "tol": "0/−0.05",
+   "method": "千分尺",
+   "chain": "4",
+   "qty_per_part": 1
+  },
+  {
+   "id": "K2",
+   "part": "button",
+   "feature": "法兰 Ø（止退搭接 0.50）",
+   "nominal": "Ø6.20",
+   "tol": "±0.03",
+   "method": "千分尺",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "K3",
+   "part": "button",
+   "feature": "法兰顶面至触头端（按实测修整）",
+   "nominal": "0.90",
+   "tol": "±0.03（修整后 ±0.02）",
+   "method": "高度规",
+   "chain": "4",
+   "qty_per_part": 1
+  },
+  {
+   "id": "K4",
+   "part": "button",
+   "feature": "键杆高（凸出屋顶 0.05）",
+   "nominal": "0.75",
+   "tol": "±0.02",
+   "method": "高度规",
+   "chain": "2",
+   "qty_per_part": 1
+  },
+  {
+   "id": "P1",
+   "part": "lightpipe",
+   "feature": "柱体 Ø（配 Ø1.50 孔）",
+   "nominal": "Ø1.40",
+   "tol": "0/−0.03",
+   "method": "千分尺",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "P2",
+   "part": "lightpipe",
+   "feature": "法兰顶面至出光面（与屋顶平）",
+   "nominal": "1.30",
+   "tol": "±0.03",
+   "method": "高度规",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "P3",
+   "part": "lightpipe",
+   "feature": "总长（入光面离 LED 0.1）",
+   "nominal": "2.35",
+   "tol": "±0.05",
+   "method": "高度规",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "P4",
+   "part": "lightpipe",
+   "feature": "入/出光面",
+   "nominal": "光学抛光；出光面可细雾化",
+   "tol": "无划伤",
+   "method": "目视 10×",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "I1",
+   "part": "films",
+   "feature": "绝缘片总厚（含胶；电池底片 0.050±0.005）",
+   "nominal": "0.100",
+   "tol": "±0.010",
+   "method": "千分尺",
+   "chain": "1,4,8",
+   "qty_per_part": 1
+  },
+  {
+   "id": "I2",
+   "part": "films",
+   "feature": "外形（模切）",
+   "nominal": "按表",
+   "tol": "±0.15",
+   "method": "卡尺/影像",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "I3",
+   "part": "main_shim",
+   "feature": "垫片厚度 0.05/0.10/0.20",
+   "nominal": "按名",
+   "tol": "±0.005/±0.01/±0.01",
+   "method": "千分尺",
+   "chain": "8",
+   "qty_per_part": 1
+  },
+  {
+   "id": "Q1",
+   "part": "battery_top_foam",
+   "feature": "自由厚度",
+   "nominal": "1.00",
+   "tol": "±0.10",
+   "method": "测厚规（低压）",
+   "chain": "",
+   "qty_per_part": 1
+  },
+  {
+   "id": "Q2",
+   "part": "battery_top_foam",
+   "feature": "外形与 2 个窗口",
+   "nominal": "48.0×30.8；窗 44.0×6.4",
+   "tol": "±0.20",
+   "method": "卡尺",
+   "chain": "",
+   "qty_per_part": 1
+  }
+ ]
+}

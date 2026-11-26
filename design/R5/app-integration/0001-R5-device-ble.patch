@@ -1,0 +1,702 @@
+From a9ebd237115a90c11950c3390ae4a71a9dad9fed Mon Sep 17 00:00:00 2001
+From: Claude <noreply@anthropic.com>
+Date: Tue, 3 Nov 2026 12:21:38 +0000
+Subject: [PATCH] =?UTF-8?q?R5=20=E8=AE=BE=E5=A4=87=E8=93=9D=E7=89=99?=
+ =?UTF-8?q?=E8=81=94=E8=B0=83=EF=BC=9A=E8=BF=9E=E6=8E=A5=E6=A8=A1=E5=9D=97?=
+ =?UTF-8?q?=E3=80=81=E8=81=94=E8=B0=83=E9=A1=B5=E3=80=81=E6=B5=8B=E8=AF=95?=
+ =?UTF-8?q?=E5=92=8C=E5=8F=AF=E8=A1=8C=E6=80=A7=E8=AF=B4=E6=98=8E?=
+MIME-Version: 1.0
+Content-Type: text/plain; charset=UTF-8
+Content-Transfer-Encoding: 8bit
+
+- dist/r5-device.js：按 R5 台架固件 GATT（电池 0x180F、R5 服务 5a0e5000）连接、读写、通知和往返时间；GATT 操作串行；支持注入原生通道 SilvioNativeBle
+- dist/r5-device.html + r5-device-page.js：独立联调页，环境检查、手动控制、19 项自动联调、导出记录
+- tests/r5-device.test.mjs：12 项，用模拟设备复现固件规则
+- docs/R5-设备联调与可行性.md：结论（Chrome 可行，App 外壳需原生桥接，iOS 需原生 App）、协议草案、真机步骤
+
+全仓库测试 721/721 通过，build-worker 构建正常。
+
+Co-Authored-By: Claude Opus 5.5 <noreply@anthropic.com>
+Claude-Session: https://claude.ai/code/session_019JHU7jmPsMd8ijmcXC13ah
+---
+ ...16\345\217\257\350\241\214\346\200\247.md" |  98 +++++++++
+ web-source/dist/r5-device-page.js             | 104 ++++++++++
+ web-source/dist/r5-device.html                |  79 +++++++
+ web-source/dist/r5-device.js                  | 195 ++++++++++++++++++
+ web-source/tests/r5-device.test.mjs           | 160 ++++++++++++++
+ 5 files changed, 636 insertions(+)
+ create mode 100644 "docs/R5-\350\256\276\345\244\207\350\201\224\350\260\203\344\270\216\345\217\257\350\241\214\346\200\247.md"
+ create mode 100644 web-source/dist/r5-device-page.js
+ create mode 100644 web-source/dist/r5-device.html
+ create mode 100644 web-source/dist/r5-device.js
+ create mode 100644 web-source/tests/r5-device.test.mjs
+
+diff --git "a/docs/R5-\350\256\276\345\244\207\350\201\224\350\260\203\344\270\216\345\217\257\350\241\214\346\200\247.md" "b/docs/R5-\350\256\276\345\244\207\350\201\224\350\260\203\344\270\216\345\217\257\350\241\214\346\200\247.md"
+new file mode 100644
+index 0000000..6035e2c
+--- /dev/null
++++ "b/docs/R5-\350\256\276\345\244\207\350\201\224\350\260\203\344\270\216\345\217\257\350\241\214\346\200\247.md"
+@@ -0,0 +1,98 @@
++# R5 实体机与 App 联调：可行性验证
++
++日期：2026-11-03。对象：Silvio App（本仓库 V29）与 SmartVio R5 实体机之间的蓝牙控制。
++
++## 结论
++
++| 运行方式 | 能否控制 R5 | 说明 |
++|---|---|---|
++| 安卓手机 Chrome 打开网页版 | **可行** | Chrome 支持网页蓝牙。已按 R5 台架固件的蓝牙协议实现并通过仿真验证，待开发板实测 |
++| 电脑 Chrome / Edge（Windows、macOS） | 可行 | 同上，适合开发方联调 |
++| 安卓 App 外壳（`android-source`，WebView） | **目前不行** | Android WebView 不提供网页蓝牙，外壳也没有原生蓝牙桥接（见 `android-source/README.md`）。要补一个原生桥接，见下文 |
++| iPhone（Safari 或任何 iOS 浏览器） | 不行 | iOS 不支持网页蓝牙，需要原生 App。按确认方案，首发只做安卓 |
++
++## 新增文件
++
++| 文件 | 作用 |
++|---|---|
++| `web-source/dist/r5-device.js` | R5 设备连接模块（`window.SVR5Device`）：协议编解码、连接、读写、通知、往返时间；GATT 操作串行，避免 Chrome 报“操作进行中” |
++| `web-source/dist/r5-device.html`、`r5-device-page.js` | 设备联调页：环境检查、连接、输出切换、四个参数滑条、自动联调（19 项）和导出联调记录 |
++| `web-source/tests/r5-device.test.mjs` | 12 项单元测试，用模拟设备复现台架固件的规则 |
++
++联调页随网页一起发布，地址为站点根目录下的 `/r5-device.html`。它是独立页面，没有接入 App 主导航，不影响现有功能。
++
++## 协议（草案 v0.1，取自 R5 台架固件 `main/ble.c`）
++
++| 服务 / 特征 | UUID | 属性 | 格式 |
++|---|---|---|---|
++| 电池服务 / 电量 | `0x180F` / `0x2A19` | 读、通知 | 1 字节，0–100 |
++| R5 服务 | `5a0e5000-7e4b-4c1e-9c2a-52355f425231` | | |
++| 输出模式 | `5a0e5001-…` | 读、写、通知 | 1 字节：0 耳机，1 外放，2 蓝牙耳机，3 外放 + 蓝牙 |
++| 参数 | `5a0e5002-…` | 读、写、通知 | 4 字节，各 0–100：音量、音色、效果、伴奏比例 |
++
++设备广播名以 `SmartVio-R5` 开头；广播里只带电池服务，所以连接时 R5 服务要放在 `optionalServices` 里。固件在任一项改变后约 50 ms 把输出和参数两项一起回传。
++
++正式产品还需要的内容（由电子厂在阶段 3 中期的 BLE 接口文档里定义，App 再对齐）：
++- 输出模式加“线路（LINE）”；
++- 充电状态和低电提醒；
++- 固件版本（建议用标准设备信息服务 `0x180A`）和故障代码；
++- 调音器读数（音名和音分偏差）的通知；
++- 最大音量限制的开关。
++
++## 已经验证的（没有实物）
++
++- 单元测试 12 项全部通过：
++  - UUID 和数据格式与固件一致；
++  - 连接流程、写入和回传；
++  - 连续拖动时不会出现重叠的蓝牙操作，最后一次的值生效；
++  - 旋钮和电量的变化会实时传到 App；
++  - 非法值在发出前就被拦下；
++  - 设备断开时有提示；
++  - 没有 R5 服务的设备会被拒绝；
++  - 能识别 WebView 和 iPhone 环境，并给出明确提示；
++  - 支持接入原生蓝牙通道；
++  - 固件的“两项一起回传”不会被误算成本次写入的回传。
++- 联调页在无头 Chromium 中连接模拟设备：自动联调 19 / 19 通过，页面没有脚本错误；模拟 WebView 时正确提示“外壳不支持网页蓝牙”。
++- 全仓库测试 721 / 721 通过，`build-worker` 构建正常（152 个静态资源）。
++
++模拟设备不能代表真实的无线环境。真实的连接速度、往返时间、断线重连，要用下面的开发板实测。
++
++## 真机联调步骤（约 30 分钟）
++
++需要：
++- ESP32-S3-DevKitC-1 开发板一块（N8R8 或 N16R8，约 50 元），USB 数据线；
++- 安卓手机，装好 Chrome；
++- R5 台架验证固件：smartviolin 仓库 `05-固件代码/R5-ESP32-S3台架验证固件/build-out/`。不接编解码器也能运行蓝牙。
++
++步骤：
++1. 按固件 `README.md` 用 esptool 把 `build-out/es8388` 烧进开发板。串口控制台能看到 `ready`，`ble` 命令显示正在广播。
++2. 手机 Chrome 打开已发布站点的 `/r5-device.html`。必须是 HTTPS。
++3. 点“搜索并连接”，选 `SmartVio-R5-bench`。电量应显示 87 %，这是台架固件的假数据。
++4. 点“开始自动联调”，19 项应全部通过；往返时间平均应在 200 ms 以内。
++5. 在电脑串口控制台输入 `vol 40`、`out spk`，页面上的数值应在 1 秒内跟着变。
++6. 点“复制联调记录”，把记录发给开发方存档。
++
++开发方也可以在电脑上做：运行本仓库的一键预览，用 Chrome 打开 `http://127.0.0.1:18912/r5-device.html`，前提是电脑有蓝牙。
++
++## 安卓 App 外壳需要补的原生蓝牙桥接
++
++`r5-device.js` 已经支持注入原生通道：如果页面里有 `window.SilvioNativeBle`，就优先用它。外壳需要补这些：
++
++1. **原生蓝牙类**：用 `BluetoothLeScanner` 按名称前缀 `SmartVio-R5` 扫描，用 `BluetoothGatt` 连接、发现服务、读写特征、打开通知。
++2. **JavaScript 桥**：沿用现有导出桥（`bridge.js`）的 `WebMessagePort` 做法，在页面里提供 `window.SilvioNativeBle.requestDevice()`。返回的对象要和网页蓝牙接口一致，包括 `gatt.connect`、`getPrimaryService`、`getCharacteristic`、`readValue`、`writeValueWithResponse`、`startNotifications`，以及 `characteristicvaluechanged` 和 `gattserverdisconnected` 事件。
++3. **权限**：
++   - Android 12 及以上：`BLUETOOTH_SCAN`（加 `neverForLocation`）和 `BLUETOOTH_CONNECT`；
++   - Android 11 及以下：`ACCESS_FINE_LOCATION`；
++   - 运行时弹窗申请。
++4. **安全**：
++   - 只允许受信任的 App 页面调用；
++   - 只能连接 R5 服务；
++   - 写入长度和取值按协议校验。
++
++估计 3–5 个工作日，加上 iQOO 11 真机测试。
++
++## 下一步
++
++1. 用开发板按上面的步骤做真机联调。
++2. 电子厂在阶段 3 中期给出正式 BLE 接口文档后，App 按文档补齐线路模式、充电状态、版本、故障和调音器，再接入 App 主界面。
++3. 决定安卓 App 外壳是否在首发时就提供设备控制。如果要，就做上面的原生桥接。
+diff --git a/web-source/dist/r5-device-page.js b/web-source/dist/r5-device-page.js
+new file mode 100644
+index 0000000..0b7f546
+--- /dev/null
++++ b/web-source/dist/r5-device-page.js
+@@ -0,0 +1,104 @@
++/* R5 device bring-up page: manual controls plus a scripted round-trip check. */
++(function(){
++  'use strict';
++  const R5=window.SVR5Device,$=id=>document.getElementById(id);
++  const env=R5.detectEnvironment(window);
++  const client=R5.createClient(window);
++  const LABELS={vol:'音量',tone:'音色',fx:'效果',mix:'伴奏比例'};
++  const record={page:'r5-device',startedAt:new Date().toISOString(),userAgent:navigator.userAgent,environment:env,device:null,results:[],roundTrips:[]};
++  const sliders={};let sending=null,running=false;
++
++  function log(text){const line=new Date().toLocaleTimeString()+'  '+text;$('log').textContent=line+'\n'+$('log').textContent;}
++  function mark(ok){return '<span class="'+(ok?'ok':'no')+'">'+(ok?'是':'否')+'</span>';}
++  $('env').innerHTML=[
++    ['安全连接（HTTPS 或本机）',mark(env.secureContext)],
++    ['浏览器支持网页蓝牙',mark(env.webBluetooth||env.nativeTransport)],
++    ['在 App 外壳（Android WebView）里',env.androidWebView?'<span class="no">是：外壳暂不支持蓝牙，请改用 Chrome</span>':'否'],
++    ['iPhone',env.iOS?'<span class="no">是：网页蓝牙不可用，需要原生 App</span>':'否']
++  ].map(([k,v])=>'<div class="row"><span>'+k+'</span><span>'+v+'</span></div>').join('');
++
++  for(const mode of R5.OUTPUT_MODES){
++    const b=document.createElement('button');b.textContent=mode.label;b.dataset.code=mode.code;b.disabled=true;b.setAttribute('aria-pressed','false');
++    b.addEventListener('click',()=>act(()=>client.setOutput(mode.code),'输出切到'+mode.label));
++    $('outputs').appendChild(b);
++  }
++  for(const key of R5.PARAM_KEYS){
++    const label=document.createElement('label');label.className='slider';
++    label.innerHTML='<span>'+LABELS[key]+'</span><input type="range" min="0" max="100" step="1" disabled><output>—</output>';
++    const input=label.querySelector('input'),out=label.querySelector('output');
++    input.addEventListener('input',()=>{out.textContent=input.value;queueParam(key,Number(input.value));});
++    sliders[key]={input,out};$('sliders').appendChild(label);
++  }
++  /* Coalesce slider drags: at most one write in flight, the latest value always sent. */
++  function queueParam(key,value){
++    const pending=sending||(sending={values:{},promise:null});pending.values[key]=value;
++    if(pending.promise)return;
++    pending.promise=(async()=>{
++      while(Object.keys(pending.values).length){const values=pending.values;pending.values={};
++        try{await client.setParams(values);}catch(e){log('写入失败：'+e.message);}}
++      sending=null;
++    })();
++  }
++  async function act(fn,what){try{await fn();log(what);}catch(e){log(what+' 失败：'+e.message);}}
++
++  function render(state){
++    $('name').textContent=state.connected?(state.deviceName||'已连接'):'未连接';
++    $('battery').textContent=state.battery==null?'—':state.battery+' %';
++    $('rtt').textContent=state.lastRoundTripMs==null?'—':state.lastRoundTripMs+' ms';
++    for(const b of $('outputs').children){b.disabled=!state.connected||running;b.setAttribute('aria-pressed',String(Number(b.dataset.code)===state.output));}
++    for(const key of R5.PARAM_KEYS){const s=sliders[key];s.input.disabled=!state.connected||running;
++      if(state.params&&document.activeElement!==s.input){s.input.value=state.params[key];s.out.textContent=state.params[key];}}
++    $('connect').disabled=state.connected;$('disconnect').disabled=!state.connected;$('refresh').disabled=!state.connected||running;
++    $('run').disabled=!state.connected||running;
++  }
++  client.subscribe((type,state)=>{
++    render(state);
++    if(type==='disconnected')log('设备已断开');
++    if(type==='roundtrip'&&running)record.roundTrips.push(state.lastRoundTripMs);
++  });
++  render(client.getState());
++
++  $('connect').addEventListener('click',async()=>{
++    try{const s=await client.connect();record.device=s.deviceName;log('已连接 '+(s.deviceName||''));render(s);}
++    catch(e){log('连接失败：'+e.message);}
++  });
++  $('disconnect').addEventListener('click',()=>client.disconnect());
++  $('refresh').addEventListener('click',()=>act(()=>client.refresh(),'重新读取'));
++
++  const wait=ms=>new Promise(r=>setTimeout(r,ms));
++  async function waitFor(check,timeout){const end=Date.now()+timeout;while(Date.now()<end){if(check(client.getState()))return true;await wait(20);}return false;}
++  function addResult(name,ok,detail){
++    record.results.push({name,ok,detail});
++    const row=document.createElement('tr');row.innerHTML='<td>'+name+'</td><td>'+(ok?'<span class="ok">通过</span>':'<span class="no">不通过</span>')+'</td><td>'+(detail||'')+'</td>';
++    $('results').appendChild(row);
++  }
++  async function step(name,fn,check,timeout=1500){
++    let echoed=false;const off=client.subscribe((type,s)=>{if(type==='roundtrip'&&check(s))echoed=true;});
++    const t0=performance.now();
++    try{await fn();}catch(e){off();addResult(name,false,e.message);return;}
++    const ok=await waitFor(()=>echoed,timeout);off();
++    addResult(name,ok,ok?Math.round(performance.now()-t0)+' ms':'超过 '+timeout+' ms 没收到设备回传');
++  }
++  $('run').addEventListener('click',async()=>{
++    running=true;$('results').innerHTML='';record.results=[];record.roundTrips=[];render(client.getState());
++    const original=client.getState();
++    for(const mode of R5.OUTPUT_MODES)await step('输出切到'+mode.label,()=>client.setOutput(mode.code),s=>s.output===mode.code);
++    for(const key of R5.PARAM_KEYS)for(const v of [0,100,50])await step(LABELS[key]+' = '+v,()=>client.setParams({[key]:v}),s=>s.params?.[key]===v);
++    const burstStart=performance.now();
++    await Promise.all([10,20,30,40,50,60,70,80,90].map(v=>client.setParams({vol:v})));
++    const burstOk=await waitFor(s=>s.params?.vol===90,1500);
++    addResult('连续拖动 9 次，最后一次生效',burstOk,Math.round(performance.now()-burstStart)+' ms');
++    try{await client.setOutput(original.output);await client.setParams(original.params);addResult('恢复原来的设置',true,'');}
++    catch(e){addResult('恢复原来的设置',false,e.message);}
++    const rt=record.roundTrips;
++    if(rt.length){const avg=Math.round(rt.reduce((a,b)=>a+b,0)/rt.length);addResult('往返时间统计',Math.max(...rt)<=1000,'平均 '+avg+' ms，最大 '+Math.max(...rt)+' ms（含固件 50 ms 合并通知）');}
++    record.finishedAt=new Date().toISOString();
++    running=false;render(client.getState());$('copy').disabled=false;
++    log('自动联调结束：'+record.results.filter(r=>r.ok).length+' / '+record.results.length+' 项通过');
++  });
++  $('copy').addEventListener('click',async()=>{
++    const text=JSON.stringify(record,null,2);
++    try{await navigator.clipboard.writeText(text);log('联调记录已复制，可粘贴发给开发方');}
++    catch(_){log('无法写入剪贴板，记录如下：\n'+text);}
++  });
++})();
+diff --git a/web-source/dist/r5-device.html b/web-source/dist/r5-device.html
+new file mode 100644
+index 0000000..776fa47
+--- /dev/null
++++ b/web-source/dist/r5-device.html
+@@ -0,0 +1,79 @@
++<!doctype html>
++<html lang="zh-CN">
++<head>
++<meta charset="utf-8">
++<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
++<meta name="theme-color" content="#f7f7f9">
++<title>R5 设备联调</title>
++<link rel="icon" href="favicon.svg">
++<style>
++  :root{--bg:#f7f7f9;--card:#fff;--ink:#1d1d1f;--quiet:#6e6e73;--line:#e3e3e8;--accent:#c8102e;--good:#1a7f37;--bad:#b42318}
++  *{box-sizing:border-box}
++  body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"PingFang SC","Microsoft YaHei",sans-serif}
++  main{max-width:560px;margin:0 auto;padding:16px 16px calc(32px + env(safe-area-inset-bottom))}
++  h1{font-size:22px;margin:8px 0 4px}
++  .sub{color:var(--quiet);margin:0 0 16px;font-size:13px}
++  section{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:14px 16px;margin:0 0 12px}
++  h2{font-size:15px;margin:0 0 10px}
++  .row{display:flex;justify-content:space-between;gap:12px;padding:4px 0;font-size:14px}
++  .row span:first-child{color:var(--quiet)}
++  .ok{color:var(--good)}.no{color:var(--bad)}
++  button{font:inherit;min-height:44px;border-radius:10px;border:1px solid var(--line);background:#fff;padding:0 14px;cursor:pointer}
++  button.primary{background:var(--accent);border-color:var(--accent);color:#fff}
++  button[aria-pressed="true"]{border-color:var(--accent);color:var(--accent);font-weight:600}
++  button:disabled{opacity:.45;cursor:not-allowed}
++  .buttons{display:flex;flex-wrap:wrap;gap:8px}
++  label.slider{display:grid;grid-template-columns:5em 1fr 3em;align-items:center;gap:8px;margin:6px 0;font-size:14px}
++  input[type=range]{width:100%;accent-color:var(--accent)}
++  output{text-align:right;font-variant-numeric:tabular-nums}
++  #log{font:12px/1.5 ui-monospace,Menlo,Consolas,monospace;white-space:pre-wrap;max-height:220px;overflow:auto;background:#fafafa;border-radius:8px;padding:8px;margin:0}
++  table{width:100%;border-collapse:collapse;font-size:13px}
++  td{border-top:1px solid var(--line);padding:6px 4px;vertical-align:top}
++  td:nth-child(2){white-space:nowrap}
++  .note{font-size:13px;color:var(--quiet);margin:8px 0 0}
++</style>
++</head>
++<body>
++<main>
++  <h1>R5 设备联调</h1>
++  <p class="sub">用来验证 Silvio App 和 R5 实体机（或刷了台架固件的 ESP32-S3 开发板）之间的蓝牙控制。请用安卓手机的 Chrome 打开。</p>
++
++  <section aria-labelledby="env-h">
++    <h2 id="env-h">1 环境检查</h2>
++    <div id="env"></div>
++  </section>
++
++  <section aria-labelledby="dev-h">
++    <h2 id="dev-h">2 连接设备</h2>
++    <div class="buttons"><button id="connect" class="primary">搜索并连接</button><button id="disconnect" disabled>断开</button><button id="refresh" disabled>重新读取</button></div>
++    <div class="row"><span>设备</span><span id="name">未连接</span></div>
++    <div class="row"><span>电量</span><span id="battery">—</span></div>
++    <div class="row"><span>最近往返时间</span><span id="rtt">—</span></div>
++  </section>
++
++  <section aria-labelledby="out-h">
++    <h2 id="out-h">3 输出切换</h2>
++    <div class="buttons" id="outputs"></div>
++  </section>
++
++  <section aria-labelledby="par-h">
++    <h2 id="par-h">4 参数</h2>
++    <div id="sliders"></div>
++    <p class="note">在实体机上转旋钮或在台架控制台输入 <code>vol 40</code>，这里的数值应在 1 秒内跟着变。</p>
++  </section>
++
++  <section aria-labelledby="auto-h">
++    <h2 id="auto-h">5 自动联调</h2>
++    <div class="buttons"><button id="run" disabled>开始自动联调</button><button id="copy" disabled>复制联调记录</button></div>
++    <table id="results" aria-live="polite"></table>
++  </section>
++
++  <section aria-labelledby="log-h">
++    <h2 id="log-h">日志</h2>
++    <pre id="log"></pre>
++  </section>
++</main>
++<script src="r5-device.js"></script>
++<script src="r5-device-page.js"></script>
++</body>
++</html>
+diff --git a/web-source/dist/r5-device.js b/web-source/dist/r5-device.js
+new file mode 100644
+index 0000000..c6b86ff
+--- /dev/null
++++ b/web-source/dist/r5-device.js
+@@ -0,0 +1,195 @@
++/* SmartVio R5 control link over BLE (Web Bluetooth or an injected native transport).
++ * Protocol = R5 bench firmware GATT (vio/design/R5/verify/firmware/main/ble.c, draft v0.1):
++ *   Battery Service 0x180F / Battery Level 0x2A19   read, notify   uint8 0..100
++ *   R5 service 5a0e5000-7e4b-4c1e-9c2a-52355f425231
++ *     5a0e5001 output mode  read, write, notify  uint8: 0 hp, 1 spk, 2 bt, 3 spk+bt
++ *     5a0e5002 parameters   read, write, notify  4 x uint8 0..100: vol, tone, fx, mix
++ * Events passed to subscribe(): connected, disconnected, written (local write accepted),
++ * output / params / battery (device notification), roundtrip (echo of our own write), error.
++ * The bench firmware advertises as "SmartVio-R5-bench" and only lists 0x180F, so the
++ * R5 service must be requested through optionalServices. */
++(function(root,factory){
++  'use strict';
++  const api=factory();
++  if(typeof module==='object'&&module.exports)module.exports=api;
++  else root.SVR5Device=api;
++})(typeof globalThis==='object'?globalThis:this,function(){
++  'use strict';
++  const R5_SERVICE='5a0e5000-7e4b-4c1e-9c2a-52355f425231';
++  const R5_OUTPUT='5a0e5001-7e4b-4c1e-9c2a-52355f425231';
++  const R5_PARAMS='5a0e5002-7e4b-4c1e-9c2a-52355f425231';
++  const BATTERY_SERVICE=0x180f,BATTERY_LEVEL=0x2a19;
++  const NAME_PREFIX='SmartVio-R5';
++  const OUTPUT_MODES=Object.freeze([
++    Object.freeze({code:0,key:'hp',label:'耳机'}),
++    Object.freeze({code:1,key:'spk',label:'外放'}),
++    Object.freeze({code:2,key:'bt',label:'蓝牙耳机'}),
++    Object.freeze({code:3,key:'spk+bt',label:'外放 + 蓝牙'})
++  ]);
++  const PARAM_KEYS=Object.freeze(['vol','tone','fx','mix']);
++
++  class R5DeviceError extends Error{
++    constructor(code,message,cause){super(message);this.name='R5DeviceError';this.code=code;this.causeName=cause?.name||null;}
++  }
++  const fail=(code,message,cause)=>new R5DeviceError(code,message,cause);
++
++  function bytesOf(value){
++    if(value instanceof Uint8Array)return value;
++    if(value&&value.buffer instanceof ArrayBuffer)return new Uint8Array(value.buffer,value.byteOffset||0,value.byteLength);
++    if(value instanceof ArrayBuffer)return new Uint8Array(value);
++    throw fail('INVALID_RESPONSE','设备返回的数据格式无法识别');
++  }
++  function decodeBattery(value){
++    const b=bytesOf(value);
++    if(b.length!==1||b[0]>100)throw fail('INVALID_RESPONSE','电量数据应为 1 字节 0–100');
++    return b[0];
++  }
++  function decodeOutput(value){
++    const b=bytesOf(value);
++    if(b.length!==1)throw fail('INVALID_RESPONSE','输出模式数据应为 1 字节');
++    const mode=OUTPUT_MODES.find(m=>m.code===b[0]);
++    if(!mode)throw fail('INVALID_RESPONSE','未知的输出模式编码：'+b[0]);
++    return mode.code;
++  }
++  function encodeOutput(code){
++    if(!OUTPUT_MODES.some(m=>m.code===code))throw fail('INVALID_VALUE','输出模式只能是 0–3');
++    return Uint8Array.of(code);
++  }
++  function decodeParams(value){
++    const b=bytesOf(value);
++    if(b.length!==4)throw fail('INVALID_RESPONSE','参数数据应为 4 字节');
++    for(const v of b)if(v>100)throw fail('INVALID_RESPONSE','参数超出 0–100');
++    return {vol:b[0],tone:b[1],fx:b[2],mix:b[3]};
++  }
++  function encodeParams(params){
++    const out=new Uint8Array(4);
++    PARAM_KEYS.forEach((key,i)=>{
++      const v=params?.[key];
++      if(!Number.isInteger(v)||v<0||v>100)throw fail('INVALID_VALUE','参数 '+key+' 必须是 0–100 的整数');
++      out[i]=v;
++    });
++    return out;
++  }
++  function detectEnvironment(env){
++    const nav=env?.navigator||{},ua=String(nav.userAgent||'');
++    const androidWebView=/; wv\)/.test(ua)||/\bVersion\/[\d.]+ Chrome\/[\d.]+ Mobile Safari/.test(ua)&&/Android/.test(ua);
++    return Object.freeze({
++      secureContext:env?.isSecureContext===true,
++      webBluetooth:env?.isSecureContext===true&&typeof nav.bluetooth?.requestDevice==='function',
++      androidWebView,
++      iOS:/iPhone|iPad|iPod/.test(ua),
++      nativeTransport:typeof env?.SilvioNativeBle?.requestDevice==='function'
++    });
++  }
++
++  const same=(a,b)=>a.length===b.length&&a.every((v,i)=>v===b[i]);
++
++  /* One GATT operation at a time: Chrome rejects overlapping operations. */
++  function createQueue(){
++    let tail=Promise.resolve();
++    return task=>{const run=tail.then(task,task);tail=run.catch(()=>{});return run;};
++  }
++
++  function createClient(env,options={}){
++    const nav=env?.navigator||{};
++    const bluetooth=options.bluetooth||env?.SilvioNativeBle||nav.bluetooth;
++    const now=typeof options.now==='function'?options.now:()=>Date.now();
++    const listeners=new Set(),queue=createQueue();
++    const state={connected:false,deviceName:null,battery:null,output:null,params:null,lastRoundTripMs:null};
++    let device=null,chars={},pendingEcho=null,disconnectHandler=null;
++
++    const snapshot=()=>({...state,params:state.params?{...state.params}:null});
++    const emit=type=>{const s=snapshot();for(const fn of [...listeners])try{fn(type,s);}catch(_){}};
++    function onNotify(kind){
++      return event=>{
++        try{
++          const value=event?.target?.value;
++          if(kind==='battery')state.battery=decodeBattery(value);
++          else if(kind==='output')state.output=decodeOutput(value);
++          else state.params=decodeParams(value);
++          /* The firmware re-notifies output and params after any change, so an echo only counts
++           * once our write has completed and the notified bytes equal what we wrote. */
++          const echoed=pendingEcho&&pendingEcho.kind===kind&&pendingEcho.armed&&same(bytesOf(value),pendingEcho.bytes);
++          if(echoed){state.lastRoundTripMs=now()-pendingEcho.start;pendingEcho=null;}
++          emit(kind);
++          if(echoed)emit('roundtrip');
++        }catch(error){emit('error');}
++      };
++    }
++    async function subscribe(characteristic,kind){
++      if(!characteristic)return;
++      characteristic.addEventListener('characteristicvaluechanged',onNotify(kind));
++      if(typeof characteristic.startNotifications==='function')await characteristic.startNotifications();
++    }
++    async function write(characteristic,bytes){
++      if(typeof characteristic.writeValueWithResponse==='function')return characteristic.writeValueWithResponse(bytes);
++      return characteristic.writeValue(bytes);
++    }
++    function requireConnected(){
++      if(!state.connected||!chars.output||!chars.params)throw fail('NOT_CONNECTED','请先连接 R5 设备');
++    }
++
++    async function connect(){
++      if(!bluetooth||typeof bluetooth.requestDevice!=='function'){
++        const e=detectEnvironment(env);
++        if(e.androidWebView)throw fail('UNSUPPORTED','App 外壳（Android WebView）不支持网页蓝牙，需要原生蓝牙桥接；请先用安卓 Chrome 打开');
++        if(e.iOS)throw fail('UNSUPPORTED','iPhone 的浏览器不支持网页蓝牙，需要原生 App');
++        throw fail('UNSUPPORTED','当前浏览器不支持网页蓝牙，请用安卓 Chrome 在 HTTPS 下打开');
++      }
++      device=await bluetooth.requestDevice({filters:[{namePrefix:NAME_PREFIX}],optionalServices:[R5_SERVICE,BATTERY_SERVICE]});
++      if(!device?.gatt||typeof device.gatt.connect!=='function')throw fail('UNSUPPORTED','所选设备没有可用的 GATT 接口');
++      disconnectHandler=()=>{state.connected=false;chars={};pendingEcho=null;emit('disconnected');};
++      device.addEventListener?.('gattserverdisconnected',disconnectHandler);
++      const server=await device.gatt.connect();
++      let service;
++      try{service=await server.getPrimaryService(R5_SERVICE);}
++      catch(error){throw fail('UNSUPPORTED','设备上没有 R5 控制服务',error);}
++      chars.output=await service.getCharacteristic(R5_OUTPUT);
++      chars.params=await service.getCharacteristic(R5_PARAMS);
++      try{
++        const bat=await server.getPrimaryService(BATTERY_SERVICE);
++        chars.battery=await bat.getCharacteristic(BATTERY_LEVEL);
++      }catch(_){chars.battery=null;}
++      state.connected=true;state.deviceName=device.name||null;
++      await queue(async()=>{
++        state.output=decodeOutput(await chars.output.readValue());
++        state.params=decodeParams(await chars.params.readValue());
++        if(chars.battery)state.battery=decodeBattery(await chars.battery.readValue());
++        await subscribe(chars.output,'output');
++        await subscribe(chars.params,'params');
++        await subscribe(chars.battery,'battery');
++      });
++      emit('connected');
++      return snapshot();
++    }
++    function setOutput(code){
++      requireConnected();
++      const bytes=encodeOutput(code);
++      return queue(async()=>{const echo=pendingEcho={kind:'output',bytes,start:now(),armed:false};await write(chars.output,bytes);echo.armed=true;state.output=code;emit('written');return snapshot();});
++    }
++    function setParams(partial){
++      requireConnected();
++      const next={...state.params,...partial};
++      const bytes=encodeParams(next);
++      return queue(async()=>{const echo=pendingEcho={kind:'params',bytes,start:now(),armed:false};await write(chars.params,bytes);echo.armed=true;state.params=next;emit('written');return snapshot();});
++    }
++    function refresh(){
++      requireConnected();
++      return queue(async()=>{
++        state.output=decodeOutput(await chars.output.readValue());
++        state.params=decodeParams(await chars.params.readValue());
++        if(chars.battery)state.battery=decodeBattery(await chars.battery.readValue());
++        emit('refresh');return snapshot();
++      });
++    }
++    function disconnect(){
++      if(device?.gatt?.connected)device.gatt.disconnect();
++      else if(state.connected)disconnectHandler?.();
++    }
++    function subscribeState(fn){listeners.add(fn);return ()=>listeners.delete(fn);}
++    return {connect,setOutput,setParams,refresh,disconnect,subscribe:subscribeState,getState:snapshot};
++  }
++
++  return Object.freeze({R5_SERVICE,R5_OUTPUT,R5_PARAMS,BATTERY_SERVICE,BATTERY_LEVEL,NAME_PREFIX,OUTPUT_MODES,PARAM_KEYS,
++    R5DeviceError,decodeBattery,decodeOutput,encodeOutput,decodeParams,encodeParams,detectEnvironment,createClient});
++});
+diff --git a/web-source/tests/r5-device.test.mjs b/web-source/tests/r5-device.test.mjs
+new file mode 100644
+index 0000000..211d3b5
+--- /dev/null
++++ b/web-source/tests/r5-device.test.mjs
+@@ -0,0 +1,160 @@
++import test from 'node:test';
++import assert from 'node:assert/strict';
++import {readFile} from 'node:fs/promises';
++import vm from 'node:vm';
++
++const source=await readFile(new URL('../dist/r5-device.js',import.meta.url),'utf8');
++const context=vm.createContext({ArrayBuffer,Uint8Array,DataView,Promise,Date,setTimeout,clearTimeout});
++vm.runInContext(source,context,{filename:'r5-device.js'});
++const R5=context.SVR5Device;
++const wait=ms=>new Promise(resolve=>setTimeout(resolve,ms));
++
++function events(target={}){
++  const handlers=new Map();
++  target.addEventListener=(name,fn)=>{if(!handlers.has(name))handlers.set(name,new Set());handlers.get(name).add(fn);};
++  target.removeEventListener=(name,fn)=>handlers.get(name)?.delete(fn);
++  target.emit=name=>{for(const fn of [...(handlers.get(name)||[])])fn({target});};
++  return target;
++}
++
++/* Fake peripheral that follows the bench firmware rules in main/ble.c:
++ * output write must be 1 byte <= 3, params write must be 4 bytes each <= 100,
++ * any accepted write re-notifies output and params after ~50 ms. */
++function benchDevice({name='SmartVio-R5-bench',battery=87,withR5=true}={}){
++  const log=[];let busy=false;
++  const store={out:0,params:[70,50,60,50],battery};
++  const view=bytes=>new DataView(Uint8Array.from(bytes).buffer);
++  function characteristic(kind,read,writeRule){
++    const c=events({value:null,notifying:false,
++      async readValue(){guard();log.push('read:'+kind);this.value=view(read());return this.value;},
++      async startNotifications(){guard();this.notifying=true;log.push('notify:'+kind);return this;},
++      async writeValueWithResponse(data){
++        guard();const bytes=[...new Uint8Array(data.buffer,data.byteOffset,data.byteLength)];
++        if(!writeRule)throw Error('write not permitted');
++        writeRule(bytes);log.push('write:'+kind+':'+bytes.join(','));
++        setTimeout(()=>{for(const k of ['output','params']){const t=chars[k];if(t.notifying){t.value=view(k==='output'?[store.out]:store.params);t.emit('characteristicvaluechanged');}}},50);
++      }});
++    return c;
++  }
++  async function guard(){if(busy)throw Error('GATT operation already in progress');}
++  const chars={
++    output:characteristic('output',()=>[store.out],b=>{if(b.length!==1||b[0]>3)throw Error('invalid length');store.out=b[0];}),
++    params:characteristic('params',()=>store.params,b=>{if(b.length!==4||b.some(v=>v>100))throw Error('invalid length');store.params=b;}),
++    battery:characteristic('battery',()=>[store.battery],null)
++  };
++  const r5={async getCharacteristic(id){if(id===R5.R5_OUTPUT)return chars.output;if(id===R5.R5_PARAMS)return chars.params;throw Error('no characteristic');}};
++  const bas={async getCharacteristic(id){assert.equal(id,R5.BATTERY_LEVEL);return chars.battery;}};
++  const server={async getPrimaryService(id){if(id===R5.R5_SERVICE&&withR5)return r5;if(id===R5.BATTERY_SERVICE)return bas;throw Error('no service');}};
++  const device=events({name,gatt:{connected:false,async connect(){this.connected=true;return server;},disconnect(){this.connected=false;device.emit('gattserverdisconnected');}}});
++  const bluetooth={query:null,async requestDevice(query){this.query=query;return device;}};
++  return {bluetooth,device,store,chars,log,
++    setBattery(v){store.battery=v;chars.battery.value=view([v]);chars.battery.emit('characteristicvaluechanged');},
++    knobTurn(params){store.params=params;chars.params.value=view(params);chars.params.emit('characteristicvaluechanged');}};
++}
++
++test('UUIDs and formats match the R5 bench firmware GATT table',()=>{
++  assert.equal(R5.R5_SERVICE,'5a0e5000-7e4b-4c1e-9c2a-52355f425231');
++  assert.equal(R5.R5_OUTPUT,'5a0e5001-7e4b-4c1e-9c2a-52355f425231');
++  assert.equal(R5.R5_PARAMS,'5a0e5002-7e4b-4c1e-9c2a-52355f425231');
++  assert.equal(R5.BATTERY_SERVICE,0x180f);assert.equal(R5.BATTERY_LEVEL,0x2a19);
++  assert.deepEqual([...R5.encodeParams({vol:70,tone:50,fx:60,mix:50})],[70,50,60,50]);
++  assert.deepEqual({...R5.decodeParams(Uint8Array.of(1,2,3,100))},{vol:1,tone:2,fx:3,mix:100});
++  assert.deepEqual([...R5.encodeOutput(3)],[3]);
++  assert.throws(()=>R5.encodeOutput(4),/0–3/);
++  assert.throws(()=>R5.encodeParams({vol:101,tone:0,fx:0,mix:0}),/0–100/);
++  assert.throws(()=>R5.decodeParams(Uint8Array.of(1,2,3)),/4 字节/);
++  assert.throws(()=>R5.decodeBattery(Uint8Array.of(120)),/0–100/);
++});
++
++test('connect asks for the R5 service through optionalServices and reads the initial state',async()=>{
++  const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth});
++  const s=await client.connect();
++  assert.deepEqual(JSON.parse(JSON.stringify(fx.bluetooth.query)),{filters:[{namePrefix:'SmartVio-R5'}],optionalServices:[R5.R5_SERVICE,0x180f]});
++  assert.equal(s.connected,true);assert.equal(s.deviceName,'SmartVio-R5-bench');
++  assert.equal(s.output,0);assert.deepEqual({...s.params},{vol:70,tone:50,fx:60,mix:50});assert.equal(s.battery,87);
++  assert.deepEqual(fx.log.filter(x=>x.startsWith('notify')),['notify:output','notify:params','notify:battery']);
++});
++
++test('output and parameter writes reach the device and the echo notification updates the round trip',async()=>{
++  let clock=1000;const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth,now:()=>clock});
++  await client.connect();
++  await client.setOutput(1);assert.equal(fx.store.out,1);
++  clock+=63;await wait(80);
++  assert.equal(client.getState().lastRoundTripMs,63);
++  await client.setParams({vol:85});
++  assert.deepEqual(fx.store.params,[85,50,60,50],'unchanged parameters must be resent with their current values');
++  await wait(80);assert.deepEqual({...client.getState().params},{vol:85,tone:50,fx:60,mix:50});
++});
++
++test('rapid slider writes are serialised: no overlapping GATT operations and the last value wins',async()=>{
++  const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth});
++  await client.connect();
++  let inFlight=0,maxInFlight=0;const original=fx.chars.params.writeValueWithResponse.bind(fx.chars.params);
++  fx.chars.params.writeValueWithResponse=async data=>{inFlight++;maxInFlight=Math.max(maxInFlight,inFlight);await wait(5);try{return await original(data);}finally{inFlight--;}};
++  await Promise.all([10,20,30,40,50].map(v=>client.setParams({vol:v})));
++  assert.equal(maxInFlight,1);assert.equal(fx.store.params[0],50);
++});
++
++test('changes made on the instrument (knob, battery) arrive as notifications',async()=>{
++  const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth}),seen=[];
++  await client.connect();client.subscribe(type=>seen.push(type));
++  fx.knobTurn([40,55,60,20]);fx.setBattery(86);
++  assert.deepEqual({...client.getState().params},{vol:40,tone:55,fx:60,mix:20});
++  assert.equal(client.getState().battery,86);assert.deepEqual(seen,['params','battery']);
++});
++
++test('invalid values are refused before anything is sent',async()=>{
++  const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth});
++  await client.connect();const before=fx.log.length;
++  assert.throws(()=>client.setOutput(7),/0–3/);
++  assert.throws(()=>client.setParams({mix:150}),/0–100/);
++  assert.equal(fx.log.length,before);
++});
++
++test('disconnect from the device side is reported and further writes are refused',async()=>{
++  const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth}),seen=[];
++  await client.connect();client.subscribe(type=>seen.push(type));
++  fx.device.gatt.disconnect();
++  assert.equal(client.getState().connected,false);assert.deepEqual(seen,['disconnected']);
++  assert.throws(()=>client.setOutput(0),/请先连接/);
++});
++
++test('a device without the R5 service is rejected with a clear message',async()=>{
++  const fx=benchDevice({withR5:false}),client=R5.createClient({},{bluetooth:fx.bluetooth});
++  await assert.rejects(client.connect(),/没有 R5 控制服务/);
++});
++
++test('environment detection explains why the Android App shell and iPhone cannot connect yet',async()=>{
++  const webview={isSecureContext:true,navigator:{userAgent:'Mozilla/5.0 (Linux; Android 14; V2243A Build/UP1A; wv) AppleWebKit/537.36 (KHTML, like Gecko) Version/4.0 Chrome/129.0 Mobile Safari/537.36'}};
++  assert.equal(R5.detectEnvironment(webview).androidWebView,true);
++  await assert.rejects(R5.createClient(webview).connect(),/Android WebView/);
++  const iphone={isSecureContext:true,navigator:{userAgent:'Mozilla/5.0 (iPhone; CPU iPhone OS 18_0 like Mac OS X) AppleWebKit/605.1.15 Version/18.0 Mobile/15E148 Safari/604.1'}};
++  await assert.rejects(R5.createClient(iphone).connect(),/iPhone/);
++  const chrome={isSecureContext:true,navigator:{userAgent:'Mozilla/5.0 (Linux; Android 14) AppleWebKit/537.36 Chrome/129.0 Mobile Safari/537.36',bluetooth:{requestDevice(){}}}};
++  const env=R5.detectEnvironment(chrome);assert.equal(env.webBluetooth,true);assert.equal(env.androidWebView,false);
++});
++
++test('a native transport injected by the App shell is used when present',async()=>{
++  const fx=benchDevice(),client=R5.createClient({SilvioNativeBle:fx.bluetooth,navigator:{}});
++  const s=await client.connect();assert.equal(s.connected,true);
++});
++
++test('each accepted write produces exactly one roundtrip event from the device echo',async()=>{
++  const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth}),seen=[];
++  await client.connect();client.subscribe(type=>seen.push(type));
++  await client.setParams({fx:30});await wait(80);
++  assert.equal(seen.filter(t=>t==='written').length,1);
++  assert.equal(seen.filter(t=>t==='roundtrip').length,1);
++  assert.deepEqual(seen.filter(t=>t==='output'||t==='params'),['output','params'],'firmware re-notifies both characteristics');
++});
++
++test('a re-notification left over from an earlier write is not mistaken for the echo of the next write',async()=>{
++  let clock=0;const fx=benchDevice(),client=R5.createClient({},{bluetooth:fx.bluetooth,now:()=>clock});
++  await client.connect();
++  await client.setOutput(2);            /* firmware will re-notify output and params in ~50 ms */
++  clock=100;await client.setParams({vol:33});
++  fx.chars.params.value=new DataView(Uint8Array.of(70,50,60,50).buffer);fx.chars.params.emit('characteristicvaluechanged');
++  assert.equal(client.getState().lastRoundTripMs,null,'stale params notification must not close the round trip');
++  clock=160;await wait(80);
++  assert.equal(client.getState().lastRoundTripMs,60);
++});
+-- 
+2.43.0
+

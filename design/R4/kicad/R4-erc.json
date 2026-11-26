@@ -1,0 +1,186 @@
+{
+    "$schema": "https://schemas.kicad.org/erc.v1.json",
+    "coordinate_units": "mm",
+    "date": "2026-10-15T12:57:48",
+    "ignored_checks": [],
+    "included_severities": [
+        "error",
+        "warning",
+        "exclusion"
+    ],
+    "kicad_version": "10.0.6",
+    "sheets": [
+        {
+            "path": "/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4",
+            "violations": [
+                {
+                    "description": "Footprint 'FPC_USB16_HotBar_Main_P0.70' not found in library 'SmartVioV26'",
+                    "items": [
+                        {
+                            "description": "Symbol J3411 [J3411]",
+                            "pos": {
+                                "x": 0.762,
+                                "y": 2.3749
+                            },
+                            "uuid": "1239ad0e-0f62-4d2a-b1c9-c4a8a20fec8d"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Footprint 'FPC_AUDIO4' not found in library 'SmartVioV26'",
+                    "items": [
+                        {
+                            "description": "Symbol FPC3402 [FPC3402]",
+                            "pos": {
+                                "x": 2.0574,
+                                "y": 0.9271
+                            },
+                            "uuid": "fc6c0031-5938-48e5-b781-20a6d01c0d11"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                },
+                {
+                    "description": "Footprint 'FPC_USB16' not found in library 'SmartVioV26'",
+                    "items": [
+                        {
+                            "description": "Symbol FPC3406 [FPC3406]",
+                            "pos": {
+                                "x": 2.0574,
+                                "y": 2.3749
+                            },
+                            "uuid": "832f8921-545b-4183-9392-234bed4c8069"
+                        }
+                    ],
+                    "severity": "warning",
+                    "type": "footprint_link_issues"
+                }
+            ]
+        },
+        {
+            "path": "/A10 拾音高阻缓冲与独立 FX SEND/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/fb97148d-7a06-5ec0-af31-be1afc0d8e62",
+            "violations": []
+        },
+        {
+            "path": "/A11 LINE OUT 与双声道 AUX/RETURN/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/41ea1b9f-9748-5485-8f95-ecc0a8bd4382",
+            "violations": []
+        },
+        {
+            "path": "/A12 耳机放大与插入检测接口/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/00afab6d-b59f-5f70-a29e-067a86f2a6bd",
+            "violations": []
+        },
+        {
+            "path": "/A13 USB-C数据口 / CC经A25保护/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/51b8a084-3ce9-51f2-acbf-380b31c2832c",
+            "violations": []
+        },
+        {
+            "path": "/A14 USB受保护充电电源路径 / 默认禁充/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/5049e3a0-1504-5221-a7a7-be13e894fee2",
+            "violations": []
+        },
+        {
+            "path": "/A15 三路音频采集 / PCM1864/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/27aff6f7-535d-50ec-a7fe-7f9d203c530b",
+            "violations": []
+        },
+        {
+            "path": "/A16 DAC / PCM5102A 与输出重建滤波/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/aeb95b15-603f-52e6-a5b4-de2231d06c80",
+            "violations": []
+        },
+        {
+            "path": "/A17 主控供电、复位、下载与晶振/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/be911f1a-d867-5c66-b498-b38db8c54d9e",
+            "violations": []
+        },
+        {
+            "path": "/A18 主控信号、时钟源端匹配与人机接口/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/67d9e547-23be-501f-979a-79167eef6220",
+            "violations": []
+        },
+        {
+            "path": "/A19 蓝牙与个人练习扬声器/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/d5ed1261-0e44-5646-a721-6c5ff1411e39",
+            "violations": []
+        },
+        {
+            "path": "/A20 USB输入过流、反灌与过压候选保护/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/dc32076e-e1e6-551a-b126-a04f9e750641",
+            "violations": []
+        },
+        {
+            "path": "/A21 系统升降压与模拟电源滤波/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/a04a558b-3ed0-5db6-be36-4e6c87ce40e5",
+            "violations": []
+        },
+        {
+            "path": "/A22 四音频口双向ESD与默认断开候选/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/0025fabe-99b3-52b0-afe2-205060556473",
+            "violations": []
+        },
+        {
+            "path": "/A23 分段指示灯候选 / 默认灭灯/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/e3a93d98-be97-5430-b943-714b5d06d625",
+            "violations": []
+        },
+        {
+            "path": "/A24 硬件开关机控制候选 / 不再依赖已断电MCU/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/e8c56fc2-4d01-5fe4-97f4-385628683ac3",
+            "violations": []
+        },
+        {
+            "path": "/A25 USB-C CC短接VBUS保护候选/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/2d43f40a-380c-5241-aa0a-16e97c4d65ee",
+            "violations": []
+        },
+        {
+            "path": "/A26 USB数据持续过压隔离候选/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/551b1f29-6be5-5672-b023-db3b530b571a",
+            "violations": []
+        },
+        {
+            "path": "/A27 充电授权与输入电流控制/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/cb891e93-de69-5d09-8b54-decab3e4e3d2",
+            "violations": []
+        },
+        {
+            "path": "/A28 四路电压监测：隔离、缓冲与独立ADC/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/1df531e3-43fe-5cac-880e-8f3b9a27336c",
+            "violations": []
+        },
+        {
+            "path": "/A29 主板（电池侧）板温 TMP117 / R4 并入主板/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/bbc91676-68d4-512d-9afe-fbbb5a8084bb",
+            "violations": []
+        },
+        {
+            "path": "/A30 电源故障及充电状态送回主控/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/df375174-e29f-582f-be22-70606ed84e92",
+            "violations": []
+        },
+        {
+            "path": "/A32 USB wake and sequenced performance domain/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/f21d149e-9523-5299-9a34-a91ef3a1e3fa",
+            "violations": []
+        },
+        {
+            "path": "/A33 Independent NTC charging window/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/1313a8d0-ce11-5a05-a2f8-824ccc7890b8",
+            "violations": []
+        },
+        {
+            "path": "/A34 板间互连端点 / FPC（R4 schematic parity）/",
+            "uuid_path": "/688ce4c7-cd63-5d1a-8608-cca940cc1bf4/1bf8ea76-db57-57ec-99bf-b0d59e5abe44",
+            "violations": []
+        }
+    ],
+    "source": "SmartVio.kicad_sch"
+}

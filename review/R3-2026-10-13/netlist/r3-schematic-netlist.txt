@@ -1,0 +1,342 @@
+==================== PAGE 2
+C101     0.1uF C0G 25V 5%                                             | 1=PZ_LIMIT, 2=PU_BIAS
+C102     10uF / 10V                                                   | 1=VMID_DIV, 2=GND
+C103     100nF / 10V                                                  | 1=V3A, 2=GND
+C104     1uF / 10V                                                    | 1=V3A, 2=GND
+C111     1uF / 10V                                                    | 1=PU_ADC_COUPLE, 2=ADC_PU_AC
+C121     10uF / 10V effective >=4.7uF                                 | 1=SEND_BUF, 2=SEND_AC
+J101     Existing pickup / polarity TBD                               | 1=PZ_RAW, 2=GND
+J102     STX-353K7A-6N-KTTR                                           | 1/SLEEVE=GND, 2/RING2_TRS_SLEEVE=GND, 3/RING1=GND, 4/TIP=SEND_T_PORT, 5/DET_NO_A=<NC>, 6/DET_NO_B=<NC>
+R101     10k                                                          | 1=PZ_RAW, 2=PZ_LIMIT
+R102     4.7M                                                         | 1=PU_BIAS, 2=VMID
+R103     10k                                                          | 1=V3A, 2=VMID_DIV
+R104     10k                                                          | 1=VMID_DIV, 2=GND
+R111     100                                                          | 1=PU_BUF, 2=PU_ADC_COUPLE
+R121     220                                                          | 1=SEND_AC, 2=SEND_T
+R122     100k                                                         | 1=SEND_T, 2=GND
+U101     TLV9064PWR                                                   | 1/OUT_A=PU_BUF, 2/IN-_A=PU_BUF, 3/IN+_A=PU_BIAS, 4/V+=V3A, 5/IN+_B=VMID_DIV, 6/IN-_B=VMID, 7/OUT_B=VMID, 8/OUT_C=SEND_BUF, 9/IN-_C=SEND_BUF, 10/IN+_C=PU_BUF, 11/V-=GND, 12/IN+_D=VMID, 13/IN-_D=UNUSED_BUF, 14/OUT_D=UNUSED_BUF
+==================== PAGE 3
+C201     1uF / 10V                                                    | 1=DAC_L, 2=LINE_AC_L
+C202     1uF / 10V                                                    | 1=DAC_R, 2=LINE_AC_R
+C211     10uF / 10V effective >=4.7uF                                 | 1=LINE_BUF_L, 2=LINE_OUT_AC_L
+C212     10uF / 10V effective >=4.7uF                                 | 1=LINE_BUF_R, 2=LINE_OUT_AC_R
+C221     4.7uF / 10V                                                  | 1=RETURN_L, 2=RET_AC_L
+C222     4.7uF / 10V                                                  | 1=RETURN_R, 2=RET_AC_R
+C231     1uF / 10V                                                    | 1=RET_BUF_L, 2=ADC_AUX_L_AC
+C232     1uF / 10V                                                    | 1=RET_BUF_R, 2=ADC_AUX_R_AC
+C240     100nF / 10V                                                  | 1=V3A, 2=GND
+C241     1uF / 10V                                                    | 1=V3A, 2=GND
+J201     STX-353K7A-6N-KTTR                                           | 1/SLEEVE=GND, 2/RING2_TRS_SLEEVE=GND, 3/RING1=LINE_R_PORT, 4/TIP=LINE_L_PORT, 5/DET_NO_A=<NC>, 6/DET_NO_B=<NC>
+J202     STX-353K7A-6N-KTTR                                           | 1/SLEEVE=GND, 2/RING2_TRS_SLEEVE=GND, 3/RING1=RETURN_R_PORT, 4/TIP=RETURN_L_PORT, 5/DET_NO_A=<NC>, 6/DET_NO_B=<NC>
+R201     10k                                                          | 1=LINE_BIAS_L, 2=VMID
+R202     10k                                                          | 1=LINE_BIAS_R, 2=VMID
+R211     220                                                          | 1=LINE_OUT_AC_L, 2=LINE_L
+R212     220                                                          | 1=LINE_OUT_AC_R, 2=LINE_R
+R221     100k                                                         | 1=LINE_L, 2=GND
+R222     100k                                                         | 1=LINE_R, 2=GND
+R231     22k                                                          | 1=RET_AC_L, 2=RET_BIAS_L
+R232     22k                                                          | 1=RET_AC_R, 2=RET_BIAS_R
+R241     10k                                                          | 1=RET_BIAS_L, 2=VMID
+R242     10k                                                          | 1=RET_BIAS_R, 2=VMID
+R290     15k                                                          | 1=LINE_AC_L, 2=LINE_BIAS_L
+R291     15k                                                          | 1=LINE_AC_R, 2=LINE_BIAS_R
+R826     10k                                                          | 1=SYS, 2=PWR_PB
+U201     TLV9064PWR                                                   | 1/OUT_A=LINE_BUF_L, 2/IN-_A=LINE_BUF_L, 3/IN+_A=LINE_BIAS_L, 4/V+=V3A, 5/IN+_B=LINE_BIAS_R, 6/IN-_B=LINE_BUF_R, 7/OUT_B=LINE_BUF_R, 8/OUT_C=RET_BUF_L, 9/IN-_C=RET_BUF_L, 10/IN+_C=RET_BIAS_L, 11/V-=GND, 12/IN+_D=RET_BIAS_R, 13/IN-_D=RET_BUF_R, 14/OUT_D=RET_BUF_R
+==================== PAGE 4
+C301     1uF / 10V                                                    | 1=HP_ATT_L, 2=HP_IN_L
+C302     1uF / 10V                                                    | 1=HP_ATT_R, 2=HP_IN_R
+C303     1uF / 10V                                                    | 1=HP_CPP, 2=HP_CPN
+C304     2.2uF / 10V X7R; Ceff_min >= C303_Ceff_max                   | 1=HP_NEG, 2=GND
+C305     2.2uF / 10V                                                  | 1=HP_POS, 2=GND
+C306     2.2uF / 10V                                                  | 1=V3A, 2=GND
+C307     100nF / 10V                                                  | 1=V3A, 2=GND
+C320     0.01uF C0G 25V 5%                                            | 1=HP_DETECT_GPIO, 2=GND
+J301     STX-353K7A-6N-KTTR                                           | 1/SLEEVE=GND, 2/RING2_TRS_SLEEVE=GND, 3/RING1=HP_R_PORT, 4/TIP=HP_L_PORT, 5/DET_NO_A=HP_DETECT_RAW, 6/DET_NO_B=GND
+R301     22k                                                          | 1=DAC_L, 2=HP_ATT_L
+R302     22k                                                          | 1=DAC_R, 2=HP_ATT_R
+R311     10k                                                          | 1=HP_ATT_L, 2=GND
+R312     10k                                                          | 1=HP_ATT_R, 2=GND
+R320     100k                                                         | 1=HP_EN_VALIDATED, 2=GND
+R321     100k                                                         | 1=V3D, 2=HP_DETECT_RAW
+R322     1k                                                           | 1=HP_DETECT_RAW, 2=HP_DETECT_GPIO
+U301     TPA6132A2RTER                                                | 1/INL-=HP_IN_L, 2/INL+=GND, 3/INR+=GND, 4/INR-=HP_IN_R, 5/OUTR=HP_R, 6/G0=GND, 7/G1=GND, 8/HPVSS=HP_NEG, 9/CPN=HP_CPN, 10/PGND=GND, 11/CPP=HP_CPP, 12/HPVDD=HP_POS, 13/EN=HP_EN_VALIDATED, 14/VDD=V3A, 15/SGND=GND, 16/OUTL=HP_L, 17/PAD=GND
+==================== PAGE 5
+C401     100nF / 50V X7R                                              | 1=VBUS_RAW, 2=GND
+C403     100nF / 10V X7R; local U401.5 bypass                         | 1=USB_5V_SAFE, 2=GND
+J401     USB4120-03-C                                                 | A1/GND=GND, A4/VBUS=VBUS_RAW, A5/CC1=CC1_PORT, A6/D+=USB_DP_CONN, A7/D-=USB_DM_CONN, A8/SBU1=<NC>, A9/VBUS=VBUS_RAW, A12/GND=GND, B1/GND=GND, B4/VBUS=VBUS_RAW, B5/CC2=CC2_PORT, B6/D+=USB_DP_CONN, B7/D-=USB_DM_CONN, B8/SBU2=<NC>, B9/VBUS=VBUS_RAW, B12/GND=GND, SH/SHELL=GND
+R401     5.1k                                                         | 1=CC1_SAFE, 2=GND
+R402     5.1k                                                         | 1=CC2_SAFE, 2=GND
+R403     0R / tune at PHY                                             | 1=USB_DP_SYS, 2=USB_DP_MCU
+R404     0R / tune at PHY                                             | 1=USB_DM_SYS, 2=USB_DM_MCU
+U401     USBLC6-2SC6                                                  | 1/IO1=USB_DP_SYS, 2/GND=GND, 3/IO2=USB_DM_SYS, 4/IO2=USB_DM_SYS, 5/VBUS=USB_5V_SAFE, 6/IO1=USB_DP_SYS
+==================== PAGE 6
+C501     4.7uF / 10V effective >=1uF                                  | 1=USB_5V_SAFE, 2=GND
+C502     10uF / 10V effective >=4.7uF                                 | 1=SYS, 2=GND
+C503     10uF / 10V effective >=4.7uF                                 | 1=PACK_PLUS, 2=GND
+J501     JST PH 3-way internal2A AWG24 pack header                    | 1/PACK+=PACK_PLUS, 2/PACK-=GND, 3/NTC=PACK_NTC, MP/LOCAL_REINFORCEMENT_TABS=<NC>
+R501     2000ohm 0.1% 25ppm/C                                         | 1=RISET, 2=GND
+R502     1500ohm 0.1% 25ppm/C                                         | 1=RILIM, 2=GND
+R503     10k                                                          | 1=SYS, 2=CHARGE_DISABLE
+R504     10k                                                          | 1=GND, 2=CHG_EN2
+R505     100k                                                         | 1=V3D, 2=PGOOD_TP
+R506     100k                                                         | 1=V3D, 2=CHG_TP
+R590     100k                                                         | 1=CHG_EN1, 2=GND
+R2351    499ohm 0.1% 25ppm/C                                          | 1=CHG_ITERM_ECO, 2=GND
+R2352    68100ohm 0.1% 25ppm/C                                        | 1=CHG_TMR_ECO, 2=GND
+U501     BQ24074RGTR                                                  | 1/TS=PACK_NTC, 2/BAT=PACK_PLUS, 3/BAT=PACK_PLUS, 4/CE=CHARGE_DISABLE, 5/EN2=CHG_EN2, 6/EN1=CHG_EN1, 7/PGOOD=PGOOD_TP, 8/VSS=GND, 9/CHG=CHG_TP, 10/OUT=SYS, 11/OUT=SYS, 12/ILIM=RILIM, 13/IN=USB_5V_SAFE, 14/TMR=CHG_TMR_ECO, 15/ITERM=CHG_ITERM_ECO, 16/ISET=RISET, 17/PAD_GND=GND
+==================== PAGE 7
+C601     1uF                                                          | 1=ADC_VREF, 2=GND
+C602     100nF                                                        | 1=ADC_1V8, 2=GND
+C603     10uF                                                         | 1=ADC_1V8, 2=GND
+C604     100nF                                                        | 1=V3A, 2=GND
+C605     10uF                                                         | 1=V3A, 2=GND
+C606     100nF                                                        | 1=V3LOAD, 2=GND
+C607     10uF                                                         | 1=V3LOAD, 2=GND
+C608     100nF                                                        | 1=V3LOAD, 2=GND
+R601     0R                                                           | 1=ADC_XI, 2=GND
+R602     4.7k                                                         | 1=I2C_SDA, 2=V3D
+R603     4.7k                                                         | 1=I2C_SCL, 2=V3D
+R691     33R initial                                                  | 1=ADC_DATA2_SRC, 2=ADC_DATA2
+U601     PCM1864DBTR                                                  | 1/VINL2=<NC>, 2/VINR2=<NC>, 3/VINL1=ADC_PU_AC, 4/VINR1=ADC_AUX_L_AC, 5/MIC_BIAS=<NC>, 6/VREF=ADC_VREF, 7/AGND=GND, 8/AVDD=V3A, 9/XO=<NC>, 10/XI=ADC_XI, 11/LDO=ADC_1V8, 12/DGND=GND, 13/DVDD=V3LOAD, 14/IOVDD=V3LOAD, 15/SCKI=ADC_SCK, 16/LRCK=ADC_FS, 17/BCK=ADC_BCK, 18/DOUT=ADC_DATA, 19/GPIO3=<NC>, 20/GPIO2=<NC>, 21/GPIO1=ADC_DATA2_SRC, 22/MISO_GPIO0=<NC>, 23/SDA=I2C_AUDIO_SDA, 24/SCL=I2C_AUDIO_SCL, 25/MS_AD=GND, 26/MD0=GND, 27/VINL4=<NC>, 28/VINR4=<NC>, 29/VINL3=ADC_AUX_R_AC, 30/VINR3=<NC>
+==================== PAGE 8
+C701     2.2uF                                                        | 1=DAC_CPP, 2=DAC_CPN
+C702     2.2uF                                                        | 1=DAC_NEG, 2=GND
+C703     100nF                                                        | 1=DAC_1V8, 2=GND
+C704     0.0022uF C0G 50V 5%                                          | 1=DAC_L, 2=GND
+C705     0.0022uF C0G 50V 5%                                          | 1=DAC_R, 2=GND
+C710     100nF                                                        | 1=V3A, 2=GND
+C711     10uF                                                         | 1=V3A, 2=GND
+C712     100nF                                                        | 1=V3A, 2=GND
+C713     10uF                                                         | 1=V3A, 2=GND
+C714     100nF                                                        | 1=V3LOAD, 2=GND
+C715     10uF                                                         | 1=V3LOAD, 2=GND
+R701     470R                                                         | 1=DAC_RAW_L, 2=DAC_L
+R702     470R                                                         | 1=DAC_RAW_R, 2=DAC_R
+R703     100k                                                         | 1=DAC_UNMUTE, 2=GND
+U701     PCM5102APWR                                                  | 1/CPVDD=V3A, 2/CAPP=DAC_CPP, 3/CPGND=GND, 4/CAPM=DAC_CPN, 5/VNEG=DAC_NEG, 6/OUTL=DAC_RAW_L, 7/OUTR=DAC_RAW_R, 8/AVDD=V3A, 9/AGND=GND, 10/DEMP=GND, 11/FLT=V3LOAD, 12/SCK=GND, 13/BCK=PLAY_BCK, 14/DIN=PLAY_DATA, 15/LRCK=PLAY_FS, 16/FMT=GND, 17/XSMT=DAC_UNMUTE, 18/LDOO=DAC_1V8, 19/DGND=GND, 20/DVDD=V3LOAD
+==================== PAGE 9
+C801     100nF                                                        | 1=V3D, 2=GND
+C802     100nF                                                        | 1=V3D, 2=GND
+C803     100nF                                                        | 1=V3D, 2=GND
+C804     100nF                                                        | 1=V3D, 2=GND
+C805     100nF                                                        | 1=V3D, 2=GND
+C806     4.7uF                                                        | 1=V3D, 2=GND
+C807     2.2uF low ESR                                                | 1=VCAP1, 2=GND
+C808     2.2uF low ESR                                                | 1=VCAP1, 2=GND
+C809     100nF                                                        | 1=MCU_VDDA, 2=GND
+C810     1uF                                                          | 1=MCU_VDDA, 2=GND
+C811     0.1uF C0G 25V 5%                                             | 1=NRST, 2=GND
+C812     3e-05uF C0G 50V 5%                                           | 1=HSE_IN, 2=GND
+C813     3e-05uF C0G 50V 5%                                           | 1=HSE_OUT, 2=GND
+J801     SWD test pads                                                | 1/VTREF=V3D, 2/SWDIO=SWDIO, 3/GND=GND, 4/SWCLK=SWCLK, 5/NRST=NRST
+R801     10R                                                          | 1=V3D, 2=MCU_VDDA
+R802     10k                                                          | 1=NRST, 2=V3D
+R803     10k                                                          | 1=BOOT0, 2=GND
+U801     STM32H743VIT6                                                | 1/PE2_AUDIO_PWR_EN=AUDIO_PWR_EN, 2/PE3_SAI1_SD_B=ADC_DATA2, 3/PE4_SAI1FS=ADC_FS_SRC, 4/PE5_SAI1SCK=ADC_BCK_SRC, 5/PE6_SAI1SD=ADC_DATA, 6/VBAT=V3D, 7/PC13=AUDIO_BUS_EN, 8/PC14=<NC>, 9/PC15=<NC>, 10/VSS=GND, 11/VDD=V3D, 12/PH0_OSC=HSE_IN, 13/PH1_OSC=HSE_OUT, 14/NRST=NRST, 15/PC0_KEY_BT=KEY_BT, 16/PC1_ADC123_INP11=FX_ADC, 17/PC2_C=<NC>, 18/PC3_C=<NC>, 19/VSSA=GND, 20/VREF+=MCU_VDDA, 21/VDDA=MCU_VDDA, 22/PA0=DAC_UNMUTE, 23/PA1=HP_EN_VALIDATED, 24/PA2=SPK_ENABLE, 25/PA3=PORT_ENABLE, 26/VSS=GND, 27/VDD=V3D, 28/PA4=HP_DETECT_GPIO, 29/PA5=KEY_FX, 30/PA6=KEY_MODE, 31/PA7=KEY_MIX, 32/PC4=KEY_PWR, 33/PC5=RF_ENABLE, 34/PB0=VOL_ADC, 35/PB1=TONE_ADC, 36/PB2=<NC>, 37/PE7_BOOT_OK=PWR_BOOT_OK, 38/PE8_CC_FAULT_N=CC_FAULT_N, 39/PE9_USB_DATA_FAULT_N=USB_DATA_FAULT_N, 40/PE10_USB_DATA_DISABLE=USB_DATA_DISABLE, 41/PE11_SAI2_SD_B=SPK_DATA_SRC, 42/PE12_CHG_EN1=CHG_EN1_MCU, 43/PE13_CHG_EN2=CHG_EN2_MCU, 44/PE14_CHARGE_ALLOW=CHARGE_ALLOW, 45/PE15_USB_FLT=USB_FLT_MCU, 46/PB10_MON_ENABLE=MON_ENABLE, 47/PB11_CHG_PGOOD=CHG_PGOOD_N, 48/VCAP1=VCAP1, 49/VSS=GND, 50/VDD=V3D, 51/PB12=<NC>, 52/PB13=<NC>, 53/PB14=<NC>, 54/PB15=<NC>, 55/PD8_USART3TX=RF_RX, 56/PD9_USART3RX=RF_TX, 57/PD10_CHG_STATUS=CHG_STATUS_N, 58/PD11_SAI2SD=PLAY_DATA_SRC, 59/PD12_SAI2FS=PLAY_FS_SRC, 60/PD13_SAI2SCK=PLAY_BCK_SRC, 61/PD14=<NC>, 62/PD15=<NC>, 63/PC6=LED_ZONE_1, 64/PC7=LED_ZONE_2, 65/PC8=LED_ZONE_3, 66/PC9_MCO2=ADC_SCK_SRC, 67/PA8=<NC>, 68/PA9_VBUS=VBUS_SENSE, 69/PA10=<NC>, 70/PA11_USBDM=USB_DM_MCU, 71/PA12_USBDP=USB_DP_MCU, 72/PA13_SWDIO=SWDIO, 73/VCAP2=VCAP1, 74/VSS=GND, 75/VDD=V3D, 76/PA14_SWCLK=SWCLK, 77/PA15=<NC>, 78/PC10=<NC>, 79/PC11=<NC>, 80/PC12=<NC>, 81/PD0=<NC>, 82/PD1=<NC>, 83/PD2=<NC>, 84/PD3=<NC>, 85/PD4=<NC>, 86/PD5=<NC>, 87/PD6=<NC>, 88/PD7=<NC>, 89/PB3=<NC>, 90/PB4=<NC>, 91/PB5=<NC>, 92/PB6=<NC>, 93/PB7=<NC>, 94/BOOT0=BOOT0, 95/PB8_I2C1SCL=I2C_SCL, 96/PB9_I2C1SDA=I2C_SDA, 97/PE0=<NC>, 98/PE1=<NC>, 99/VSS=GND, 100/VDD=V3D
+Y801     24.576MHz CL18pF candidate                                   | 1/X1=HSE_IN, 2/GND=GND, 3/X2=HSE_OUT, 4/GND=GND
+==================== PAGE 10
+C820     0.001uF C0G 50V 5%                                           | 1=VBUS_SENSE, 2=GND
+C821     0.01uF C0G 25V 5%                                            | 1=KEY_FX, 2=GND
+C822     0.01uF C0G 25V 5%                                            | 1=KEY_MODE, 2=GND
+C823     0.01uF C0G 25V 5%                                            | 1=KEY_MIX, 2=GND
+C824     0.01uF C0G 25V 5%                                            | 1=KEY_PWR, 2=GND
+C825     0.01uF C0G 25V 5%                                            | 1=KEY_BT, 2=GND
+C830     0.1uF C0G 25V 5%                                             | 1=VOL_ADC, 2=GND
+C831     0.1uF C0G 25V 5%                                             | 1=TONE_ADC, 2=GND
+C832     0.1uF C0G 25V 5%                                             | 1=FX_ADC, 2=GND
+R810     33R initial                                                  | 1=ADC_FS_SRC, 2=ADC_FS
+R811     33R initial                                                  | 1=ADC_BCK_SRC, 2=ADC_BCK
+R812     33R initial                                                  | 1=ADC_SCK_SRC, 2=ADC_SCK
+R813     33R initial                                                  | 1=PLAY_DATA_SRC, 2=PLAY_DATA
+R814     33R initial                                                  | 1=PLAY_FS_SRC, 2=PLAY_FS
+R815     33R initial                                                  | 1=PLAY_BCK_SRC, 2=PLAY_BCK
+R816     100k                                                         | 1=USB_5V_SAFE, 2=VBUS_SENSE
+R817     100k                                                         | 1=VBUS_SENSE, 2=GND
+R820     10k                                                          | 1=KEY_FX, 2=V3D
+R821     10k                                                          | 1=KEY_MODE, 2=V3D
+R822     10k                                                          | 1=KEY_MIX, 2=V3D
+R823     10k                                                          | 1=KEY_PWR, 2=V3D
+R824     10k                                                          | 1=V3D, 2=KEY_BT
+R830     1k                                                           | 1=VOL_RAW, 2=VOL_ADC
+R831     1k                                                           | 1=TONE_RAW, 2=TONE_ADC
+R832     1k                                                           | 1=FX_RAW, 2=FX_ADC
+RV810    RK10J11R0A0L                                                 | 1/HIGH=V3D, 2/WIPER=VOL_RAW, 3/LOW=GND
+RV811    RK10J11R0A0L                                                 | 1/HIGH=V3D, 2/WIPER=TONE_RAW, 3/LOW=GND
+RV812    RK10J11R0A0L                                                 | 1/HIGH=V3D, 2/WIPER=FX_RAW, 3/LOW=GND
+SW810    SKQGABE010                                                   | 1/A1=KEY_FX, 2/A2=KEY_FX, 3/B1=GND, 4/B2=GND
+SW811    SKQGABE010                                                   | 1/A1=KEY_MODE, 2/A2=KEY_MODE, 3/B1=GND, 4/B2=GND
+SW812    SKQGABE010                                                   | 1/A1=KEY_MIX, 2/A2=KEY_MIX, 3/B1=GND, 4/B2=GND
+SW813    SKQGABE010                                                   | 1/A1=PWR_PB, 2/A2=PWR_PB, 3/B1=GND, 4/B2=GND
+SW814    SKQGABE010                                                   | 1/A1=KEY_BT, 2/A2=KEY_BT, 3/B1=GND, 4/B2=GND
+==================== PAGE 11
+C901     1uF                                                          | 1=RF_CHIP_EN, 2=GND
+C902     100nF                                                        | 1=V3LOAD, 2=GND
+C903     22uF                                                         | 1=V3LOAD, 2=GND
+C904     100nF                                                        | 1=SYS, 2=GND
+C905     10uF                                                         | 1=SYS, 2=GND
+J901     Speaker harness                                              | 1/SPK+=SPK_P, 2/SPK-=SPK_N
+J902     RF factory pads - not user connector                         | 1/3V3=V3LOAD, 2/GND=GND, 3/RX_IN=RF_PROG_RX, 4/TX_OUT=RF_PROG_TX, 5/BOOT=RF_BOOT, 6/EN=RF_CHIP_EN
+LS901    AS01808AO-SC18-WP-R                                          | 1/+=SPK_P, 2/-=SPK_N
+R901     10k                                                          | 1=RF_CHIP_EN, 2=GND
+R902     10k                                                          | 1=RF_BOOT, 2=V3LOAD
+R903     100k                                                         | 1=SPK_GAIN, 2=SYS
+R904     100k                                                         | 1=SPK_SD_PIN, 2=GND
+R905     2k                                                           | 1=SPK_ENABLE, 2=SPK_SD_PIN
+R906     33R initial                                                  | 1=SPK_DATA_SRC, 2=SPK_DATA
+R907     470R                                                         | 1=RF_ENABLE, 2=RF_CHIP_EN
+U901     ESP32-MINI-1U                                                | 1/GND=GND, 2/GND=GND, 3/3V3=V3LOAD, 4/UNUSED=<NC>, 5/UNUSED=<NC>, 6/UNUSED=<NC>, 7/UNUSED=<NC>, 8/EN=RF_CHIP_EN, 9/UNUSED=<NC>, 10/UNUSED=<NC>, 11/IO32_UART_RX=RF_RX, 12/IO33_UART_TX=RF_TX, 13/IO25=PLAY_FS, 14/IO26=PLAY_BCK, 15/UNUSED=<NC>, 16/UNUSED=<NC>, 17/UNUSED=<NC>, 18/UNUSED=<NC>, 19/UNUSED=<NC>, 20/UNUSED=<NC>, 21/IO0=RF_BOOT, 22/UNUSED=<NC>, 23/UNUSED=<NC>, 24/UNUSED=<NC>, 25/UNUSED=<NC>, 26/UNUSED=<NC>, 27/GND=GND, 28/UNUSED=<NC>, 29/UNUSED=<NC>, 30/UNUSED=<NC>, 31/UNUSED=<NC>, 32/UNUSED=<NC>, 33/IO22=PLAY_DATA, 34/UNUSED=<NC>, 35/RXD0=RF_PROG_RX, 36/TXD0=RF_PROG_TX, 37/UNUSED=<NC>, 38/GND=GND, 39/GND=GND, 40/GND=GND, 41/GND=GND, 42/GND=GND, 43/GND=GND, 44/GND=GND, 45/GND=GND, 46/GND=GND, 47/GND=GND, 48/GND=GND, 49/GND=GND, 50/GND=GND, 51/GND=GND, 52/GND=GND, 53/GND=GND, 54/GND=GND, 55/GND=GND
+U902     MAX98357AETE+                                                | 1/DIN=SPK_DATA, 2/GAIN_SLOT=SPK_GAIN, 3/GND=GND, 4/SD_MODE=SPK_SD_PIN, 5/NC=<NC>, 6/NC=<NC>, 7/VDD=SYS, 8/VDD=SYS, 9/OUTP=SPK_P, 10/OUTN=SPK_N, 11/GND=GND, 12/NC=<NC>, 13/NC=<NC>, 14/LRCLK=PLAY_FS, 15/GND=GND, 16/BCLK=PLAY_BCK, EP/PAD=GND
+==================== PAGE 12
+C1001    0.0047uF C0G 50V 5%                                          | 1=EFUSE_DVDT, 2=GND
+C1002    100nF 50V                                                    | 1=VBUS_RAW, 2=GND
+C1003    1uF 16V                                                      | 1=USB_5V_SAFE, 2=GND
+R1001    26.1k                                                        | 1=VBUS_RAW, 2=USB_UV
+R1002    10k                                                          | 1=USB_UV, 2=GND
+R1003    37.4k                                                        | 1=VBUS_RAW, 2=USB_OV
+R1004    10k                                                          | 1=USB_OV, 2=GND
+R1005    6.65k                                                        | 1=EFUSE_ILM, 2=GND
+R1006    100k                                                         | 1=USB_FLT, 2=V3D
+U1001    TPS259470LRPWR                                               | 1/EN_UVLO=USB_UV, 2/OVLO=USB_OV, 3/AUXOFF=<NC>, 4/FLT=USB_FLT, 5/IN=VBUS_RAW, 6/OUT=USB_5V_SAFE, 7/DVDT=EFUSE_DVDT, 8/GND=GND, 9/ILM=EFUSE_ILM, 10/ITIMER=<NC>
+==================== PAGE 13
+C1101    100nF                                                        | 1=BUCK_AUX, 2=GND
+C1102    10uF 10V                                                     | 1=SYS, 2=GND
+C1103    100nF                                                        | 1=SYS, 2=GND
+C1104    22uF 10V                                                     | 1=V3D, 2=GND
+C1105    22uF 10V                                                     | 1=V3D, 2=GND
+C1106    22uF 10V                                                     | 1=V3A, 2=GND
+C1107    100nF                                                        | 1=V3A, 2=GND
+C1108    100nF                                                        | 1=V3D, 2=GND
+FB1101   Ferrite 120R@100MHz / >=0.5A                                 | 1=V3LOAD, 2=V3A
+L1101    1.5uH / Isat >=5A candidate                                  | 1=BUCK_L1, 2=BUCK_L2
+R1101    312k; 0.1%; <=25ppm/K; exact MPN pending                     | 1=V3D, 2=BUCK_FB
+R1102    100k; 0.1%; <=25ppm/K; exact MPN pending                     | 1=BUCK_FB, 2=GND
+R1103    33k 1%                                                       | 1=SYS, 2=PWR_LTC_EN
+R1104    100k                                                         | 1=V3_PG, 2=V3D
+U1101    TPS63070RNMR                                                 | 1/PS_SYNC=GND, 2/PG=V3_PG, 3/VAUX=BUCK_AUX, 4/GND=GND, 5/FB=BUCK_FB, 6/FB2=<NC>, 7/VOUT=V3D, 8/VOUT=V3D, 9/L2=BUCK_L2, 10/PGND=GND, 11/L1=BUCK_L1, 12/VIN=SYS, 13/VIN=SYS, 14/EN=SYS_ENABLE, 15/VSEL=GND
+==================== PAGE 14
+D1201    TPD1E10B06DPYR                                               | 1/IO=HP_L_PORT, 2/GND=GND
+D1202    TPD1E10B06DPYR                                               | 1/IO=HP_R_PORT, 2/GND=GND
+D1203    TPD1E10B06DPYR                                               | 1/IO=LINE_L_PORT, 2/GND=GND
+D1204    TPD1E10B06DPYR                                               | 1/IO=LINE_R_PORT, 2/GND=GND
+D1205    TPD1E10B06DPYR                                               | 1/IO=SEND_T_PORT, 2/GND=GND
+D1206    TPD1E10B06DPYR                                               | 1/IO=RETURN_L_PORT, 2/GND=GND
+D1207    TPD1E10B06DPYR                                               | 1/IO=RETURN_R_PORT, 2/GND=GND
+K1201    AQY221R6VY                                                   | 1/LED_A=SSR_LED_0, 2/LED_K=SSR_SINK, 3/LOAD_A=HP_L, 4/LOAD_B=HP_L_PORT
+K1202    AQY221R6VY                                                   | 1/LED_A=SSR_LED_1, 2/LED_K=SSR_SINK, 3/LOAD_A=HP_R, 4/LOAD_B=HP_R_PORT
+K1203    AQY221R2VY                                                   | 1/LED_A=SSR_LED_2, 2/LED_K=SSR_SINK, 3/LOAD_A=LINE_L, 4/LOAD_B=LINE_L_PORT
+K1204    AQY221R2VY                                                   | 1/LED_A=SSR_LED_3, 2/LED_K=SSR_SINK, 3/LOAD_A=LINE_R, 4/LOAD_B=LINE_R_PORT
+K1205    AQY221R2VY                                                   | 1/LED_A=SSR_LED_4, 2/LED_K=SSR_SINK, 3/LOAD_A=SEND_T, 4/LOAD_B=SEND_T_PORT
+K1206    AQY221R2VY                                                   | 1/LED_A=SSR_LED_5, 2/LED_K=SSR_SINK, 3/LOAD_A=RETURN_L, 4/LOAD_B=RETURN_L_PORT
+K1207    AQY221R2VY                                                   | 1/LED_A=SSR_LED_6, 2/LED_K=SSR_SINK, 3/LOAD_A=RETURN_R, 4/LOAD_B=RETURN_R_PORT
+Q1201    PMV30UN2R                                                    | 1/G=SSR_GATE, 2/S=GND, 3/D=SSR_SINK
+R1201    270R                                                         | 1=V3D, 2=SSR_LED_0
+R1202    270R                                                         | 1=V3D, 2=SSR_LED_1
+R1203    270R                                                         | 1=V3D, 2=SSR_LED_2
+R1204    270R                                                         | 1=V3D, 2=SSR_LED_3
+R1205    270R                                                         | 1=V3D, 2=SSR_LED_4
+R1206    270R                                                         | 1=V3D, 2=SSR_LED_5
+R1207    270R                                                         | 1=V3D, 2=SSR_LED_6
+R1210    1k                                                           | 1=PORT_ENABLE, 2=SSR_GATE
+R1211    100k                                                         | 1=SSR_GATE, 2=GND
+==================== PAGE 15
+D850     APT1608VRCXF/A-5MAV                                          | 1/K=GND, 2/A=LED_ZONE_1_A
+D851     APT1608VRCXF/A-5MAV                                          | 1/K=GND, 2/A=LED_ZONE_2_A
+D852     APT1608VRCXF/A-5MAV                                          | 1/K=GND, 2/A=LED_ZONE_3_A
+R850     1k                                                           | 1=LED_ZONE_1, 2=LED_ZONE_1_A
+R851     1k                                                           | 1=LED_ZONE_2, 2=LED_ZONE_2_A
+R852     1k                                                           | 1=LED_ZONE_3, 2=LED_ZONE_3_A
+==================== PAGE 16
+C1301    100nF / 10V                                                  | 1=SYS, 2=GND
+C1302    0.1uF C0G 25V 5%                                             | 1=PWR_ONT, 2=GND
+C1303    0.47uF C0G 50V 5%                                            | 1=PWR_PDT, 2=GND
+R1301    10k                                                          | 1=PWR_BOOT_OK, 2=PWR_KILL
+R1302    100k                                                         | 1=PWR_KILL, 2=GND
+U1301    LTC2954ITS8-1#TRPBF                                          | 1/VIN=SYS, 2/PB=PWR_PB, 3/ONT=PWR_ONT, 4/GND=GND, 5/INT_N=KEY_PWR, 6/EN=PWR_LTC_EN, 7/PDT=PWR_PDT, 8/KILL=PWR_KILL
+==================== PAGE 17
+C1401    100nF / 50V X7R                                              | 1=CC_VBIAS, 2=GND
+C1402    1uF / 10V                                                    | 1=V3D, 2=GND
+R1401    100k                                                         | 1=CC_FAULT_N, 2=V3D
+U1401    TPD2S300YFFR                                                 | A1/C_CC1=CC1_PORT, A2/VBIAS=CC_VBIAS, A3/C_CC2=CC2_PORT, B1/CC1=CC1_SAFE, B2/GND=GND, B3/CC2=CC2_SAFE, C1/FLT_N=CC_FAULT_N, C2/VPWR=V3D, C3/VM=V3D
+==================== PAGE 18
+C1501    2.2uF 16V X7R; effective 1..10uF                             | 1=USB_5V_SAFE, 2=GND
+C1502    1uF 10V X7R; effective 0.3..3uF                              | 1=USB_VREF, 2=GND
+FL1501   90 ohm at 100MHz candidate                                   | 1/DP_IN=USB_DP_CONN, 2/DM_IN=USB_DM_CONN, 3/DM_OUT=USB_DM_CMC, 4/DP_OUT=USB_DP_CMC
+L1501    10nH matched candidate                                       | 1=USB_DP_CMC, 2=USB_DP_OVP_IN
+L1502    10nH matched candidate                                       | 1=USB_DM_CMC, 2=USB_DM_OVP_IN
+R1501    24.9k 1%                                                     | 1=USB_OVP_MODE, 2=GND
+R1502    100k                                                         | 1=USB_DATA_DISABLE, 2=V3D
+R1503    100k                                                         | 1=USB_DATA_FAULT_N, 2=V3D
+R1504    140k 1%                                                      | 1=USB_VREF, 2=USB_OVP_MODE
+U1501    TPD2S703QDGSRQ1                                              | 1/VD_MINUS=USB_DM_OVP_IN, 2/VD_PLUS=USB_DP_OVP_IN, 3/GND=GND, 4/FLT_N=USB_DATA_FAULT_N, 5/EN_N=USB_DATA_DISABLE, 6/MODE=USB_OVP_MODE, 7/VPWR=USB_5V_SAFE, 8/VREF=USB_VREF, 9/D_PLUS=USB_DP_SYS, 10/D_MINUS=USB_DM_SYS
+==================== PAGE 19
+Q1601    PMV30UN2                                                     | 1/G=CHARGE_GATE, 2/S=GND, 3/D=CHARGE_DISABLE
+R1601    4.7k 1%                                                      | 1=CHARGE_ALLOW, 2=CHARGE_GATE
+R1602    100k                                                         | 1=CHARGE_GATE, 2=GND
+R1603    1k                                                           | 1=CHG_EN1_MCU, 2=CHG_EN1
+R1604    1k                                                           | 1=CHG_EN2_MCU, 2=CHG_EN2
+==================== PAGE 20
+C1701    0.01uF C0G 25V 5%                                            | 1=MON_USB_BUF_IN, 2=GND
+C1702    0.01uF C0G 25V 5%                                            | 1=MON_USB_ADC, 2=GND
+C1703    0.01uF C0G 25V 5%                                            | 1=MON_BAT_BUF_IN, 2=GND
+C1704    0.01uF C0G 25V 5%                                            | 1=MON_BAT_ADC, 2=GND
+C1705    0.01uF C0G 25V 5%                                            | 1=MON_SYS_BUF_IN, 2=GND
+C1706    0.01uF C0G 25V 5%                                            | 1=MON_SYS_ADC, 2=GND
+C1707    0.01uF C0G 25V 5%                                            | 1=MON_ICHG_BUF_IN, 2=GND
+C1708    0.01uF C0G 25V 5%                                            | 1=MON_ICHG_ADC, 2=GND
+C1709    100nF 10V X7R                                                | 1=V3D, 2=GND
+C1710    100nF 10V X7R                                                | 1=V3D, 2=GND
+C1711    100nF 10V X7R                                                | 1=V3D, 2=GND
+R1701    15k 0.1% 25ppm/C                                             | 1=USB_5V_SAFE, 2=MON_USB_DIV
+R1702    10k 0.1% 25ppm/C                                             | 1=MON_USB_DIV, 2=GND
+R1703    100k 0.1% 25ppm/C                                            | 1=MON_USB_BUF_IN, 2=GND
+R1704    100R 1%                                                      | 1=MON_USB_BUF, 2=MON_USB_ADC
+R1705    15k 0.1% 25ppm/C                                             | 1=PACK_PLUS, 2=MON_BAT_DIV
+R1706    10k 0.1% 25ppm/C                                             | 1=MON_BAT_DIV, 2=GND
+R1707    100k 0.1% 25ppm/C                                            | 1=MON_BAT_BUF_IN, 2=GND
+R1708    100R 1%                                                      | 1=MON_BAT_BUF, 2=MON_BAT_ADC
+R1709    15k 0.1% 25ppm/C                                             | 1=SYS, 2=MON_SYS_DIV
+R1710    10k 0.1% 25ppm/C                                             | 1=MON_SYS_DIV, 2=GND
+R1711    100k 0.1% 25ppm/C                                            | 1=MON_SYS_BUF_IN, 2=GND
+R1712    100R 1%                                                      | 1=MON_SYS_BUF, 2=MON_SYS_ADC
+R1715    1%; ISET buffer bias, include in mirror calibration          | 1=MON_ICHG_BUF_IN, 2=GND
+R1716    100R 1%                                                      | 1=MON_ICHG_BUF, 2=MON_ICHG_ADC
+R1717    100k 1%                                                      | 1=MON_ENABLE, 2=GND
+U1701    ADS1115IDGSR                                                 | 1/ADDR=GND, 2/ALERT_RDY=<NC>, 3/GND=GND, 4/AIN0=MON_USB_ADC, 5/AIN1=MON_BAT_ADC, 6/AIN2=MON_SYS_ADC, 7/AIN3=MON_ICHG_ADC, 8/VDD=V3D, 9/SDA=I2C_SDA, 10/SCL=I2C_SCL
+U1702    TMUX1511PWR                                                  | 1/SEL1=MON_ENABLE, 2/S1=MON_USB_DIV, 3/D1=MON_USB_BUF_IN, 4/SEL2=MON_ENABLE, 5/S2=MON_BAT_DIV, 6/D2=MON_BAT_BUF_IN, 7/GND=GND, 8/D3=MON_SYS_BUF_IN, 9/S3=MON_SYS_DIV, 10/SEL3=MON_ENABLE, 11/D4=MON_ICHG_BUF_IN, 12/S4=RISET, 13/SEL4=MON_ENABLE, 14/VDD=V3D
+U1703    OPA4330AIPWR                                                 | 1/OUT_A=MON_USB_BUF, 2/IN_A_MINUS=MON_USB_BUF, 3/IN_A_PLUS=MON_USB_BUF_IN, 4/V_PLUS=V3D, 5/IN_B_PLUS=MON_BAT_BUF_IN, 6/IN_B_MINUS=MON_BAT_BUF, 7/OUT_B=MON_BAT_BUF, 8/OUT_C=MON_SYS_BUF, 9/IN_C_MINUS=MON_SYS_BUF, 10/IN_C_PLUS=MON_SYS_BUF_IN, 11/V_MINUS=GND, 12/IN_D_PLUS=MON_ICHG_BUF_IN, 13/IN_D_MINUS=MON_ICHG_BUF, 14/OUT_D=MON_ICHG_BUF
+==================== PAGE 21
+C1801    100nF 10V X7R                                                | 1=V3D, 2=GND
+J1801    Internal thermal sensor harness endpoint                     | 1/3V3=V3D, 2/GND=GND, 3/SCL=TEMP_SCL, 4/SDA=TEMP_SDA
+J1802    Internal thermal sensor harness endpoint                     | 1/3V3=V3D, 2/GND=GND, 3/SCL=TEMP_SCL, 4/SDA=TEMP_SDA
+R1801    33R 1%                                                       | 1=I2C_SCL, 2=TEMP_SCL
+R1802    33R 1%                                                       | 1=I2C_SDA, 2=TEMP_SDA
+U1801    TMP117AIDRVR                                                 | 1/SCL=TEMP_SCL, 2/GND=GND, 3/ALERT=<NC>, 4/ADD0=V3D, 5/V_PLUS=V3D, 6/SDA=TEMP_SDA, 7/THERMAL_PAD=<NC>
+==================== PAGE 22
+R1901    1k 1%                                                        | 1=USB_FLT, 2=USB_FLT_MCU
+R1902    1k 1%                                                        | 1=PGOOD_TP, 2=CHG_PGOOD_N
+R1903    1k 1%                                                        | 1=CHG_TP, 2=CHG_STATUS_N
+==================== PAGE 23
+C1901    0.01uF C0G 25V 5%                                            | 1=LOAD_CT, 2=GND
+C1902    2.2uF X7R 16V; effective>=1uF                                | 1=V3D, 2=GND
+C1903    100nF X7R 16V                                                | 1=V3LOAD, 2=GND
+C1904    100nF X7R 16V                                                | 1=V3D, 2=GND
+D1301    low-leakage enable OR                                        | 1/A=PWR_LTC_EN, 2/NC=<NC>, 3/K=SYS_ENABLE
+D1302    low-leakage enable OR                                        | 1/A=USB_WAKE_A, 2/NC=<NC>, 3/K=SYS_ENABLE
+R1303    33k 1%                                                       | 1=USB_5V_SAFE, 2=USB_WAKE_A
+R1304    100k 1%                                                      | 1=SYS_ENABLE, 2=GND
+R1911    100k 1%                                                      | 1=AUDIO_PWR_EN, 2=GND
+R1912    1k 1%                                                        | 1=V3LOAD, 2=LOAD_QOD
+R1913    100k 1%                                                      | 1=AUDIO_BUS_EN, 2=GND
+U1901    sequenced performance-domain supply                          | 1/VIN=V3D, 2/GND=GND, 3/ON=AUDIO_PWR_EN, 4/CT=LOAD_CT, 5/QOD=LOAD_QOD, 6/VOUT=V3LOAD
+U1902    audio I2C powered-domain isolation                           | 1/SEL1=AUDIO_BUS_EN, 2/S1=I2C_SDA, 3/D1=I2C_AUDIO_SDA, 4/SEL2=AUDIO_BUS_EN, 5/S2=I2C_SCL, 6/D2=I2C_AUDIO_SCL, 7/GND=GND, 8/D3=GND, 9/S3=GND, 10/SEL3=GND, 11/D4=GND, 12/S4=GND, 13/SEL4=GND, 14/VDD=V3D
+==================== PAGE 24
+C1921    100nF X7R 16V                                                | 1=SYS, 2=GND
+C1922    100nF X7R 16V                                                | 1=TEMP_REF2V5, 2=GND
+J1921    RT1921 harness solder endpoint                               | 1/NTC_SENSE=CELL_NTC_SENSE, 2/RETURN=GND
+R1921    158k 1%                                                      | 1=CELL_NTC_SENSE, 2=NTC_COLD_DIV
+R1922    100k 1%                                                      | 1=NTC_COLD_DIV, 2=GND
+R1923    8.2k 1%                                                      | 1=USB_5V_SAFE, 2=TEMP_REF2V5
+R1924    30.1k 1%                                                     | 1=TEMP_REF2V5, 2=CELL_NTC_SENSE
+RT1921   independent battery surface thermistor 10k 1%,B3435          | 1/NTC_A=CELL_NTC_SENSE, 2/NTC_B=GND
+U1921    independent pack NTC window inhibits charge                  | 1/OUTA=CHARGE_GATE, 2/GND=GND, 3/INA+=CELL_NTC_SENSE, 4/INB-=NTC_COLD_DIV, 5/VDD=SYS, 6/OUTB=CHARGE_GATE
+U1922    2.5V independent NTC excitation reference                    | 1/CATHODE=TEMP_REF2V5, 2/ANODE=GND, 3/STAR_TIE_ANODE=GND

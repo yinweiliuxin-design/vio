@@ -1,0 +1,169 @@
+{
+  "schema": "SmartVio.R4.mechanical_to_electrical.v1",
+  "units": "mm",
+  "coordinates": "cover: cover-PCB XY (= global logical XY); usb: usb-PCB local XY",
+  "holes": {
+    "cover": [
+      {
+        "id": "KEYBACKER_0",
+        "xy": [
+          42.5,
+          25
+        ],
+        "dia": 1.8,
+        "type": "NPTH"
+      },
+      {
+        "id": "KEYBACKER_1",
+        "xy": [
+          55.5,
+          25
+        ],
+        "dia": 1.8,
+        "type": "NPTH"
+      },
+      {
+        "id": "USBPOST_0",
+        "xy": [
+          88,
+          8
+        ],
+        "dia": 4.4,
+        "type": "NPTH, keep copper 0.5 away"
+      },
+      {
+        "id": "USBPOST_1",
+        "xy": [
+          108.3,
+          8
+        ],
+        "dia": 4.4,
+        "type": "NPTH, keep copper 0.5 away"
+      },
+      {
+        "id": "USBPOST_2",
+        "xy": [
+          88,
+          21.8
+        ],
+        "dia": 4.0,
+        "type": "NPTH, keep copper 0.5 away; R4.1c clamp-only post moved from (88,22), hole Ø4.4->Ø4.0"
+      },
+      {
+        "id": "USBPOST_3",
+        "xy": [
+          108.3,
+          22
+        ],
+        "dia": 4.4,
+        "type": "NPTH, keep copper 0.5 away"
+      },
+      {
+        "id": "PIN_ROUND",
+        "xy": [
+          3.5,
+          24.5
+        ],
+        "dia": 1.5,
+        "type": "NPTH"
+      },
+      {
+        "id": "PIN_SLOT",
+        "xy": [
+          144.5,
+          24.5
+        ],
+        "slot": [
+          2.5,
+          1.5
+        ],
+        "type": "NPTH slot along X"
+      },
+      {
+        "id": "SNAP_SLOT_S_0",
+        "rect": [
+          62.6,
+          44.75,
+          71.4,
+          46.1
+        ],
+        "type": "enlarge existing south snap slot from y44.9 to y44.75 (blade lip passage)"
+      },
+      {
+        "id": "SNAP_SLOT_S_1",
+        "rect": [
+          97.6,
+          44.75,
+          106.39999999999999,
+          46.1
+        ],
+        "type": "enlarge existing south snap slot from y44.9 to y44.75 (blade lip passage)"
+      }
+    ],
+    "usb": [
+      {
+        "id": "USBSCREW_0",
+        "xy": [
+          2,
+          3
+        ],
+        "dia": 1.8,
+        "type": "NPTH, keep-out Ø4.4 both sides"
+      },
+      {
+        "id": "USBSCREW_1",
+        "xy": [
+          22.3,
+          3
+        ],
+        "dia": 1.8,
+        "type": "NPTH, keep-out Ø4.4 both sides"
+      },
+      {
+        "id": "USBSCREW_2",
+        "xy": [
+          22.3,
+          17
+        ],
+        "dia": 1.8,
+        "type": "NPTH, keep-out Ø4.4 both sides"
+      },
+      {
+        "id": "USBPOST_CLAMP",
+        "xy": [
+          2,
+          16.8
+        ],
+        "keepout_top_dia": 4.4,
+        "type": "no hole; F-side keep-out for clamp post (R4.1c: post Ø3.6 at local (2,16.8) lies inside the existing Ø4.4 keep-out at (2,17); USB board needs no change)"
+      }
+    ]
+  },
+  "recommended": [
+    {
+      "board": "cover",
+      "ref": "D851",
+      "move_to": [
+        34.7,
+        20.7
+      ],
+      "why": "centre under offset light pipe 2 (M11)"
+    },
+    {
+      "board": "main",
+      "note": "chamfer main-board outline corners >=1.0x45 deg (cup inner corners now R1.2, 0.07 clearance)"
+    },
+    {
+      "board": "usb",
+      "note": "USB16 FPC (ECO L-10) enters the ZIF from -X under the bracket west rail (rail bottom z-4.9, FPC <= z-5.3); bend radius >=1.5"
+    },
+    {
+      "board": "usb",
+      "note": "keep F-side copper/parts out of dia4.4 at clamp post (88,21.8) [local (2,16.8); existing keep-out at local (2,17) still covers the Ø3.6 post]; ZIF J_USB_U envelope x86.8-92.3 y11.5-24.5 z-6.3..-4.3 is inside the bracket window"
+    },
+    {
+      "board": "cover",
+      "note": "antenna window GND keep-out >=5 mm is PCB-05; mechanical grille is now non-metallic"
+    }
+  ]
+}

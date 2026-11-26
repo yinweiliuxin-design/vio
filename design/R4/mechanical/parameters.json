@@ -1,0 +1,199 @@
+{
+  "version": "R4 prototype engineering candidate",
+  "units": "mm",
+  "manufacturing_release": false,
+  "datum": "A instrument mounting surface Z0; STEP Y=-logical drawing Y",
+  "upper_outline": [
+    148,
+    49
+  ],
+  "upper_corner_radius": 2.0,
+  "upper_roof_top": 3.8,
+  "upper_roof_thickness": 1.3,
+  "upper_side_wall": 1.0,
+  "cup_outline": [
+    77.0,
+    45.0
+  ],
+  "cup_origin": [
+    35.5,
+    2.0
+  ],
+  "cup_bottom": -20.8,
+  "cup_floor_top": -20.25,
+  "cup_floor_thickness": 0.55,
+  "cup_floor_note": "R4.1b: floor top -20.30 -> -20.25 (battery bottom insulator 0.10 -> 0.05 PET; battery bottom stays -20.20) and floor 0.60 -> 0.55: cup bottom -20.90 -> -20.80 closes worst-case total height (tolerance-stack chain 1)",
+  "cup_wall": 0.8,
+  "cup_corner_radius": 1.2,
+  "cup_inner_corner_radius": 1.2,
+  "main_origin": [
+    36.7,
+    3.2
+  ],
+  "main_bottom": -12.55,
+  "main_thickness": 0.8,
+  "main_xy": [
+    74.6,
+    42.6
+  ],
+  "main_B_max_assembled_under_battery": 1.05,
+  "main_ledge_overlap": 1.0,
+  "main_xy_locating_gap": 0.05,
+  "main_latch_z_gap": 0.0,
+  "audio_origin": [
+    37.3,
+    30
+  ],
+  "audio_pcb_top": -9.65,
+  "audio_pcb_thickness": 1.0,
+  "jack_mouth_top": 3.85,
+  "jack_seat_to_mouth_nominal": 13.5,
+  "jack_shoulder_Z": 1.45,
+  "jack_shoulder_gap": 0.005,
+  "jack_shoulder_gap_note": "zero-gap design; 0.005 CAD offset only avoids coplanar boolean slivers on the vendor B-spline face",
+  "audio_frame_bottom": -11.15,
+  "audio_frame_thickness": 0.5,
+  "usb_origin": [
+    86,
+    5
+  ],
+  "usb_clamp_post": {
+    "xy": [
+      88,
+      21.8
+    ],
+    "lower_dia": 3.6,
+    "cover_hole_dia": 4.0,
+    "why": "R4.1c: (88,22) Ø4.4 left 0.35 to J3408 (COVER6) pads on the cover board; now 0.75 to the pads and 0.68 to the PWR_PB track"
+  },
+  "usb_top": -3.3,
+  "usb_thickness": 1.0,
+  "sensor_board": "eliminated (ECO L-12, TMP117 on main B side)",
+  "cover_pcb_top": 0.5,
+  "cover_pcb_thickness": 0.4,
+  "pack_box": [
+    40,
+    7.25,
+    -20.2,
+    92,
+    41.75,
+    -14.8
+  ],
+  "battery_swell_Z_design_allowance": 1.0,
+  "battery_guide_gap": 0.25,
+  "battery_top_foam": "1.0 mm PORON 4701-30 class strips, fills swell allowance; ~50% compressible",
+  "pack_bottom_insulation": 0.05,
+  "pack_top_insulation": 0.1,
+  "screw_xy": [
+    [
+      5.3,
+      5.3
+    ],
+    [
+      142.7,
+      5.3
+    ],
+    [
+      5.3,
+      43.7
+    ],
+    [
+      142.7,
+      43.7
+    ]
+  ],
+  "screw_through": 2.5,
+  "screw_counterbore": 4.5,
+  "screw_seat_z": 1.7,
+  "screw_passing_boss_dia": 5.2,
+  "screw_boss_dia_above_cover_pcb": 6.5,
+  "instrument_screw": "ST2.2x6.5 A2 stainless pan-head wood screw (non-magnetic), pilot 1.6x5 in wood, 0.15 N.m; threaded insert in wood preferred",
+  "internal_screw": "M1.6 thread-forming screw for plastics (PT/WN1452 type) into POM pilot 1.3; production PC/ABS: M1.6 heat-set brass insert",
+  "button_switch_top_max_Z": 2.15,
+  "button_switch_top_nominal_Z": 2.0,
+  "button_initial_gap_at_max": 0.05,
+  "switch_travel": 0.25,
+  "button_hole_dia": 5.2,
+  "button_stem_dia": 5.0,
+  "button_flange_dia": 6.2,
+  "button_flange_recess_dia": 6.5,
+  "button_top_Z": 3.85,
+  "button_fit_basis": "SKQGABE010 h1.5 +0.15/-0, travel0.25, 1.57N (native-components.json). Nub designed to max switch top2.15+0.05; trim stock blank to measured switch top+0.05",
+  "wheel_window_dia": 15.2,
+  "wheel_thumb_notch": "north-edge notch 12 wide, floor Z1.5: knurled rim stands 1.5 above local floor (wheel top Z3.0 fixed by board stack)",
+  "legend_depth": 0.15,
+  "legend_font": "DejaVuSans-Bold.ttf",
+  "snap_stations_x": [
+    67,
+    102
+  ],
+  "snap_beam": [
+    8,
+    0.8,
+    4
+  ],
+  "snap_hook_overlap": 0.35,
+  "snap_window_z_play": 0.04,
+  "snap_blade_leadin": 0.55,
+  "snap_locating_rib": {
+    "on": "lower_cup inner wall at each snap flap root (4x)",
+    "height": 0.15,
+    "clearance_to_blade_face": 0.05,
+    "x_from_station": [
+      -3.8,
+      -2.8
+    ],
+    "z": [
+      -4.6,
+      -1.2
+    ],
+    "top_leadin": 0.3,
+    "why": "R4.1 tolerance stack: without ribs the cup floats +/-0.2 in Y between the blades and one-side hook engagement falls to 0.05 nominal / <0 worst case. Ribs on the cover blades were rejected: they would need wider cover-PCB snap slots (C4 sweep hit)"
+  },
+  "pickup_entry_xy": [
+    60.6,
+    4.6
+  ],
+  "pickup_entry_xy_status": "PLACEHOLDER. TODO(measure): original pickup-wire hole of the violin (DECISIONS addendum 2026-10-15: no new hole is drilled in the violin). Convert: X = 258 - u (u = distance from tail metal datum, mm), Y = 24.5 + v (v = offset from module centre line toward the Y=0 / wheel-notch edge negative). Then set this value and rebuild.",
+  "pickup_entry_mode": "slot",
+  "pickup_entry_hole_dia": 3.0,
+  "pickup_entry_slot": [
+    10.0,
+    3.0
+  ],
+  "pickup_entry_slot_axis_deg": 0.0,
+  "pickup_entry_slot_note": "first-sample default: 10 x 3 slot along X (instrument length) centred on pickup_entry_xy; accepts the original hole anywhere within +/-3.5 mm along X; across (Y) the 3.0 width only accepts the cable (<= dia 2.6). Must stay in the north cable strip Y 3.1..6.3 (cup wall 2.8 / battery guide 6.5) so the cable reaches the main-board notch x58.8-62.4 and J101",
+  "usb_face_pocket": [
+    13.0,
+    7.4
+  ],
+  "usb_face_pocket_floor_Z": 2.85,
+  "usb_opening_collar": {
+    "wall": 0.6,
+    "z": [
+      1.8,
+      2.5
+    ],
+    "why": "R4.1b: pocket depth 0.80 -> 0.95 closes worst-case USB-C depth with GCT +/-0.25 (chain 7d); collar restores the lateral bearing wall of the opening (0.35 roof + 0.7 collar)"
+  },
+  "usb_face_pocket_note": "R4.1 widened 12.0 -> 13.0: USB Type-C plug overmold reference max 12.35 x 6.5 must reach the receptacle face 0.6 below roof top (tolerance-stack.md chain 7)",
+  "audio_frame_web_variants": [
+    0.4,
+    0.5,
+    0.6
+  ],
+  "audio_frame_selective_fit": "jack shoulder-pad loop is over-constrained (tolerance-stack.md chain 6); first sample: pick web 0.40/0.50/0.60 + 0.05 PET shims by measured gap",
+  "upper_and_cup_join": "4 zero-play snaps (window=hook+0.04); four upper screws attach instrument",
+  "nominal_total_height": 24.75,
+  "total_height_limit": 25.0,
+  "nonwheel_outward_limit": 5,
+  "process": "CNC POM-C for dimensional prototype, or PA12 additive blank with post-machined precision datum/ledges; unverified fatigue/acoustics are first-article tests",
+  "factory_tuning": "Main shims (ledge-shaped set) only when measured latch gap >0; do not compress pack or machine vendor parts",
+  "pending": "Native board ECO (holes listed in pcb-interface-eco-R4.json) and final assembly collision rerun after board routing; worst-case/RSS stack done in tolerance-stack.md (R4.1): chains 4 (keys) and 6 (jack loop) close only with first-sample selective fit; Kycon/GCT title-block tolerances still to be obtained; pickup_entry_xy awaits measurement",
+  "pickup_entry_extent_xy": [
+    55.6,
+    3.1,
+    65.6,
+    6.1
+  ]
+}

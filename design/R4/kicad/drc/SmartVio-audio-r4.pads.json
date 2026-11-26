@@ -1,0 +1,94 @@
+{
+ "J3404": {
+  "fp": "SmartVioV25:WirePads_4_P1.5",
+  "value": "AUDIO4 remote-end FPC landing (H_AUDIO_2_R)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "RETURN_L_PORT",
+   "2": "RETURN_R_PORT",
+   "3": "SEND_T_PORT",
+   "4": "GND"
+  }
+ },
+ "J201": {
+  "fp": "SmartVio_V26_Selection:Jack_Kycon_STX353K7A6N",
+  "value": "STX-353K7A-6N-KTTR",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "GND",
+   "3": "LINE_R_PORT",
+   "4": "LINE_L_PORT",
+   "5": "",
+   "6": ""
+  }
+ },
+ "J202": {
+  "fp": "SmartVio_V26_Selection:Jack_Kycon_STX353K7A6N",
+  "value": "STX-353K7A-6N-KTTR",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "GND",
+   "3": "RETURN_R_PORT",
+   "4": "RETURN_L_PORT",
+   "5": "",
+   "6": ""
+  }
+ },
+ "J301": {
+  "fp": "SmartVio_V26_Selection:Jack_Kycon_STX353K7A6N",
+  "value": "STX-353K7A-6N-KTTR",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "GND",
+   "3": "HP_R_PORT",
+   "4": "HP_L_PORT",
+   "5": "HP_DETECT_RAW",
+   "6": "HP_DET_B"
+  }
+ },
+ "J3402": {
+  "fp": "SmartVioV25:WirePads_6_P1.5",
+  "value": "AUDIO6 remote-end FPC landing (H_AUDIO_1_R)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "HP_DETECT_RAW",
+   "3": "HP_L_PORT",
+   "4": "HP_R_PORT",
+   "5": "LINE_L_PORT",
+   "6": "LINE_R_PORT"
+  }
+ },
+ "J102": {
+  "fp": "SmartVio_V26_Selection:Jack_Kycon_STX353K7A6N",
+  "value": "STX-353K7A-6N-KTTR",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "GND",
+   "2": "GND",
+   "3": "GND",
+   "4": "SEND_T_PORT",
+   "5": "",
+   "6": ""
+  }
+ },
+ "R323": {
+  "fp": "SmartVioV25:R_0603_1608Metric",
+  "value": "0R",
+  "layer": "B.Cu",
+  "board_only": false,
+  "pads": {
+   "1": "HP_DET_B",
+   "2": "GND"
+  }
+ }
+}

@@ -1,0 +1,13 @@
+(version 1)
+(rule "Filled laser microvia annulus"
+  (condition "A.Type == 'Via' && A.Via_Type == 'Micro'")
+  (constraint annular_width (min 0.075mm)))
+(rule "Contained filled laser hole to foreign copper"
+  (condition "(A.Type == 'Via' && A.Via_Type == 'Micro') || (B.Type == 'Via' && B.Via_Type == 'Micro')")
+  (constraint hole_clearance (min 0.200mm)))
+(rule "L-02 VBUS_RAW >= 0.8 mm outside J401 pin necks"
+  (condition "A.NetName == 'VBUS_RAW' && !A.intersectsCourtyard('J401')")
+  (constraint track_width (min 0.8mm)))
+(rule "USB D+/D- not on In1 (keep GND reference solid, L-11)"
+  (condition "A.NetName == 'USB_DP_CONN' || A.NetName == 'USB_DM_CONN' || A.NetName == 'USB_DP_SYS' || A.NetName == 'USB_DM_SYS' || A.NetName == 'USB_DP_OVP_IN' || A.NetName == 'USB_DM_OVP_IN'")
+  (layer "In1.Cu") (constraint disallow track))

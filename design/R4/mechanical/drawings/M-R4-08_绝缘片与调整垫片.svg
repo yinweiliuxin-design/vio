@@ -1,0 +1,265 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<g font-family="'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei','SimHei',sans-serif" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.000,10.000 L410.000,10.000 L410.000,287.000 L10.000,287.000 Z" fill="none" stroke="#111111" stroke-width="0.5"/>
+<text x="14.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">SmartVio R4  首样结构件制造图</text>
+<text x="110.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">绝缘片与主板调整垫片（平面展开）</text>
+<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：首样工程图 / 非量产放行（未经实物验证）</text>
+<path d="M10.000,20.000 L410.000,20.000" fill="none" stroke="#111111" stroke-width="0.3"/>
+<path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
+<text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
+<text x="13.500" y="251.400" font-size="2.0" text-anchor="start" fill="#111111">1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K。在 23±2 °C 下检验（POM 线胀系数约 1.1×10⁻⁴/K）。</text>
+<text x="13.500" y="255.400" font-size="2.0" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md；量产前另定抽样。</text>
+<text x="13.500" y="259.400" font-size="2.0" text-anchor="start" fill="#111111">3. 单位 mm；第一角画法；X 向琴尾（X0=滚轮端=琴头端），Y 向南（插座侧），Z 向外。基准 A=琴面安装面 Z0。</text>
+<text x="13.500" y="263.400" font-size="2.0" text-anchor="start" fill="#111111">4. 锐边倒钝 0.1–0.2（配合面、卡扣/卡钩根部与窗口棱边除外）；无毛刺、残料；深腔内角按 STEP（R≥1.2）。</text>
+<text x="13.500" y="267.400" font-size="2.0" text-anchor="start" fill="#111111">5. 形状以同名 STEP（step/*.step，R4.1）为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。</text>
+<text x="13.500" y="271.400" font-size="2.0" text-anchor="start" fill="#111111">6. 总厚指含胶厚度。背撑垫片（key/speaker_backer_insulator）单面压敏胶；其余无胶。</text>
+<text x="13.500" y="275.400" font-size="2.0" text-anchor="start" fill="#111111">7. 主板垫片只在实测主板卡齿间隙 &gt;0 时单层选用，不得叠装；按托台形状 4 段为一套。</text>
+<path d="M228.000,243.000 L408.000,243.000 L408.000,285.000 L228.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.4"/>
+<text x="229.500" y="246.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">名称</text>
+<text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">绝缘片 6 种 + 主板垫片 3 种</text>
+<path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-08   版本 R4.1b   第 1/1 页</text>
+<path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
+<text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">PET（聚酯）/ PI（聚酰亚胺），见表</text>
+<path d="M228.000,258.750 L408.000,258.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="262.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">表面/颜色</text>
+<text x="249.000" y="262.550" font-size="2.1" text-anchor="start" fill="#111111">无印刷；去毛刺；装箱分层隔纸</text>
+<path d="M228.000,264.000 L408.000,264.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="267.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">数量</text>
+<text x="249.000" y="267.800" font-size="2.1" text-anchor="start" fill="#111111">见表</text>
+<path d="M228.000,269.250 L408.000,269.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="273.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">比例 / 单位</text>
+<text x="249.000" y="273.050" font-size="2.1" text-anchor="start" fill="#111111">2:1 / 4:1   ·   mm   ·   第一角画法</text>
+<path d="M228.000,274.500 L408.000,274.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="278.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">一般公差</text>
+<text x="249.000" y="278.300" font-size="2.1" text-anchor="start" fill="#111111">ISO 2768-m（CTF 按图）</text>
+<path d="M228.000,279.750 L408.000,279.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="283.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">日期 / 编制</text>
+<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-10-16   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
+<path d="M247.500,243.000 L247.500,285.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<path d="M379.000,264.900 L385.000,263.500 L385.000,269.500 L379.000,268.100 Z" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="3.000" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="1.600" fill="none" stroke="#111111" stroke-width="0.2"/>
+<path d="M30.000,91.750 L30.000,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M108.000,91.750 L108.000,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M30.000,91.750 L108.000,91.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M30.000,40.000 L108.000,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="30.000" y="31.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">电池底绝缘片</text>
+<text x="51.000" y="31.500" font-size="2.2" text-anchor="start" fill="#444444">battery_bottom_insulator</text>
+<path d="M30.000,92.350 L30.000,97.950" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M108.000,92.350 L108.000,97.950" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M30.000,96.750 L108.000,96.750" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M30.000,96.750 L32.000,96.390 L32.000,97.110 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M108.000,96.750 L106.000,97.110 L106.000,96.390 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="69.000" y="96.050" font-size="2.2" text-anchor="middle" fill="#111111">52.00</text>
+<path d="M108.600,40.000 L114.200,40.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M108.600,91.750 L114.200,91.750" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M113.000,40.000 L113.000,91.750" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M113.000,40.000 L113.360,42.000 L112.640,42.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M113.000,91.750 L112.640,89.750 L113.360,89.750 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="112.200" y="65.875" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 112.200 65.875)">34.50</text>
+<path d="M130.000,93.250 L130.000,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M209.500,93.250 L209.500,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M130.000,93.250 L209.500,93.250" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M130.000,40.000 L209.500,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="130.000" y="31.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">电池顶隔片</text>
+<text x="148.000" y="31.500" font-size="2.2" text-anchor="start" fill="#444444">battery_top_separator</text>
+<path d="M130.000,93.850 L130.000,99.450" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M209.500,93.850 L209.500,99.450" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M130.000,98.250 L209.500,98.250" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M130.000,98.250 L132.000,97.890 L132.000,98.610 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M209.500,98.250 L207.500,98.610 L207.500,97.890 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="169.750" y="97.550" font-size="2.2" text-anchor="middle" fill="#111111">53.00</text>
+<path d="M210.100,40.000 L215.700,40.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M210.100,93.250 L215.700,93.250" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M214.500,40.000 L214.500,93.250" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M214.500,40.000 L214.860,42.000 L214.140,42.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M214.500,93.250 L214.140,91.250 L214.860,91.250 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="213.700" y="66.625" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 213.700 66.625)">35.50</text>
+<path d="M230.000,61.000 L230.000,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M230.000,61.000 L270.725,61.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M230.000,40.000 L340.100,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M270.725,61.000 L270.725,58.450" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M278.225,58.450 L270.725,58.450" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M278.225,61.000 L278.225,58.450" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M278.225,61.000 L340.100,61.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M340.100,61.000 L340.100,40.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="230.000" y="31.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">主板/音频板绝缘片</text>
+<text x="258.680" y="31.500" font-size="2.2" text-anchor="start" fill="#444444">main_audio_dielectric_separator</text>
+<path d="M230.000,61.600 L230.000,67.200" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M340.100,61.600 L340.100,67.200" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M230.000,66.000 L340.100,66.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M230.000,66.000 L232.000,65.640 L232.000,66.360 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M340.100,66.000 L338.100,66.360 L338.100,65.640 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="285.050" y="65.300" font-size="2.2" text-anchor="middle" fill="#111111">73.40</text>
+<path d="M340.700,40.000 L346.300,40.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M340.700,61.000 L346.300,61.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M345.100,40.000 L345.100,61.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M345.100,40.000 L345.460,42.000 L344.740,42.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M345.100,61.000 L344.740,59.000 L345.460,59.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="344.300" y="50.500" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 344.300 50.500)">14.00</text>
+<path d="M30.000,139.000 L30.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M86.000,139.000 L86.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M30.000,139.000 L86.000,139.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M30.000,125.000 L86.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="30.000" y="116.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">按键 1–2 背垫（贴控制板底面）</text>
+<text x="77.400" y="116.500" font-size="2.2" text-anchor="start" fill="#444444">key_backer_insulator</text>
+<path d="M30.000,139.600 L30.000,145.200" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M86.000,139.600 L86.000,145.200" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M30.000,144.000 L86.000,144.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M30.000,144.000 L32.000,143.640 L32.000,144.360 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M86.000,144.000 L84.000,144.360 L84.000,143.640 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="58.000" y="143.300" font-size="2.2" text-anchor="middle" fill="#111111">28.00</text>
+<path d="M86.600,125.000 L92.200,125.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M86.600,139.000 L92.200,139.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M91.000,125.000 L91.000,139.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M91.000,125.000 L91.360,127.000 L90.640,127.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M91.000,139.000 L90.640,137.000 L91.360,137.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="90.200" y="132.000" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 90.200 132.000)">7.00</text>
+<path d="M110.000,165.000 L110.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.000,165.000 L140.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M110.000,165.000 L140.000,165.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M110.000,125.000 L140.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="110.000" y="116.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">扬声器背垫</text>
+<text x="128.000" y="116.500" font-size="2.2" text-anchor="start" fill="#444444">speaker_backer_insulator</text>
+<path d="M110.000,165.600 L110.000,171.200" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M140.000,165.600 L140.000,171.200" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M110.000,170.000 L140.000,170.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M110.000,170.000 L112.000,169.640 L112.000,170.360 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M140.000,170.000 L138.000,170.360 L138.000,169.640 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="125.000" y="169.300" font-size="2.2" text-anchor="middle" fill="#111111">20.00</text>
+<path d="M140.600,125.000 L146.200,125.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M140.600,165.000 L146.200,165.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M145.000,125.000 L145.000,165.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M145.000,125.000 L145.360,127.000 L144.640,127.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M145.000,165.000 L144.640,163.000 L145.360,163.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="144.200" y="145.000" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 144.200 145.000)">15.00</text>
+<path d="M192.200,139.400 L192.200,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M192.200,139.400 L170.000,139.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M170.000,139.400 L170.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M192.200,125.000 L170.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="170.000" y="116.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">NTC 电绝缘片</text>
+<text x="191.720" y="116.500" font-size="2.2" text-anchor="start" fill="#444444">ntc_electrical_separator</text>
+<path d="M170.000,140.000 L170.000,145.600" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M192.200,140.000 L192.200,145.600" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M170.000,144.400 L192.200,144.400" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M170.000,144.400 L172.000,144.040 L172.000,144.760 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M192.200,144.400 L190.200,144.760 L190.200,144.040 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="181.100" y="143.700" font-size="2.2" text-anchor="middle" fill="#111111">3.70</text>
+<path d="M192.800,125.000 L198.400,125.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M192.800,139.400 L198.400,139.400" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M197.200,125.000 L197.200,139.400" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M197.200,125.000 L197.560,127.000 L196.840,127.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M197.200,139.400 L196.840,137.400 L197.560,137.400 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="196.400" y="132.200" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 196.400 132.200)">2.40</text>
+<path d="M78.300,193.000 L78.300,192.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M114.600,193.000 L114.600,192.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M91.300,193.000 L114.600,193.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M91.300,193.000 L91.300,192.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M81.600,192.500 L91.300,192.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M81.600,193.000 L81.600,192.500" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M114.600,192.000 L78.300,192.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M78.300,193.000 L81.600,193.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,193.000 L40.000,192.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M61.600,193.000 L61.600,192.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,192.000 L61.600,192.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,193.000 L61.600,193.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,235.100 L40.000,234.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M65.000,235.100 L65.000,234.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,234.000 L65.000,234.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,235.100 L65.000,235.100" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M96.300,235.100 L96.300,234.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M114.600,235.100 L114.600,234.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M96.300,234.000 L114.600,234.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M96.300,235.100 L114.600,235.100" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="40.000" y="183.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">主板调整垫片（0.05/0.10/0.20 同形）</text>
+<text x="98.200" y="183.500" font-size="2.2" text-anchor="start" fill="#444444">main_shim_0p1mm</text>
+<path d="M40.000,235.700 L40.000,241.300" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M114.600,235.700 L114.600,241.300" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M40.000,240.100 L114.600,240.100" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M40.000,240.100 L42.000,239.740 L42.000,240.460 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M114.600,240.100 L112.600,240.460 L112.600,239.740 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="77.300" y="239.400" font-size="2.2" text-anchor="middle" fill="#111111">74.60</text>
+<path d="M115.200,192.000 L120.800,192.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M115.200,235.100 L120.800,235.100" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M119.600,192.000 L119.600,235.100" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M119.600,192.000 L119.960,194.000 L119.240,194.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M119.600,235.100 L119.240,233.100 L119.960,233.100 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="118.800" y="213.550" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 118.800 213.550)">43.10</text>
+<text x="236.000" y="150.000" font-size="2.4" text-anchor="start" fill="#111111" font-weight="bold">清单</text>
+<path d="M236.000,152.000 L406.000,152.000 L406.000,155.300 L236.000,155.300 Z" fill="#eeeeee" stroke="#111111" stroke-width="0.2"/>
+<text x="236.800" y="154.300" font-size="1.7" text-anchor="start" fill="#111111" font-weight="bold">STEP</text>
+<text x="288.800" y="154.300" font-size="1.7" text-anchor="start" fill="#111111" font-weight="bold">名称</text>
+<text x="332.800" y="154.300" font-size="1.7" text-anchor="start" fill="#111111" font-weight="bold">外形 L×W×T</text>
+<text x="362.800" y="154.300" font-size="1.7" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
+<path d="M236.000,155.300 L406.000,155.300 L406.000,158.600 L236.000,158.600 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">battery_bottom_insulator</text>
+<text x="288.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">电池底绝缘片</text>
+<text x="332.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">52.00×34.50×0.05</text>
+<text x="362.800" y="157.600" font-size="1.7" text-anchor="start" fill="#111111">PET 0.05 无胶（R4.1b）</text>
+<path d="M236.000,158.600 L406.000,158.600 L406.000,161.900 L236.000,161.900 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="160.900" font-size="1.7" text-anchor="start" fill="#111111">battery_top_separator</text>
+<text x="288.800" y="160.900" font-size="1.7" text-anchor="start" fill="#111111">电池顶隔片</text>
+<text x="332.800" y="160.900" font-size="1.7" text-anchor="start" fill="#111111">53.00×35.50×0.10</text>
+<text x="362.800" y="160.900" font-size="1.7" text-anchor="start" fill="#111111">PET 0.10 无胶</text>
+<path d="M236.000,161.900 L406.000,161.900 L406.000,165.200 L236.000,165.200 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="164.200" font-size="1.7" text-anchor="start" fill="#111111">main_audio_dielectric_separator</text>
+<text x="288.800" y="164.200" font-size="1.7" text-anchor="start" fill="#111111">主板/音频板绝缘片</text>
+<text x="332.800" y="164.200" font-size="1.7" text-anchor="start" fill="#111111">73.40×14.00×0.10</text>
+<text x="362.800" y="164.200" font-size="1.7" text-anchor="start" fill="#111111">PET 0.10 无胶（缺口让 POTS3）</text>
+<path d="M236.000,165.200 L406.000,165.200 L406.000,168.500 L236.000,168.500 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="167.500" font-size="1.7" text-anchor="start" fill="#111111">key_backer_insulator</text>
+<text x="288.800" y="167.500" font-size="1.7" text-anchor="start" fill="#111111">按键 1–2 背垫（贴控制板底面）</text>
+<text x="332.800" y="167.500" font-size="1.7" text-anchor="start" fill="#111111">28.00×7.00×0.10</text>
+<text x="362.800" y="167.500" font-size="1.7" text-anchor="start" fill="#111111">PET 0.10 含单面胶；选配 0.075/0.125</text>
+<path d="M236.000,168.500 L406.000,168.500 L406.000,171.800 L236.000,171.800 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="170.800" font-size="1.7" text-anchor="start" fill="#111111">speaker_backer_insulator</text>
+<text x="288.800" y="170.800" font-size="1.7" text-anchor="start" fill="#111111">扬声器背垫</text>
+<text x="332.800" y="170.800" font-size="1.7" text-anchor="start" fill="#111111">20.00×15.00×0.10</text>
+<text x="362.800" y="170.800" font-size="1.7" text-anchor="start" fill="#111111">PET 0.10 含单面胶</text>
+<path d="M236.000,171.800 L406.000,171.800 L406.000,175.100 L236.000,175.100 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="174.100" font-size="1.7" text-anchor="start" fill="#111111">ntc_electrical_separator</text>
+<text x="288.800" y="174.100" font-size="1.7" text-anchor="start" fill="#111111">NTC 电绝缘片</text>
+<text x="332.800" y="174.100" font-size="1.7" text-anchor="start" fill="#111111">3.70×2.40×0.10</text>
+<text x="362.800" y="174.100" font-size="1.7" text-anchor="start" fill="#111111">PI 0.10 无胶</text>
+<path d="M236.000,175.100 L406.000,175.100 L406.000,178.400 L236.000,178.400 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.800" y="177.400" font-size="1.7" text-anchor="start" fill="#111111">main_shim_0p1mm</text>
+<text x="288.800" y="177.400" font-size="1.7" text-anchor="start" fill="#111111">主板调整垫片（0.05/0.10/0.20 同形）</text>
+<text x="332.800" y="177.400" font-size="1.7" text-anchor="start" fill="#111111">74.60×43.10×0.10</text>
+<text x="362.800" y="177.400" font-size="1.7" text-anchor="start" fill="#111111">PET，按名厚</text>
+<path d="M288.000,152.000 L288.000,178.400" fill="none" stroke="#777777" stroke-width="0.12"/>
+<path d="M332.000,152.000 L332.000,178.400" fill="none" stroke="#777777" stroke-width="0.12"/>
+<path d="M362.000,152.000 L362.000,178.400" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="236.000" y="188.800" font-size="2.4" text-anchor="start" fill="#b3001b" font-weight="bold">关键功能尺寸（CTF）</text>
+<path d="M236.000,190.000 L388.000,190.000 L388.000,193.300 L236.000,193.300 Z" fill="#f6e3e6" stroke="#111111" stroke-width="0.2"/>
+<text x="236.700" y="192.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">Kn</text>
+<text x="244.700" y="192.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">特征</text>
+<text x="296.700" y="192.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">名义</text>
+<text x="328.700" y="192.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">公差</text>
+<text x="358.700" y="192.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">检具</text>
+<path d="M236.000,193.300 L388.000,193.300 L388.000,196.600 L236.000,196.600 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="195.650" font-size="1.85" text-anchor="start" fill="#b3001b">I1</text>
+<text x="244.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">绝缘片总厚（含胶；电池底片 0.050±0.005）</text>
+<text x="296.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">0.100</text>
+<text x="328.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">±0.010</text>
+<text x="358.700" y="195.650" font-size="1.85" text-anchor="start" fill="#111111">千分尺</text>
+<path d="M236.000,196.600 L388.000,196.600 L388.000,199.900 L236.000,199.900 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="198.950" font-size="1.85" text-anchor="start" fill="#b3001b">I2</text>
+<text x="244.700" y="198.950" font-size="1.85" text-anchor="start" fill="#111111">外形（模切）</text>
+<text x="296.700" y="198.950" font-size="1.85" text-anchor="start" fill="#111111">按表</text>
+<text x="328.700" y="198.950" font-size="1.85" text-anchor="start" fill="#111111">±0.15</text>
+<text x="358.700" y="198.950" font-size="1.85" text-anchor="start" fill="#111111">卡尺/影像</text>
+<path d="M236.000,199.900 L388.000,199.900 L388.000,203.200 L236.000,203.200 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="202.250" font-size="1.85" text-anchor="start" fill="#b3001b">I3</text>
+<text x="244.700" y="202.250" font-size="1.85" text-anchor="start" fill="#111111">垫片厚度 0.05/0.10/0.20</text>
+<text x="296.700" y="202.250" font-size="1.85" text-anchor="start" fill="#111111">按名</text>
+<text x="328.700" y="202.250" font-size="1.85" text-anchor="start" fill="#111111">±0.005/±0.01/±0.01</text>
+<text x="358.700" y="202.250" font-size="1.85" text-anchor="start" fill="#111111">千分尺</text>
+<path d="M244.000,190.000 L244.000,203.200" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M296.000,190.000 L296.000,203.200" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M328.000,190.000 L328.000,203.200" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M358.000,190.000 L358.000,203.200" fill="none" stroke="#888888" stroke-width="0.1"/>
+</g></svg>

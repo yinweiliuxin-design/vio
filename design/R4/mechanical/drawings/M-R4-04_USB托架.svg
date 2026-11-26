@@ -1,0 +1,233 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<g font-family="'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei','SimHei',sans-serif" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.000,10.000 L410.000,10.000 L410.000,287.000 L10.000,287.000 Z" fill="none" stroke="#111111" stroke-width="0.5"/>
+<text x="14.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">SmartVio R4  首样结构件制造图</text>
+<text x="110.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">USB托架</text>
+<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：首样工程图 / 非量产放行（未经实物验证）</text>
+<path d="M10.000,20.000 L410.000,20.000" fill="none" stroke="#111111" stroke-width="0.3"/>
+<path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
+<text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
+<text x="13.500" y="251.400" font-size="2.0" text-anchor="start" fill="#111111">1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K。在 23±2 °C 下检验（POM 线胀系数约 1.1×10⁻⁴/K）。</text>
+<text x="13.500" y="255.400" font-size="2.0" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md；量产前另定抽样。</text>
+<text x="13.500" y="259.400" font-size="2.0" text-anchor="start" fill="#111111">3. 单位 mm；第一角画法；X 向琴尾（X0=滚轮端=琴头端），Y 向南（插座侧），Z 向外。基准 A=琴面安装面 Z0。</text>
+<text x="13.500" y="263.400" font-size="2.0" text-anchor="start" fill="#111111">4. 锐边倒钝 0.1–0.2（配合面、卡扣/卡钩根部与窗口棱边除外）；无毛刺、残料；深腔内角按 STEP（R≥1.2）。</text>
+<text x="13.500" y="267.400" font-size="2.0" text-anchor="start" fill="#111111">5. 形状以同名 STEP（step/*.step，R4.1）为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。</text>
+<path d="M228.000,243.000 L408.000,243.000 L408.000,285.000 L228.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.4"/>
+<text x="229.500" y="246.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">名称</text>
+<text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">USB 托架 usb_bracket</text>
+<path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-04   版本 R4.1   第 1/1 页</text>
+<path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
+<text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">POM-C 共聚甲醛，黑色（整料 CNC，非染色后处理）</text>
+<path d="M228.000,258.750 L408.000,258.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="262.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">表面/颜色</text>
+<text x="249.000" y="262.550" font-size="2.1" text-anchor="start" fill="#111111">机加本色黑</text>
+<path d="M228.000,264.000 L408.000,264.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="267.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">数量</text>
+<text x="249.000" y="267.800" font-size="2.1" text-anchor="start" fill="#111111">1 / 套</text>
+<path d="M228.000,269.250 L408.000,269.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="273.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">比例 / 单位</text>
+<text x="249.000" y="273.050" font-size="2.1" text-anchor="start" fill="#111111">4:1   ·   mm   ·   第一角画法</text>
+<path d="M228.000,274.500 L408.000,274.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="278.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">一般公差</text>
+<text x="249.000" y="278.300" font-size="2.1" text-anchor="start" fill="#111111">ISO 2768-m（CTF 按图）</text>
+<path d="M228.000,279.750 L408.000,279.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="283.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">日期 / 编制</text>
+<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-10-16   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
+<path d="M247.500,243.000 L247.500,285.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<path d="M379.000,264.900 L385.000,263.500 L385.000,269.500 L379.000,268.100 Z" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="3.000" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="1.600" fill="none" stroke="#111111" stroke-width="0.2"/>
+<path d="M40.000,133.800 L40.000,49.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M40.000,133.800 L40.136,134.835 L40.536,135.800 L41.172,136.628 L42.000,137.264 L42.965,137.664 L44.000,137.800" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.000,137.800 L136.800,137.800" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M140.800,133.800 L140.664,134.835 L140.264,135.800 L139.628,136.628 L138.800,137.264 L137.835,137.664 L136.800,137.800" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M140.800,133.800 L140.800,49.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M140.800,49.000 L140.664,47.965 L140.264,47.000 L139.628,46.172 L138.800,45.536 L137.835,45.136 L136.800,45.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.000,45.000 L136.800,45.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M40.000,49.000 L40.136,47.965 L40.536,47.000 L41.172,46.172 L42.000,45.536 L42.965,45.136 L44.000,45.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,115.400 L135.054,116.414 L134.629,117.346 L133.957,118.121 L133.095,118.675 L132.112,118.963 L131.088,118.963 L130.105,118.675 L129.243,118.121 L128.571,117.346 L128.146,116.414 L128.000,115.400 L128.146,114.386 L128.571,113.454 L129.243,112.679 L130.105,112.125 L131.088,111.837 L132.112,111.837 L133.095,112.125 L133.957,112.679 L134.629,113.454 L135.054,114.386 L135.200,115.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,132.200 L123.200,51.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,132.200 L44.800,132.200" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,132.200 L44.800,62.498" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,56.302 L45.610,55.156 L46.650,54.214 L47.870,53.521 L49.212,53.111 L50.611,53.003 L52.000,53.203 L53.312,53.701 L54.484,54.472 L55.460,55.481 L56.192,56.678 L56.646,58.005 L56.800,59.400 L56.646,60.795 L56.192,62.122 L55.460,63.319 L54.484,64.328 L53.312,65.099 L52.000,65.597 L50.611,65.797 L49.212,65.689 L47.870,65.279 L46.650,64.586 L45.610,63.644 L44.800,62.498" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,56.302 L44.800,51.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,51.400 L44.800,51.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,59.400 L135.054,60.414 L134.629,61.346 L133.957,62.121 L133.095,62.675 L132.112,62.963 L131.088,62.963 L130.105,62.675 L129.243,62.121 L128.571,61.346 L128.146,60.414 L128.000,59.400 L128.146,58.386 L128.571,57.454 L129.243,56.679 L130.105,56.125 L131.088,55.837 L132.112,55.837 L133.095,56.125 L133.957,56.679 L134.629,57.454 L135.054,58.386 L135.200,59.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M54.000,59.400 L53.854,60.414 L53.429,61.346 L52.757,62.121 L51.895,62.675 L50.912,62.963 L49.888,62.963 L48.905,62.675 L48.043,62.121 L47.371,61.346 L46.946,60.414 L46.800,59.400 L46.946,58.386 L47.371,57.454 L48.043,56.679 L48.905,56.125 L49.888,55.837 L50.912,55.837 L51.895,56.125 L52.757,56.679 L53.429,57.454 L53.854,58.386 L54.000,59.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M40.000,133.800 L40.000,49.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M54.000,59.400 L53.854,60.414 L53.429,61.346 L52.757,62.121 L51.895,62.675 L50.912,62.963 L49.888,62.963 L48.905,62.675 L48.043,62.121 L47.371,61.346 L46.946,60.414 L46.800,59.400 L46.946,58.386 L47.371,57.454 L48.043,56.679 L48.905,56.125 L49.888,55.837 L50.912,55.837 L51.895,56.125 L52.757,56.679 L53.429,57.454 L53.854,58.386 L54.000,59.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M135.200,59.400 L135.054,60.414 L134.629,61.346 L133.957,62.121 L133.095,62.675 L132.112,62.963 L131.088,62.963 L130.105,62.675 L129.243,62.121 L128.571,61.346 L128.146,60.414 L128.000,59.400 L128.146,58.386 L128.571,57.454 L129.243,56.679 L130.105,56.125 L131.088,55.837 L132.112,55.837 L133.095,56.125 L133.957,56.679 L134.629,57.454 L135.054,58.386 L135.200,59.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M123.200,51.400 L44.800,51.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.800,56.302 L44.800,51.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.800,62.498 L45.610,63.644 L46.650,64.586 L47.870,65.279 L49.212,65.689 L50.611,65.797 L52.000,65.597 L53.312,65.099 L54.484,64.328 L55.460,63.319 L56.192,62.122 L56.646,60.795 L56.800,59.400 L56.646,58.005 L56.192,56.678 L55.460,55.481 L54.484,54.472 L53.312,53.701 L52.000,53.203 L50.611,53.003 L49.212,53.111 L47.870,53.521 L46.650,54.214 L45.610,55.156 L44.800,56.302" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.800,132.200 L44.800,62.498" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M123.200,132.200 L44.800,132.200" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M123.200,132.200 L123.200,51.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M135.200,115.400 L135.054,116.414 L134.629,117.346 L133.957,118.121 L133.095,118.675 L132.112,118.963 L131.088,118.963 L130.105,118.675 L129.243,118.121 L128.571,117.346 L128.146,116.414 L128.000,115.400 L128.146,114.386 L128.571,113.454 L129.243,112.679 L130.105,112.125 L131.088,111.837 L132.112,111.837 L133.095,112.125 L133.957,112.679 L134.629,113.454 L135.054,114.386 L135.200,115.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.000,45.000 L136.800,45.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.800,49.000 L140.664,47.965 L140.264,47.000 L139.628,46.172 L138.800,45.536 L137.835,45.136 L136.800,45.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.800,133.800 L140.800,49.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.800,133.800 L140.664,134.835 L140.264,135.800 L139.628,136.628 L138.800,137.264 L137.835,137.664 L136.800,137.800" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.000,137.800 L136.800,137.800" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,49.000 L40.136,47.965 L40.536,47.000 L41.172,46.172 L42.000,45.536 L42.965,45.136 L44.000,45.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,133.800 L40.136,134.835 L40.536,135.800 L41.172,136.628 L42.000,137.264 L42.965,137.664 L44.000,137.800" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,127.400 L40.000,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M140.800,127.400 L140.775,127.400 L140.700,127.400 L140.576,127.400 L140.404,127.400 L140.187,127.400 L139.927,127.400 L139.628,127.400 L139.294,127.400 L138.928,127.400 L138.536,127.400 L138.121,127.400 L137.690,127.400 L137.248,127.400 L136.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.000,127.400 L136.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M40.000,127.400 L40.025,127.400 L40.100,127.400 L40.224,127.400 L40.396,127.400 L40.613,127.400 L40.873,127.400 L41.172,127.400 L41.506,127.400 L41.872,127.400 L42.264,127.400 L42.679,127.400 L43.110,127.400 L43.552,127.400 L44.000,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,127.400 L135.110,127.400 L134.843,127.400 L134.415,127.400 L133.845,127.400 L133.162,127.400 L132.401,127.400 L131.600,127.400 L130.799,127.400 L130.038,127.400 L129.355,127.400 L128.785,127.400 L128.357,127.400 L128.090,127.400 L128.000,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M128.000,127.400 L128.090,127.400 L128.357,127.400 L128.785,127.400 L129.355,127.400 L130.038,127.400 L130.799,127.400 L131.600,127.400 L132.401,127.400 L133.162,127.400 L133.845,127.400 L134.415,127.400 L134.843,127.400 L135.110,127.400 L135.200,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,127.400 L44.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,127.400 L45.479,127.400 L46.332,127.400 L47.329,127.400 L48.434,127.400 L49.609,127.400 L50.812,127.400 L52.000,127.400 L53.132,127.400 L54.167,127.400 L55.069,127.400 L55.806,127.400 L56.351,127.400 L56.687,127.400 L56.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M56.800,127.400 L56.687,127.400 L56.351,127.400 L55.806,127.400 L55.069,127.400 L54.167,127.400 L53.132,127.400 L52.000,127.400 L50.812,127.400 L49.609,127.400 L48.434,127.400 L47.329,127.400 L46.332,127.400 L45.479,127.400 L44.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,127.400 L44.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,127.400 L135.110,127.400 L134.843,127.400 L134.415,127.400 L133.845,127.400 L133.162,127.400 L132.401,127.400 L131.600,127.400 L130.799,127.400 L130.038,127.400 L129.355,127.400 L128.785,127.400 L128.357,127.400 L128.090,127.400 L128.000,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M128.000,127.400 L128.090,127.400 L128.357,127.400 L128.785,127.400 L129.355,127.400 L130.038,127.400 L130.799,127.400 L131.600,127.400 L132.401,127.400 L133.162,127.400 L133.845,127.400 L134.415,127.400 L134.843,127.400 L135.110,127.400 L135.200,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M54.000,127.400 L53.910,127.400 L53.643,127.400 L53.215,127.400 L52.645,127.400 L51.962,127.400 L51.201,127.400 L50.400,127.400 L49.599,127.400 L48.838,127.400 L48.155,127.400 L47.585,127.400 L47.157,127.400 L46.890,127.400 L46.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M46.800,127.400 L46.890,127.400 L47.157,127.400 L47.585,127.400 L48.155,127.400 L48.838,127.400 L49.599,127.400 L50.400,127.400 L51.201,127.400 L51.962,127.400 L52.645,127.400 L53.215,127.400 L53.643,127.400 L53.910,127.400 L54.000,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M54.000,127.400 L54.000,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M54.000,125.000 L53.910,125.000 L53.643,125.000 L53.215,125.000 L52.645,125.000 L51.962,125.000 L51.201,125.000 L50.400,125.000 L49.599,125.000 L48.838,125.000 L48.155,125.000 L47.585,125.000 L47.157,125.000 L46.890,125.000 L46.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M46.800,125.000 L46.890,125.000 L47.157,125.000 L47.585,125.000 L48.155,125.000 L48.838,125.000 L49.599,125.000 L50.400,125.000 L51.201,125.000 L51.962,125.000 L52.645,125.000 L53.215,125.000 L53.643,125.000 L53.910,125.000 L54.000,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,127.400 L135.200,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,125.000 L135.110,125.000 L134.843,125.000 L134.415,125.000 L133.845,125.000 L133.162,125.000 L132.401,125.000 L131.600,125.000 L130.799,125.000 L130.038,125.000 L129.355,125.000 L128.785,125.000 L128.357,125.000 L128.090,125.000 L128.000,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M128.000,125.000 L128.090,125.000 L128.357,125.000 L128.785,125.000 L129.355,125.000 L130.038,125.000 L130.799,125.000 L131.600,125.000 L132.401,125.000 L133.162,125.000 L133.845,125.000 L134.415,125.000 L134.843,125.000 L135.110,125.000 L135.200,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,127.400 L123.200,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,127.400 L44.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,125.000 L44.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,125.000 L44.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,125.000 L45.479,125.000 L46.332,125.000 L47.329,125.000 L48.434,125.000 L49.609,125.000 L50.812,125.000 L52.000,125.000 L53.132,125.000 L54.167,125.000 L55.069,125.000 L55.806,125.000 L56.351,125.000 L56.687,125.000 L56.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M56.800,125.000 L56.687,125.000 L56.351,125.000 L55.806,125.000 L55.069,125.000 L54.167,125.000 L53.132,125.000 L52.000,125.000 L50.812,125.000 L49.609,125.000 L48.434,125.000 L47.329,125.000 L46.332,125.000 L45.479,125.000 L44.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,125.000 L44.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.800,127.400 L44.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,127.400 L123.200,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M123.200,125.000 L44.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,127.400 L135.200,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M135.200,125.000 L135.110,125.000 L134.843,125.000 L134.415,125.000 L133.845,125.000 L133.162,125.000 L132.401,125.000 L131.600,125.000 L130.799,125.000 L130.038,125.000 L129.355,125.000 L128.785,125.000 L128.357,125.000 L128.090,125.000 L128.000,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M128.000,125.000 L128.090,125.000 L128.357,125.000 L128.785,125.000 L129.355,125.000 L130.038,125.000 L130.799,125.000 L131.600,125.000 L132.401,125.000 L133.162,125.000 L133.845,125.000 L134.415,125.000 L134.843,125.000 L135.110,125.000 L135.200,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M44.000,125.000 L136.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M140.800,125.000 L140.775,125.000 L140.700,125.000 L140.576,125.000 L140.404,125.000 L140.187,125.000 L139.927,125.000 L139.628,125.000 L139.294,125.000 L138.928,125.000 L138.536,125.000 L138.121,125.000 L137.690,125.000 L137.248,125.000 L136.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M140.800,127.400 L140.800,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M40.000,125.000 L40.025,125.000 L40.100,125.000 L40.224,125.000 L40.396,125.000 L40.613,125.000 L40.873,125.000 L41.172,125.000 L41.506,125.000 L41.872,125.000 L42.264,125.000 L42.679,125.000 L43.110,125.000 L43.552,125.000 L44.000,125.000" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M46.800,125.000 L46.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M128.000,125.000 L128.000,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M56.800,125.000 L56.800,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M128.000,125.000 L128.000,127.400" fill="none" stroke="#666666" stroke-width="0.13" stroke-dasharray="0.9 0.6"/>
+<path d="M136.800,127.400 L136.800,125.000" fill="none" stroke="#555555" stroke-width="0.13"/>
+<path d="M44.000,127.400 L44.000,125.000" fill="none" stroke="#555555" stroke-width="0.13"/>
+<path d="M40.000,127.400 L40.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,127.400 L40.025,127.400 L40.100,127.400 L40.224,127.400 L40.396,127.400 L40.613,127.400 L40.873,127.400 L41.172,127.400 L41.506,127.400 L41.872,127.400 L42.264,127.400 L42.679,127.400 L43.110,127.400 L43.552,127.400 L44.000,127.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.000,127.400 L136.800,127.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.800,127.400 L140.775,127.400 L140.700,127.400 L140.576,127.400 L140.404,127.400 L140.187,127.400 L139.927,127.400 L139.628,127.400 L139.294,127.400 L138.928,127.400 L138.536,127.400 L138.121,127.400 L137.690,127.400 L137.248,127.400 L136.800,127.400" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.800,127.400 L140.800,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M140.800,125.000 L140.775,125.000 L140.700,125.000 L140.576,125.000 L140.404,125.000 L140.187,125.000 L139.927,125.000 L139.628,125.000 L139.294,125.000 L138.928,125.000 L138.536,125.000 L138.121,125.000 L137.690,125.000 L137.248,125.000 L136.800,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M44.000,125.000 L136.800,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,125.000 L40.025,125.000 L40.100,125.000 L40.224,125.000 L40.396,125.000 L40.613,125.000 L40.873,125.000 L41.172,125.000 L41.506,125.000 L41.872,125.000 L42.264,125.000 L42.679,125.000 L43.110,125.000 L43.552,125.000 L44.000,125.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="40.000" y="36.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">俯视（装配方向：从 USB 板 B 面一侧装入）</text>
+<text x="40.000" y="116.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">主视（从南侧看）</text>
+<path d="M42.000,29.000 L138.800,29.000" fill="none" stroke="#111111" stroke-width="0.35"/>
+<path d="M40.000,29.000 L43.000,28.460 L43.000,29.540 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M140.800,29.000 L137.800,29.540 L137.800,28.460 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="44.000" y="27.600" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">琴头 HEAD</text>
+<text x="136.800" y="27.600" font-size="2.6" text-anchor="end" fill="#111111" font-weight="bold">琴尾 TAIL</text>
+<text x="90.400" y="27.600" font-size="2.2" text-anchor="middle" fill="#111111">滚轮端 X=0 朝琴头</text>
+<path d="M40.000,44.400 L40.000,40.800" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M140.800,44.400 L140.800,40.800" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M40.000,42.000 L140.800,42.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M40.000,42.000 L42.000,41.640 L42.000,42.360 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M140.800,42.000 L138.800,42.360 L138.800,41.640 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="90.400" y="41.300" font-size="2.2" text-anchor="middle" fill="#111111">25.20</text>
+<path d="M141.400,45.000 L148.000,45.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M141.400,137.800 L148.000,137.800" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M146.800,45.000 L146.800,137.800" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M146.800,45.000 L147.160,47.000 L146.440,47.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M146.800,137.800 L146.440,135.800 L147.160,135.800 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="146.000" y="91.400" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 146.000 91.400)">23.20</text>
+<path d="M44.800,132.800 L44.800,145.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M123.200,132.800 L123.200,145.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M44.800,143.800 L123.200,143.800" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M44.800,143.800 L46.800,143.440 L46.800,144.160 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M123.200,143.800 L121.200,144.160 L121.200,143.440 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="72.692" y="143.100" font-size="2.2" text-anchor="start" fill="#b3001b">19.60 +0.10/0（窗）</text>
+<path d="M96.108,142.330 L96.908,141.161 L99.002,141.161 L99.802,142.330 L99.002,143.499 L96.908,143.499 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="97.955" y="143.003" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">S3</text>
+<path d="M44.200,51.400 L33.800,51.400" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M44.200,132.200 L33.800,132.200" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M35.000,51.400 L35.000,132.200" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M35.000,51.400 L35.360,53.400 L34.640,53.400 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M35.000,132.200 L34.640,130.200 L35.360,130.200 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="34.200" y="91.800" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 34.200 91.800)">20.20 +0.10/0</text>
+<path d="M31.780,101.008 L32.580,99.839 L34.674,99.839 L35.474,101.008 L34.674,102.177 L32.580,102.177 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="33.627" y="101.681" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">S3</text>
+<path d="M50.400,60.000 L50.400,153.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M131.600,60.000 L131.600,153.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M50.400,151.800 L131.600,151.800" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M50.400,151.800 L52.400,151.440 L52.400,152.160 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M131.600,151.800 L129.600,152.160 L129.600,151.440 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="84.840" y="151.100" font-size="2.2" text-anchor="start" fill="#b3001b">20.30±0.05</text>
+<path d="M97.960,150.330 L98.760,149.161 L100.854,149.161 L101.654,150.330 L100.854,151.499 L98.760,151.499 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="99.807" y="151.003" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">S2</text>
+<path d="M132.200,59.400 L156.000,59.400" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M132.200,115.400 L156.000,115.400" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M154.800,59.400 L154.800,115.400" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M154.800,59.400 L155.160,61.400 L154.440,61.400 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M154.800,115.400 L154.440,113.400 L155.160,113.400 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="154.000" y="87.400" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 154.000 87.400)">14.00±0.05</text>
+<path d="M151.580,94.760 L152.380,93.591 L154.474,93.591 L155.274,94.760 L154.474,95.929 L152.380,95.929 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="153.427" y="95.433" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">S2</text>
+<path d="M144.800,147.800 L134.160,117.960" fill="none" stroke="#b3001b" stroke-width="0.15"/>
+<path d="M134.160,117.960 L135.070,119.547 L134.459,119.764 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M144.800,147.800 L174.944,147.800" fill="none" stroke="#b3001b" stroke-width="0.15"/>
+<text x="145.300" y="147.200" font-size="2.2" text-anchor="start" fill="#b3001b">3× Ø1.80 +0.10/0 通</text>
+<path d="M169.244,146.430 L170.044,145.261 L172.138,145.261 L172.938,146.430 L172.138,147.599 L170.044,147.599 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="171.091" y="147.103" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">S2</text>
+<path d="M141.400,125.000 L148.000,125.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M141.400,127.400 L148.000,127.400" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M146.800,121.000 L146.800,131.400" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M146.800,125.000 L146.440,123.000 L147.160,123.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M146.800,127.400 L147.160,129.400 L146.440,129.400 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="148.300" y="133.900" font-size="2.2" text-anchor="start" fill="#b3001b">0.60±0.03</text>
+<path d="M160.188,133.130 L160.988,131.961 L163.082,131.961 L163.882,133.130 L163.082,134.299 L160.988,134.299 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="162.035" y="133.803" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">S1</text>
+<text x="30.000" y="150.000" font-size="2.1" text-anchor="start" fill="#111111">局部坐标原点 = 西北角（全局 X85.4, Y4.4）；孔中心局部 (2.60, 3.60) (22.90, 3.60) (22.90, 17.60)。外角 R1.0。</text>
+<text x="30.000" y="154.500" font-size="2.1" text-anchor="start" fill="#111111">西轨（宽 1.2）下方走 USB16 FPC：本件底面 Z−4.9，FPC ≤Z−5.3；南轨上面承音频框 USB 挂舌（搭接 0.35）。</text>
+<text x="30.000" y="159.000" font-size="2.1" text-anchor="start" fill="#a14a00">DFM 注意：(88,8) 螺钉耳与西轨的连接弦宽约 1.55，加工/装配勿撬；首样如断裂，改为与北轨连成整片。</text>
+<text x="236.000" y="163.800" font-size="2.4" text-anchor="start" fill="#b3001b" font-weight="bold">关键功能尺寸（CTF）</text>
+<path d="M236.000,165.000 L388.000,165.000 L388.000,168.300 L236.000,168.300 Z" fill="#f6e3e6" stroke="#111111" stroke-width="0.2"/>
+<text x="236.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">Kn</text>
+<text x="244.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">特征</text>
+<text x="296.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">名义</text>
+<text x="328.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">公差</text>
+<text x="358.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">检具</text>
+<path d="M236.000,168.300 L388.000,168.300 L388.000,171.600 L236.000,171.600 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="170.650" font-size="1.85" text-anchor="start" fill="#b3001b">S1</text>
+<text x="244.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">板厚（西轨下 USB16 FPC 净空）</text>
+<text x="296.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">0.60</text>
+<text x="328.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">±0.03</text>
+<text x="358.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">千分尺</text>
+<path d="M236.000,171.600 L388.000,171.600 L388.000,174.900 L236.000,174.900 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="173.950" font-size="1.85" text-anchor="start" fill="#b3001b">S2</text>
+<text x="244.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">螺钉孔 Ø / 位置</text>
+<text x="296.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">Ø1.80</text>
+<text x="328.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">+0.10/0 ; ±0.05</text>
+<text x="358.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">塞规/CMM</text>
+<path d="M236.000,174.900 L388.000,174.900 L388.000,178.200 L236.000,178.200 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="177.250" font-size="1.85" text-anchor="start" fill="#b3001b">S3</text>
+<text x="244.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">窗口（ZIF 包络净空 0.2）</text>
+<text x="296.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">19.60×20.20</text>
+<text x="328.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">+0.10/0</text>
+<text x="358.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">影像</text>
+<path d="M236.000,178.200 L388.000,178.200 L388.000,181.500 L236.000,181.500 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="180.550" font-size="1.85" text-anchor="start" fill="#b3001b">S4</text>
+<text x="244.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">平面度</text>
+<text x="296.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">—</text>
+<text x="328.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">0.05</text>
+<text x="358.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">平台+塞尺</text>
+<path d="M244.000,165.000 L244.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M296.000,165.000 L296.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M328.000,165.000 L328.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M358.000,165.000 L358.000,181.500" fill="none" stroke="#888888" stroke-width="0.1"/>
+</g></svg>

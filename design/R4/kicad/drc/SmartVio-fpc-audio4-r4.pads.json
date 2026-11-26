@@ -1,0 +1,18 @@
+{
+ "FPC3402": {
+  "fp": "SmartVioV26:FPC_AUDIO4",
+  "value": "FPC-AUDIO4 custom flex (FPC_AUDIO4, DFM pending)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "S1": "RETURN_L_PORT",
+   "S2": "RETURN_R_PORT",
+   "S3": "SEND_T_PORT",
+   "S4": "GND",
+   "T1": "RETURN_L_PORT",
+   "T2": "RETURN_R_PORT",
+   "T3": "SEND_T_PORT",
+   "T4": "GND"
+  }
+ }
+}

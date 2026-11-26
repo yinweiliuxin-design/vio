@@ -1,0 +1,22 @@
+{
+ "FPC3403": {
+  "fp": "SmartVioV26:FPC_KEYS6_R4",
+  "value": "FPC-KEYS6 custom flex (FPC_KEYS6, DFM pending)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "S1": "FX_RAW",
+   "S2": "GND",
+   "S3": "KEY_BT",
+   "S4": "KEY_FX",
+   "S5": "KEY_MIX",
+   "S6": "KEY_MODE",
+   "T1": "FX_RAW",
+   "T2": "GND",
+   "T3": "KEY_BT",
+   "T4": "KEY_FX",
+   "T5": "KEY_MIX",
+   "T6": "KEY_MODE"
+  }
+ }
+}

@@ -1,0 +1,216 @@
+{
+ "schema": "SmartVio.R4.fpc_to_main_interface.v1",
+ "author": "FPC/USB layout agent",
+ "date": "2026-10-17",
+ "units": "mm",
+ "coordinates": "main-board local XY (y down, top view of F side); physical = local + [36.7, 3.2]",
+ "footprint_ownership": "FPC/USB agent wrote all three new .kicad_mod in footprints/SmartVioV26.pretty: FPC_USB16, FPC_AUDIO4, FPC_USB16_HotBar_Main_P0.70 (main-board agent only places J3411).",
+ "landings": [
+  {
+   "ref": "J3411",
+   "endpoint": "J_USB_M (FPC-USB16 S end, ECO L-10)",
+   "footprint": "SmartVioV26:FPC_USB16_HotBar_Main_P0.70",
+   "side": "F.Cu",
+   "at": [
+    36.75,
+    1.25
+   ],
+   "rot": 0,
+   "pads": "16 x 0.40 x 1.60 rect, pitch 0.70, pad n centre x = 31.5 + 0.7(n-1), y = 1.25; F.Mask +0.05, F.Paste (pre-tin for hot-bar)",
+   "pin_nets": {
+    "1": "USB_DATA_FAULT_N",
+    "2": "USB_DATA_DISABLE",
+    "3": "CC_FAULT_N",
+    "4": "V3D",
+    "5": "GND",
+    "6": "USB_DM_MCU",
+    "7": "USB_DP_MCU",
+    "8": "GND",
+    "9": "USB_5V_SAFE",
+    "10": "GND",
+    "11": "GND",
+    "12": "GND",
+    "13": "VBUS_RAW",
+    "14": "VBUS_RAW",
+    "15": "VBUS_RAW",
+    "16": "VBUS_RAW"
+   },
+   "fpc_contact": "0.30 x 1.30 on FPC B side, centre y = 1.30 (inside pad 0.45..2.05)",
+   "fpc_body_flat_on_board": {
+    "x": [
+     31.05,
+     42.6
+    ],
+    "y": [
+     0.35,
+     2.4
+    ]
+   },
+   "fpc_zfold_envelope": {
+    "x": [
+     31.05,
+     42.6
+    ],
+    "y": [
+     2.4,
+     5.4
+    ],
+    "note": "R1.5 up / 1.0 vertical / R1.5 forward; vertical wall at local y~3.9 (phys 7.1); FPC reaches z -7.6 at local y 5.4"
+   },
+   "fpc_upper_level": {
+    "x": [
+     31.05,
+     42.6
+    ],
+    "y": [
+     5.4,
+     19.3
+    ],
+    "max_part_top_z": -8.2,
+    "note": "FPC bottom at z -7.66; keep main F parts top <= -8.2 (<= 3.55 mm tall) under this band; ESP32 shield top -9.1 OK"
+   },
+   "conflicts_to_fix": [
+    {
+     "ref": "R810",
+     "courtyard": [
+      41.77,
+      3.02,
+      44.83,
+      4.58
+     ],
+     "issue": "courtyard x 41.77..42.60 is under the FPC first bend (FPC only ~0.1-0.4 mm above board there)",
+     "request": "move R810 so its courtyard x >= 42.9 (e.g. centre x >= 44.45) or y >= 5.5"
+    },
+    {
+     "ref": "C806",
+     "courtyard_x_max": 31.0,
+     "issue": "FPC west edge is at 31.05 (0.05 mm)",
+     "request": "keep C806 courtyard x <= 31.0 (no move needed now)"
+    }
+   ],
+   "alignment": "no room for 2x dia1.0 locating holes at this end (L-18); use the F.Fab outline in the footprint + optical alignment of the 16 contacts; hot-bar fixture to be confirmed by FPC assembler"
+  },
+  {
+   "ref": "J3405",
+   "endpoint": "H_COVER_1_M (KEYS6 S end, ECO L-09)",
+   "footprint": "SmartVioV26:WirePads_Control6_2x3_R3",
+   "side": "F.Cu",
+   "at": [
+    2.45,
+    3.05
+   ],
+   "rot": 0,
+   "pads": "0.90 square, rows y 2.30 / 3.80, cols x 0.95 / 2.45 / 3.95 (as currently placed by main agent - matches FPC-KEYS6-R4)",
+   "fpc_contacts": "row1 0.75x0.60 at y 2.30, row2 0.75x0.55 centred y 3.675 (shortened tail: FPC edge at local y 4.25 = phys 7.45, clears C605 at phys 7.48 per mechanical CHANGES.md)",
+   "fpc_tab_envelope": {
+    "x": [
+     0.2,
+     4.7
+    ],
+    "y": [
+     1.4,
+     4.25
+    ]
+   },
+   "requests": [
+    "remove any via inside these 6 pads (L-03)",
+    "keep the area x 0.2..4.7, y 1.4..4.25 free of F-side parts"
+   ]
+  },
+  {
+   "ref": "J3403",
+   "endpoint": "H_AUDIO_2_M (AUDIO4 S end, ECO L-13)",
+   "footprint": "SmartVioV25:WirePads_4_P1.5 (pad 4 relocated)",
+   "side": "F.Cu",
+   "at": [
+    43.05,
+    21.3
+   ],
+   "rot": 180,
+   "pads": {
+    "1 RETURN_L_PORT": [
+     45.3,
+     21.3
+    ],
+    "2 RETURN_R_PORT": [
+     43.8,
+     21.3
+    ],
+    "3 SEND_T_PORT": [
+     42.3,
+     21.3
+    ],
+    "4 GND": [
+     46.8,
+     21.3
+    ]
+   },
+   "pad_size": 0.9,
+   "note": "pad order 3,2,1,4 (west->east) is not monotonic; WirePads_4_P1.5 instance edited (pad 4 moved). FPC-AUDIO4 and audio J3404 use the same order. Expect a lib_footprint_mismatch warning on both boards.",
+   "fpc_tab_envelope": {
+    "x": [
+     41.6,
+     47.5
+    ],
+    "y": [
+     20.5,
+     21.9
+    ]
+   },
+   "fpc_bend_envelope": {
+    "x": [
+     41.6,
+     47.8
+    ],
+    "y": [
+     21.9,
+     23.9
+    ],
+    "note": "Z-fold R1 rise 2.1 mm (main top -11.75 -> audio top -9.65)"
+   },
+   "conflicts_to_fix": [
+    {
+     "refs": [
+      "K1205",
+      "C222",
+      "K1207"
+     ],
+     "current_courtyard_north_edge": [
+      22.43,
+      22.3,
+      22.43
+     ],
+     "request": "move south so north courtyard edge >= 23.3 (ECO L-13; >=0.87/1.0/0.87 mm), or guarantee part height <= 0.3 mm inside x 41.6..47.8, y 21.9..23.9"
+    },
+    {
+     "ref": "R817",
+     "courtyard_south_edge": 20.48,
+     "issue": "FPC tail edge at 20.50 (0.02 mm)",
+     "request": "do not move R817 south"
+    }
+   ]
+  },
+  {
+   "ref": "J3401",
+   "endpoint": "H_AUDIO_1_M (AUDIO6 S end)",
+   "change": "none on main. AUDIO6 R4 is now single-layer (F) with no vias; its T tab on the audio board is 1.2 mm wider (east)."
+  },
+  {
+   "ref": "J3407",
+   "endpoint": "H_COVER_2_M (COVER6 S end)",
+   "change": "none on main pads. COVER6 R4: SPK pair broadside (SPK_N F / SPK_P B), via for SPK_P at FPC (77.7,44.4) = 0.50 mm from contact opening."
+  },
+  {
+   "ref": "J3409",
+   "endpoint": "H_COVER_3_M (POTS3 S end)",
+   "change": "none. POTS3 S2 (V3D) still has a via inside the contact - no legal via site on the 1.85 mm tall tab; fixing it needs a different main landing (e.g. 3 pads at 2.0 pitch or a taller tab) - main agent decision."
+  }
+ ],
+ "not_executed": [
+  {
+   "eco": "L-14",
+   "item": "D1201-D1207 stay on the main board (schematic did not reassign them; moving them would duplicate parts)."
+  }
+ ],
+ "usb16_route_reservation_mechanical": "mechanical FPC_USB16_route_reservation y 8.6..22.5 phys, z from -7.75; FPC flat file: design/R4/kicad/pcb/SmartVio-fpc-usb16-r4.kicad_pcb"
+}

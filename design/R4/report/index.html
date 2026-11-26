@@ -1,0 +1,275 @@
+<title>SmartVio R4 设计方案</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@400;500;700&family=Noto+Serif+SC:wght@600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+<style>
+/* Layout: one reading column (max 1040px); a status band up top, then decision table, renders, and per-discipline change lists; refs set in mono. */
+:root{
+  --bg:#f2f4f5; --surface:#ffffff; --fg:#14191c; --muted:#58636a; --line:#d4dbe0;
+  --accent:#0d6b73; --accent-soft:#e1eff0;
+  --ok:#2c7a4b; --ok-soft:#e3f2e8; --warn:#9a5a0e; --warn-soft:#fbefdc; --bad:#b03a2e; --bad-soft:#fae6e3;
+  --f-body:"Noto Sans SC","PingFang SC","Microsoft YaHei",system-ui,sans-serif;
+  --f-display:"Noto Serif SC","Songti SC","SimSun",serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"SFMono-Regular",Menlo,monospace;
+}
+@media (prefers-color-scheme: dark){:root:not([data-theme="light"]){
+  --bg:#111517; --surface:#192024; --fg:#e4eaed; --muted:#9aa7ae; --line:#2d373d;
+  --accent:#5cc0c7; --accent-soft:#16363a;
+  --ok:#6cc58f; --ok-soft:#173326; --warn:#e3a75a; --warn-soft:#3a2a14; --bad:#ef8a7e; --bad-soft:#3b1d1a; color-scheme:dark}}
+:root[data-theme="dark"]{
+  --bg:#111517; --surface:#192024; --fg:#e4eaed; --muted:#9aa7ae; --line:#2d373d;
+  --accent:#5cc0c7; --accent-soft:#16363a;
+  --ok:#6cc58f; --ok-soft:#173326; --warn:#e3a75a; --warn-soft:#3a2a14; --bad:#ef8a7e; --bad-soft:#3b1d1a; color-scheme:dark}
+body{background:var(--bg);color:var(--fg);font-family:var(--f-body);font-size:15.5px;line-height:1.7}
+.wrap{max-width:1040px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px));padding-block:28px 64px;display:grid;gap:40px}
+h1,h2,h3{font-family:var(--f-display);line-height:1.3;text-wrap:balance;margin:0}
+h1{font-size:clamp(28px,5vw,40px)}
+h2{font-size:24px}
+h3{font-size:17.5px}
+p{margin:0}
+.mono{font-family:var(--f-mono);font-size:.88em}
+.muted{color:var(--muted)}
+.eyebrow{font-size:12.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);font-weight:700}
+header{display:grid;gap:12px}
+.meta{color:var(--muted);font-size:14px}
+section{display:grid;gap:16px;min-width:0}
+.lead{max-width:68ch}
+.band{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;display:grid;gap:14px}
+.stats{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.stat{display:grid;gap:2px;padding:12px 14px;border-radius:10px;background:var(--accent-soft)}
+.stat b{font-size:22px;font-variant-numeric:tabular-nums;font-family:var(--f-mono);font-weight:600}
+.stat span{font-size:13px;color:var(--muted)}
+.note{border-left:3px solid var(--warn);background:var(--warn-soft);padding:12px 16px;border-radius:0 8px 8px 0}
+nav.toc{display:flex;flex-wrap:wrap;gap:6px 16px;font-size:14px;padding-block:10px;border-block:1px solid var(--line)}
+nav.toc a{color:var(--muted);text-decoration:none}
+nav.toc a:hover,nav.toc a:focus-visible{color:var(--accent);text-decoration:underline}
+.tbl{overflow-x:auto;background:var(--surface);border:1px solid var(--line);border-radius:10px;min-width:0}
+table{border-collapse:collapse;width:100%;font-size:14px;font-variant-numeric:tabular-nums}
+th,td{text-align:left;vertical-align:top;padding:9px 12px;border-bottom:1px solid var(--line)}
+th{font-size:12.5px;letter-spacing:.06em;color:var(--muted);font-weight:700;background:var(--bg)}
+tr:last-child td{border-bottom:0}
+td:first-child{white-space:nowrap;font-weight:600}
+.chip{display:inline-block;font-size:12px;padding:1px 8px;border-radius:999px;white-space:nowrap;font-weight:600}
+.c-ok{background:var(--ok-soft);color:var(--ok)}
+.c-warn{background:var(--warn-soft);color:var(--warn)}
+.c-bad{background:var(--bad-soft);color:var(--bad)}
+.c-acc{background:var(--accent-soft);color:var(--accent)}
+figure{margin:0;display:grid;gap:8px;min-width:0}
+figure img{width:100%;height:auto;max-width:100%;border-radius:10px;border:1px solid var(--line);display:block;background:var(--surface)}
+figcaption{font-size:13.5px;color:var(--muted)}
+.gal{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.cols{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:10px;padding:16px 18px;display:grid;gap:8px;align-content:start;min-width:0;overflow-wrap:anywhere}
+ul.tight{margin:0;padding-left:1.2em;display:grid;gap:4px}
+ol.steps{margin:0;padding-left:1.4em;display:grid;gap:6px}
+a{color:var(--accent)}
+:focus-visible{outline:2px solid var(--accent);outline-offset:2px}
+footer{color:var(--muted);font-size:13.5px;border-top:1px solid var(--line);padding-top:16px}
+@media (max-width:720px){
+  .stats{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .stat b{font-size:18px}
+  .gal,.cols{grid-template-columns:minmax(0,1fr)}
+  td:first-child{white-space:normal}
+}
+</style>
+
+<div class="wrap">
+
+<header>
+  <div class="eyebrow">SmartVio · 电子小提琴模块 · 设计方案</div>
+  <h1>SmartVio R4 设计方案</h1>
+  <p class="meta">2026-10-15 · 基于 R3 完整交付包与两轮审核 · 状态：设计文件，未打样，硬件测试 0 项</p>
+</header>
+
+<div class="band">
+  <p><strong>R4 只做一件事：让样机装得上、能出声、能安全充电、日常好用。</strong>不加新功能，不换架构，不加芯片。7 个待定问题都按“贴合实际使用、不复杂”定了案，审核中没做完的两项核对已经补完。</p>
+  <div class="stats">
+    <div class="stat"><b>0 根</b><span>板间散线（R3 为 16 根）</span></div>
+    <div class="stat"><b>~17 µA</b><span>关机电流（R3 约 427 µA）</span></div>
+    <div class="stat"><b>7.4–7.8 h</b><span>耳机续航估算（R3 约 3.7 h）</span></div>
+    <div class="stat"><b>0 处</b><span>装配扫掠与碰撞干涉</span></div>
+  </div>
+  <p class="note">结构和固件已直接改好并通过检查。原理图和 PCB 本环境没有 KiCad 10，给出的是逐引脚 ECO，需要工程师在 KiCad 里执行并跑 ERC/DRC。全部数字都是设计和估算值，要以首样实测为准。</p>
+</div>
+
+<nav class="toc" aria-label="目录">
+  <a href="#decisions">定案</a><a href="#renders">效果图</a><a href="#mech">结构</a><a href="#elec">原理图</a><a href="#pcb">PCB 与 FPC</a><a href="#fw">固件</a><a href="#checks">补完的核对</a><a href="#battery">续航</a><a href="#open">待办</a><a href="#files">文件</a>
+</nav>
+
+<section id="decisions">
+  <h2>7 个问题的定案</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>问题</th><th>定案</th><th>理由</th></tr></thead>
+    <tbody>
+      <tr><td>安装方向</td><td>维持 R3：装在琴背，滚轮一端朝琴头。</td><td>与 R3 的琴背安装基准和腔体位置一致，不动结构基准。</td></tr>
+      <tr><td>四弦拾音</td><td>不做。保持 1 路拾音 + AUX L/R，不加第二颗 ADC。</td><td>需要专用拾音器和 6–8 路 ADC，成本和风险大，日常练琴用不上。</td></tr>
+      <tr><td>滚轮</td><td>保留 3 个 RK10J 边缘滚轮。每个滚轮北侧开 12 mm 拇指缺口，局部盖面降到 Z 1.5，滚花轮缘高出局部盖面 1.5 mm。</td><td>板子叠层让轮顶低于盖顶 0.8 mm；加旋钮帽、抬板、换型号都不合适，降低局部盖面最简单。</td></tr>
+      <tr><td>外观与字符</td><td>哑光黑 POM-C；13 处字符 CNC 雕刻 0.15 mm 深；量产转注塑后改镭雕。灯条维持 3 颗点状指示灯。</td><td>同一次装夹完成，不加工序；雕刻字不会磨掉。</td></tr>
+      <tr><td>续航目标</td><td>耳机（蓝牙关）≥ 7 h；外放中等音量 ≥ 4 h；关机存放 ≥ 6 个月，关机电流 ≤ 20 µA。</td><td>原定 8 h 估算只有 7.4–7.8 h，不稳，所以定 7 h。&lt; 10 µA 用现有芯片做不到。</td></tr>
+      <tr><td>板间连接</td><td>16 根散线全部取消：USB 子板改 16 芯 FPC；传感子板取消，TMP117 并入主板；新增 4 芯音频 FPC。</td><td>散线手焊是装配和可靠性的最大风险，FPC 反而更简单。</td></tr>
+      <tr><td>耳机检测 J301</td><td>改 3 个阻容：R322 1k→100k，C320 10 nF→100 nF，J301 脚 6 经新增 R323（0 Ω，默认不装）接地；固件极性可配，200 ms 消抖。</td><td>原厂图看不清触点 ⑤ 的接法。这个接法两种情况都能用，首样量一次就能定。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="renders">
+  <h2>R4 效果图</h2>
+  <p class="lead muted">由 R4 的 CadQuery 源重建 STEP，经 OCCT 网格化后渲染；板子和元件是 R3 原生参考体（元件为占位包络）。</p>
+  <figure>
+    <img src="img/r4-01-hero.jpg" alt="R4 上盖装在琴背上的效果图：雕刻字符，扬声器开槽，滚轮拇指缺口" width="1600" height="1000">
+    <figcaption>装在琴背上：格栅改为盖上 8 条开槽，字符雕刻，三个滚轮处有拇指缺口。</figcaption>
+  </figure>
+  <div class="gal">
+    <figure><img src="img/r4-03-exploded.jpg" alt="R4 分层爆炸图" width="1600" height="1000"><figcaption>分层爆炸：上盖不再带托架，按键支架、USB 支架、音频载框是独立零件。</figcaption></figure>
+    <figure><img src="img/r4-04-internal.jpg" alt="R4 内部装配，上盖隐藏" width="1600" height="1000"><figcaption>内部（上盖隐藏）：传感子板已取消，USB 子板经 FPC 接主板。</figcaption></figure>
+    <figure><img src="img/r4-05-section.jpg" alt="R4 A-A 剖切，插座中心" width="1600" height="1000"><figcaption>A-A 剖切（插座中心）：插座肩面顶住上盖压台，总高 24.75。</figcaption></figure>
+    <figure><img src="img/r4-06-product.jpg" alt="R4 含下杯的整机外观" width="1600" height="1000"><figcaption>含下杯整机：上盖 148×49，下杯 77×45 伸入原腔 20.90。</figcaption></figure>
+  </div>
+</section>
+
+<section id="mech">
+  <h2>结构（已改 CAD 并检查）</h2>
+  <p class="lead">外形约束全部保持：非滚轮外突 3.85（限 5），总高 24.75（R3 为 24.90，限 25）。14 步装配扫掠（2 139 次布尔求交）和 62 481 对成对碰撞检查都是 0 干涉。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>编号</th><th>R4 修改</th><th>检查结果</th></tr></thead>
+    <tbody>
+      <tr><td>M1 <span class="chip c-bad">致命</span></td><td>上盖去掉 USB 托、传感器托、0.1 托条和 Z 止口；拆出按键支架、USB 支架、音频载框 3 个独立件，用 M1.6 螺钉和卡扣固定。</td><td>控制板扫掠 0 干涉，装配步骤全部通过</td></tr>
+      <tr><td>M10</td><td>一体按键：Ø5.0 键杆配 Ø5.2 孔，Ø6.2 法兰，止退搭接 0.5。</td><td>开关到触头 0.05，扫掠通过</td></tr>
+      <tr><td>M5</td><td>拔插头的力经插座肩面进上盖，不经焊点；USB-C 开口收紧到外形 +0.1，USB 板由 4 根屋顶柱夹紧。</td><td>插座到压台设计间隙 0</td></tr>
+      <tr><td>M3 / M4</td><td>主板托台搭接 0.2→1.0，加 8 个侧向定位台；按键力经按键支架回到上盖，不再经下杯。</td><td>卡齿弹性 0.45，通过</td></tr>
+      <tr><td>M7</td><td>杯底开 Ø3.0 拾音线入口；为 USB16 FPC 和 ZIF 留出空间，不再开线孔。</td><td>保留体不与任何件相交</td></tr>
+      <tr><td>M8</td><td>取消不锈钢格栅，改在上盖开 8 条 0.8 槽，天线附近不再有金属。</td><td>天线净空另见 PCB L-05</td></tr>
+      <tr><td>其余</td><td>导光柱、电池顶部 PORON 泡棉、凸台加厚、同轴线卡筋、杯底 0.75→0.60 等（M2、M6、M11–M17）。</td><td>见 CHANGES.md</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">装配顺序：上盖倒放，依次装按键 → 导光柱 → 扬声器 → 控制板 → 按键支架 → USB 板与支架 → 音频板与插座 → 音频载框；下杯装电池、泡棉、主板；焊好 FPC 后两半卡合，再用 4 颗木螺钉装进琴腔。</p>
+</section>
+
+<section id="elec">
+  <h2>原理图 ECO（14 项，待在 KiCad 执行）</h2>
+  <p class="lead">新增 12 颗小器件，外加 1 颗默认不装的 0 Ω（R323），改值 22 处，每台约 +0.3 美元；不加芯片，不改架构。新位号都已确认未被占用。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>编号</th><th>内容</th><th>效果</th></tr></thead>
+    <tbody>
+      <tr><td>E-01</td><td>J301 耳机检测（见定案）</td><td>两种触点结构都能检测</td></tr>
+      <tr><td>E-02</td><td>测量分压改高阻（2.2 M/1.5 M），开机键上拉 2.2 M/4.7 M，TPS3700 改由 USB_5V_SAFE 供电</td><td>关机电流 427 → 约 17 µA（最坏 38 µA）</td></tr>
+      <tr><td>E-03</td><td>7 个 PhotoMOS 分 3 组驱动（PD14 耳机、PD15 AUX/RETURN、PA3 LINE/SEND），LED 电阻 270→390 Ω</td><td>耳机模式 53 → 10.6 mA</td></tr>
+      <tr><td>E-04</td><td>BQ24074 EN1 改上拉，默认 USB500；固件不选 1.03 A 档</td><td>不依赖 USB-C 电流识别也安全</td></tr>
+      <tr><td>E-05</td><td>eFuse R1005 6.65k→2.49k，ITIMER 加 10 nF</td><td>限流 0.5 → 约 1.34 A，不再一充电就限流</td></tr>
+      <tr><td>E-06 – E-09</td><td>OVLO R1003→39.2k；VBUS 加 12 V TVS；ESP32 改由 V3D 供电；V3D 加 22 µF</td><td>过压门限 5.90 V，模拟电源与蓝牙分开</td></tr>
+      <tr><td>E-10 – E-14</td><td>跨域控制线串 1k；PWR 键经二极管接 PB12；ITERM 改 3.32k；C1707→100 pF；U902 散热焊盘编号统一</td><td>修复插 USB 关机后无法开机</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="pcb">
+  <h2>PCB 与 FPC ECO（22 项，待在 KiCad 执行）</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>必须改</h3>
+      <ul class="tight">
+        <li><b>L-01/02 大电流通路：</b>30 多段线宽不足（最窄 0.15 mm），按 1.5 A 重布，外层 ≥0.6 mm、内层 ≥1.0 mm，并写入 DRC 规则强制检查。</li>
+        <li><b>L-03 焊盘内过孔：</b>84 处，全板改 VIPPO（树脂塞孔 + 电镀盖帽），不用重新布线。</li>
+        <li><b>L-05 天线窗口：</b>给出禁铺区坐标和缝合过孔位置。</li>
+        <li><b>L-09 KEYS6：</b>确认是镜像件，给出逐触点修正表；主板端焊盘移 0.3 mm，离杯壁 0.49 mm。</li>
+      </ul>
+    </div>
+    <div class="card">
+      <h3>FPC 与散线</h3>
+      <ul class="tight">
+        <li><b>USB16 FPC：</b>4 芯 VBUS、5 芯 GND；USB 板端 Hirose FH12-16S-0.5SH(55) ZIF，主板端热压焊，长约 35 mm。</li>
+        <li><b>传感子板：</b>取消，TMP117 放主板背面 (16.0, 5.5)。</li>
+        <li><b>AUDIO4 FPC：</b>替代 3 根音频线并多给一根地；AUDIO6 不变。</li>
+        <li><b>结果：</b>9 根进 USB16，3 根进 AUDIO4，4 根随传感板取消。</li>
+      </ul>
+    </div>
+  </div>
+  <p class="muted">另有：TPD2S300 电容就近（PWR-02）、TPS63070 和 LTC2954 焊盘修正（PWR-03/04）、PCM1864 时钟走线与 XI 就地接地（PCM-04）、ESD 二极管移到插座旁、喇叭线加宽、FPC 焊接工艺等，见 ECO 文件。</p>
+</section>
+
+<section id="fw">
+  <h2>固件（已改源码，编译并通过主机测试）</h2>
+  <p class="lead">21 组主机测试全部通过；STM32 镜像用 arm-none-eabi-gcc 13.2 编译（text 45 264 B）。我在本环境重跑过构建脚本，结果一致。硬件测试 0 项。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>问题</th><th>R4 做法</th></tr></thead>
+    <tbody>
+      <tr><td>开机自检必失败</td><td>串口解析白名单改为实际使用的帧类型（MCU 与 ESP32 共用代码同时改）。</td></tr>
+      <tr><td>耳机无声</td><td>R4 板按 E-03 分组驱动 PD14/PD15/PA3；R3 板也补上 PA3。</td></tr>
+      <tr><td>不能充电</td><td>有 VBUS、无故障、电池 2.5–4.25 V、板温 0–45 °C 并保持 2 s 才允许充电；默认 USB500。</td></tr>
+      <tr><td>过放</td><td>3.45 V 提示；电池供电下低于 3.30 V 持续 3 s，静音、记录并关机。</td></tr>
+      <tr><td>插 USB 关机后无法开机</td><td>R4 板按住 PWR 50 ms 即重启进入播放（经 PB12）。</td></tr>
+      <tr><td>故障永久锁死</td><td>故障只静音，1–30 s 后重试；Flash 日志不再让开机静音。</td></tr>
+      <tr><td>CPU 预算 / 续航</td><td>开 I/D-cache，主频 120 MHz（音频负载余量约 10%）；音频时钟不变。</td></tr>
+      <tr><td>耳机检测</td><td><span class="mono">HP_DETECT_ACTIVE_HIGH</span> 一个开关定极性，200 ms 消抖，自动在耳机和外放之间切换。</td></tr>
+      <tr><td>BT 键</td><td>短按开关蓝牙，长按 2 s 打开 60 s 配对窗口，LED2 显示状态。</td></tr>
+      <tr><td>拾音太小</td><td>PCM1864 拾音 PGA +12 dB，去掉 /16 衰减；加软件复位；HardFault 时停时钟。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="checks">
+  <h2>补完的两项核对</h2>
+  <div class="cols">
+    <div class="card">
+      <h3>PCM1864 时钟与 SAI <span class="chip c-ok">无致命 / 高</span></h3>
+      <p>时钟树、512 fs 主时钟、64 fs BCK、主从关系、采样沿、输入映射和 I2C 地址都一致。新发现 6 条（1 中、3 低、2 提示），已并入固件和 PCB ECO。</p>
+      <p class="muted">更正：第二版的 FW-PCM1864-CLKCFG 不成立，寄存器 0x20=0x41 是对的。</p>
+    </div>
+    <div class="card">
+      <h3>电源 IC 逐脚与封装 <span class="chip c-warn">1 项高</span></h3>
+      <p>U501、U1001、U1101、U1301、U1401、U1921 逐脚与网表、焊盘一致，没有接错脚。新发现 9 条，最重要的是 eFuse 只限流 0.5 A（PWR-01），已在 E-05 修正。</p>
+      <p class="muted">更正：SCH-PSYNC-PFM 撤回（PS/SYNC 接地是强制 PWM）；B2 关闭（TPD2S300 无电时自带 Rd）。TPS3700 充电窗口约 4.8–39.5 °C，再次确认第一版 A1 应撤回。</p>
+    </div>
+  </div>
+  <p class="muted">TI/ADI 官网在本环境不可访问，这两项里的数据手册事实来自搜索到的官方页面摘录，报告里逐条标了来源和置信度。</p>
+</section>
+
+<section id="battery">
+  <h2>续航预算（估算）</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>工况</th><th>平均电流</th><th>新电池</th><th>电池 80%</th></tr></thead>
+    <tbody>
+      <tr><td>R3 原样：耳机，400 MHz，7 路 PhotoMOS</td><td>243 mA</td><td>3.7 h</td><td>3.0 h</td></tr>
+      <tr><td>R4：耳机，蓝牙关，120 MHz</td><td>122 mA</td><td>7.4 h</td><td>6.0 h</td></tr>
+      <tr><td>R4：耳机 + AUX 伴奏</td><td>133 mA</td><td>6.9 h</td><td>5.5 h</td></tr>
+      <tr><td>R4：外放 100 mW，蓝牙关</td><td>108 mA</td><td>6.4 h</td><td>5.1 h</td></tr>
+      <tr><td>R4：外放 100 mW，BLE 连接</td><td>147 mA</td><td>5.0 h</td><td>4.0 h</td></tr>
+      <tr><td>R4：关机存放</td><td>约 17 µA</td><td colspan="2">6 个月用掉约 7.5% 电量</td></tr>
+    </tbody>
+  </table></div>
+  <p class="muted">现在最大的两个负载是 PCM1864 和 MCU；首样要实测 120 MHz 下的真实电流。</p>
+</section>
+
+<section id="open">
+  <h2>还需要做的事</h2>
+  <div class="tbl"><table>
+    <thead><tr><th>谁来做</th><th>事项</th></tr></thead>
+    <tbody>
+      <tr><td><span class="chip c-acc">你 · 1 分钟</span></td><td>用万用表量一只 Kycon STX-353K7A-6N：插入 TRS 插头前后 4–5、5–6 是否导通。结果决定 R323 装不装、固件极性取哪个。</td></tr>
+      <tr><td><span class="chip c-acc">硬件工程师</span></td><td>在 KiCad 10 执行 14 项原理图 ECO 和 22 项 PCB/FPC ECO，跑 ERC、DRC 和原理图一致性检查；画 KEYS6（去镜像）、USB16、AUDIO4 的 FPC 平面图并做纸样实装；音频板 K1205/C222/K1207 南移 0.8 mm；TPS63070 第二颗 10 µF 输入电容补位号。</td></tr>
+      <tr><td><span class="chip c-acc">固件</span></td><td>用 ESP-IDF 5.4.3 重编 ESP32 镜像（包里缺 sdkconfig，包内旧 .bin 不能用）。首次与新耳机配对需要在 ESP32 上加搜索并把地址存到 NVS，本环境没有 ESP-IDF，未做。</td></tr>
+      <tr><td><span class="chip c-warn">首样台架</span></td><td>插 USB 关机后按 PWR 重启时 LTC2954 是否会断电（FW-RESET-KILL，不行就把 R1302 改接 V3D）；续航和关机电流实测；卡扣疲劳、按键手感、异响、插拔力；扬声器音量（没有背腔）。</td></tr>
+      <tr><td><span class="chip c-warn">结构</span></td><td>最坏情况尺寸链仍是 HOLD；工程图（engineering_drawings.py）未重新生成；NTC 预压需要 VARTA 资料；琴腔底部拾音线孔按实测琴体配钻。</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="files">
+  <h2>文件位置</h2>
+  <p>全部在仓库分支 <span class="mono">claude/amazing-bohr-96rp0s</span> 的 <span class="mono">design/R4/</span> 下，原 R3 文件一律未改。</p>
+  <div class="tbl"><table>
+    <thead><tr><th>路径</th><th>内容</th></tr></thead>
+    <tbody>
+      <tr><td class="mono">DECISIONS.md</td><td>7 个问题的定案</td></tr>
+      <tr><td class="mono">mechanical/</td><td>build_mechanics.py、R3→R4 补丁、step/（结构件 STEP）、装配扫掠结果、CHANGES.md</td></tr>
+      <tr><td class="mono">firmware/</td><td>R3→R4 补丁、改动源码与 Linux 构建脚本、build/（ELF/BIN/MAP）、CHANGES.md 与上板验收清单</td></tr>
+      <tr><td class="mono">eco/</td><td>ECO-R4-schematic.md、ECO-R4-pcb-fpc.md 及对应 JSON</td></tr>
+      <tr><td class="mono">checks/</td><td>PCM1864 时钟与 SAI、电源 IC 逐脚与封装两份核对报告</td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<footer>审核报告（第二版）另见原链接。本方案按你的要求“贴合实际使用、不太复杂”定稿；任何一项都可以再改。</footer>
+
+</div>

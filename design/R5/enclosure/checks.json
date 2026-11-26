@@ -1,0 +1,169 @@
+{
+ "interference": [
+  {
+   "a": "knob_VOL",
+   "b": "pcba_top_parts",
+   "volume": 0.3691,
+   "allowed": true
+  },
+  {
+   "a": "knob_TONE",
+   "b": "pcba_top_parts",
+   "volume": 0.3691,
+   "allowed": true
+  },
+  {
+   "a": "knob_FX",
+   "b": "pcba_top_parts",
+   "volume": 0.3691,
+   "allowed": true
+  },
+  {
+   "a": "pcba_bottom_envelope",
+   "b": "screw_M2x5_1",
+   "volume": 12.5075,
+   "allowed": true
+  },
+  {
+   "a": "pcba_bottom_envelope",
+   "b": "screw_M2x5_2",
+   "volume": 12.5075,
+   "allowed": true
+  },
+  {
+   "a": "pcba_bottom_envelope",
+   "b": "screw_M2x5_3",
+   "volume": 12.5075,
+   "allowed": true
+  },
+  {
+   "a": "pcba_bottom_envelope",
+   "b": "screw_M2x5_4",
+   "volume": 12.5075,
+   "allowed": true
+  }
+ ],
+ "clearances": [
+  {
+   "a": "shell",
+   "b": "violin",
+   "min": 0.25,
+   "need": 0.2,
+   "ok": true,
+   "desc": "底壳与琴槽（侧 0.25 / 底 0.3）"
+  },
+  {
+   "a": "cover",
+   "b": "shell",
+   "min": 0.0,
+   "need": 0.0,
+   "ok": true,
+   "desc": "面盖与底壳（卡扣贴合，0 = 正常接触）"
+  },
+  {
+   "a": "pcba_top_parts",
+   "b": "shell",
+   "min": 0.55,
+   "need": 0.3,
+   "ok": true,
+   "desc": "主板元件与底壳"
+  },
+  {
+   "a": "pcba_pcb",
+   "b": "shell",
+   "min": 0.55,
+   "need": 0.3,
+   "ok": true,
+   "desc": "主板与底壳"
+  },
+  {
+   "a": "pcba_bottom_envelope",
+   "b": "shell",
+   "min": 1.05,
+   "need": 0.5,
+   "ok": true,
+   "desc": "主板背面包络与壳底"
+  },
+  {
+   "a": "pcba_top_parts",
+   "b": "cover",
+   "min": 0.25,
+   "need": 0.0,
+   "ok": true,
+   "desc": "主板元件与面盖（插座/编码器在孔里）"
+  },
+  {
+   "a": "battery",
+   "b": "shell",
+   "min": 0.2,
+   "need": 0.0,
+   "ok": true,
+   "desc": "电池与底壳/限位筋"
+  },
+  {
+   "a": "battery",
+   "b": "cover",
+   "min": 1.05,
+   "need": 1.0,
+   "ok": true,
+   "desc": "电池顶与面盖（鼓胀余量）"
+  },
+  {
+   "a": "battery",
+   "b": "usb_board",
+   "min": 2.5,
+   "need": 0.5,
+   "ok": true,
+   "desc": "电池与 USB 小板"
+  },
+  {
+   "a": "speaker",
+   "b": "shell",
+   "min": 0.55,
+   "need": 0.5,
+   "ok": true,
+   "desc": "扬声器与底壳侧壁"
+  },
+  {
+   "a": "usb_board",
+   "b": "shell",
+   "min": 0.35,
+   "need": 0.3,
+   "ok": true,
+   "desc": "USB 小板与底壳"
+  },
+  {
+   "a": "usb_receptacle",
+   "b": "cover",
+   "min": 0.17,
+   "need": 0.05,
+   "ok": true,
+   "desc": "USB-C 座与面盖槽"
+  },
+  {
+   "a": "cap",
+   "b": "switch",
+   "min": 0.1,
+   "need": 0.05,
+   "ok": true,
+   "desc": "按键帽触头与轻触开关（静止间隙）"
+  },
+  {
+   "a": "lightpipe",
+   "b": "LED",
+   "min": 0.3,
+   "need": 0.2,
+   "ok": true,
+   "desc": "导光柱底与 LED 顶"
+  },
+  {
+   "a": "knob",
+   "b": "shaft top",
+   "min": 0.5,
+   "need": 0.3,
+   "ok": true,
+   "desc": "旋钮孔底与轴端"
+  }
+ ],
+ "conflicts": 0
+}

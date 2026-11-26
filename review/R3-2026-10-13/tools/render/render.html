@@ -1,0 +1,184 @@
+<!doctype html>
+<html><head><meta charset="utf-8">
+<style>
+  html,body{margin:0;background:#fff;overflow:hidden;font-family:"WenQuanYi Zen Hei","DejaVu Sans",sans-serif}
+  #wrap{position:relative;width:100vw;height:100vh}
+  canvas{display:block}
+  svg{position:absolute;left:0;top:0;width:100%;height:100%;pointer-events:none}
+  .t{font-size:15px;fill:#1d2a2f}
+  .ts{font-size:12.5px;fill:#5b6970}
+  .tt{font-size:22px;font-weight:700;fill:#1d2a2f}
+  .cap{position:absolute;left:28px;top:20px;color:#1d2a2f}
+  .cap h1{margin:0;font-size:24px;font-weight:700}
+  .cap p{margin:4px 0 0;font-size:14px;color:#56656c}
+  .foot{position:absolute;left:20px;bottom:12px;font-size:12.5px;color:#56656c;background:rgba(255,255,255,.82);padding:4px 10px;border-radius:4px}
+</style>
+<script type="importmap">{"imports":{"three":"./node_modules/three/build/three.module.js","three/addons/":"./node_modules/three/examples/jsm/","three-mesh-bvh":"./node_modules/three-mesh-bvh/src/index.js","three-bvh-csg":"./node_modules/three-bvh-csg/src/index.js"}}</script>
+</head><body><div id="wrap"><canvas id="c"></canvas><svg id="ov"></svg><div class="cap" id="cap"></div><div class="foot" id="foot"></div></div>
+<script type="module">
+import * as THREE from 'three';
+import { RoomEnvironment } from 'three/addons/environments/RoomEnvironment.js';
+import * as MD from './model.js';
+const q = new URLSearchParams(location.search);
+const view = q.get('view') || 'hero', variant = q.get('variant') || 'r3';
+const Wd = innerWidth, Ht = innerHeight;
+const renderer = new THREE.WebGLRenderer({ canvas: document.getElementById('c'), antialias: true, preserveDrawingBuffer: true });
+renderer.setPixelRatio(devicePixelRatio); renderer.setSize(Wd, Ht);
+renderer.toneMapping = THREE.ACESFilmicToneMapping; renderer.toneMappingExposure = +(q.get('exp') || 1.0);
+renderer.outputColorSpace = THREE.SRGBColorSpace;
+renderer.shadowMap.enabled = true; renderer.shadowMap.type = THREE.PCFSoftShadowMap;
+const scene = new THREE.Scene();
+const pmrem = new THREE.PMREMGenerator(renderer);
+scene.environment = pmrem.fromScene(new RoomEnvironment(), 0.03).texture;
+scene.environmentIntensity = 0.6;
+const M = MD.makeMaterials(variant);
+
+function bgGradient(c1, c2) {
+  const cv = document.createElement('canvas'); cv.width = 8; cv.height = 512; const c = cv.getContext('2d');
+  const g = c.createLinearGradient(0, 0, 0, 512); g.addColorStop(0, c1); g.addColorStop(1, c2); c.fillStyle = g; c.fillRect(0, 0, 8, 512);
+  const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; return t;
+}
+function woodTexture(base = [120, 62, 30], w = 2048, h = 512, seed = 3) {
+  const cv = document.createElement('canvas'); cv.width = w; cv.height = h; const c = cv.getContext('2d');
+  let s = seed; const rnd = () => (s = (s * 16807) % 2147483647) / 2147483647;
+  const img = c.createImageData(w, h);
+  const ph = []; for (let i = 0; i < 6; i++) ph.push([rnd() * 6.28, 0.5 + rnd() * 2]);
+  for (let y = 0; y < h; y++) for (let x = 0; x < w; x++) {
+    let v = y / h * 70; for (const [p, f] of ph) v += 0.35 * Math.sin(x / w * 6.28 * f + p);
+    const g = 0.5 + 0.5 * Math.sin(v * 3.1 + Math.sin(x * 0.003 + y * 0.01) * 0.8);
+    const g2 = 0.5 + 0.5 * Math.sin(v * 11.0 + x * 0.002);
+    const k = 0.80 + 0.12 * g * g + 0.05 * g2 + (rnd() - 0.5) * 0.06;
+    const i = (y * w + x) * 4; img.data[i] = base[0] * k; img.data[i + 1] = base[1] * k; img.data[i + 2] = base[2] * k; img.data[i + 3] = 255;
+  }
+  c.putImageData(img, 0, 0); const t = new THREE.CanvasTexture(cv); t.colorSpace = THREE.SRGBColorSpace; t.wrapS = t.wrapT = THREE.RepeatWrapping; return t;
+}
+function addLights(target = new THREE.Vector3(), span = 160, dir = [-0.6, 1.0, 0.55], intensity = 2.6) {
+  const d = new THREE.DirectionalLight(0xffffff, intensity);
+  d.position.set(target.x + dir[0] * 400, target.y + dir[1] * 400, target.z + dir[2] * 400); d.target.position.copy(target);
+  d.castShadow = true; d.shadow.mapSize.set(4096, 4096); const sc = d.shadow.camera; sc.left = -span; sc.right = span; sc.top = span; sc.bottom = -span; sc.near = 10; sc.far = 1200; d.shadow.bias = -0.0004; d.shadow.normalBias = 0.02; d.shadow.radius = 4;
+  scene.add(d, d.target);
+  const fill = new THREE.DirectionalLight(0xdfe9ff, 0.7); fill.position.set(target.x + 300, target.y + 150, target.z - 250); scene.add(fill);
+  const rim = new THREE.DirectionalLight(0xffffff, 0.9); rim.position.set(target.x + 100, target.y + 220, target.z - 400); scene.add(rim);
+}
+let camera;
+const labels = [];
+const ov = document.getElementById('ov');
+function setCap(h, p, f) { document.getElementById('cap').innerHTML = `<h1>${h}</h1>${p ? `<p>${p}</p>` : ''}`; document.getElementById('foot').textContent = f || ''; }
+
+// ---------------- views ----------------
+const SUB = variant === 'proposal' ? '建议方案' : 'R3 当前设计';
+if (view === 'hero' || view === 'mounted') {
+  scene.background = bgGradient('#f4f2ee', '#d9d5cf');
+  const mod = MD.buildModule(M, variant, { cup: false }); scene.add(mod);
+  // wood plate (violin back segment) with cut-out for the cup
+  const wt = woodTexture([92, 40, 18]); wt.repeat.set(1, 1);
+  const wood = new THREE.MeshPhysicalMaterial({ map: wt, roughness: 0.42, clearcoat: 0.35, clearcoatRoughness: 0.35, envMapIntensity: 0.5 });
+  let plate = new THREE.BoxGeometry(300, 24, 120); plate.translate(0, -12, 0);
+  const pm = new THREE.Mesh(plate, wood); pm.receiveShadow = true; scene.add(pm);
+  addLights(new THREE.Vector3(0, 0, 0), 190, [-0.55, 1.0, 0.75], 2.8);
+  camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 3000);
+  camera.position.set(-118, 150, 215); camera.lookAt(8, -4, 2);
+  setCap(`SmartVio 电子模块 · ${SUB}`, '安装于琴背（示意木面）· 148 × 49 mm 上盖 · 外凸 3.85 mm（滚轮另计）', variant === 'proposal' ? '建议方案效果图：外形包络、开孔坐标与 R3 一致；变化见方案说明' : '依据 M-R3-01/02 矢量尺寸建模；配色/材质为示意，非制造放行');
+} else if (view === 'product') {
+  scene.background = bgGradient('#f6f5f3', '#dedbd6');
+  const mod = MD.buildModule(M, variant); mod.position.y = 21.05; scene.add(mod);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(2000, 2000), new THREE.ShadowMaterial({ opacity: 0.22 })); ground.rotation.x = -Math.PI / 2; ground.receiveShadow = true; scene.add(ground);
+  addLights(new THREE.Vector3(0, 10, 0), 160, [-0.4, 1.0, 0.5], 2.6);
+  camera = new THREE.PerspectiveCamera(22, Wd / Ht, 10, 3000);
+  camera.position.set(185, 175, 285); camera.lookAt(-4, 6, 0);
+  setCap(`SmartVio 电子模块 · ${SUB}（含下杯）`, '上盖 148×49 · 下杯 77×45 伸入原腔 21.05 · 总高名义 24.90 / 25 MAX', '下杯为琴腔内部件，安装后不可见');
+} else if (view === 'top') {
+  scene.background = new THREE.Color('#f7f6f4');
+  const mod = MD.buildModule(M, variant, { cup: false }); scene.add(mod);
+  addLights(new THREE.Vector3(0, 0, 0), 120, [-0.25, 1.0, 0.35], 2.3);
+  const h = 66, asp = Wd / Ht; camera = new THREE.OrthographicCamera(-h * asp, h * asp, h, -h, 1, 2000);
+  camera.up.set(0, 0, -1); camera.position.set(26, 500, 2); camera.lookAt(26, 0, 2);
+  const P = variant === 'proposal';
+  const items = [
+    [15, 10, 'VOL 轮', 'RV810 · RK10J · 开孔 Ø15.2', 0, -66], [35, 10, 'TONE 轮', 'RV811', 0, -66], [55, 10, 'FX 轮', 'RV812', 0, -66],
+    [15, P ? 19.5 : 21, P ? '分段灯条（3 段）' : '指示灯 ×3', P ? '3 段导光条 12×1.5 · D850–D852' : 'D850–D852 · 光导 Ø1.9', -36, 0],
+    [10, 25, 'FX 键', 'SW810 · SKQG 0.25 mm/1.57 N', -32, 8], [23, 25, 'MODE 键', 'SW811', 0, 30], [36, 25, 'MIX 键', 'SW812', 0, 30], [49, 25, P ? 'PWR 键（下沉+护圈）' : 'PWR 键', 'SW813 → LTC2954 PB', 0, 30], [62, 25, 'BT 键', 'SW814', 0, 30],
+    [46.5, 37, 'FX SEND', 'J102 · 单声道 T=信号', 0, 60], [64.8, 37, 'LINE OUT', 'J201 · T=L / R=R', 0, 60], [83.1, 37, 'AUX / RETURN', 'J202 · 立体声输入', 0, 60], [101.4, 37, 'PHONES', 'J301 · TPA6132A2 · 插入检测', 0, 60],
+    [98, 9, 'USB-C', 'J401 GCT USB4120 竖装 · USB FS', 0, -44], [132, 25, '扬声器', 'LS901 PUI AS01808AO 18×13×2.5', 0, -100], [142.7, 43.7, '安装螺钉 ×4', 'Ø2.5 通孔 / Ø4.5 沉台 · 底 Z1.70', 26, 26],
+  ];
+  let legend = '';
+  if (!P) {
+    items.forEach(([X, Y, t, sub, ox, oy], i) => { labels.push({ p: MD.W(X, Y, 4), num: i + 1, ox, oy }); legend += `<div class="li"><b>${i + 1}</b><span>${t}<em>${sub}</em></span></div>`; });
+  } else {
+    const ch = [
+      [25, 10, 'A', '凸起滚花轮 + 指示刻线', '外露约 1.4 mm（滚轮另计），中心浅碟形，指尖可拨；轴向与 R3 相同', 0, -66],
+      [35, 19.5, 'B', '3 段导光条（替代 3 个 Ø1.9 光点）', '满足原需求"分段灯条"；位于轮与键之间 Y19.5', 0, -40],
+      [49, 25, 'C', 'PWR 键下沉 0.3 mm + 金属护圈', '防止琴背贴身/放置时误触；长按 2 s 开关机', 34, 34],
+      [10, 30.2, 'D', '激光蚀刻字符', '按键/滚轮/插座全部标注；背面操作靠触觉+字符', -30, 34],
+      [83.1, 37, 'E', '插座金属环 + 下方字符', 'SEND / LINE OUT / RETURN / PHONES；建议配直角插头', 40, 60],
+      [132, 25, 'F', '微孔格栅（深色）', '去掉 0.2 mm 不锈钢条形格栅对天线的影响，需配合天线净空', 0, -100],
+      [98, 9, 'G', 'USB-C 位置不变', '内部改为主板直连 FPC，见方案说明', 0, -44],
+    ];
+    ch.forEach(([X, Y, k, t, sub, ox, oy]) => { labels.push({ p: MD.W(X, Y, 4), num: k, ox, oy }); legend += `<div class="li"><b>${k}</b><span>${t}<em>${sub}</em></span></div>`; });
+  }
+  const lg = document.createElement('div'); lg.id = 'legend'; lg.innerHTML = legend; document.getElementById('wrap').appendChild(lg);
+  const st = document.createElement('style'); st.textContent = `#legend{position:absolute;right:26px;top:96px;width:330px;font-size:14px;color:#1d2a2f}
+  .li{display:flex;gap:10px;align-items:flex-start;margin:0 0 7px}.li b{flex:none;width:22px;height:22px;border-radius:11px;background:#1d2a2f;color:#fff;font-size:12px;display:flex;align-items:center;justify-content:center}
+  .li span{line-height:1.25}.li em{display:block;font-style:normal;font-size:12px;color:#66757b}`; document.head.appendChild(st);
+  setCap(`控制面上视图 · ${SUB}`, P ? '外形与开孔坐标沿用 R3；新增蚀刻字符、凸起滚花轮、PWR 护圈、分段灯条' : '按 M-R3-01 矢量尺寸 1:1 建模（X 向右、Y 向下）', '功能对应依据 BOM 位号坐标与原理图网络推断；插座左右顺序需按音频板实装方向复核');
+} else if (view === 'exploded') {
+  scene.background = bgGradient('#f5f4f1', '#dcd9d4');
+  const P = MD.buildInternals(M);
+  const off = { cover: 88, coverBoard: 58, usbBoard: 40, audioBoard: 22, mainBoard: -14, battery: -38, cup: -68 };
+  const cover = MD.buildCover(M, variant); cover.position.y = off.cover; scene.add(cover);
+  if (variant === 'proposal') { const lg = MD.buildLegend(M); lg.position.y = off.cover; scene.add(lg); }
+  for (const k of ['coverBoard', 'usbBoard', 'audioBoard', 'mainBoard', 'battery']) { P[k].position.y = off[k]; scene.add(P[k]); }
+  const cup = MD.buildCup(M); cup.position.y = off.cup; scene.add(cup);
+  addLights(new THREE.Vector3(0, 0, 0), 200, [-0.3, 1.0, 0.45], 2.5);
+  camera = new THREE.PerspectiveCamera(24, Wd / Ht, 10, 4000);
+  camera.position.set(-270, 330, 420); camera.lookAt(12, 2, 0);
+  const L = (obj, X, Y, Z, text, sub, ox, oy, anchor) => labels.push({ p: MD.W(X, Y, Z + off[obj]), text, sub, ox, oy, anchor });
+  L('cover', 148, 10, 3.8, '上盖', 'POM-C CNC · 4 螺钉固定于琴背', 70, -10, 'start');
+  L('coverBoard', 148, 30, 0.5, '控制板 0.4 mm', '3 轮 / 5 键 / 3 灯 / 扬声器 / FPC 天线', 70, 0, 'start');
+  L('usbBoard', 109, 20, -5, 'USB 子板 + 温度子板', '4 层 1.0 mm · TPD2S300/TPD2S703', 110, 0, 'start');
+  L('audioBoard', 110, 40, -9.65, '音频板 + 4×Kycon 3.5 mm', 'AUDIO6 FPC + 3 根屏蔽线', 105, 15, 'start');
+  L('mainBoard', 111, 30, -11.75, '主板 8 层 0.8 mm', 'STM32H743 · PCM1864 · PCM5102A · ESP32', 100, 28, 'start');
+  L('battery', 92, 40, -14.8, '电池 52×34.5×5.4', 'VARTA VKB56457 + 1.0 膨胀预留', 115, 10, 'start');
+  L('cup', 112.5, 44, -12, '下杯 77×45', '伸入原腔 21.05 · 四卡扣', 120, 40, 'start');
+  setCap(`结构分层爆炸图 · ${SUB}`, '仅沿 Z 向分开；FPC 与 16 条普通互连在本图省略', '内部件为占位体（按 BOM 封装尺寸与 Z 链数值），用于说明层次，不代替原 STEP');
+} else if (view === 'violin') {
+  scene.background = bgGradient('#f3f1ed', '#d6d2cb');
+  const V = MD.buildViolin(M);
+  // module on violin back: violin frame u along x, width y, thickness z(+ = string side). Back face at z=-16.
+  const mod = MD.buildModule(M, variant, { cup: false });
+  // Place module: cover u range 110..258 (X=258-u), mounting face = back (z_v=-16), module up = -z_v.
+  const holder = new THREE.Group();
+  holder.add(mod);
+  // module local: x = X-74, y = Z, z = Y-24.5  ->  violin: u = 258-X = 184 - x, w = z (lateral), t = -16 - y
+  holder.matrixAutoUpdate = false;
+  holder.matrix.set(-1, 0, 0, 184, 0, 0, 1, 0, 0, -1, 0, -16, 0, 0, 0, 1);
+  V.add(holder);
+  // orient violin: show back side, scroll to upper-left
+  V.rotation.set(0, 0, 0);
+  const R = new THREE.Group(); R.add(V); scene.add(R);
+  V.rotation.x = Math.PI * 0.5 + 0.0; // thickness axis -> world y ; back (-z_v) now faces +y? (compute below)
+  V.rotation.x = -Math.PI / 2; // z_v -> +y ; we want back (-z_v) up -> flip
+  V.rotation.x = Math.PI / 2;
+  R.rotation.y = 0.62; R.position.set(-170, 0, 60);
+  const ground = new THREE.Mesh(new THREE.PlaneGeometry(4000, 4000), new THREE.ShadowMaterial({ opacity: 0.18 })); ground.rotation.x = -Math.PI / 2; ground.position.y = -60; ground.receiveShadow = true; scene.add(ground);
+  addLights(new THREE.Vector3(0, 0, 0), 460, [-0.35, 1.0, 0.45], 2.6);
+  camera = new THREE.PerspectiveCamera(24, Wd / Ht, 10, 8000);
+  camera.position.set(-150, 900, 700); camera.lookAt(40, -20, -40);
+  setCap(`安装位置示意 · 琴背 · ${SUB}`, '上盖覆盖琴尾金属基准起 110–258 mm；原腔 145–223 mm（据 V21 需求记录）', '琴体为示意造型（未取得琴体 CAD）；仅用于说明模块在琴背的位置与比例');
+}
+
+// projection overlay
+renderer.render(scene, camera);
+function proj(v) { const p = v.clone().project(camera); return [(p.x + 1) / 2 * Wd, (1 - p.y) / 2 * Ht]; }
+let svg = '';
+for (const l of labels) {
+  const [x, y] = proj(l.p);
+  if (l.num) { const tx = x + l.ox, ty = y + l.oy; if (l.ox || l.oy) svg += `<line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="#c0392b" stroke-width="1.3"/><circle cx="${x}" cy="${y}" r="2.6" fill="#c0392b"/>`; svg += `<circle cx="${tx}" cy="${ty}" r="11" fill="#c0392b" stroke="#fff" stroke-width="1.5"/><text x="${tx}" y="${ty + 4.5}" text-anchor="middle" style="font-size:12.5px;font-weight:700;fill:#fff">${l.num}</text>`; continue; } const tx = x + l.ox, ty = y + l.oy; const anc = l.anchor || 'middle';
+  svg += `<circle cx="${x}" cy="${y}" r="3.2" fill="#c0392b"/><line x1="${x}" y1="${y}" x2="${tx}" y2="${ty}" stroke="#c0392b" stroke-width="1.2"/>`;
+  const dy = l.oy < 0 ? -22 : 16;
+  svg += `<text class="t" x="${tx}" y="${ty + dy}" text-anchor="${anc}">${l.text}</text>`;
+  if (l.sub) svg += `<text class="ts" x="${tx}" y="${ty + dy + 17}" text-anchor="${anc}">${l.sub}</text>`;
+}
+ov.innerHTML = svg;
+window.DONE = 'ok';
+</script></body></html>

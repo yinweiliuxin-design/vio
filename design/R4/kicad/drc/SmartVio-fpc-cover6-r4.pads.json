@@ -1,0 +1,22 @@
+{
+ "FPC3404": {
+  "fp": "SmartVioV26:FPC_COVER6",
+  "value": "FPC-COVER6 custom flex (FPC_COVER6, DFM pending)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "S1": "LED_ZONE_1_A",
+   "S2": "LED_ZONE_2_A",
+   "S3": "LED_ZONE_3_A",
+   "S4": "PWR_PB",
+   "S5": "SPK_N",
+   "S6": "SPK_P",
+   "T1": "LED_ZONE_1_A",
+   "T2": "LED_ZONE_2_A",
+   "T3": "LED_ZONE_3_A",
+   "T4": "PWR_PB",
+   "T5": "SPK_N",
+   "T6": "SPK_P"
+  }
+ }
+}

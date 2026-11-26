@@ -1,0 +1,22 @@
+{
+ "FPC3401": {
+  "fp": "SmartVioV26:FPC_AUDIO6",
+  "value": "FPC-AUDIO6 custom flex (FPC_AUDIO6, DFM pending)",
+  "layer": "F.Cu",
+  "board_only": false,
+  "pads": {
+   "S1": "GND",
+   "S2": "HP_DETECT_RAW",
+   "S3": "HP_L_PORT",
+   "S4": "HP_R_PORT",
+   "S5": "LINE_L_PORT",
+   "S6": "LINE_R_PORT",
+   "T1": "GND",
+   "T2": "HP_DETECT_RAW",
+   "T3": "HP_L_PORT",
+   "T4": "HP_R_PORT",
+   "T5": "LINE_L_PORT",
+   "T6": "LINE_R_PORT"
+  }
+ }
+}

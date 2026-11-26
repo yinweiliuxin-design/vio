@@ -1,0 +1,18 @@
+{
+  "cavityMm": [
+    78,
+    47,
+    22
+  ],
+  "inferredCavityOriginXY": [
+    35,
+    1
+  ],
+  "datumZ": 0,
+  "basis": "inherited nominal cavity dimensions, origin inferred from centered cup; actual violin must be measured before machining instrument",
+  "physicalMeasurement": false,
+  "mountHoles": "new reserved pattern, factory fits actual instrument as authorized",
+  "pickupEntry": "NO new hole in the instrument (DECISIONS addendum 2026-10-15). The pickup wire uses the violin's ORIGINAL wire hole; the cup-floor entry (parameters.json pickup_entry_xy, mode slot, extent [55.6, 3.1, 65.6, 6.1]) must be aligned to the measured hole. TODO measure: original hole position in the cavity (distance from tail metal datum u, offset from centre line v); X=258-u.",
+  "centralBeam": "TODO measure: central solid beam width >= 49 mm over 110-258 mm from the tail datum (cover X 148..0)",
+  "longitudinal": "cover X = 258 - u (u = distance from tail metal datum); cavity u 145..223 = X 113..35; wheel end (X=0) toward the head"
+}

@@ -1,0 +1,122 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<g font-family="'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei','SimHei',sans-serif" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.000,10.000 L410.000,10.000 L410.000,287.000 L10.000,287.000 Z" fill="none" stroke="#111111" stroke-width="0.5"/>
+<text x="14.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">SmartVio R4  首样结构件制造图</text>
+<text x="110.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">电池顶部泡棉</text>
+<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：首样工程图 / 非量产放行（未经实物验证）</text>
+<path d="M10.000,20.000 L410.000,20.000" fill="none" stroke="#111111" stroke-width="0.3"/>
+<path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
+<text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
+<text x="13.500" y="251.400" font-size="2.0" text-anchor="start" fill="#111111">1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K。在 23±2 °C 下检验（POM 线胀系数约 1.1×10⁻⁴/K）。</text>
+<text x="13.500" y="255.400" font-size="2.0" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md；量产前另定抽样。</text>
+<text x="13.500" y="259.400" font-size="2.0" text-anchor="start" fill="#111111">3. 单位 mm；第一角画法；X 向琴尾（X0=滚轮端=琴头端），Y 向南（插座侧），Z 向外。基准 A=琴面安装面 Z0。</text>
+<text x="13.500" y="263.400" font-size="2.0" text-anchor="start" fill="#111111">4. 锐边倒钝 0.1–0.2（配合面、卡扣/卡钩根部与窗口棱边除外）；无毛刺、残料；深腔内角按 STEP（R≥1.2）。</text>
+<text x="13.500" y="267.400" font-size="2.0" text-anchor="start" fill="#111111">5. 形状以同名 STEP（step/*.step，R4.1）为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。</text>
+<path d="M228.000,243.000 L408.000,243.000 L408.000,285.000 L228.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.4"/>
+<text x="229.500" y="246.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">名称</text>
+<text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">电池顶部泡棉 battery_top_foam</text>
+<path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-09   版本 R4.1   第 1/1 页</text>
+<path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
+<text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">PORON 4701-30 1.0（候选）</text>
+<path d="M228.000,258.750 L408.000,258.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="262.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">表面/颜色</text>
+<text x="249.000" y="262.550" font-size="2.1" text-anchor="start" fill="#111111">模切，无胶</text>
+<path d="M228.000,264.000 L408.000,264.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="267.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">数量</text>
+<text x="249.000" y="267.800" font-size="2.1" text-anchor="start" fill="#111111">1 / 套</text>
+<path d="M228.000,269.250 L408.000,269.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="273.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">比例 / 单位</text>
+<text x="249.000" y="273.050" font-size="2.1" text-anchor="start" fill="#111111">2.5:1   ·   mm   ·   第一角画法</text>
+<path d="M228.000,274.500 L408.000,274.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="278.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">一般公差</text>
+<text x="249.000" y="278.300" font-size="2.1" text-anchor="start" fill="#111111">ISO 2768-m（CTF 按图）</text>
+<path d="M228.000,279.750 L408.000,279.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="283.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">日期 / 编制</text>
+<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-10-16   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
+<path d="M247.500,243.000 L247.500,285.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<path d="M379.000,264.900 L385.000,263.500 L385.000,269.500 L379.000,268.100 Z" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="3.000" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="1.600" fill="none" stroke="#111111" stroke-width="0.2"/>
+<path d="M40.000,122.000 L40.000,45.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,122.000 L160.000,122.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M160.000,122.000 L160.000,45.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,45.000 L160.000,45.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M155.000,107.000 L45.000,107.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M45.000,107.000 L45.000,91.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M155.000,91.000 L45.000,91.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M155.000,107.000 L155.000,91.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M155.000,76.000 L45.000,76.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M45.000,76.000 L45.000,60.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M155.000,60.000 L45.000,60.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M155.000,76.000 L155.000,60.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="40.000" y="36.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">俯视（平面展开）</text>
+<path d="M40.000,122.600 L40.000,129.200" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M160.000,122.600 L160.000,129.200" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M40.000,128.000 L160.000,128.000" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M40.000,128.000 L42.000,127.640 L42.000,128.360 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M160.000,128.000 L158.000,128.360 L158.000,127.640 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="93.840" y="127.300" font-size="2.2" text-anchor="start" fill="#b3001b">48.00±0.20</text>
+<path d="M106.960,126.530 L107.760,125.361 L109.854,125.361 L110.654,126.530 L109.854,127.699 L107.760,127.699 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="108.807" y="127.203" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">Q2</text>
+<path d="M160.600,45.000 L167.200,45.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M160.600,122.000 L167.200,122.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M166.000,45.000 L166.000,122.000" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M166.000,45.000 L166.360,47.000 L165.640,47.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M166.000,122.000 L165.640,120.000 L166.360,120.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="165.200" y="83.500" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 165.200 83.500)">30.80±0.20</text>
+<path d="M162.780,90.860 L163.580,89.691 L165.674,89.691 L166.474,90.860 L165.674,92.029 L163.580,92.029 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="164.627" y="91.533" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">Q2</text>
+<path d="M45.000,59.400 L45.000,39.800" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M155.000,59.400 L155.000,39.800" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M45.000,41.000 L155.000,41.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M45.000,41.000 L47.000,40.640 L47.000,41.360 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M155.000,41.000 L153.000,41.360 L153.000,40.640 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="100.000" y="40.300" font-size="2.2" text-anchor="middle" fill="#111111">44.00（窗）</text>
+<path d="M44.400,60.000 L33.800,60.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M44.400,76.000 L33.800,76.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M35.000,60.000 L35.000,76.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M35.000,60.000 L35.360,62.000 L34.640,62.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M35.000,76.000 L34.640,74.000 L35.360,74.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="34.200" y="68.000" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 34.200 68.000)">6.40</text>
+<path d="M44.400,91.000 L33.800,91.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M44.400,107.000 L33.800,107.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M35.000,91.000 L35.000,107.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M35.000,91.000 L35.360,93.000 L34.640,93.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M35.000,107.000 L34.640,105.000 L35.360,105.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="34.200" y="99.000" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 34.200 99.000)">6.40</text>
+<path d="M39.400,45.000 L24.800,45.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M39.400,60.000 L24.800,60.000" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M26.000,45.000 L26.000,60.000" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M26.000,45.000 L26.360,47.000 L25.640,47.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M26.000,60.000 L25.640,58.000 L26.360,58.000 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="25.200" y="52.500" font-size="2.2" text-anchor="middle" fill="#111111" transform="rotate(-90 25.200 52.500)">6.00</text>
+<text x="30.000" y="150.000" font-size="2.1" text-anchor="start" fill="#111111">材料：Rogers PORON 4701-30（极软级）1.0 mm 或等效微孔聚氨酯（候选，需供应商资料），无胶；压缩约 50% 时仍应可回弹。</text>
+<text x="30.000" y="154.500" font-size="2.1" text-anchor="start" fill="#111111">作用：填满电池 1.0 膨胀余量并轻预压（M12）；两窗口避开电池中央。装配 L3：先泡棉后顶隔片，不得拉伸变形。</text>
+<text x="236.000" y="163.800" font-size="2.4" text-anchor="start" fill="#b3001b" font-weight="bold">关键功能尺寸（CTF）</text>
+<path d="M236.000,165.000 L388.000,165.000 L388.000,168.300 L236.000,168.300 Z" fill="#f6e3e6" stroke="#111111" stroke-width="0.2"/>
+<text x="236.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">Kn</text>
+<text x="244.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">特征</text>
+<text x="296.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">名义</text>
+<text x="328.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">公差</text>
+<text x="358.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">检具</text>
+<path d="M236.000,168.300 L388.000,168.300 L388.000,171.600 L236.000,171.600 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="170.650" font-size="1.85" text-anchor="start" fill="#b3001b">Q1</text>
+<text x="244.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">自由厚度</text>
+<text x="296.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">1.00</text>
+<text x="328.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">±0.10</text>
+<text x="358.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">测厚规（低压）</text>
+<path d="M236.000,171.600 L388.000,171.600 L388.000,174.900 L236.000,174.900 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="173.950" font-size="1.85" text-anchor="start" fill="#b3001b">Q2</text>
+<text x="244.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">外形与 2 个窗口</text>
+<text x="296.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">48.0×30.8；窗 44.0×6.4</text>
+<text x="328.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">±0.20</text>
+<text x="358.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">卡尺</text>
+<path d="M244.000,165.000 L244.000,174.900" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M296.000,165.000 L296.000,174.900" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M328.000,165.000 L328.000,174.900" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M358.000,165.000 L358.000,174.900" fill="none" stroke="#888888" stroke-width="0.1"/>
+</g></svg>

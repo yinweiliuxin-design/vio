@@ -1,0 +1,248 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="420mm" height="297mm" viewBox="0 0 420 297">
+<rect width="420" height="297" fill="#ffffff"/>
+<g font-family="'WenQuanYi Zen Hei','Noto Sans CJK SC','Microsoft YaHei','SimHei',sans-serif" stroke-linecap="round" stroke-linejoin="round">
+<path d="M10.000,10.000 L410.000,10.000 L410.000,287.000 L10.000,287.000 Z" fill="none" stroke="#111111" stroke-width="0.5"/>
+<text x="14.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">SmartVio R4  首样结构件制造图</text>
+<text x="110.000" y="17.000" font-size="3.6" text-anchor="start" fill="#111111" font-weight="bold">音频承载框（含选配腹板）</text>
+<text x="406.000" y="17.000" font-size="2.6" text-anchor="end" fill="#a14a00">状态：首样工程图 / 非量产放行（未经实物验证）</text>
+<path d="M10.000,20.000 L410.000,20.000" fill="none" stroke="#111111" stroke-width="0.3"/>
+<path d="M12.000,243.000 L226.000,243.000 L226.000,285.000 L12.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.3"/>
+<text x="13.500" y="247.000" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">技术要求</text>
+<text x="13.500" y="251.400" font-size="2.0" text-anchor="start" fill="#111111">1. 未注公差按 ISO 2768-m（GB/T 1804-m）；未注几何公差 ISO 2768-K。在 23±2 °C 下检验（POM 线胀系数约 1.1×10⁻⁴/K）。</text>
+<text x="13.500" y="255.400" font-size="2.0" text-anchor="start" fill="#111111">2. 红色尺寸与六角标签 Kn 为关键功能尺寸（CTF）：首件 100% 检测，结果记入 FAI-checklist.md；量产前另定抽样。</text>
+<text x="13.500" y="259.400" font-size="2.0" text-anchor="start" fill="#111111">3. 单位 mm；第一角画法；X 向琴尾（X0=滚轮端=琴头端），Y 向南（插座侧），Z 向外。基准 A=琴面安装面 Z0。</text>
+<text x="13.500" y="263.400" font-size="2.0" text-anchor="start" fill="#111111">4. 锐边倒钝 0.1–0.2（配合面、卡扣/卡钩根部与窗口棱边除外）；无毛刺、残料；深腔内角按 STEP（R≥1.2）。</text>
+<text x="13.500" y="267.400" font-size="2.0" text-anchor="start" fill="#111111">5. 形状以同名 STEP（step/*.step，R4.1）为准，图面只标关键尺寸；图与 STEP 冲突时停工询问，不得自行取舍。</text>
+<path d="M228.000,243.000 L408.000,243.000 L408.000,285.000 L228.000,285.000 Z" fill="none" stroke="#111111" stroke-width="0.4"/>
+<text x="229.500" y="246.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">名称</text>
+<text x="249.000" y="246.800" font-size="2.1" text-anchor="start" fill="#111111">音频承载框 audio_load_frame</text>
+<path d="M228.000,248.250 L408.000,248.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="252.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">图号</text>
+<text x="249.000" y="252.050" font-size="2.1" text-anchor="start" fill="#111111">M-R4-05   版本 R4.1   第 1/1 页</text>
+<path d="M228.000,253.500 L408.000,253.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="257.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">材料</text>
+<text x="249.000" y="257.300" font-size="2.1" text-anchor="start" fill="#111111">POM-C 共聚甲醛，黑色（整料 CNC，非染色后处理）</text>
+<path d="M228.000,258.750 L408.000,258.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="262.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">表面/颜色</text>
+<text x="249.000" y="262.550" font-size="2.1" text-anchor="start" fill="#111111">机加本色黑</text>
+<path d="M228.000,264.000 L408.000,264.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="267.800" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">数量</text>
+<text x="249.000" y="267.800" font-size="2.1" text-anchor="start" fill="#111111">1 / 套 + 选配 2</text>
+<path d="M228.000,269.250 L408.000,269.250" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="273.050" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">比例 / 单位</text>
+<text x="249.000" y="273.050" font-size="2.1" text-anchor="start" fill="#111111">2.5:1   ·   mm   ·   第一角画法</text>
+<path d="M228.000,274.500 L408.000,274.500" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="278.300" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">一般公差</text>
+<text x="249.000" y="278.300" font-size="2.1" text-anchor="start" fill="#111111">ISO 2768-m（CTF 按图）</text>
+<path d="M228.000,279.750 L408.000,279.750" fill="none" stroke="#111111" stroke-width="0.15"/>
+<text x="229.500" y="283.550" font-size="2.2" text-anchor="start" fill="#111111" font-weight="bold">日期 / 编制</text>
+<text x="249.000" y="283.550" font-size="2.1" text-anchor="start" fill="#111111">2026-10-16   ·   CAD 生成稿，需工程师审签      审核：______  批准：______</text>
+<path d="M247.500,243.000 L247.500,285.000" fill="none" stroke="#111111" stroke-width="0.15"/>
+<path d="M379.000,264.900 L385.000,263.500 L385.000,269.500 L379.000,268.100 Z" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="3.000" fill="none" stroke="#111111" stroke-width="0.2"/>
+<circle cx="390.500" cy="266.500" r="1.600" fill="none" stroke="#111111" stroke-width="0.2"/>
+<path d="M40.000,90.875 L40.000,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M43.250,55.875 L43.250,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M42.000,55.875 L43.250,55.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M42.000,84.875 L42.000,55.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M42.000,84.875 L43.250,84.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M43.250,87.875 L43.250,84.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M86.250,87.875 L43.250,87.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M86.250,87.875 L86.250,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M88.750,87.875 L88.750,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M132.500,87.875 L88.750,87.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M132.500,87.875 L132.500,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M135.000,87.875 L135.000,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M178.000,87.875 L135.000,87.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M178.000,87.875 L178.000,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M180.500,87.875 L180.500,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M224.250,87.875 L180.500,87.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M224.250,87.875 L224.250,84.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M224.250,84.875 L225.500,84.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M225.500,84.875 L225.500,55.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M224.250,55.875 L225.500,55.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M224.250,55.875 L224.250,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.250,52.875 L48.750,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M48.750,52.875 L103.750,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M103.750,52.875 L227.250,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M227.250,52.875 L227.250,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M103.750,50.875 L168.750,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M218.750,50.875 L227.250,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M168.750,50.875 L218.750,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M168.750,50.875 L168.750,46.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M168.750,46.000 L218.750,46.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M218.750,50.875 L218.750,46.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M103.750,49.875 L103.750,52.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M48.750,49.875 L103.750,49.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M48.750,52.875 L48.750,49.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.250,50.875 L48.750,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.250,52.875 L40.250,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M227.500,90.875 L227.500,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,90.875 L227.500,90.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,90.875 L144.250,90.250" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,90.250 L138.250,90.250" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M138.250,90.875 L138.250,90.250" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,50.875 L40.250,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M227.250,50.875 L227.500,50.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,90.875 L138.250,90.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,130.875 L40.000,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,130.875 L138.250,130.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,130.875 L138.250,130.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,130.875 L227.500,130.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M193.250,129.625 L193.250,127.375" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M193.250,127.375 L208.500,127.375" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.250,129.625 L40.250,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.250,113.000 L48.750,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M48.750,113.000 L48.750,106.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M48.750,106.000 L103.750,106.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M103.750,113.000 L103.750,106.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M103.750,113.000 L227.250,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M227.250,129.625 L227.250,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M208.500,127.375 L208.500,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M218.750,113.000 L218.750,112.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M168.750,113.000 L168.750,112.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M168.750,112.750 L218.750,112.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M227.500,130.875 L227.500,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,129.625 L144.250,130.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,129.625 L227.500,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M144.250,129.625 L138.250,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M138.250,129.625 L138.250,130.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M40.000,129.625 L138.250,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M294.875,130.875 L294.875,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M294.875,130.875 L254.875,130.875" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M254.875,130.875 L254.875,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M294.875,129.625 L254.875,129.625" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M256.875,129.625 L256.875,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M256.875,113.000 L256.875,106.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M254.875,113.750 L250.000,113.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M250.000,113.750 L250.000,112.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M254.875,112.750 L250.000,112.750" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M253.875,107.000 L253.875,106.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M254.875,107.000 L253.875,107.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M256.875,106.000 L253.875,106.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M254.875,113.000 L254.875,107.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M256.875,113.000 L254.875,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<path d="M254.875,129.625 L254.875,113.000" fill="none" stroke="#111111" stroke-width="0.25"/>
+<text x="40.000" y="37.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">俯视（底网朝下）</text>
+<text x="40.000" y="97.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">主视（从南侧看）</text>
+<text x="250.000" y="97.500" font-size="3.0" text-anchor="start" fill="#111111" font-weight="bold">左视（从琴头端看）</text>
+<path d="M42.000,31.000 L225.500,31.000" fill="none" stroke="#111111" stroke-width="0.35"/>
+<path d="M40.000,31.000 L43.000,30.460 L43.000,31.540 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M227.500,31.000 L224.500,31.540 L224.500,30.460 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="44.000" y="29.600" font-size="2.6" text-anchor="start" fill="#111111" font-weight="bold">琴头 HEAD</text>
+<text x="223.500" y="29.600" font-size="2.6" text-anchor="end" fill="#111111" font-weight="bold">琴尾 TAIL</text>
+<text x="133.750" y="29.600" font-size="2.2" text-anchor="middle" fill="#111111">滚轮端 X=0 朝琴头</text>
+<path d="M40.000,91.475 L40.000,98.075" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M227.500,91.475 L227.500,98.075" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M40.000,96.875 L227.500,96.875" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M40.000,96.875 L42.000,96.515 L42.000,97.235 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M227.500,96.875 L225.500,97.235 L225.500,96.515 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="127.590" y="96.175" font-size="2.2" text-anchor="start" fill="#b3001b">75.00±0.05</text>
+<path d="M140.710,95.405 L141.510,94.236 L143.604,94.236 L144.404,95.405 L143.604,96.574 L141.510,96.574 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="142.557" y="96.078" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">F5</text>
+<path d="M228.100,50.875 L234.700,50.875" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M228.100,90.875 L234.700,90.875" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M233.500,50.875 L233.500,90.875" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M233.500,50.875 L233.860,52.875 L233.140,52.875 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M233.500,90.875 L233.140,88.875 L233.860,88.875 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="232.700" y="70.875" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 232.700 70.875)">16.00±0.05</text>
+<path d="M230.280,78.235 L231.080,77.066 L233.174,77.066 L233.974,78.235 L233.174,79.404 L231.080,79.404 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="232.127" y="78.908" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">F5</text>
+<path d="M42.000,88.475 L42.000,105.075" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M225.500,88.475 L225.500,105.075" fill="none" stroke="#111111" stroke-width="0.13"/>
+<path d="M42.000,103.875 L225.500,103.875" fill="none" stroke="#111111" stroke-width="0.18"/>
+<path d="M42.000,103.875 L44.000,103.515 L44.000,104.235 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<path d="M225.500,103.875 L223.500,104.235 L223.500,103.515 Z" fill="#111111" stroke="#111111" stroke-width="0.1"/>
+<text x="133.750" y="103.175" font-size="2.2" text-anchor="middle" fill="#111111">73.40（开口，同音频板外形）</text>
+<path d="M227.850,130.875 L234.700,130.875" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M227.850,129.625 L234.700,129.625" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M233.500,125.625 L233.500,134.875" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M233.500,129.625 L233.140,127.625 L233.860,127.625 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M233.500,130.875 L233.860,132.875 L233.140,132.875 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="235.000" y="137.375" font-size="2.2" text-anchor="start" fill="#b3001b">0.50±0.02 底网</text>
+<path d="M252.520,136.605 L253.320,135.436 L255.414,135.436 L256.214,136.605 L255.414,137.774 L253.320,137.774 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="254.367" y="137.278" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">F1</text>
+<path d="M48.150,130.875 L33.800,130.875" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M48.150,107.000 L33.800,107.000" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M35.000,107.000 L35.000,130.875" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M35.000,107.000 L35.360,109.000 L34.640,109.000 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M35.000,130.875 L34.640,128.875 L35.360,128.875 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="34.200" y="118.938" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 34.200 118.938)">9.55±0.05</text>
+<path d="M31.780,125.681 L32.580,124.513 L34.674,124.513 L35.474,125.681 L34.674,126.850 L32.580,126.850 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="33.627" y="126.355" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">F3</text>
+<path d="M168.150,130.875 L78.800,130.875" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M168.150,113.750 L78.800,113.750" fill="none" stroke="#b3001b" stroke-width="0.13"/>
+<path d="M80.000,113.750 L80.000,130.875" fill="none" stroke="#b3001b" stroke-width="0.18"/>
+<path d="M80.000,113.750 L80.360,115.750 L79.640,115.750 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<path d="M80.000,130.875 L79.640,128.875 L80.360,128.875 Z" fill="#b3001b" stroke="#b3001b" stroke-width="0.1"/>
+<text x="79.200" y="122.312" font-size="2.2" text-anchor="middle" fill="#b3001b" transform="rotate(-90 79.200 122.312)">6.85±0.05</text>
+<path d="M76.780,129.056 L77.580,127.888 L79.674,127.888 L80.474,129.056 L79.674,130.225 L77.580,130.225 Z" fill="#ffffff" stroke="#b3001b" stroke-width="0.25"/>
+<text x="78.627" y="129.730" font-size="1.87" text-anchor="middle" fill="#b3001b" font-weight="bold">F4</text>
+<text x="30.000" y="182.000" font-size="2.3" text-anchor="start" fill="#111111" font-weight="bold">选配件（底网厚度不同，其余同 STEP；底面 Z 固定在刀片唇上，只改顶面）</text>
+<path d="M30.000,184.000 L152.000,184.000 L152.000,187.400 L30.000,187.400 Z" fill="#eeeeee" stroke="#111111" stroke-width="0.2"/>
+<text x="30.800" y="186.400" font-size="1.9" text-anchor="start" fill="#111111" font-weight="bold">STEP</text>
+<text x="80.800" y="186.400" font-size="1.9" text-anchor="start" fill="#111111" font-weight="bold">底网</text>
+<text x="94.800" y="186.400" font-size="1.9" text-anchor="start" fill="#111111" font-weight="bold">用途</text>
+<text x="140.800" y="186.400" font-size="1.9" text-anchor="start" fill="#111111" font-weight="bold">数/套</text>
+<path d="M30.000,187.400 L152.000,187.400 L152.000,190.800 L30.000,190.800 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="30.800" y="189.800" font-size="1.9" text-anchor="start" fill="#111111">audio_load_frame</text>
+<text x="80.800" y="189.800" font-size="1.9" text-anchor="start" fill="#111111">0.50</text>
+<text x="94.800" y="189.800" font-size="1.9" text-anchor="start" fill="#111111">名义；STEP 主件</text>
+<text x="140.800" y="189.800" font-size="1.9" text-anchor="start" fill="#111111">1</text>
+<path d="M30.000,190.800 L152.000,190.800 L152.000,194.200 L30.000,194.200 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="30.800" y="193.200" font-size="1.9" text-anchor="start" fill="#111111">audio_load_frame_web0p4</text>
+<text x="80.800" y="193.200" font-size="1.9" text-anchor="start" fill="#111111">0.40</text>
+<text x="94.800" y="193.200" font-size="1.9" text-anchor="start" fill="#111111">选配：实测间隙 G&lt;0.50</text>
+<text x="140.800" y="193.200" font-size="1.9" text-anchor="start" fill="#111111">1</text>
+<path d="M30.000,194.200 L152.000,194.200 L152.000,197.600 L30.000,197.600 Z" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="30.800" y="196.600" font-size="1.9" text-anchor="start" fill="#111111">audio_load_frame_web0p6</text>
+<text x="80.800" y="196.600" font-size="1.9" text-anchor="start" fill="#111111">0.60</text>
+<text x="94.800" y="196.600" font-size="1.9" text-anchor="start" fill="#111111">选配：实测 G≥0.60</text>
+<text x="140.800" y="196.600" font-size="1.9" text-anchor="start" fill="#111111">1</text>
+<path d="M80.000,184.000 L80.000,197.600" fill="none" stroke="#777777" stroke-width="0.12"/>
+<path d="M94.000,184.000 L94.000,197.600" fill="none" stroke="#777777" stroke-width="0.12"/>
+<path d="M140.000,184.000 L140.000,197.600" fill="none" stroke="#777777" stroke-width="0.12"/>
+<text x="30.000" y="202.000" font-size="2.1" text-anchor="start" fill="#111111">选配方法（插座环链，tolerance-stack 链 6）：G = 实测(上盖压台面→唇顶) − 实测(插座肩面→音频板底面，4 个取最大)；</text>
+<text x="30.000" y="206.000" font-size="2.1" text-anchor="start" fill="#111111">选腹板 t ≤ G 中最厚者，余量 (G − t) 用 0.05 PET 垫片补到 ≤0.05。G&lt;0.40 时停：换插座/板或报工程。</text>
+<text x="236.000" y="163.800" font-size="2.4" text-anchor="start" fill="#b3001b" font-weight="bold">关键功能尺寸（CTF）</text>
+<path d="M236.000,165.000 L388.000,165.000 L388.000,168.300 L236.000,168.300 Z" fill="#f6e3e6" stroke="#111111" stroke-width="0.2"/>
+<text x="236.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">Kn</text>
+<text x="244.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">特征</text>
+<text x="296.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">名义</text>
+<text x="328.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">公差</text>
+<text x="358.700" y="167.350" font-size="1.85" text-anchor="start" fill="#111111" font-weight="bold">检具</text>
+<path d="M236.000,168.300 L388.000,168.300 L388.000,171.600 L236.000,171.600 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="170.650" font-size="1.85" text-anchor="start" fill="#b3001b">F1</text>
+<text x="244.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">底网厚（选配 0.40/0.50/0.60）</text>
+<text x="296.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">0.50</text>
+<text x="328.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">±0.02</text>
+<text x="358.700" y="170.650" font-size="1.85" text-anchor="start" fill="#111111">千分尺</text>
+<path d="M236.000,171.600 L388.000,171.600 L388.000,174.900 L236.000,174.900 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="173.950" font-size="1.85" text-anchor="start" fill="#b3001b">F2</text>
+<text x="244.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">底面平面度</text>
+<text x="296.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">—</text>
+<text x="328.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">0.05</text>
+<text x="358.700" y="173.950" font-size="1.85" text-anchor="start" fill="#111111">平台+塞尺</text>
+<path d="M236.000,174.900 L388.000,174.900 L388.000,178.200 L236.000,178.200 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="177.250" font-size="1.85" text-anchor="start" fill="#b3001b">F3</text>
+<text x="244.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">北挂钩下面至底面</text>
+<text x="296.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">9.55</text>
+<text x="328.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">±0.05</text>
+<text x="358.700" y="177.250" font-size="1.85" text-anchor="start" fill="#111111">高度规</text>
+<path d="M236.000,178.200 L388.000,178.200 L388.000,181.500 L236.000,181.500 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="180.550" font-size="1.85" text-anchor="start" fill="#b3001b">F4</text>
+<text x="244.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">USB 挂舌下面至底面</text>
+<text x="296.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">6.85</text>
+<text x="328.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">±0.05</text>
+<text x="358.700" y="180.550" font-size="1.85" text-anchor="start" fill="#111111">高度规</text>
+<path d="M236.000,181.500 L388.000,181.500 L388.000,184.800 L236.000,184.800 Z" fill="none" stroke="#888888" stroke-width="0.1"/>
+<text x="236.700" y="183.850" font-size="1.85" text-anchor="start" fill="#b3001b">F5</text>
+<text x="244.700" y="183.850" font-size="1.85" text-anchor="start" fill="#111111">外形（南边与刀片唇搭接 0.35）</text>
+<text x="296.700" y="183.850" font-size="1.85" text-anchor="start" fill="#111111">75.00×16.00</text>
+<text x="328.700" y="183.850" font-size="1.85" text-anchor="start" fill="#111111">±0.05</text>
+<text x="358.700" y="183.850" font-size="1.85" text-anchor="start" fill="#111111">卡尺</text>
+<path d="M244.000,165.000 L244.000,184.800" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M296.000,165.000 L296.000,184.800" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M328.000,165.000 L328.000,184.800" fill="none" stroke="#888888" stroke-width="0.1"/>
+<path d="M358.000,165.000 L358.000,184.800" fill="none" stroke="#888888" stroke-width="0.1"/>
+</g></svg>
